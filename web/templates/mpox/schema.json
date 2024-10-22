@@ -1573,6 +1573,11 @@
           "meaning": "GENEPIO:0100031",
           "is_a": "Filtration"
         },
+        "Finger Prick": {
+          "text": "Finger Prick",
+          "description": "A collecting specimen from organism process in which a skin site free of surface arterial flow is pierced with a sterile lancet, after a capillary blood droplet is formed a sample is captured in a capillary tupe.",
+          "meaning": "GENEPIO:0100036"
+        },
         "Lavage": {
           "text": "Lavage",
           "description": "A protocol application to separate cells and/or cellular secretions from an anatomical space by the introduction and removal of fluid",
@@ -1625,12 +1630,6 @@
           "text": "Swabbing",
           "description": "The process of collecting specimen material using a swab collection device.",
           "meaning": "GENEPIO:0002117"
-        },
-        "Finger Prick": {
-          "text": "Finger Prick",
-          "description": "A collecting specimen from organism process in which a skin site free of surface arterial flow is pierced with a sterile lancet, after a capillary blood droplet is formed a sample is captured in a capillary tupe.",
-          "meaning": "GENEPIO:0100036",
-          "is_a": "Swabbing"
         },
         "Thoracentesis (chest tap)": {
           "text": "Thoracentesis (chest tap)",
@@ -14465,7 +14464,7 @@
           "slot_group": "Host reinfection information",
           "any_of": [
             {
-              "range": "PriorMonkeypoxInfectionMenu"
+              "range": "PriorMpoxInfectionMenu"
             },
             {
               "range": "NullValueMenu"
@@ -14491,7 +14490,7 @@
           "slot_group": "Host reinfection information",
           "any_of": [
             {
-              "range": "PriorMonkeypoxAntiviralTreatmentMenu"
+              "range": "PriorMpoxAntiviralTreatmentMenu"
             },
             {
               "range": "NullValueMenu"
@@ -17261,7 +17260,7 @@
           "slot_group": "Host reinfection information",
           "any_of": [
             {
-              "range": "PriorMonkeypoxInfectionMenu"
+              "range": "PriorMpoxInfectionMenu"
             },
             {
               "range": "NullValueMenu"
@@ -17329,7 +17328,7 @@
           "slot_group": "Host reinfection information",
           "any_of": [
             {
-              "range": "PriorMonkeypoxAntiviralTreatmentMenu"
+              "range": "PriorMpoxAntiviralTreatmentMenu"
             },
             {
               "range": "NullValueMenu"
@@ -20256,7 +20255,7 @@
           "slot_group": "Host reinfection information",
           "any_of": [
             {
-              "range": "PriorMonkeypoxInfectionInternationalMenu"
+              "range": "PriorMpoxInfectionInternationalMenu"
             },
             {
               "range": "NullValueMenu"
@@ -20279,7 +20278,7 @@
           "slot_group": "Host reinfection information",
           "any_of": [
             {
-              "range": "PriorMonkeypoxAntiviralTreatmentInternationalMenu"
+              "range": "PriorMpoxAntiviralTreatmentInternationalMenu"
             },
             {
               "range": "NullValueMenu"
@@ -23066,7 +23065,7 @@
           "slot_group": "Host reinfection information",
           "any_of": [
             {
-              "range": "PriorMonkeypoxInfectionInternationalMenu"
+              "range": "PriorMpoxInfectionInternationalMenu"
             },
             {
               "range": "NullValueMenu"
@@ -23131,7 +23130,7 @@
           "slot_group": "Host reinfection information",
           "any_of": [
             {
-              "range": "PriorMonkeypoxAntiviralTreatmentInternationalMenu"
+              "range": "PriorMpoxAntiviralTreatmentInternationalMenu"
             },
             {
               "range": "NullValueMenu"

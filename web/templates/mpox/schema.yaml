@@ -591,7 +591,7 @@ classes:
         examples:
         - value: Prior infection
         any_of:
-        - range: PriorMonkeypoxInfectionMenu
+        - range: PriorMpoxInfectionMenu
         - range: NullValueMenu
         exact_mappings:
         - NML_LIMS:prior%20Monkeypox%20infection
@@ -604,7 +604,7 @@ classes:
         examples:
         - value: Prior antiviral treatment
         any_of:
-        - range: PriorMonkeypoxAntiviralTreatmentMenu
+        - range: PriorMpoxAntiviralTreatmentMenu
         - range: NullValueMenu
         exact_mappings:
         - NML_LIMS:prior%20Monkeypox%20antiviral%20treatment
@@ -1476,7 +1476,7 @@ classes:
         examples:
         - value: Prior infection [GENEPIO:0100037]
         any_of:
-        - range: PriorMonkeypoxInfectionInternationalMenu
+        - range: PriorMpoxInfectionInternationalMenu
         - range: NullValueMenu
       prior_mpox_infection_date:
         rank: 70
@@ -1487,7 +1487,7 @@ classes:
         examples:
         - value: Prior antiviral treatment [GENEPIO:0100037]
         any_of:
-        - range: PriorMonkeypoxAntiviralTreatmentInternationalMenu
+        - range: PriorMpoxAntiviralTreatmentInternationalMenu
         - range: NullValueMenu
       prior_antiviral_treatment_during_prior_mpox_infection:
         rank: 72
@@ -5293,6 +5293,12 @@ enums:
           air via an air filtration device.
         meaning: GENEPIO:0100031
         is_a: Filtration
+      Finger Prick:
+        text: Finger Prick
+        description: A collecting specimen from organism process in which a skin site
+          free of surface arterial flow is pierced with a sterile lancet, after a
+          capillary blood droplet is formed a sample is captured in a capillary tupe.
+        meaning: GENEPIO:0100036
       Lavage:
         text: Lavage
         description: A protocol application to separate cells and/or cellular secretions
@@ -5348,13 +5354,6 @@ enums:
         description: The process of collecting specimen material using a swab collection
           device.
         meaning: GENEPIO:0002117
-      Finger Prick:
-        text: Finger Prick
-        description: A collecting specimen from organism process in which a skin site
-          free of surface arterial flow is pierced with a sterile lancet, after a
-          capillary blood droplet is formed a sample is captured in a capillary tupe.
-        meaning: GENEPIO:0100036
-        is_a: Swabbing
       Thoracentesis (chest tap):
         text: Thoracentesis (chest tap)
         description: The removal of excess fluid via needle puncture from the thoracic

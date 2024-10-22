@@ -241,6 +241,7 @@ collection method menu	CollectionMethodMenu	NCIT:C52009	Amniocentesis					A pren
 		OBI:0002651		Needle Biopsy				A biopsy that uses a hollow needle to extract cells.																		
 		OBI:0302885	Filtration					Filtration is a process which separates components suspended in a fluid based on granularity properties relying on a filter device																		
 		GENEPIO:0100031		Air filtration				A filtration process which removes solid particulates from the air via an air filtration device.																		
+		GENEPIO:0100036	Finger Prick					A collecting specimen from organism process in which a skin site free of surface arterial flow is pierced with a sterile lancet, after a capillary blood droplet is formed a sample is captured in a capillary tupe.																		
 		OBI:0600044	Lavage					A protocol application to separate cells and/or cellular secretions from an anatomical space by the introduction and removal of fluid																		
 		GENEPIO:0100032		Bronchoalveolar lavage (BAL)				The collection of bronchoalveolar lavage fluid (BAL) from the lungs.																		
 		GENEPIO:0100033		Gastric Lavage				The administration and evacuation of small volumes of liquid through an orogastric tube to remove toxic substances within the stomach.																		
@@ -251,7 +252,6 @@ collection method menu	CollectionMethodMenu	NCIT:C52009	Amniocentesis					A pren
 		GENEPIO:0100034		Saline gargle (mouth rinse and gargle)				A collecting specimen from organism process in which a salt water solution is taken into the oral cavity, rinsed around, and gargled before being deposited into an external collection device.																		
 		GENEPIO:0100035	Scraping					A specimen collection process in which a sample is collected by scraping a surface with a sterile sampling device.																		
 		GENEPIO:0002117	Swabbing					The process of collecting specimen material using a swab collection device.																		
-		GENEPIO:0100036		Finger Prick				A collecting specimen from organism process in which a skin site free of surface arterial flow is pierced with a sterile lancet, after a capillary blood droplet is formed a sample is captured in a capillary tupe.																		
 		NCIT:C15392	Thoracentesis (chest tap)					The removal of excess fluid via needle puncture from the thoracic cavity.																		
 																										
 collection method international menu	CollectionMethodInternationalMenu	NCIT:C52009	Amniocentesis [NCIT:C52009]					A prenatal diagnostic procedure in which a small sample of amniotic fluid is removed from the uterus by a needle inserted into the abdomen. This procedure is used to detect various genetic abnormalities in the fetus and/or the sex of the fetus.						Mpox_international												

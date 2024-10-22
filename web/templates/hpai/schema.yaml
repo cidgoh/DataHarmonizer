@@ -132,7 +132,6 @@ classes:
     - populated_area_type
     - sampling_weather_conditions
     - presampling_weather_conditions
-    - precipitation_measurement_value
     - water_depth
     - water_depth_units
     - sediment_depth
@@ -141,7 +140,7 @@ classes:
     - air_temperature_units
     - water_temperature
     - water_temperature_units
-    - weather_type
+    - precipitation_measurement_value
     - precipitation_measurement_unit
     - precipitation_measurement_method
     - ambient_temperature_measurement_value
@@ -490,19 +489,19 @@ classes:
         slot_group: Sample collection and processing
       host_common_name:
         rank: 67
-        slot_group: Host information
+        slot_group: Host Information
       host_scientific_name:
         rank: 68
-        slot_group: Host information
+        slot_group: Host Information
       host_ecotype:
         rank: 69
-        slot_group: Host information
+        slot_group: Host Information
       host_breed:
         rank: 70
-        slot_group: Host information
+        slot_group: Host Information
       host_food_production_name:
         rank: 71
-        slot_group: Host information
+        slot_group: Host Information
       host_age:
         rank: 72
         slot_group: Host Information
@@ -511,10 +510,10 @@ classes:
         slot_group: Host Information
       host_age_bin:
         rank: 74
-        slot_group: Host information
+        slot_group: Host Information
       host_disease:
         rank: 75
-        slot_group: Host information
+        slot_group: Host Information
       host_health_state:
         rank: 76
         slot_group: Host Information
@@ -611,476 +610,473 @@ classes:
       presampling_weather_conditions:
         rank: 107
         slot_group: Environmental conditions and measurements
-      precipitation_measurement_value:
+      water_depth:
         rank: 108
         slot_group: Environmental conditions and measurements
-      water_depth:
+      water_depth_units:
         rank: 109
         slot_group: Environmental conditions and measurements
-      water_depth_units:
+      sediment_depth:
         rank: 110
         slot_group: Environmental conditions and measurements
-      sediment_depth:
+      sediment_depth_units:
         rank: 111
         slot_group: Environmental conditions and measurements
-      sediment_depth_units:
+      air_temperature:
         rank: 112
         slot_group: Environmental conditions and measurements
-      air_temperature:
+      air_temperature_units:
         rank: 113
         slot_group: Environmental conditions and measurements
-      air_temperature_units:
+      water_temperature:
         rank: 114
         slot_group: Environmental conditions and measurements
-      water_temperature:
+      water_temperature_units:
         rank: 115
         slot_group: Environmental conditions and measurements
-      water_temperature_units:
+      precipitation_measurement_value:
         rank: 116
         slot_group: Environmental conditions and measurements
-      weather_type:
+      precipitation_measurement_unit:
         rank: 117
         slot_group: Environmental conditions and measurements
-      precipitation_measurement_unit:
+      precipitation_measurement_method:
         rank: 118
         slot_group: Environmental conditions and measurements
-      precipitation_measurement_method:
+      ambient_temperature_measurement_value:
         rank: 119
         slot_group: Environmental conditions and measurements
-      ambient_temperature_measurement_value:
+      ambient_temperature_measurement_unit:
         rank: 120
         slot_group: Environmental conditions and measurements
-      ambient_temperature_measurement_unit:
+      ph_measurement_value:
         rank: 121
         slot_group: Environmental conditions and measurements
-      ph_measurement_value:
+      ph_measurement_method:
         rank: 122
         slot_group: Environmental conditions and measurements
-      ph_measurement_method:
+      total_daily_flow_rate_measurement_value:
         rank: 123
         slot_group: Environmental conditions and measurements
-      total_daily_flow_rate_measurement_value:
+      total_daily_flow_rate_measurement_unit:
         rank: 124
         slot_group: Environmental conditions and measurements
-      total_daily_flow_rate_measurement_unit:
+      total_daily_flow_rate_measurement_method:
         rank: 125
         slot_group: Environmental conditions and measurements
-      total_daily_flow_rate_measurement_method:
+      instantaneous_flow_rate_measurement_value:
         rank: 126
         slot_group: Environmental conditions and measurements
-      instantaneous_flow_rate_measurement_value:
+      instantaneous_flow_rate_measurement_unit:
         rank: 127
         slot_group: Environmental conditions and measurements
-      instantaneous_flow_rate_measurement_unit:
+      instantaneous_flow_rate_measurement_method:
         rank: 128
         slot_group: Environmental conditions and measurements
-      instantaneous_flow_rate_measurement_method:
+      turbidity_measurement_value:
         rank: 129
         slot_group: Environmental conditions and measurements
-      turbidity_measurement_value:
+      turbidity_measurement_unit:
         rank: 130
         slot_group: Environmental conditions and measurements
-      turbidity_measurement_unit:
+      turbidity_measurement_method:
         rank: 131
         slot_group: Environmental conditions and measurements
-      turbidity_measurement_method:
+      dissolved_oxygen_measurement_value:
         rank: 132
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_value:
+      dissolved_oxygen_measurement_unit:
         rank: 133
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_unit:
+      dissolved_oxygen_measurement_method:
         rank: 134
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_method:
+      oxygen_reduction_potential_orp_measurement_value:
         rank: 135
         slot_group: Environmental conditions and measurements
-      oxygen_reduction_potential_orp_measurement_value:
+      oxygen_reduction_potential_orp_measurement_unit:
         rank: 136
         slot_group: Environmental conditions and measurements
-      oxygen_reduction_potential_orp_measurement_unit:
+      oxygen_reduction_potential_orp_measurement_method:
         rank: 137
         slot_group: Environmental conditions and measurements
-      oxygen_reduction_potential_orp_measurement_method:
+      chemical_oxygen_demand_cod_measurement_value:
         rank: 138
         slot_group: Environmental conditions and measurements
-      chemical_oxygen_demand_cod_measurement_value:
+      chemical_oxygen_demand_cod_measurement_unit:
         rank: 139
         slot_group: Environmental conditions and measurements
-      chemical_oxygen_demand_cod_measurement_unit:
+      chemical_oxygen_demand_cod_measurement_method:
         rank: 140
         slot_group: Environmental conditions and measurements
-      chemical_oxygen_demand_cod_measurement_method:
+      carbonaceous_biochemical_oxygen_demand_cbod_measurement_value:
         rank: 141
         slot_group: Environmental conditions and measurements
-      carbonaceous_biochemical_oxygen_demand_cbod_measurement_value:
+      carbonaceous_biochemical_oxygen_demand_cbod_measurement_unit:
         rank: 142
         slot_group: Environmental conditions and measurements
-      carbonaceous_biochemical_oxygen_demand_cbod_measurement_unit:
+      carbonaceous_biochemical_oxygen_demand_cbod_measurement_method:
         rank: 143
         slot_group: Environmental conditions and measurements
-      carbonaceous_biochemical_oxygen_demand_cbod_measurement_method:
+      total_suspended_solids_tss_measurement_value:
         rank: 144
         slot_group: Environmental conditions and measurements
-      total_suspended_solids_tss_measurement_value:
+      total_suspended_solids_tss_measurement_unit:
         rank: 145
         slot_group: Environmental conditions and measurements
-      total_suspended_solids_tss_measurement_unit:
+      total_suspended_solids_tss_measurement_method:
         rank: 146
         slot_group: Environmental conditions and measurements
-      total_suspended_solids_tss_measurement_method:
+      total_dissolved_solids_tds_measurement_value:
         rank: 147
         slot_group: Environmental conditions and measurements
-      total_dissolved_solids_tds_measurement_value:
+      total_dissolved_solids_tds_measurement_unit:
         rank: 148
         slot_group: Environmental conditions and measurements
-      total_dissolved_solids_tds_measurement_unit:
+      total_dissolved_solids_tds_measurement_method:
         rank: 149
         slot_group: Environmental conditions and measurements
-      total_dissolved_solids_tds_measurement_method:
+      total_solids_ts_measurement_value:
         rank: 150
         slot_group: Environmental conditions and measurements
-      total_solids_ts_measurement_value:
+      total_solids_ts_measurement_unit:
         rank: 151
         slot_group: Environmental conditions and measurements
-      total_solids_ts_measurement_unit:
+      total_solids_ts_measurement_method:
         rank: 152
         slot_group: Environmental conditions and measurements
-      total_solids_ts_measurement_method:
+      alkalinity_measurement_value:
         rank: 153
         slot_group: Environmental conditions and measurements
-      alkalinity_measurement_value:
+      alkalinity_measurement_unit:
         rank: 154
         slot_group: Environmental conditions and measurements
-      alkalinity_measurement_unit:
+      alkalinity_measurement_method:
         rank: 155
         slot_group: Environmental conditions and measurements
-      alkalinity_measurement_method:
+      conductivity_measurement_value:
         rank: 156
         slot_group: Environmental conditions and measurements
-      conductivity_measurement_value:
+      conductivity_measurement_unit:
         rank: 157
         slot_group: Environmental conditions and measurements
-      conductivity_measurement_unit:
+      conductivity_measurement_method:
         rank: 158
         slot_group: Environmental conditions and measurements
-      conductivity_measurement_method:
+      salinity_measurement_value:
         rank: 159
         slot_group: Environmental conditions and measurements
-      salinity_measurement_value:
+      salinity_measurement_unit:
         rank: 160
         slot_group: Environmental conditions and measurements
-      salinity_measurement_unit:
+      salinity_measurement_method:
         rank: 161
         slot_group: Environmental conditions and measurements
-      salinity_measurement_method:
+      total_nitrogen_tn_measurement_value:
         rank: 162
         slot_group: Environmental conditions and measurements
-      total_nitrogen_tn_measurement_value:
+      total_nitrogen_tn_measurement_unit:
         rank: 163
         slot_group: Environmental conditions and measurements
-      total_nitrogen_tn_measurement_unit:
+      total_nitrogen_tn_measurement_method:
         rank: 164
         slot_group: Environmental conditions and measurements
-      total_nitrogen_tn_measurement_method:
+      total_phosphorus_tp_measurement_value:
         rank: 165
         slot_group: Environmental conditions and measurements
-      total_phosphorus_tp_measurement_value:
+      total_phosphorus_tp_measurement_unit:
         rank: 166
         slot_group: Environmental conditions and measurements
-      total_phosphorus_tp_measurement_unit:
+      total_phosphorus_tp_measurement_method:
         rank: 167
         slot_group: Environmental conditions and measurements
-      total_phosphorus_tp_measurement_method:
+      fecal_contamination_indicator_:
         rank: 168
         slot_group: Environmental conditions and measurements
-      fecal_contamination_indicator_:
+      fecal_contamination_value:
         rank: 169
         slot_group: Environmental conditions and measurements
-      fecal_contamination_value:
+      fecal_contamination_unit:
         rank: 170
         slot_group: Environmental conditions and measurements
-      fecal_contamination_unit:
+      fecal_contamination_method:
         rank: 171
         slot_group: Environmental conditions and measurements
-      fecal_contamination_method:
+      fecal_coliform_count_value:
         rank: 172
         slot_group: Environmental conditions and measurements
-      fecal_coliform_count_value:
+      fecal_coliform_count_unit:
         rank: 173
         slot_group: Environmental conditions and measurements
-      fecal_coliform_count_unit:
+      fecal_coliform_count_method:
         rank: 174
         slot_group: Environmental conditions and measurements
-      fecal_coliform_count_method:
+      urinary_contamination_indicator:
         rank: 175
         slot_group: Environmental conditions and measurements
-      urinary_contamination_indicator:
+      urinary_contamination_value:
         rank: 176
         slot_group: Environmental conditions and measurements
-      urinary_contamination_value:
+      urinary_contamination_unit:
         rank: 177
         slot_group: Environmental conditions and measurements
-      urinary_contamination_unit:
+      urinary_contamination_method:
         rank: 178
         slot_group: Environmental conditions and measurements
-      urinary_contamination_method:
+      sample_temperature_value_at_collection:
         rank: 179
         slot_group: Environmental conditions and measurements
-      sample_temperature_value_at_collection:
+      sample_temperature_unit_at_collection:
         rank: 180
         slot_group: Environmental conditions and measurements
-      sample_temperature_unit_at_collection:
+      sample_temperature_value_when_received:
         rank: 181
         slot_group: Environmental conditions and measurements
-      sample_temperature_value_when_received:
+      sample_temperature_unit_when_received:
         rank: 182
         slot_group: Environmental conditions and measurements
-      sample_temperature_unit_when_received:
-        rank: 183
-        slot_group: Environmental conditions and measurements
       library_id:
-        rank: 184
+        rank: 183
         slot_group: Sequence information
       sequencing_assay_type:
-        rank: 185
+        rank: 184
         slot_group: Sequence information
       sequencing_date:
-        rank: 186
+        rank: 185
         slot_group: Sequence information
       purpose_of_sequencing__:
-        rank: 187
+        rank: 186
         slot_group: Sequence information
       purpose_of_sequencing_details:
-        rank: 188
+        rank: 187
         slot_group: Sequence information
       sequenced_by:
-        rank: 189
+        rank: 188
         slot_group: Sequence information
       sequenced_by_laboratory_name:
-        rank: 190
+        rank: 189
         slot_group: Sequence information
       sequenced_by_contact_name:
-        rank: 191
+        rank: 190
         slot_group: Sequence information
       sequenced_by_contact_email:
-        rank: 192
+        rank: 191
         slot_group: Sequence information
       sequence_submitted_by:
-        rank: 193
+        rank: 192
         slot_group: Sequence information
       sequence_submitter_contact_email:
-        rank: 194
+        rank: 193
         slot_group: Sequence information
       nucleic_acid_extraction_method:
-        rank: 195
-        slot_group: Sample collection and processing
+        rank: 194
+        slot_group: Sequence information
       nucleic_acid_extraction_kit:
-        rank: 196
-        slot_group: Sample collection and processing
+        rank: 195
+        slot_group: Sequence information
       endogenous_control_details:
-        rank: 197
-        slot_group: Sample collection and processing
+        rank: 196
+        slot_group: Sequence information
       sequencing_project_name:
-        rank: 198
+        rank: 197
         slot_group: Sequence information
       sequencing_platform:
-        rank: 199
+        rank: 198
         slot_group: Sequence information
       sequencing_instrument:
-        rank: 200
+        rank: 199
         slot_group: Sequence information
       library_preparation_kit:
-        rank: 201
+        rank: 200
         slot_group: Sequence information
       dna_fragment_length:
-        rank: 202
+        rank: 201
         slot_group: Sequence information
       genomic_target_enrichment_method:
-        rank: 203
+        rank: 202
         slot_group: Sequence information
       genomic_target_enrichment_method_details:
-        rank: 204
+        rank: 203
         slot_group: Sequence information
       amplicon_pcr_primer_scheme:
-        rank: 205
+        rank: 204
         slot_group: Sequence information
       amplicon_size:
-        rank: 206
+        rank: 205
         slot_group: Sequence information
       sequencing_flow_cell_version:
-        rank: 207
+        rank: 206
         slot_group: Sequence information
       sequencing_protocol:
-        rank: 208
+        rank: 207
         slot_group: Sequence information
       r1_fastq_filename:
-        rank: 209
+        rank: 208
         slot_group: Sequence information
       r2_fastq_filename:
-        rank: 210
+        rank: 209
         slot_group: Sequence information
       fast5_filename:
-        rank: 211
+        rank: 210
         slot_group: Sequence information
       genome_sequence_file_name:
-        rank: 212
+        rank: 211
         slot_group: Sequence information
       assembly_filename:
-        rank: 213
+        rank: 212
         slot_group: Sequence information
       quality_control_method_name:
-        rank: 214
+        rank: 213
         slot_group: Bioinformatics and QC metrics
       quality_control_method_version:
-        rank: 215
+        rank: 214
         slot_group: Bioinformatics and QC metrics
       quality_control_determination:
-        rank: 216
+        rank: 215
         slot_group: Bioinformatics and QC metrics
       quality_control_issues:
-        rank: 217
+        rank: 216
         slot_group: Bioinformatics and QC metrics
       quality_control_details:
-        rank: 218
+        rank: 217
         slot_group: Bioinformatics and QC metrics
       raw_sequence_data_processing_method:
-        rank: 219
+        rank: 218
         slot_group: Bioinformatics and QC metrics
       dehosting_method:
-        rank: 220
+        rank: 219
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_software_name:
-        rank: 221
+        rank: 220
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_software_version:
-        rank: 222
+        rank: 221
         slot_group: Bioinformatics and QC metrics
       consensus_sequence_software_name:
-        rank: 223
+        rank: 222
         slot_group: Bioinformatics and QC metrics
       consensus_sequence_software_version:
-        rank: 224
+        rank: 223
         slot_group: Bioinformatics and QC metrics
       breadth_of_coverage_value:
-        rank: 225
+        rank: 224
         slot_group: Bioinformatics and QC metrics
       depth_of_coverage_value:
-        rank: 226
+        rank: 225
         slot_group: Bioinformatics and QC metrics
       depth_of_coverage_threshold:
-        rank: 227
+        rank: 226
         slot_group: Bioinformatics and QC metrics
       genome_completeness:
-        rank: 228
+        rank: 227
         slot_group: Bioinformatics and QC metrics
       number_of_base_pairs_sequenced:
-        rank: 229
+        rank: 228
         slot_group: Bioinformatics and QC metrics
       number_of_total_reads:
-        rank: 230
+        rank: 229
         slot_group: Bioinformatics and QC metrics
       number_of_unique_reads:
-        rank: 231
+        rank: 230
         slot_group: Bioinformatics and QC metrics
       minimum_posttrimming_read_length:
-        rank: 232
+        rank: 231
         slot_group: Bioinformatics and QC metrics
       number_of_contigs:
-        rank: 233
+        rank: 232
         slot_group: Bioinformatics and QC metrics
       percent_ns_across_total_genome_length:
-        rank: 234
+        rank: 233
         slot_group: Bioinformatics and QC metrics
       ns_per_100_kbp:
-        rank: 235
+        rank: 234
         slot_group: Bioinformatics and QC metrics
       n50:
-        rank: 236
+        rank: 235
         slot_group: Bioinformatics and QC metrics
       percent_read_contamination_:
-        rank: 237
+        rank: 236
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
-        rank: 238
+        rank: 237
         slot_group: Bioinformatics and QC metrics
       consensus_genome_length:
-        rank: 239
+        rank: 238
         slot_group: Bioinformatics and QC metrics
       reference_genome_accession:
-        rank: 240
+        rank: 239
         slot_group: Bioinformatics and QC metrics
       deduplication_method:
-        rank: 241
+        rank: 240
         slot_group: Bioinformatics and QC metrics
       bioinformatics_protocol:
-        rank: 242
+        rank: 241
         slot_group: Bioinformatics and QC metrics
       read_mapping_software_name:
-        rank: 243
+        rank: 242
         slot_group: Taxonomic identification information
       read_mapping_software_version:
-        rank: 244
+        rank: 243
         slot_group: Taxonomic identification information
       taxonomic_reference_database_name:
-        rank: 245
+        rank: 244
         slot_group: Taxonomic identification information
       taxonomic_reference_database_version:
-        rank: 246
+        rank: 245
         slot_group: Taxonomic identification information
       taxonomic_analysis_report_filename:
-        rank: 247
+        rank: 246
         slot_group: Taxonomic identification information
       taxonomic_analysis_date:
-        rank: 248
+        rank: 247
         slot_group: Taxonomic identification information
       read_mapping_criteria:
-        rank: 249
+        rank: 248
         slot_group: Taxonomic identification information
       genetic_target_name:
-        rank: 250
+        rank: 249
         slot_group: Pathogen diagnostic testing
       genetic_target_region:
-        rank: 251
+        rank: 250
         slot_group: Pathogen diagnostic testing
       genetic_target_region_reference_genome:
-        rank: 252
+        rank: 251
         slot_group: Pathogen diagnostic testing
       diagnostic_target_presence:
-        rank: 253
+        rank: 252
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_value:
-        rank: 254
+        rank: 253
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_unit:
-        rank: 255
+        rank: 254
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_method:
-        rank: 256
+        rank: 255
         slot_group: Pathogen diagnostic testing
       diagnostic_testing_threshold_value:
-        rank: 257
+        rank: 256
         slot_group: Pathogen diagnostic testing
       diagnostic_testing_threshold_units:
-        rank: 258
+        rank: 257
         slot_group: Pathogen diagnostic testing
       diagnostic_testing_details:
-        rank: 259
+        rank: 258
         slot_group: Pathogen diagnostic testing
       prevalence_metrics:
-        rank: 260
+        rank: 259
         slot_group: Risk assessment information
       prevalence_metrics_details:
-        rank: 261
+        rank: 260
         slot_group: Risk assessment information
       stage_of_production:
-        rank: 262
+        rank: 261
         slot_group: Risk assessment information
       experimental_intervention:
-        rank: 263
+        rank: 262
         slot_group: Risk assessment information
       experiment_intervention_details:
-        rank: 264
+        rank: 263
         slot_group: Risk assessment information
   HPAIFood:
     name: HPAIFood
@@ -1432,13 +1428,13 @@ classes:
         slot_group: Sequence information
       nucleic_acid_extraction_method:
         rank: 68
-        slot_group: Sample collection and processing
+        slot_group: Sequence information
       nucleic_acid_extraction_kit:
         rank: 69
-        slot_group: Sample collection and processing
+        slot_group: Sequence information
       endogenous_control_details:
         rank: 70
-        slot_group: Sample collection and processing
+        slot_group: Sequence information
       sequencing_project_name:
         rank: 71
         slot_group: Sequence information
@@ -1713,7 +1709,6 @@ classes:
     - populated_area_type
     - sampling_weather_conditions
     - presampling_weather_conditions
-    - precipitation_measurement_value
     - water_depth
     - water_depth_units
     - sediment_depth
@@ -1722,7 +1717,7 @@ classes:
     - air_temperature_units
     - water_temperature
     - water_temperature_units
-    - weather_type
+    - precipitation_measurement_value
     - precipitation_measurement_unit
     - precipitation_measurement_method
     - ambient_temperature_measurement_value
@@ -2063,476 +2058,473 @@ classes:
       presampling_weather_conditions:
         rank: 64
         slot_group: Environmental conditions and measurements
-      precipitation_measurement_value:
+      water_depth:
         rank: 65
         slot_group: Environmental conditions and measurements
-      water_depth:
+      water_depth_units:
         rank: 66
         slot_group: Environmental conditions and measurements
-      water_depth_units:
+      sediment_depth:
         rank: 67
         slot_group: Environmental conditions and measurements
-      sediment_depth:
+      sediment_depth_units:
         rank: 68
         slot_group: Environmental conditions and measurements
-      sediment_depth_units:
+      air_temperature:
         rank: 69
         slot_group: Environmental conditions and measurements
-      air_temperature:
+      air_temperature_units:
         rank: 70
         slot_group: Environmental conditions and measurements
-      air_temperature_units:
+      water_temperature:
         rank: 71
         slot_group: Environmental conditions and measurements
-      water_temperature:
+      water_temperature_units:
         rank: 72
         slot_group: Environmental conditions and measurements
-      water_temperature_units:
+      precipitation_measurement_value:
         rank: 73
         slot_group: Environmental conditions and measurements
-      weather_type:
+      precipitation_measurement_unit:
         rank: 74
         slot_group: Environmental conditions and measurements
-      precipitation_measurement_unit:
+      precipitation_measurement_method:
         rank: 75
         slot_group: Environmental conditions and measurements
-      precipitation_measurement_method:
+      ambient_temperature_measurement_value:
         rank: 76
         slot_group: Environmental conditions and measurements
-      ambient_temperature_measurement_value:
+      ambient_temperature_measurement_unit:
         rank: 77
         slot_group: Environmental conditions and measurements
-      ambient_temperature_measurement_unit:
+      ph_measurement_value:
         rank: 78
         slot_group: Environmental conditions and measurements
-      ph_measurement_value:
+      ph_measurement_method:
         rank: 79
         slot_group: Environmental conditions and measurements
-      ph_measurement_method:
+      total_daily_flow_rate_measurement_value:
         rank: 80
         slot_group: Environmental conditions and measurements
-      total_daily_flow_rate_measurement_value:
+      total_daily_flow_rate_measurement_unit:
         rank: 81
         slot_group: Environmental conditions and measurements
-      total_daily_flow_rate_measurement_unit:
+      total_daily_flow_rate_measurement_method:
         rank: 82
         slot_group: Environmental conditions and measurements
-      total_daily_flow_rate_measurement_method:
+      instantaneous_flow_rate_measurement_value:
         rank: 83
         slot_group: Environmental conditions and measurements
-      instantaneous_flow_rate_measurement_value:
+      instantaneous_flow_rate_measurement_unit:
         rank: 84
         slot_group: Environmental conditions and measurements
-      instantaneous_flow_rate_measurement_unit:
+      instantaneous_flow_rate_measurement_method:
         rank: 85
         slot_group: Environmental conditions and measurements
-      instantaneous_flow_rate_measurement_method:
+      turbidity_measurement_value:
         rank: 86
         slot_group: Environmental conditions and measurements
-      turbidity_measurement_value:
+      turbidity_measurement_unit:
         rank: 87
         slot_group: Environmental conditions and measurements
-      turbidity_measurement_unit:
+      turbidity_measurement_method:
         rank: 88
         slot_group: Environmental conditions and measurements
-      turbidity_measurement_method:
+      dissolved_oxygen_measurement_value:
         rank: 89
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_value:
+      dissolved_oxygen_measurement_unit:
         rank: 90
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_unit:
+      dissolved_oxygen_measurement_method:
         rank: 91
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_method:
+      oxygen_reduction_potential_orp_measurement_value:
         rank: 92
         slot_group: Environmental conditions and measurements
-      oxygen_reduction_potential_orp_measurement_value:
+      oxygen_reduction_potential_orp_measurement_unit:
         rank: 93
         slot_group: Environmental conditions and measurements
-      oxygen_reduction_potential_orp_measurement_unit:
+      oxygen_reduction_potential_orp_measurement_method:
         rank: 94
         slot_group: Environmental conditions and measurements
-      oxygen_reduction_potential_orp_measurement_method:
+      chemical_oxygen_demand_cod_measurement_value:
         rank: 95
         slot_group: Environmental conditions and measurements
-      chemical_oxygen_demand_cod_measurement_value:
+      chemical_oxygen_demand_cod_measurement_unit:
         rank: 96
         slot_group: Environmental conditions and measurements
-      chemical_oxygen_demand_cod_measurement_unit:
+      chemical_oxygen_demand_cod_measurement_method:
         rank: 97
         slot_group: Environmental conditions and measurements
-      chemical_oxygen_demand_cod_measurement_method:
+      carbonaceous_biochemical_oxygen_demand_cbod_measurement_value:
         rank: 98
         slot_group: Environmental conditions and measurements
-      carbonaceous_biochemical_oxygen_demand_cbod_measurement_value:
+      carbonaceous_biochemical_oxygen_demand_cbod_measurement_unit:
         rank: 99
         slot_group: Environmental conditions and measurements
-      carbonaceous_biochemical_oxygen_demand_cbod_measurement_unit:
+      carbonaceous_biochemical_oxygen_demand_cbod_measurement_method:
         rank: 100
         slot_group: Environmental conditions and measurements
-      carbonaceous_biochemical_oxygen_demand_cbod_measurement_method:
+      total_suspended_solids_tss_measurement_value:
         rank: 101
         slot_group: Environmental conditions and measurements
-      total_suspended_solids_tss_measurement_value:
+      total_suspended_solids_tss_measurement_unit:
         rank: 102
         slot_group: Environmental conditions and measurements
-      total_suspended_solids_tss_measurement_unit:
+      total_suspended_solids_tss_measurement_method:
         rank: 103
         slot_group: Environmental conditions and measurements
-      total_suspended_solids_tss_measurement_method:
+      total_dissolved_solids_tds_measurement_value:
         rank: 104
         slot_group: Environmental conditions and measurements
-      total_dissolved_solids_tds_measurement_value:
+      total_dissolved_solids_tds_measurement_unit:
         rank: 105
         slot_group: Environmental conditions and measurements
-      total_dissolved_solids_tds_measurement_unit:
+      total_dissolved_solids_tds_measurement_method:
         rank: 106
         slot_group: Environmental conditions and measurements
-      total_dissolved_solids_tds_measurement_method:
+      total_solids_ts_measurement_value:
         rank: 107
         slot_group: Environmental conditions and measurements
-      total_solids_ts_measurement_value:
+      total_solids_ts_measurement_unit:
         rank: 108
         slot_group: Environmental conditions and measurements
-      total_solids_ts_measurement_unit:
+      total_solids_ts_measurement_method:
         rank: 109
         slot_group: Environmental conditions and measurements
-      total_solids_ts_measurement_method:
+      alkalinity_measurement_value:
         rank: 110
         slot_group: Environmental conditions and measurements
-      alkalinity_measurement_value:
+      alkalinity_measurement_unit:
         rank: 111
         slot_group: Environmental conditions and measurements
-      alkalinity_measurement_unit:
+      alkalinity_measurement_method:
         rank: 112
         slot_group: Environmental conditions and measurements
-      alkalinity_measurement_method:
+      conductivity_measurement_value:
         rank: 113
         slot_group: Environmental conditions and measurements
-      conductivity_measurement_value:
+      conductivity_measurement_unit:
         rank: 114
         slot_group: Environmental conditions and measurements
-      conductivity_measurement_unit:
+      conductivity_measurement_method:
         rank: 115
         slot_group: Environmental conditions and measurements
-      conductivity_measurement_method:
+      salinity_measurement_value:
         rank: 116
         slot_group: Environmental conditions and measurements
-      salinity_measurement_value:
+      salinity_measurement_unit:
         rank: 117
         slot_group: Environmental conditions and measurements
-      salinity_measurement_unit:
+      salinity_measurement_method:
         rank: 118
         slot_group: Environmental conditions and measurements
-      salinity_measurement_method:
+      total_nitrogen_tn_measurement_value:
         rank: 119
         slot_group: Environmental conditions and measurements
-      total_nitrogen_tn_measurement_value:
+      total_nitrogen_tn_measurement_unit:
         rank: 120
         slot_group: Environmental conditions and measurements
-      total_nitrogen_tn_measurement_unit:
+      total_nitrogen_tn_measurement_method:
         rank: 121
         slot_group: Environmental conditions and measurements
-      total_nitrogen_tn_measurement_method:
+      total_phosphorus_tp_measurement_value:
         rank: 122
         slot_group: Environmental conditions and measurements
-      total_phosphorus_tp_measurement_value:
+      total_phosphorus_tp_measurement_unit:
         rank: 123
         slot_group: Environmental conditions and measurements
-      total_phosphorus_tp_measurement_unit:
+      total_phosphorus_tp_measurement_method:
         rank: 124
         slot_group: Environmental conditions and measurements
-      total_phosphorus_tp_measurement_method:
+      fecal_contamination_indicator_:
         rank: 125
         slot_group: Environmental conditions and measurements
-      fecal_contamination_indicator_:
+      fecal_contamination_value:
         rank: 126
         slot_group: Environmental conditions and measurements
-      fecal_contamination_value:
+      fecal_contamination_unit:
         rank: 127
         slot_group: Environmental conditions and measurements
-      fecal_contamination_unit:
+      fecal_contamination_method:
         rank: 128
         slot_group: Environmental conditions and measurements
-      fecal_contamination_method:
+      fecal_coliform_count_value:
         rank: 129
         slot_group: Environmental conditions and measurements
-      fecal_coliform_count_value:
+      fecal_coliform_count_unit:
         rank: 130
         slot_group: Environmental conditions and measurements
-      fecal_coliform_count_unit:
+      fecal_coliform_count_method:
         rank: 131
         slot_group: Environmental conditions and measurements
-      fecal_coliform_count_method:
+      urinary_contamination_indicator:
         rank: 132
         slot_group: Environmental conditions and measurements
-      urinary_contamination_indicator:
+      urinary_contamination_value:
         rank: 133
         slot_group: Environmental conditions and measurements
-      urinary_contamination_value:
+      urinary_contamination_unit:
         rank: 134
         slot_group: Environmental conditions and measurements
-      urinary_contamination_unit:
+      urinary_contamination_method:
         rank: 135
         slot_group: Environmental conditions and measurements
-      urinary_contamination_method:
+      sample_temperature_value_at_collection:
         rank: 136
         slot_group: Environmental conditions and measurements
-      sample_temperature_value_at_collection:
+      sample_temperature_unit_at_collection:
         rank: 137
         slot_group: Environmental conditions and measurements
-      sample_temperature_unit_at_collection:
+      sample_temperature_value_when_received:
         rank: 138
         slot_group: Environmental conditions and measurements
-      sample_temperature_value_when_received:
+      sample_temperature_unit_when_received:
         rank: 139
         slot_group: Environmental conditions and measurements
-      sample_temperature_unit_when_received:
-        rank: 140
-        slot_group: Environmental conditions and measurements
       library_id:
-        rank: 141
+        rank: 140
         slot_group: Sequence information
       sequencing_assay_type:
-        rank: 142
+        rank: 141
         slot_group: Sequence information
       sequencing_date:
-        rank: 143
+        rank: 142
         slot_group: Sequence information
       purpose_of_sequencing__:
-        rank: 144
+        rank: 143
         slot_group: Sequence information
       purpose_of_sequencing_details:
-        rank: 145
+        rank: 144
         slot_group: Sequence information
       sequenced_by:
-        rank: 146
+        rank: 145
         slot_group: Sequence information
       sequenced_by_laboratory_name:
-        rank: 147
+        rank: 146
         slot_group: Sequence information
       sequenced_by_contact_name:
-        rank: 148
+        rank: 147
         slot_group: Sequence information
       sequenced_by_contact_email:
-        rank: 149
+        rank: 148
         slot_group: Sequence information
       sequence_submitted_by:
-        rank: 150
+        rank: 149
         slot_group: Sequence information
       sequence_submitter_contact_email:
-        rank: 151
+        rank: 150
         slot_group: Sequence information
       nucleic_acid_extraction_method:
-        rank: 152
-        slot_group: Sample collection and processing
+        rank: 151
+        slot_group: Sequence information
       nucleic_acid_extraction_kit:
-        rank: 153
-        slot_group: Sample collection and processing
+        rank: 152
+        slot_group: Sequence information
       endogenous_control_details:
-        rank: 154
-        slot_group: Sample collection and processing
+        rank: 153
+        slot_group: Sequence information
       sequencing_project_name:
-        rank: 155
+        rank: 154
         slot_group: Sequence information
       sequencing_platform:
-        rank: 156
+        rank: 155
         slot_group: Sequence information
       sequencing_instrument:
-        rank: 157
+        rank: 156
         slot_group: Sequence information
       library_preparation_kit:
-        rank: 158
+        rank: 157
         slot_group: Sequence information
       dna_fragment_length:
-        rank: 159
+        rank: 158
         slot_group: Sequence information
       genomic_target_enrichment_method:
-        rank: 160
+        rank: 159
         slot_group: Sequence information
       genomic_target_enrichment_method_details:
-        rank: 161
+        rank: 160
         slot_group: Sequence information
       amplicon_pcr_primer_scheme:
-        rank: 162
+        rank: 161
         slot_group: Sequence information
       amplicon_size:
-        rank: 163
+        rank: 162
         slot_group: Sequence information
       sequencing_flow_cell_version:
-        rank: 164
+        rank: 163
         slot_group: Sequence information
       sequencing_protocol:
-        rank: 165
+        rank: 164
         slot_group: Sequence information
       r1_fastq_filename:
-        rank: 166
+        rank: 165
         slot_group: Sequence information
       r2_fastq_filename:
-        rank: 167
+        rank: 166
         slot_group: Sequence information
       fast5_filename:
-        rank: 168
+        rank: 167
         slot_group: Sequence information
       genome_sequence_file_name:
-        rank: 169
+        rank: 168
         slot_group: Sequence information
       assembly_filename:
-        rank: 170
+        rank: 169
         slot_group: Sequence information
       quality_control_method_name:
-        rank: 171
+        rank: 170
         slot_group: Bioinformatics and QC metrics
       quality_control_method_version:
-        rank: 172
+        rank: 171
         slot_group: Bioinformatics and QC metrics
       quality_control_determination:
-        rank: 173
+        rank: 172
         slot_group: Bioinformatics and QC metrics
       quality_control_issues:
-        rank: 174
+        rank: 173
         slot_group: Bioinformatics and QC metrics
       quality_control_details:
-        rank: 175
+        rank: 174
         slot_group: Bioinformatics and QC metrics
       raw_sequence_data_processing_method:
-        rank: 176
+        rank: 175
         slot_group: Bioinformatics and QC metrics
       dehosting_method:
-        rank: 177
+        rank: 176
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_software_name:
-        rank: 178
+        rank: 177
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_software_version:
-        rank: 179
+        rank: 178
         slot_group: Bioinformatics and QC metrics
       consensus_sequence_software_name:
-        rank: 180
+        rank: 179
         slot_group: Bioinformatics and QC metrics
       consensus_sequence_software_version:
-        rank: 181
+        rank: 180
         slot_group: Bioinformatics and QC metrics
       breadth_of_coverage_value:
-        rank: 182
+        rank: 181
         slot_group: Bioinformatics and QC metrics
       depth_of_coverage_value:
-        rank: 183
+        rank: 182
         slot_group: Bioinformatics and QC metrics
       depth_of_coverage_threshold:
-        rank: 184
+        rank: 183
         slot_group: Bioinformatics and QC metrics
       genome_completeness:
-        rank: 185
+        rank: 184
         slot_group: Bioinformatics and QC metrics
       number_of_base_pairs_sequenced:
-        rank: 186
+        rank: 185
         slot_group: Bioinformatics and QC metrics
       number_of_total_reads:
-        rank: 187
+        rank: 186
         slot_group: Bioinformatics and QC metrics
       number_of_unique_reads:
-        rank: 188
+        rank: 187
         slot_group: Bioinformatics and QC metrics
       minimum_posttrimming_read_length:
-        rank: 189
+        rank: 188
         slot_group: Bioinformatics and QC metrics
       number_of_contigs:
-        rank: 190
+        rank: 189
         slot_group: Bioinformatics and QC metrics
       percent_ns_across_total_genome_length:
-        rank: 191
+        rank: 190
         slot_group: Bioinformatics and QC metrics
       ns_per_100_kbp:
-        rank: 192
+        rank: 191
         slot_group: Bioinformatics and QC metrics
       n50:
-        rank: 193
+        rank: 192
         slot_group: Bioinformatics and QC metrics
       percent_read_contamination_:
-        rank: 194
+        rank: 193
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
-        rank: 195
+        rank: 194
         slot_group: Bioinformatics and QC metrics
       consensus_genome_length:
-        rank: 196
+        rank: 195
         slot_group: Bioinformatics and QC metrics
       reference_genome_accession:
-        rank: 197
+        rank: 196
         slot_group: Bioinformatics and QC metrics
       deduplication_method:
-        rank: 198
+        rank: 197
         slot_group: Bioinformatics and QC metrics
       bioinformatics_protocol:
-        rank: 199
+        rank: 198
         slot_group: Bioinformatics and QC metrics
       read_mapping_software_name:
-        rank: 200
+        rank: 199
         slot_group: Taxonomic identification information
       read_mapping_software_version:
-        rank: 201
+        rank: 200
         slot_group: Taxonomic identification information
       taxonomic_reference_database_name:
-        rank: 202
+        rank: 201
         slot_group: Taxonomic identification information
       taxonomic_reference_database_version:
-        rank: 203
+        rank: 202
         slot_group: Taxonomic identification information
       taxonomic_analysis_report_filename:
-        rank: 204
+        rank: 203
         slot_group: Taxonomic identification information
       taxonomic_analysis_date:
-        rank: 205
+        rank: 204
         slot_group: Taxonomic identification information
       read_mapping_criteria:
-        rank: 206
+        rank: 205
         slot_group: Taxonomic identification information
       genetic_target_name:
-        rank: 207
+        rank: 206
         slot_group: Pathogen diagnostic testing
       genetic_target_region:
-        rank: 208
+        rank: 207
         slot_group: Pathogen diagnostic testing
       genetic_target_region_reference_genome:
-        rank: 209
+        rank: 208
         slot_group: Pathogen diagnostic testing
       diagnostic_target_presence:
-        rank: 210
+        rank: 209
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_value:
-        rank: 211
+        rank: 210
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_unit:
-        rank: 212
+        rank: 211
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_method:
-        rank: 213
+        rank: 212
         slot_group: Pathogen diagnostic testing
       diagnostic_testing_threshold_value:
-        rank: 214
+        rank: 213
         slot_group: Pathogen diagnostic testing
       diagnostic_testing_threshold_units:
-        rank: 215
+        rank: 214
         slot_group: Pathogen diagnostic testing
       diagnostic_testing_details:
-        rank: 216
+        rank: 215
         slot_group: Pathogen diagnostic testing
       prevalence_metrics:
-        rank: 217
+        rank: 216
         slot_group: Risk assessment information
       prevalence_metrics_details:
-        rank: 218
+        rank: 217
         slot_group: Risk assessment information
       stage_of_production:
-        rank: 219
+        rank: 218
         slot_group: Risk assessment information
       experimental_intervention:
-        rank: 220
+        rank: 219
         slot_group: Risk assessment information
       experiment_intervention_details:
-        rank: 221
+        rank: 220
         slot_group: Risk assessment information
   HPAIEnviro:
     name: HPAIEnviro
@@ -2607,7 +2599,6 @@ classes:
     - populated_area_type
     - sampling_weather_conditions
     - presampling_weather_conditions
-    - precipitation_measurement_value
     - water_depth
     - water_depth_units
     - sediment_depth
@@ -2616,7 +2607,7 @@ classes:
     - air_temperature_units
     - water_temperature
     - water_temperature_units
-    - weather_type
+    - precipitation_measurement_value
     - precipitation_measurement_unit
     - precipitation_measurement_method
     - ambient_temperature_measurement_value
@@ -2957,476 +2948,473 @@ classes:
       presampling_weather_conditions:
         rank: 64
         slot_group: Environmental conditions and measurements
-      precipitation_measurement_value:
+      water_depth:
         rank: 65
         slot_group: Environmental conditions and measurements
-      water_depth:
+      water_depth_units:
         rank: 66
         slot_group: Environmental conditions and measurements
-      water_depth_units:
+      sediment_depth:
         rank: 67
         slot_group: Environmental conditions and measurements
-      sediment_depth:
+      sediment_depth_units:
         rank: 68
         slot_group: Environmental conditions and measurements
-      sediment_depth_units:
+      air_temperature:
         rank: 69
         slot_group: Environmental conditions and measurements
-      air_temperature:
+      air_temperature_units:
         rank: 70
         slot_group: Environmental conditions and measurements
-      air_temperature_units:
+      water_temperature:
         rank: 71
         slot_group: Environmental conditions and measurements
-      water_temperature:
+      water_temperature_units:
         rank: 72
         slot_group: Environmental conditions and measurements
-      water_temperature_units:
+      precipitation_measurement_value:
         rank: 73
         slot_group: Environmental conditions and measurements
-      weather_type:
+      precipitation_measurement_unit:
         rank: 74
         slot_group: Environmental conditions and measurements
-      precipitation_measurement_unit:
+      precipitation_measurement_method:
         rank: 75
         slot_group: Environmental conditions and measurements
-      precipitation_measurement_method:
+      ambient_temperature_measurement_value:
         rank: 76
         slot_group: Environmental conditions and measurements
-      ambient_temperature_measurement_value:
+      ambient_temperature_measurement_unit:
         rank: 77
         slot_group: Environmental conditions and measurements
-      ambient_temperature_measurement_unit:
+      ph_measurement_value:
         rank: 78
         slot_group: Environmental conditions and measurements
-      ph_measurement_value:
+      ph_measurement_method:
         rank: 79
         slot_group: Environmental conditions and measurements
-      ph_measurement_method:
+      total_daily_flow_rate_measurement_value:
         rank: 80
         slot_group: Environmental conditions and measurements
-      total_daily_flow_rate_measurement_value:
+      total_daily_flow_rate_measurement_unit:
         rank: 81
         slot_group: Environmental conditions and measurements
-      total_daily_flow_rate_measurement_unit:
+      total_daily_flow_rate_measurement_method:
         rank: 82
         slot_group: Environmental conditions and measurements
-      total_daily_flow_rate_measurement_method:
+      instantaneous_flow_rate_measurement_value:
         rank: 83
         slot_group: Environmental conditions and measurements
-      instantaneous_flow_rate_measurement_value:
+      instantaneous_flow_rate_measurement_unit:
         rank: 84
         slot_group: Environmental conditions and measurements
-      instantaneous_flow_rate_measurement_unit:
+      instantaneous_flow_rate_measurement_method:
         rank: 85
         slot_group: Environmental conditions and measurements
-      instantaneous_flow_rate_measurement_method:
+      turbidity_measurement_value:
         rank: 86
         slot_group: Environmental conditions and measurements
-      turbidity_measurement_value:
+      turbidity_measurement_unit:
         rank: 87
         slot_group: Environmental conditions and measurements
-      turbidity_measurement_unit:
+      turbidity_measurement_method:
         rank: 88
         slot_group: Environmental conditions and measurements
-      turbidity_measurement_method:
+      dissolved_oxygen_measurement_value:
         rank: 89
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_value:
+      dissolved_oxygen_measurement_unit:
         rank: 90
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_unit:
+      dissolved_oxygen_measurement_method:
         rank: 91
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_method:
+      oxygen_reduction_potential_orp_measurement_value:
         rank: 92
         slot_group: Environmental conditions and measurements
-      oxygen_reduction_potential_orp_measurement_value:
+      oxygen_reduction_potential_orp_measurement_unit:
         rank: 93
         slot_group: Environmental conditions and measurements
-      oxygen_reduction_potential_orp_measurement_unit:
+      oxygen_reduction_potential_orp_measurement_method:
         rank: 94
         slot_group: Environmental conditions and measurements
-      oxygen_reduction_potential_orp_measurement_method:
+      chemical_oxygen_demand_cod_measurement_value:
         rank: 95
         slot_group: Environmental conditions and measurements
-      chemical_oxygen_demand_cod_measurement_value:
+      chemical_oxygen_demand_cod_measurement_unit:
         rank: 96
         slot_group: Environmental conditions and measurements
-      chemical_oxygen_demand_cod_measurement_unit:
+      chemical_oxygen_demand_cod_measurement_method:
         rank: 97
         slot_group: Environmental conditions and measurements
-      chemical_oxygen_demand_cod_measurement_method:
+      carbonaceous_biochemical_oxygen_demand_cbod_measurement_value:
         rank: 98
         slot_group: Environmental conditions and measurements
-      carbonaceous_biochemical_oxygen_demand_cbod_measurement_value:
+      carbonaceous_biochemical_oxygen_demand_cbod_measurement_unit:
         rank: 99
         slot_group: Environmental conditions and measurements
-      carbonaceous_biochemical_oxygen_demand_cbod_measurement_unit:
+      carbonaceous_biochemical_oxygen_demand_cbod_measurement_method:
         rank: 100
         slot_group: Environmental conditions and measurements
-      carbonaceous_biochemical_oxygen_demand_cbod_measurement_method:
+      total_suspended_solids_tss_measurement_value:
         rank: 101
         slot_group: Environmental conditions and measurements
-      total_suspended_solids_tss_measurement_value:
+      total_suspended_solids_tss_measurement_unit:
         rank: 102
         slot_group: Environmental conditions and measurements
-      total_suspended_solids_tss_measurement_unit:
+      total_suspended_solids_tss_measurement_method:
         rank: 103
         slot_group: Environmental conditions and measurements
-      total_suspended_solids_tss_measurement_method:
+      total_dissolved_solids_tds_measurement_value:
         rank: 104
         slot_group: Environmental conditions and measurements
-      total_dissolved_solids_tds_measurement_value:
+      total_dissolved_solids_tds_measurement_unit:
         rank: 105
         slot_group: Environmental conditions and measurements
-      total_dissolved_solids_tds_measurement_unit:
+      total_dissolved_solids_tds_measurement_method:
         rank: 106
         slot_group: Environmental conditions and measurements
-      total_dissolved_solids_tds_measurement_method:
+      total_solids_ts_measurement_value:
         rank: 107
         slot_group: Environmental conditions and measurements
-      total_solids_ts_measurement_value:
+      total_solids_ts_measurement_unit:
         rank: 108
         slot_group: Environmental conditions and measurements
-      total_solids_ts_measurement_unit:
+      total_solids_ts_measurement_method:
         rank: 109
         slot_group: Environmental conditions and measurements
-      total_solids_ts_measurement_method:
+      alkalinity_measurement_value:
         rank: 110
         slot_group: Environmental conditions and measurements
-      alkalinity_measurement_value:
+      alkalinity_measurement_unit:
         rank: 111
         slot_group: Environmental conditions and measurements
-      alkalinity_measurement_unit:
+      alkalinity_measurement_method:
         rank: 112
         slot_group: Environmental conditions and measurements
-      alkalinity_measurement_method:
+      conductivity_measurement_value:
         rank: 113
         slot_group: Environmental conditions and measurements
-      conductivity_measurement_value:
+      conductivity_measurement_unit:
         rank: 114
         slot_group: Environmental conditions and measurements
-      conductivity_measurement_unit:
+      conductivity_measurement_method:
         rank: 115
         slot_group: Environmental conditions and measurements
-      conductivity_measurement_method:
+      salinity_measurement_value:
         rank: 116
         slot_group: Environmental conditions and measurements
-      salinity_measurement_value:
+      salinity_measurement_unit:
         rank: 117
         slot_group: Environmental conditions and measurements
-      salinity_measurement_unit:
+      salinity_measurement_method:
         rank: 118
         slot_group: Environmental conditions and measurements
-      salinity_measurement_method:
+      total_nitrogen_tn_measurement_value:
         rank: 119
         slot_group: Environmental conditions and measurements
-      total_nitrogen_tn_measurement_value:
+      total_nitrogen_tn_measurement_unit:
         rank: 120
         slot_group: Environmental conditions and measurements
-      total_nitrogen_tn_measurement_unit:
+      total_nitrogen_tn_measurement_method:
         rank: 121
         slot_group: Environmental conditions and measurements
-      total_nitrogen_tn_measurement_method:
+      total_phosphorus_tp_measurement_value:
         rank: 122
         slot_group: Environmental conditions and measurements
-      total_phosphorus_tp_measurement_value:
+      total_phosphorus_tp_measurement_unit:
         rank: 123
         slot_group: Environmental conditions and measurements
-      total_phosphorus_tp_measurement_unit:
+      total_phosphorus_tp_measurement_method:
         rank: 124
         slot_group: Environmental conditions and measurements
-      total_phosphorus_tp_measurement_method:
+      fecal_contamination_indicator_:
         rank: 125
         slot_group: Environmental conditions and measurements
-      fecal_contamination_indicator_:
+      fecal_contamination_value:
         rank: 126
         slot_group: Environmental conditions and measurements
-      fecal_contamination_value:
+      fecal_contamination_unit:
         rank: 127
         slot_group: Environmental conditions and measurements
-      fecal_contamination_unit:
+      fecal_contamination_method:
         rank: 128
         slot_group: Environmental conditions and measurements
-      fecal_contamination_method:
+      fecal_coliform_count_value:
         rank: 129
         slot_group: Environmental conditions and measurements
-      fecal_coliform_count_value:
+      fecal_coliform_count_unit:
         rank: 130
         slot_group: Environmental conditions and measurements
-      fecal_coliform_count_unit:
+      fecal_coliform_count_method:
         rank: 131
         slot_group: Environmental conditions and measurements
-      fecal_coliform_count_method:
+      urinary_contamination_indicator:
         rank: 132
         slot_group: Environmental conditions and measurements
-      urinary_contamination_indicator:
+      urinary_contamination_value:
         rank: 133
         slot_group: Environmental conditions and measurements
-      urinary_contamination_value:
+      urinary_contamination_unit:
         rank: 134
         slot_group: Environmental conditions and measurements
-      urinary_contamination_unit:
+      urinary_contamination_method:
         rank: 135
         slot_group: Environmental conditions and measurements
-      urinary_contamination_method:
+      sample_temperature_value_at_collection:
         rank: 136
         slot_group: Environmental conditions and measurements
-      sample_temperature_value_at_collection:
+      sample_temperature_unit_at_collection:
         rank: 137
         slot_group: Environmental conditions and measurements
-      sample_temperature_unit_at_collection:
+      sample_temperature_value_when_received:
         rank: 138
         slot_group: Environmental conditions and measurements
-      sample_temperature_value_when_received:
+      sample_temperature_unit_when_received:
         rank: 139
         slot_group: Environmental conditions and measurements
-      sample_temperature_unit_when_received:
-        rank: 140
-        slot_group: Environmental conditions and measurements
       library_id:
-        rank: 141
+        rank: 140
         slot_group: Sequence information
       sequencing_assay_type:
-        rank: 142
+        rank: 141
         slot_group: Sequence information
       sequencing_date:
-        rank: 143
+        rank: 142
         slot_group: Sequence information
       purpose_of_sequencing__:
-        rank: 144
+        rank: 143
         slot_group: Sequence information
       purpose_of_sequencing_details:
-        rank: 145
+        rank: 144
         slot_group: Sequence information
       sequenced_by:
-        rank: 146
+        rank: 145
         slot_group: Sequence information
       sequenced_by_laboratory_name:
-        rank: 147
+        rank: 146
         slot_group: Sequence information
       sequenced_by_contact_name:
-        rank: 148
+        rank: 147
         slot_group: Sequence information
       sequenced_by_contact_email:
-        rank: 149
+        rank: 148
         slot_group: Sequence information
       sequence_submitted_by:
-        rank: 150
+        rank: 149
         slot_group: Sequence information
       sequence_submitter_contact_email:
-        rank: 151
+        rank: 150
         slot_group: Sequence information
       nucleic_acid_extraction_method:
-        rank: 152
-        slot_group: Sample collection and processing
+        rank: 151
+        slot_group: Sequence information
       nucleic_acid_extraction_kit:
-        rank: 153
-        slot_group: Sample collection and processing
+        rank: 152
+        slot_group: Sequence information
       endogenous_control_details:
-        rank: 154
-        slot_group: Sample collection and processing
+        rank: 153
+        slot_group: Sequence information
       sequencing_project_name:
-        rank: 155
+        rank: 154
         slot_group: Sequence information
       sequencing_platform:
-        rank: 156
+        rank: 155
         slot_group: Sequence information
       sequencing_instrument:
-        rank: 157
+        rank: 156
         slot_group: Sequence information
       library_preparation_kit:
-        rank: 158
+        rank: 157
         slot_group: Sequence information
       dna_fragment_length:
-        rank: 159
+        rank: 158
         slot_group: Sequence information
       genomic_target_enrichment_method:
-        rank: 160
+        rank: 159
         slot_group: Sequence information
       genomic_target_enrichment_method_details:
-        rank: 161
+        rank: 160
         slot_group: Sequence information
       amplicon_pcr_primer_scheme:
-        rank: 162
+        rank: 161
         slot_group: Sequence information
       amplicon_size:
-        rank: 163
+        rank: 162
         slot_group: Sequence information
       sequencing_flow_cell_version:
-        rank: 164
+        rank: 163
         slot_group: Sequence information
       sequencing_protocol:
-        rank: 165
+        rank: 164
         slot_group: Sequence information
       r1_fastq_filename:
-        rank: 166
+        rank: 165
         slot_group: Sequence information
       r2_fastq_filename:
-        rank: 167
+        rank: 166
         slot_group: Sequence information
       fast5_filename:
-        rank: 168
+        rank: 167
         slot_group: Sequence information
       genome_sequence_file_name:
-        rank: 169
+        rank: 168
         slot_group: Sequence information
       assembly_filename:
-        rank: 170
+        rank: 169
         slot_group: Sequence information
       quality_control_method_name:
-        rank: 171
+        rank: 170
         slot_group: Bioinformatics and QC metrics
       quality_control_method_version:
-        rank: 172
+        rank: 171
         slot_group: Bioinformatics and QC metrics
       quality_control_determination:
-        rank: 173
+        rank: 172
         slot_group: Bioinformatics and QC metrics
       quality_control_issues:
-        rank: 174
+        rank: 173
         slot_group: Bioinformatics and QC metrics
       quality_control_details:
-        rank: 175
+        rank: 174
         slot_group: Bioinformatics and QC metrics
       raw_sequence_data_processing_method:
-        rank: 176
+        rank: 175
         slot_group: Bioinformatics and QC metrics
       dehosting_method:
-        rank: 177
+        rank: 176
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_software_name:
-        rank: 178
+        rank: 177
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_software_version:
-        rank: 179
+        rank: 178
         slot_group: Bioinformatics and QC metrics
       consensus_sequence_software_name:
-        rank: 180
+        rank: 179
         slot_group: Bioinformatics and QC metrics
       consensus_sequence_software_version:
-        rank: 181
+        rank: 180
         slot_group: Bioinformatics and QC metrics
       breadth_of_coverage_value:
-        rank: 182
+        rank: 181
         slot_group: Bioinformatics and QC metrics
       depth_of_coverage_value:
-        rank: 183
+        rank: 182
         slot_group: Bioinformatics and QC metrics
       depth_of_coverage_threshold:
-        rank: 184
+        rank: 183
         slot_group: Bioinformatics and QC metrics
       genome_completeness:
-        rank: 185
+        rank: 184
         slot_group: Bioinformatics and QC metrics
       number_of_base_pairs_sequenced:
-        rank: 186
+        rank: 185
         slot_group: Bioinformatics and QC metrics
       number_of_total_reads:
-        rank: 187
+        rank: 186
         slot_group: Bioinformatics and QC metrics
       number_of_unique_reads:
-        rank: 188
+        rank: 187
         slot_group: Bioinformatics and QC metrics
       minimum_posttrimming_read_length:
-        rank: 189
+        rank: 188
         slot_group: Bioinformatics and QC metrics
       number_of_contigs:
-        rank: 190
+        rank: 189
         slot_group: Bioinformatics and QC metrics
       percent_ns_across_total_genome_length:
-        rank: 191
+        rank: 190
         slot_group: Bioinformatics and QC metrics
       ns_per_100_kbp:
-        rank: 192
+        rank: 191
         slot_group: Bioinformatics and QC metrics
       n50:
-        rank: 193
+        rank: 192
         slot_group: Bioinformatics and QC metrics
       percent_read_contamination_:
-        rank: 194
+        rank: 193
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
-        rank: 195
+        rank: 194
         slot_group: Bioinformatics and QC metrics
       consensus_genome_length:
-        rank: 196
+        rank: 195
         slot_group: Bioinformatics and QC metrics
       reference_genome_accession:
-        rank: 197
+        rank: 196
         slot_group: Bioinformatics and QC metrics
       deduplication_method:
-        rank: 198
+        rank: 197
         slot_group: Bioinformatics and QC metrics
       bioinformatics_protocol:
-        rank: 199
+        rank: 198
         slot_group: Bioinformatics and QC metrics
       read_mapping_software_name:
-        rank: 200
+        rank: 199
         slot_group: Taxonomic identification information
       read_mapping_software_version:
-        rank: 201
+        rank: 200
         slot_group: Taxonomic identification information
       taxonomic_reference_database_name:
-        rank: 202
+        rank: 201
         slot_group: Taxonomic identification information
       taxonomic_reference_database_version:
-        rank: 203
+        rank: 202
         slot_group: Taxonomic identification information
       taxonomic_analysis_report_filename:
-        rank: 204
+        rank: 203
         slot_group: Taxonomic identification information
       taxonomic_analysis_date:
-        rank: 205
+        rank: 204
         slot_group: Taxonomic identification information
       read_mapping_criteria:
-        rank: 206
+        rank: 205
         slot_group: Taxonomic identification information
       genetic_target_name:
-        rank: 207
+        rank: 206
         slot_group: Pathogen diagnostic testing
       genetic_target_region:
-        rank: 208
+        rank: 207
         slot_group: Pathogen diagnostic testing
       genetic_target_region_reference_genome:
-        rank: 209
+        rank: 208
         slot_group: Pathogen diagnostic testing
       diagnostic_target_presence:
-        rank: 210
+        rank: 209
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_value:
-        rank: 211
+        rank: 210
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_unit:
-        rank: 212
+        rank: 211
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_method:
-        rank: 213
+        rank: 212
         slot_group: Pathogen diagnostic testing
       diagnostic_testing_threshold_value:
-        rank: 214
+        rank: 213
         slot_group: Pathogen diagnostic testing
       diagnostic_testing_threshold_units:
-        rank: 215
+        rank: 214
         slot_group: Pathogen diagnostic testing
       diagnostic_testing_details:
-        rank: 216
+        rank: 215
         slot_group: Pathogen diagnostic testing
       prevalence_metrics:
-        rank: 217
+        rank: 216
         slot_group: Risk assessment information
       prevalence_metrics_details:
-        rank: 218
+        rank: 217
         slot_group: Risk assessment information
       stage_of_production:
-        rank: 219
+        rank: 218
         slot_group: Risk assessment information
       experimental_intervention:
-        rank: 220
+        rank: 219
         slot_group: Risk assessment information
       experiment_intervention_details:
-        rank: 221
+        rank: 220
         slot_group: Risk assessment information
   HPAIHost:
     name: HPAIHost
@@ -3762,19 +3750,19 @@ classes:
         slot_group: Sample collection and processing
       host_common_name:
         rank: 53
-        slot_group: Host information
+        slot_group: Host Information
       host_scientific_name:
         rank: 54
-        slot_group: Host information
+        slot_group: Host Information
       host_ecotype:
         rank: 55
-        slot_group: Host information
+        slot_group: Host Information
       host_breed:
         rank: 56
-        slot_group: Host information
+        slot_group: Host Information
       host_food_production_name:
         rank: 57
-        slot_group: Host information
+        slot_group: Host Information
       host_age:
         rank: 58
         slot_group: Host Information
@@ -3783,10 +3771,10 @@ classes:
         slot_group: Host Information
       host_age_bin:
         rank: 60
-        slot_group: Host information
+        slot_group: Host Information
       host_disease:
         rank: 61
-        slot_group: Host information
+        slot_group: Host Information
       host_health_state:
         rank: 62
         slot_group: Host Information
@@ -3894,13 +3882,13 @@ classes:
         slot_group: Sequence information
       nucleic_acid_extraction_method:
         rank: 97
-        slot_group: Sample collection and processing
+        slot_group: Sequence information
       nucleic_acid_extraction_kit:
         rank: 98
-        slot_group: Sample collection and processing
+        slot_group: Sequence information
       endogenous_control_details:
         rank: 99
-        slot_group: Sample collection and processing
+        slot_group: Sequence information
       sequencing_project_name:
         rank: 100
         slot_group: Sequence information
@@ -4404,7 +4392,7 @@ slots:
     name: influenza_subtype
     title: influenza_subtype
     slot_uri: GENEPIO:0101108
-    range: InfluenzaSubsubtypeMenu
+    range: InfluenzaSubtypeMenu
     multivalued: true
     required: true
   influenza_subtyping_scheme_name:
@@ -5511,7 +5499,7 @@ slots:
     comments: Provide the populated area type from the pick list.
     slot_uri: GENEPIO:0100778
     any_of:
-    - range: populated area type menu
+    - range: PopulatedAreaTypeMenu
     - range: NullValueMenu
     examples:
     - value: Urban area
@@ -5540,19 +5528,6 @@ slots:
     multivalued: true
     examples:
     - value: Drizzle
-  precipitation_measurement_value:
-    name: precipitation_measurement_value
-    title: precipitation measurement value
-    description: The amount of water which has fallen during a precipitation process.
-    comments: Provide the quantity of precipitation in the area leading up to the
-      time of sample collection.
-    slot_uri: GENEPIO:0100911
-    any_of:
-    - range: WhitespaceMinimizedString
-    - range: NullValueMenu
-    recommended: true
-    examples:
-    - value: '12'
   water_depth:
     name: water_depth
     title: water_depth
@@ -5635,19 +5610,19 @@ slots:
     - range: NullValueMenu
     examples:
     - value: degree Celsius (C) [UO:0000027]
-  weather_type:
-    name: weather_type
-    title: weather_type
-    description: The state of the atmosphere at a place and time as regards heat,
-      dryness, sunshine, wind, rain, etc.
-    comments: Provide the weather conditions at the time of sample collection.
-    slot_uri: GENEPIO:0100442
+  precipitation_measurement_value:
+    name: precipitation_measurement_value
+    title: precipitation measurement value
+    description: The amount of water which has fallen during a precipitation process.
+    comments: Provide the quantity of precipitation in the area leading up to the
+      time of sample collection.
+    slot_uri: GENEPIO:0100911
     any_of:
-    - range: WeatherTypeMenu
+    - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    multivalued: true
+    recommended: true
     examples:
-    - value: Rain [ENVO:01001564]
+    - value: '12'
   precipitation_measurement_unit:
     name: precipitation_measurement_unit
     title: precipitation measurement unit
@@ -6154,7 +6129,7 @@ slots:
     comments: Provide the units of the measured TP.
     slot_uri: GENEPIO:0100812
     any_of:
-    - range: TotalPhosphorusTPMeasurementUnitMenu
+    - range: TotalPhosphorpusTpMeasurementUnitMenu
     - range: NullValueMenu
     examples:
     - value: milligrams orthophosphate as phosphorus per liter (mg PO4-P/L)
@@ -7209,7 +7184,7 @@ slots:
     comments: Provide the stage of food production as free text.
     slot_uri: GENEPIO:0100482
     any_of:
-    - range: StageOfProductionMenu
+    - range: WhitespaceMinimizedString
     - range: NullValueMenu
     recommended: true
     examples:
@@ -9534,9 +9509,9 @@ enums:
       Residual sample status unkown [GENEPIO:0101089]:
         text: Residual sample status unkown [GENEPIO:0101089]
         meaning: GENEPIO:0101089
-  PurposeOfSampling:
-    name: PurposeOfSampling
-    title: purpose of sampling
+  PurposeOfSamplingMenu:
+    name: PurposeOfSamplingMenu
+    title: purpose of sampling menu
     permissible_values:
       Cluster/Outbreak investigation [GENEPIO:0100001]:
         text: Cluster/Outbreak investigation [GENEPIO:0100001]
@@ -9583,9 +9558,9 @@ enums:
         description: A sampling strategy in which individuals are sampled for surveillance
           investigations.
         meaning: GENEPIO:0100004
-  PresamplingActivity:
-    name: PresamplingActivity
-    title: presampling activity
+  PresamplingActivityMenu:
+    name: PresamplingActivityMenu
+    title: presampling activity menu
     permissible_values:
       Addition of substances to food/water [GENEPIO:0100536]:
         text: Addition of substances to food/water [GENEPIO:0100536]
@@ -9648,9 +9623,9 @@ enums:
           This includes any preparation intended for active immunological prophylaxis
           or treatment.
         meaning: NCIT:C15346
-  SampleStorageDurationUnit:
-    name: SampleStorageDurationUnit
-    title: sample storage duration unit
+  SampleStorageDurationUnitMenu:
+    name: SampleStorageDurationUnitMenu
+    title: sample storage duration unit menu
     permissible_values:
       Second [UO:0000010]:
         text: Second [UO:0000010]
@@ -9684,9 +9659,9 @@ enums:
         description: A time unit which is equal to 365 days, or 366 days during a
           leap year.
         meaning: UO:0000036
-  SpecimenProcessing:
-    name: SpecimenProcessing
-    title: specimen processing
+  SpecimenProcessingMenu:
+    name: SpecimenProcessingMenu
+    title: specimen processing menu
     permissible_values:
       Concentration [OBI:0600041]:
         text: Concentration [OBI:0600041]
@@ -9707,9 +9682,9 @@ enums:
         text: Pooling specimens [OBI:0600016]
         description: Physical combination of several instances of like material.
         meaning: OBI:0600016
-  ExperimentalSpecimenRoleType:
-    name: ExperimentalSpecimenRoleType
-    title: experimental specimen role type
+  ExperimentalSpecimenRoleTypeMenu:
+    name: ExperimentalSpecimenRoleTypeMenu
+    title: experimental specimen role type menu
     permissible_values:
       Positive experimental control [GENEPIO:0101018]:
         text: Positive experimental control [GENEPIO:0101018]
@@ -10612,9 +10587,9 @@ enums:
         description: An age group that stratifies the age of a case to be greater
           than or equal to 100 years old.
         meaning: GENEPIO:0100059
-  HostGender:
-    name: HostGender
-    title: host_gender
+  HostGenderMenu:
+    name: HostGenderMenu
+    title: host_gender menu
     permissible_values:
       Female [NCIT:C46110]:
         text: Female [NCIT:C46110]
@@ -12198,18 +12173,32 @@ enums:
     permissible_values:
       <10 people:
         text: <10 people
+        description: An estimation of population size for a group smaller than 10
+          people.
       10 - 100 people:
         text: 10 - 100 people
+        description: An estimation of population size for a group smaller than 100
+          people and larger than 10 people.
       100 - 1,000 people:
         text: 100 - 1,000 people
+        description: An estimation of population size for a group smaller than 1,000
+          people and larger than 100 people.
       1,000 - 10,000 people:
         text: 1,000 - 10,000 people
+        description: An estimation of population size for a group smaller than 10,000
+          people and larger than 1,000 people.
       10,000 - 100,000 people:
         text: 10,000 - 100,000 people
+        description: An estimation of population size for a group smaller than 100,000
+          people and larger than 10,000 people.
       100,000 -  1,000,000 people:
         text: 100,000 -  1,000,000 people
+        description: An estimation of population size for a group smaller than 1,000,000
+          people and larger than 100,000 people.
       1,000,000+ people:
         text: 1,000,000+ people
+        description: An estimation of population size for a group larger than 1,000,000
+          people.
   WaterCatchmentAreaHumanPopulationDensityUnitMenu:
     name: WaterCatchmentAreaHumanPopulationDensityUnitMenu
     title: water_catchment_area_human_population_density_unit menu
@@ -12379,6 +12368,875 @@ enums:
         text: foot (ft) [UO:0010013]
         description: A non-SI unit of length which is approximately 0.3048 meters.
         meaning: UO:0010013
+  WaterDepthUnitsMenu:
+    name: WaterDepthUnitsMenu
+    title: water_depth_units menu
+    permissible_values:
+      centimeter (cm) [UO:0000015]:
+        text: centimeter (cm) [UO:0000015]
+        description: A length unit which is equal to one hundredth of a meter or 10^[-2]
+          m
+        meaning: UO:0000015
+      meter (m) [UO:0000008]:
+        text: meter (m) [UO:0000008]
+        description: An SI unit of length defined as the length of the path travelled
+          by light in a vacuum in 1/299792458th of a second.
+        meaning: UO:0000008
+      kilometer (km) [UO:0010066]:
+        text: kilometer (km) [UO:0010066]
+        description: A length unit which is equal to one thousand meters.
+        meaning: UO:0010066
+      inch (in) [UO:0010011]:
+        text: inch (in) [UO:0010011]
+        description: A non-SI unit of length defined as one twelfth of a foot.
+        meaning: UO:0010011
+      foot (ft) [UO:0010013]:
+        text: foot (ft) [UO:0010013]
+        description: A non-SI unit of length which is approximately 0.3048 meters.
+        meaning: UO:0010013
+  SedimentDepthUnitsMenu:
+    name: SedimentDepthUnitsMenu
+    title: sediment_depth_units menu
+    permissible_values:
+      centimeter (cm) [UO:0000015]:
+        text: centimeter (cm) [UO:0000015]
+        description: A length unit which is equal to one hundredth of a meter or 10^[-2]
+          m
+        meaning: UO:0000015
+      meter (m) [UO:0000008]:
+        text: meter (m) [UO:0000008]
+        description: An SI unit of length defined as the length of the path travelled
+          by light in a vacuum in 1/299792458th of a second.
+        meaning: UO:0000008
+      kilometer (km) [UO:0010066]:
+        text: kilometer (km) [UO:0010066]
+        description: A length unit which is equal to one thousand meters.
+        meaning: UO:0010066
+      inch (in) [UO:0010011]:
+        text: inch (in) [UO:0010011]
+        description: A non-SI unit of length defined as one twelfth of a foot.
+        meaning: UO:0010011
+      foot (ft) [UO:0010013]:
+        text: foot (ft) [UO:0010013]
+        description: A non-SI unit of length which is approximately 0.3048 meters.
+        meaning: UO:0010013
+  AirTemperatureUnitsMenu:
+    name: AirTemperatureUnitsMenu
+    title: air_temperature_units menu
+    permissible_values:
+      degree Fahrenheit (F) [UO:0000195]:
+        text: degree Fahrenheit (F) [UO:0000195]
+        description: A unit of temperature on a scale where water freezes at 32 degrees
+          and boils at 212 degrees under standard conditions.
+        meaning: UO:0000195
+      degree Celsius (C) [UO:0000027]:
+        text: degree Celsius (C) [UO:0000027]
+        description: A unit of temperature on a scale where water freezes at 0 degrees
+          and boils at 100 degrees under standard conditions.
+        meaning: UO:0000027
+  WaterTemperatureUnitsMenu:
+    name: WaterTemperatureUnitsMenu
+    title: water_temperature_units menu
+    permissible_values:
+      degree Fahrenheit (F) [UO:0000195]:
+        text: degree Fahrenheit (F) [UO:0000195]
+        description: A unit of temperature on a scale where water freezes at 32 degrees
+          and boils at 212 degrees under standard conditions.
+        meaning: UO:0000195
+      degree Celsius (C) [UO:0000027]:
+        text: degree Celsius (C) [UO:0000027]
+        description: A unit of temperature on a scale where water freezes at 0 degrees
+          and boils at 100 degrees under standard conditions.
+        meaning: UO:0000027
+  SequencingPlatformMenu:
+    name: SequencingPlatformMenu
+    title: sequencing_platform menu
+    permissible_values:
+      Illumina [GENEPIO:0001923]:
+        text: Illumina [GENEPIO:0001923]
+        description: A sequencing platform provided by the Illumina company.
+        meaning: GENEPIO:0001923
+      Pacific Biosciences [GENEPIO:0001927]:
+        text: Pacific Biosciences [GENEPIO:0001927]
+        description: A sequencing platform provided by the Pacific Biosciences company.
+        meaning: GENEPIO:0001927
+      Ion Torrent [GENEPIO:0002683]:
+        text: Ion Torrent [GENEPIO:0002683]
+        description: A sequencing platform provided by the Ion Torrent company.
+        meaning: GENEPIO:0002683
+      Oxford Nanopore Technologies [GENEPIO:0100986]:
+        text: Oxford Nanopore Technologies [GENEPIO:0100986]
+        description: An sequencing platform that is developing and selling nanopore
+          sequencing products and is based in the UK.
+        meaning: GENEPIO:0100986
+      BGI Genomics [GENEPIO:0004324]:
+        text: BGI Genomics [GENEPIO:0004324]
+        description: A sequencing platform provided by the BGI Genomics company.
+        meaning: GENEPIO:0004324
+      MGI [GENEPIO:0004325]:
+        text: MGI [GENEPIO:0004325]
+        description: A sequencing platform provided by the MGI company.
+        meaning: GENEPIO:0004325
+      Roche LS454 [GENEPIO:0001926]:
+        text: Roche LS454 [GENEPIO:0001926]
+        description: A sequencing platform provided by the 454 Life Sciences company.
+        meaning: GENEPIO:0001926
+      SOLiD sequencing [GENEPIO:0002684]:
+        text: SOLiD sequencing [GENEPIO:0002684]
+        description: A sequencing platform provided by Life Technologies Corporation.
+        meaning: GENEPIO:0002684
+      Complete Genomics [GENEPIO:0001924]:
+        text: Complete Genomics [GENEPIO:0001924]
+        description: An in-house sequencing platform provided by Complete Genomics.
+        meaning: GENEPIO:0001924
+      Helicos [GENEPIO:0002682]:
+        text: Helicos [GENEPIO:0002682]
+        description: A sequencing platform brand provided by Helicos corporation (now
+          defunct).
+        meaning: GENEPIO:0002682
+      Applied Biosystems [GENEPIO:0100985]:
+        text: Applied Biosystems [GENEPIO:0100985]
+        description: A sequencing platform provided by ThermoFisher.
+        meaning: GENEPIO:0100985
+  SequencingInstrumentMenu:
+    name: SequencingInstrumentMenu
+    title: sequencing_instrument menu
+    permissible_values:
+      Illumina [GENEPIO:0100105]:
+        text: Illumina [GENEPIO:0100105]
+        description: A DNA sequencer manufactured by the Illumina corporation.
+        meaning: GENEPIO:0100105
+      Illumina Genome Analyzer [GENEPIO:0100106]:
+        text: Illumina Genome Analyzer [GENEPIO:0100106]
+        description: A DNA sequencer manufactured by Solexa as one of its first sequencer
+          lines, launched in 2006, and capable of sequencing 1 gigabase (Gb) of data
+          in a single run.
+        meaning: GENEPIO:0100106
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina Genome Analyzer II [OBI:0000703]:
+        text: Illumina Genome Analyzer II [OBI:0000703]
+        description: A DNA sequencer manufactured by the Illumina (Solexa) corporation,
+          which supports sequencing of single or paired end clone libraries relying
+          on sequencing by synthesis technology.
+        meaning: OBI:0000703
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina Genome Analyzer IIx [OBI:0002000]:
+        text: Illumina Genome Analyzer IIx [OBI:0002000]
+        description: An Illumina Genome Analyzer II which is manufactured by the Illumina
+          corporation. It supports sequencing of single, long or short insert paired
+          end clone libraries relying on sequencing by synthesis technology. The Genome
+          Analyzer IIx is the most widely adopted next-generation sequencing platform
+          and proven and published across the broadest range of research applications.
+        meaning: OBI:0002000
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina HiScanSQ [GENEPIO:0100109]:
+        text: Illumina HiScanSQ [GENEPIO:0100109]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry, and contains a HiScan Reader for sequencing
+          and microarray-based analyses as well as an "SQ Module" to support microfluidics.
+        meaning: GENEPIO:0100109
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina HiSeq [GENEPIO:0100110]:
+        text: Illumina HiSeq [GENEPIO:0100110]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry, enabling deep sequencing and high yield.
+        meaning: GENEPIO:0100110
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina HiSeq X [GENEPIO:0100111]:
+        text: Illumina HiSeq X [GENEPIO:0100111]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry that enables sufficient depth and coverage
+          to produce the first 30x human genome for $1000.
+        meaning: GENEPIO:0100111
+        is_a: Illumina HiSeq [GENEPIO:0100110]
+      Illumina HiSeq X Five  [GENEPIO:0100112]:
+        text: Illumina HiSeq X Five  [GENEPIO:0100112]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry that consists of a set of 5 HiSeq X Sequencing
+          Systems.
+        meaning: GENEPIO:0100112
+        is_a: Illumina HiSeq [GENEPIO:0100110]
+      Illumina HiSeq X Ten [GENEPIO:0100113]:
+        text: Illumina HiSeq X Ten [GENEPIO:0100113]
+        description: A DNA sequencer that consists of a set of 10 HiSeq X Sequencing
+          Systems.
+        meaning: GENEPIO:0100113
+        is_a: Illumina HiSeq [GENEPIO:0100110]
+      Illumina HiSeq 1000 [OBI:0002022]:
+        text: Illumina HiSeq 1000 [OBI:0002022]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with a single flow cell and a throughput of up to 35 Gb per day. It supports
+          sequencing of single, long or short insert paired end clone libraries relying
+          on sequencing by synthesis technology.
+        meaning: OBI:0002022
+        is_a: Illumina HiSeq [GENEPIO:0100110]
+      Illumina HiSeq 1500 [GENEPIO:0100115]:
+        text: Illumina HiSeq 1500 [GENEPIO:0100115]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with a single flow cell and a throughput of up to 35-50 Gb per day.
+        meaning: GENEPIO:0100115
+        is_a: Illumina HiSeq [GENEPIO:0100110]
+      Illumina HiSeq 2000    [OBI:0002001]:
+        text: Illumina HiSeq 2000    [OBI:0002001]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with two flow cells and a throughput of up to 55 Gb per day. Built upon
+          sequencing by synthesis technology, the machine is optimized for generation
+          of data for multiple samples in a single run.
+        meaning: OBI:0002001
+        is_a: Illumina HiSeq [GENEPIO:0100110]
+      Illumina HiSeq 2500 [OBI:0002002]:
+        text: Illumina HiSeq 2500 [OBI:0002002]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with two flow cells and a throughput of up to 160 Gb per day. Built upon
+          sequencing by synthesis technology, the machine is optimized for generation
+          of data for batching multiple samples or rapid results on a few samples.
+        meaning: OBI:0002002
+        is_a: Illumina HiSeq [GENEPIO:0100110]
+      Illumina HiSeq 3000 [OBI:0002048]:
+        text: Illumina HiSeq 3000 [OBI:0002048]
+        description: A DNA sequencer manufactured by Illumina corporation, with a
+          single flow cell and a throughput of more than 200 Gb per day.
+        meaning: OBI:0002048
+        is_a: Illumina HiSeq [GENEPIO:0100110]
+      Illumina HiSeq 4000 [OBI:0002049]:
+        text: Illumina HiSeq 4000 [OBI:0002049]
+        description: A DNA sequencer manufactured by Illumina corporation, with two
+          flow cell and a throughput of more than 400 Gb per day.
+        meaning: OBI:0002049
+        is_a: Illumina HiSeq [GENEPIO:0100110]
+      Illumina iSeq   [GENEPIO:0100120]:
+        text: Illumina iSeq   [GENEPIO:0100120]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry that is lightweight.
+        meaning: GENEPIO:0100120
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina iSeq 100 [GENEPIO:0100121]:
+        text: Illumina iSeq 100 [GENEPIO:0100121]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry that is lightweight and has an output capacity
+          between 144MB-1.2GB.
+        meaning: GENEPIO:0100121
+        is_a: Illumina iSeq   [GENEPIO:0100120]
+      Illumina NovaSeq   [GENEPIO:0100122]:
+        text: Illumina NovaSeq   [GENEPIO:0100122]
+        description: A DNA sequencer manufactured by the Illumina corporation using
+          sequence-by-synthesis chemistry that has an output capacity of 6 Tb and
+          20 billion reads in dual flow cell mode.
+        meaning: GENEPIO:0100122
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina NovaSeq 6000 [GENEPIO:0100123]:
+        text: Illumina NovaSeq 6000 [GENEPIO:0100123]
+        description: A DNA sequencer which is manufactured by the Illumina corporation,
+          with two flow cells and an output of up to 6000 Gb (32-40 B reads per run).
+          The sequencer utilizes synthesis technology and patterned flow cells to
+          optimize throughput and even spacing of sequencing clusters.
+        meaning: GENEPIO:0100123
+        is_a: Illumina NovaSeq   [GENEPIO:0100122]
+      Illumina MiniSeq [GENEPIO:0100124]:
+        text: Illumina MiniSeq [GENEPIO:0100124]
+        description: A DNA sequencer which is manufactured by the Illumina corporation
+          using sequence-by-synthesis chemistry that fits on a benchtop and has an
+          output capacity of 1.65-7.5 Gb.
+        meaning: GENEPIO:0100124
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina MiSeq [OBI:0002003]:
+        text: Illumina MiSeq [OBI:0002003]
+        description: A DNA sequencer which is manufactured by the Illumina corporation.
+          Built upon sequencing by synthesis technology, the machine provides an end-to-end
+          solution (cluster generation, amplification, sequencing, and data analysis)
+          in a single machine.
+        meaning: OBI:0002003
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina NextSeq [GENEPIO:0100126]:
+        text: Illumina NextSeq [GENEPIO:0100126]
+        description: A DNA sequencer which is manufactured by the Illumina corporation
+          using sequence-by-synthesis chemistry that fits on a benchtop and has an
+          output capacity of 1.65-7.5 Gb.
+        meaning: GENEPIO:0100126
+        is_a: Illumina [GENEPIO:0100105]
+      Illumina NextSeq 500 [OBI:0002021]:
+        text: Illumina NextSeq 500 [OBI:0002021]
+        description: A DNA sequencer which is a desktop sequencer ideal for smaller-scale
+          studies manufactured by the Illumina corporation. It supports sequencing
+          of single, long or short insert paired end clone libraries relying on sequencing
+          by synthesis technology.
+        meaning: OBI:0002021
+        is_a: Illumina NextSeq [GENEPIO:0100126]
+      Illumina NextSeq 550 [GENEPIO:0100128]:
+        text: Illumina NextSeq 550 [GENEPIO:0100128]
+        description: A DNA sequencer which is a desktop sequencer ideal for smaller-scale
+          studies manufactured by the Illumina corporation. It supports sequencing
+          of single, long or short insert paired end clone libraries relying on sequencing
+          by synthesis technology. The 550 is an upgrade on the 500 model.
+        meaning: GENEPIO:0100128
+        is_a: Illumina NextSeq [GENEPIO:0100126]
+      Illumina NextSeq 1000 [GENEPIO:0004432]:
+        text: Illumina NextSeq 1000 [GENEPIO:0004432]
+        description: A DNA sequencer which is manufactured by the Illumina corporation
+          using sequence-by-synthesis chemistry that fits on a benchtop and uses P1
+          and P2 flow cells.
+        meaning: GENEPIO:0004432
+        is_a: Illumina NextSeq [GENEPIO:0100126]
+      Illumina NextSeq 2000 [GENEPIO:0100129]:
+        text: Illumina NextSeq 2000 [GENEPIO:0100129]
+        description: A DNA sequencer which is manufactured by the Illumina corporation
+          using sequence-by-synthesis chemistry that fits on a benchtop and has an
+          output capacity of 30-360 Gb.
+        meaning: GENEPIO:0100129
+        is_a: Illumina NextSeq [GENEPIO:0100126]
+      PacBio [GENEPIO:0100130]:
+        text: PacBio [GENEPIO:0100130]
+        description: A DNA sequencer manufactured by the Pacific Biosciences corporation.
+        meaning: GENEPIO:0100130
+      PacBio RS  [GENEPIO:0100131]:
+        text: PacBio RS  [GENEPIO:0100131]
+        description: "A DNA sequencer manufactured by the Pacific Biosciences corporation\
+          \ which utilizes \u201CSMRT Cells\u201D for single-molecule real-time sequencing.\
+          \ The RS was the first model made by the company."
+        meaning: GENEPIO:0100131
+        is_a: PacBio [GENEPIO:0100130]
+      PacBio RS II [OBI:0002012]:
+        text: PacBio RS II [OBI:0002012]
+        description: A DNA sequencer which is manufactured by the Pacific Biosciences
+          corporation. Built upon single molecule real-time sequencing technology,
+          the machine is optimized for generation with long reads and high consensus
+          accuracy.
+        meaning: OBI:0002012
+        is_a: PacBio [GENEPIO:0100130]
+      PacBio Sequel [GENEPIO:0100133]:
+        text: PacBio Sequel [GENEPIO:0100133]
+        description: A DNA sequencer built upon single molecule real-time sequencing
+          technology, optimized for generation with long reads and high consensus
+          accuracy, and manufactured by the Pacific Biosciences corporation
+        meaning: GENEPIO:0100133
+        is_a: PacBio [GENEPIO:0100130]
+      PacBio Sequel II [GENEPIO:0100134]:
+        text: PacBio Sequel II [GENEPIO:0100134]
+        description: A DNA sequencer built upon single molecule real-time sequencing
+          technology, optimized for generation of highly accurate ("HiFi") long reads,
+          and which is manufactured by the Pacific Biosciences corporation.
+        meaning: GENEPIO:0100134
+        is_a: PacBio [GENEPIO:0100130]
+      Ion Torrent [GENEPIO:0100135]:
+        text: Ion Torrent [GENEPIO:0100135]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation.
+        meaning: GENEPIO:0100135
+      Ion Torrent PGM [GENEPIO:0100136]:
+        text: Ion Torrent PGM [GENEPIO:0100136]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation which
+          utilizes Ion semiconductor sequencing and has an output capacity of 300
+          MB - 1GB.
+        meaning: GENEPIO:0100136
+        is_a: Ion Torrent [GENEPIO:0100135]
+      Ion Torrent Proton [GENEPIO:0100137]:
+        text: Ion Torrent Proton [GENEPIO:0100137]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation which
+          utilizes Ion semiconductor sequencing and has an output capacity of up to
+          15 Gb.
+        meaning: GENEPIO:0100137
+        is_a: Ion Torrent [GENEPIO:0100135]
+      Ion Torrent S5 XL [GENEPIO:0100138]:
+        text: Ion Torrent S5 XL [GENEPIO:0100138]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation which
+          utilizes Ion semiconductor sequencing and requires only a small amount of
+          input material while producing data faster than the S5 model.
+        meaning: GENEPIO:0100138
+        is_a: Ion Torrent [GENEPIO:0100135]
+      Ion Torrent S5 [GENEPIO:0100139]:
+        text: Ion Torrent S5 [GENEPIO:0100139]
+        description: A DNA sequencer manufactured by the Ion Torrent corporation which
+          utilizes Ion semiconductor sequencing and requires only a small amount of
+          input material.
+        meaning: GENEPIO:0100139
+        is_a: Ion Torrent [GENEPIO:0100135]
+      Oxford Nanopore [GENEPIO:0100140]:
+        text: Oxford Nanopore [GENEPIO:0100140]
+        description: A DNA sequencer manufactured by the Oxford Nanopore corporation.
+        meaning: GENEPIO:0100140
+      Oxford Nanopore Flongle [GENEPIO:0004433]:
+        text: Oxford Nanopore Flongle [GENEPIO:0004433]
+        description: An adapter for MinION or GridION DNA sequencers manufactured
+          by the Oxford Nanopore corporation that enables sequencing on smaller, single-use
+          flow cells.
+        meaning: GENEPIO:0004433
+        is_a: Oxford Nanopore [GENEPIO:0100140]
+      Oxford Nanopore GridION [GENEPIO:0100141]:
+        text: Oxford Nanopore GridION [GENEPIO:0100141]
+        description: A DNA sequencer that is manufactured by the Oxford Nanopore Technologies
+          corporation, that can run and analyze up to five individual flow cells producing
+          up to 150 Gb of data per run. The sequencer produces real-time results and
+          utilizes nanopore technology with the option of running the flow cells concurrently
+          or individual
+        meaning: GENEPIO:0100141
+        is_a: Oxford Nanopore [GENEPIO:0100140]
+      Oxford Nanopore MinION [GENEPIO:0100142]:
+        text: Oxford Nanopore MinION [GENEPIO:0100142]
+        description: A portable DNA sequencer which is manufactured by the Oxford
+          Nanopore Technologies corporation, that uses consumable flow cells producing
+          up to 30 Gb of DNA sequence data per flow cell. The sequencer produces real-time
+          results and utilizes nanopore technology with up to 512 nanopore channels
+          in the sensor array.
+        meaning: GENEPIO:0100142
+        is_a: Oxford Nanopore [GENEPIO:0100140]
+      Oxford Nanopore PromethION [GENEPIO:0100143]:
+        text: Oxford Nanopore PromethION [GENEPIO:0100143]
+        description: A DNA sequencer that is manufactured by the Oxford Nanopore Technologies
+          corporation, capable of running up to 48 flow cells and producing up to
+          7.6 Tb of data per run. The sequencer produces real-time results and utilizes
+          Nanopore technology, with each flow cell allowing up to 3,000 nanopores
+          to be sequencing simultaneously.
+        meaning: GENEPIO:0100143
+        is_a: Oxford Nanopore [GENEPIO:0100140]
+      BGI Genomics sequencing instrument [GENEPIO:0100144]:
+        text: BGI Genomics sequencing instrument [GENEPIO:0100144]
+        description: A DNA sequencer manufactured by the BGI Genomics corporation.
+        meaning: GENEPIO:0100144
+      BGISEQ-500 [GENEPIO:0100145]:
+        text: BGISEQ-500 [GENEPIO:0100145]
+        description: A DNA sequencer manufactured by the BGI Genomics corporation
+          that utilizes Probe-Anchor Synthesis (cPAS) chemistry and "DNA Nanoballs".
+        meaning: GENEPIO:0100145
+        is_a: BGI Genomics sequencing instrument [GENEPIO:0100144]
+      MGI sequencing instrument [GENEPIO:0100146]:
+        text: MGI sequencing instrument [GENEPIO:0100146]
+        description: A DNA sequencer manufactured by the MGI corporation.
+        meaning: GENEPIO:0100146
+      MGISEQ-2000RS [GENEPIO:0100971]:
+        text: MGISEQ-2000RS [GENEPIO:0100971]
+        description: An MGI sequencing instrument model that utilises DNA nanoball
+          and (DNB) and probe-anchor synthesis (cPAS) for next generation sequencing
+          ad which is capable of medium to high throughput sequencing.
+        meaning: GENEPIO:0100971
+        is_a: MGI sequencing instrument [GENEPIO:0100146]
+      MGI DNBSEQ-G99 [GENEPIO:0100972]:
+        text: MGI DNBSEQ-G99 [GENEPIO:0100972]
+        description: An MGI sequencing instrument model that utilises DNA nanoball
+          and (DNB) and probe-anchor synthesis (cPAS) for next generation sequencing
+          and which adopts triangular matrix signal spots on sequencing flow cell,
+          for low throughput at highspeeds.
+        meaning: GENEPIO:0100972
+        is_a: MGI sequencing instrument [GENEPIO:0100146]
+      MGI DNBSEQ-G400 [GENEPIO:0100148]:
+        text: MGI DNBSEQ-G400 [GENEPIO:0100148]
+        description: A DNA sequencer manufactured by the MGI corporation with an output
+          capacity of 55GB; 1440GB per run.
+        meaning: GENEPIO:0100148
+        is_a: MGI sequencing instrument [GENEPIO:0100146]
+      MGI DNBSEQ-G400RS FAST [GENEPIO:0100149]:
+        text: MGI DNBSEQ-G400RS FAST [GENEPIO:0100149]
+        description: A DNA sequencer manufactured by the MGI corporation with an output
+          capacity of 55GB; 330GB per run, which enables faster sequencing than the
+          DNBSEQ-G400.
+        meaning: GENEPIO:0100149
+        is_a: MGI DNBSEQ-G400 [GENEPIO:0100148]
+      MGI DNBSEQ-T7 [GENEPIO:0100147]:
+        text: MGI DNBSEQ-T7 [GENEPIO:0100147]
+        description: A high throughput DNA sequencer manufactured by the MGI corporation
+          with an output capacity of 1; 6TB of data per day.
+        meaning: GENEPIO:0100147
+        is_a: MGI sequencing instrument [GENEPIO:0100146]
+      MGI DNBSEQ-E25 [GENEPIO:0100973]:
+        text: MGI DNBSEQ-E25 [GENEPIO:0100973]
+        description: An MGI sequencing instrument model that is a compact and lightweight
+          standalone system which can bu used inside or outside the lab.
+        meaning: GENEPIO:0100973
+        is_a: MGI sequencing instrument [GENEPIO:0100146]
+      MGI DNBSEQ-G50 [GENEPIO:0100150]:
+        text: MGI DNBSEQ-G50 [GENEPIO:0100150]
+        description: "A DNA sequencer manufactured by the MGI corporation with an\
+          \ output capacity of 10\uFF5E150 GB per run and enables different read lengths."
+        meaning: GENEPIO:0100150
+        is_a: MGI sequencing instrument [GENEPIO:0100146]
+      454 Genome Sequencer [GENEPIO:0001937]:
+        text: 454 Genome Sequencer [GENEPIO:0001937]
+        description: A DNA sequencer first manufactured by 454 Life Science Corporation
+          that conducts pyrosequencing.
+        meaning: GENEPIO:0001937
+      454 Genome Sequencer 20 [OBI:0000689]:
+        text: 454 Genome Sequencer 20 [OBI:0000689]
+        description: A DNA sequencer first manufactured by 454 Life Science Corporation
+          in 2005, and enables pyrosequencing to be performed. It comprises both optics
+          and fluidics subsystems, which are controlled by a computer subsystem.
+        meaning: OBI:0000689
+        is_a: 454 Genome Sequencer [GENEPIO:0001937]
+      454 Genome Sequencer FLX [OBI:0000702]:
+        text: 454 Genome Sequencer FLX [OBI:0000702]
+        description: A DNA sequencer which was first manufactured by 454 Life Science
+          Corporation in 2008 and enables pyrosequencing to be performed. It comprises
+          both optics and fluidics subsystems, which are controlled by a computer
+          subsystem. It has the ability to sequence 400-600 million base pairs per
+          run with 400-500 base pair read lengths.
+        meaning: OBI:0000702
+        is_a: 454 Genome Sequencer [GENEPIO:0001937]
+      454 Genome Sequencer FLX+ [GENEPIO:0100982]:
+        text: 454 Genome Sequencer FLX+ [GENEPIO:0100982]
+        description: A 454 Genome Sequencer that performs pyrosequencing and comprises
+          both optics and fluidics subsystems and can be used for longer reads when
+          used with the long-read Sequencing Kit XL+.
+        meaning: GENEPIO:0100982
+        is_a: 454 Genome Sequencer [GENEPIO:0001937]
+      454 Genome Sequencer FLX Titanium [GENEPIO:0001936]:
+        text: 454 Genome Sequencer FLX Titanium [GENEPIO:0001936]
+        description: A 454 Genome Sequencer that performs pyrosequencing and has enhanced
+          capacity and generates longer reads.
+        meaning: GENEPIO:0001936
+        is_a: 454 Genome Sequencer [GENEPIO:0001937]
+      454 Genome Sequencer Junior [GENEPIO:0001938]:
+        text: 454 Genome Sequencer Junior [GENEPIO:0001938]
+        description: A 454 Genome Sequencer that performs pyrosequencing and is more
+          compact.
+        meaning: GENEPIO:0001938
+        is_a: 454 Genome Sequencer [GENEPIO:0001937]
+      SOLiD System [OBI:0000696]:
+        text: SOLiD System [OBI:0000696]
+        description: A DNA sequencer which is manufactured by Applied Biosystems and
+          which enable DNA sequencing by ligation.
+        meaning: OBI:0000696
+      SOLiD 5500 [GENEPIO:0001929]:
+        text: SOLiD 5500 [GENEPIO:0001929]
+        description: A DNA sequencer which is manufactured by Applied Biosystems and
+          utillizes sequencing by ligation technology and faster run times than the
+          SOLiD 4 series.
+        meaning: GENEPIO:0001929
+        is_a: SOLiD System [OBI:0000696]
+      SOLiD 5500xl Genetic Analyzer [GENEPIO:0001930]:
+        text: SOLiD 5500xl Genetic Analyzer [GENEPIO:0001930]
+        description: A DNA sequencer which is manufactured by Applied Biosystems and
+          has two FlowChips for across 12 lanes and with a higher throughput than
+          the 5500 model.
+        meaning: GENEPIO:0001930
+        is_a: SOLiD System [OBI:0000696]
+      SOLiD 5500x-Wl Genetic Analyzer [GENEPIO:0100984]:
+        text: SOLiD 5500x-Wl Genetic Analyzer [GENEPIO:0100984]
+        description: A DNA sequencer which is manufactured by the Applied Biosystems
+          corporation. Built upon SOLiD sequencing technology and with a higher throughput
+          than  SOLiD 5500xl Genetic Analyzer.
+        meaning: GENEPIO:0100984
+        is_a: SOLiD System [OBI:0000696]
+      SOLiD 3 Plus System [OBI:0002007]:
+        text: SOLiD 3 Plus System [OBI:0002007]
+        description: A DNA sequencer which is manufactured by the Applied Biosystems
+          corporation. Built upon SOLiD sequencing technology, the machine generates
+          greater than 1 billion mappable reads per run.
+        meaning: OBI:0002007
+        is_a: SOLiD System [OBI:0000696]
+      SOLiD 4 System [OBI:0002024]:
+        text: SOLiD 4 System [OBI:0002024]
+        description: A DNA sequencer which is manufactured by the Applied Biosystems
+          corporation. Built upon SOLiD sequencing technology with 100 Gb mappable
+          throughput.
+        meaning: OBI:0002024
+        is_a: SOLiD System [OBI:0000696]
+      SOLiD 4hq System [GENEPIO:0001928]:
+        text: SOLiD 4hq System [GENEPIO:0001928]
+        description: A DNA sequencer which is manufactured by the Applied Biosystems
+          corporation. Built upon SOLiD sequencing technology with 300 Gb mappable
+          throughput.
+        meaning: GENEPIO:0001928
+        is_a: SOLiD System [OBI:0000696]
+      SOLiD PI System [GENEPIO:0001931]:
+        text: SOLiD PI System [GENEPIO:0001931]
+        description: A DNA sequencer which is manufactured by the Applied Biosystems
+          corporation. Built upon SOLiD sequencing technology, the machine offers
+          50Gb mappable throughput.
+        meaning: GENEPIO:0001931
+        is_a: SOLiD System [OBI:0000696]
+      SOLiD System 2.0 [GENEPIO:0001932]:
+        text: SOLiD System 2.0 [GENEPIO:0001932]
+        description: A DNA sequencer which is manufactured by the Applied Biosystems
+          corporation.
+        meaning: GENEPIO:0001932
+        is_a: SOLiD System [OBI:0000696]
+      SOLiD System 3.0 [GENEPIO:0001933]:
+        text: SOLiD System 3.0 [GENEPIO:0001933]
+        description: A DNA sequencer which is manufactured by the Applied Biosystems
+          corporation.
+        meaning: GENEPIO:0001933
+        is_a: SOLiD System [OBI:0000696]
+      HeliScope Single Molecule Sequencer [OBI:0000717]:
+        text: HeliScope Single Molecule Sequencer [OBI:0000717]
+        description: A DNA sequencer manufacturer by Helicos Corporation to carry
+          out Single Molecule sequencing using reversible termination chemistry.
+        meaning: OBI:0000717
+      Applied Biosystems sequencing instrument model [GENEPIO:0100974]:
+        text: Applied Biosystems sequencing instrument model [GENEPIO:0100974]
+        description: A sequencing instrument model that is manufactured by Applied
+          Biosystems and which performs Sanger sequencing and fragment analysis by
+          capillary electrophoresis.
+        meaning: GENEPIO:0100974
+      AB 310 Genetic Analyzer [GENEPIO:0100975]:
+        text: AB 310 Genetic Analyzer [GENEPIO:0100975]
+        description: An Applied Biosystems sequencing instrument model which utilises
+          a single capillary electrophoresis system to perform Sanger sequencing and
+          fragment analysis that is automated.
+        meaning: GENEPIO:0100975
+        is_a: Applied Biosystems sequencing instrument model [GENEPIO:0100974]
+      AB 3130 Genetic Analyzer [GENEPIO:0100976]:
+        text: AB 3130 Genetic Analyzer [GENEPIO:0100976]
+        description: An Applied Biosystems sequencing instrument model which performs
+          capillary electrophoresis to sequence DNA and has 4 capillaries.
+        meaning: GENEPIO:0100976
+        is_a: Applied Biosystems sequencing instrument model [GENEPIO:0100974]
+      AB 3130xL Genetic Analyzer [GENEPIO:0100977]:
+        text: AB 3130xL Genetic Analyzer [GENEPIO:0100977]
+        description: An Applied Biosystems sequencing instrument model which performs
+          capillary electrophoresis to sequence DNA and has 16 capillaries.
+        meaning: GENEPIO:0100977
+        is_a: Applied Biosystems sequencing instrument model [GENEPIO:0100974]
+      AB 3500 Genetic Analyzer [GENEPIO:0100978]:
+        text: AB 3500 Genetic Analyzer [GENEPIO:0100978]
+        description: An Applied Biosystems sequencing instrument model which performs
+          capillary electrophoresis to sequence DNA and has 8 capillaries, which can
+          run 96 well plates.
+        meaning: GENEPIO:0100978
+        is_a: Applied Biosystems sequencing instrument model [GENEPIO:0100974]
+      AB 3500xL Genetic Analyzer [GENEPIO:0100979]:
+        text: AB 3500xL Genetic Analyzer [GENEPIO:0100979]
+        description: An Applied Biosystems sequencing instrument model which performs
+          capillary electrophoresis to sequence DNA and has 24 capillaries, which
+          can run 384 well plates.
+        meaning: GENEPIO:0100979
+        is_a: Applied Biosystems sequencing instrument model [GENEPIO:0100974]
+      AB 3730 Genetic Analyzer [GENEPIO:0100980]:
+        text: AB 3730 Genetic Analyzer [GENEPIO:0100980]
+        description: An Applied Biosystems sequencing instrument model which utilises
+          an 48 capillary array electrophoresis system for sequencing.
+        meaning: GENEPIO:0100980
+        is_a: Applied Biosystems sequencing instrument model [GENEPIO:0100974]
+      AB 3730xL Genetic Analyzer [GENEPIO:0100981]:
+        text: AB 3730xL Genetic Analyzer [GENEPIO:0100981]
+        description: An Applied Biosystems sequencing instrument model which utilises
+          an 96 capillary array electrophoresis system for sequencing.
+        meaning: GENEPIO:0100981
+        is_a: Applied Biosystems sequencing instrument model [GENEPIO:0100974]
+  GenomicTargetEnrichmentMethodMenu:
+    name: GenomicTargetEnrichmentMethodMenu
+    title: genomic_target_enrichment_method menu
+    permissible_values:
+      Hybrid selection method (bait-capture) [GENEPIO:0001950]:
+        text: Hybrid selection method (bait-capture) [GENEPIO:0001950]
+        description: Selection by hybridization in array or solution.
+        meaning: GENEPIO:0001950
+      rRNA depletion method [GENEPIO:0101020]:
+        text: rRNA depletion method [GENEPIO:0101020]
+        description: Removal of background RNA for the purposes of enriching the genomic
+          target.
+        meaning: GENEPIO:0101020
+  QualityControlDeterminationMenu:
+    name: QualityControlDeterminationMenu
+    title: quality_control_determination menu
+    permissible_values:
+      No quality control issues identified [GENEPIO:0100562]:
+        text: No quality control issues identified [GENEPIO:0100562]
+        description: A statement confirming that quality control processes were carried
+          out and no quality issues were detected.
+        meaning: GENEPIO:0100562
+      Sequence passed quality control [GENEPIO:0100563]:
+        text: Sequence passed quality control [GENEPIO:0100563]
+        description: A statement confirming that quality control processes were carried
+          out and that the sequence met the assessment criteria.
+        meaning: GENEPIO:0100563
+      Sequence failed quality control [GENEPIO:0100564]:
+        text: Sequence failed quality control [GENEPIO:0100564]
+        description: A statement confirming that quality control processes were carried
+          out and that the sequence did not meet the assessment criteria.
+        meaning: GENEPIO:0100564
+      Minor quality control issues identified [GENEPIO:0100565]:
+        text: Minor quality control issues identified [GENEPIO:0100565]
+        description: A statement confirming that quality control processes were carried
+          out and that the sequence did not meet the assessment criteria, however
+          the issues detected were minor.
+        meaning: GENEPIO:0100565
+      Sequence flagged for potential quality control issues [GENEPIO:0100566]:
+        text: Sequence flagged for potential quality control issues [GENEPIO:0100566]
+        description: A statement confirming that quality control processes were carried
+          out however it is unclear whether the sequence meets the assessment criteria
+          and the assessment requires review.
+        meaning: GENEPIO:0100566
+      Quality control not performed [GENEPIO:0100567]:
+        text: Quality control not performed [GENEPIO:0100567]
+        description: A statement confirming that quality control processes have not
+          been carried out.
+        meaning: GENEPIO:0100567
+  QualityControlIssuesMenu:
+    name: QualityControlIssuesMenu
+    title: quality_control_issues menu
+    permissible_values:
+      Low quality sequence [GENEPIO:0100568]:
+        text: Low quality sequence [GENEPIO:0100568]
+        description: Sequence data that does not meet quality control thresholds.
+        meaning: GENEPIO:0100568
+      Sequence contaminated [GENEPIO:0100569]:
+        text: Sequence contaminated [GENEPIO:0100569]
+        description: Sequence data that contains reads from unintended targets (e.g.
+          other organisms, other samples) due to contamination so that it does not
+          faithfully represent the genetic information from the biological source.
+        meaning: GENEPIO:0100569
+      Low average genome coverage [GENEPIO:0100570]:
+        text: Low average genome coverage [GENEPIO:0100570]
+        description: Sequence data in which the entire length of the genome is not
+          sufficiently sequenced (low breadth of coverage), or particular positions
+          of the genome are not sequenced a prescribed number of times (low depth
+          of coverage).
+        meaning: GENEPIO:0100570
+      Low percent genome captured [GENEPIO:0100571]:
+        text: Low percent genome captured [GENEPIO:0100571]
+        description: Sequence data in which the entire length of the genome is not
+          sufficiently sequenced (low breadth of coverage).
+        meaning: GENEPIO:0100571
+      Read lengths shorter than expected [GENEPIO:0100572]:
+        text: Read lengths shorter than expected [GENEPIO:0100572]
+        description: Average sequence read lengths that are below the expected size
+          range given a particular sequencing instrument, reagents and conditions.
+        meaning: GENEPIO:0100572
+      Sequence amplification artifacts [GENEPIO:0100573]:
+        text: Sequence amplification artifacts [GENEPIO:0100573]
+        description: Sequence data containing errors generated during the PCR amplification
+          process during library generation (e.g. mutations, altered read distribution,
+          amplicon dropouts).
+        meaning: GENEPIO:0100573
+      Low signal to noise ratio [GENEPIO:0100574]:
+        text: Low signal to noise ratio [GENEPIO:0100574]
+        description: Sequence data containing more errors or undetermined bases (noise)
+          than sequence representing the biological source (signal).
+        meaning: GENEPIO:0100574
+      Low coverage of characteristic mutations [GENEPIO:0100575]:
+        text: Low coverage of characteristic mutations [GENEPIO:0100575]
+        description: Sequence data that contains a lower than expected number of mutations
+          that are usually observed in the reference sequence.
+        meaning: GENEPIO:0100575
+  DiagnosticTargetPresenceMenu:
+    name: DiagnosticTargetPresenceMenu
+    title: diagnostic target presence menu
+    permissible_values:
+      diagnostic target present [GENEPIO:0100987]:
+        text: diagnostic target present [GENEPIO:0100987]
+        description: A quality inhering in a bearer by virtue of the bearer's existence.
+        meaning: GENEPIO:0100987
+      diagnostic target absent [GENEPIO:0100988]:
+        text: diagnostic target absent [GENEPIO:0100988]
+        description: Aquality denoting the lack of an entity.
+        meaning: GENEPIO:0100988
+  DiagnosticMeasurementUnitMenu:
+    name: DiagnosticMeasurementUnitMenu
+    title: diagnostic measurement unit menu
+    permissible_values:
+      gene copies per liter (GC/L):
+        text: gene copies per liter (GC/L)
+        description: A unit that measures the number of copies of a given gene within
+          a liter of a biological material.
+      cycle threshold (Ct)  [GENEPIO:0100657]:
+        text: cycle threshold (Ct)  [GENEPIO:0100657]
+        description: A data field which describes the cycle threshold (Ct) value result
+          from a diagnostic reverse transcription polymerase chain reaction (RT-PCR)
+          test.
+        meaning: GENEPIO:0100657
+      colony forming units per milliliter (CFU/mL) [UO:0000213]:
+        text: colony forming units per milliliter (CFU/mL) [UO:0000213]
+        description: A unit of microbial density that describes the number of colony
+          forming units within a milliliter of material.
+        meaning: UO:0000213
+      colony forming units per 100 milliliter (CFU/100 mL):
+        text: colony forming units per 100 milliliter (CFU/100 mL)
+        description: A unit of microbial density that describes the number of colony
+          forming units within 100 milliliters of material.
+      colony forming units per grams total solids (CFU/gTS):
+        text: colony forming units per grams total solids (CFU/gTS)
+        description: A unit of microbial density that describes the number of colony
+          forming units within a gram of total solids in waste material.
+      most probable number per milliliter (MPN/mL):
+        text: most probable number per milliliter (MPN/mL)
+        description: A unit of microbial density that describes the most probable
+          number of microbes within one milliliter of material.
+      most probable number per 100 milliliter (MPN/100 mL):
+        text: most probable number per 100 milliliter (MPN/100 mL)
+        description: A unit of microbial density that describes the most probable
+          number of microbes within 100 milliliters of material.
+  DiagnosticMeasurementMethodMenu:
+    name: DiagnosticMeasurementMethodMenu
+    title: diagnostic measurement method menu
+    permissible_values:
+      Quantitative real time polymerase chain reaction (qPCR) [OBI:0000893]:
+        text: Quantitative real time polymerase chain reaction (qPCR) [OBI:0000893]
+        description: An assay, based on the PCR, that amplifies and simultaneously
+          quantifies a specific DNA molecule based on the use of complementary probes/primers.
+          It enables both detection and quantification (as absolute number of copies
+          or relative amount when normalized to DNA input or additional normalizing
+          genes) of one or more specific sequences in a DNA sample.
+        meaning: OBI:0000893
+      Digital real time polymerase chain reaction (dPCR):
+        text: Digital real time polymerase chain reaction (dPCR)
+        description: A type of polymerase chain reaction technique in which the sample
+          is fractionated, within which individual PCR reactions occur in each fraction
+      Bacteria culture test:
+        text: Bacteria culture test
+        description: An assay to identify the presence of bacteria
+  ExperimentalInterventionMenu:
+    name: ExperimentalInterventionMenu
+    title: experimental_intervention menu
+    permissible_values:
+      Addition of substances to food/water [GENEPIO:0100536]:
+        text: Addition of substances to food/water [GENEPIO:0100536]
+        description: The addition of substances to food or water administered to an
+          individual or group of individuals.
+        meaning: GENEPIO:0100536
+      Antimicrobial pre-treatment [GENEPIO:0100537]:
+        text: Antimicrobial pre-treatment [GENEPIO:0100537]
+        description: The administration of an antimicrobial agent to an individual
+          or its addition to a substance prior to some other event or activity.
+        meaning: GENEPIO:0100537
+      Certified animal husbandry practices [GENEPIO:0100538]:
+        text: Certified animal husbandry practices [GENEPIO:0100538]
+        description: The implementation of animal husbandy practices that have been
+          certified by an authorized organization.
+        meaning: GENEPIO:0100538
+      Certified organic farming practices [GENEPIO:0100539]:
+        text: Certified organic farming practices [GENEPIO:0100539]
+        description: The implementation of organic farming practices that have been
+          certified by an authorized organization.
+        meaning: GENEPIO:0100539
+      Change in storage conditions [GENEPIO:0100540]:
+        text: Change in storage conditions [GENEPIO:0100540]
+        description: A change in the storage conditions of a material or a substance.
+        meaning: GENEPIO:0100540
+      Cleaning/disinfection [GENEPIO:0100541]:
+        text: Cleaning/disinfection [GENEPIO:0100541]
+        description: A process of removing unwanted substances, such as dirt, infectious
+          agents, and other impurities, from an object or environment.
+        meaning: GENEPIO:0100541
+      Extended downtime between activities [GENEPIO:0100542]:
+        text: Extended downtime between activities [GENEPIO:0100542]
+        description: A prolonged period of inactivity between processes or events.
+        meaning: GENEPIO:0100542
+      Fertilizer pre-treatment [GENEPIO:0100543]:
+        text: Fertilizer pre-treatment [GENEPIO:0100543]
+        description: The addition of fertilizer to a material or environment prior
+          to some other event or activity.
+        meaning: GENEPIO:0100543
+      Logistic slaughter [GENEPIO:0100545]:
+        text: Logistic slaughter [GENEPIO:0100545]
+        description: The logistical planning of events and processes upstream of the
+          immediate slaughter of an animal (which may include controlling transport
+          climate; traffic conditions, number of pick-up farms, as well as time and
+          distance during transport; queuing at the abattoir etc) that optimize operations
+          and reduce stress on the animal.
+        meaning: GENEPIO:0100545
+      Microbial pre-treatment [GENEPIO:0100546]:
+        text: Microbial pre-treatment [GENEPIO:0100546]
+        description: The deliberate addition of microbes or a mixture of microbes
+          to an individual or substance prior to some other event or activity.
+        meaning: GENEPIO:0100546
+      Probiotic pre-treatment [GENEPIO:0100547]:
+        text: Probiotic pre-treatment [GENEPIO:0100547]
+        description: The addition of a probiotic substance to an individual or material
+          prior to some other event or activity.
+        meaning: GENEPIO:0100547
+      Vaccination [NCIT:C15346]:
+        text: Vaccination [NCIT:C15346]
+        description: Administration of vaccines to stimulate the host's immune response.
+          This includes any preparation intended for active immunological prophylaxis
+          or treatment.
+        meaning: NCIT:C15346
   AirPressureMeasurementUnitMenu:
     name: AirPressureMeasurementUnitMenu
     title: air_pressure_measurement_unit menu
@@ -12414,46 +13272,96 @@ enums:
     permissible_values:
       cubic meter per second (m^3/s):
         text: cubic meter per second (m^3/s)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one cubic meter of matter crosses a given surface during the period of
+          time equal to one second.
       cubic meter per minute (m^3/min):
         text: cubic meter per minute (m^3/min)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one cubic meter of matter crosses a given surface during the period of
+          time equal to one minute.
       cubic meter per hour (m^3/h):
         text: cubic meter per hour (m^3/h)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one cubic meter of matter crosses a given surface during the period of
+          time equal to one hour.
       liter per second (L/s):
         text: liter per second (L/s)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one liter of matter crosses a given surface during the period of time
+          equal to one second.
       liter per minute (L/min):
         text: liter per minute (L/min)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one liter of matter crosses a given surface during the period of time
+          equal to one minute.
       liter per hour (L/h):
         text: liter per hour (L/h)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one liter of matter crosses a given surface during the period of time
+          equal to one hour.
       liter per day (L/day):
         text: liter per day (L/day)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one liter of matter crosses a given surface during the period of time
+          equal to one day.
       million gallons per day (MGD):
         text: million gallons per day (MGD)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one million gallons of matter crosses a given surface during the period
+          of time equal to one day.
   InstantaneousFlowRateMeasurementUnitMenu:
     name: InstantaneousFlowRateMeasurementUnitMenu
     title: instantaneous_flow_rate_measurement_unit menu
     permissible_values:
       cubic meter per second (m^3/s):
         text: cubic meter per second (m^3/s)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one cubic meter of matter crosses a given surface during the period of
+          time equal to one second.
       cubic meter per minute (m^3/min):
         text: cubic meter per minute (m^3/min)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one cubic meter of matter crosses a given surface during the period of
+          time equal to one minute.
       cubic meter per hour (m^3/h):
         text: cubic meter per hour (m^3/h)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one cubic meter of matter crosses a given surface during the period of
+          time equal to one hour.
       liter per second (L/s):
         text: liter per second (L/s)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one liter of matter crosses a given surface during the period of time
+          equal to one second.
       liter per minute (L/min):
         text: liter per minute (L/min)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one liter of matter crosses a given surface during the period of time
+          equal to one minute.
       liter per hour (L/h):
         text: liter per hour (L/h)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one liter of matter crosses a given surface during the period of time
+          equal to one hour.
       liter per day (L/day):
         text: liter per day (L/day)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one liter of matter crosses a given surface during the period of time
+          equal to one day.
       million gallons per day (MGD):
         text: million gallons per day (MGD)
+        description: A volumetric flow rate unit which is the measure of the volume
+          of one million gallons of matter crosses a given surface during the period
+          of time equal to one day.
   TurbidityMeasurementUnitMenu:
     name: TurbidityMeasurementUnitMenu
     title: turbidity_measurement_unit menu
     permissible_values:
       nephelometric turbidity unit (NTU):
         text: nephelometric turbidity unit (NTU)
+        description: A measure of turbidity calculated by using a nephelometer to
+          compare how white light is scattered in a water sample.
       formazin nephelometric unit (FNU) [UO:0000318]:
         text: formazin nephelometric unit (FNU) [UO:0000318]
         description: A measure of turbidity calculated by comparing how infrared light
@@ -12551,6 +13459,8 @@ enums:
     permissible_values:
       milliequivalent per liter (meq/L):
         text: milliequivalent per liter (meq/L)
+        description: A unit of ion concentration that represents chemical activity
+          per volume.
       milligram per liter (mg/L) [UO:0000273]:
         text: milligram per liter (mg/L) [UO:0000273]
         description: A non-SI unit of density that is equivalent to the SI metric
@@ -12567,18 +13477,27 @@ enums:
     permissible_values:
       milliSiemen per centimeter (mS/cm):
         text: milliSiemen per centimeter (mS/cm)
+        description: A non-SI unit of electrical conductivity that is equivalent to
+          one tenth of a Siemen per meter (S/m).
       "microSiemen per centimeter (\u03BCS/cm)":
         text: "microSiemen per centimeter (\u03BCS/cm)"
+        description: A non-SI unit of electrical conductivity that is equivalent to
+          one ten thousandth of a Siemen per meter (S/m).
       Siemen per meter (S/m):
         text: Siemen per meter (S/m)
+        description: An SI unit of electrical conductivity that is equivalent to an
+          ampere per volt per meter (A/v/m).
   SalinityMeasurementUnitMenu:
     name: SalinityMeasurementUnitMenu
     title: salinity_measurement_unit menu
     permissible_values:
       practical salinity unit (PSU):
         text: practical salinity unit (PSU)
+        description: A unitless measure of salinity that is equivalent to per thousand.
       weight for weight (% w/w):
         text: weight for weight (% w/w)
+        description: A unitless comparison based on weight rather than volume, which
+          is equivalent to per hundred.
       parts per thousand [UO:0000168]:
         text: parts per thousand [UO:0000168]
         description: A dimensionless concentration notation which denotes the amount
@@ -12606,12 +13525,16 @@ enums:
         meaning: UO:0000175
       gram per total solids (g/gTS):
         text: gram per total solids (g/gTS)
+        description: A unitless comparison of the weight of a substance as a proportion
+          to the weight of total solids.
   TotalPhosphorpusTpMeasurementUnitMenu:
     name: TotalPhosphorpusTpMeasurementUnitMenu
     title: total_phosphorpus_(TP)_measurement_unit menu
     permissible_values:
       gram per total solids (g/gTS):
         text: gram per total solids (g/gTS)
+        description: A unitless comparison of the weight of a substance as a proportion
+          to the weight of total solids.
       orthophosphate as phosphorus per total solids (gPO4-P/gTS) [GENEPIO:0100998]:
         text: orthophosphate as phosphorus per total solids (gPO4-P/gTS) [GENEPIO:0100998]
         description: A substance unit which describes the weight of orthophosphate
@@ -12665,8 +13588,12 @@ enums:
     permissible_values:
       log10 gene copies per 100 milliliter (log10 GC/100 mL):
         text: log10 gene copies per 100 milliliter (log10 GC/100 mL)
+        description: A unit that expresses on a logarithmic scale the number of copies
+          of a given gene within one hundred milliliters of a biological material.
       gene copies per liter (GC/L):
         text: gene copies per liter (GC/L)
+        description: A unit that measures the number of copies of a given gene within
+          a liter of a biological material.
       PCR quantification cycle [UO:0010077]:
         text: PCR quantification cycle [UO:0010077]
         description: A count unit of how many Polymerase Chain Reaction (PCR) cycles
@@ -12675,6 +13602,8 @@ enums:
         meaning: UO:0010077
       log10 gene copies per nanogram total DNA:
         text: log10 gene copies per nanogram total DNA
+        description: A unit that expresses on a logarithmic scale the number of copies
+          within a nanogram of deoxyribonucleic acid genetic material.
   UrinaryContaminationIndicatorMenu:
     name: UrinaryContaminationIndicatorMenu
     title: urinary_contamination_indicator menu
@@ -12704,12 +13633,20 @@ enums:
         meaning: UO:0000213
       colony forming units per 100 milliliter (CFU/100 mL):
         text: colony forming units per 100 milliliter (CFU/100 mL)
+        description: A unit of microbial density that describes the number of colony
+          forming units within 100 milliliters of material.
       colony forming units per grams total solids (CFU/gTS):
         text: colony forming units per grams total solids (CFU/gTS)
+        description: A unit of microbial density that describes the number of colony
+          forming units within a gram of total solids in waste material.
       most probable number per milliliter (MPN/mL):
         text: most probable number per milliliter (MPN/mL)
+        description: A unit of microbial density that describes the most probable
+          number of microbes within one milliliter of material.
       most probable number per 100 milliliter (MPN/100 mL):
         text: most probable number per 100 milliliter (MPN/100 mL)
+        description: A unit of microbial density that describes the most probable
+          number of microbes within 100 milliliters of material.
   SampleTemperatureUnitAtCollectionMenu:
     name: SampleTemperatureUnitAtCollectionMenu
     title: sample_temperature_unit_(at collection) menu
