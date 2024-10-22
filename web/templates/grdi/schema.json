@@ -2,7 +2,7 @@
   "name": "GRDI",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "12.2.2",
+  "version": "13.3.3",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -298,7 +298,6 @@
   "enums": {
     "NullValueMenu": {
       "name": "NullValueMenu",
-      "description": "",
       "title": "null value menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -311,7 +310,7 @@
         "Missing [GENEPIO:0001618]": {
           "text": "Missing [GENEPIO:0001618]",
           "exact_mappings": [
-            "NCBI_ANTIBIOGRAM:missing"
+            "NCBI_ANTIBIOGRAM:Missing"
           ]
         },
         "Not Collected [GENEPIO:0001620]": {
@@ -336,7 +335,6 @@
     },
     "SampleCollectedByMenu": {
       "name": "SampleCollectedByMenu",
-      "description": "",
       "title": "sample_collected_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -365,7 +363,6 @@
     },
     "PurposeOfSamplingMenu": {
       "name": "PurposeOfSamplingMenu",
-      "description": "",
       "title": "purpose_of_sampling menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -400,7 +397,6 @@
     },
     "PresamplingActivityMenu": {
       "name": "PresamplingActivityMenu",
-      "description": "",
       "title": "presampling_activity menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -483,7 +479,6 @@
     },
     "ExperimentalSpecimenRoleTypeMenu": {
       "name": "ExperimentalSpecimenRoleTypeMenu",
-      "description": "",
       "title": "experimental_specimen_role_type menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -503,7 +498,6 @@
     },
     "SpecimenProcessingMenu": {
       "name": "SpecimenProcessingMenu",
-      "description": "",
       "title": "specimen_processing menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -523,7 +517,6 @@
     },
     "GeoLocNameCountryMenu": {
       "name": "GeoLocNameCountryMenu",
-      "description": "",
       "title": "geo_loc_name (country) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1344,7 +1337,6 @@
     },
     "GeoLocNameStateProvinceRegionMenu": {
       "name": "GeoLocNameStateProvinceRegionMenu",
-      "description": "",
       "title": "geo_loc_name (state/province/region) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1419,7 +1411,6 @@
     },
     "SampleCollectionDatePrecisionMenu": {
       "name": "SampleCollectionDatePrecisionMenu",
-      "description": "",
       "title": "sample_collection_date_precision menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1436,7 +1427,6 @@
     },
     "EnvironmentalSiteMenu": {
       "name": "EnvironmentalSiteMenu",
-      "description": "",
       "title": "environmental_site menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1703,7 +1693,6 @@
     },
     "WaterDepthUnitsMenu": {
       "name": "WaterDepthUnitsMenu",
-      "description": "",
       "title": "water_depth_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1726,7 +1715,6 @@
     },
     "SedimentDepthUnitsMenu": {
       "name": "SedimentDepthUnitsMenu",
-      "description": "",
       "title": "sediment_depth_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1749,7 +1737,6 @@
     },
     "AirTemperatureUnitsMenu": {
       "name": "AirTemperatureUnitsMenu",
-      "description": "",
       "title": "air_temperature_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1763,7 +1750,6 @@
     },
     "WaterTemperatureUnitsMenu": {
       "name": "WaterTemperatureUnitsMenu",
-      "description": "",
       "title": "water_temperature_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1777,7 +1763,6 @@
     },
     "PrecipitationMeasurementUnitMenu": {
       "name": "PrecipitationMeasurementUnitMenu",
-      "description": "",
       "title": "precipitation_measurement_unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1800,7 +1785,6 @@
     },
     "AvailableDataTypesMenu": {
       "name": "AvailableDataTypesMenu",
-      "description": "",
       "title": "available_data_types menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -1997,7 +1981,6 @@
     },
     "SamplingWeatherConditionsMenu": {
       "name": "SamplingWeatherConditionsMenu",
-      "description": "",
       "title": "sampling_weather_conditions menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -2030,7 +2013,6 @@
     },
     "AnimalOrPlantPopulationMenu": {
       "name": "AnimalOrPlantPopulationMenu",
-      "description": "",
       "title": "animal_or_plant_population menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -2102,7 +2084,6 @@
     },
     "EnvironmentalMaterialMenu": {
       "name": "EnvironmentalMaterialMenu",
-      "description": "",
       "title": "environmental_material menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -2330,7 +2311,6 @@
     },
     "AnatomicalMaterialMenu": {
       "name": "AnatomicalMaterialMenu",
-      "description": "",
       "title": "anatomical_material menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -2359,7 +2339,6 @@
     },
     "BodyProductMenu": {
       "name": "BodyProductMenu",
-      "description": "",
       "title": "body_product menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -2411,7 +2390,6 @@
     },
     "AnatomicalPartMenu": {
       "name": "AnatomicalPartMenu",
-      "description": "",
       "title": "anatomical_part menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -2744,7 +2722,6 @@
     },
     "AnatomicalRegionMenu": {
       "name": "AnatomicalRegionMenu",
-      "description": "",
       "title": "anatomical_region menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -2761,7 +2738,6 @@
     },
     "FoodProductMenu": {
       "name": "FoodProductMenu",
-      "description": "",
       "title": "food_product menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -3673,7 +3649,6 @@
     },
     "FoodProductPropertiesMenu": {
       "name": "FoodProductPropertiesMenu",
-      "description": "",
       "title": "food_product_properties menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -3754,7 +3729,6 @@
     },
     "LabelClaimMenu": {
       "name": "LabelClaimMenu",
-      "description": "",
       "title": "label_claim menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -3780,7 +3754,6 @@
     },
     "AnimalSourceOfFoodMenu": {
       "name": "AnimalSourceOfFoodMenu",
-      "description": "",
       "title": "animal_source_of_food menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -3830,7 +3803,6 @@
     },
     "FoodProductProductionStreamMenu": {
       "name": "FoodProductProductionStreamMenu",
-      "description": "",
       "title": "food_product_production_stream menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -3863,7 +3835,6 @@
     },
     "CollectionDeviceMenu": {
       "name": "CollectionDeviceMenu",
-      "description": "",
       "title": "collection_device menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -3943,7 +3914,6 @@
     },
     "CollectionMethodMenu": {
       "name": "CollectionMethodMenu",
-      "description": "",
       "title": "collection_method menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4003,7 +3973,6 @@
     },
     "SampleVolumeMeasurementUnitMenu": {
       "name": "SampleVolumeMeasurementUnitMenu",
-      "description": "",
       "title": "sample_volume_measurement_unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4020,7 +3989,6 @@
     },
     "ResidualSampleStatusMenu": {
       "name": "ResidualSampleStatusMenu",
-      "description": "",
       "title": "residual_sample_status menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4037,7 +4005,6 @@
     },
     "SampleStorageDurationUnitMenu": {
       "name": "SampleStorageDurationUnitMenu",
-      "description": "",
       "title": "sample_storage_duration_unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4066,7 +4033,6 @@
     },
     "NucelicAcidStorageDurationUnitMenu": {
       "name": "NucelicAcidStorageDurationUnitMenu",
-      "description": "",
       "title": "nucelic_acid_storage_duration_unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4095,7 +4061,6 @@
     },
     "FoodPackagingMenu": {
       "name": "FoodPackagingMenu",
-      "description": "",
       "title": "food_packaging menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4137,7 +4102,6 @@
     },
     "HostCommonNameMenu": {
       "name": "HostCommonNameMenu",
-      "description": "",
       "title": "host (common name) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4269,7 +4233,6 @@
     },
     "HostScientificNameMenu": {
       "name": "HostScientificNameMenu",
-      "description": "",
       "title": "host (scientific name) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4340,7 +4303,6 @@
     },
     "HostFoodProductionNameMenu": {
       "name": "HostFoodProductionNameMenu",
-      "description": "",
       "title": "host (food production name) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4541,7 +4503,6 @@
     },
     "HostAgeBinMenu": {
       "name": "HostAgeBinMenu",
-      "description": "",
       "title": "host_age_bin menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4567,7 +4528,6 @@
     },
     "IsolatedByMenu": {
       "name": "IsolatedByMenu",
-      "description": "",
       "title": "isolated_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -4593,7 +4553,6 @@
     },
     "OrganismMenu": {
       "name": "OrganismMenu",
-      "description": "",
       "title": "organism menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5070,7 +5029,6 @@
     },
     "TaxonomicIdentificationProcessMenu": {
       "name": "TaxonomicIdentificationProcessMenu",
-      "description": "",
       "title": "taxonomic_identification_process menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5093,7 +5051,6 @@
     },
     "SequencedByMenu": {
       "name": "SequencedByMenu",
-      "description": "",
       "title": "sequenced_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5122,7 +5079,6 @@
     },
     "PurposeOfSequencingMenu": {
       "name": "PurposeOfSequencingMenu",
-      "description": "",
       "title": "purpose_of_sequencing menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5161,7 +5117,6 @@
     },
     "SequencingPlatformMenu": {
       "name": "SequencingPlatformMenu",
-      "description": "",
       "title": "sequencing_platform menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5187,7 +5142,6 @@
     },
     "SequencingInstrumentMenu": {
       "name": "SequencingInstrumentMenu",
-      "description": "A DNA sequencer manufactured by the Illumina corporation.",
       "title": "sequencing_instrument menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5429,7 +5383,6 @@
     },
     "SequencingAssayTypeMenu": {
       "name": "SequencingAssayTypeMenu",
-      "description": "",
       "title": "sequencing_assay_type menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5454,7 +5407,6 @@
     },
     "GenomicTargetEnrichmentMethodMenu": {
       "name": "GenomicTargetEnrichmentMethodMenu",
-      "description": "",
       "title": "genomic_target_enrichment_method menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5468,7 +5420,6 @@
     },
     "SequenceSubmittedByMenu": {
       "name": "SequenceSubmittedByMenu",
-      "description": "",
       "title": "sequence_submitted_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5497,7 +5448,6 @@
     },
     "QualityControlDeterminationMenu": {
       "name": "QualityControlDeterminationMenu",
-      "description": "",
       "title": "quality_control_determination menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5523,7 +5473,6 @@
     },
     "QualityControlIssuesMenu": {
       "name": "QualityControlIssuesMenu",
-      "description": "",
       "title": "quality _control_issues menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5555,7 +5504,6 @@
     },
     "AttributePackageMenu": {
       "name": "AttributePackageMenu",
-      "description": "",
       "title": "attribute_package menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5569,7 +5517,6 @@
     },
     "ExperimentalInterventionMenu": {
       "name": "ExperimentalInterventionMenu",
-      "description": "",
       "title": "experimental_intervention menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5613,7 +5560,6 @@
     },
     "AmrTestingByMenu": {
       "name": "AmrTestingByMenu",
-      "description": "",
       "title": "AMR_testing_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5639,7 +5585,6 @@
     },
     "AntimicrobialPhenotypeMenu": {
       "name": "AntimicrobialPhenotypeMenu",
-      "description": "",
       "title": "antimicrobial_phenotype menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5691,7 +5636,6 @@
     },
     "AntimicrobialMeasurementUnitsMenu": {
       "name": "AntimicrobialMeasurementUnitsMenu",
-      "description": "",
       "title": "antimicrobial_measurement_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5714,7 +5658,6 @@
     },
     "AntimicrobialMeasurementSignMenu": {
       "name": "AntimicrobialMeasurementSignMenu",
-      "description": "",
       "title": "antimicrobial_measurement_sign menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5752,7 +5695,6 @@
     },
     "AntimicrobialLaboratoryTypingMethodMenu": {
       "name": "AntimicrobialLaboratoryTypingMethodMenu",
-      "description": "",
       "title": "antimicrobial_laboratory_typing_method menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5782,7 +5724,6 @@
     },
     "AntimicrobialLaboratoryTypingPlatformMenu": {
       "name": "AntimicrobialLaboratoryTypingPlatformMenu",
-      "description": "",
       "title": "antimicrobial_laboratory_typing_platform menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5820,7 +5761,6 @@
     },
     "AntimicrobialVendorNameMenu": {
       "name": "AntimicrobialVendorNameMenu",
-      "description": "",
       "title": "antimicrobial_vendor_name menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5858,7 +5798,6 @@
     },
     "AntimicrobialTestingStandardMenu": {
       "name": "AntimicrobialTestingStandardMenu",
-      "description": "",
       "title": "antimicrobial_testing_standard menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -5920,7 +5859,6 @@
     },
     "AntimicrobialResistanceTestDrugMenu": {
       "name": "AntimicrobialResistanceTestDrugMenu",
-      "description": "",
       "title": "Antimicrobial Resistance Test Drug Menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -6224,7 +6162,7 @@
       "description": "An alternative sample_ID assigned to the sample by another organization.",
       "title": "alternative_sample_ID",
       "comments": [
-        "Alternative identifiers assigned to the sample should be tracked along with original IDs to establish chain of custody. Alternative sample IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following: Public Health Agency of Canada: PHAC Canadian Food Inspection Agency: CFIA Agriculture and Agri-Food Canada: AAFC Fisheries and Oceans Canada: DFO Environment and Climate Change Canada: ECCC Health Canada: HC  Multiple identifiers can be provided and separated by semi-colons. If the information is unknown or cannot be provided, leave blank or provide a null value."
+        "\"Alternative identifiers assigned to the sample should be tracked along with original IDs to establish chain of custody. Alternative sample IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nMultiple identifiers can be provided and separated by semi-colons. If the information is unknown or cannot be provided, leave blank or provide a null value.\""
       ],
       "examples": [
         {
@@ -8029,6 +7967,11 @@
       "comments": [
         "Provide the weather conditions at the time of sample collection."
       ],
+      "examples": [
+        {
+          "value": "Rain [ENVO:01001564]"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100779",
       "domain_of": [
@@ -8046,7 +7989,16 @@
     },
     "presampling_weather_conditions": {
       "name": "presampling_weather_conditions",
+      "description": "Weather conditions prior to collection that may affect the sample.",
       "title": "presampling_weather_conditions",
+      "comments": [
+        "Provide the weather conditions prior to sample collection."
+      ],
+      "examples": [
+        {
+          "value": "Rain [ENVO:01001564]"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100780",
       "domain_of": [
@@ -8063,7 +8015,16 @@
     },
     "precipitation_measurement_value": {
       "name": "precipitation_measurement_value",
+      "description": "The amount of water which has fallen during a precipitation process.",
       "title": "precipitation_measurement_value",
+      "comments": [
+        "Provide the quantity of precipitation in the area leading up to the time of sample collection."
+      ],
+      "examples": [
+        {
+          "value": "12"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100911",
       "domain_of": [
@@ -8080,7 +8041,16 @@
     },
     "precipitation_measurement_unit": {
       "name": "precipitation_measurement_unit",
+      "description": "The units of measurement for the amount of water which has fallen during a precipitation process.",
       "title": "precipitation_measurement_unit",
+      "comments": [
+        "Provide the units of precipitation by selecting a value from the pick list."
+      ],
+      "examples": [
+        {
+          "value": "inch"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100912",
       "domain_of": [
@@ -8097,7 +8067,16 @@
     },
     "precipitation_measurement_method": {
       "name": "precipitation_measurement_method",
+      "description": "The process used to measure the amount of water which has fallen during a precipitation process.",
       "title": "precipitation_measurement_method",
+      "comments": [
+        "Provide the name of the procedure or method used to measure precipitation."
+      ],
+      "examples": [
+        {
+          "value": "Rain gauge over a 12 hour period prior to sample collection"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0100913",
       "domain_of": [
@@ -8371,7 +8350,7 @@
       "description": "An alternative isolate_ID assigned to the isolate by another organization.",
       "title": "alternative_isolate_ID",
       "comments": [
-        "Alternative isolate IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following: Public Health Agency of Canada: PHAC Canadian Food Inspection Agency: CFIA Agriculture and Agri-Food Canada: AAFC Fisheries and Oceans Canada: DFO Environment and Climate Change Canada: ECCC Health Canada: HC  An example of a properly formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA] Multiple alternative isolate IDs can be provided, separated by semi-colons."
+        "Alternative isolate IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nAn example of a properly formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple alternative isolate IDs can be provided, separated by semi-colons."
       ],
       "examples": [
         {
@@ -28879,7 +28858,7 @@
           "description": "An alternative sample_ID assigned to the sample by another organization.",
           "title": "alternative_sample_ID",
           "comments": [
-            "Alternative identifiers assigned to the sample should be tracked along with original IDs to establish chain of custody. Alternative sample IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following: Public Health Agency of Canada: PHAC Canadian Food Inspection Agency: CFIA Agriculture and Agri-Food Canada: AAFC Fisheries and Oceans Canada: DFO Environment and Climate Change Canada: ECCC Health Canada: HC  Multiple identifiers can be provided and separated by semi-colons. If the information is unknown or cannot be provided, leave blank or provide a null value."
+            "\"Alternative identifiers assigned to the sample should be tracked along with original IDs to establish chain of custody. Alternative sample IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nMultiple identifiers can be provided and separated by semi-colons. If the information is unknown or cannot be provided, leave blank or provide a null value.\""
           ],
           "examples": [
             {
@@ -30972,6 +30951,11 @@
           "comments": [
             "Provide the weather conditions at the time of sample collection."
           ],
+          "examples": [
+            {
+              "value": "Rain [ENVO:01001564]"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 74,
           "slot_uri": "GENEPIO:0100779",
@@ -30993,7 +30977,16 @@
         },
         "presampling_weather_conditions": {
           "name": "presampling_weather_conditions",
+          "description": "Weather conditions prior to collection that may affect the sample.",
           "title": "presampling_weather_conditions",
+          "comments": [
+            "Provide the weather conditions prior to sample collection."
+          ],
+          "examples": [
+            {
+              "value": "Rain [ENVO:01001564]"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 75,
           "slot_uri": "GENEPIO:0100780",
@@ -31014,7 +31007,16 @@
         },
         "precipitation_measurement_value": {
           "name": "precipitation_measurement_value",
+          "description": "The amount of water which has fallen during a precipitation process.",
           "title": "precipitation_measurement_value",
+          "comments": [
+            "Provide the quantity of precipitation in the area leading up to the time of sample collection."
+          ],
+          "examples": [
+            {
+              "value": "12"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 76,
           "slot_uri": "GENEPIO:0100911",
@@ -31035,7 +31037,16 @@
         },
         "precipitation_measurement_unit": {
           "name": "precipitation_measurement_unit",
+          "description": "The units of measurement for the amount of water which has fallen during a precipitation process.",
           "title": "precipitation_measurement_unit",
+          "comments": [
+            "Provide the units of precipitation by selecting a value from the pick list."
+          ],
+          "examples": [
+            {
+              "value": "inch"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 77,
           "slot_uri": "GENEPIO:0100912",
@@ -31056,7 +31067,16 @@
         },
         "precipitation_measurement_method": {
           "name": "precipitation_measurement_method",
+          "description": "The process used to measure the amount of water which has fallen during a precipitation process.",
           "title": "precipitation_measurement_method",
+          "comments": [
+            "Provide the name of the procedure or method used to measure precipitation."
+          ],
+          "examples": [
+            {
+              "value": "Rain gauge over a 12 hour period prior to sample collection"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "rank": 78,
           "slot_uri": "GENEPIO:0100913",
@@ -31374,7 +31394,7 @@
           "description": "An alternative isolate_ID assigned to the isolate by another organization.",
           "title": "alternative_isolate_ID",
           "comments": [
-            "Alternative isolate IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following: Public Health Agency of Canada: PHAC Canadian Food Inspection Agency: CFIA Agriculture and Agri-Food Canada: AAFC Fisheries and Oceans Canada: DFO Environment and Climate Change Canada: ECCC Health Canada: HC  An example of a properly formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA] Multiple alternative isolate IDs can be provided, separated by semi-colons."
+            "Alternative isolate IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nAn example of a properly formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple alternative isolate IDs can be provided, separated by semi-colons."
           ],
           "examples": [
             {
