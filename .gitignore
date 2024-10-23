@@ -244,3 +244,6 @@ web/templates/manifest.json
 .local/
 .notes/
 .jj/
+
+# deprecated modules
+lib/utils/1m_dep.js
