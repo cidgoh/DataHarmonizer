@@ -15305,6 +15305,7 @@
           "value": "1.0.0"
         }
       },
+      "description": "Master specification (contains all fields/terms)",
       "title": "HPAI",
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",
@@ -24357,6 +24358,7 @@
           "value": "1.0.0"
         }
       },
+      "description": "Food-specific template for HPAI surveillance",
       "title": "HPAI Food",
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",
@@ -29115,6 +29117,7 @@
           "value": "1.0.0"
         }
       },
+      "description": "Wastewater-specific template for HPAI surveillance",
       "title": "HPAI Wastewater",
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",
@@ -36606,6 +36609,7 @@
           "value": "1.0.0"
         }
       },
+      "description": "Environment-specific template for HPAI surveillance (wastewater template contains more specific fields)",
       "title": "HPAI Environmental",
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",
@@ -44097,6 +44101,7 @@
           "value": "1.0.0"
         }
       },
+      "description": "Host-specific template for HPAI surveillance",
       "title": "HPAI Host",
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",

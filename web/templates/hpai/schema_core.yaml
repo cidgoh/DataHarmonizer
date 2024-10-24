@@ -15,7 +15,7 @@ classes:
   'HPAI':
     name: 'HPAI'
     title: 'HPAI'
-    description: 
+    description: 'Master specification (contains all fields/terms)'
     is_a: dh_interface
     see_also: 
     annotations:
@@ -23,7 +23,7 @@ classes:
   'HPAIFood':
     name: 'HPAIFood'
     title: 'HPAI Food'
-    description: 
+    description: 'Food-specific template for HPAI surveillance'
     is_a: dh_interface
     see_also: 
     annotations:
@@ -31,7 +31,7 @@ classes:
   'HPAIWW':
     name: 'HPAIWW'
     title: 'HPAI Wastewater'
-    description: 
+    description: 'Wastewater-specific template for HPAI surveillance'
     is_a: dh_interface
     see_also: 
     annotations:
@@ -39,7 +39,7 @@ classes:
   'HPAIEnviro':
     name: 'HPAIEnviro'
     title: 'HPAI Environmental'
-    description: 
+    description: 'Environment-specific template for HPAI surveillance (wastewater template contains more specific fields)'
     is_a: dh_interface
     see_also: 
     annotations:
@@ -47,7 +47,7 @@ classes:
   'HPAIHost':
     name: 'HPAIHost'
     title: 'HPAI Host'
-    description: 
+    description: 'Host-specific template for HPAI surveillance'
     is_a: dh_interface
     see_also: 
     annotations:
