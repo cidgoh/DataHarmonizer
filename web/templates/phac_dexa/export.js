@@ -108,7 +108,7 @@ export default {
       ];
 
       const sourceFields = dh.getFields(dh.table);
-      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      const sourceFieldNameMap = dh.getFieldTitleMap(sourceFields);
 
       // Fills in the above mapping of export field to source fields (or just set
       // source fields manually above)
@@ -117,7 +117,7 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      let normalize = self.initLookup(self);
+      let normalize = self.initLookup();
 
       const inputMatrix = dh.getTrimmedData(dh.hot);
       for (const inputRow of inputMatrix) {
@@ -192,6 +192,55 @@ export default {
       return value.join(';');
     },
 
+
+    /**
+     * Get a dictionary of empty arrays for each ExportHeader field
+     * FUTURE: enable it to work with hierarchic vocabulary lists
+     *
+     * @param {Array<String>} sourceRow array of values to be exported.
+     * @param {Array<String>} sourceFields list of source fields to examine for mappings.
+     * @param {Array<Array>} RuleDB list of export fields modified by rules.
+     * @param {Array<Array>} fields list of export fields modified by rules.
+     * @param {Array<Integer>} titleMap map of field names to column index.
+     * @param {String} prefix of export format to examine.
+     * @return {Array<Object>} fields Dictionary of all fields.
+     */
+
+    getRowMap: function (sourceRow, ruleSourceFieldNames, RuleDB, fields, titleMap, prefix) {
+      for (const title of ruleSourceFieldNames) {
+        const sourceIndex = titleMap[title];
+        let value = sourceRow[sourceIndex]; // All text values.
+        // Sets source field to data value so that rules can reference it easily.
+        RuleDB[title] = value;
+        // Check to see if value is in vocabulary of given select field, and if it
+        // has a mapping for export to a GRDI target field above, then set target
+        // to value.
+        if (value && value.length > 0) {
+          console.log("FIELDS", fields[sourceIndex], value);
+          const vocab_list = fields[sourceIndex]['flatVocabulary'];
+          if (vocab_list && vocab_list.includes(value)) {
+            const term = vocab_list[value];
+            console.log("TERM", term);
+            // Looking for term.exportField['GRDI'] for example:
+            if ('exportField' in term && prefix in term.exportField) {
+              for (let mapping of term.exportField[prefix]) {
+                // Here mapping involves a value substitution
+                if ('value' in mapping) {
+                  value = mapping.value;
+                  // Changed on a copy of data, not handsongrid table
+                  sourceRow[sourceIndex] = value;
+                }
+                if ('field' in mapping && mapping['field'] in RuleDB) {
+                  RuleDB[mapping['field']] = value;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+
     /** Rule-based target field value calculation based on given data row
      * @param {Object} dataRow.
      * @param {Object} sourceFields.
@@ -238,7 +287,7 @@ export default {
       // This will set content of a target field based on data.js vocabulary
       // exportField {'field':[target column],'value':[replacement value]]}
       // mapping if any.
-      dh.getRowMap(
+      this.getRowMap(
         dataRow,
         ruleSourceFieldNames,
         RuleDB,
@@ -247,6 +296,10 @@ export default {
         'GRDI'
       );
 
+      console.log("getRowMap");
+      console.log(dataRow, ruleSourceFieldNames, RuleDB, sourceFields,sourceFieldNameMap); 
+
+      // So all rule field values can be referenced in lower case.
       for (let sourceField of Object.keys(RuleDB)) {
         if (RuleDB[sourceField])
           RuleDB[sourceField] = RuleDB[sourceField].toLowerCase();
@@ -254,6 +307,7 @@ export default {
 
       // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
       switch (RuleDB.STTYPE) {
+
         case 'animal': {
           // species-> host (common name);
           RuleDB['host (common name)'] = RuleDB.SPECIES;
@@ -265,6 +319,7 @@ export default {
           ) {
             RuleDB.animal_or_plant_population = RuleDB.SPECIES;
           }
+          console.log("TESTING:RuleDB.STTYPE", RuleDB.STTYPE, RuleDB.SPECIES,RuleDB.collection_device,RuleDB.environmental_site, RuleDB.animal_or_plant_population);
           break; // prevents advancing to FOOD
         }
 
@@ -345,9 +400,10 @@ export default {
      *
      * @return {Object} term normalize lookup table.
      */
-    initLookup: function (self) {
+    initLookup: function () {
       let normalize = {};
-      for (const line of self.LOOKUP.split('\n')) {
+      for (const line of this.LOOKUP.split('\n')) {
+
         let [ontology_id, parent, label, normalization] = line
           .split('\t')
           .map(function (e) {
@@ -810,5 +866,5 @@ FOODON_00002361	food_product	white pepper
 FOODON_03411345	food_product	yeast	
 UBERON_0001040	anatomical_part	yolk sac	
 ENVO_00010625	environmental_site	zoo	pet/zoo; calgary zoo`,
-  },
+  }
 };
