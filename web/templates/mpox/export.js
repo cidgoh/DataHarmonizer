@@ -182,6 +182,7 @@ export default {
             const field = sourceFields[sourceFieldIndex];
             const standardizedCellVal = mappedCellVal.toLowerCase().trim();
 
+            // NOT APPLICABLE TO GISAID? Oct 25, 2024
             if (field.fieldName === 'specimen processing') {
               // Specimen processing is a multi-select field
               const standardizedCellValArr = standardizedCellVal.split(';');
