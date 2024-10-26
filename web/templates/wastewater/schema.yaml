@@ -4709,7 +4709,7 @@ slots:
     slot_uri: GENEPIO:0001447
     range: date
     todos:
-    - '>={sample collection date}'
+    - '>={sample_collection_date}'
     examples:
     - value: '2020-06-22'
   library_id:

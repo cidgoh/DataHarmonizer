@@ -4286,7 +4286,7 @@
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
       "todos": [
-        ">={sample collection date}"
+        ">={sample_collection_date}"
       ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -6317,7 +6317,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample collection date}"
+            ">={sample_collection_date}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."

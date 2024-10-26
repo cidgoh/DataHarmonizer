@@ -2183,7 +2183,7 @@ slots:
     - range: date
     - range: NullValueMenu
     todos:
-    - '>={sample collection date}'
+    - '>={sample_collection_date}'
     required: true
     examples:
     - value: '2020-06-22'

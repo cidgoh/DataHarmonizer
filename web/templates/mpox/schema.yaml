@@ -2957,7 +2957,7 @@ slots:
     - range: date
     - range: NullValueMenu
     todos:
-    - '>={sample collection date}'
+    - '>={sample_collection_date}'
     examples:
     - value: '2020-06-22'
     exact_mappings:

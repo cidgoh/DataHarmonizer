@@ -1372,7 +1372,7 @@ slots:
     - range: null value menu
     required: true
     todos:
-    - '>={sample collection date}'
+    - '>={sample_collection_date}'
     exact_mappings:
     - NML_LIMS:PH_SEQUENCING_DATE
   amplicon size:

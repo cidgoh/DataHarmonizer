@@ -944,7 +944,7 @@ slots:
     - range: date
     - range: null value menu
     todos:
-    - '>={sample collection date}'
+    - '>={sample_collection_date}'
   library ID:
     name: library ID
     title: library ID
