@@ -185,7 +185,8 @@ export default {
             if (field.fieldName === 'specimen processing') {
               // Specimen processing is a multi-select field
               const standardizedCellValArr = standardizedCellVal.split(';');
-              if (!standardizedCellValArr.includes('virus passage')) continue;
+              if (!standardizedCellValArr.includes('virus passage')) 
+                continue;
               // We only want to map "virus passage"
               mappedCellVal = 'Virus passage';
             }
@@ -204,6 +205,7 @@ export default {
             }
 
             // Add 'passage number ' prefix to number.
+            // APPEARS UNUSED Oct 25 2024 in Mpox specification
             if (field.fieldName === 'passage number') {
               mappedCellVal = 'passage number ' + mappedCellVal;
             }
@@ -373,6 +375,7 @@ export default {
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      const sourceFieldTitleMap = dh.getFieldTitleMap(sourceFields);
 
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'NML_LIMS');
@@ -410,7 +413,7 @@ export default {
             // Note: if this field eventually gets null values, then must do
             // field.dataStatus check.
             const value =
-              inputRow[sourceFieldNameMap['signs and symptoms']] || '';
+              inputRow[sourceFieldTitleMap['signs and symptoms']] || '';
             outputRow.push(value ? 'Y' : 'N');
             continue;
           }
@@ -419,9 +422,9 @@ export default {
           // by looking at year or month in "sample collection date precision"
           if (headerName === 'HC_COLLECT_DATE') {
             let value =
-              inputRow[sourceFieldNameMap['sample collection date']] || '';
+              inputRow[sourceFieldTitleMap['sample collection date']] || '';
             const date_unit =
-              inputRow[sourceFieldNameMap['sample collection date precision']];
+              inputRow[sourceFieldTitleMap['sample collection date precision']];
             outputRow.push(dh.setDateChange(date_unit, value, '01'));
             continue;
           }
@@ -437,7 +440,7 @@ export default {
               'environmental material',
               'environmental site',
             ]) {
-              const value = inputRow[sourceFieldNameMap[fieldName]];
+              const value = inputRow[sourceFieldTitleMap[fieldName]];
 
               // Ignore all null value types
               if (!value || null_values.has(value)) {
