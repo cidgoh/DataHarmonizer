@@ -11647,9 +11647,6 @@
         }
       ],
       "from_schema": "https://example.com/mpox",
-      "exact_mappings": [
-        "NML_LIMS:sequenced%20by%20contact%20address"
-      ],
       "slot_uri": "GENEPIO:0100423",
       "domain_of": [
         "Mpox",
@@ -11714,7 +11711,6 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Address",
         "NML_LIMS:sequence%20submitter%20contact%20address"
       ],
       "slot_uri": "GENEPIO:0001167",
@@ -13663,12 +13659,12 @@
         "insdc_sequence_read_accession": {
           "name": "insdc_sequence_read_accession",
           "rank": 6,
-          "slot_group": "Database identifiers"
+          "slot_group": "Database Identifiers"
         },
         "insdc_assembly_accession": {
           "name": "insdc_assembly_accession",
           "rank": 7,
-          "slot_group": "Database identifiers"
+          "slot_group": "Database Identifiers"
         },
         "gisaid_accession": {
           "name": "gisaid_accession",
@@ -15182,7 +15178,7 @@
             "Mpox",
             "MpoxInternational"
           ],
-          "slot_group": "Database identifiers",
+          "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "pattern": "{UPPER_CASE}",
           "structured_pattern": {
@@ -15216,7 +15212,7 @@
             "Mpox",
             "MpoxInternational"
           ],
-          "slot_group": "Database identifiers",
+          "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "pattern": "{UPPER_CASE}",
           "structured_pattern": {
@@ -17492,9 +17488,6 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "exact_mappings": [
-            "NML_LIMS:sequenced%20by%20contact%20address"
-          ],
           "rank": 74,
           "slot_uri": "GENEPIO:0100423",
           "alias": "sequenced_by_contact_address",
@@ -17586,7 +17579,6 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Address",
             "NML_LIMS:sequence%20submitter%20contact%20address"
           ],
           "rank": 77,
@@ -19481,12 +19473,12 @@
         "insdc_sequence_read_accession": {
           "name": "insdc_sequence_read_accession",
           "rank": 5,
-          "slot_group": "Database identifiers"
+          "slot_group": "Database Identifiers"
         },
         "insdc_assembly_accession": {
           "name": "insdc_assembly_accession",
           "rank": 6,
-          "slot_group": "Database identifiers"
+          "slot_group": "Database Identifiers"
         },
         "gisaid_virus_name": {
           "name": "gisaid_virus_name",
@@ -20924,7 +20916,7 @@
             "Mpox",
             "MpoxInternational"
           ],
-          "slot_group": "Database identifiers",
+          "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "pattern": "{UPPER_CASE}",
           "structured_pattern": {
@@ -20958,7 +20950,7 @@
             "Mpox",
             "MpoxInternational"
           ],
-          "slot_group": "Database identifiers",
+          "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "pattern": "{UPPER_CASE}",
           "structured_pattern": {
@@ -23294,9 +23286,6 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "exact_mappings": [
-            "NML_LIMS:sequenced%20by%20contact%20address"
-          ],
           "rank": 77,
           "slot_uri": "GENEPIO:0100423",
           "alias": "sequenced_by_contact_address",
@@ -23385,7 +23374,6 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Address",
             "NML_LIMS:sequence%20submitter%20contact%20address"
           ],
           "rank": 80,

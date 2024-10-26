@@ -119,34 +119,33 @@ export default {
       // as below with 'Address', that a column name appears two or more times.
 
       const ExportHeaders = [
-        ['Submitter', []], // submitter
-        ['FASTA filename', []], // fn
-        ['Virus name', []], // covv_virus_name
+        ['Submitter',         []], // submitter
+        ['FASTA filename',    []], // fn
+        ['Virus name',        []], // pox_virus_name
         ['Passage details/history', []], // covv_passage
-        ['Collection date', []], // covv_collection_date
-        ['Location', []], // covv_location
+        ['Collection date',   []], // pox_collection_date
+        ['Location',          []], // pox_location
         ['Additional location information', []], // covv_add_location
-        ['Host', []], // covv_host
+        ['Host',              []], // pox_host
         ['Additional host information', []], // covv_add_host_info
-        ['Sampling Strategy', []], // covv_sampling_strategy
-        ['Gender', []], // covv_gender
-        ['Patient age', []], // covv_patient_age
-        ['Patient status', []], // covv_patient_status
-        ['Specimen source', []], // covv_specimen
-        ['Outbreak', []], // covv_outbreak
-        ['Last vaccinated', []], // covv_last_vaccinated
-        ['Treatment', []], // covv_treatment
-        ['Sequencing technology', []], // covv_seq_technology
-        ['Assembly method', []], // covv_assembly_method
-        ['Depth of coverage',       []],
-        ['Coverage', []], // covv_coverage
-        ['Originating lab', []], // covv_orig_lab
-        ['Address', []], // covv_orig_lab_addr
-        ['Sample ID given by the sample provider', []], // covv_provider_sample_id
-        ['Submitting lab', []], // covv_subm_lab
+        ['Sampling Strategy', []], // pox_sampling_strategy
+        ['Gender',            []], // pox_gender
+        ['Patient age',       []], // pox_patient_age
+        ['Patient status',    []], // pox_patient_status
+        ['Specimen source',   []], // pox_specimen
+        ['Outbreak',          []], // pox_outbreak
+        ['Last vaccinated',   []], // pox_last_vaccinated
+        ['Treatment',         []], // pox_treatment
+        ['Sequencing technology', []], // pox_seq_technology
+        ['Assembly method',   []], // pox_assembly_method
+        ['Depth of coverage', ['depth_of_coverage_value']], // pox_coverage
+        ['Originating lab',   []], // pox_orig_lab
+        ['Address',           ['sample_collector_contact_address']], // pox_orig_lab_addr
+        ['Sample ID given by the sample provider', []], // pox_provider_sample_id
+        ['Submitting lab',    []], // pox_subm_lab
         // Custom rule: 2nd address points to sequence submitter.
-        ['Address', ['sequence submitter contact address']], // covv_subm_lab_addr
-        ['Sample ID given by the submitting laboratory', []], // covv_subm_sample_id
+        ['Address',           ['sequence_submitter_contact_address']], // pox_subm_lab_addr
+        ['Sample ID given by the submitting laboratory', ['specimen_collector_sample_id']], // pox_subm_sample_id
         ['Authors', []], // covv_authors
       ];
 

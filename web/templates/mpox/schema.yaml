@@ -178,10 +178,10 @@ classes:
         slot_group: Database Identifiers
       insdc_sequence_read_accession:
         rank: 6
-        slot_group: Database identifiers
+        slot_group: Database Identifiers
       insdc_assembly_accession:
         rank: 7
-        slot_group: Database identifiers
+        slot_group: Database Identifiers
       gisaid_accession:
         rank: 8
         slot_group: Database Identifiers
@@ -1081,10 +1081,10 @@ classes:
         slot_group: Database Identifiers
       insdc_sequence_read_accession:
         rank: 5
-        slot_group: Database identifiers
+        slot_group: Database Identifiers
       insdc_assembly_accession:
         rank: 6
-        slot_group: Database identifiers
+        slot_group: Database Identifiers
       gisaid_virus_name:
         rank: 7
         slot_group: Database Identifiers
@@ -2871,8 +2871,6 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
-    exact_mappings:
-    - NML_LIMS:sequenced%20by%20contact%20address
   sequence_submitted_by:
     name: sequence_submitted_by
     title: sequence submitted by
@@ -2909,7 +2907,6 @@ slots:
     examples:
     - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
     exact_mappings:
-    - GISAID:Address
     - NML_LIMS:sequence%20submitter%20contact%20address
   purpose_of_sequencing:
     name: purpose_of_sequencing
