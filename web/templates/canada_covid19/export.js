@@ -89,8 +89,8 @@ export default {
       const outputMatrix = [[...ExportHeaders.keys()]];
 
       const numeric_datatypes = new Set([
-        'xs:nonNegativeInteger',
-        'xs:decimal',
+        'xsd:nonNegativeInteger',
+        'xsd:decimal',
       ]);
 
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
@@ -113,7 +113,7 @@ export default {
 
             if (headerName == 'study_id') {
               // Autopopulate study_id based on studyMap
-              const lab = inputRow[sourceFieldNameMap['sequence submitted by']];
+              const lab = inputRow[sourceFieldNameMap['sequence_submitted_by']];
               if (lab && lab in studyMap) {
                 value = studyMap[lab];
               }
