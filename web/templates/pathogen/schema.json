@@ -2,7 +2,7 @@
   "name": "PathogenAgnostic",
   "description": "",
   "id": "https://example.com/Pathogen_Agnostic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
