@@ -105,7 +105,7 @@ classes:
     - sequencing_assay_type
     - sequencing_instrument
     - sequencing_flow_cell_version
-    - sequencing_protocol__
+    - sequencing_protocol
     - sequencing_kit_number
     - dna_fragment_length
     - genomic_target_enrichment_method
@@ -710,7 +710,7 @@ classes:
       sequencing_flow_cell_version:
         rank: 85
         slot_group: Sequence information
-      sequencing_protocol__:
+      sequencing_protocol:
         rank: 86
         slot_group: Sequencing
       sequencing_kit_number:
@@ -999,7 +999,7 @@ classes:
     - sequencing_assay_type
     - sequencing_instrument
     - sequencing_flow_cell_version
-    - sequencing_protocol__
+    - sequencing_protocol
     - sequencing_kit_number
     - dna_fragment_length
     - genomic_target_enrichment_method
@@ -1566,7 +1566,7 @@ classes:
       sequencing_flow_cell_version:
         rank: 88
         slot_group: Sequence information
-      sequencing_protocol__:
+      sequencing_protocol:
         rank: 89
         slot_group: Sequencing
       sequencing_kit_number:
@@ -3022,8 +3022,8 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: R.9.4.1
-  sequencing_protocol__:
-    name: sequencing_protocol__
+  sequencing_protocol:
+    name: sequencing_protocol
     title: sequencing protocol
     description: The protocol used to generate the sequence.
     comments: 'Provide a free text description of the methods and materials used to

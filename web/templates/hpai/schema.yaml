@@ -42,7 +42,7 @@ classes:
     - geo_loc_name_state_province_territory
     - geo_loc_name_county_region
     - geo_loc_name_city
-    - geo_loc_name_site__
+    - geo_loc_name_site
     - geo_loc_latitude
     - geo_loc_longitude
     - organism
@@ -122,7 +122,7 @@ classes:
     - vaccination_dose_2_vaccination_date
     - vaccination_history
     - influenza_antiviral_treatment_administration
-    - influenza_antiviral_agent__
+    - influenza_antiviral_agent
     - influenza_antiviral_treatment_date
     - water_catchment_area_human_population_measurement_value
     - water_catchment_area_human_population_range
@@ -210,7 +210,7 @@ classes:
     - library_id
     - sequencing_assay_type
     - sequencing_date
-    - purpose_of_sequencing__
+    - purpose_of_sequencing
     - purpose_of_sequencing_details
     - sequenced_by
     - sequenced_by_laboratory_name
@@ -340,7 +340,7 @@ classes:
       geo_loc_name_city:
         rank: 17
         slot_group: Sample collection and processing
-      geo_loc_name_site__:
+      geo_loc_name_site:
         rank: 18
         slot_group: Sample collection and processing
       geo_loc_latitude:
@@ -580,7 +580,7 @@ classes:
       influenza_antiviral_treatment_administration:
         rank: 97
         slot_group: Host treatment information
-      influenza_antiviral_agent__:
+      influenza_antiviral_agent:
         rank: 98
         slot_group: Host treatment information
       influenza_antiviral_treatment_date:
@@ -844,7 +844,7 @@ classes:
       sequencing_date:
         rank: 185
         slot_group: Sequence information
-      purpose_of_sequencing__:
+      purpose_of_sequencing:
         rank: 186
         slot_group: Sequence information
       purpose_of_sequencing_details:
@@ -1104,7 +1104,7 @@ classes:
     - geo_loc_name_state_province_territory
     - geo_loc_name_county_region
     - geo_loc_name_city
-    - geo_loc_name_site__
+    - geo_loc_name_site
     - geo_loc_latitude
     - geo_loc_longitude
     - organism
@@ -1146,7 +1146,7 @@ classes:
     - library_id
     - sequencing_assay_type
     - sequencing_date
-    - purpose_of_sequencing__
+    - purpose_of_sequencing
     - purpose_of_sequencing_details
     - sequenced_by
     - sequenced_by_laboratory_name
@@ -1276,7 +1276,7 @@ classes:
       geo_loc_name_city:
         rank: 17
         slot_group: Sample collection and processing
-      geo_loc_name_site__:
+      geo_loc_name_site:
         rank: 18
         slot_group: Sample collection and processing
       geo_loc_latitude:
@@ -1402,7 +1402,7 @@ classes:
       sequencing_date:
         rank: 59
         slot_group: Sequence information
-      purpose_of_sequencing__:
+      purpose_of_sequencing:
         rank: 60
         slot_group: Sequence information
       purpose_of_sequencing_details:
@@ -1662,7 +1662,7 @@ classes:
     - geo_loc_name_state_province_territory
     - geo_loc_name_county_region
     - geo_loc_name_city
-    - geo_loc_name_site__
+    - geo_loc_name_site
     - geo_loc_latitude
     - geo_loc_longitude
     - organism
@@ -1787,7 +1787,7 @@ classes:
     - library_id
     - sequencing_assay_type
     - sequencing_date
-    - purpose_of_sequencing__
+    - purpose_of_sequencing
     - purpose_of_sequencing_details
     - sequenced_by
     - sequenced_by_laboratory_name
@@ -1917,7 +1917,7 @@ classes:
       geo_loc_name_city:
         rank: 17
         slot_group: Sample collection and processing
-      geo_loc_name_site__:
+      geo_loc_name_site:
         rank: 18
         slot_group: Sample collection and processing
       geo_loc_latitude:
@@ -2292,7 +2292,7 @@ classes:
       sequencing_date:
         rank: 142
         slot_group: Sequence information
-      purpose_of_sequencing__:
+      purpose_of_sequencing:
         rank: 143
         slot_group: Sequence information
       purpose_of_sequencing_details:
@@ -2553,7 +2553,7 @@ classes:
     - geo_loc_name_state_province_territory
     - geo_loc_name_county_region
     - geo_loc_name_city
-    - geo_loc_name_site__
+    - geo_loc_name_site
     - geo_loc_latitude
     - geo_loc_longitude
     - organism
@@ -2678,7 +2678,7 @@ classes:
     - library_id
     - sequencing_assay_type
     - sequencing_date
-    - purpose_of_sequencing__
+    - purpose_of_sequencing
     - purpose_of_sequencing_details
     - sequenced_by
     - sequenced_by_laboratory_name
@@ -2808,7 +2808,7 @@ classes:
       geo_loc_name_city:
         rank: 17
         slot_group: Sample collection and processing
-      geo_loc_name_site__:
+      geo_loc_name_site:
         rank: 18
         slot_group: Sample collection and processing
       geo_loc_latitude:
@@ -3183,7 +3183,7 @@ classes:
       sequencing_date:
         rank: 142
         slot_group: Sequence information
-      purpose_of_sequencing__:
+      purpose_of_sequencing:
         rank: 143
         slot_group: Sequence information
       purpose_of_sequencing_details:
@@ -3443,7 +3443,7 @@ classes:
     - geo_loc_name_state_province_territory
     - geo_loc_name_county_region
     - geo_loc_name_city
-    - geo_loc_name_site__
+    - geo_loc_name_site
     - geo_loc_latitude
     - geo_loc_longitude
     - organism
@@ -3509,12 +3509,12 @@ classes:
     - vaccination_dose_2_vaccination_date
     - vaccination_history
     - influenza_antiviral_treatment_administration
-    - influenza_antiviral_agent__
+    - influenza_antiviral_agent
     - influenza_antiviral_treatment_date
     - library_id
     - sequencing_assay_type
     - sequencing_date
-    - purpose_of_sequencing__
+    - purpose_of_sequencing
     - purpose_of_sequencing_details
     - sequenced_by
     - sequenced_by_laboratory_name
@@ -3644,7 +3644,7 @@ classes:
       geo_loc_name_city:
         rank: 17
         slot_group: Sample collection and processing
-      geo_loc_name_site__:
+      geo_loc_name_site:
         rank: 18
         slot_group: Sample collection and processing
       geo_loc_latitude:
@@ -3842,7 +3842,7 @@ classes:
       influenza_antiviral_treatment_administration:
         rank: 83
         slot_group: Host treatment information
-      influenza_antiviral_agent__:
+      influenza_antiviral_agent:
         rank: 84
         slot_group: Host treatment information
       influenza_antiviral_treatment_date:
@@ -3857,7 +3857,7 @@ classes:
       sequencing_date:
         rank: 88
         slot_group: Sequence information
-      purpose_of_sequencing__:
+      purpose_of_sequencing:
         rank: 89
         slot_group: Sequence information
       purpose_of_sequencing_details:
@@ -4332,8 +4332,8 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: Vancouver
-  geo_loc_name_site__:
-    name: geo_loc_name_site__
+  geo_loc_name_site:
+    name: geo_loc_name_site
     title: geo_loc_name_(site)
     description: The name of a specific geographical location e.g. Credit River (rather
       than river).
@@ -5416,8 +5416,8 @@ slots:
     - range: NullValueMenu
     examples:
     - value: Influenza antiviral treatment administered [GENEPIO:0101194]
-  influenza_antiviral_agent__:
-    name: influenza_antiviral_agent__
+  influenza_antiviral_agent:
+    name: influenza_antiviral_agent
     title: influenza_antiviral_agent
     description: A substance that destroys or inhibits replication of viruses.
     slot_uri: GENEPIO:0101114
@@ -6341,8 +6341,8 @@ slots:
     - '>={sample_collection_date}'
     examples:
     - value: '2020-06-22'
-  purpose_of_sequencing__:
-    name: purpose_of_sequencing__
+  purpose_of_sequencing:
+    name: purpose_of_sequencing
     title: purpose_of_sequencing
     description: The reason that the sample was sequenced.
     comments: The reason why a sample was originally collected may differ from the

@@ -8744,8 +8744,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "r1_fastq_filename________": {
-      "name": "r1_fastq_filename________",
+    "r1_fastq_filename": {
+      "name": "r1_fastq_filename",
       "description": "The user-specified filename of the r1 FASTQ file.",
       "title": "r1 fastq filename",
       "comments": [
@@ -10025,8 +10025,8 @@
           "rank": 115,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "r1_fastq_filename________": {
-          "name": "r1_fastq_filename________",
+        "r1_fastq_filename": {
+          "name": "r1_fastq_filename",
           "rank": 116,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -13882,8 +13882,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "r1_fastq_filename________": {
-          "name": "r1_fastq_filename________",
+        "r1_fastq_filename": {
+          "name": "r1_fastq_filename",
           "description": "The user-specified filename of the r1 FASTQ file.",
           "title": "r1 fastq filename",
           "comments": [
@@ -13900,7 +13900,7 @@
           ],
           "rank": 116,
           "slot_uri": "GENEPIO:0001476",
-          "alias": "r1_fastq_filename________",
+          "alias": "r1_fastq_filename",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"

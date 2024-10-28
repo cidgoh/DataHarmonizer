@@ -138,7 +138,7 @@ classes:
     - breadth_of_coverage_value
     - depth_of_coverage_value
     - depth_of_coverage_threshold
-    - r1_fastq_filename________
+    - r1_fastq_filename
     - r2_fastq_filename
     - r1_fastq_filepath
     - r2_fastq_filepath
@@ -512,7 +512,7 @@ classes:
       depth_of_coverage_threshold:
         rank: 115
         slot_group: Bioinformatics and QC metrics
-      r1_fastq_filename________:
+      r1_fastq_filename:
         rank: 116
         slot_group: Bioinformatics and QC metrics
       r2_fastq_filename:
@@ -2440,8 +2440,8 @@ slots:
     - value: 100x
     exact_mappings:
     - NML_LIMS:depth%20of%20coverage%20threshold
-  r1_fastq_filename________:
-    name: r1_fastq_filename________
+  r1_fastq_filename:
+    name: r1_fastq_filename
     title: r1 fastq filename
     description: The user-specified filename of the r1 FASTQ file.
     comments: Provide the r1 FASTQ filename.

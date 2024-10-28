@@ -5176,8 +5176,8 @@
         }
       ]
     },
-    "sequencing_protocol__": {
-      "name": "sequencing_protocol__",
+    "sequencing_protocol": {
+      "name": "sequencing_protocol",
       "description": "The protocol used to generate the sequence.",
       "title": "sequencing protocol",
       "comments": [
@@ -6001,8 +6001,8 @@
           "rank": 62,
           "slot_group": "Sequencing"
         },
-        "sequencing_protocol__": {
-          "name": "sequencing_protocol__",
+        "sequencing_protocol": {
+          "name": "sequencing_protocol",
           "rank": 63,
           "slot_group": "Sequencing"
         },
@@ -8151,8 +8151,8 @@
             }
           ]
         },
-        "sequencing_protocol__": {
-          "name": "sequencing_protocol__",
+        "sequencing_protocol": {
+          "name": "sequencing_protocol",
           "description": "The protocol used to generate the sequence.",
           "title": "sequencing protocol",
           "comments": [
@@ -8170,7 +8170,7 @@
           ],
           "rank": 63,
           "slot_uri": "GENEPIO:0001454",
-          "alias": "sequencing_protocol__",
+          "alias": "sequencing_protocol",
           "owner": "Influenza",
           "domain_of": [
             "Influenza"

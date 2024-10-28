@@ -81,7 +81,7 @@ classes:
     - amplicon_size
     - library_preparation_kit
     - sequencing_instrument
-    - sequencing_protocol__
+    - sequencing_protocol
     - amplicon_pcr_primer_scheme
     - raw_sequence_data_processing_method
     - dehosting_method
@@ -289,7 +289,7 @@ classes:
       sequencing_instrument:
         rank: 62
         slot_group: Sequencing
-      sequencing_protocol__:
+      sequencing_protocol:
         rank: 63
         slot_group: Sequencing
       amplicon_pcr_primer_scheme:
@@ -1414,8 +1414,8 @@ slots:
     - CNPHI:Sequencing%20Instrument
     - NML_LIMS:PH_INSTRUMENT_CGN
     - VirusSeq_Portal:sequencing%20instrument
-  sequencing_protocol__:
-    name: sequencing_protocol__
+  sequencing_protocol:
+    name: sequencing_protocol
     title: sequencing protocol
     description: The protocol used to generate the sequence.
     comments: 'Provide a free text description of the methods and materials used to

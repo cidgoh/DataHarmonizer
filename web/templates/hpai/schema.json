@@ -9081,8 +9081,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "geo_loc_name_site__": {
-      "name": "geo_loc_name_site__",
+    "geo_loc_name_site": {
+      "name": "geo_loc_name_site",
       "description": "The name of a specific geographical location e.g. Credit River (rather than river).",
       "title": "geo_loc_name_(site)",
       "comments": [
@@ -11267,8 +11267,8 @@
         }
       ]
     },
-    "influenza_antiviral_agent__": {
-      "name": "influenza_antiviral_agent__",
+    "influenza_antiviral_agent": {
+      "name": "influenza_antiviral_agent",
       "description": "A substance that destroys or inhibits replication of viruses.",
       "title": "influenza_antiviral_agent",
       "from_schema": "https://example.com/hpai",
@@ -13364,8 +13364,8 @@
       ],
       "range": "date"
     },
-    "purpose_of_sequencing__": {
-      "name": "purpose_of_sequencing__",
+    "purpose_of_sequencing": {
+      "name": "purpose_of_sequencing",
       "description": "The reason that the sample was sequenced.",
       "title": "purpose_of_sequencing",
       "comments": [
@@ -15395,8 +15395,8 @@
           "rank": 17,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "rank": 18,
           "slot_group": "Sample collection and processing"
         },
@@ -15795,8 +15795,8 @@
           "rank": 97,
           "slot_group": "Host treatment information"
         },
-        "influenza_antiviral_agent__": {
-          "name": "influenza_antiviral_agent__",
+        "influenza_antiviral_agent": {
+          "name": "influenza_antiviral_agent",
           "rank": 98,
           "slot_group": "Host treatment information"
         },
@@ -16235,8 +16235,8 @@
           "rank": 185,
           "slot_group": "Sequence information"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "rank": 186,
           "slot_group": "Sequence information"
         },
@@ -17155,8 +17155,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "description": "The name of a specific geographical location e.g. Credit River (rather than river).",
           "title": "geo_loc_name_(site)",
           "comments": [
@@ -17170,7 +17170,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 18,
           "slot_uri": "GENEPIO:0100436",
-          "alias": "geo_loc_name_site__",
+          "alias": "geo_loc_name_site",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -19661,14 +19661,14 @@
             }
           ]
         },
-        "influenza_antiviral_agent__": {
-          "name": "influenza_antiviral_agent__",
+        "influenza_antiviral_agent": {
+          "name": "influenza_antiviral_agent",
           "description": "A substance that destroys or inhibits replication of viruses.",
           "title": "influenza_antiviral_agent",
           "from_schema": "https://example.com/hpai",
           "rank": 98,
           "slot_uri": "GENEPIO:0101114",
-          "alias": "influenza_antiviral_agent__",
+          "alias": "influenza_antiviral_agent",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -22110,8 +22110,8 @@
           "slot_group": "Sequence information",
           "range": "date"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose_of_sequencing",
           "comments": [
@@ -22125,7 +22125,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 186,
           "slot_uri": "GENEPIO:0001445",
-          "alias": "purpose_of_sequencing__",
+          "alias": "purpose_of_sequencing",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -24448,8 +24448,8 @@
           "rank": 17,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "rank": 18,
           "slot_group": "Sample collection and processing"
         },
@@ -24658,8 +24658,8 @@
           "rank": 59,
           "slot_group": "Sequence information"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "rank": 60,
           "slot_group": "Sequence information"
         },
@@ -25578,8 +25578,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "description": "The name of a specific geographical location e.g. Credit River (rather than river).",
           "title": "geo_loc_name_(site)",
           "comments": [
@@ -25593,7 +25593,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 18,
           "slot_uri": "GENEPIO:0100436",
-          "alias": "geo_loc_name_site__",
+          "alias": "geo_loc_name_site",
           "owner": "HPAIFood",
           "domain_of": [
             "HPAI",
@@ -26869,8 +26869,8 @@
           "slot_group": "Sequence information",
           "range": "date"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose_of_sequencing",
           "comments": [
@@ -26884,7 +26884,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 60,
           "slot_uri": "GENEPIO:0001445",
-          "alias": "purpose_of_sequencing__",
+          "alias": "purpose_of_sequencing",
           "owner": "HPAIFood",
           "domain_of": [
             "HPAI",
@@ -29207,8 +29207,8 @@
           "rank": 17,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "rank": 18,
           "slot_group": "Sample collection and processing"
         },
@@ -29832,8 +29832,8 @@
           "rank": 142,
           "slot_group": "Sequence information"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "rank": 143,
           "slot_group": "Sequence information"
         },
@@ -30752,8 +30752,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "description": "The name of a specific geographical location e.g. Credit River (rather than river).",
           "title": "geo_loc_name_(site)",
           "comments": [
@@ -30767,7 +30767,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 18,
           "slot_uri": "GENEPIO:0100436",
-          "alias": "geo_loc_name_site__",
+          "alias": "geo_loc_name_site",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -34361,8 +34361,8 @@
           "slot_group": "Sequence information",
           "range": "date"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose_of_sequencing",
           "comments": [
@@ -34376,7 +34376,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 143,
           "slot_uri": "GENEPIO:0001445",
-          "alias": "purpose_of_sequencing__",
+          "alias": "purpose_of_sequencing",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -36699,8 +36699,8 @@
           "rank": 17,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "rank": 18,
           "slot_group": "Sample collection and processing"
         },
@@ -37324,8 +37324,8 @@
           "rank": 142,
           "slot_group": "Sequence information"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "rank": 143,
           "slot_group": "Sequence information"
         },
@@ -38244,8 +38244,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "description": "The name of a specific geographical location e.g. Credit River (rather than river).",
           "title": "geo_loc_name_(site)",
           "comments": [
@@ -38259,7 +38259,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 18,
           "slot_uri": "GENEPIO:0100436",
-          "alias": "geo_loc_name_site__",
+          "alias": "geo_loc_name_site",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -41853,8 +41853,8 @@
           "slot_group": "Sequence information",
           "range": "date"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose_of_sequencing",
           "comments": [
@@ -41868,7 +41868,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 143,
           "slot_uri": "GENEPIO:0001445",
-          "alias": "purpose_of_sequencing__",
+          "alias": "purpose_of_sequencing",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -44191,8 +44191,8 @@
           "rank": 17,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "rank": 18,
           "slot_group": "Sample collection and processing"
         },
@@ -44521,8 +44521,8 @@
           "rank": 83,
           "slot_group": "Host treatment information"
         },
-        "influenza_antiviral_agent__": {
-          "name": "influenza_antiviral_agent__",
+        "influenza_antiviral_agent": {
+          "name": "influenza_antiviral_agent",
           "rank": 84,
           "slot_group": "Host treatment information"
         },
@@ -44546,8 +44546,8 @@
           "rank": 88,
           "slot_group": "Sequence information"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "rank": 89,
           "slot_group": "Sequence information"
         },
@@ -45466,8 +45466,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "geo_loc_name_site__": {
-          "name": "geo_loc_name_site__",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "description": "The name of a specific geographical location e.g. Credit River (rather than river).",
           "title": "geo_loc_name_(site)",
           "comments": [
@@ -45481,7 +45481,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 18,
           "slot_uri": "GENEPIO:0100436",
-          "alias": "geo_loc_name_site__",
+          "alias": "geo_loc_name_site",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -47476,14 +47476,14 @@
             }
           ]
         },
-        "influenza_antiviral_agent__": {
-          "name": "influenza_antiviral_agent__",
+        "influenza_antiviral_agent": {
+          "name": "influenza_antiviral_agent",
           "description": "A substance that destroys or inhibits replication of viruses.",
           "title": "influenza_antiviral_agent",
           "from_schema": "https://example.com/hpai",
           "rank": 84,
           "slot_uri": "GENEPIO:0101114",
-          "alias": "influenza_antiviral_agent__",
+          "alias": "influenza_antiviral_agent",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -47595,8 +47595,8 @@
           "slot_group": "Sequence information",
           "range": "date"
         },
-        "purpose_of_sequencing__": {
-          "name": "purpose_of_sequencing__",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose_of_sequencing",
           "comments": [
@@ -47610,7 +47610,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 89,
           "slot_uri": "GENEPIO:0001445",
-          "alias": "purpose_of_sequencing__",
+          "alias": "purpose_of_sequencing",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",

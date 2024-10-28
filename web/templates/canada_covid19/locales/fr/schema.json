@@ -5981,8 +5981,8 @@
       ],
       "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
     },
-    "r1_fastq_filename________": {
-      "name": "r1_fastq_filename________",
+    "r1_fastq_filename": {
+      "name": "r1_fastq_filename",
       "description": "Nom du fichier R1 FASTQ spécifié par l’utilisateur",
       "title": "Nom de fichier R1 FASTQ",
       "comments": [
@@ -7077,8 +7077,8 @@
           "rank": 115,
           "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
         },
-        "r1_fastq_filename________": {
-          "name": "r1_fastq_filename________",
+        "r1_fastq_filename": {
+          "name": "r1_fastq_filename",
           "rank": 116,
           "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
         },
@@ -9667,8 +9667,8 @@
           ],
           "slot_group": "Bioinformatique et mesures de contrôle de la qualité"
         },
-        "r1_fastq_filename________": {
-          "name": "r1_fastq_filename________",
+        "r1_fastq_filename": {
+          "name": "r1_fastq_filename",
           "description": "Nom du fichier R1 FASTQ spécifié par l’utilisateur",
           "title": "Nom de fichier R1 FASTQ",
           "comments": [
@@ -9681,7 +9681,7 @@
           ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 116,
-          "alias": "r1_fastq_filename________",
+          "alias": "r1_fastq_filename",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"

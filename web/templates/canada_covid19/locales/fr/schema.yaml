@@ -136,7 +136,7 @@ classes:
     - breadth_of_coverage_value
     - depth_of_coverage_value
     - depth_of_coverage_threshold
-    - r1_fastq_filename________
+    - r1_fastq_filename
     - r2_fastq_filename
     - r1_fastq_filepath
     - r2_fastq_filepath
@@ -510,7 +510,7 @@ classes:
       depth_of_coverage_threshold:
         rank: 115
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-      r1_fastq_filename________:
+      r1_fastq_filename:
         rank: 116
         slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
       r2_fastq_filename:
@@ -1896,8 +1896,8 @@ slots:
     comments: "Fournissez la couverture amplifi\xE9e."
     examples:
     - value: 100x
-  r1_fastq_filename________:
-    name: r1_fastq_filename________
+  r1_fastq_filename:
+    name: r1_fastq_filename
     title: "Nom de fichier\_R1\_FASTQ"
     description: "Nom du fichier\_R1\_FASTQ sp\xE9cifi\xE9 par l\u2019utilisateur"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"

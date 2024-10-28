@@ -11912,8 +11912,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "sequencing_protocol__": {
-      "name": "sequencing_protocol__",
+    "sequencing_protocol": {
+      "name": "sequencing_protocol",
       "description": "The protocol used to generate the sequence.",
       "title": "sequencing protocol",
       "comments": [
@@ -14669,8 +14669,8 @@
           "rank": 85,
           "slot_group": "Sequence information"
         },
-        "sequencing_protocol__": {
-          "name": "sequencing_protocol__",
+        "sequencing_protocol": {
+          "name": "sequencing_protocol",
           "rank": 86,
           "slot_group": "Sequencing"
         },
@@ -17877,8 +17877,8 @@
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
         },
-        "sequencing_protocol__": {
-          "name": "sequencing_protocol__",
+        "sequencing_protocol": {
+          "name": "sequencing_protocol",
           "description": "The protocol used to generate the sequence.",
           "title": "sequencing protocol",
           "comments": [
@@ -17896,7 +17896,7 @@
           ],
           "rank": 86,
           "slot_uri": "GENEPIO:0001454",
-          "alias": "sequencing_protocol__",
+          "alias": "sequencing_protocol",
           "owner": "Mpox",
           "domain_of": [
             "Mpox",
@@ -20420,8 +20420,8 @@
           "rank": 88,
           "slot_group": "Sequence information"
         },
-        "sequencing_protocol__": {
-          "name": "sequencing_protocol__",
+        "sequencing_protocol": {
+          "name": "sequencing_protocol",
           "rank": 89,
           "slot_group": "Sequencing"
         },
@@ -23643,8 +23643,8 @@
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
         },
-        "sequencing_protocol__": {
-          "name": "sequencing_protocol__",
+        "sequencing_protocol": {
+          "name": "sequencing_protocol",
           "description": "The protocol used to generate the sequence.",
           "title": "sequencing protocol",
           "comments": [
@@ -23662,7 +23662,7 @@
           ],
           "rank": 89,
           "slot_uri": "GENEPIO:0001454",
-          "alias": "sequencing_protocol__",
+          "alias": "sequencing_protocol",
           "owner": "MpoxInternational",
           "domain_of": [
             "Mpox",
