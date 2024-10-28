@@ -463,11 +463,18 @@ export default {
         ['SUBMISSIONS - GISAID Accession ID', []],
         ['CUSTOMER', []],
         ['PH_SEQUENCING_CENTRE', []],
+
         ['HC_COLLECT_DATE', []],
         ['HC_TEXT2', []],
         ['HC_COUNTRY', []],
         ['HC_PROVINCE', []],
         ['HC_CURRENT_ID', []],
+
+
+
+
+
+
         ['RESULT - CANCOGEN_SUBMISSIONS', []],
         ['HC_SAMPLE_CATEGORY', []],
         ['PH_SAMPLING_DETAILS', []],
@@ -504,12 +511,11 @@ export default {
         ['PH_EXPOSURE_DETAILS', []],
         ['PH_HOST_ROLE', []],
         ['PH_REASON_FOR_SEQUENCING', []],
-
         ['PH_REASON_FOR_SEQUENCING_DETAILS', []],
         ['PH_SEQUENCING_DATE', []],
         ['PH_LIBRARY_PREP_KIT', []],
-
         ['PH_INSTRUMENT_CGN', []],
+
         ['PH_TESTING_PROTOCOL', []],
         ['PH_SEQ_PROTOCOL_NAME', []],
         ['PH_RAW_SEQUENCE_METHOD', []],
@@ -530,6 +536,10 @@ export default {
         ['SUBMITTED_RESLT - Gene Target #2 CT Value', []],
         ['SUBMITTED_RESLT - Gene Target #3', []],
         ['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
+
+
+
+
         ['PH_CANCOGEN_AUTHORS', []],
         ['HC_COMMENTS', []],
 
@@ -539,7 +549,8 @@ export default {
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-
+      const sourceFieldTitleMap = dh.getFieldTitleMap(sourceFields);
+      
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'NML_LIMS');
 
@@ -577,7 +588,7 @@ export default {
             // Note: if this field eventually gets null values, then must do
             // field.dataStatus check.
             const value =
-              inputRow[sourceFieldNameMap['signs and symptoms']] || '';
+              inputRow[sourceFieldTitleMap['signs and symptoms']] || '';
             outputRow.push(value ? 'Y' : 'N');
             continue;
           }
@@ -586,9 +597,9 @@ export default {
           // by looking at year or month in "sample collection date precision"
           if (headerName === 'HC_COLLECT_DATE') {
             let value =
-              inputRow[sourceFieldNameMap['sample collection date']] || '';
+              inputRow[sourceFieldTitleMap['sample collection date']] || '';
             const date_unit =
-              inputRow[sourceFieldNameMap['sample collection date precision']];
+              inputRow[sourceFieldTitleMap['sample collection date precision']];
             outputRow.push(dh.setDateChange(date_unit, value, '01'));
             continue;
           }
@@ -604,7 +615,7 @@ export default {
               'environmental material',
               'environmental site',
             ]) {
-              let value = inputRow[sourceFieldNameMap[fieldName]];
+              let value = inputRow[sourceFieldTitleMap[fieldName]];
 
               // Ignore all null value types
               if (!value || null_values.has(value)) {
