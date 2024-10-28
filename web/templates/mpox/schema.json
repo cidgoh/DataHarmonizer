@@ -11458,6 +11458,9 @@
       "name": "prior_mpox_infection_date",
       "description": "The date of diagnosis of the prior Mpox infection.",
       "title": "prior Mpox infection date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date that the most recent prior infection was diagnosed. Provide the prior Mpox infection date in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -11781,7 +11784,8 @@
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
       "todos": [
-        ">={sample_collection_date}"
+        ">={sample_collection_date}",
+        "<={today}"
       ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -17267,6 +17271,9 @@
           "name": "prior_mpox_infection_date",
           "description": "The date of diagnosis of the prior Mpox infection.",
           "title": "prior Mpox infection date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date that the most recent prior infection was diagnosed. Provide the prior Mpox infection date in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -17702,7 +17709,8 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}"
+            ">={sample_collection_date}",
+            "<={today}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -23068,6 +23076,9 @@
           "name": "prior_mpox_infection_date",
           "description": "The date of diagnosis of the prior Mpox infection.",
           "title": "prior Mpox infection date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date that the most recent prior infection was diagnosed. Provide the prior Mpox infection date in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -23469,7 +23480,8 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}"
+            ">={sample_collection_date}",
+            "<={today}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."

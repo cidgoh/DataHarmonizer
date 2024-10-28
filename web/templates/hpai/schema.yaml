@@ -4429,6 +4429,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     required: true
     examples:
     - value: '2020-03-16'
@@ -4444,6 +4446,9 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - '>={sample_collection_date}'
+    - <={today}
     recommended: true
     examples:
     - value: '2020-03-18'
@@ -4517,6 +4522,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2020-03-28'
   sample_processing_date:
@@ -4530,6 +4537,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2020-03-16'
   host_origin_geo_loc_name_country:
@@ -4633,6 +4642,8 @@ slots:
       blank or provide a null value.
     slot_uri: GENEPIO:0100615
     range: date
+    todos:
+    - <={today}
     examples:
     - value: '2020-05-25'
     exact_mappings:
@@ -4647,6 +4658,8 @@ slots:
       provide a null value.
     slot_uri: GENEPIO:0100616
     range: date
+    todos:
+    - <={today}
     examples:
     - value: '2020-05-25'
   environmental_site:
@@ -5208,6 +5221,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2020-03-16'
   signs_and_symptoms:
@@ -5365,6 +5380,8 @@ slots:
       The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0100314
     range: date
+    todos:
+    - <={today}
     examples:
     - value: '2021-03-01'
   vaccination_dose_2_vaccine_name:
@@ -5386,6 +5403,8 @@ slots:
       The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0100316
     range: date
+    todos:
+    - <={today}
     examples:
     - value: '2021-09-01'
   vaccination_history:
@@ -5432,6 +5451,8 @@ slots:
       the first administration date if multiple doses were given.
     slot_uri: GENEPIO:0101115
     range: date
+    todos:
+    - <={today}
   water_catchment_area_human_population_measurement_value:
     name: water_catchment_area_human_population_measurement_value
     title: water_catchment_area_human_population_measurement_value
@@ -6339,6 +6360,7 @@ slots:
     range: date
     todos:
     - '>={sample_collection_date}'
+    - <={today}
     examples:
     - value: '2020-06-22'
   purpose_of_sequencing:
@@ -7044,6 +7066,8 @@ slots:
       analysis was performed in ISO 8601 format, i.e. "YYYY-MM-DD".
     slot_uri: GENEPIO:0101075
     range: date
+    todos:
+    - <={today}
     examples:
     - value: '2024-02-01'
   read_mapping_criteria:

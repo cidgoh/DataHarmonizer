@@ -7716,6 +7716,9 @@
       "name": "sequencing_date",
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the sequencing date in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -12152,6 +12155,9 @@
           "name": "sequencing_date",
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sequencing date in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],

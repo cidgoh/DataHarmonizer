@@ -2773,6 +2773,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2022-06-20'
     exact_mappings:
@@ -2958,6 +2960,7 @@ slots:
     - range: NullValueMenu
     todos:
     - '>={sample_collection_date}'
+    - <={today}
     examples:
     - value: '2020-06-22'
     exact_mappings:

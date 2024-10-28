@@ -9267,6 +9267,9 @@
       "name": "sample_collection_date",
       "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
       "title": "sample_collection_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "If your sample is a continuous sample please use this field to capture your start date. Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -9301,6 +9304,10 @@
       "name": "sample_collection_end_date",
       "description": "The date on which sample collection ended for a continuous sample.",
       "title": "sample_collection_end_date",
+      "todos": [
+        ">={sample_collection_date}",
+        "<={today}"
+      ],
       "comments": [
         "Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD"
       ],
@@ -9474,6 +9481,9 @@
       "name": "sample_received_date",
       "description": "The date on which the sample was received.",
       "title": "sample received date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the sample received date in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
       ],
@@ -9504,6 +9514,9 @@
       "name": "sample_processing_date",
       "description": "The date on which the sample was processed.",
       "title": "sample processing date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
       ],
@@ -9703,6 +9716,9 @@
       "name": "food_quality_date",
       "description": "A date recommended for the use of a product while at peak quality, this date is not a reflection of safety unless used on infant formula.",
       "title": "food_quality_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "This date is typically labeled on a food product as \"best if used by\", best by\", \"use by\", or \"freeze by\" e.g. 5/24/2020. If the date is known, leave blank or provide a null value."
       ],
@@ -9726,6 +9742,9 @@
       "name": "food_packaging_date",
       "description": "A food product's packaging date as marked by a food manufacturer or retailer.",
       "title": "food_packaging_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "The packaging date should not be confused with, nor replaced by a Best Before date or other food quality date. If the date is known, leave blank or provide a null value."
       ],
@@ -10840,6 +10859,9 @@
       "name": "symptom_onset_date",
       "description": "The date on which the symptoms began or were first noted.",
       "title": "symptom_onset_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "If known, provide the symptom onset date in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -11155,6 +11177,9 @@
       "name": "vaccination_dose_1_vaccination_date",
       "description": "The date the first dose of a vaccine was administered.",
       "title": "vaccination_dose_1_vaccination_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -11195,6 +11220,9 @@
       "name": "vaccination_dose_2_vaccination_date",
       "description": "The date the second dose of a vaccine was administered.",
       "title": "vaccination_dose_2_vaccination_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -11283,6 +11311,9 @@
       "name": "influenza_antiviral_treatment_date",
       "description": "The date on which the influenza antiviral agent was administered to a patient as part of treatment",
       "title": "influenza_antiviral_treatment_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "This field records the exact date when the antiviral treatment was administered. The date should be provided in a standard format (e.g., YYYY-MM-DD) and reflect the first administration date if multiple doses were given."
       ],
@@ -13343,7 +13374,8 @@
       "description": "The date the sample was sequenced.",
       "title": "sequencing_date",
       "todos": [
-        ">={sample_collection_date}"
+        ">={sample_collection_date}",
+        "<={today}"
       ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -14895,6 +14927,9 @@
       "name": "taxonomic_analysis_date",
       "description": "The date a taxonomic analysis was performed.",
       "title": "taxonomic analysis date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
       ],
@@ -17377,6 +17412,9 @@
           "name": "sample_collection_date",
           "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
           "title": "sample_collection_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "If your sample is a continuous sample please use this field to capture your start date. Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -17415,6 +17453,10 @@
           "name": "sample_collection_end_date",
           "description": "The date on which sample collection ended for a continuous sample.",
           "title": "sample_collection_end_date",
+          "todos": [
+            ">={sample_collection_date}",
+            "<={today}"
+          ],
           "comments": [
             "Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD"
           ],
@@ -17612,6 +17654,9 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample received date in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -17646,6 +17691,9 @@
           "name": "sample_processing_date",
           "description": "The date on which the sample was processed.",
           "title": "sample processing date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
           ],
@@ -17869,6 +17917,9 @@
           "name": "food_quality_date",
           "description": "A date recommended for the use of a product while at peak quality, this date is not a reflection of safety unless used on infant formula.",
           "title": "food_quality_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "This date is typically labeled on a food product as \"best if used by\", best by\", \"use by\", or \"freeze by\" e.g. 5/24/2020. If the date is known, leave blank or provide a null value."
           ],
@@ -17896,6 +17947,9 @@
           "name": "food_packaging_date",
           "description": "A food product's packaging date as marked by a food manufacturer or retailer.",
           "title": "food_packaging_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "The packaging date should not be confused with, nor replaced by a Best Before date or other food quality date. If the date is known, leave blank or provide a null value."
           ],
@@ -19166,6 +19220,9 @@
           "name": "symptom_onset_date",
           "description": "The date on which the symptoms began or were first noted.",
           "title": "symptom_onset_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "If known, provide the symptom onset date in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -19529,6 +19586,9 @@
           "name": "vaccination_dose_1_vaccination_date",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination_dose_1_vaccination_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -19577,6 +19637,9 @@
           "name": "vaccination_dose_2_vaccination_date",
           "description": "The date the second dose of a vaccine was administered.",
           "title": "vaccination_dose_2_vaccination_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -19681,6 +19744,9 @@
           "name": "influenza_antiviral_treatment_date",
           "description": "The date on which the influenza antiviral agent was administered to a patient as part of treatment",
           "title": "influenza_antiviral_treatment_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "This field records the exact date when the antiviral treatment was administered. The date should be provided in a standard format (e.g., YYYY-MM-DD) and reflect the first administration date if multiple doses were given."
           ],
@@ -22085,7 +22151,8 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing_date",
           "todos": [
-            ">={sample_collection_date}"
+            ">={sample_collection_date}",
+            "<={today}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -23885,6 +23952,9 @@
           "name": "taxonomic_analysis_date",
           "description": "The date a taxonomic analysis was performed.",
           "title": "taxonomic analysis date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -25800,6 +25870,9 @@
           "name": "sample_collection_date",
           "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
           "title": "sample_collection_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "If your sample is a continuous sample please use this field to capture your start date. Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -25838,6 +25911,9 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample received date in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -25872,6 +25948,9 @@
           "name": "sample_processing_date",
           "description": "The date on which the sample was processed.",
           "title": "sample processing date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
           ],
@@ -26064,6 +26143,9 @@
           "name": "food_quality_date",
           "description": "A date recommended for the use of a product while at peak quality, this date is not a reflection of safety unless used on infant formula.",
           "title": "food_quality_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "This date is typically labeled on a food product as \"best if used by\", best by\", \"use by\", or \"freeze by\" e.g. 5/24/2020. If the date is known, leave blank or provide a null value."
           ],
@@ -26091,6 +26173,9 @@
           "name": "food_packaging_date",
           "description": "A food product's packaging date as marked by a food manufacturer or retailer.",
           "title": "food_packaging_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "The packaging date should not be confused with, nor replaced by a Best Before date or other food quality date. If the date is known, leave blank or provide a null value."
           ],
@@ -26844,7 +26929,8 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing_date",
           "todos": [
-            ">={sample_collection_date}"
+            ">={sample_collection_date}",
+            "<={today}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -28644,6 +28730,9 @@
           "name": "taxonomic_analysis_date",
           "description": "The date a taxonomic analysis was performed.",
           "title": "taxonomic analysis date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -30974,6 +31063,9 @@
           "name": "sample_collection_date",
           "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
           "title": "sample_collection_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "If your sample is a continuous sample please use this field to capture your start date. Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -31012,6 +31104,10 @@
           "name": "sample_collection_end_date",
           "description": "The date on which sample collection ended for a continuous sample.",
           "title": "sample_collection_end_date",
+          "todos": [
+            ">={sample_collection_date}",
+            "<={today}"
+          ],
           "comments": [
             "Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD"
           ],
@@ -31209,6 +31305,9 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample received date in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -31243,6 +31342,9 @@
           "name": "sample_processing_date",
           "description": "The date on which the sample was processed.",
           "title": "sample processing date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
           ],
@@ -34336,7 +34438,8 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing_date",
           "todos": [
-            ">={sample_collection_date}"
+            ">={sample_collection_date}",
+            "<={today}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -36136,6 +36239,9 @@
           "name": "taxonomic_analysis_date",
           "description": "The date a taxonomic analysis was performed.",
           "title": "taxonomic analysis date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -38466,6 +38572,9 @@
           "name": "sample_collection_date",
           "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
           "title": "sample_collection_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "If your sample is a continuous sample please use this field to capture your start date. Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -38504,6 +38613,10 @@
           "name": "sample_collection_end_date",
           "description": "The date on which sample collection ended for a continuous sample.",
           "title": "sample_collection_end_date",
+          "todos": [
+            ">={sample_collection_date}",
+            "<={today}"
+          ],
           "comments": [
             "Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD"
           ],
@@ -38701,6 +38814,9 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample received date in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -38735,6 +38851,9 @@
           "name": "sample_processing_date",
           "description": "The date on which the sample was processed.",
           "title": "sample processing date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
           ],
@@ -41828,7 +41947,8 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing_date",
           "todos": [
-            ">={sample_collection_date}"
+            ">={sample_collection_date}",
+            "<={today}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -43628,6 +43748,9 @@
           "name": "taxonomic_analysis_date",
           "description": "The date a taxonomic analysis was performed.",
           "title": "taxonomic analysis date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -45688,6 +45811,9 @@
           "name": "sample_collection_date",
           "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
           "title": "sample_collection_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "If your sample is a continuous sample please use this field to capture your start date. Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -45726,6 +45852,9 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample received date in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -45760,6 +45889,9 @@
           "name": "sample_processing_date",
           "description": "The date on which the sample was processed.",
           "title": "sample processing date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
           ],
@@ -46981,6 +47113,9 @@
           "name": "symptom_onset_date",
           "description": "The date on which the symptoms began or were first noted.",
           "title": "symptom_onset_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "If known, provide the symptom onset date in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -47344,6 +47479,9 @@
           "name": "vaccination_dose_1_vaccination_date",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination_dose_1_vaccination_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -47392,6 +47530,9 @@
           "name": "vaccination_dose_2_vaccination_date",
           "description": "The date the second dose of a vaccine was administered.",
           "title": "vaccination_dose_2_vaccination_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -47496,6 +47637,9 @@
           "name": "influenza_antiviral_treatment_date",
           "description": "The date on which the influenza antiviral agent was administered to a patient as part of treatment",
           "title": "influenza_antiviral_treatment_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "This field records the exact date when the antiviral treatment was administered. The date should be provided in a standard format (e.g., YYYY-MM-DD) and reflect the first administration date if multiple doses were given."
           ],
@@ -47570,7 +47714,8 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing_date",
           "todos": [
-            ">={sample_collection_date}"
+            ">={sample_collection_date}",
+            "<={today}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -49370,6 +49515,9 @@
           "name": "taxonomic_analysis_date",
           "description": "The date a taxonomic analysis was performed.",
           "title": "taxonomic analysis date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],

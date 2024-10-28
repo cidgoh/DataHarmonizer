@@ -1962,6 +1962,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2021-04-26'
   library_id:

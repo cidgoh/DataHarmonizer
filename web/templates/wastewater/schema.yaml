@@ -3157,6 +3157,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2020-03-28'
   sample_collection_start_date:
@@ -3172,6 +3174,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     required: true
     examples:
     - value: '2020-03-16'
@@ -3185,6 +3189,9 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - '>={sample_collection_start_date}'
+    - <={today}
     recommended: true
     examples:
     - value: '2020-03-18'
@@ -3199,6 +3206,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2020-03-16'
   sample_collection_start_time:
@@ -3711,6 +3720,8 @@ slots:
       or "YYYY".
     slot_uri: GENEPIO:0100465
     range: date
+    todos:
+    - <={today}
     examples:
     - value: '2020-10-30'
   isolate_received_date:
@@ -3721,6 +3732,8 @@ slots:
       or "YYYY".
     slot_uri: GENEPIO:0100466
     range: WhitespaceMinimizedString
+    todos:
+    - <={today}
     examples:
     - value: '2020-11-15'
   serovar:
@@ -4710,6 +4723,7 @@ slots:
     range: date
     todos:
     - '>={sample_collection_date}'
+    - <={today}
     examples:
     - value: '2020-06-22'
   library_id:
@@ -5277,6 +5291,8 @@ slots:
       analysis was performed in ISO 8601 format, i.e. "YYYY-MM-DD".
     slot_uri: GENEPIO:0101075
     range: date
+    todos:
+    - <={today}
     examples:
     - value: '2024-02-01'
   read_mapping_criteria:
