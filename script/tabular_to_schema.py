@@ -158,6 +158,8 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 		elif isDecimal(slot_minimum_value):
 			slot['minimum_value'] = float(slot_minimum_value);
 		else:
+			if not 'todos' in slot:
+				slot['todos'] = [];
 			slot['todos'] = ['>=' + slot_minimum_value];
 	if slot_maximum_value > '':
 		if isInteger(slot_maximum_value):
@@ -165,10 +167,9 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 		elif isDecimal(slot_maximum_value):
 			slot['maximum_value'] = float(slot_maximum_value);
 		else:
-			if slot['todos']:
-				slot['todos'].append('<=' + slot_maximum_value);
-			else:
-				slot['todos'] = ['<=' + slot_maximum_value];
+			if not 'todos' in slot:
+				slot['todos'] = [];
+			slot['todos'].append('<=' + slot_maximum_value);
 
 def isDecimal(x):
     try:
