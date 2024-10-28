@@ -1,6 +1,6 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: YOUR_SCHEMA_NAME
-description: ""
+description: "A description of the schema containing one or more templates."
 version: 1.0.0
 in_language: 
 - 'en'
@@ -13,9 +13,10 @@ classes:
   dh_interface:
     name: dh_interface
     description: 'A DataHarmonizer interface'
-  'TEMPLATE_NAME':
-    name: 'TEMPLATE_NAME'
-    description: TEMPLATE DESCRIPTION
+  'TemplateName':
+    name: 'TemplateName'
+    title: 'Template Name'
+    description: "A description of the template."
     is_a: dh_interface
     see_also: templates/TEMPLATE_FOLDER/SOP.pdf
 slots: {}
