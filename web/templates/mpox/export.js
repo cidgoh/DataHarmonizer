@@ -150,7 +150,34 @@ export default {
       ];
 
       // GISAID has new sampling_strategy field as of May 12, 2021
-      const header_GISAID = ['submitter','fn','pox_virus_name','pox_passage','pox_collection_date','pox_location','pox_add_location','pox_host','pox_add_host_info','pox_sampling_strategy','pox_gender','pox_patient_age','pox_patient_status','pox_specimen','pox_outbreak','pox_last_vaccinated','pox_treatment','pox_seq_technology','pox_assembly_method','pox_coverage','pox_orig_lab','pox_orig_lab_addr','pox_provider_sample_id','pox_subm_lab','pox_subm_lab_addr','pox_subm_sample_id','pox_authors'];
+      const header_GISAID = [
+        'submitter',
+        'fn',
+        'pox_virus_name',
+        'pox_passage',
+        'pox_collection_date',
+        'pox_location',
+        'pox_add_location',
+        'pox_host',
+        'pox_add_host_info',
+        'pox_sampling_strategy',
+        'pox_gender',
+        'pox_patient_age',
+        'pox_patient_status',
+        'pox_specimen',
+        'pox_outbreak',
+        'pox_last_vaccinated',
+        'pox_treatment',
+        'pox_seq_technology',
+        'pox_assembly_method',
+        'pox_coverage',
+        'pox_orig_lab',
+        'pox_orig_lab_addr',
+        'pox_provider_sample_id',
+        'pox_subm_lab',
+        'pox_subm_lab_addr',
+        'pox_subm_sample_id',
+        'pox_authors'];
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
