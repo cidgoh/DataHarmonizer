@@ -288,27 +288,24 @@ export default {
         ['PH_CASE_ID',              []],
         ['PH_RELATED_PRIMARY_ID', []],
 
+
+
+
         ['CUSTOMER', []],
-
         ['PH_SEQUENCING_CENTRE', []],
-
         ['PH_SEQUENCE_SUBMITTER', []],
-
         ['HC_COLLECT_DATE', []],
         ['HC_TEXT2', []],
-
         ['HC_COUNTRY', []],
         ['HC_PROVINCE', []],
-
         ['HC_CURRENT_ID', []],
-        
         ['SUBMISSIONS - BioProject Accession', []],
 				['SUBMISSIONS - BioSample Accession', []],
 				['SUBMISSIONS - SRA Accession', []],
 				['SUBMISSIONS - GenBank Accession', []],
 				['SUBMISSIONS - GISAID Virus Name', []],
 				['SUBMISSIONS - GISAID Accession', []],
-        
+
         ['HC_SAMPLE_CATEGORY', []],
         ['PH_SAMPLING_DETAILS', []],
         ['PH_SPECIMEN_TYPE', []],
@@ -321,7 +318,6 @@ export default {
         //['PH_ENVIRONMENTAL_SITE',   []],
         ['PH_SPECIMEN_TYPE_ORIG', []],
         ['COLLECTION_METHOD', []],
-
         ['PH_ANIMAL_TYPE',          []],
         ['PH_HOST_HEALTH',          []],
         ['PH_HOST_HEALTH_DETAILS',  []],
@@ -345,10 +341,10 @@ export default {
         ['PH_EXPOSURE_DETAILS',     []],
         ['PH_HOST_ROLE',            []],
         ['PH_REASON_FOR_SEQUENCING', []],
-
         ['PH_REASON_FOR_SEQUENCING_DETAILS', []],
         ['PH_SEQUENCING_DATE', []],
         ['PH_LIBRARY_PREP_KIT', []],
+
         ['PH_SEQUENCING_INSTRUMENT', []],
         ['PH_TESTING_PROTOCOL', []],
         //['PH_SEQ_PROTOCOL_NAME',     []],
@@ -357,7 +353,6 @@ export default {
 
         ['PH_CONSENSUS_SEQUENCE', []], // from 'Consensus Sequence Method Name' or 'consensus sequence software name'
         ['PH_CONSENSUS_SEQUENCE_VERSION', []], // From 'Consensus Sequence Method Version Name' or 'consensus sequence software version'
-
         ['PH_BIOINFORMATICS_PROTOCOL', []],
         //['PH_LINEAGE_CLADE_NAME',   []],
         //['PH_LINEAGE_CLADE_SOFTWARE',[]],
@@ -429,6 +424,7 @@ export default {
 
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
+
         for (const [headerName, sources] of ExportHeaders) {
           if (headerName === 'HC_CURRENT_ID') {
             // Assign constant value.
@@ -474,13 +470,15 @@ export default {
               if (!value || null_values.has(value)) {
                 continue;
               }
+              // value = value.toLowerCase(); //Only in CanCoGEN
               if (
                 fieldName === 'host (scientific name)' ||
                 fieldName === 'host (common name)'
               ) {
                 if (value === 'Homo sapiens' || value === 'Human')
                   cellValue = 'Human';
-                else cellValue = 'ANIMAL';
+                else 
+                  cellValue = 'ANIMAL';
                 break;
               }
               if (
