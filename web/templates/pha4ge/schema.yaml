@@ -3,7 +3,7 @@ name: PHA4GE
 description: ''
 version: 1.0.0
 imports:
-  - linkml:types
+- linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
   GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
@@ -18,220 +18,220 @@ classes:
     is_a: dh_interface
     see_also: templates/pha4ge/SOP.pdf
     slots:
-      - specimen collector sample ID
-      - umbrella bioproject accession
-      - bioproject accession
-      - biosample accession
-      - SRA accession
-      - GenBank/ENA/DDBJ accession
-      - GISAID accession
-      - GISAID virus name
-      - host specimen voucher
-      - sample collected by
-      - sample collector contact email
-      - sample collector contact address
-      - sequence submitted by
-      - sequence submitter contact email
-      - sequence submitter contact address
-      - sample collection date
-      - sample received date
-      - geo_loc name (country)
-      - geo_loc name (state/province/territory)
-      - geo_loc name (county/region)
-      - geo_loc name (city)
-      - geo_loc latitude
-      - geo_loc longitude
-      - organism
-      - isolate
-      - culture collection
-      - purpose of sampling
-      - purpose of sampling details
-      - sample plan name
-      - sample collected in quarantine
-      - anatomical material
-      - anatomical part
-      - body product
-      - environmental material
-      - environmental site
-      - collection device
-      - collection method
-      - collection protocol
-      - specimen processing
-      - specimen processing details
-      - lab host
-      - passage number
-      - passage method
-      - biomaterial extracted
-      - data abstraction details
-      - host (common name)
-      - host (scientific name)
-      - host health state
-      - host health status details
-      - host disease
-      - host health outcome
-      - host age
-      - host age unit
-      - host age bin
-      - host gender
-      - host residence geo_loc name (country)
-      - host ethnicity
-      - host subject ID
-      - case ID
-      - symptom onset date
-      - signs and symptoms
-      - pre-existing conditions and risk factors
-      - complications
-      - host vaccination status
-      - number of vaccine doses received
-      - vaccination dose 1 vaccine name
-      - vaccination dose 1 vaccination date
-      - vaccination dose 2 vaccine name
-      - vaccination dose 2 vaccination date
-      - vaccination dose 3 vaccine name
-      - vaccination dose 3 vaccination date
-      - vaccination dose 4 vaccine name
-      - vaccination dose 4 vaccination date
-      - vaccination history
-      - location of exposure geo_loc name (country)
-      - destination of most recent travel (city)
-      - destination of most recent travel (state/province/territory)
-      - destination of most recent travel (country)
-      - most recent travel departure date
-      - most recent travel return date
-      - travel history
-      - exposure event
-      - exposure contact level
-      - host role
-      - exposure setting
-      - exposure details
-      - prior SARS-CoV-2 infection
-      - prior SARS-CoV-2 infection isolate
-      - prior SARS-CoV-2 infection date
-      - prior SARS-CoV-2 antiviral treatment
-      - prior SARS-CoV-2 antiviral treatment agent
-      - prior SARS-CoV-2 antiviral treatment date
-      - purpose of sequencing
-      - purpose of sequencing details
-      - sequencing date
-      - library ID
-      - amplicon size
-      - library preparation kit
-      - flow cell barcode
-      - sequencing instrument
-      - sequencing protocol name
-      - sequencing protocol
-      - sequencing kit number
-      - amplicon pcr primer scheme
-      - raw sequence data processing method
-      - dehosting method
-      - consensus sequence name
-      - consensus sequence filename
-      - consensus sequence filepath
-      - consensus sequence software name
-      - consensus sequence software version
-      - breadth of coverage value
-      - depth of coverage value
-      - depth of coverage threshold
-      - r1 fastq filename
-      - r2 fastq filename
-      - r1 fastq filepath
-      - r2 fastq filepath
-      - fast5 filename
-      - fast5 filepath
-      - number of base pairs sequenced
-      - consensus genome length
-      - Ns per 100 kbp
-      - reference genome accession
-      - bioinformatics protocol
-      - lineage/clade name
-      - lineage/clade analysis software name
-      - lineage/clade analysis software version
-      - variant designation
-      - variant evidence details
-      - gene name 1
-      - diagnostic pcr protocol 1
-      - diagnostic pcr Ct value 1
-      - gene name 2
-      - diagnostic pcr protocol 2
-      - diagnostic pcr Ct value 2
-      - title
-      - library_strategy
-      - library_source
-      - library_selection
-      - library_layout
-      - filetype
-      - filename
-      - filename2
-      - authors
-      - DataHarmonizer provenance
+    - specimen_collector_sample_id
+    - umbrella_bioproject_accession
+    - bioproject_accession
+    - biosample_accession
+    - sra_accession
+    - genbank_ena_ddbj_accession
+    - gisaid_accession
+    - gisaid_virus_name
+    - host_specimen_voucher
+    - sample_collected_by
+    - sample_collector_contact_email
+    - sample_collector_contact_address
+    - sequence_submitted_by
+    - sequence_submitter_contact_email
+    - sequence_submitter_contact_address
+    - sample_collection_date
+    - sample_received_date
+    - geo_loc_name_country
+    - geo_loc_name_state_province_territory
+    - geo_loc_name_county_region
+    - geo_loc_name_city
+    - geo_loc_latitude
+    - geo_loc_longitude
+    - organism
+    - isolate
+    - culture_collection
+    - purpose_of_sampling
+    - purpose_of_sampling_details
+    - sample_plan_name
+    - sample_collected_in_quarantine
+    - anatomical_material
+    - anatomical_part
+    - body_product
+    - environmental_material
+    - environmental_site
+    - collection_device
+    - collection_method
+    - collection_protocol
+    - specimen_processing
+    - specimen_processing_details
+    - lab_host
+    - passage_number
+    - passage_method
+    - biomaterial_extracted
+    - data_abstraction_details
+    - host_common_name
+    - host_scientific_name
+    - host_health_state
+    - host_health_status_details
+    - host_disease
+    - host_health_outcome
+    - host_age
+    - host_age_unit
+    - host_age_bin
+    - host_gender
+    - host_residence_geo_loc_name_country
+    - host_ethnicity
+    - host_subject_id
+    - case_id
+    - symptom_onset_date
+    - signs_and_symptoms
+    - preexisting_conditions_and_risk_factors
+    - complications
+    - host_vaccination_status
+    - number_of_vaccine_doses_received
+    - vaccination_dose_1_vaccine_name
+    - vaccination_dose_1_vaccination_date
+    - vaccination_dose_2_vaccine_name
+    - vaccination_dose_2_vaccination_date
+    - vaccination_dose_3_vaccine_name
+    - vaccination_dose_3_vaccination_date
+    - vaccination_dose_4_vaccine_name
+    - vaccination_dose_4_vaccination_date
+    - vaccination_history
+    - location_of_exposure_geo_loc_name_country
+    - destination_of_most_recent_travel_city
+    - destination_of_most_recent_travel_state_province_territory
+    - destination_of_most_recent_travel_country
+    - most_recent_travel_departure_date
+    - most_recent_travel_return_date
+    - travel_history
+    - exposure_event
+    - exposure_contact_level
+    - host_role
+    - exposure_setting
+    - exposure_details
+    - prior_sarscov2_infection
+    - prior_sarscov2_infection_isolate
+    - prior_sarscov2_infection_date
+    - prior_sarscov2_antiviral_treatment
+    - prior_sarscov2_antiviral_treatment_agent
+    - prior_sarscov2_antiviral_treatment_date
+    - purpose_of_sequencing
+    - purpose_of_sequencing_details
+    - sequencing_date
+    - library_id
+    - amplicon_size
+    - library_preparation_kit
+    - flow_cell_barcode
+    - sequencing_instrument
+    - sequencing_protocol_name
+    - sequencing_protocol
+    - sequencing_kit_number
+    - amplicon_pcr_primer_scheme
+    - raw_sequence_data_processing_method
+    - dehosting_method
+    - consensus_sequence_name
+    - consensus_sequence_filename
+    - consensus_sequence_filepath
+    - consensus_sequence_software_name
+    - consensus_sequence_software_version
+    - breadth_of_coverage_value
+    - depth_of_coverage_value
+    - depth_of_coverage_threshold
+    - r1_fastq_filename
+    - r2_fastq_filename
+    - r1_fastq_filepath
+    - r2_fastq_filepath
+    - fast5_filename
+    - fast5_filepath
+    - number_of_base_pairs_sequenced
+    - consensus_genome_length
+    - ns_per_100_kbp
+    - reference_genome_accession
+    - bioinformatics_protocol
+    - lineage_clade_name
+    - lineage_clade_analysis_software_name
+    - lineage_clade_analysis_software_version
+    - variant_designation
+    - variant_evidence_details
+    - gene_name_1
+    - diagnostic_pcr_protocol_1
+    - diagnostic_pcr_ct_value_1
+    - gene_name_2
+    - diagnostic_pcr_protocol_2
+    - diagnostic_pcr_ct_value_2
+    - title
+    - library_strategy
+    - library_source
+    - library_selection
+    - library_layout
+    - filetype
+    - filename
+    - filename2
+    - authors
+    - dataharmonizer_provenance
     slot_usage:
-      specimen collector sample ID:
+      specimen_collector_sample_id:
         rank: 1
         slot_group: Database Identifiers
-      umbrella bioproject accession:
+      umbrella_bioproject_accession:
         rank: 2
         slot_group: Database Identifiers
-      bioproject accession:
+      bioproject_accession:
         rank: 3
         slot_group: Database Identifiers
-      biosample accession:
+      biosample_accession:
         rank: 4
         slot_group: Database Identifiers
-      SRA accession:
+      sra_accession:
         rank: 5
         slot_group: Database Identifiers
-      GenBank/ENA/DDBJ accession:
+      genbank_ena_ddbj_accession:
         rank: 6
         slot_group: Database Identifiers
-      GISAID accession:
+      gisaid_accession:
         rank: 7
         slot_group: Database Identifiers
-      GISAID virus name:
+      gisaid_virus_name:
         rank: 8
         slot_group: Database Identifiers
-      host specimen voucher:
+      host_specimen_voucher:
         rank: 9
         slot_group: Database Identifiers
-      sample collected by:
+      sample_collected_by:
         rank: 10
         slot_group: Sample collection and processing
-      sample collector contact email:
+      sample_collector_contact_email:
         rank: 11
         slot_group: Sample collection and processing
-      sample collector contact address:
+      sample_collector_contact_address:
         rank: 12
         slot_group: Sample collection and processing
-      sequence submitted by:
+      sequence_submitted_by:
         rank: 13
         slot_group: Sample collection and processing
-      sequence submitter contact email:
+      sequence_submitter_contact_email:
         rank: 14
         slot_group: Sample collection and processing
-      sequence submitter contact address:
+      sequence_submitter_contact_address:
         rank: 15
         slot_group: Sample collection and processing
-      sample collection date:
+      sample_collection_date:
         rank: 16
         slot_group: Sample collection and processing
-      sample received date:
+      sample_received_date:
         rank: 17
         slot_group: Sample collection and processing
-      geo_loc name (country):
+      geo_loc_name_country:
         rank: 18
         slot_group: Sample collection and processing
-      geo_loc name (state/province/territory):
+      geo_loc_name_state_province_territory:
         rank: 19
         slot_group: Sample collection and processing
-      geo_loc name (county/region):
+      geo_loc_name_county_region:
         rank: 20
         slot_group: Sample collection and processing
-      geo_loc name (city):
+      geo_loc_name_city:
         rank: 21
         slot_group: Sample collection and processing
-      geo_loc latitude:
+      geo_loc_latitude:
         rank: 22
         slot_group: Sample collection and processing
-      geo_loc longitude:
+      geo_loc_longitude:
         rank: 23
         slot_group: Sample collection and processing
       organism:
@@ -240,337 +240,337 @@ classes:
       isolate:
         rank: 25
         slot_group: Sample collection and processing
-      culture collection:
+      culture_collection:
         rank: 26
         slot_group: Sample collection and processing
-      purpose of sampling:
+      purpose_of_sampling:
         rank: 27
         slot_group: Sample collection and processing
-      purpose of sampling details:
+      purpose_of_sampling_details:
         rank: 28
         slot_group: Sample collection and processing
-      sample plan name:
+      sample_plan_name:
         rank: 29
         slot_group: Sample collection and processing
-      sample collected in quarantine:
+      sample_collected_in_quarantine:
         rank: 30
         slot_group: Sample collection and processing
-      anatomical material:
+      anatomical_material:
         rank: 31
         slot_group: Sample collection and processing
-      anatomical part:
+      anatomical_part:
         rank: 32
         slot_group: Sample collection and processing
-      body product:
+      body_product:
         rank: 33
         slot_group: Sample collection and processing
-      environmental material:
+      environmental_material:
         rank: 34
         slot_group: Sample collection and processing
-      environmental site:
+      environmental_site:
         rank: 35
         slot_group: Sample collection and processing
-      collection device:
+      collection_device:
         rank: 36
         slot_group: Sample collection and processing
-      collection method:
+      collection_method:
         rank: 37
         slot_group: Sample collection and processing
-      collection protocol:
+      collection_protocol:
         rank: 38
         slot_group: Sample collection and processing
-      specimen processing:
+      specimen_processing:
         rank: 39
         slot_group: Sample collection and processing
-      specimen processing details:
+      specimen_processing_details:
         rank: 40
         slot_group: Sample collection and processing
-      lab host:
+      lab_host:
         rank: 41
         slot_group: Sample collection and processing
-      passage number:
+      passage_number:
         rank: 42
         slot_group: Sample collection and processing
-      passage method:
+      passage_method:
         rank: 43
         slot_group: Sample collection and processing
-      biomaterial extracted:
+      biomaterial_extracted:
         rank: 44
         slot_group: Sample collection and processing
-      data abstraction details:
+      data_abstraction_details:
         rank: 45
         slot_group: Sample collection and processing
-      host (common name):
+      host_common_name:
         rank: 46
         slot_group: Host Information
-      host (scientific name):
+      host_scientific_name:
         rank: 47
         slot_group: Host Information
-      host health state:
+      host_health_state:
         rank: 48
         slot_group: Host Information
-      host health status details:
+      host_health_status_details:
         rank: 49
         slot_group: Host Information
-      host disease:
+      host_disease:
         rank: 50
         slot_group: Host Information
-      host health outcome:
+      host_health_outcome:
         rank: 51
         slot_group: Host Information
-      host age:
+      host_age:
         rank: 52
         slot_group: Host Information
-      host age unit:
+      host_age_unit:
         rank: 53
         slot_group: Host Information
-      host age bin:
+      host_age_bin:
         rank: 54
         slot_group: Host Information
-      host gender:
+      host_gender:
         rank: 55
         slot_group: Host Information
-      host residence geo_loc name (country):
+      host_residence_geo_loc_name_country:
         rank: 56
         slot_group: Host Information
-      host ethnicity:
+      host_ethnicity:
         rank: 57
         slot_group: Host Information
-      host subject ID:
+      host_subject_id:
         rank: 58
         slot_group: Host Information
-      case ID:
+      case_id:
         rank: 59
         slot_group: Host Information
-      symptom onset date:
+      symptom_onset_date:
         rank: 60
         slot_group: Host Information
-      signs and symptoms:
+      signs_and_symptoms:
         rank: 61
         slot_group: Host Information
-      pre-existing conditions and risk factors:
+      preexisting_conditions_and_risk_factors:
         rank: 62
         slot_group: Host Information
       complications:
         rank: 63
         slot_group: Host Information
-      host vaccination status:
+      host_vaccination_status:
         rank: 64
         slot_group: Host vaccination information
-      number of vaccine doses received:
+      number_of_vaccine_doses_received:
         rank: 65
         slot_group: Host vaccination information
-      vaccination dose 1 vaccine name:
+      vaccination_dose_1_vaccine_name:
         rank: 66
         slot_group: Host vaccination information
-      vaccination dose 1 vaccination date:
+      vaccination_dose_1_vaccination_date:
         rank: 67
         slot_group: Host vaccination information
-      vaccination dose 2 vaccine name:
+      vaccination_dose_2_vaccine_name:
         rank: 68
         slot_group: Host vaccination information
-      vaccination dose 2 vaccination date:
+      vaccination_dose_2_vaccination_date:
         rank: 69
         slot_group: Host vaccination information
-      vaccination dose 3 vaccine name:
+      vaccination_dose_3_vaccine_name:
         rank: 70
         slot_group: Host vaccination information
-      vaccination dose 3 vaccination date:
+      vaccination_dose_3_vaccination_date:
         rank: 71
         slot_group: Host vaccination information
-      vaccination dose 4 vaccine name:
+      vaccination_dose_4_vaccine_name:
         rank: 72
         slot_group: Host vaccination information
-      vaccination dose 4 vaccination date:
+      vaccination_dose_4_vaccination_date:
         rank: 73
         slot_group: Host vaccination information
-      vaccination history:
+      vaccination_history:
         rank: 74
         slot_group: Host vaccination information
-      location of exposure geo_loc name (country):
+      location_of_exposure_geo_loc_name_country:
         rank: 75
         slot_group: Host exposure information
-      destination of most recent travel (city):
+      destination_of_most_recent_travel_city:
         rank: 76
         slot_group: Host exposure information
-      destination of most recent travel (state/province/territory):
+      destination_of_most_recent_travel_state_province_territory:
         rank: 77
         slot_group: Host exposure information
-      destination of most recent travel (country):
+      destination_of_most_recent_travel_country:
         rank: 78
         slot_group: Host exposure information
-      most recent travel departure date:
+      most_recent_travel_departure_date:
         rank: 79
         slot_group: Host exposure information
-      most recent travel return date:
+      most_recent_travel_return_date:
         rank: 80
         slot_group: Host exposure information
-      travel history:
+      travel_history:
         rank: 81
         slot_group: Host exposure information
-      exposure event:
+      exposure_event:
         rank: 82
         slot_group: Host exposure information
-      exposure contact level:
+      exposure_contact_level:
         rank: 83
         slot_group: Host exposure information
-      host role:
+      host_role:
         rank: 84
         slot_group: Host exposure information
-      exposure setting:
+      exposure_setting:
         rank: 85
         slot_group: Host exposure information
-      exposure details:
+      exposure_details:
         rank: 86
         slot_group: Host exposure information
-      prior SARS-CoV-2 infection:
+      prior_sarscov2_infection:
         rank: 87
         slot_group: Host reinfection information
-      prior SARS-CoV-2 infection isolate:
+      prior_sarscov2_infection_isolate:
         rank: 88
         slot_group: Host reinfection information
-      prior SARS-CoV-2 infection date:
+      prior_sarscov2_infection_date:
         rank: 89
         slot_group: Host reinfection information
-      prior SARS-CoV-2 antiviral treatment:
+      prior_sarscov2_antiviral_treatment:
         rank: 90
         slot_group: Host reinfection information
-      prior SARS-CoV-2 antiviral treatment agent:
+      prior_sarscov2_antiviral_treatment_agent:
         rank: 91
         slot_group: Host reinfection information
-      prior SARS-CoV-2 antiviral treatment date:
+      prior_sarscov2_antiviral_treatment_date:
         rank: 92
         slot_group: Host reinfection information
-      purpose of sequencing:
+      purpose_of_sequencing:
         rank: 93
         slot_group: Sequencing
-      purpose of sequencing details:
+      purpose_of_sequencing_details:
         rank: 94
         slot_group: Sequencing
-      sequencing date:
+      sequencing_date:
         rank: 95
         slot_group: Sequencing
-      library ID:
+      library_id:
         rank: 96
         slot_group: Sequencing
-      amplicon size:
+      amplicon_size:
         rank: 97
         slot_group: Sequencing
-      library preparation kit:
+      library_preparation_kit:
         rank: 98
         slot_group: Sequencing
-      flow cell barcode:
+      flow_cell_barcode:
         rank: 99
         slot_group: Sequencing
-      sequencing instrument:
+      sequencing_instrument:
         rank: 100
         slot_group: Sequencing
-      sequencing protocol name:
+      sequencing_protocol_name:
         rank: 101
         slot_group: Sequencing
-      sequencing protocol:
+      sequencing_protocol:
         rank: 102
         slot_group: Sequencing
-      sequencing kit number:
+      sequencing_kit_number:
         rank: 103
         slot_group: Sequencing
-      amplicon pcr primer scheme:
+      amplicon_pcr_primer_scheme:
         rank: 104
         slot_group: Sequencing
-      raw sequence data processing method:
+      raw_sequence_data_processing_method:
         rank: 105
         slot_group: Bioinformatics and QC metrics
-      dehosting method:
+      dehosting_method:
         rank: 106
         slot_group: Bioinformatics and QC metrics
-      consensus sequence name:
+      consensus_sequence_name:
         rank: 107
         slot_group: Bioinformatics and QC metrics
-      consensus sequence filename:
+      consensus_sequence_filename:
         rank: 108
         slot_group: Bioinformatics and QC metrics
-      consensus sequence filepath:
+      consensus_sequence_filepath:
         rank: 109
         slot_group: Bioinformatics and QC metrics
-      consensus sequence software name:
+      consensus_sequence_software_name:
         rank: 110
         slot_group: Bioinformatics and QC metrics
-      consensus sequence software version:
+      consensus_sequence_software_version:
         rank: 111
         slot_group: Bioinformatics and QC metrics
-      breadth of coverage value:
+      breadth_of_coverage_value:
         rank: 112
         slot_group: Bioinformatics and QC metrics
-      depth of coverage value:
+      depth_of_coverage_value:
         rank: 113
         slot_group: Bioinformatics and QC metrics
-      depth of coverage threshold:
+      depth_of_coverage_threshold:
         rank: 114
         slot_group: Bioinformatics and QC metrics
-      r1 fastq filename:
+      r1_fastq_filename:
         rank: 115
         slot_group: Bioinformatics and QC metrics
-      r2 fastq filename:
+      r2_fastq_filename:
         rank: 116
         slot_group: Bioinformatics and QC metrics
-      r1 fastq filepath:
+      r1_fastq_filepath:
         rank: 117
         slot_group: Bioinformatics and QC metrics
-      r2 fastq filepath:
+      r2_fastq_filepath:
         rank: 118
         slot_group: Bioinformatics and QC metrics
-      fast5 filename:
+      fast5_filename:
         rank: 119
         slot_group: Bioinformatics and QC metrics
-      fast5 filepath:
+      fast5_filepath:
         rank: 120
         slot_group: Bioinformatics and QC metrics
-      number of base pairs sequenced:
+      number_of_base_pairs_sequenced:
         rank: 121
         slot_group: Bioinformatics and QC metrics
-      consensus genome length:
+      consensus_genome_length:
         rank: 122
         slot_group: Bioinformatics and QC metrics
-      Ns per 100 kbp:
+      ns_per_100_kbp:
         rank: 123
         slot_group: Bioinformatics and QC metrics
-      reference genome accession:
+      reference_genome_accession:
         rank: 124
         slot_group: Bioinformatics and QC metrics
-      bioinformatics protocol:
+      bioinformatics_protocol:
         rank: 125
         slot_group: Bioinformatics and QC metrics
-      lineage/clade name:
+      lineage_clade_name:
         rank: 126
         slot_group: Lineage and Variant information
-      lineage/clade analysis software name:
+      lineage_clade_analysis_software_name:
         rank: 127
         slot_group: Lineage and Variant information
-      lineage/clade analysis software version:
+      lineage_clade_analysis_software_version:
         rank: 128
         slot_group: Lineage and Variant information
-      variant designation:
+      variant_designation:
         rank: 129
         slot_group: Lineage and Variant information
-      variant evidence details:
+      variant_evidence_details:
         rank: 130
         slot_group: Lineage and Variant information
-      gene name 1:
+      gene_name_1:
         rank: 131
         slot_group: Pathogen diagnostic testing
-      diagnostic pcr protocol 1:
+      diagnostic_pcr_protocol_1:
         rank: 132
         slot_group: Pathogen diagnostic testing
-      diagnostic pcr Ct value 1:
+      diagnostic_pcr_ct_value_1:
         rank: 133
         slot_group: Pathogen diagnostic testing
-      gene name 2:
+      gene_name_2:
         rank: 134
         slot_group: Pathogen diagnostic testing
-      diagnostic pcr protocol 2:
+      diagnostic_pcr_protocol_2:
         rank: 135
         slot_group: Pathogen diagnostic testing
-      diagnostic pcr Ct value 2:
+      diagnostic_pcr_ct_value_2:
         rank: 136
         slot_group: Pathogen diagnostic testing
       title:
@@ -600,81 +600,73 @@ classes:
       authors:
         rank: 145
         slot_group: Contributor acknowledgement
-      DataHarmonizer provenance:
+      dataharmonizer_provenance:
         rank: 146
         slot_group: Contributor acknowledgement
 slots:
-  specimen collector sample ID:
-    name: specimen collector sample ID
+  specimen_collector_sample_id:
+    name: specimen_collector_sample_id
     title: specimen collector sample ID
     description: The user-defined name for the sample.
-    comments:
-      Every Sample ID from a single submitter must be unique. It can have
+    comments: Every Sample ID from a single submitter must be unique. It can have
       any format, but we suggest that you make it concise, unique and consistent within
       your lab, and as informative as possible.
-    examples:
-      - value: prov_rona_99
     slot_uri: GENEPIO:0001123
     range: WhitespaceMinimizedString
     required: true
+    examples:
+    - value: prov_rona_99
     exact_mappings:
-      - GISAID:Sample ID given by the sample provider
-      - GISAID:Sample ID given by the submitting laboratory
-      - NCBI_BIOSAMPLE:sample_name
-      - NCBI_SRA:sample_name
-      - NCBI_Genbank:sample_name
-      - NCBI_Genbank_source_modifiers:Sequence_ID
-  umbrella bioproject accession:
-    name: umbrella bioproject accession
+    - GISAID:Sample%20ID%20given%20by%20the%20sample%20provider
+    - GISAID:Sample%20ID%20given%20by%20the%20submitting%20laboratory
+    - NCBI_BIOSAMPLE:sample_name
+    - NCBI_SRA:sample_name
+    - NCBI_Genbank:sample_name
+    - NCBI_Genbank_source_modifiers:Sequence_ID
+  umbrella_bioproject_accession:
+    name: umbrella_bioproject_accession
     title: umbrella bioproject accession
-    description:
-      The INSDC umbrella accession number of the BioProject to which the
+    description: The INSDC umbrella accession number of the BioProject to which the
       BioSample belongs.
-    comments:
-      Required if submission is linked to an umbrella BioProject. An umbrella
+    comments: Required if submission is linked to an umbrella BioProject. An umbrella
       BioProject links together related BioProjects. A valid BioProject umbrella accession
       has prefix PRJN, PRJE or PRJD. Your laboratory can have one or many BioProjects.
-    examples:
-      - value: PRJNA623807
     slot_uri: GENEPIO:0001133
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
-  bioproject accession:
-    name: bioproject accession
+    examples:
+    - value: PRJNA623807
+  bioproject_accession:
+    name: bioproject_accession
     title: bioproject accession
-    description:
-      The INSDC accession number of the BioProject(s) to which the BioSample
+    description: The INSDC accession number of the BioProject(s) to which the BioSample
       belongs.
-    comments:
-      Required if submission is linked to a BioProject. BioProjects are an
+    comments: Required if submission is linked to a BioProject. BioProjects are an
       organizing tool that links together raw sequence data, assemblies, and their
       associated metadata. A valid BioProject accession has prefix PRJN, PRJE or PRJD,
       e.g., PRJNA12345 and is created once at the beginning of a new sequencing project.
       Your laboratory can have one or many BioProjects.
-    examples:
-      - value: PRJNA12345
     slot_uri: GENEPIO:0001136
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: PRJNA12345
     exact_mappings:
-      - NCBI_BIOSAMPLE:bioproject_accession
-      - NCBI_SRA:bioproject_accession
-      - NCBI_Genbank_source_modifiers:BioProject
-  biosample accession:
-    name: biosample accession
+    - NCBI_BIOSAMPLE:bioproject_accession
+    - NCBI_SRA:bioproject_accession
+    - NCBI_Genbank_source_modifiers:BioProject
+  biosample_accession:
+    name: biosample_accession
     title: biosample accession
     description: The identifier assigned to a BioSample in INSDC archives.
-    comments:
-      Store the accession returned from the BioSample submission. NCBI BioSamples
+    comments: Store the accession returned from the BioSample submission. NCBI BioSamples
       will have the prefix SAMN, while ENA BioSamples will have the prefix SAMEA.
-    examples:
-      - value: SAMN14180202
     slot_uri: GENEPIO:0001139
     range: WhitespaceMinimizedString
     recommended: true
@@ -682,82 +674,79 @@ slots:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: SAMN14180202
     exact_mappings:
-      - NCBI_SRA:biosample_accession
-      - NCBI_Genbank:biosample_accession
-      - NCBI_Genbank_source_modifiers:BioSample
-  SRA accession:
-    name: SRA accession
+    - NCBI_SRA:biosample_accession
+    - NCBI_Genbank:biosample_accession
+    - NCBI_Genbank_source_modifiers:BioSample
+  sra_accession:
+    name: sra_accession
     title: SRA accession
-    description:
-      The Sequence Read Archive (SRA), European Nucleotide Archive (ENA)
+    description: The Sequence Read Archive (SRA), European Nucleotide Archive (ENA)
       or DDBJ Sequence Read Archive (DRA) identifier linking raw read data, methodological
       metadata and quality control metrics submitted to the INSDC.
-    comments:
-      Store the accession assigned to the submitted "run". NCBI-SRA accessions
+    comments: Store the accession assigned to the submitted "run". NCBI-SRA accessions
       start with SRR, EBI-ENA runs start with ERR and DRA accessions start with DRR.
-    examples:
-      - value: SRR11177792
     slot_uri: GENEPIO:0001142
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
-  GenBank/ENA/DDBJ accession:
-    name: GenBank/ENA/DDBJ accession
-    title: GenBank/ENA/DDBJ accession
-    description:
-      The GenBank/ENA/DDBJ identifier assigned to the sequence in the INSDC
-      archives.
-    comments:
-      Store the accession returned from a GenBank/ENA/DDBJ submission (viral
-      genome assembly).
     examples:
-      - value: MN908947.3
+    - value: SRR11177792
+  genbank_ena_ddbj_accession:
+    name: genbank_ena_ddbj_accession
+    title: GenBank/ENA/DDBJ accession
+    description: The GenBank/ENA/DDBJ identifier assigned to the sequence in the INSDC
+      archives.
+    comments: Store the accession returned from a GenBank/ENA/DDBJ submission (viral
+      genome assembly).
     slot_uri: GENEPIO:0001145
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
-  GISAID accession:
-    name: GISAID accession
+    examples:
+    - value: MN908947.3
+  gisaid_accession:
+    name: gisaid_accession
     title: GISAID accession
     description: The GISAID accession number assigned to the sequence.
     comments: Store the accession returned from the GISAID submission.
-    examples:
-      - value: EPI_ISL_123456
     slot_uri: GENEPIO:0001147
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: EPI_ISL_123456
     exact_mappings:
-      - NCBI_BIOSAMPLE:gisaid_accession
-  GISAID virus name:
-    name: GISAID virus name
+    - NCBI_BIOSAMPLE:gisaid_accession
+  gisaid_virus_name:
+    name: gisaid_virus_name
     title: GISAID virus name
     description: The user-defined GISAID virus name assigned to the sequence.
     comments: GISAID virus names should be in the format "hCoV-19/Country/Identifier/year".
-    examples:
-      - value: hCoV-19/Canada/prov_rona_99/2020
     slot_uri: GENEPIO:0100282
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: hCoV-19/Canada/prov_rona_99/2020
     exact_mappings:
-      - GISAID:Virus name
-      - NCBI_BIOSAMPLE:gisaid_virus_name
-  host specimen voucher:
-    name: host specimen voucher
+    - GISAID:Virus%20name
+    - NCBI_BIOSAMPLE:gisaid_virus_name
+  host_specimen_voucher:
+    name: host_specimen_voucher
     title: host specimen voucher
     description: Identifier for the physical specimen.
-    comments:
-      'Include a URI (Uniform Resource Identifier) in the form of a URL providing
+    comments: 'Include a URI (Uniform Resource Identifier) in the form of a URL providing
       a direct link to the physical host specimen. If the specimen was destroyed in
       the process of analysis, electronic images (e-vouchers) are an adequate substitute
       for a physical host voucher specimen. If a URI is not available, a museum-provided
@@ -765,108 +754,100 @@ slots:
       is available, follow the INSDC guidance for populating the voucher_specimen
       attribute using standard triplets for institution codes (i.e., /specimen_voucher="[<institution-code>:[<collection-code>:]]<specimen_id>"):
       http://www.insdc.org/controlled-vocabulary-specimenvoucher-qualifier'
-    examples:
-      - value:
-          'URI example: http://portal.vertnet.org/o/fmnh/mammals?id=33e55cfe-330b-40d9-aaae-8d042cba7542,
-          INSDC triplet example: UAM:Mamm:52179'
     slot_uri: GENEPIO:0100283
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: 'URI example: http://portal.vertnet.org/o/fmnh/mammals?id=33e55cfe-330b-40d9-aaae-8d042cba7542,
+        INSDC triplet example: UAM:Mamm:52179'
     exact_mappings:
-      - NCBI_BIOSAMPLE:host_specimen_voucher
-  sample collected by:
-    name: sample collected by
+    - NCBI_BIOSAMPLE:host_specimen_voucher
+  sample_collected_by:
+    name: sample_collected_by
     title: sample collected by
     description: The name of the organization with which the sample collector is affiliated.
-    comments:
-      The name of the agency should be written out in full, (with minor exceptions)
+    comments: The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions.
-    examples:
-      - value: Public Health Agency of Canada
     slot_uri: GENEPIO:0001153
     any_of:
-      - range: WhitespaceMinimizedString
-      - range: null value menu
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Public Health Agency of Canada
     exact_mappings:
-      - GISAID:Originating lab
-      - NCBI_BIOSAMPLE:collected_by
-  sample collector contact email:
-    name: sample collector contact email
+    - GISAID:Originating%20lab
+    - NCBI_BIOSAMPLE:collected_by
+  sample_collector_contact_email:
+    name: sample_collector_contact_email
     title: sample collector contact email
-    description:
-      The email address of the contact responsible for follow-up regarding
+    description: The email address of the contact responsible for follow-up regarding
       the sample.
     comments: The email address can represent a specific individual or laboratory.
-    examples:
-      - value: johnnyblogs@lab.ca
     slot_uri: GENEPIO:0001156
     range: WhitespaceMinimizedString
-  sample collector contact address:
-    name: sample collector contact address
+    examples:
+    - value: johnnyblogs@lab.ca
+  sample_collector_contact_address:
+    name: sample_collector_contact_address
     title: sample collector contact address
     description: The mailing address of the agency submitting the sample.
-    comments:
-      'The mailing address should be in the format: Street number and name,
+    comments: 'The mailing address should be in the format: Street number and name,
       City, State/Province/Region, Country, Postal Code/Zip Code'
-    examples:
-      - value: 655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada
     slot_uri: GENEPIO:0001158
     range: WhitespaceMinimizedString
+    examples:
+    - value: 655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada
     exact_mappings:
-      - GISAID:Address
-  sequence submitted by:
-    name: sequence submitted by
+    - GISAID:Address
+  sequence_submitted_by:
+    name: sequence_submitted_by
     title: sequence submitted by
     description: The name of the agency that generated the sequence.
-    comments:
-      The name of the agency should be written out in full, (with minor exceptions)
+    comments: The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions.
-    examples:
-      - value: Centers for Disease Control and Prevention
     slot_uri: GENEPIO:0001159
     any_of:
-      - range: WhitespaceMinimizedString
-      - range: null value menu
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Centers for Disease Control and Prevention
     exact_mappings:
-      - GISAID:Submitting lab
-      - NCBI_BIOSAMPLE:sequenced_by
-  sequence submitter contact email:
-    name: sequence submitter contact email
+    - GISAID:Submitting%20lab
+    - NCBI_BIOSAMPLE:sequenced_by
+  sequence_submitter_contact_email:
+    name: sequence_submitter_contact_email
     title: sequence submitter contact email
-    description:
-      The email address of the contact responsible for follow-up regarding
+    description: The email address of the contact responsible for follow-up regarding
       the sequence.
     comments: The email address can represent a specific individual or laboratory.
-    examples:
-      - value: RespLab@lab.ca
     slot_uri: GENEPIO:0001165
     range: WhitespaceMinimizedString
+    examples:
+    - value: RespLab@lab.ca
     exact_mappings:
-      - NCBI_SRA:sequence_submitter_contact_email
-  sequence submitter contact address:
-    name: sequence submitter contact address
+    - NCBI_SRA:sequence_submitter_contact_email
+  sequence_submitter_contact_address:
+    name: sequence_submitter_contact_address
     title: sequence submitter contact address
     description: The mailing address of the agency submitting the sequence.
-    comments:
-      'The mailing address should be in the format: Street number and name,
+    comments: 'The mailing address should be in the format: Street number and name,
       City, State/Province/Region, Country, Postal Code/Zip Code'
-    examples:
-      - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
     slot_uri: GENEPIO:0001167
     range: WhitespaceMinimizedString
+    examples:
+    - value: 123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada
     exact_mappings:
-      - GISAID:Address
-  sample collection date:
-    name: sample collection date
+    - GISAID:Address
+  sample_collection_date:
+    name: sample_collection_date
     title: sample collection date
     description: The date on which the sample was collected.
-    comments:
-      "Record the collection date accurately in the template. Required granularity\
+    comments: "Record the collection date accurately in the template. Required granularity\
       \ includes year, month and day. Before sharing this data, ensure this date is\
       \ not considered identifiable information. If this date is considered identifiable,\
       \ it is acceptable to add \"jitter\" to the collection date by adding or subtracting\
@@ -874,714 +855,669 @@ slots:
       \ Alternatively, \u201Dreceived date\u201D may be used as a substitute in the\
       \ data you share. The date should be provided in ISO 8601 standard format \"\
       YYYY-MM-DD\"."
-    examples:
-      - value: '2020-03-19'
     slot_uri: GENEPIO:0001174
     any_of:
-      - range: date
-      - range: null value menu
+    - range: date
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: '2020-03-19'
     exact_mappings:
-      - GISAID:Collection date
-      - NCBI_BIOSAMPLE:collection_date
-      - NCBI_Genbank_source_modifiers:collection-date
-  sample received date:
-    name: sample received date
+    - GISAID:Collection%20date
+    - NCBI_BIOSAMPLE:collection_date
+    - NCBI_Genbank_source_modifiers:collection-date
+  sample_received_date:
+    name: sample_received_date
     title: sample received date
     description: The date on which the sample was received.
-    comments:
-      The date the sample was received by a lab that was not the point of
+    comments: The date the sample was received by a lab that was not the point of
       collection. ISO 8601 standard "YYYY-MM-DD".
-    examples:
-      - value: '2020-03-20'
     slot_uri: GENEPIO:0001179
     any_of:
-      - range: date
-      - range: null value menu
-  geo_loc name (country):
-    name: geo_loc name (country)
+    - range: date
+    - range: NullValueMenu
+    examples:
+    - value: '2020-03-20'
+  geo_loc_name_country:
+    name: geo_loc_name_country
     title: geo_loc name (country)
     description: The country of origin of the sample.
     comments: Provide the country name from the pick list in the template
-    examples:
-      - value: South Africa [GAZ:00001094]
     slot_uri: GENEPIO:0001181
     any_of:
-      - range: geo_loc name (country) menu
-      - range: null value menu
+    - range: GeoLocNameCountryMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: South Africa [GAZ:00001094]
     exact_mappings:
-      - GISAID:Location
-      - NCBI_BIOSAMPLE:geo_loc_name
-      - NCBI_Genbank_source_modifiers:country
-  geo_loc name (state/province/territory):
-    name: geo_loc name (state/province/territory)
+    - GISAID:Location
+    - NCBI_BIOSAMPLE:geo_loc_name
+    - NCBI_Genbank_source_modifiers:country
+  geo_loc_name_state_province_territory:
+    name: geo_loc_name_state_province_territory
     title: geo_loc name (state/province/territory)
     description: The state/province/territory of origin of the sample.
-    comments:
-      'Provide the state/province/territory name from the GAZ geography ontology.
+    comments: 'Provide the state/province/territory name from the GAZ geography ontology.
       Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz'
-    examples:
-      - value: Western Cape
     slot_uri: GENEPIO:0001185
     any_of:
-      - range: WhitespaceMinimizedString
-      - range: null value menu
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Western Cape
     exact_mappings:
-      - NCBI_BIOSAMPLE:geo_loc_name
-  geo_loc name (county/region):
-    name: geo_loc name (county/region)
+    - NCBI_BIOSAMPLE:geo_loc_name
+  geo_loc_name_county_region:
+    name: geo_loc_name_county_region
     title: geo_loc name (county/region)
     description: The county/region of origin of the sample.
-    comments:
-      'Provide the county/region name from the GAZ geography ontology. Search
+    comments: 'Provide the county/region name from the GAZ geography ontology. Search
       for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz'
-    examples:
-      - value: Derbyshire
     slot_uri: GENEPIO:0100280
     range: WhitespaceMinimizedString
+    examples:
+    - value: Derbyshire
     exact_mappings:
-      - NCBI_BIOSAMPLE:geo_loc_name
-  geo_loc name (city):
-    name: geo_loc name (city)
+    - NCBI_BIOSAMPLE:geo_loc_name
+  geo_loc_name_city:
+    name: geo_loc_name_city
     title: geo_loc name (city)
     description: The city of origin of the sample.
-    comments:
-      'Provide the city name from the GAZ geography ontology. Search for geography
+    comments: 'Provide the city name from the GAZ geography ontology. Search for geography
       terms here: https://www.ebi.ac.uk/ols/ontologies/gaz'
-    examples:
-      - value: Vancouver
     slot_uri: GENEPIO:0001189
     range: WhitespaceMinimizedString
+    examples:
+    - value: Vancouver
     exact_mappings:
-      - NCBI_BIOSAMPLE:geo_loc_name
-  geo_loc latitude:
-    name: geo_loc latitude
+    - NCBI_BIOSAMPLE:geo_loc_name
+  geo_loc_latitude:
+    name: geo_loc_latitude
     title: geo_loc latitude
     description: The latitude coordinates of the geographical location of sample collection.
-    comments:
-      Provide latitude coordinates if available. Do not use the centre of
+    comments: Provide latitude coordinates if available. Do not use the centre of
       the city/region/province/state/country or the location of your agency as a proxy,
       as this implicates a real location and is misleading. Specify as degrees latitude
       in format "d[d.dddd] N|S".
-    examples:
-      - value: 38.98 N
     slot_uri: GENEPIO:0100309
     range: WhitespaceMinimizedString
+    examples:
+    - value: 38.98 N
     exact_mappings:
-      - NCBI_BIOSAMPLE:lat_lon
-  geo_loc longitude:
-    name: geo_loc longitude
+    - NCBI_BIOSAMPLE:lat_lon
+  geo_loc_longitude:
+    name: geo_loc_longitude
     title: geo_loc longitude
-    description:
-      The longitude coordinates of the geographical location of sample
+    description: The longitude coordinates of the geographical location of sample
       collection.
-    comments:
-      Provide longitude coordinates if available. Do not use the centre of
+    comments: Provide longitude coordinates if available. Do not use the centre of
       the city/region/province/state/country or the location of your agency as a proxy,
       as this implicates a real location and is misleading. Specify as degrees longitude
       in format "d[dd.dddd] W|E".
-    examples:
-      - value: 77.11 W
     slot_uri: GENEPIO:0100310
     range: WhitespaceMinimizedString
+    examples:
+    - value: 77.11 W
     exact_mappings:
-      - NCBI_BIOSAMPLE:lat_lon
+    - NCBI_BIOSAMPLE:lat_lon
   organism:
     name: organism
     title: organism
     description: Taxonomic name of the organism.
-    comments:
-      Select "Severe acute respiratory syndrome coronavirus 2" if sequencing
+    comments: Select "Severe acute respiratory syndrome coronavirus 2" if sequencing
       SARS-CoV-2. If another Coronaviridae is being sequenced, provide the taxonomic
       name from NCBITaxon. Search for taxonomy terms at https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.
-    examples:
-      - value: Severe acute respiratory syndrome coronavirus 2 [NCBITaxon:2697049]
     slot_uri: GENEPIO:0001191
     any_of:
-      - range: organism menu
-      - range: null value menu
+    - range: OrganismMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Severe acute respiratory syndrome coronavirus 2 [NCBITaxon:2697049]
     exact_mappings:
-      - NCBI_BIOSAMPLE:organism
+    - NCBI_BIOSAMPLE:organism
   isolate:
     name: isolate
     title: isolate
     description: Identifier of the specific isolate.
-    comments:
-      'This identifier should be an unique, indexed, alpha-numeric ID within
+    comments: 'This identifier should be an unique, indexed, alpha-numeric ID within
       your laboratory. If submitted to the INSDC, the "isolate" name is propagated
       throughtout different databases. As such, structure the "isolate" name to be
       ICTV/INSDC compliant in the following format: "SARS-CoV-2/host/country/sampleID/date".'
-    examples:
-      - value: SARS-CoV-2/human/USA/CA-CDPH-001/2020
     slot_uri: GENEPIO:0001644
     any_of:
-      - range: WhitespaceMinimizedString
-      - range: null value menu
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: SARS-CoV-2/human/USA/CA-CDPH-001/2020
     exact_mappings:
-      - NCBI_BIOSAMPLE:isolate
-      - NCBI_Genbank_source_modifiers:isolate
-  culture collection:
-    name: culture collection
+    - NCBI_BIOSAMPLE:isolate
+    - NCBI_Genbank_source_modifiers:isolate
+  culture_collection:
+    name: culture_collection
     title: culture collection
     description: The name of the source collection and unique culture identifier.
-    comments:
-      'Format: "<institution-code>:[<collection-code>:]<culture_id>". For
+    comments: 'Format: "<institution-code>:[<collection-code>:]<culture_id>". For
       more information, see http://www.insdc.org/controlled-vocabulary-culturecollection-qualifier.'
-    examples:
-      - value: /culture_collection="ATCC:26370"
     slot_uri: GENEPIO:0100284
     range: WhitespaceMinimizedString
-  purpose of sampling:
-    name: purpose of sampling
+    examples:
+    - value: /culture_collection="ATCC:26370"
+  purpose_of_sampling:
+    name: purpose_of_sampling
     title: purpose of sampling
     description: The reason that the sample was collected.
     comments: Select a value from the pick list in the template.
-    examples:
-      - value: Diagnostic testing [GENEPIO:0100002]
     slot_uri: GENEPIO:0001198
     any_of:
-      - range: purpose of sampling menu
-      - range: null value menu
+    - range: PurposeOfSamplingMenu
+    - range: NullValueMenu
     recommended: true
+    examples:
+    - value: Diagnostic testing [GENEPIO:0100002]
     exact_mappings:
-      - NCBI_BIOSAMPLE:purpose_of_sampling
-  purpose of sampling details:
-    name: purpose of sampling details
+    - NCBI_BIOSAMPLE:purpose_of_sampling
+  purpose_of_sampling_details:
+    name: purpose_of_sampling_details
     title: purpose of sampling details
     description: Further details pertaining to the reason the sample was collected.
-    comments:
-      Provide a free text description of the sampling strategy or samples
+    comments: Provide a free text description of the sampling strategy or samples
       collected.
-    examples:
-      - value: Screening of bat specimens in museum collections.
     slot_uri: GENEPIO:0001200
     range: WhitespaceMinimizedString
-  sample plan name:
-    name: sample plan name
+    examples:
+    - value: Screening of bat specimens in museum collections.
+  sample_plan_name:
+    name: sample_plan_name
     title: sample plan name
     description: The name of the sample plan implemented for sample collection.
-    comments:
-      Provide the name and version of the sample plan outlining the sample
+    comments: Provide the name and version of the sample plan outlining the sample
       strategy.
-    examples:
-      - value: CanCOGeN Sampling Strategy 1.0
     slot_uri: GENEPIO:0100285
     range: WhitespaceMinimizedString
-  sample collected in quarantine:
-    name: sample collected in quarantine
+    examples:
+    - value: CanCOGeN Sampling Strategy 1.0
+  sample_collected_in_quarantine:
+    name: sample_collected_in_quarantine
     title: sample collected in quarantine
     description: Whether the sample was collected from an individual in quarantine.
-    comments:
-      Whether a sample was collected under quarantine conditions (e.g. self-quarantining,
+    comments: Whether a sample was collected under quarantine conditions (e.g. self-quarantining,
       medically isolated, staying at a quarantine hotel) can inform public health
       measure assessments. Use the picklist provided in the template.
-    examples:
-      - value: Yes [NCIT:C49488]
     slot_uri: GENEPIO:0100277
     any_of:
-      - range: sample collected in quarantine menu
-      - range: null value menu
-  anatomical material:
-    name: anatomical material
+    - range: SampleCollectedInQuarantineMenu
+    - range: NullValueMenu
+    examples:
+    - value: Yes [NCIT:C49488]
+  anatomical_material:
+    name: anatomical_material
     title: anatomical material
-    description:
-      A substance obtained from an anatomical part of an organism e.g.
+    description: A substance obtained from an anatomical part of an organism e.g.
       tissue, blood.
-    comments:
-      'Provide a descriptor if an anatomical material was sampled. Use the
+    comments: 'Provide a descriptor if an anatomical material was sampled. Use the
       pick list provided in the template. If a desired term is missing from the pick
       list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon.
       If not applicable, leave blank.'
-    examples:
-      - value: Blood [UBERON:0000178]
     slot_uri: GENEPIO:0001211
     any_of:
-      - range: anatomical material menu
-      - range: null value menu
+    - range: AnatomicalMaterialMenu
+    - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Blood [UBERON:0000178]
     exact_mappings:
-      - GISAID:Specimen source
-      - NCBI_BIOSAMPLE:isolation_source
-      - NCBI_BIOSAMPLE:host_anatomical_material
-      - NCBI_Genbank_source_modifiers:isolation-source
-  anatomical part:
-    name: anatomical part
+    - GISAID:Specimen%20source
+    - NCBI_BIOSAMPLE:isolation_source
+    - NCBI_BIOSAMPLE:host_anatomical_material
+    - NCBI_Genbank_source_modifiers:isolation-source
+  anatomical_part:
+    name: anatomical_part
     title: anatomical part
     description: An anatomical part of an organism e.g. oropharynx.
-    comments:
-      'Provide a descriptor if an anatomical part was sampled. Use the pick
+    comments: 'Provide a descriptor if an anatomical part was sampled. Use the pick
       list provided in the template. If a desired term is missing from the pick list,
       use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon.
       If not applicable, leave blank.'
-    examples:
-      - value: Nasopharynx (NP) [UBERON:0001728]
     slot_uri: GENEPIO:0001214
     any_of:
-      - range: anatomical part menu
-      - range: null value menu
+    - range: AnatomicalPartMenu
+    - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Nasopharynx (NP) [UBERON:0001728]
     exact_mappings:
-      - GISAID:Specimen source
-      - NCBI_BIOSAMPLE:isolation_source
-      - NCBI_BIOSAMPLE:host_anatomical_part
-      - NCBI_Genbank_source_modifiers:isolation-source
-  body product:
-    name: body product
+    - GISAID:Specimen%20source
+    - NCBI_BIOSAMPLE:isolation_source
+    - NCBI_BIOSAMPLE:host_anatomical_part
+    - NCBI_Genbank_source_modifiers:isolation-source
+  body_product:
+    name: body_product
     title: body product
-    description:
-      A substance excreted/secreted from an organism e.g. feces, urine,
+    description: A substance excreted/secreted from an organism e.g. feces, urine,
       sweat.
-    comments:
-      'Provide a descriptor if a body product was sampled. Use the pick list
+    comments: 'Provide a descriptor if a body product was sampled. Use the pick list
       provided in the template. If a desired term is missing from the pick list, use
       this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon.
       If not applicable, leave blank.'
-    examples:
-      - value: Feces [UBERON:0001988]
     slot_uri: GENEPIO:0001216
     any_of:
-      - range: body product menu
-      - range: null value menu
+    - range: BodyProductMenu
+    - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Feces [UBERON:0001988]
     exact_mappings:
-      - GISAID:Specimen source
-      - NCBI_BIOSAMPLE:isolation_source
-      - NCBI_BIOSAMPLE:host_body_product
-      - NCBI_Genbank_source_modifiers:isolation-source
-  environmental material:
-    name: environmental material
+    - GISAID:Specimen%20source
+    - NCBI_BIOSAMPLE:isolation_source
+    - NCBI_BIOSAMPLE:host_body_product
+    - NCBI_Genbank_source_modifiers:isolation-source
+  environmental_material:
+    name: environmental_material
     title: environmental material
-    description:
-      A substance obtained from the natural or man-made environment e.g.
+    description: A substance obtained from the natural or man-made environment e.g.
       soil, water, sewage, door handle, bed handrail, face mask.
-    comments:
-      'Provide a descriptor if an environmental material was sampled. Use
+    comments: 'Provide a descriptor if an environmental material was sampled. Use
       the pick list provided in the template. If a desired term is missing from the
       pick list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo.
       If not applicable, leave blank.'
-    examples:
-      - value: Face mask [OBI:0002787]
     slot_uri: GENEPIO:0001223
     any_of:
-      - range: environmental material menu
-      - range: null value menu
+    - range: EnvironmentalMaterialMenu
+    - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Face mask [OBI:0002787]
     exact_mappings:
-      - GISAID:Specimen source
-      - NCBI_BIOSAMPLE:isolation_source
-      - NCBI_BIOSAMPLE:environmental_material
-      - NCBI_Genbank_source_modifiers:isolation-source
-  environmental site:
-    name: environmental site
+    - GISAID:Specimen%20source
+    - NCBI_BIOSAMPLE:isolation_source
+    - NCBI_BIOSAMPLE:environmental_material
+    - NCBI_Genbank_source_modifiers:isolation-source
+  environmental_site:
+    name: environmental_site
     title: environmental site
-    description:
-      An environmental location may describe a site in the natural or built
+    description: An environmental location may describe a site in the natural or built
       environment e.g. hospital, wet market, bat cave.
-    comments:
-      'Provide a descriptor if an environmental site was sampled. Use the
+    comments: 'Provide a descriptor if an environmental site was sampled. Use the
       pick list provided in the template. If a desired term is missing from the pick
       list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo.
       If not applicable, leave blank.'
-    examples:
-      - value: Hospital [ENVO:00002173]
     slot_uri: GENEPIO:0001232
     any_of:
-      - range: environmental site menu
-      - range: null value menu
+    - range: EnvironmentalSiteMenu
+    - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Hospital [ENVO:00002173]
     exact_mappings:
-      - GISAID:Specimen source
-      - NCBI_BIOSAMPLE:isolation_source
-      - NCBI_BIOSAMPLE:environmental_site
-      - NCBI_Genbank_source_modifiers:isolation-source
-  collection device:
-    name: collection device
+    - GISAID:Specimen%20source
+    - NCBI_BIOSAMPLE:isolation_source
+    - NCBI_BIOSAMPLE:environmental_site
+    - NCBI_Genbank_source_modifiers:isolation-source
+  collection_device:
+    name: collection_device
     title: collection device
     description: The instrument or container used to collect the sample e.g. swab.
-    comments:
-      'Provide a descriptor if a collection device was used for sampling.
+    comments: 'Provide a descriptor if a collection device was used for sampling.
       Use the pick list provided in the template. If a desired term is missing from
       the pick list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi.
       If not applicable, leave blank.'
-    examples:
-      - value: Swab [GENEPIO:0100027]
     slot_uri: GENEPIO:0001234
     any_of:
-      - range: collection device menu
-      - range: null value menu
+    - range: CollectionDeviceMenu
+    - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Swab [GENEPIO:0100027]
     exact_mappings:
-      - GISAID:Specimen source
-      - NCBI_BIOSAMPLE:isolation_source
-      - NCBI_BIOSAMPLE:collection_device
-      - NCBI_Genbank_source_modifiers:isolation-source
-  collection method:
-    name: collection method
+    - GISAID:Specimen%20source
+    - NCBI_BIOSAMPLE:isolation_source
+    - NCBI_BIOSAMPLE:collection_device
+    - NCBI_Genbank_source_modifiers:isolation-source
+  collection_method:
+    name: collection_method
     title: collection method
     description: The process used to collect the sample e.g. phlebotomy, necropsy.
-    comments:
-      'Provide a descriptor if a collection method was used for sampling.
+    comments: 'Provide a descriptor if a collection method was used for sampling.
       Use the pick list provided in the template. If a desired term is missing from
       the pick list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi.
       If not applicable, leave blank.'
-    examples:
-      - value: Bronchoalveolar lavage (BAL) [GENEPIO:0100032]
     slot_uri: GENEPIO:0001241
     any_of:
-      - range: collection method menu
-      - range: null value menu
+    - range: CollectionMethodMenu
+    - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Bronchoalveolar lavage (BAL) [GENEPIO:0100032]
     exact_mappings:
-      - GISAID:Specimen source
-      - NCBI_BIOSAMPLE:isolation_source
-      - NCBI_BIOSAMPLE:collection_method
-      - NCBI_Genbank_source_modifiers:isolation-source
-  collection protocol:
-    name: collection protocol
+    - GISAID:Specimen%20source
+    - NCBI_BIOSAMPLE:isolation_source
+    - NCBI_BIOSAMPLE:collection_method
+    - NCBI_Genbank_source_modifiers:isolation-source
+  collection_protocol:
+    name: collection_protocol
     title: collection protocol
     description: The name and version of a particular protocol used for sampling.
     comments: Provide the name and version of the protocol used to collect the samples.
-    examples:
-      - value: SC2SamplingProtocol 1.2
     slot_uri: GENEPIO:0001243
     range: WhitespaceMinimizedString
-  specimen processing:
-    name: specimen processing
+    examples:
+    - value: SC2SamplingProtocol 1.2
+  specimen_processing:
+    name: specimen_processing
     title: specimen processing
-    description:
-      Any processing applied to the sample during or after receiving the
+    description: Any processing applied to the sample during or after receiving the
       sample.
-    comments:
-      Critical for interpreting data. Select all the applicable processes
+    comments: Critical for interpreting data. Select all the applicable processes
       from the pick list. If virus was passaged, include information in "lab host",
       "passage number", and "passage method" fields. If none of the processes in the
       pick list apply, put "not applicable".
-    examples:
-      - value: Virus passage [GENEPIO:0100039]
     slot_uri: GENEPIO:0001253
     any_of:
-      - range: specimen processing menu
-      - range: null value menu
+    - range: SpecimenProcessingMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
-  specimen processing details:
-    name: specimen processing details
-    title: specimen processing details
-    description:
-      Detailed information regarding the processing applied to a sample
-      during or after receiving the sample.
-    comments:
-      Provide a free text description of any processing details applied to
-      a sample.
     examples:
-      - value:
-          25 swabs were pooled and further prepared as a single sample during library
-          prep.
+    - value: Virus passage [GENEPIO:0100039]
+  specimen_processing_details:
+    name: specimen_processing_details
+    title: specimen processing details
+    description: Detailed information regarding the processing applied to a sample
+      during or after receiving the sample.
+    comments: Provide a free text description of any processing details applied to
+      a sample.
     slot_uri: GENEPIO:0100311
     range: WhitespaceMinimizedString
-  lab host:
-    name: lab host
-    title: lab host
-    description:
-      Name and description of the laboratory host used to propagate the
-      source organism or material from which the sample was obtained.
-    comments:
-      Type of cell line used for propagation. Select a value form the pick
-      list. If not passaged, put "not applicable".
     examples:
-      - value: Vero E6 cell line [BTO:0004755]
+    - value: 25 swabs were pooled and further prepared as a single sample during library
+        prep.
+  lab_host:
+    name: lab_host
+    title: lab host
+    description: Name and description of the laboratory host used to propagate the
+      source organism or material from which the sample was obtained.
+    comments: Type of cell line used for propagation. Select a value form the pick
+      list. If not passaged, put "not applicable".
     slot_uri: GENEPIO:0001255
     any_of:
-      - range: lab host menu
-      - range: null value menu
-  passage number:
-    name: passage number
+    - range: LabHostMenu
+    - range: NullValueMenu
+    examples:
+    - value: Vero E6 cell line [BTO:0004755]
+  passage_number:
+    name: passage_number
     title: passage number
     description: Number of passages.
     comments: Provide number of known passages. If not passaged, put "not applicable"
-    examples:
-      - value: '3'
     slot_uri: GENEPIO:0001261
     range: integer
-    minimum_value: '0'
+    minimum_value: 0
+    examples:
+    - value: '3'
     exact_mappings:
-      - NCBI_BIOSAMPLE:passage_number
-  passage method:
-    name: passage method
+    - NCBI_BIOSAMPLE:passage_number
+  passage_method:
+    name: passage_method
     title: passage method
     description: Description of how organism was passaged.
     comments: Free text. Provide a short description. If not passaged, put "not applicable".
-    examples:
-      - value:
-          AVL buffer+30%EtOH lysate received from Respiratory Lab. P3 passage in
-          Vero-1 via bioreactor large-scale batch passage. P3 batch derived from the
-          SP-2/reference lab strain.
     slot_uri: GENEPIO:0001264
     any_of:
-      - range: WhitespaceMinimizedString
-      - range: null value menu
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
+    examples:
+    - value: AVL buffer+30%EtOH lysate received from Respiratory Lab. P3 passage in
+        Vero-1 via bioreactor large-scale batch passage. P3 batch derived from the
+        SP-2/reference lab strain.
     exact_mappings:
-      - NCBI_BIOSAMPLE:passage_method
-  biomaterial extracted:
-    name: biomaterial extracted
+    - NCBI_BIOSAMPLE:passage_method
+  biomaterial_extracted:
+    name: biomaterial_extracted
     title: biomaterial extracted
     description: The biomaterial extracted from samples for the purpose of sequencing.
     comments: Provide the biomaterial extracted from the pick list in the template.
-    examples:
-      - value: RNA (Total) [OBI:0000895]
     slot_uri: GENEPIO:0001266
     any_of:
-      - range: biomaterial extracted menu
-      - range: null value menu
-  data abstraction details:
-    name: data abstraction details
+    - range: BiomaterialExtractedMenu
+    - range: NullValueMenu
+    examples:
+    - value: RNA (Total) [OBI:0000895]
+  data_abstraction_details:
+    name: data_abstraction_details
     title: data abstraction details
-    description:
-      A description of how any data elements were altered to preserve patient
+    description: A description of how any data elements were altered to preserve patient
       privacy.
     comments: If applicable, provide a description of how each data element was abstracted.
-    examples:
-      - value: Jitter added to publicly shared collection dates to prevent re-identifiability.
     slot_uri: GENEPIO:0100278
     range: WhitespaceMinimizedString
-  host (common name):
-    name: host (common name)
+    examples:
+    - value: Jitter added to publicly shared collection dates to prevent re-identifiability.
+  host_common_name:
+    name: host_common_name
     title: host (common name)
     description: The commonly used name of the host.
-    comments:
-      Common name or scientific name are required if there was a host. Common
+    comments: Common name or scientific name are required if there was a host. Common
       name examples e.g. human, bat. Select a value from the pick list. If the sample
       was environmental, put "not applicable".
-    examples:
-      - value: Human [NCBITaxon:9606]
     slot_uri: GENEPIO:0001386
     any_of:
-      - range: host (common name) menu
-      - range: null value menu
-  host (scientific name):
-    name: host (scientific name)
+    - range: HostCommonNameMenu
+    - range: NullValueMenu
+    examples:
+    - value: Human [NCBITaxon:9606]
+  host_scientific_name:
+    name: host_scientific_name
     title: host (scientific name)
     description: The taxonomic, or scientific name of the host.
-    comments:
-      Common name or scientific name are required if there was a host. Scientific
+    comments: Common name or scientific name are required if there was a host. Scientific
       name examples e.g. Homo sapiens. Select a value from the pick list. If the sample
       was environmental, put "not applicable".
-    examples:
-      - value: Homo sapiens [NCBITaxon:9606]
     slot_uri: GENEPIO:0001387
     any_of:
-      - range: host (scientific name) menu
-      - range: null value menu
+    - range: HostScientificNameMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Homo sapiens [NCBITaxon:9606]
     exact_mappings:
-      - GISAID:Host
-      - NCBI_BIOSAMPLE:host
-      - NCBI_Genbank_source_modifiers:host
-  host health state:
-    name: host health state
+    - GISAID:Host
+    - NCBI_BIOSAMPLE:host
+    - NCBI_Genbank_source_modifiers:host
+  host_health_state:
+    name: host_health_state
     title: host health state
     description: Health status of the host at the time of sample collection.
     comments: If known, select a value from the pick list.
-    examples:
-      - value: Asymptomatic [NCIT:C3833]
     slot_uri: GENEPIO:0001388
     any_of:
-      - range: host health state menu
-      - range: null value menu
+    - range: HostHealthStateMenu
+    - range: NullValueMenu
+    examples:
+    - value: Asymptomatic [NCIT:C3833]
     exact_mappings:
-      - GISAID:Patient status
-      - NCBI_BIOSAMPLE:host_health_state
-  host health status details:
-    name: host health status details
+    - GISAID:Patient%20status
+    - NCBI_BIOSAMPLE:host_health_state
+  host_health_status_details:
+    name: host_health_status_details
     title: host health status details
-    description:
-      Further details pertaining to the health or disease status of the
+    description: Further details pertaining to the health or disease status of the
       host at time of collection.
     comments: If known, select a value from the pick list.
-    examples:
-      - value: Hospitalized (ICU) [GENEPIO:0100046]
     slot_uri: GENEPIO:0001389
     any_of:
-      - range: host health status details menu
-      - range: null value menu
-  host disease:
-    name: host disease
+    - range: HostHealthStatusDetailsMenu
+    - range: NullValueMenu
+    examples:
+    - value: Hospitalized (ICU) [GENEPIO:0100046]
+  host_disease:
+    name: host_disease
     title: host disease
     description: The name of the disease experienced by the host.
-    comments:
-      "This field is only required if there was a host. If the host was a\
+    comments: "This field is only required if there was a host. If the host was a\
       \ human select COVID-19 from the pick list. If the host was asymptomatic, this\
       \ can be recorded under \u201Chost health state details\u201D. \"COVID-19\"\
       \ should still be provided if patient is asymptomatic. If the host is not human,\
       \ and the disease state is not known or the host appears healthy, put \u201C\
       not applicable\u201D."
-    examples:
-      - value: COVID-19 [MONDO:0100096]
     slot_uri: GENEPIO:0001391
     any_of:
-      - range: host disease menu
-      - range: null value menu
+    - range: HostDiseaseMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: COVID-19 [MONDO:0100096]
     exact_mappings:
-      - NCBI_BIOSAMPLE:host_disease
-  host health outcome:
-    name: host health outcome
+    - NCBI_BIOSAMPLE:host_disease
+  host_health_outcome:
+    name: host_health_outcome
     title: host health outcome
     description: Disease outcome in the host.
     comments: If known, select a value from the pick list.
-    examples:
-      - value: Recovered [NCIT:C49498]
     slot_uri: GENEPIO:0001390
     any_of:
-      - range: host health outcome menu
-      - range: null value menu
+    - range: HostHealthOutcomeMenu
+    - range: NullValueMenu
+    examples:
+    - value: Recovered [NCIT:C49498]
     exact_mappings:
-      - NCBI_BIOSAMPLE:host_disease_outcome
-  host age:
-    name: host age
+    - NCBI_BIOSAMPLE:host_disease_outcome
+  host_age:
+    name: host_age
     title: host age
     description: Age of host at the time of sampling.
     comments: If known, provide age. Age-binning is also acceptable.
-    examples:
-      - value: '79'
     slot_uri: GENEPIO:0001392
     any_of:
-      - range: decimal
-      - range: null value menu
+    - range: decimal
+    - range: NullValueMenu
+    maximum_value: 130
     recommended: true
-    maximum_value: '130'
+    examples:
+    - value: '79'
     exact_mappings:
-      - GISAID:Patient age
-      - NCBI_BIOSAMPLE:host_age
-  host age unit:
-    name: host age unit
+    - GISAID:Patient%20age
+    - NCBI_BIOSAMPLE:host_age
+  host_age_unit:
+    name: host_age_unit
     title: host age unit
     description: The units used to measure the host's age.
-    comments:
-      If known, provide the age units used to measure the host's age from
+    comments: If known, provide the age units used to measure the host's age from
       the pick list.
-    examples:
-      - value: year [UO:0000036]
     slot_uri: GENEPIO:0001393
     any_of:
-      - range: host age unit menu
-      - range: null value menu
+    - range: HostAgeUnitMenu
+    - range: NullValueMenu
     recommended: true
-  host age bin:
-    name: host age bin
+    examples:
+    - value: year [UO:0000036]
+  host_age_bin:
+    name: host_age_bin
     title: host age bin
     description: The age category of the host at the time of sampling.
-    comments:
-      Age bins in 10 year intervals have been provided. If a host's age cannot
+    comments: Age bins in 10 year intervals have been provided. If a host's age cannot
       be specified due to provacy concerns, an age bin can be used as an alternative.
-    examples:
-      - value: 50 - 59 [GENEPIO:0100054]
     slot_uri: GENEPIO:0001394
     any_of:
-      - range: host age bin menu
-      - range: null value menu
+    - range: HostAgeBinMenu
+    - range: NullValueMenu
     recommended: true
-  host gender:
-    name: host gender
+    examples:
+    - value: 50 - 59 [GENEPIO:0100054]
+  host_gender:
+    name: host_gender
     title: host gender
     description: The gender of the host at the time of sample collection.
     comments: If known, select a value from the pick list.
-    examples:
-      - value: Male [NCIT:C46109]
     slot_uri: GENEPIO:0001395
     any_of:
-      - range: host gender menu
-      - range: null value menu
+    - range: HostGenderMenu
+    - range: NullValueMenu
     recommended: true
+    examples:
+    - value: Male [NCIT:C46109]
     exact_mappings:
-      - GISAID:Gender
-      - NCBI_BIOSAMPLE:host_sex
-  host residence geo_loc name (country):
-    name: host residence geo_loc name (country)
+    - GISAID:Gender
+    - NCBI_BIOSAMPLE:host_sex
+  host_residence_geo_loc_name_country:
+    name: host_residence_geo_loc_name_country
     title: host residence geo_loc name (country)
     description: The country where the host resides.
     comments: If known, select a value from the pick list.
-    examples:
-      - value: South Africa [GAZ:00001094]
     slot_uri: GENEPIO:0001396
     any_of:
-      - range: geo_loc_name (country) menu
-      - range: null value menu
-  host ethnicity:
-    name: host ethnicity
+    - range: HostResidenceGeoLocNameCountryMenu
+    - range: NullValueMenu
+    examples:
+    - value: South Africa [GAZ:00001094]
+  host_ethnicity:
+    name: host_ethnicity
     title: host ethnicity
     description: The self-identified ethnicity(ies) of the host.
-    comments:
-      If known, provide the self-identified ethnicity or ethnicities of the
+    comments: If known, provide the self-identified ethnicity or ethnicities of the
       host as a free text description. This is highly sensitive information which
       must be treated respectfully and carefully when sharing. The information may
       have implications for equitable access and benefit sharing. Consult your privacy
       officer, data steward and/or cultural services representative.
-    examples:
-      - value: Indigenous, European
     slot_uri: GENEPIO:0100312
     range: WhitespaceMinimizedString
-  host subject ID:
-    name: host subject ID
+    examples:
+    - value: Indigenous, European
+  host_subject_id:
+    name: host_subject_id
     title: host subject ID
     description: 'A unique identifier by which each host can be referred to e.g. #131'
-    comments:
-      Should be a unique, user-defined identifier. This ID can help link laboratory
+    comments: Should be a unique, user-defined identifier. This ID can help link laboratory
       data with epidemiological data, however, is likely sensitive information. Consult
       the data steward.
-    examples:
-      - value: BCxy123
     slot_uri: GENEPIO:0001398
     range: WhitespaceMinimizedString
+    examples:
+    - value: BCxy123
     exact_mappings:
-      - NCBI_BIOSAMPLE:host_subject_id
-  case ID:
-    name: case ID
+    - NCBI_BIOSAMPLE:host_subject_id
+  case_id:
+    name: case_id
     title: case ID
-    description:
-      The identifier used to specify an epidemiologically detected case
+    description: The identifier used to specify an epidemiologically detected case
       of disease.
-    comments:
-      Provide the case identifer. The case ID greatly facilitates linkage
+    comments: Provide the case identifer. The case ID greatly facilitates linkage
       between laboratory and epidemiological data. The case ID may be considered identifiable
       information. Consult the data steward before sharing.
-    examples:
-      - value: ABCD1234
     slot_uri: GENEPIO:0100281
     range: WhitespaceMinimizedString
-  symptom onset date:
-    name: symptom onset date
+    examples:
+    - value: ABCD1234
+  symptom_onset_date:
+    name: symptom_onset_date
     title: symptom onset date
     description: The date on which the symptoms began or were first noted.
-    comments:
-      If known, provide the symptom onset date in ISO 8601 standard format
+    comments: If known, provide the symptom onset date in ISO 8601 standard format
       "YYYY-MM-DD".
-    examples:
-      - value: '2020-03-16'
     slot_uri: GENEPIO:0001399
     any_of:
-      - range: date
-      - range: null value menu
-  signs and symptoms:
-    name: signs and symptoms
+    - range: date
+    - range: NullValueMenu
+    examples:
+    - value: '2020-03-16'
+  signs_and_symptoms:
+    name: signs_and_symptoms
     title: signs and symptoms
-    description:
-      A perceived change in function or sensation, (loss, disturbance or
+    description: A perceived change in function or sensation, (loss, disturbance or
       appearance) indicative of a disease, reported by a patient.
     comments: Select all of the symptoms experienced by the host from the pick list.
-    examples:
-      - value: Cough [HP:0012735], Fever [HP:0001945],  Rigors (fever shakes) [HP:0025145]
     slot_uri: GENEPIO:0001400
     any_of:
-      - range: signs and symptoms menu
-      - range: null value menu
+    - range: SignsAndSymptomsMenu
+    - range: NullValueMenu
     multivalued: true
-  pre-existing conditions and risk factors:
-    name: pre-existing conditions and risk factors
+    examples:
+    - value: Cough [HP:0012735], Fever [HP:0001945],  Rigors (fever shakes) [HP:0025145]
+  preexisting_conditions_and_risk_factors:
+    name: preexisting_conditions_and_risk_factors
     title: pre-existing conditions and risk factors
     description: 'Patient pre-existing conditions and risk factors.
 
@@ -1589,457 +1525,417 @@ slots:
       infection.
 
       Risk Factor: A variable associated with an increased risk of disease or infection.'
-    comments:
-      Select all of the pre-existing conditions and risk factors experienced
+    comments: Select all of the pre-existing conditions and risk factors experienced
       by the host from the pick list. If the desired term is missing, contact the
       curation team.
-    examples:
-      - value: Asthma [HP:0002099]
     slot_uri: GENEPIO:0001401
     any_of:
-      - range: pre-existing conditions and risk factors menu
-      - range: null value menu
+    - range: PreExistingConditionsAndRiskFactorsMenu
+    - range: NullValueMenu
     multivalued: true
+    examples:
+    - value: Asthma [HP:0002099]
   complications:
     name: complications
     title: complications
-    description:
-      Patient medical complications that are believed to have occurred
+    description: Patient medical complications that are believed to have occurred
       as a result of host disease.
-    comments:
-      Select all of the complications experienced by the host from the pick
+    comments: Select all of the complications experienced by the host from the pick
       list.
-    examples:
-      - value: Acute respiratory failure [MONDO:0001208]
     slot_uri: GENEPIO:0001402
     any_of:
-      - range: complications menu
-      - range: null value menu
+    - range: ComplicationsMenu
+    - range: NullValueMenu
     multivalued: true
-  host vaccination status:
-    name: host vaccination status
+    examples:
+    - value: Acute respiratory failure [MONDO:0001208]
+  host_vaccination_status:
+    name: host_vaccination_status
     title: host vaccination status
-    description:
-      The vaccination status of the host (fully vaccinated, partially vaccinated,
+    description: The vaccination status of the host (fully vaccinated, partially vaccinated,
       or not vaccinated).
     comments: Select the vaccination status of the host from the pick list.
-    examples:
-      - value: Fully Vaccinated [GENEPIO:0100100]
     slot_uri: GENEPIO:0001404
     any_of:
-      - range: host vaccination status menu
-      - range: null value menu
+    - range: HostVaccinationStatusMenu
+    - range: NullValueMenu
+    examples:
+    - value: Fully Vaccinated [GENEPIO:0100100]
     exact_mappings:
-      - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination
-  number of vaccine doses received:
-    name: number of vaccine doses received
+    - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination
+  number_of_vaccine_doses_received:
+    name: number_of_vaccine_doses_received
     title: number of vaccine doses received
     description: The number of doses of the vaccine received by the host.
     comments: Record how many doses of the vaccine the host has received.
-    examples:
-      - value: '2'
     slot_uri: GENEPIO:0001406
     range: integer
-    minimum_value: '0'
-  vaccination dose 1 vaccine name:
-    name: vaccination dose 1 vaccine name
-    title: vaccination dose 1 vaccine name
-    description:
-      The name of the vaccine administered as the first dose of a vaccine
-      regimen.
-    comments:
-      Provide the name and the corresponding manufacturer of the COVID-19
-      vaccine administered as the first dose by selecting a value from the pick list
+    minimum_value: 0
     examples:
-      - value: Pfizer-BioNTech (Comirnaty)
+    - value: '2'
+  vaccination_dose_1_vaccine_name:
+    name: vaccination_dose_1_vaccine_name
+    title: vaccination dose 1 vaccine name
+    description: The name of the vaccine administered as the first dose of a vaccine
+      regimen.
+    comments: Provide the name and the corresponding manufacturer of the COVID-19
+      vaccine administered as the first dose by selecting a value from the pick list
     slot_uri: GENEPIO:0100313
     range: WhitespaceMinimizedString
-  vaccination dose 1 vaccination date:
-    name: vaccination dose 1 vaccination date
+    examples:
+    - value: Pfizer-BioNTech (Comirnaty)
+  vaccination_dose_1_vaccination_date:
+    name: vaccination_dose_1_vaccination_date
     title: vaccination dose 1 vaccination date
     description: The date the first dose of a vaccine was administered.
-    comments:
-      Provide the date the first dose of COVID-19 vaccine was administered.
+    comments: Provide the date the first dose of COVID-19 vaccine was administered.
       The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
-    examples:
-      - value: '2021-03-01'
     slot_uri: GENEPIO:0100314
     range: date
-  vaccination dose 2 vaccine name:
-    name: vaccination dose 2 vaccine name
-    title: vaccination dose 2 vaccine name
-    description:
-      The name of the vaccine administered as the second dose of a vaccine
-      regimen.
-    comments:
-      Provide the name and the corresponding manufacturer of the COVID-19
-      vaccine administered as the second dose by selecting a value from the pick list
     examples:
-      - value: Pfizer-BioNTech (Comirnaty)
+    - value: '2021-03-01'
+  vaccination_dose_2_vaccine_name:
+    name: vaccination_dose_2_vaccine_name
+    title: vaccination dose 2 vaccine name
+    description: The name of the vaccine administered as the second dose of a vaccine
+      regimen.
+    comments: Provide the name and the corresponding manufacturer of the COVID-19
+      vaccine administered as the second dose by selecting a value from the pick list
     slot_uri: GENEPIO:0100315
     range: WhitespaceMinimizedString
-  vaccination dose 2 vaccination date:
-    name: vaccination dose 2 vaccination date
+    examples:
+    - value: Pfizer-BioNTech (Comirnaty)
+  vaccination_dose_2_vaccination_date:
+    name: vaccination_dose_2_vaccination_date
     title: vaccination dose 2 vaccination date
     description: The date the second dose of a vaccine was administered.
-    comments:
-      Provide the date the second dose of COVID-19 vaccine was administered.
+    comments: Provide the date the second dose of COVID-19 vaccine was administered.
       The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
-    examples:
-      - value: '2021-09-01'
     slot_uri: GENEPIO:0100316
     range: date
-  vaccination dose 3 vaccine name:
-    name: vaccination dose 3 vaccine name
-    title: vaccination dose 3 vaccine name
-    description:
-      The name of the vaccine administered as the third dose of a vaccine
-      regimen.
-    comments:
-      Provide the name and the corresponding manufacturer of the COVID-19
-      vaccine administered as the third dose by selecting a value from the pick list
     examples:
-      - value: Pfizer-BioNTech (Comirnaty)
+    - value: '2021-09-01'
+  vaccination_dose_3_vaccine_name:
+    name: vaccination_dose_3_vaccine_name
+    title: vaccination dose 3 vaccine name
+    description: The name of the vaccine administered as the third dose of a vaccine
+      regimen.
+    comments: Provide the name and the corresponding manufacturer of the COVID-19
+      vaccine administered as the third dose by selecting a value from the pick list
     slot_uri: GENEPIO:0100317
     range: WhitespaceMinimizedString
-  vaccination dose 3 vaccination date:
-    name: vaccination dose 3 vaccination date
+    examples:
+    - value: Pfizer-BioNTech (Comirnaty)
+  vaccination_dose_3_vaccination_date:
+    name: vaccination_dose_3_vaccination_date
     title: vaccination dose 3 vaccination date
     description: The date the third dose of a vaccine was administered.
-    comments:
-      Provide the date the third dose of COVID-19 vaccine was administered.
+    comments: Provide the date the third dose of COVID-19 vaccine was administered.
       The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
-    examples:
-      - value: '2021-12-30'
     slot_uri: GENEPIO:0100318
     range: date
-    exact_mappings:
-      - NCBI_BIOSAMPLE:date_of_sars_cov_2_vaccination
-  vaccination dose 4 vaccine name:
-    name: vaccination dose 4 vaccine name
-    title: vaccination dose 4 vaccine name
-    description:
-      The name of the vaccine administered as the fourth dose of a vaccine
-      regimen.
-    comments:
-      Provide the name and the corresponding manufacturer of the COVID-19
-      vaccine administered as the fourth dose by selecting a value from the pick list
     examples:
-      - value: Pfizer-BioNTech (Comirnaty)
+    - value: '2021-12-30'
+    exact_mappings:
+    - NCBI_BIOSAMPLE:date_of_sars_cov_2_vaccination
+  vaccination_dose_4_vaccine_name:
+    name: vaccination_dose_4_vaccine_name
+    title: vaccination dose 4 vaccine name
+    description: The name of the vaccine administered as the fourth dose of a vaccine
+      regimen.
+    comments: Provide the name and the corresponding manufacturer of the COVID-19
+      vaccine administered as the fourth dose by selecting a value from the pick list
     slot_uri: GENEPIO:0100319
     range: WhitespaceMinimizedString
-  vaccination dose 4 vaccination date:
-    name: vaccination dose 4 vaccination date
+    examples:
+    - value: Pfizer-BioNTech (Comirnaty)
+  vaccination_dose_4_vaccination_date:
+    name: vaccination_dose_4_vaccination_date
     title: vaccination dose 4 vaccination date
     description: The date the fourth dose of a vaccine was administered.
-    comments:
-      Provide the date the fourth dose of COVID-19 vaccine was administered.
+    comments: Provide the date the fourth dose of COVID-19 vaccine was administered.
       The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
-    examples:
-      - value: '2022-01-15'
     slot_uri: GENEPIO:0100320
     range: date
-  vaccination history:
-    name: vaccination history
+    examples:
+    - value: '2022-01-15'
+  vaccination_history:
+    name: vaccination_history
     title: vaccination history
-    description:
-      A description of the vaccines received and the administration dates
+    description: A description of the vaccines received and the administration dates
       of a series of vaccinations against a specific disease or a set of diseases.
-    comments:
-      Free text description of the dates and vaccines administered against
+    comments: Free text description of the dates and vaccines administered against
       a particular disease/set of diseases. It is also acceptable to concatenate the
       individual dose information (vaccine name, vaccination date) separated by semicolons.
-    examples:
-      - value: Pfizer-BioNTech (Comirnaty)
-      - value: '2021-03-01'
-      - value: Pfizer-BioNTech (Comirnaty)
-      - value: '2022-01-15'
     slot_uri: GENEPIO:0100321
     range: WhitespaceMinimizedString
+    examples:
+    - value: Pfizer-BioNTech (Comirnaty)
+    - value: '2021-03-01'
+    - value: Pfizer-BioNTech (Comirnaty)
+    - value: '2022-01-15'
     exact_mappings:
-      - GISAID:Last vaccinated
-  location of exposure geo_loc name (country):
-    name: location of exposure geo_loc name (country)
+    - GISAID:Last%20vaccinated
+  location_of_exposure_geo_loc_name_country:
+    name: location_of_exposure_geo_loc_name_country
     title: location of exposure geo_loc name (country)
-    description:
-      The country where the host was likely exposed to the causative agent
+    description: The country where the host was likely exposed to the causative agent
       of the illness.
-    comments:
-      This location pertains to the country the host was believed to be exposed,
+    comments: This location pertains to the country the host was believed to be exposed,
       and may not be the same as the host's country of residence. If known, provide
       the country name from the pick list.
-    examples:
-      - value: South Africa [GAZ:00001094]
     slot_uri: GENEPIO:0001410
     any_of:
-      - range: geo_loc_name (country) menu
-      - range: null value menu
+    - range: LocationOfExposureGeoLocNameCountryMenu
+    - range: NullValueMenu
+    examples:
+    - value: South Africa [GAZ:00001094]
     exact_mappings:
-      - NCBI_BIOSAMPLE:geo_loc_exposure
-  destination of most recent travel (city):
-    name: destination of most recent travel (city)
+    - NCBI_BIOSAMPLE:geo_loc_exposure
+  destination_of_most_recent_travel_city:
+    name: destination_of_most_recent_travel_city
     title: destination of most recent travel (city)
     description: The name of the city that was the destination of most recent travel.
-    comments:
-      'Provide the name of the city that the host travelled to. Use this look-up
+    comments: 'Provide the name of the city that the host travelled to. Use this look-up
       service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz'
-    examples:
-      - value: New York City
     slot_uri: GENEPIO:0001411
     range: WhitespaceMinimizedString
-    exact_mappings:
-      - NCBI_BIOSAMPLE:host_recent_travel_loc
-  destination of most recent travel (state/province/territory):
-    name: destination of most recent travel (state/province/territory)
-    title: destination of most recent travel (state/province/territory)
-    description:
-      The name of the province that was the destination of most recent
-      travel.
-    comments:
-      'Provide the name of the state/province/territory that the host travelled
-      to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz'
     examples:
-      - value: California
+    - value: New York City
+    exact_mappings:
+    - NCBI_BIOSAMPLE:host_recent_travel_loc
+  destination_of_most_recent_travel_state_province_territory:
+    name: destination_of_most_recent_travel_state_province_territory
+    title: destination of most recent travel (state/province/territory)
+    description: The name of the province that was the destination of most recent
+      travel.
+    comments: 'Provide the name of the state/province/territory that the host travelled
+      to. Use this look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz'
     slot_uri: GENEPIO:0001412
     range: WhitespaceMinimizedString
+    examples:
+    - value: California
     exact_mappings:
-      - NCBI_BIOSAMPLE:host_recent_travel_loc
-  destination of most recent travel (country):
-    name: destination of most recent travel (country)
+    - NCBI_BIOSAMPLE:host_recent_travel_loc
+  destination_of_most_recent_travel_country:
+    name: destination_of_most_recent_travel_country
     title: destination of most recent travel (country)
     description: The name of the country that was the destination of most recent travel.
-    comments:
-      'Provide the name of the country that the host travelled to. Use this
+    comments: 'Provide the name of the country that the host travelled to. Use this
       look-up service to identify the standardized term: https://www.ebi.ac.uk/ols/ontologies/gaz'
-    examples:
-      - value: United Kingdom [GAZ:00002637]
     slot_uri: GENEPIO:0001413
     any_of:
-      - range: geo_loc_name (country) menu
-      - range: null value menu
+    - range: DestinationOfMostRecentTravelCountryMenu
+    - range: NullValueMenu
+    examples:
+    - value: United Kingdom [GAZ:00002637]
     exact_mappings:
-      - NCBI_BIOSAMPLE:host_recent_travel_loc
-  most recent travel departure date:
-    name: most recent travel departure date
+    - NCBI_BIOSAMPLE:host_recent_travel_loc
+  most_recent_travel_departure_date:
+    name: most_recent_travel_departure_date
     title: most recent travel departure date
-    description:
-      The date of a person's most recent departure from their primary residence
+    description: The date of a person's most recent departure from their primary residence
       (at that time) on a journey to one or more other locations.
     comments: Provide the travel departure date in ISO 8601 standard format "YYYY-MM-DD".
-    examples:
-      - value: '2020-03-16'
     slot_uri: GENEPIO:0001414
     any_of:
-      - range: date
-      - range: null value menu
-  most recent travel return date:
-    name: most recent travel return date
+    - range: date
+    - range: NullValueMenu
+    examples:
+    - value: '2020-03-16'
+  most_recent_travel_return_date:
+    name: most_recent_travel_return_date
     title: most recent travel return date
-    description:
-      The date of a person's most recent return to some residence from
+    description: The date of a person's most recent return to some residence from
       a journey originating at that residence.
     comments: Provide the travel return date in ISO 8601 standard format "YYYY-MM-DD".
-    examples:
-      - value: '2020-04-26'
     slot_uri: GENEPIO:0001415
     any_of:
-      - range: date
-      - range: null value menu
+    - range: date
+    - range: NullValueMenu
+    examples:
+    - value: '2020-04-26'
     exact_mappings:
-      - NCBI_BIOSAMPLE:host_recent_travel_return_date
-  travel history:
-    name: travel history
+    - NCBI_BIOSAMPLE:host_recent_travel_return_date
+  travel_history:
+    name: travel_history
     title: travel history
     description: Travel history in last six months.
-    comments:
-      Specify the countries (and more granular locations if known) travelled
+    comments: Specify the countries (and more granular locations if known) travelled
       in the last six months; can include multiple travels. Separate multiple travel
       events with a semicolon. Provide as free text.
-    examples:
-      - value: Canada, Vancouver
-      - value: USA, Seattle
-      - value: Italy, Milan
     slot_uri: GENEPIO:0001416
     range: WhitespaceMinimizedString
-  exposure event:
-    name: exposure event
+    examples:
+    - value: Canada, Vancouver
+    - value: USA, Seattle
+    - value: Italy, Milan
+  exposure_event:
+    name: exposure_event
     title: exposure event
     description: Event leading to exposure.
     comments: If known, select the exposure event from the pick list.
-    examples:
-      - value: Mass Gathering [GENEPIO:0100237]
     slot_uri: GENEPIO:0001417
     any_of:
-      - range: exposure event menu
-      - range: null value menu
+    - range: ExposureEventMenu
+    - range: NullValueMenu
+    examples:
+    - value: Mass Gathering [GENEPIO:0100237]
     exact_mappings:
-      - GISAID:Additional location information
-      - NCBI_BIOSAMPLE:exposure_event
-  exposure contact level:
-    name: exposure contact level
+    - GISAID:Additional%20location%20information
+    - NCBI_BIOSAMPLE:exposure_event
+  exposure_contact_level:
+    name: exposure_contact_level
     title: exposure contact level
     description: The exposure transmission contact type.
     comments: Select direct or indirect exposure from the pick list.
-    examples:
-      - value: Direct (human-to-human contact) [TRANS:0000001]
     slot_uri: GENEPIO:0001418
     any_of:
-      - range: exposure contact level menu
-      - range: null value menu
-  host role:
-    name: host role
+    - range: ExposureContactLevelMenu
+    - range: NullValueMenu
+    examples:
+    - value: Direct (human-to-human contact) [TRANS:0000001]
+  host_role:
+    name: host_role
     title: host role
     description: The role of the host in relation to the exposure setting.
-    comments:
-      Select the host's personal role(s) from the pick list provided in the
+    comments: Select the host's personal role(s) from the pick list provided in the
       template. If the desired term is missing, contact the curation team.
-    examples:
-      - value: Patient [OMRSE:00000030]
     slot_uri: GENEPIO:0001419
-    range: host role menu
+    range: HostRoleMenu
     multivalued: true
+    examples:
+    - value: Patient [OMRSE:00000030]
     exact_mappings:
-      - GISAID:Additional host information
-  exposure setting:
-    name: exposure setting
+    - GISAID:Additional%20host%20information
+  exposure_setting:
+    name: exposure_setting
     title: exposure setting
     description: The setting leading to exposure.
-    comments:
-      Select the host exposure setting(s) from the pick list provided in the
+    comments: Select the host exposure setting(s) from the pick list provided in the
       template. If a desired term is missing, contact the curation team.
-    examples:
-      - value: Healthcare Setting [GENEPIO:0100201]
     slot_uri: GENEPIO:0001428
-    range: exposure setting menu
+    range: ExposureSettingMenu
     multivalued: true
+    examples:
+    - value: Healthcare Setting [GENEPIO:0100201]
     exact_mappings:
-      - GISAID:Additional host information
-  exposure details:
-    name: exposure details
+    - GISAID:Additional%20host%20information
+  exposure_details:
+    name: exposure_details
     title: exposure details
     description: Additional host exposure information.
     comments: Free text description of the exposure.
-    examples:
-      - value: 'Host role - Other: Bus Driver'
     slot_uri: GENEPIO:0001431
     range: WhitespaceMinimizedString
-  prior SARS-CoV-2 infection:
-    name: prior SARS-CoV-2 infection
+    examples:
+    - value: 'Host role - Other: Bus Driver'
+  prior_sarscov2_infection:
+    name: prior_sarscov2_infection
     title: prior SARS-CoV-2 infection
     description: Whether there was prior SARS-CoV-2 infection.
-    comments:
-      If known, provide infromation about whether the individual had a previous
+    comments: If known, provide information about whether the individual had a previous
       SARS-CoV-2 infection. Select a value from the pick list.
-    examples:
-      - value: Prior infection [GENEPIO:0100234]
     slot_uri: GENEPIO:0001435
     any_of:
-      - range: prior SARS-CoV-2 infection menu
-      - range: null value menu
+    - range: PriorSarsCov2InfectionMenu
+    - range: NullValueMenu
+    examples:
+    - value: Prior infection [GENEPIO:0100234]
     exact_mappings:
-      - NCBI_BIOSAMPLE:prior_sars_cov_2_infection
-  prior SARS-CoV-2 infection isolate:
-    name: prior SARS-CoV-2 infection isolate
+    - NCBI_BIOSAMPLE:prior_sars_cov_2_infection
+  prior_sarscov2_infection_isolate:
+    name: prior_sarscov2_infection_isolate
     title: prior SARS-CoV-2 infection isolate
     description: The identifier of the isolate found in the prior SARS-CoV-2 infection.
-    comments:
-      'Provide the isolate name of the most recent prior infection. Structure
+    comments: 'Provide the isolate name of the most recent prior infection. Structure
       the "isolate" name to be ICTV/INSDC compliant in the following format: "SARS-CoV-2/host/country/sampleID/date".'
-    examples:
-      - value: SARS-CoV-2/human/USA/CA-CDPH-001/2020
     slot_uri: GENEPIO:0001436
     range: WhitespaceMinimizedString
+    examples:
+    - value: SARS-CoV-2/human/USA/CA-CDPH-001/2020
     exact_mappings:
-      - NCBI_BIOSAMPLE:virus_isolate_of_prior_infection
-  prior SARS-CoV-2 infection date:
-    name: prior SARS-CoV-2 infection date
+    - NCBI_BIOSAMPLE:virus_isolate_of_prior_infection
+  prior_sarscov2_infection_date:
+    name: prior_sarscov2_infection_date
     title: prior SARS-CoV-2 infection date
     description: The date of diagnosis of the prior SARS-CoV-2 infection.
-    comments:
-      Provide the date that the most recent prior infection was diagnosed.
+    comments: Provide the date that the most recent prior infection was diagnosed.
       Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format "YYYY-MM-DD".
-    examples:
-      - value: '2021-01-23'
     slot_uri: GENEPIO:0001437
     range: date
+    examples:
+    - value: '2021-01-23'
     exact_mappings:
-      - NCBI_BIOSAMPLE:date_of_prior_sars_cov_2_infection
-  prior SARS-CoV-2 antiviral treatment:
-    name: prior SARS-CoV-2 antiviral treatment
+    - NCBI_BIOSAMPLE:date_of_prior_sars_cov_2_infection
+  prior_sarscov2_antiviral_treatment:
+    name: prior_sarscov2_antiviral_treatment
     title: prior SARS-CoV-2 antiviral treatment
     description: Whether there was prior SARS-CoV-2 treatment with an antiviral agent.
-    comments:
-      If known, provide infromation about whether the individual had a previous
+    comments: If known, provide infromation about whether the individual had a previous
       SARS-CoV-2 antiviral treatment. Select a value from the pick list.
-    examples:
-      - value: Prior antiviral treatment [GENEPIO:0100037]
     slot_uri: GENEPIO:0001438
     any_of:
-      - range: prior SARS-CoV-2 antiviral treatment menu
-      - range: null value menu
+    - range: PriorSarsCov2AntiviralTreatmentMenu
+    - range: NullValueMenu
+    examples:
+    - value: Prior antiviral treatment [GENEPIO:0100037]
     exact_mappings:
-      - NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treat
-  prior SARS-CoV-2 antiviral treatment agent:
-    name: prior SARS-CoV-2 antiviral treatment agent
+    - NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treat
+  prior_sarscov2_antiviral_treatment_agent:
+    name: prior_sarscov2_antiviral_treatment_agent
     title: prior SARS-CoV-2 antiviral treatment agent
-    description:
-      The name of the antiviral treatment agent administered during the
+    description: The name of the antiviral treatment agent administered during the
       prior SARS-CoV-2 infection.
-    comments:
-      Provide the name of the antiviral treatment agent administered during
+    comments: Provide the name of the antiviral treatment agent administered during
       the most recent prior infection. If no treatment was administered, put "No treatment".
       If multiple antiviral agents were administered, list them all separated by commas.
-    examples:
-      - value: Remdesivir
     slot_uri: GENEPIO:0001439
     range: WhitespaceMinimizedString
+    examples:
+    - value: Remdesivir
     exact_mappings:
-      - NCBI_BIOSAMPLE:antiviral_treatment_agent
-  prior SARS-CoV-2 antiviral treatment date:
-    name: prior SARS-CoV-2 antiviral treatment date
+    - NCBI_BIOSAMPLE:antiviral_treatment_agent
+  prior_sarscov2_antiviral_treatment_date:
+    name: prior_sarscov2_antiviral_treatment_date
     title: prior SARS-CoV-2 antiviral treatment date
-    description:
-      The date treatment was first administered during the prior SARS-CoV-2
+    description: The date treatment was first administered during the prior SARS-CoV-2
       infection.
-    comments:
-      Provide the date that the antiviral treatment agent was first administered
+    comments: Provide the date that the antiviral treatment agent was first administered
       during the most recenrt prior infection. Provide the prior SARS-CoV-2 treatment
       date in ISO 8601 standard format "YYYY-MM-DD".
-    examples:
-      - value: '2021-01-28'
     slot_uri: GENEPIO:0001440
     range: date
+    examples:
+    - value: '2021-01-28'
     exact_mappings:
-      - NCBI_BIOSAMPLE:date_of_prior_antiviral_treat
-  purpose of sequencing:
-    name: purpose of sequencing
+    - NCBI_BIOSAMPLE:date_of_prior_antiviral_treat
+  purpose_of_sequencing:
+    name: purpose_of_sequencing
     title: purpose of sequencing
     description: The reason that the sample was sequenced.
-    comments:
-      The reason why a sample was originally collected may differ from the
+    comments: The reason why a sample was originally collected may differ from the
       reason why it was selected for sequencing. The reason a sample was sequenced
       may provide information about potential biases in sequencing strategy. Provide
       the purpose of sequencing from the picklist in the template. The reason for
       sample collection should be indicated in the "purpose of sampling" field.
-    examples:
-      - value: Baseline surveillance (random sampling) [GENEPIO:0100005]
     slot_uri: GENEPIO:0001445
     any_of:
-      - range: purpose of sequencing menu
-      - range: null value menu
+    - range: PurposeOfSequencingMenu
+    - range: NullValueMenu
     multivalued: true
     required: true
+    examples:
+    - value: Baseline surveillance (random sampling) [GENEPIO:0100005]
     exact_mappings:
-      - GISAID:Sampling Strategy
-      - NCBI_BIOSAMPLE:purpose_of_sequencing
-  purpose of sequencing details:
-    name: purpose of sequencing details
+    - GISAID:Sampling%20Strategy
+    - NCBI_BIOSAMPLE:purpose_of_sequencing
+  purpose_of_sequencing_details:
+    name: purpose_of_sequencing_details
     title: purpose of sequencing details
-    description:
-      The description of why the sample was sequenced providing specific
+    description: The description of why the sample was sequenced providing specific
       details.
-    comments:
-      'Provide an expanded description of why the sample was sequenced using
+    comments: 'Provide an expanded description of why the sample was sequenced using
       pick list. The description may include the importance of the sequences for a
       particular public health investigation/surveillance activity/research question.
       Suggested standardized descriptions include: Screened for S gene target failure
@@ -2050,641 +1946,514 @@ slots:
       airline-related exposures, Investigating temporary foreign worker, Investigating
       remote regions, Investigating health care workers, Investigating schools/universities,
       Investigating reinfection.'
-    examples:
-      - value: Screened for S gene target failure (S dropout)
     slot_uri: GENEPIO:0001446
     any_of:
-      - range: WhitespaceMinimizedString
-      - range: null value menu
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
-  sequencing date:
-    name: sequencing date
+    examples:
+    - value: Screened for S gene target failure (S dropout)
+  sequencing_date:
+    name: sequencing_date
     title: sequencing date
     description: The date the sample was sequenced.
     comments: Provide the sequencing date in ISO 8601 standard format "YYYY-MM-DD".
-    examples:
-      - value: '2021-04-26'
     slot_uri: GENEPIO:0001447
     any_of:
-      - range: date
-      - range: null value menu
-  library ID:
-    name: library ID
+    - range: date
+    - range: NullValueMenu
+    examples:
+    - value: '2021-04-26'
+  library_id:
+    name: library_id
     title: library ID
     description: The user-specified identifier for the library prepared for sequencing.
-    comments:
-      The library name should be unique, and can be an autogenerated ID from
+    comments: The library name should be unique, and can be an autogenerated ID from
       your LIMS, or modification of the isolate ID.
-    examples:
-      - value: XYZ_123345
     slot_uri: GENEPIO:0001448
     range: WhitespaceMinimizedString
     recommended: true
+    examples:
+    - value: XYZ_123345
     exact_mappings:
-      - NCBI_SRA:library_ID
-  amplicon size:
-    name: amplicon size
+    - NCBI_SRA:library_ID
+  amplicon_size:
+    name: amplicon_size
     title: amplicon size
     description: The length of the amplicon generated by PCR amplification.
     comments: Provide the amplicon size, including the units.
-    examples:
-      - value: 300bp
     slot_uri: GENEPIO:0001449
     range: WhitespaceMinimizedString
+    examples:
+    - value: 300bp
     exact_mappings:
-      - NCBI_SRA:amplicon_size
-  library preparation kit:
-    name: library preparation kit
+    - NCBI_SRA:amplicon_size
+  library_preparation_kit:
+    name: library_preparation_kit
     title: library preparation kit
-    description:
-      The name of the DNA library preparation kit used to generate the
+    description: The name of the DNA library preparation kit used to generate the
       library being sequenced.
     comments: Provide the name of the library preparation kit used.
-    examples:
-      - value: Nextera XT
     slot_uri: GENEPIO:0001450
     range: WhitespaceMinimizedString
-  flow cell barcode:
-    name: flow cell barcode
+    examples:
+    - value: Nextera XT
+  flow_cell_barcode:
+    name: flow_cell_barcode
     title: flow cell barcode
     description: The barcode of the flow cell used for sequencing.
     comments: Provide the barcode of the flow cell used for sequencing the sample.
-    examples:
-      - value: FAB06069
     slot_uri: GENEPIO:0001451
     range: WhitespaceMinimizedString
-  sequencing instrument:
-    name: sequencing instrument
+    examples:
+    - value: FAB06069
+  sequencing_instrument:
+    name: sequencing_instrument
     title: sequencing instrument
     description: The model of the sequencing instrument used.
     comments: Select the sequencing instrument from the pick list.
-    examples:
-      - value: Oxford Nanopore MinION [GENEPIO:0100142]
     slot_uri: GENEPIO:0001452
     any_of:
-      - range: sequencing instrument menu
-      - range: null value menu
+    - range: SequencingInstrumentMenu
+    - range: NullValueMenu
     multivalued: true
     required: true
+    examples:
+    - value: Oxford Nanopore MinION [GENEPIO:0100142]
     exact_mappings:
-      - GISAID:Sequencing technology
-      - NCBI_SRA:platform
-      - NCBI_SRA:instrument_model
-      - NCBI_Genbank:sequencing_technology
-  sequencing protocol name:
-    name: sequencing protocol name
+    - GISAID:Sequencing%20technology
+    - NCBI_SRA:platform
+    - NCBI_SRA:instrument_model
+    - NCBI_Genbank:sequencing_technology
+  sequencing_protocol_name:
+    name: sequencing_protocol_name
     title: sequencing protocol name
     description: The name and version number of the sequencing protocol used.
     comments: Provide the name and version of the sequencing protocol.
-    examples:
-      - value: 1D_DNA_MinION, ARTIC Network Protocol V3
     slot_uri: GENEPIO:0001453
     range: WhitespaceMinimizedString
     recommended: true
+    examples:
+    - value: 1D_DNA_MinION, ARTIC Network Protocol V3
     exact_mappings:
-      - NCBI_SRA:sequencing_protocol_name
-  sequencing protocol:
-    name: sequencing protocol
+    - NCBI_SRA:sequencing_protocol_name
+  sequencing_protocol:
+    name: sequencing_protocol
     title: sequencing protocol
     description: The protocol used to generate the sequence.
-    comments:
-      'Provide a free text description of the methods and materials used to
+    comments: 'Provide a free text description of the methods and materials used to
       generate the sequence. Suggested text, fill in information where indicated.:
       "Viral sequencing was performed following a tiling amplicon strategy using the
       <fill in> primer scheme. Sequencing was performed using a <fill in> sequencing
       instrument. Libraries were prepared using <fill in> library kit. "'
-    examples:
-      - value:
-          Genomes were generated through amplicon sequencing of 1200 bp amplicons
-          with Freed schema primers. Libraries were created using Illumina DNA Prep
-          kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing
-          kits.
     slot_uri: GENEPIO:0001454
     range: WhitespaceMinimizedString
+    examples:
+    - value: Genomes were generated through amplicon sequencing of 1200 bp amplicons
+        with Freed schema primers. Libraries were created using Illumina DNA Prep
+        kits, and sequence data was produced using Miseq Micro v2 (500 cycles) sequencing
+        kits.
     exact_mappings:
-      - NCBI_SRA:design_description
-  sequencing kit number:
-    name: sequencing kit number
+    - NCBI_SRA:design_description
+  sequencing_kit_number:
+    name: sequencing_kit_number
     title: sequencing kit number
     description: The manufacturer's kit number.
     comments: Alphanumeric value.
-    examples:
-      - value: AB456XYZ789
     slot_uri: GENEPIO:0001455
     range: WhitespaceMinimizedString
-  amplicon pcr primer scheme:
-    name: amplicon pcr primer scheme
-    title: amplicon pcr primer scheme
-    description:
-      The specifications of the primers (primer sequences, binding positions,
-      fragment size generated etc) used to generate the amplicons to be sequenced.
-    comments:
-      Provide the name and version of the primer scheme used to generate the
-      amplicons for sequencing.
     examples:
-      - value: https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv
+    - value: AB456XYZ789
+  amplicon_pcr_primer_scheme:
+    name: amplicon_pcr_primer_scheme
+    title: amplicon pcr primer scheme
+    description: The specifications of the primers (primer sequences, binding positions,
+      fragment size generated etc) used to generate the amplicons to be sequenced.
+    comments: Provide the name and version of the primer scheme used to generate the
+      amplicons for sequencing.
     slot_uri: GENEPIO:0001456
     range: WhitespaceMinimizedString
-    exact_mappings:
-      - NCBI_SRA:amplicon_pcr_primer_scheme
-  raw sequence data processing method:
-    name: raw sequence data processing method
-    title: raw sequence data processing method
-    description:
-      The method used for raw data processing such as removing barcodes,
-      adapter trimming, filtering etc.
-    comments:
-      Provide the name and version numbers of the software used to process
-      the raw data.
     examples:
-      - value: Porechop 0.2.3
+    - value: https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv
+    exact_mappings:
+    - NCBI_SRA:amplicon_pcr_primer_scheme
+  raw_sequence_data_processing_method:
+    name: raw_sequence_data_processing_method
+    title: raw sequence data processing method
+    description: '#REF!'
     slot_uri: GENEPIO:0001458
     range: WhitespaceMinimizedString
     recommended: true
     exact_mappings:
-      - NCBI_SRA:raw_sequence_data_processing_method
-  dehosting method:
-    name: dehosting method
+    - NCBI_SRA:raw_sequence_data_processing_method
+  dehosting_method:
+    name: dehosting_method
     title: dehosting method
-    description: The method used to remove host reads from the pathogen sequence.
-    comments:
-      Provide the name and version number of the software used to remove host
-      reads.
-    examples:
-      - value: Nanostripper 1.2.3
     slot_uri: GENEPIO:0001459
     range: WhitespaceMinimizedString
     recommended: true
     exact_mappings:
-      - NCBI_SRA:dehosting_method
-  consensus sequence name:
-    name: consensus sequence name
+    - NCBI_SRA:dehosting_method
+  consensus_sequence_name:
+    name: consensus_sequence_name
     title: consensus sequence name
-    description: The name of the consensus sequence.
-    comments: Provide the name and version number of the consensus sequence.
-    examples:
-      - value: ncov123assembly3
     slot_uri: GENEPIO:0001460
     range: WhitespaceMinimizedString
-  consensus sequence filename:
-    name: consensus sequence filename
+  consensus_sequence_filename:
+    name: consensus_sequence_filename
     title: consensus sequence filename
-    description: The name of the consensus sequence file.
-    comments:
-      Provide the name and version number of the consensus sequence FASTA
-      file.
-    examples:
-      - value: ncov123assembly.fasta
     slot_uri: GENEPIO:0001461
     range: WhitespaceMinimizedString
     exact_mappings:
-      - NCBI_Genbank:filename
-  consensus sequence filepath:
-    name: consensus sequence filepath
+    - NCBI_Genbank:filename
+  consensus_sequence_filepath:
+    name: consensus_sequence_filepath
     title: consensus sequence filepath
-    description: The filepath of the consesnsus sequence file.
-    comments: Provide the filepath of the consensus sequence FASTA file.
-    examples:
-      - value: /User/Documents/RespLab/Data/ncov123assembly.fasta
+    description: The filepath of the consensus sequence file.
     slot_uri: GENEPIO:0001462
     range: WhitespaceMinimizedString
-  consensus sequence software name:
-    name: consensus sequence software name
+  consensus_sequence_software_name:
+    name: consensus_sequence_software_name
     title: consensus sequence software name
-    description: The name of software used to generate the consensus sequence.
-    comments: Provide the name of the software used to generate the consensus sequence.
-    examples:
-      - value: Ivar
     slot_uri: GENEPIO:0001463
     range: WhitespaceMinimizedString
     required: true
     exact_mappings:
-      - GISAID:Assembly method
-      - NCBI_Genbank:assembly_method
-  consensus sequence software version:
-    name: consensus sequence software version
+    - GISAID:Assembly%20method
+    - NCBI_Genbank:assembly_method
+  consensus_sequence_software_version:
+    name: consensus_sequence_software_version
     title: consensus sequence software version
-    description: The version of the software used to generate the consensus sequence.
-    comments: Provide the version of the software used to generate the consensus sequence.
-    examples:
-      - value: '1.3'
     slot_uri: GENEPIO:0001469
     range: decimal
     required: true
     exact_mappings:
-      - GISAID:Assembly method
-      - NCBI_Genbank:assembly_method_version
-  breadth of coverage value:
-    name: breadth of coverage value
+    - GISAID:Assembly%20method
+    - NCBI_Genbank:assembly_method_version
+  breadth_of_coverage_value:
+    name: breadth_of_coverage_value
     title: breadth of coverage value
-    description:
-      The percentage of the reference genome covered by the sequenced data,
-      to a prescribed depth.
-    comments: Provide value as a percent.
-    examples:
-      - value: 95%
     slot_uri: GENEPIO:0001472
     range: WhitespaceMinimizedString
-  depth of coverage value:
-    name: depth of coverage value
+  depth_of_coverage_value:
+    name: depth_of_coverage_value
     title: depth of coverage value
-    description:
-      The average number of reads representing a given nucleotide in the
-      reconstructed sequence.
-    comments: Provide value as a fold of coverage.
-    examples:
-      - value: 400x
     slot_uri: GENEPIO:0001474
     range: WhitespaceMinimizedString
     exact_mappings:
-      - GISAID:Coverage
-      - NCBI_Genbank:genome_coverage
-  depth of coverage threshold:
-    name: depth of coverage threshold
+    - GISAID:Depth%20of%20coverage
+    - NCBI_Genbank:genome_coverage
+  depth_of_coverage_threshold:
+    name: depth_of_coverage_threshold
     title: depth of coverage threshold
-    description: The threshold used as a cut-off for the depth of coverage.
-    comments: Provide the threshold fold coverage.
-    examples:
-      - value: 100x
     slot_uri: GENEPIO:0001475
     range: WhitespaceMinimizedString
-  r1 fastq filename:
-    name: r1 fastq filename
+  r1_fastq_filename:
+    name: r1_fastq_filename
     title: r1 fastq filename
-    description: The user-specified filename of the r1 FASTQ file.
-    comments: Provide the r1 FASTQ filename.
-    examples:
-      - value: ABC123_S1_L001_R1_001.fastq.gz
     slot_uri: GENEPIO:0001476
     range: WhitespaceMinimizedString
-  r2 fastq filename:
-    name: r2 fastq filename
+  r2_fastq_filename:
+    name: r2_fastq_filename
     title: r2 fastq filename
-    description: The user-specified filename of the r2 FASTQ file.
-    comments: Provide the r2 FASTQ filename.
-    examples:
-      - value: ABC123_S1_L001_R2_001.fastq.gz
     slot_uri: GENEPIO:0001477
     range: WhitespaceMinimizedString
-  r1 fastq filepath:
-    name: r1 fastq filepath
+  r1_fastq_filepath:
+    name: r1_fastq_filepath
     title: r1 fastq filepath
-    description: The filepath of the r1 FASTQ file.
-    comments: Provide the filepath of the r1 FASTQ file.
-    examples:
-      - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz
     slot_uri: GENEPIO:0001478
     range: WhitespaceMinimizedString
-  r2 fastq filepath:
-    name: r2 fastq filepath
+  r2_fastq_filepath:
+    name: r2_fastq_filepath
     title: r2 fastq filepath
-    description: The filepath of the r2 FASTQ file.
-    comments: Provide the filepath of the r2 FASTQ file.
-    examples:
-      - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz
     slot_uri: GENEPIO:0001479
     range: WhitespaceMinimizedString
-  fast5 filename:
-    name: fast5 filename
+  fast5_filename:
+    name: fast5_filename
     title: fast5 filename
-    description: The user-specified filename of the FAST5 file.
-    comments: Provide the FAST5 filename.
-    examples:
-      - value: batch1a_sequences.fast5
     slot_uri: GENEPIO:0001480
     range: WhitespaceMinimizedString
-  fast5 filepath:
-    name: fast5 filepath
+  fast5_filepath:
+    name: fast5_filepath
     title: fast5 filepath
-    description: The filepath of the FAST5 file.
-    comments: Provide the filepath of the FAST5 file.
-    examples:
-      - value: /User/Documents/RespLab/Data/batch1a_sequences.fast5
     slot_uri: GENEPIO:0001481
     range: WhitespaceMinimizedString
-  number of base pairs sequenced:
-    name: number of base pairs sequenced
+  number_of_base_pairs_sequenced:
+    name: number_of_base_pairs_sequenced
     title: number of base pairs sequenced
-    description: The number of total base pairs generated by the sequencing process.
-    comments: Provide a numerical value (no need to include units).
-    examples:
-      - value: '387566'
     slot_uri: GENEPIO:0001482
     range: integer
-    minimum_value: '0'
-  consensus genome length:
-    name: consensus genome length
+    minimum_value: 0
+  consensus_genome_length:
+    name: consensus_genome_length
     title: consensus genome length
-    description: Size of the assembled genome described as the number of base pairs.
-    comments: Provide a numerical value (no need to include units).
-    examples:
-      - value: '38677'
     slot_uri: GENEPIO:0001483
     range: integer
-    minimum_value: '0'
-  Ns per 100 kbp:
-    name: Ns per 100 kbp
+    minimum_value: 0
+  ns_per_100_kbp:
+    name: ns_per_100_kbp
     title: Ns per 100 kbp
-    description:
-      The number of N symbols present in the consensus fasta sequence,
-      per 100kbp of sequence.
-    comments: Provide a numerical value (no need to include units).
-    examples:
-      - value: '300'
     slot_uri: GENEPIO:0001484
     range: decimal
-  reference genome accession:
-    name: reference genome accession
+  reference_genome_accession:
+    name: reference_genome_accession
     title: reference genome accession
-    description: A persistent, unique identifier of a genome database entry.
-    comments: Provide the accession number of the reference genome.
-    examples:
-      - value: NC_045512.2
     slot_uri: GENEPIO:0001485
     range: WhitespaceMinimizedString
     exact_mappings:
-      - NCBI_Genbank:reference_genome
-  bioinformatics protocol:
-    name: bioinformatics protocol
+    - NCBI_Genbank:reference_genome
+  bioinformatics_protocol:
+    name: bioinformatics_protocol
     title: bioinformatics protocol
-    description: The name and version number of the bioinformatics protocol used.
-    comments:
-      Further details regarding the methods used to process raw data, and/or
-      generate assemblies, and/or generate consensus sequences can be provided in
-      an SOP or protocol. Provide the name and version number of the protocol, or
-      a link if deposited in a protocol repository.
-    examples:
-      - value: https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members
     slot_uri: GENEPIO:0001489
     range: WhitespaceMinimizedString
-  lineage/clade name:
-    name: lineage/clade name
+  lineage_clade_name:
+    name: lineage_clade_name
     title: lineage/clade name
     description: The name of the lineage or clade.
     comments: Provide the Pangolin or Nextstrain lineage/clade name.
-    examples:
-      - value: B.1.1.7
     slot_uri: GENEPIO:0001500
     range: WhitespaceMinimizedString
-  lineage/clade analysis software name:
-    name: lineage/clade analysis software name
+    examples:
+    - value: B.1.1.7
+  lineage_clade_analysis_software_name:
+    name: lineage_clade_analysis_software_name
     title: lineage/clade analysis software name
     description: The name of the software used to determine the lineage/clade.
     comments: Provide the name of the software used to determine the lineage/clade.
-    examples:
-      - value: Pangolin
     slot_uri: GENEPIO:0001501
     range: WhitespaceMinimizedString
-  lineage/clade analysis software version:
-    name: lineage/clade analysis software version
+    examples:
+    - value: Pangolin
+  lineage_clade_analysis_software_version:
+    name: lineage_clade_analysis_software_version
     title: lineage/clade analysis software version
     description: The version of the software used to determine the lineage/clade.
     comments: Provide the version of the software used ot determine the lineage/clade.
-    examples:
-      - value: 2.1.10
     slot_uri: GENEPIO:0001502
     range: WhitespaceMinimizedString
-  variant designation:
-    name: variant designation
+    examples:
+    - value: 2.1.10
+  variant_designation:
+    name: variant_designation
     title: variant designation
-    description:
-      The variant classification of the lineage/clade i.e. variant, variant
+    description: The variant classification of the lineage/clade i.e. variant, variant
       of concern.
-    comments:
-      If the lineage/clade is considered a Variant of Concern, select Variant
+    comments: If the lineage/clade is considered a Variant of Concern, select Variant
       of Concern from the pick list. If the lineage/clade contains mutations of concern
       (mutations that increase transmission, clincal severity, or other epidemiological
       fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade
       does not contain mutations of concern, leave blank.
-    examples:
-      - value: Variant of Concern (VOC) [GENEPIO:0100083]
     slot_uri: GENEPIO:0001503
     any_of:
-      - range: variant designation menu
-      - range: null value menu
-  variant evidence details:
-    name: variant evidence details
+    - range: VariantDesignationMenu
+    - range: NullValueMenu
+    examples:
+    - value: Variant of Concern (VOC) [GENEPIO:0100083]
+  variant_evidence_details:
+    name: variant_evidence_details
     title: variant evidence details
     description: The evidence used to make the variant determination.
-    comments:
-      List the set of lineage-defining mutations used to make the variant
+    comments: List the set of lineage-defining mutations used to make the variant
       determination. If there are mutations of interest/concern observed in addition
       to lineage-defining mutations, describe those here.
-    examples:
-      - value: 'RT-qPCR TaqPath assay: S gene target failure'
-    slot_uri: GENEPIO:0001504
+    slot_uri: GENEPIO:0001505
     range: WhitespaceMinimizedString
-  gene name 1:
-    name: gene name 1
+    examples:
+    - value: 'RT-qPCR TaqPath assay: S gene target failure'
+  gene_name_1:
+    name: gene_name_1
     title: gene name 1
     description: The name of the gene used in the diagnostic RT-PCR test.
-    comments:
-      'Select a gene from the pick list. If the gene of interest is not in
+    comments: 'Select a gene from the pick list. If the gene of interest is not in
       the list, provide the full name of the gene or the gene symbol (short form of
       gene name). Standardized gene names and symbols can be found in the Gene Ontology
       using this look-up service: https://bit.ly/2Sq1LbI'
-    examples:
-      - value: E gene (orf4) [GENEPIO:0100151]
     slot_uri: GENEPIO:0001507
     any_of:
-      - range: gene name menu
-      - range: null value menu
+    - range: GeneNameMenu
+    - range: NullValueMenu
+    examples:
+    - value: E gene (orf4) [GENEPIO:0100151]
     exact_mappings:
-      - NCBI_BIOSAMPLE:sars_cov_2_diag_gene_name_1
-  diagnostic pcr protocol 1:
-    name: diagnostic pcr protocol 1
+    - NCBI_BIOSAMPLE:sars_cov_2_diag_gene_name_1
+  diagnostic_pcr_protocol_1:
+    name: diagnostic_pcr_protocol_1
     title: diagnostic pcr protocol 1
-    description:
-      The name and version number of the protocol used for diagnostic marker
+    description: The name and version number of the protocol used for diagnostic marker
       amplification.
-    comments:
-      The name and version number of the protocol used for carrying out a
+    comments: The name and version number of the protocol used for carrying out a
       diagnostic PCR test. This information can be compared to sequence data for evaluation
       of performance and quality control.
-    examples:
-      - value: PCREGene 2.0
     slot_uri: GENEPIO:0001508
     range: WhitespaceMinimizedString
-  diagnostic pcr Ct value 1:
-    name: diagnostic pcr Ct value 1
-    title: diagnostic pcr Ct value 1
-    description:
-      The cycle threshold (Ct) value result from a diagnostic SARS-CoV-2
-      RT-PCR test.
-    comments:
-      Provide the cycle threshold (Ct) value of the sample from the diagnostic
-      RT-PCR test.
     examples:
-      - value: '21'
+    - value: PCREGene 2.0
+  diagnostic_pcr_ct_value_1:
+    name: diagnostic_pcr_ct_value_1
+    title: diagnostic pcr Ct value 1
+    description: The cycle threshold (Ct) value result from a diagnostic SARS-CoV-2
+      RT-PCR test.
+    comments: Provide the cycle threshold (Ct) value of the sample from the diagnostic
+      RT-PCR test.
     slot_uri: GENEPIO:0001509
     range: WhitespaceMinimizedString
+    examples:
+    - value: '21'
     exact_mappings:
-      - NCBI_BIOSAMPLE:sars_cov_2_diag_pcr_ct_value_1
-  gene name 2:
-    name: gene name 2
+    - NCBI_BIOSAMPLE:sars_cov_2_diag_pcr_ct_value_1
+  gene_name_2:
+    name: gene_name_2
     title: gene name 2
     description: The name of the gene used in the diagnostic RT-PCR test.
-    comments:
-      'Select a gene from the pick list. If the gene of interest is not in
+    comments: 'Select a gene from the pick list. If the gene of interest is not in
       the list, provide the full name of the gene or the gene symbol (short form of
       gene name). Standardized gene names and symbols can be found in the Gene Ontology
       using this look-up service: https://bit.ly/2Sq1LbI'
-    examples:
-      - value: RdRp gene (nsp12) [GENEPIO:0100168]
     slot_uri: GENEPIO:0001510
     any_of:
-      - range: gene name menu
-      - range: null value menu
+    - range: GeneNameMenu
+    - range: NullValueMenu
+    examples:
+    - value: RdRp gene (nsp12) [GENEPIO:0100168]
     exact_mappings:
-      - NCBI_BIOSAMPLE:sars_cov_2_diag_gene_name_2
-  diagnostic pcr protocol 2:
-    name: diagnostic pcr protocol 2
+    - NCBI_BIOSAMPLE:sars_cov_2_diag_gene_name_2
+  diagnostic_pcr_protocol_2:
+    name: diagnostic_pcr_protocol_2
     title: diagnostic pcr protocol 2
-    description:
-      The name and version number of the protocol used for diagnostic marker
+    description: The name and version number of the protocol used for diagnostic marker
       amplification.
-    comments:
-      The name and version number of the protocol used for carrying out a
+    comments: The name and version number of the protocol used for carrying out a
       second diagnostic PCR test. This information can be compared to sequence data
       for evaluation of performance and quality control.
-    examples:
-      - value: PCRRdRpGene 3.0
     slot_uri: GENEPIO:0001511
     range: WhitespaceMinimizedString
-  diagnostic pcr Ct value 2:
-    name: diagnostic pcr Ct value 2
-    title: diagnostic pcr Ct value 2
-    description:
-      The cycle threshold (Ct) value result from a diagnostic SARS-CoV-2
-      RT-PCR test.
-    comments:
-      Provide the cycle threshold (Ct) value of the sample from the second
-      diagnostic RT-PCR test.
     examples:
-      - value: '36'
+    - value: PCRRdRpGene 3.0
+  diagnostic_pcr_ct_value_2:
+    name: diagnostic_pcr_ct_value_2
+    title: diagnostic pcr Ct value 2
+    description: The cycle threshold (Ct) value result from a diagnostic SARS-CoV-2
+      RT-PCR test.
+    comments: Provide the cycle threshold (Ct) value of the sample from the second
+      diagnostic RT-PCR test.
     slot_uri: GENEPIO:0001512
     range: WhitespaceMinimizedString
+    examples:
+    - value: '36'
     exact_mappings:
-      - NCBI_BIOSAMPLE:sars_cov_2_diag_pcr_ct_value_2
+    - NCBI_BIOSAMPLE:sars_cov_2_diag_pcr_ct_value_2
   title:
     name: title
     title: title
     description: Short description that will identify  the dataset on public pages.
     comments: 'Format: {methodology} of {organism}: {sample info}'
-    examples:
-      - value: 'Genomic sequencing of SARS-CoV-2: Nasopharynx (NP), Swab'
     slot_uri: GENEPIO:0100323
     range: WhitespaceMinimizedString
+    examples:
+    - value: 'Genomic sequencing of SARS-CoV-2: Nasopharynx (NP), Swab'
     exact_mappings:
-      - NCBI_SRA:title
+    - NCBI_SRA:title
   library_strategy:
     name: library_strategy
     title: library_strategy
     description: See NCBI SRA template for details.
-    comments:
-      Provide the library strategy by selecting a value from the pick list.
+    comments: Provide the library strategy by selecting a value from the pick list.
       For amplicon sequencing select "AMPLICON".
     slot_uri: GENEPIO:0100324
-    range: library_strategy menu
+    range: LibraryStrategyMenu
     exact_mappings:
-      - NCBI_SRA:library_strategy
+    - NCBI_SRA:library_strategy
   library_source:
     name: library_source
     title: library_source
     description: See NCBI SRA template for details.
-    comments:
-      Provide the library source by selecting a value from the pick list.
+    comments: Provide the library source by selecting a value from the pick list.
       For amplicon sequencing select "Viral RNA".
     slot_uri: GENEPIO:0100325
-    range: library_source menu
+    range: LibrarySourceMenu
     exact_mappings:
-      - NCBI_SRA:library_source
+    - NCBI_SRA:library_source
   library_selection:
     name: library_selection
     title: library_selection
     description: See NCBI SRA template for details.
-    comments:
-      Provide the library selection by selecting a value from the pick list.
+    comments: Provide the library selection by selecting a value from the pick list.
       For amplicon sequencing select "PCR".
     slot_uri: GENEPIO:0100326
-    range: library_selection menu
+    range: LibrarySelectionMenu
     exact_mappings:
-      - NCBI_SRA:library_selection
+    - NCBI_SRA:library_selection
   library_layout:
     name: library_layout
     title: library_layout
     description: See NCBI SRA template for details.
-    comments:
-      Provide the library layout by selecting a value from the pick list.
+    comments: Provide the library layout by selecting a value from the pick list.
       For Illumina instruments, select "PAIRED". For Oxford Nanopore instruments,
       select "SINGLE".
     slot_uri: GENEPIO:0100327
-    range: library_layout menu
+    range: LibraryLayoutMenu
     exact_mappings:
-      - NCBI_SRA:library_layout
+    - NCBI_SRA:library_layout
   filetype:
     name: filetype
     title: filetype
     description: See NCBI SRA template for details.
     comments: Provide the filetype by selecting a value from the pick list.
     slot_uri: GENEPIO:0100328
-    range: filetype menu
+    range: FiletypeMenu
     exact_mappings:
-      - NCBI_SRA:filetype
+    - NCBI_SRA:filetype
   filename:
     name: filename
     title: filename
     description: See NCBI SRA template for details.
-    comments:
-      Provide the appropriate filename recorded in the Bioinformatics and
+    comments: Provide the appropriate filename recorded in the Bioinformatics and
       QC metrics section. If sequence data is "paired", provide the second filename
       under "Filename 2".
     slot_uri: GENEPIO:0100329
     range: WhitespaceMinimizedString
     exact_mappings:
-      - NCBI_SRA:filename
+    - NCBI_SRA:filename
   filename2:
     name: filename2
     title: filename2
     description: See NCBI SRA template for details.
-    comments:
-      Provide the appropriate filename recorded in the Bioinformatics and
+    comments: Provide the appropriate filename recorded in the Bioinformatics and
       QC metrics section.
     slot_uri: GENEPIO:0100330
     range: WhitespaceMinimizedString
     exact_mappings:
-      - NCBI_SRA:filename2
+    - NCBI_SRA:filename2
   authors:
     name: authors
     title: authors
-    description:
-      Names of individuals contributing to the processes of sample collection,
+    description: Names of individuals contributing to the processes of sample collection,
       sequence generation, analysis, and data submission.
-    comments:
-      Include the first and last names of all individuals that should be attributed,
+    comments: Include the first and last names of all individuals that should be attributed,
       separated by a comma.
-    examples:
-      - value: Tejinder Singh, Fei Hu, Johnny Blogs
     slot_uri: GENEPIO:0001517
     range: WhitespaceMinimizedString
     recommended: true
-    exact_mappings:
-      - GISAID:Authors
-  DataHarmonizer provenance:
-    name: DataHarmonizer provenance
-    title: DataHarmonizer provenance
-    description: The DataHarmonizer software version provenance.
-    comments:
-      The current software version information will be automatically generated
-      in this field after the user utilizes the "validate" function. This information
-      will be generated regardless as to whether the row is valid of not.
     examples:
-      - value: 'DataHarmonizer provenance: v0.13.21'
+    - value: Tejinder Singh, Fei Hu, Johnny Blogs
+    exact_mappings:
+    - GISAID:Authors
+  dataharmonizer_provenance:
+    name: dataharmonizer_provenance
+    title: DataHarmonizer provenance
+    description: The DataHarmonizer software and template version provenance.
+    comments: The current software and template version information will be automatically
+      generated in this field after the user utilizes the "validate" function. This
+      information will be generated regardless as to whether the row is valid of not.
     slot_uri: GENEPIO:0001518
     range: Provenance
+    examples:
+    - value: DataHarmonizer v1.4.3, PHA4GE v1.0.0
 enums:
-  null value menu:
-    name: null value menu
+  NullValueMenu:
+    name: NullValueMenu
+    title: null value menu
     permissible_values:
       Not Applicable [GENEPIO:0001619]:
         text: Not Applicable [GENEPIO:0001619]
@@ -2701,8 +2470,9 @@ enums:
       Restricted Access [GENEPIO:0001810]:
         text: Restricted Access [GENEPIO:0001810]
         meaning: GENEPIO:0001810
-  host age unit menu:
-    name: host age unit menu
+  HostAgeUnitMenu:
+    name: HostAgeUnitMenu
+    title: host age unit menu
     permissible_values:
       month [UO:0000035]:
         text: month [UO:0000035]
@@ -2710,8 +2480,9 @@ enums:
       year [UO:0000036]:
         text: year [UO:0000036]
         meaning: UO:0000036
-  biomaterial extracted menu:
-    name: biomaterial extracted menu
+  BiomaterialExtractedMenu:
+    name: BiomaterialExtractedMenu
+    title: biomaterial extracted menu
     permissible_values:
       RNA (Total) [OBI:0000895]:
         text: RNA (Total) [OBI:0000895]
@@ -2728,8 +2499,9 @@ enums:
       mRNA (cDNA) [OBI:0002754]:
         text: mRNA (cDNA) [OBI:0002754]
         meaning: OBI:0002754
-  signs and symptoms menu:
-    name: signs and symptoms menu
+  SignsAndSymptomsMenu:
+    name: SignsAndSymptomsMenu
+    title: signs and symptoms menu
     permissible_values:
       Abnormal lung auscultation [HP:0030829]:
         text: Abnormal lung auscultation [HP:0030829]
@@ -3023,39 +2795,42 @@ enums:
       Vomiting (throwing up) [HP:0002013]:
         text: Vomiting (throwing up) [HP:0002013]
         meaning: HP:0002013
-  host vaccination status menu:
-    name: host vaccination status menu
+  HostVaccinationStatusMenu:
+    name: HostVaccinationStatusMenu
+    title: host vaccination status menu
     permissible_values:
       Fully Vaccinated [GENEPIO:0100100]:
         text: Fully Vaccinated [GENEPIO:0100100]
         meaning: GENEPIO:0100100
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination:Yes
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination%3AYes
       Partially Vaccinated [GENEPIO:0100101]:
         text: Partially Vaccinated [GENEPIO:0100101]
         meaning: GENEPIO:0100101
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination:Yes
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination%3AYes
       Not Vaccinated [GENEPIO:0100102]:
         text: Not Vaccinated [GENEPIO:0100102]
         meaning: GENEPIO:0100102
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination:No
-  prior SARS-CoV-2 antiviral treatment menu:
-    name: prior SARS-CoV-2 antiviral treatment menu
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_vaccination%3ANo
+  PriorSarsCov2AntiviralTreatmentMenu:
+    name: PriorSarsCov2AntiviralTreatmentMenu
+    title: prior SARS-CoV-2 antiviral treatment menu
     permissible_values:
       Prior antiviral treatment [GENEPIO:0100037]:
         text: Prior antiviral treatment [GENEPIO:0100037]
         meaning: GENEPIO:0100237
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treatment:Yes
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treatment%3AYes
       No prior antiviral treatment [GENEPIO:0100233]:
         text: No prior antiviral treatment [GENEPIO:0100233]
         meaning: GENEPIO:0100233
         exact_mappings:
-        - NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treatment:No
-  pre-existing conditions and risk factors menu:
-    name: pre-existing conditions and risk factors menu
+        - NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treatment%3ANo
+  PreExistingConditionsAndRiskFactorsMenu:
+    name: PreExistingConditionsAndRiskFactorsMenu
+    title: pre-existing conditions and risk factors menu
     permissible_values:
       Age 60+ [VO:0004925]:
         text: Age 60+ [VO:0004925]
@@ -3146,10 +2921,6 @@ enums:
       Chronic gastrointestinal disease [GENEPIO:0100076]:
         text: Chronic gastrointestinal disease [GENEPIO:0100076]
         meaning: GENEPIO:0100076
-      Chronic lung disease [HP:0006528]:
-        text: Chronic lung disease [HP:0006528]
-        meaning: HP:0006528
-        is_a: Lung disease [MONDO:0005275]
       Corticosteroids [NCIT:C211]:
         text: Corticosteroids [NCIT:C211]
         meaning: NCIT:C211
@@ -3284,14 +3055,10 @@ enums:
         text: Chronic bronchitis [HP:0004469]
         meaning: HP:0004469
         is_a: Respiratory disorder [MONDO:0005087]
-      Chronic pulmonary disease [HP:0006528]:
-        text: Chronic pulmonary disease [HP:0006528]
-        meaning: HP:0006528
-        is_a: Respiratory disorder [MONDO:0005087]
       Chronic obstructive pulmonary disease [HP:0006510]:
         text: Chronic obstructive pulmonary disease [HP:0006510]
         meaning: HP:0006510
-        is_a: Chronic pulmonary disease [HP:0006528]
+        is_a: Respiratory disorder [MONDO:0005087]
       Emphysema [HP:0002097]:
         text: Emphysema [HP:0002097]
         meaning: HP:0002097
@@ -3300,6 +3067,10 @@ enums:
         text: Lung disease [MONDO:0005275]
         meaning: MONDO:0005275
         is_a: Respiratory disorder [MONDO:0005087]
+      Chronic lung disease [HP:0006528]:
+        text: Chronic lung disease [HP:0006528]
+        meaning: HP:0006528
+        is_a: Lung disease [MONDO:0005275]
       Pulmonary fibrosis [HP:0002206]:
         text: Pulmonary fibrosis [HP:0002206]
         meaning: HP:0002206
@@ -3381,8 +3152,9 @@ enums:
         text: Liver transplant [GENEPIO:0100081]
         meaning: GENEPIO:0100081
         is_a: Transplant [NCIT:C159659]
-  variant designation menu:
-    name: variant designation menu
+  VariantDesignationMenu:
+    name: VariantDesignationMenu
+    title: variant designation menu
     permissible_values:
       Variant of Interest (VOI) [GENEPIO:0100082]:
         text: Variant of Interest (VOI) [GENEPIO:0100082]
@@ -3393,8 +3165,9 @@ enums:
       Variant Under Monitoring (VUM) [GENEPIO:0100279]:
         text: Variant Under Monitoring (VUM) [GENEPIO:0100279]
         meaning: GENEPIO:0100279
-  complications menu:
-    name: complications menu
+  ComplicationsMenu:
+    name: ComplicationsMenu
+    title: complications menu
     permissible_values:
       Abnormal blood oxygen level [HP:0500165]:
         text: Abnormal blood oxygen level [HP:0500165]
@@ -3665,8 +3438,9 @@ enums:
       Vasculitis [HP:0002633]:
         text: Vasculitis [HP:0002633]
         meaning: HP:0002633
-  sample collected in quarantine menu:
-    name: sample collected in quarantine menu
+  SampleCollectedInQuarantineMenu:
+    name: SampleCollectedInQuarantineMenu
+    title: sample collected in quarantine menu
     permissible_values:
       Yes [NCIT:C49488]:
         text: Yes [NCIT:C49488]
@@ -3674,8 +3448,9 @@ enums:
       No [NCIT:C49487]:
         text: No [NCIT:C49487]
         meaning: NCIT:C49487
-  anatomical material menu:
-    name: anatomical material menu
+  AnatomicalMaterialMenu:
+    name: AnatomicalMaterialMenu
+    title: anatomical material menu
     permissible_values:
       Blood [UBERON:0000178]:
         text: Blood [UBERON:0000178]
@@ -3710,8 +3485,9 @@ enums:
       Tissue [UBERON:0000479]:
         text: Tissue [UBERON:0000479]
         meaning: UBERON:0000479
-  anatomical part menu:
-    name: anatomical part menu
+  AnatomicalPartMenu:
+    name: AnatomicalPartMenu
+    title: anatomical part menu
     permissible_values:
       Anus [UBERON:0001245]:
         text: Anus [UBERON:0001245]
@@ -3803,8 +3579,9 @@ enums:
         text: Oropharynx (OP) [UBERON:0001729]
         meaning: UBERON:0001729
         is_a: Upper respiratory tract [UBERON:0001557]
-  body product menu:
-    name: body product menu
+  BodyProductMenu:
+    name: BodyProductMenu
+    title: body product menu
     permissible_values:
       Breast Milk [UBERON:0001913]:
         text: Breast Milk [UBERON:0001913]
@@ -3831,8 +3608,9 @@ enums:
       Urine [UBERON:0001088]:
         text: Urine [UBERON:0001088]
         meaning: UBERON:0001088
-  environmental material menu:
-    name: environmental material menu
+  EnvironmentalMaterialMenu:
+    name: EnvironmentalMaterialMenu
+    title: environmental material menu
     permissible_values:
       Air vent [ENVO:03501208]:
         text: Air vent [ENVO:03501208]
@@ -3934,8 +3712,9 @@ enums:
       Wood [ENVO:00002040]:
         text: Wood [ENVO:00002040]
         meaning: ENVO:00002040
-  environmental site menu:
-    name: environmental site menu
+  EnvironmentalSiteMenu:
+    name: EnvironmentalSiteMenu
+    title: environmental site menu
     permissible_values:
       Acute care facility [ENVO:03501135]:
         text: Acute care facility [ENVO:03501135]
@@ -4003,8 +3782,9 @@ enums:
       Wet market [ENVO:03501198]:
         text: Wet market [ENVO:03501198]
         meaning: ENVO:03501198
-  collection method menu:
-    name: collection method menu
+  CollectionMethodMenu:
+    name: CollectionMethodMenu
+    title: collection method menu
     permissible_values:
       Amniocentesis [NCIT:C52009]:
         text: Amniocentesis [NCIT:C52009]
@@ -4077,8 +3857,9 @@ enums:
       Washout Tear Collection [GENEPIO:0100038]:
         text: Washout Tear Collection [GENEPIO:0100038]
         meaning: GENEPIO:0100038
-  collection device menu:
-    name: collection device menu
+  CollectionDeviceMenu:
+    name: CollectionDeviceMenu
+    title: collection device menu
     permissible_values:
       Air filter [ENVO:00003968]:
         text: Air filter [ENVO:00003968]
@@ -4131,8 +3912,9 @@ enums:
       Virus Transport Medium [OBI:0002866]:
         text: Virus Transport Medium [OBI:0002866]
         meaning: OBI:0002866
-  host (scientific name) menu:
-    name: host (scientific name) menu
+  HostScientificNameMenu:
+    name: HostScientificNameMenu
+    title: host (scientific name) menu
     permissible_values:
       Homo sapiens [NCBITaxon:9606]:
         text: Homo sapiens [NCBITaxon:9606]
@@ -4182,8 +3964,9 @@ enums:
       Viverridae [NCBITaxon:9673]:
         text: Viverridae [NCBITaxon:9673]
         meaning: NCBITaxon:9673
-  host (common name) menu:
-    name: host (common name) menu
+  HostCommonNameMenu:
+    name: HostCommonNameMenu
+    title: host (common name) menu
     permissible_values:
       Human [NCBITaxon:9606]:
         text: Human [NCBITaxon:9606]
@@ -4224,8 +4007,9 @@ enums:
       Tiger [NCBITaxon:9694]:
         text: Tiger [NCBITaxon:9694]
         meaning: NCBITaxon:9694
-  host health state menu:
-    name: host health state menu
+  HostHealthStateMenu:
+    name: HostHealthStateMenu
+    title: host health state menu
     permissible_values:
       Asymptomatic [NCIT:C3833]:
         text: Asymptomatic [NCIT:C3833]
@@ -4242,8 +4026,9 @@ enums:
       Symptomatic [NCIT:C25269]:
         text: Symptomatic [NCIT:C25269]
         meaning: NCIT:C25269
-  host health status details menu:
-    name: host health status details menu
+  HostHealthStatusDetailsMenu:
+    name: HostHealthStatusDetailsMenu
+    title: host health status details menu
     permissible_values:
       Hospitalized [NCIT:C25179]:
         text: Hospitalized [NCIT:C25179]
@@ -4269,8 +4054,9 @@ enums:
       Self-quarantining [NCIT:C173768]:
         text: Self-quarantining [NCIT:C173768]
         meaning: NCIT:C173768
-  host health outcome menu:
-    name: host health outcome menu
+  HostHealthOutcomeMenu:
+    name: HostHealthOutcomeMenu
+    title: host health outcome menu
     permissible_values:
       Deceased [NCIT:C28554]:
         text: Deceased [NCIT:C28554]
@@ -4284,8 +4070,9 @@ enums:
       Stable [NCIT:C30103]:
         text: Stable [NCIT:C30103]
         meaning: NCIT:C30103
-  organism menu:
-    name: organism menu
+  OrganismMenu:
+    name: OrganismMenu
+    title: organism menu
     permissible_values:
       Severe acute respiratory syndrome coronavirus 2 [NCBITaxon:2697049]:
         text: Severe acute respiratory syndrome coronavirus 2 [NCBITaxon:2697049]
@@ -4296,8 +4083,9 @@ enums:
       RmYN02 [GENEPIO:0100000]:
         text: RmYN02 [GENEPIO:0100000]
         meaning: GENEPIO:0100000
-  purpose of sampling menu:
-    name: purpose of sampling menu
+  PurposeOfSamplingMenu:
+    name: PurposeOfSamplingMenu
+    title: purpose of sampling menu
     permissible_values:
       Cluster/Outbreak investigation [GENEPIO:0100001]:
         text: Cluster/Outbreak investigation [GENEPIO:0100001]
@@ -4315,8 +4103,9 @@ enums:
       Surveillance [GENEPIO:0100004]:
         text: Surveillance [GENEPIO:0100004]
         meaning: GENEPIO:0100004
-  purpose of sequencing menu:
-    name: purpose of sequencing menu
+  PurposeOfSequencingMenu:
+    name: PurposeOfSequencingMenu
+    title: purpose of sequencing menu
     permissible_values:
       Baseline surveillance (random sampling) [GENEPIO:0100005]:
         text: Baseline surveillance (random sampling) [GENEPIO:0100005]
@@ -4373,8 +4162,7 @@ enums:
         meaning: GENEPIO:0100014
         is_a: Travel-associated surveillance [GENEPIO:0100012]
       Surveillance of international border crossing by air travel or ground transport [GENEPIO:0100015]:
-        text:
-          Surveillance of international border crossing by air travel or ground
+        text: Surveillance of international border crossing by air travel or ground
           transport [GENEPIO:0100015]
         meaning: GENEPIO:0100015
         is_a: International travel surveillance [GENEPIO:0100014]
@@ -4415,8 +4203,9 @@ enums:
       Retrospective sequencing [GENEPIO:0100356]:
         text: Retrospective sequencing [GENEPIO:0100356]
         meaning: GENEPIO:0100356
-  specimen processing menu:
-    name: specimen processing menu
+  SpecimenProcessingMenu:
+    name: SpecimenProcessingMenu
+    title: specimen processing menu
     permissible_values:
       Virus passage [GENEPIO:0100039]:
         text: Virus passage [GENEPIO:0100039]
@@ -4430,8 +4219,9 @@ enums:
       Technical replicate [EFO:0002090]:
         text: Technical replicate [EFO:0002090]
         meaning: EFO:0002090
-  lab host menu:
-    name: lab host menu
+  LabHostMenu:
+    name: LabHostMenu
+    title: lab host menu
     permissible_values:
       293/ACE2 cell line [GENEPIO:0100041]:
         text: 293/ACE2 cell line [GENEPIO:0100041]
@@ -4483,14 +4273,16 @@ enums:
         text: VeroE6/TMPRSS2 cell line [GENEPIO:0100044]
         meaning: GENEPIO:0100044
         is_a: Vero E6 cell line [BTO:0004755]
-  host disease menu:
-    name: host disease menu
+  HostDiseaseMenu:
+    name: HostDiseaseMenu
+    title: host disease menu
     permissible_values:
       COVID-19 [MONDO:0100096]:
         text: COVID-19 [MONDO:0100096]
         meaning: MONDO:0100096
-  host age bin menu:
-    name: host age bin menu
+  HostAgeBinMenu:
+    name: HostAgeBinMenu
+    title: host age bin menu
     permissible_values:
       0 - 9 [GENEPIO:0100049]:
         text: 0 - 9 [GENEPIO:0100049]
@@ -4525,8 +4317,9 @@ enums:
       100+ [GENEPIO:0100059]:
         text: 100+ [GENEPIO:0100059]
         meaning: GENEPIO:0100059
-  host gender menu:
-    name: host gender menu
+  HostGenderMenu:
+    name: HostGenderMenu
+    title: host gender menu
     permissible_values:
       Female [NCIT:C46110]:
         text: Female [NCIT:C46110]
@@ -4546,8 +4339,9 @@ enums:
       Undeclared [NCIT:C110959]:
         text: Undeclared [NCIT:C110959]
         meaning: NCIT:C110959
-  exposure event menu:
-    name: exposure event menu
+  ExposureEventMenu:
+    name: ExposureEventMenu
+    title: exposure event menu
     permissible_values:
       Mass Gathering [GENEPIO:0100237]:
         text: Mass Gathering [GENEPIO:0100237]
@@ -4608,8 +4402,9 @@ enums:
         is_a: Social Gathering [PCO:0000033]
       Other exposure event:
         text: Other exposure event
-  exposure contact level menu:
-    name: exposure contact level menu
+  ExposureContactLevelMenu:
+    name: ExposureContactLevelMenu
+    title: exposure contact level menu
     permissible_values:
       Contact with infected individual:
         text: Contact with infected individual
@@ -4630,8 +4425,9 @@ enums:
         text: Casual contact [GENEPIO:0100248]
         meaning: GENEPIO:0100248
         is_a: Indirect contact [GENEPIO:0100246]
-  host role menu:
-    name: host role menu
+  HostRoleMenu:
+    name: HostRoleMenu
+    title: host role menu
     permissible_values:
       Attendee [GENEPIO:0100249]:
         text: Attendee [GENEPIO:0100249]
@@ -4767,8 +4563,9 @@ enums:
         is_a: Social role [OMRSE:00000001]
       Other Host Role:
         text: Other Host Role
-  exposure setting menu:
-    name: exposure setting menu
+  ExposureSettingMenu:
+    name: ExposureSettingMenu
+    title: exposure setting menu
     permissible_values:
       Human Exposure [ECTO:3000005]:
         text: Human Exposure [ECTO:3000005]
@@ -5024,8 +4821,9 @@ enums:
       No prior antiviral treatment [GENEPIO:0100233]:
         text: No prior antiviral treatment [GENEPIO:0100233]
         meaning: GENEPIO:0100233
-  prior SARS-CoV-2 infection menu:
-    name: prior SARS-CoV-2 infection menu
+  PriorSarsCov2InfectionMenu:
+    name: PriorSarsCov2InfectionMenu
+    title: prior SARS-CoV-2 infection menu
     permissible_values:
       Prior infection [GENEPIO:0100234]:
         text: Prior infection [GENEPIO:0100234]
@@ -5033,162 +4831,163 @@ enums:
       No prior infection [GENEPIO:0100236]:
         text: No prior infection [GENEPIO:0100236]
         meaning: GENEPIO:0100236
-  sequencing instrument menu:
-    name: sequencing instrument menu
+  SequencingInstrumentMenu:
+    name: SequencingInstrumentMenu
+    title: sequencing instrument menu
     permissible_values:
       Illumina sequencing instrument [GENEPIO:0100105]:
         text: Illumina sequencing instrument [GENEPIO:0100105]
         meaning: GENEPIO:0100105
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
       Illumina Genome Analyzer [GENEPIO:0100106]:
         text: Illumina Genome Analyzer [GENEPIO:0100106]
         meaning: GENEPIO:0100106
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina Genome Analyzer
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20Genome%20Analyzer
         is_a: Illumina sequencing instrument [GENEPIO:0100105]
       Illumina Genome Analyzer II [GENEPIO:0100107]:
         text: Illumina Genome Analyzer II [GENEPIO:0100107]
         meaning: GENEPIO:0100107
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina Genome Analyzer II
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20Genome%20Analyzer%20II
         is_a: Illumina Genome Analyzer [GENEPIO:0100106]
       Illumina Genome Analyzer IIx [GENEPIO:0100108]:
         text: Illumina Genome Analyzer IIx [GENEPIO:0100108]
         meaning: GENEPIO:0100108
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina Genome Analyzer IIx
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20Genome%20Analyzer%20IIx
         is_a: Illumina Genome Analyzer [GENEPIO:0100106]
       Illumina HiScanSQ [GENEPIO:0100109]:
         text: Illumina HiScanSQ [GENEPIO:0100109]
         meaning: GENEPIO:0100109
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina HiScanSQ
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20HiScanSQ
         is_a: Illumina sequencing instrument [GENEPIO:0100105]
       Illumina HiSeq [GENEPIO:0100110]:
         text: Illumina HiSeq [GENEPIO:0100110]
         meaning: GENEPIO:0100110
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina sequencing instrument [GENEPIO:0100105]
       Illumina HiSeq X [GENEPIO:0100111]:
         text: Illumina HiSeq X [GENEPIO:0100111]
         meaning: GENEPIO:0100111
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq X Five [GENEPIO:0100112]:
         text: Illumina HiSeq X Five [GENEPIO:0100112]
         meaning: GENEPIO:0100112
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - 'NCBI_SRA:instrument_model: Illumina HiSeq X Five'
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3A%20Illumina%20HiSeq%20X%20Five
         is_a: Illumina HiSeq X [GENEPIO:0100111]
       Illumina HiSeq X Ten [GENEPIO:0100113]:
         text: Illumina HiSeq X Ten [GENEPIO:0100113]
         meaning: GENEPIO:0100113
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina HiSeq X Ten
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20HiSeq%20X%20Ten
         is_a: Illumina HiSeq X [GENEPIO:0100111]
       Illumina HiSeq 1000 [GENEPIO:0100114]:
         text: Illumina HiSeq 1000 [GENEPIO:0100114]
         meaning: GENEPIO:0100114
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina HiSeq 1000
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20HiSeq%201000
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 1500 [GENEPIO:0100115]:
         text: Illumina HiSeq 1500 [GENEPIO:0100115]
         meaning: GENEPIO:0100115
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 2000 [GENEPIO:0100116]:
         text: Illumina HiSeq 2000 [GENEPIO:0100116]
         meaning: GENEPIO:0100116
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina HiSeq 2000
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20HiSeq%202000
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 2500 [GENEPIO:0100117]:
         text: Illumina HiSeq 2500 [GENEPIO:0100117]
         meaning: GENEPIO:0100117
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina HiSeq 2500
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20HiSeq%202500
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 3000 [GENEPIO:0100118]:
         text: Illumina HiSeq 3000 [GENEPIO:0100118]
         meaning: GENEPIO:0100118
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina HiSeq 4000 [GENEPIO:0100119]:
         text: Illumina HiSeq 4000 [GENEPIO:0100119]
         meaning: GENEPIO:0100119
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina HiSeq [GENEPIO:0100110]
       Illumina iSeq [GENEPIO:0100120]:
         text: Illumina iSeq [GENEPIO:0100120]
         meaning: GENEPIO:0100120
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina sequencing instrument [GENEPIO:0100105]
       Illumina iSeq 100 [GENEPIO:0100121]:
         text: Illumina iSeq 100 [GENEPIO:0100121]
         meaning: GENEPIO:0100121
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina iSeq [GENEPIO:0100120]
       Illumina NovaSeq [GENEPIO:0100122]:
         text: Illumina NovaSeq [GENEPIO:0100122]
         meaning: GENEPIO:0100122
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina sequencing instrument [GENEPIO:0100105]
       Illumina NovaSeq 6000 [GENEPIO:0100123]:
         text: Illumina NovaSeq 6000 [GENEPIO:0100123]
         meaning: GENEPIO:0100123
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina NovaSeq [GENEPIO:0100122]
       Illumina MiniSeq [GENEPIO:0100124]:
         text: Illumina MiniSeq [GENEPIO:0100124]
         meaning: GENEPIO:0100124
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina sequencing instrument [GENEPIO:0100105]
       Illumina MiSeq [GENEPIO:0100125]:
         text: Illumina MiSeq [GENEPIO:0100125]
         meaning: GENEPIO:0100125
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina MiSeq
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20MiSeq
         is_a: Illumina sequencing instrument [GENEPIO:0100105]
       Illumina NextSeq [GENEPIO:0100126]:
         text: Illumina NextSeq [GENEPIO:0100126]
         meaning: GENEPIO:0100126
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina sequencing instrument [GENEPIO:0100105]
       Illumina NextSeq 500 [GENEPIO:0100127]:
         text: Illumina NextSeq 500 [GENEPIO:0100127]
         meaning: GENEPIO:0100127
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
-          - NCBI_SRA:instrument_model:Illumina NextSeq 500
+        - NCBI_SRA:platform%3AILLUMINA
+        - NCBI_SRA:instrument_model%3AIllumina%20NextSeq%20500
         is_a: Illumina NextSeq [GENEPIO:0100126]
       Illumina NextSeq 550 [GENEPIO:0100128]:
         text: Illumina NextSeq 550 [GENEPIO:0100128]
         meaning: GENEPIO:0100128
         exact_mappings:
-          - NCBI_SRA:platform:ILLUMINA
+        - NCBI_SRA:platform%3AILLUMINA
         is_a: Illumina NextSeq [GENEPIO:0100126]
       Illumina NextSeq 2000 [GENEPIO:0100129]:
         text: Illumina NextSeq 2000 [GENEPIO:0100129]
@@ -5198,88 +4997,88 @@ enums:
         text: Pacific Biosciences sequencing instrument [GENEPIO:0100130]
         meaning: GENEPIO:0100130
         exact_mappings:
-          - NCBI_SRA:platform:PACBIO_SMRT
+        - NCBI_SRA:platform%3APACBIO_SMRT
       PacBio RS [GENEPIO:0100131]:
         text: PacBio RS [GENEPIO:0100131]
         meaning: GENEPIO:0100131
         exact_mappings:
-          - NCBI_SRA:platform:PACBIO_SMRT
-          - NCBI_SRA:instrument_model:PacBio RS
+        - NCBI_SRA:platform%3APACBIO_SMRT
+        - NCBI_SRA:instrument_model%3APacBio%20RS
         is_a: Pacific Biosciences sequencing instrument [GENEPIO:0100130]
       PacBio RS II [GENEPIO:0100132]:
         text: PacBio RS II [GENEPIO:0100132]
         meaning: GENEPIO:0100132
         exact_mappings:
-          - NCBI_SRA:platform:PACBIO_SMRT
-          - NCBI_SRA:instrument_model:PacBio RS II
+        - NCBI_SRA:platform%3APACBIO_SMRT
+        - NCBI_SRA:instrument_model%3APacBio%20RS%20II
         is_a: Pacific Biosciences sequencing instrument [GENEPIO:0100130]
       PacBio Sequel [GENEPIO:0100133]:
         text: PacBio Sequel [GENEPIO:0100133]
         meaning: GENEPIO:0100133
         exact_mappings:
-          - NCBI_SRA:platform:PACBIO_SMRT
+        - NCBI_SRA:platform%3APACBIO_SMRT
         is_a: Pacific Biosciences sequencing instrument [GENEPIO:0100130]
       PacBio Sequel II [GENEPIO:0100134]:
         text: PacBio Sequel II [GENEPIO:0100134]
         meaning: GENEPIO:0100134
         exact_mappings:
-          - NCBI_SRA:platform:PACBIO_SMRT
+        - NCBI_SRA:platform%3APACBIO_SMRT
         is_a: Pacific Biosciences sequencing instrument [GENEPIO:0100130]
       Ion Torrent sequencing instrument [GENEPIO:0100135]:
         text: Ion Torrent sequencing instrument [GENEPIO:0100135]
         meaning: GENEPIO:0100135
         exact_mappings:
-          - NCBI_SRA:platform:ION_TORRENT
+        - NCBI_SRA:platform%3AION_TORRENT
       Ion Torrent PGM [GENEPIO:0100136]:
         text: Ion Torrent PGM [GENEPIO:0100136]
         meaning: GENEPIO:0100136
         exact_mappings:
-          - NCBI_SRA:platform:ION_TORRENT
-          - NCBI_SRA:instrument_model:Ion Torrent PGM
+        - NCBI_SRA:platform%3AION_TORRENT
+        - NCBI_SRA:instrument_model%3AIon%20Torrent%20PGM
         is_a: Ion Torrent sequencing instrument [GENEPIO:0100135]
       Ion Torrent Proton [GENEPIO:0100137]:
         text: Ion Torrent Proton [GENEPIO:0100137]
         meaning: GENEPIO:0100137
         exact_mappings:
-          - NCBI_SRA:platform:ION_TORRENT
-          - NCBI_SRA:instrument_model:Ion Torrent Proton
+        - NCBI_SRA:platform%3AION_TORRENT
+        - NCBI_SRA:instrument_model%3AIon%20Torrent%20Proton
         is_a: Ion Torrent sequencing instrument [GENEPIO:0100135]
       Ion Torrent S5 XL [GENEPIO:0100138]:
         text: Ion Torrent S5 XL [GENEPIO:0100138]
         meaning: GENEPIO:0100138
         exact_mappings:
-          - NCBI_SRA:platform:ION_TORRENT
+        - NCBI_SRA:platform%3AION_TORRENT
         is_a: Ion Torrent sequencing instrument [GENEPIO:0100135]
       Ion Torrent S5 [GENEPIO:0100139]:
         text: Ion Torrent S5 [GENEPIO:0100139]
         meaning: GENEPIO:0100139
         exact_mappings:
-          - NCBI_SRA:platform:ION_TORRENT
+        - NCBI_SRA:platform%3AION_TORRENT
         is_a: Ion Torrent sequencing instrument [GENEPIO:0100135]
       Oxford Nanopore sequencing instrument [GENEPIO:0100140]:
         text: Oxford Nanopore sequencing instrument [GENEPIO:0100140]
         meaning: GENEPIO:0100140
         exact_mappings:
-          - NCBI_SRA:platform:OXFORD_NANOPORE
+        - NCBI_SRA:platform%3AOXFORD_NANOPORE
       Oxford Nanopore GridION [GENEPIO:0100141]:
         text: Oxford Nanopore GridION [GENEPIO:0100141]
         meaning: GENEPIO:0100141
         exact_mappings:
-          - NCBI_SRA:platform:OXFORD_NANOPORE
-          - NCBI_SRA:instrument_model:GridION
+        - NCBI_SRA:platform%3AOXFORD_NANOPORE
+        - NCBI_SRA:instrument_model%3AGridION
         is_a: Oxford Nanopore sequencing instrument [GENEPIO:0100140]
       Oxford Nanopore MinION [GENEPIO:0100142]:
         text: Oxford Nanopore MinION [GENEPIO:0100142]
         meaning: GENEPIO:0100142
         exact_mappings:
-          - NCBI_SRA:platform:OXFORD_NANOPORE
-          - NCBI_SRA:instrument_model:MinION
+        - NCBI_SRA:platform%3AOXFORD_NANOPORE
+        - NCBI_SRA:instrument_model%3AMinION
         is_a: Oxford Nanopore sequencing instrument [GENEPIO:0100140]
       Oxford Nanopore PromethION [GENEPIO:0100143]:
         text: Oxford Nanopore PromethION [GENEPIO:0100143]
         meaning: GENEPIO:0100143
         exact_mappings:
-          - NCBI_SRA:platform:OXFORD_NANOPORE
+        - NCBI_SRA:platform%3AOXFORD_NANOPORE
         is_a: Oxford Nanopore sequencing instrument [GENEPIO:0100140]
       BGI Genomics sequencing instrument [GENEPIO:0100144]:
         text: BGI Genomics sequencing instrument [GENEPIO:0100144]
@@ -5307,8 +5106,9 @@ enums:
         text: MGI DNBSEQ-G50 [GENEPIO:0100150]
         meaning: GENEPIO:0100150
         is_a: MGI sequencing instrument [GENEPIO:0100146]
-  gene name menu:
-    name: gene name menu
+  GeneNameMenu:
+    name: GeneNameMenu
+    title: gene name menu
     permissible_values:
       E gene (orf4) [GENEPIO:0100151]:
         text: E gene (orf4) [GENEPIO:0100151]
@@ -5426,8 +5226,9 @@ enums:
       SARS-COV-2 5' UTR [GENEPIO:0100183]:
         text: SARS-COV-2 5' UTR [GENEPIO:0100183]
         meaning: GENEPIO:0100183
-  geo_loc_name (country) menu:
-    name: geo_loc_name (country) menu
+  GeoLocNameCountryMenu:
+    name: GeoLocNameCountryMenu
+    title: geo_loc_name (country) menu
     permissible_values:
       Afghanistan [GAZ:00006882]:
         text: Afghanistan [GAZ:00006882]
@@ -6242,8 +6043,9 @@ enums:
       Zimbabwe [GAZ:00001106]:
         text: Zimbabwe [GAZ:00001106]
         meaning: GAZ:00001106
-  library_strategy menu:
-    name: library_strategy menu
+  LibraryStrategyMenu:
+    name: LibraryStrategyMenu
+    title: library_strategy menu
     permissible_values:
       WGA:
         text: WGA
@@ -6291,8 +6093,9 @@ enums:
         text: MBD-Seq
       OTHER:
         text: OTHER
-  library_source menu:
-    name: library_source menu
+  LibrarySourceMenu:
+    name: LibrarySourceMenu
+    title: library_source menu
     permissible_values:
       GENOMIC:
         text: GENOMIC
@@ -6308,8 +6111,9 @@ enums:
         text: VIRAL RNA
       OTHER:
         text: OTHER
-  library_selection menu:
-    name: library_selection menu
+  LibrarySelectionMenu:
+    name: LibrarySelectionMenu
+    title: library_selection menu
     permissible_values:
       RANDOM:
         text: RANDOM
@@ -6365,15 +6169,17 @@ enums:
         text: other
       unspecified:
         text: unspecified
-  library_layout menu:
-    name: library_layout menu
+  LibraryLayoutMenu:
+    name: LibraryLayoutMenu
+    title: library_layout menu
     permissible_values:
       single:
         text: single
       paired:
         text: paired
-  filetype menu:
-    name: filetype menu
+  FiletypeMenu:
+    name: FiletypeMenu
+    title: filetype menu
     permissible_values:
       bam:
         text: bam
@@ -6403,8 +6209,7 @@ types:
   WhitespaceMinimizedString:
     name: WhitespaceMinimizedString
     typeof: string
-    description:
-      'A string that has all whitespace trimmed off of beginning and end,
+    description: 'A string that has all whitespace trimmed off of beginning and end,
       and all internal whitespace segments reduced to single spaces. Whitespace includes
       #x9 (tab), #xA (linefeed), and #xD (carriage return).'
     base: str
@@ -6412,8 +6217,7 @@ types:
   Provenance:
     name: Provenance
     typeof: string
-    description:
-      A field containing a DataHarmonizer versioning marker. It is issued
+    description: A field containing a DataHarmonizer versioning marker. It is issued
       by DataHarmonizer when validation is applied to a given row of data.
     base: str
     uri: xsd:token
