@@ -1,5 +1,4 @@
 import * as $ from 'jquery';
-import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { initI18n } from '@/lib/utils/i18n';
