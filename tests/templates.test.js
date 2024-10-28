@@ -1,7 +1,7 @@
 import {
-  Template,
-  accessTemplate,
-  buildTemplate,
+  // Template,
+  // accessTemplate,
+  // buildTemplate,
   findBestLocaleMatch,
 } from '@/lib/utils/templates';
 import { deepMerge, getNestedValue } from '@/lib/utils/objects';
@@ -31,8 +31,7 @@ template.schema.default.prefixes.linkml.prefix_prefix == 'linkml'
 */
 
 describe('Template', () => {
-  let proxy;
-
+  // let proxy;
   // beforeEach(async () => {
   //   /* eslint-disable */
   //   const overrides = {
@@ -48,41 +47,34 @@ describe('Template', () => {
   //     }),
   //   };
   //   /* eslint-enable */
-
   //   // initiate localized
   //   proxy = await Template.create('test', { locale: 'de', overrides });
   // });
-
   // test('should return localized property if it exists', () => {
   //   // proxy.updateLocale('de');
   //   expect(proxy.schema.name).toBe('TEST_de');
   //   expect(proxy.schema.name).toBe(proxy.localized.schema.name);
   // });
-
   // test('should return default property if localized version doesn’t exist', () => {
   //   expect(proxy.schema.description).toBe('default_description');
   // });
-
   // test('should switch to a new locale and return appropriate data', () => {
   //   proxy.updateLocale('fr');
   //   expect(proxy.schema.name).toBe('TEST_fr');
   //   expect(proxy.schema.name).toBe(proxy.localized.schema.name);
   //   expect(proxy.schema.description).toBe('french_description');
   // });
-
   // test('should return to the default locale when updating empty', () => {
   //   proxy.updateLocale();
   //   expect(proxy.schema.name).toBe('TEST');
   //   expect(proxy.schema.name).toBe(proxy.default.schema.name);
   //   expect(proxy.schema.description).toBe(proxy.default.schema.description);
   // });
-
   // test('should throw error for unsupported locale', () => {
   //   expect(() => proxy.updateLocale('es')).toThrow(
   //     'Locale es is not supported by the template.'
   //   );
   // });
-
   // Additional tests can be based on other methods and functionalities of the TemplateProxy class
 });
 
