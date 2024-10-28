@@ -194,11 +194,9 @@ describe('Template utilities', () => {
     //     // Locale tree is pretty gnarly. need to slim down. which means simplifying manifest.json generation
     //     [[[], [[]], [['en-US', [[{ key: 'mockEnUS' }]], []]]]],
     //   ];
-
     //   jest.mock('@/lib/utils/templates', () => ({
     //     accessTemplate: jest.fn().mockResolvedValue(mockTemplateData),
     //   }));
-
     //   const result = await buildTemplate(mockTemplateData);
     //   expect(result.name).toBe(mockTemplateName);
     //   expect(result.default.schema.key).toBe('mockSchema');
