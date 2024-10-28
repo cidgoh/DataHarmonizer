@@ -2,7 +2,7 @@
   "name": "GISAID",
   "description": "",
   "id": "https://example.com/GISAID",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
