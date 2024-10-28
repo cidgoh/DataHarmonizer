@@ -624,7 +624,7 @@ sequencing platform menu	SequencingPlatformMenu	GENEPIO:0001923	Illumina [GENEPI
 		GENEPIO:0002682	Helicos [GENEPIO:0002682]					A sequencing platform brand provided by Helicos corporation (now defunct).		HELICOS																
 		GENEPIO:0100985	Applied Biosystems [GENEPIO:0100985]					A sequencing platform provided by ThermoFisher.		CAPILLARY																
 																										
-sequencing instrument menu	SequencingInstrumentMenu	GENEPIO:0100105	Illumina [GENEPIO:0100105]					A DNA sequencer manufactured by the Illumina corporation.																		
+sequencing instrument menu	SequencingInstrumentMenu	GENEPIO:0100105	Illumina [GENEPIO:0100105]					A DNA sequencer manufactured by the Illumina corporation.		ILLUMINA																
 		GENEPIO:0100106		Illumina Genome Analyzer [GENEPIO:0100106]				A DNA sequencer manufactured by Solexa as one of its first sequencer lines, launched in 2006, and capable of sequencing 1 gigabase (Gb) of data in a single run.																		
 		OBI:0000703		Illumina Genome Analyzer II [OBI:0000703]				A DNA sequencer manufactured by the Illumina (Solexa) corporation, which supports sequencing of single or paired end clone libraries relying on sequencing by synthesis technology.																		
 		OBI:0002000		Illumina Genome Analyzer IIx [OBI:0002000]				An Illumina Genome Analyzer II which is manufactured by the Illumina corporation. It supports sequencing of single, long or short insert paired end clone libraries relying on sequencing by synthesis technology. The Genome Analyzer IIx is the most widely adopted next-generation sequencing platform and proven and published across the broadest range of research applications.																		

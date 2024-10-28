@@ -3585,7 +3585,10 @@
         "Illumina [GENEPIO:0100105]": {
           "text": "Illumina [GENEPIO:0100105]",
           "description": "A DNA sequencer manufactured by the Illumina corporation.",
-          "meaning": "GENEPIO:0100105"
+          "meaning": "GENEPIO:0100105",
+          "exact_mappings": [
+            "NCBI_SRA:ILLUMINA"
+          ]
         },
         "Illumina Genome Analyzer [GENEPIO:0100106]": {
           "text": "Illumina Genome Analyzer [GENEPIO:0100106]",
