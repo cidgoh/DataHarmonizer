@@ -1,11 +1,14 @@
-import * as $ from 'jquery';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
 
 import { initI18n } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
 import { getGettingStartedMarkup } from '@/lib/toolbarGettingStarted';
 import { Footer, Toolbar, AppContext } from '@/lib';
+
+// NOTE: do NOT import bootstrap proper – interaction with other events
+// just import the precise libraries you need from it
+import 'bootstrap/js/dist/tab';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Order matters: place this at bottom of imports for CSS overrides
 import '@/web/index.css';
@@ -38,8 +41,7 @@ export function createDataHarmonizerTab(dhId, entity, isActive) {
   dhTabLink.id = `tab-${dhId}`;
   dhTabLink.href = `#${dhId}`;
   dhTabLink.textContent = entity;
-  dhTabLink.dataset.toggle = 'tab'; // Bootstrap specific data attribute for tabs
-  dhTabLink.setAttribute('data-bs-toggle', 'tab');
+  dhTabLink.setAttribute('data-bs-toggle', 'tab');  // Bootstrap specific data attribute for tabs
   dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
   dhTabLink.setAttribute('role', 'tab');
   dhTabLink.setAttribute('aria-controls', dhId);
