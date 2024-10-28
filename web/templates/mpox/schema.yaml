@@ -127,7 +127,7 @@ classes:
     - consensus_sequence_software_version
     - sequence_assembly_software_name
     - sequence_assembly_software_version
-    - r1_fastq_filename________
+    - r1_fastq_filename
     - r2_fastq_filename
     - r1_fastq_filepath
     - r2_fastq_filepath
@@ -802,7 +802,7 @@ classes:
       sequence_assembly_software_version:
         rank: 107
         slot_group: Bioinformatics and QC metrics
-      r1_fastq_filename________:
+      r1_fastq_filename:
         rank: 108
         slot_group: Bioinformatics and QC metrics
       r2_fastq_filename:
@@ -1021,7 +1021,7 @@ classes:
     - consensus_sequence_software_version
     - sequence_assembly_software_name
     - sequence_assembly_software_version
-    - r1_fastq_filename________
+    - r1_fastq_filename
     - r2_fastq_filename
     - r1_fastq_filepath
     - r2_fastq_filepath
@@ -1637,7 +1637,7 @@ classes:
       sequence_assembly_software_version:
         rank: 110
         slot_group: Bioinformatics and QC metrics
-      r1_fastq_filename________:
+      r1_fastq_filename:
         rank: 111
         slot_group: Bioinformatics and QC metrics
       r2_fastq_filename:
@@ -1790,7 +1790,7 @@ slots:
     examples:
     - value: prov_mpox_1234
     exact_mappings:
-    - GISAID:Sample%20ID%20given%20by%20the%20sample%20provider
+    - GISAID:Sample%20ID%20given%20by%20the%20submitting%20laboratory
     - CNPHI:Primary%20Specimen%20ID
     - NML_LIMS:TEXT_ID
     - BIOSAMPLE:sample_name
@@ -3278,8 +3278,8 @@ slots:
     required: true
     examples:
     - value: 3.15.5
-  r1_fastq_filename________:
-    name: r1_fastq_filename________
+  r1_fastq_filename:
+    name: r1_fastq_filename
     title: r1 fastq filename
     description: The user-specified filename of the r1 FASTQ file.
     comments: Provide the r1 FASTQ filename. This information aids in data management.

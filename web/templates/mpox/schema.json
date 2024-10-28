@@ -9759,7 +9759,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "GISAID:Sample%20ID%20given%20by%20the%20sample%20provider",
+        "GISAID:Sample%20ID%20given%20by%20the%20submitting%20laboratory",
         "CNPHI:Primary%20Specimen%20ID",
         "NML_LIMS:TEXT_ID",
         "BIOSAMPLE:sample_name",
@@ -12390,8 +12390,8 @@
         }
       ]
     },
-    "r1_fastq_filename________": {
-      "name": "r1_fastq_filename________",
+    "r1_fastq_filename": {
+      "name": "r1_fastq_filename",
       "description": "The user-specified filename of the r1 FASTQ file.",
       "title": "r1 fastq filename",
       "comments": [
@@ -14825,8 +14825,8 @@
           "rank": 107,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "r1_fastq_filename________": {
-          "name": "r1_fastq_filename________",
+        "r1_fastq_filename": {
+          "name": "r1_fastq_filename",
           "rank": 108,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -15007,7 +15007,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Sample%20ID%20given%20by%20the%20sample%20provider",
+            "GISAID:Sample%20ID%20given%20by%20the%20submitting%20laboratory",
             "CNPHI:Primary%20Specimen%20ID",
             "NML_LIMS:TEXT_ID",
             "BIOSAMPLE:sample_name",
@@ -18489,8 +18489,8 @@
             }
           ]
         },
-        "r1_fastq_filename________": {
-          "name": "r1_fastq_filename________",
+        "r1_fastq_filename": {
+          "name": "r1_fastq_filename",
           "description": "The user-specified filename of the r1 FASTQ file.",
           "title": "r1 fastq filename",
           "comments": [
@@ -18504,7 +18504,7 @@
           "from_schema": "https://example.com/mpox",
           "rank": 108,
           "slot_uri": "GENEPIO:0001476",
-          "alias": "r1_fastq_filename________",
+          "alias": "r1_fastq_filename",
           "owner": "Mpox",
           "domain_of": [
             "Mpox",
@@ -20540,8 +20540,8 @@
           "rank": 110,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "r1_fastq_filename________": {
-          "name": "r1_fastq_filename________",
+        "r1_fastq_filename": {
+          "name": "r1_fastq_filename",
           "rank": 111,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -20781,7 +20781,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "GISAID:Sample%20ID%20given%20by%20the%20sample%20provider",
+            "GISAID:Sample%20ID%20given%20by%20the%20submitting%20laboratory",
             "CNPHI:Primary%20Specimen%20ID",
             "NML_LIMS:TEXT_ID",
             "BIOSAMPLE:sample_name",
@@ -24219,8 +24219,8 @@
             }
           ]
         },
-        "r1_fastq_filename________": {
-          "name": "r1_fastq_filename________",
+        "r1_fastq_filename": {
+          "name": "r1_fastq_filename",
           "description": "The user-specified filename of the r1 FASTQ file.",
           "title": "r1 fastq filename",
           "comments": [
@@ -24234,7 +24234,7 @@
           "from_schema": "https://example.com/mpox",
           "rank": 111,
           "slot_uri": "GENEPIO:0001476",
-          "alias": "r1_fastq_filename________",
+          "alias": "r1_fastq_filename",
           "owner": "MpoxInternational",
           "domain_of": [
             "Mpox",
