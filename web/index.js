@@ -41,7 +41,7 @@ export function createDataHarmonizerTab(dhId, entity, isActive) {
   dhTabLink.href = `#${dhId}`;
   dhTabLink.textContent = entity;
   dhTabLink.dataset.toggle = 'tab';
-  dhTabLink.setAttribute('data-bs-toggle', 'tab');  // Bootstrap specific data attribute for tabs
+  dhTabLink.setAttribute('data-bs-toggle', 'tab'); // Bootstrap specific data attribute for tabs
   dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
   dhTabLink.setAttribute('role', 'tab');
   dhTabLink.setAttribute('aria-controls', dhId);
