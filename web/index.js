@@ -1,14 +1,13 @@
-import $ from 'jquery';
+import * as $ from 'jquery';
+// NOTE: do NOT import bootstrap proper – interaction with other events
+// just import the precise libraries you need from it
+import 'bootstrap/js/dist/tab';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { initI18n } from '@/lib/utils/i18n';
 import { Template } from '@/lib/utils/templates';
 import { getGettingStartedMarkup } from '@/lib/toolbarGettingStarted';
 import { Footer, Toolbar, AppContext } from '@/lib';
-
-// NOTE: do NOT import bootstrap proper – interaction with other events
-// just import the precise libraries you need from it
-import 'bootstrap/js/dist/tab';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Order matters: place this at bottom of imports for CSS overrides
 import '@/web/index.css';
