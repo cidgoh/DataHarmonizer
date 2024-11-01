@@ -1,7 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: CanCOGeN_Covid-19
 description: ''
-version: 2.3.4
+version: 2.4.0
 in_language:
 - en
 - fr
@@ -41,8 +41,8 @@ classes:
     name: dh_interface
     description: A DataHarmonizer interface
     from_schema: https://example.com/CanCOGeN_Covid-19
-  CanCOGeN Covid-19:
-    name: CanCOGeN Covid-19
+  CanCOGeNCovid19:
+    name: CanCOGeNCovid19
     title: CanCOGeN Covid-19
     description: Canadian specification for Covid-19 clinical virus biosample data
       gathering
@@ -164,7 +164,7 @@ classes:
     - breadth_of_coverage_value
     - depth_of_coverage_value
     - depth_of_coverage_threshold
-    - r1_fastq_filename________
+    - r1_fastq_filename
     - r2_fastq_filename
     - r1_fastq_filepath
     - r2_fastq_filepath
@@ -538,7 +538,7 @@ classes:
       depth_of_coverage_threshold:
         rank: 115
         slot_group: Bioinformatics and QC metrics
-      r1_fastq_filename________:
+      r1_fastq_filename:
         rank: 116
         slot_group: Bioinformatics and QC metrics
       r2_fastq_filename:
@@ -978,6 +978,9 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - '>={sample_collection_date}'
+    - <={today}
     examples:
     - value: '2020-03-20'
     exact_mappings:
@@ -1638,6 +1641,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2020-03-16'
     exact_mappings:
@@ -1748,6 +1753,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2021-03-01'
     exact_mappings:
@@ -1777,6 +1784,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2021-09-01'
     exact_mappings:
@@ -1806,6 +1815,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2021-12-30'
     exact_mappings:
@@ -1835,6 +1846,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2022-01-15'
     exact_mappings:
@@ -1922,6 +1935,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2020-03-16'
     exact_mappings:
@@ -1937,6 +1952,9 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - '>={most_recent_travel_departure_date}'
+    - <={today}
     examples:
     - value: '2020-04-26'
     exact_mappings:
@@ -2104,6 +2122,8 @@ slots:
       Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0001437
     range: date
+    todos:
+    - <={today}
     examples:
     - value: '2021-01-23'
     exact_mappings:
@@ -2209,7 +2229,8 @@ slots:
     - range: date
     - range: NullValueMenu
     todos:
-    - '>={sample collection date}'
+    - '>={sample_collection_date}'
+    - <={today}
     required: true
     examples:
     - value: '2020-06-22'
@@ -2466,8 +2487,8 @@ slots:
     - value: 100x
     exact_mappings:
     - NML_LIMS:depth%20of%20coverage%20threshold
-  r1_fastq_filename________:
-    name: r1_fastq_filename________
+  r1_fastq_filename:
+    name: r1_fastq_filename
     title: r1 fastq filename
     description: The user-specified filename of the r1 FASTQ file.
     comments: Provide the r1 FASTQ filename.
@@ -4816,6 +4837,10 @@ enums:
         text: VeroE6/TMPRSS2 cell line
         meaning: GENEPIO:0100044
         is_a: Vero E6 cell line
+  HostDiseaseMenu:
+    name: HostDiseaseMenu
+    title: host disease menu
+    permissible_values:
       COVID-19:
         text: COVID-19
         meaning: MONDO:0100096
@@ -5395,6 +5420,10 @@ enums:
       Land:
         text: Land
         meaning: GENEPIO:0100409
+  BorderTestingTestDayTypeMenu:
+    name: BorderTestingTestDayTypeMenu
+    title: border testing test day type menu
+    permissible_values:
       day 1:
         text: day 1
         meaning: GENEPIO:0100410
