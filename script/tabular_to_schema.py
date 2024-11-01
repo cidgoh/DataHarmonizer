@@ -158,6 +158,8 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 		elif isDecimal(slot_minimum_value):
 			slot['minimum_value'] = float(slot_minimum_value);
 		else:
+			if not 'todos' in slot:
+				slot['todos'] = [];
 			slot['todos'] = ['>=' + slot_minimum_value];
 	if slot_maximum_value > '':
 		if isInteger(slot_maximum_value):
@@ -165,10 +167,9 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 		elif isDecimal(slot_maximum_value):
 			slot['maximum_value'] = float(slot_maximum_value);
 		else:
-			if slot['todos']:
-				slot['todos'].append('<=' + slot_maximum_value);
-			else:
-				slot['todos'] = ['<=' + slot_maximum_value];
+			if not 'todos' in slot:
+				slot['todos'] = [];
+			slot['todos'].append('<=' + slot_maximum_value);
 
 def isDecimal(x):
     try:
@@ -378,9 +379,8 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 		reader = csv.DictReader(tsvfile, dialect='excel-tab');
 
 		enumerations = schema['enums'];
-
-		name = ''; # running title for chunks of enumeration rows
-		menu_path = [];
+		name = ''; # running name for chunks of enumeration rows
+		choice_path = [];
 		enum = {};
 
 		for row in reader:
@@ -394,18 +394,14 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 			if row.get('name','') > '' or row.get('title','') > '':
 
 				# Process default language title
-
+				name = row.get('name');
 				title = row.get('title');
-				name = row.get('name','');
-				if name == '': name = title;
-				print ("name:", name)
-
-				description = row.get('description','');
+				if not name: # For enumerations that don't have separate name field
+					name = title;
 				if not (name in enumerations):
 					enum = {
 						'name': name,
 						'title': title,
-						'description': description,
 						'permissible_values': {}
 					};
 					enumerations[name] = enum;
@@ -416,23 +412,16 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 					for lcode in locale_schemas.keys():
 						locale_schema = locale_schemas[lcode];
 						locale_schema['enums'][name] = {
-							'name': name, # default (usu. english) name acts as key 
+							'name': name, # Acts as key 
 							'permissible_values': {}
 						};
 
 						# Provide translation title if available for this menu.
 						locale_title = row.get('title_' + lcode, '');
 						if locale_title > '':
-							locale_schema['enums'][name]['title'] = row.get('title_' + lcode, title);
+							locale_schema['enums'][name]['title'] = locale_title;
 
-						# Provide translation description if available for this menu.
-						locale_description = row.get('description_' + lcode, '');
-						if locale_description > '':
-							locale_schema['enums'][name]['description'] = locale_description;
-
-
-			# If there is a title (or name) of an emum at play
-			if name and name > '':
+			if name > '':
 				# Text is label of a particular menu choice
 				# Loop scans through columns until it gets a value
 				for depth in range(1,6):
@@ -468,7 +457,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 								if description:
 									local_choice['description': description];
 
-								locale_schemas[lcode]['enums'][name]['permissible_values'][choice_value] = local_choice;
+								locale_schemas[lcode]['enums'][name]['permissible_values'][choice_text] = local_choice;
 
 						break;
 
@@ -631,4 +620,3 @@ write_locales(locale_schemas);
 # Adjust menu.json to include or update entries for given schema's template(s)
 if options.menu:
 	write_menu('../menu.json', os.path.basename(os.getcwd()), schema_view);
-
