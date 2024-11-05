@@ -1,6 +1,6 @@
 {
   "canada_covid19": {
-    "CanCOGeN Covid-19": {
+    "CanCOGeNCovid19": {
       "name": "CanCOGeN Covid-19",
       "status": "published",
       "display": true
@@ -28,8 +28,8 @@
     }
   },
   "phac_dexa": {
-    "PHAC Dexa": {
-      "name": "PHAC Dexa",
+    "PHACDexa": {
+      "name": "PHACDexa",
       "status": "published",
       "display": true
     }
@@ -42,7 +42,7 @@
     }
   },
   "pathogen": {
-    "Pathogen Agnostic": {
+    "PathogenAgnostic": {
       "name": "Pathogen Agnostic",
       "status": "published",
       "display": true
@@ -61,8 +61,8 @@
       "status": "published",
       "display": true
     },
-    "Mpox_international": {
-      "name": "Mpox_international",
+    "MpoxInternational": {
+      "name": "MpoxInternational",
       "status": "published",
       "display": true
     }
@@ -80,6 +80,33 @@
     },
     "WastewaterPathogenAgnostic": {
       "name": "WastewaterPathogenAgnostic",
+      "status": "published",
+      "display": true
+    }
+  },
+  "hpai": {
+    "HPAI": {
+      "name": "HPAI",
+      "status": "published",
+      "display": true
+    },
+    "HPAIFood": {
+      "name": "HPAIFood",
+      "status": "published",
+      "display": true
+    },
+    "HPAIWW": {
+      "name": "HPAIWW",
+      "status": "published",
+      "display": true
+    },
+    "HPAIEnviro": {
+      "name": "HPAIEnviro",
+      "status": "published",
+      "display": true
+    },
+    "HPAIHost": {
+      "name": "HPAIHost",
       "status": "published",
       "display": true
     }

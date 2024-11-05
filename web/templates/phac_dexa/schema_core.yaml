@@ -1,7 +1,7 @@
 id: https://example.com/PHAC_Dexa
-name: "PHAC_Dexa"
+name: "PHACDexa"
 description: ""
-version: 1.0.0
+version: 1.1.0
 imports:
   - 'linkml:types'
 prefixes:
@@ -12,8 +12,9 @@ classes:
     name: dh_interface
     description: 'A DataHarmonizer interface'
     from_schema: https://example.com/PHAC_Dexa
-  'PHAC Dexa':
-    name: 'PHAC Dexa'
+  'PHACDexa':
+    name: 'PHACDexa'
+    title: 'PHAC Dexa'
     description: Specification for PHAC Dexa clinical virus biosample data gathering
     is_a: dh_interface
 slots: {}

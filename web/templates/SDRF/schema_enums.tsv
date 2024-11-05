@@ -1,0 +1,102 @@
+name	title	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	description	EXPORT_SDRF
+NullValueMenu	null value menu							A menu of data collection status options for this field.	
+		NCIT:C48660	not applicable					Determination of a value is not relevant in the current context.	not applicable
+		NCIT:C126101	not available					The desired information is not available.	not available
+CharacteristicsOrganismMenu	characteristics organism menu	NCBITaxon:9606	homo sapiens						Homo sapiens
+CharacteristicsSexMenu	characteristics sex menu	PATO:0000384	male					A biological sex quality inhering in an individual or a population whose sex organs contain only male gametes.	male
+		PATO:0000383	female					A biological sex quality inhering in an individual or a population that only produces gametes that can be fertilised by male gametes.	female
+TechnologyTypeMenu	technology type menu	EFO:0002766	proteomic profiling by mass spectrometry					An assay where proteins in a sample are detected, quantified or otherwise analysed using mass spectrometry	proteomic profiling by mass spectrometry
+CommentProteomicsDataAcquisitionMethodMenu	comment[proteomics data acquisition method] Menu	PRIDE:0000627	Data-dependent acquisition						Data-dependent acquisition
+		PRIDE:0000450	Data-independent acquisition					Predefined m/z ranges are interrogated either by fragmenting all ions entering the mass spectrometer at every single point in chromatographic time; or by dividing the m/z range into smaller m/z ranges for isolation and fragmentation. See review in PMID:24281846.	Data-independent acquisition
+CommentLabelMenu	comment[label] Menu	PRIDE:0000541	ICAT heavy						AC=PRIDE:0000541;NT=ICAT heavy
+		PRIDE:0000542	ICAT light						AC=PRIDE:0000542;NT=ICAT light
+		PRIDE:0000531	ITRAQ113						AC=PRIDE:0000531;NT=ITRAQ113
+		PRIDE:0000532	ITRAQ114						AC=PRIDE:0000532;NT=ITRAQ114
+		PRIDE:0000533	ITRAQ115						AC=PRIDE:0000533;NT=ITRAQ115
+		PRIDE:0000534	ITRAQ116						AC=PRIDE:0000534;NT=ITRAQ116
+		PRIDE:0000535	ITRAQ117						AC=PRIDE:0000535;NT=ITRAQ117
+		PRIDE:0000536	ITRAQ118						AC=PRIDE:0000536;NT=ITRAQ118
+		PRIDE:0000537	ITRAQ119						AC=PRIDE:0000537;NT=ITRAQ119
+		PRIDE:0000538	ITRAQ121						AC=PRIDE:0000538;NT=ITRAQ121
+		MS:1002038	label free sample						AC=MS:1002038;NT=label free sample
+		PRIDE:0000621	13C					Metabolic label 13C	AC=PRIDE::0000621;NT=13C
+		PRIDE:0000620	15N					Metabolic label 15N	AC=PRIDE::0000620;NT=15N
+		PRIDE:0000622	18O					Metabolic label 18O	AC=PRIDE:0000622;NT=18O
+		PRIDE:0000516	TMT126						AC=PRIDE:0000516;NT=TMT126
+		PRIDE:0000517	TMT127						AC=PRIDE:0000517;NT=TMT127
+		PRIDE:0000518	TMT127C						AC=PRIDE:0000518;NT=TMT127C
+		PRIDE:0000519	TMT127N						AC=PRIDE:0000519;NT=TMT127N
+		PRIDE:0000520	TMT128						AC=PRIDE:0000520;NT=TMT128
+		PRIDE:0000521	TMT128C						AC=PRIDE:0000521;NT=TMT128C
+		PRIDE:0000522	TMT128N						AC=PRIDE:0000522;NT=TMT128N
+		PRIDE:0000523	TMT129						AC=PRIDE:0000523;NT=TMT129
+		PRIDE:0000524	TMT129C						AC=PRIDE:0000524;NT=TMT129C
+		PRIDE:0000525	TMT129N						AC=PRIDE:0000525;NT=TMT129N
+		PRIDE:0000526	TMT130						AC=PRIDE:0000526;NT=TMT130
+		PRIDE:0000527	TMT130C						AC=PRIDE:0000527;NT=TMT130C
+		PRIDE:0000528	TMT130N						AC=PRIDE:0000528;NT=TMT130N
+		PRIDE:0000529	TMT131						AC=PRIDE:0000529;NT=TMT131
+		PRIDE:0000581	TMT131C						AC=PRIDE:0000581;NT=TMT131C
+		PRIDE:0000580	TMT131N						AC=PRIDE:0000580;NT=TMT131N
+		PRIDE:0000583	TMT132C						AC=PRIDE:0000583;NT=TMT132C
+		PRIDE:0000582	TMT132N						AC=PRIDE:0000582;NT=TMT132N
+		PRIDE:0000633	TMT133C						AC=PRIDE:0000633;NT=TMT133C
+		PRIDE:0000632	TMT133N						AC=PRIDE:0000632;NT=TMT133N
+		PRIDE:0000642	TMT134C						AC=PRIDE:0000642;NT=TMT134C
+		PRIDE:0000634	TMT134N						AC=PRIDE:0000634;NT=TMT134N
+		PRIDE:0000643	TMT135N						AC=PRIDE:0000643;NT=TMT135N
+CommentInstrumentMenu	comment[instrument] Menu	MS:1003095	Orbitrap Exploris 120					Thermo Scientific Orbitrap Exploris 120 Quadrupole Orbitrap MS.	NT=Orbitrap Exploris 120;AC=MS:1003095
+		MS:1003094	Orbitrap Exploris 240					Thermo Scientific Orbitrap Exploris 240 Quadrupole Orbitrap MS.	NT=Orbitrap Exploris 240;AC=MS:1003094
+		MS:1003028	Orbitrap Exploris 480					Thermo Scientific Orbitrap Exploris 480 Quadrupole Orbitrap MS.	NT=Orbitrap Exploris 480;AC=MS:1003028
+		MS:1003356	Orbitrap Ascend					Thermo Scientific Orbitrap Ascend mass spectrometer with Tribrid architecture consisting of quadrupole mass filter, linear ion trap and Orbitrap mass analyzers.	NT=Orbitrap Ascend;AC=MS:1003356
+		MS:1003378	Orbitrap Astral					Thermo Scientific Orbitrap Astral mass spectrometer contains three mass analyzers: a quadrupole analyzer, an Orbitrap analyzer, and the Astral analyzer.	NT=Orbitrap Astral;AC=MS:1003378
+		MS:1003029	Orbitrap Eclipse					Thermo Scientific Orbitrap Eclipse mass spectrometer with Tribrid architecture consisting of quadrupole mass filter, linear ion trap and Orbitrap mass analyzers.	NT=Orbitrap Eclipse;AC=MS:1003029
+		MS:1002416	Orbitrap Fusion					Thermo Scientific Orbitrap Fusion.	NT=Orbitrap Fusion;AC=MS:1002416
+		MS:1002417	Orbitrap Fusion ETD					Thermo Scientific Orbitrap Fusion with ETD.	NT=Orbitrap Fusion ETD;AC=MS:1002417
+		MS:1002732	Orbitrap Fusion Lumos					Thermo Scientific Orbitrap Fusion Lumos mass spectrometer with Tribrid architecture consisting of quadrupole mass filter, linear ion trap and Orbitrap mass analyzers.	NT=Orbitrap Fusion Lumos;AC=MS:1002732
+		MS:1003112	Orbitrap ID-X					Thermo Scientific Orbitrap ID-X mass spectrometer with Tribrid architecture consisting of quadrupole mass filter, linear ion trap and Orbitrap mass analyzers.	NT=Orbitrap ID-X;AC=MS:1003112
+		MS:1003411	Orbitrap IQ-X					Thermo Scientific Orbitrap IQ-X mass spectrometer with Tribrid architecture consisting of quadrupole mass filter, linear ion trap and Orbitrap mass analyzers.	NT=Orbitrap IQ-X;AC=MS:1003411
+		MS:1000449	LTQ Orbitrap					Finnigan LTQ Orbitrap MS.	NT=LTQ Orbitrap;AC=MS:1000449
+		MS:1002835	LTQ Orbitrap Classic					Thermo Fisher Scientific LTQ Orbitrap Classic.	NT=LTQ Orbitrap Classic;AC=MS:1002835
+		MS:1000555	LTQ Orbitrap Discovery					LTQ Orbitrap Discovery.	NT=LTQ Orbitrap Discovery;AC=MS:1000555
+		MS:1001910	LTQ Orbitrap Elite					Thermo Scientific LTQ Orbitrap Elite, often just referred to as the Orbitrap Elite.	NT=LTQ Orbitrap Elite;AC=MS:1001910
+		MS:1001742	LTQ Orbitrap Velos					Finnigan LTQ Orbitrap Velos MS	NT=LTQ Orbitrap Velos;AC=MS:1001742
+		MS:1003096	LTQ Orbitrap Velos Pro					Thermo Scientific LTQ Orbitrap Velos Pro, often just referred to as the Orbitrap Velos Pro.	NT=LTQ Orbitrap Velos Pro;AC=MS:1003096
+		MS:1000556	LTQ Orbitrap XL					LTQ Orbitrap XL.	NT=LTQ Orbitrap XL;AC=MS:1000556
+		MS:1000639	LTQ Orbitrap XL ETD					Thermo Scientific LTQ Orbitrap XL MS with ETD.	NT=LTQ Orbitrap XL ETD;AC=MS:1000639
+		MS:1000643	MALDI LTQ Orbitrap					Thermo Scientific MALDI LTQ Orbitrap MS.	NT=MALDI LTQ Orbitrap;AC=MS:1000643
+		MS:1003395	Q Exactive GC Orbitrap					Q Exactive GC Orbitrap GC-MS/MS hybrid quadrupole Orbitrap mass spectrometer.	NT=Q Exactive GC Orbitrap;AC=MS:1003395
+		MS:1002877	Q Exactive HF-X					Thermo Scientific Q Exactive HF-X Hybrid Quadrupole Orbitrap MS.	NT=Q Exactive HF-X;AC=MS:1002877
+		MS:1003245	Q Exactive UHMR					Thermo Scientific Q Exactive UHMR (Ultra High Mass Range) Hybrid Quadrupole Orbitrap MS.	NT=Q Exactive UHMR;AC=MS:1003245
+		MS:1003123	Bruker Daltonics timsTOF series					Bruker Daltonics timsTOF series	NT=Bruker Daltonics timsTOF series;AC=MS:1003123
+		MS:1003229	timsTOF					Bruker Daltonics' timsTOF.	NT=timsTOF;AC=MS:1003229
+		MS:1003124	timsTOF fleX					Bruker Daltonics' timsTOF fleX	NT=timsTOF fleX;AC=MS:1003124
+		MS:1003397	timsTOF fleX MALDI-2					Bruker Daltonics' timsTOF fleX MALDI-2.	NT=timsTOF fleX MALDI-2;AC=MS:1003397
+		MS:1003404	timsTOF HT					Bruker Daltonics' timsTOF HT.	NT=timsTOF HT;AC=MS:1003404
+		MS:1003005	timsTOF Pro					Bruker Daltonics' timsTOF Pro.	NT=timsTOF Pro;AC=MS:1003005
+		MS:1003230	timsTOF Pro 2					Bruker Daltonics' timsTOF Pro 2.	NT=timsTOF Pro 2;AC=MS:1003230
+		MS:1003231	timsTOF SCP					Bruker Daltonics' timsTOF SCP.	NT=timsTOF SCP;AC=MS:1003231
+		MS:1003383	timsTOF Ultra					Bruker Daltonics' timsTOF Ultra.	NT=timsTOF Ultra;AC=MS:1003383
+		MS:1003412	timsTOF Ultra 2					Bruker Daltonics timsTOF Ultra 2.	NT=timsTOF Ultra 2;AC=MS:1003412
+CommentCleavageAgentDetailsMenu	comment[cleavage agent details] Menu	MS:1001918	2-iodobenzoate					Chemical iodobenzoate. Cleaves after W.	AC=MS:1001918;NT=2-iodobenzoate
+		MS:1001303	Arg-C					Endoproteinase Arg-C.	AC=MS:1001303;NT=Arg-C
+		MS:1001304	Asp-N					Endoproteinase Asp-N.	AC=MS:1001304;NT=Asp-N
+		MS:1001305	Asp-N_ambic					Enzyme Asp-N, Ammonium Bicarbonate (AmBic).	AC=MS:1001305;NT=Asp-N_ambic
+		MS:1001306	Chymotrypsin					Enzyme chymotrypsin.	AC=MS:1001306;NT=Chymotrypsin
+		MS:1001307	CNBr					Cyanogen bromide.	AC=MS:1001307;NT=CNBr
+		MS:1001308	Formic_acid					Formic acid	AC=MS:1001308;NT=Formic_acid
+		MS:1001917	glutamyl endopeptidase					Enzyme glutamyl endopeptidase (EC 3.4.21.19).	AC=MS:1001917;NT=glutamyl endopeptidase
+		MS:1001915	leukocyte elastase					Enzyme leukocyte elastase (EC 3.4.21.37).	AC=MS:1001915;NT=leukocyte elastase
+		MS:1001309	Lys-C					Endoproteinase Lys-C.	AC=MS:1001309;NT=Lys-C
+		MS:1001310	Lys-C/P					Proteinase Lys-C/P.	AC=MS:1001310;NT=Lys-C/P
+		MS:1003093	Lys-N					Metalloendopeptidase found in the mushroom Grifola frondosa that cleaves proteins on the amino side of lysine residues	AC=MS:1003093;NT=Lys-N
+		MS:1002708	LysargiNase					Metalloproteinase found in Methanosarcina acetivorans that cleaves on the N-terminal side of lysine and arginine residues.	AC=MS:1002708;NT=LysargiNase
+		MS:1001955	no cleavage						AC=MS:1001955;NT=no cleavage
+		MS:1001311	PepsinA					PepsinA proteinase.	AC=MS:1001311;NT=PepsinA
+		MS:1001916	proline endopeptidase					Enzyme proline endopeptidase (EC 3.4.21.26).	AC=MS:1001916;NT=proline endopeptidase
+		MS:1001312	TrypChymo					Cleavage agent TrypChymo.	AC=MS:1001312;NT=TrypChymo
+		MS:1001251	Trypsin					Enzyme trypsin.	AC=MS:1001251;NT=Trypsin
+		MS:1001313	Trypsin/P					Cleavage agent Trypsin/P.	AC=MS:1001313;NT=Trypsin/P
+		MS:1001956	unspecific cleavage					Unspecific cleavage.	AC=MS:1001956;NT=unspecific cleavage
+		MS:1001314	V8-DE					Cleavage agent V8-DE	AC=MS:1001314;NT=V8-DE
+		MS:1001315	V8-E					Cleavage agent V8-E.	AC=MS:1001315;NT=V8-E

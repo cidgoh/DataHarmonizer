@@ -1,7 +1,7 @@
 id: https://example.com/Pathogen_Agnostic
-name: Pathogen_Agnostic
+name: PathogenAgnostic
 description: ''
-version: 1.0.0
+version: 1.0.1
 imports:
 - linkml:types
 prefixes:
@@ -12,120 +12,121 @@ classes:
     name: dh_interface
     description: A DataHarmonizer interface
     from_schema: https://example.com/Pathogen_Agnostic
-  Pathogen Agnostic:
-    name: Pathogen Agnostic
+  PathogenAgnostic:
+    name: PathogenAgnostic
+    title: Pathogen Agnostic
     description: null
     is_a: dh_interface
     slots:
-    - specimen collector sample ID
-    - third party lab service provider name
-    - third party lab sample ID
-    - case ID
-    - Related specimen primary ID
-    - IRIDA sample name
-    - umbrella bioproject accession
-    - bioproject accession
-    - biosample accession
-    - SRA accession
-    - GenBank accession
-    - GISAID accession
-    - sample collected by
-    - sequenced by
-    - sequence submitted by
-    - sample collection date
-    - sample collection date precision
-    - geo_loc_name (country)
-    - geo_loc_name (state/province/territory)
+    - specimen_collector_sample_id
+    - third_party_lab_service_provider_name
+    - third_party_lab_sample_id
+    - case_id
+    - related_specimen_primary_id
+    - irida_sample_name
+    - umbrella_bioproject_accession
+    - bioproject_accession
+    - biosample_accession
+    - sra_accession
+    - genbank_accession
+    - gisaid_accession
+    - sample_collected_by
+    - sequenced_by
+    - sequence_submitted_by
+    - sample_collection_date
+    - sample_collection_date_precision
+    - geo_loc_name_country
+    - geo_loc_name_state_province_territory
     - organism
     - isolate
-    - purpose of sampling
-    - purpose of sampling details
-    - NML submitted specimen type
-    - anatomical material
-    - anatomical part
-    - body product
-    - environmental material
-    - environmental site
-    - collection device
-    - collection method
-    - specimen processing
-    - specimen processing details
-    - host (scientific name)
-    - host disease
-    - host age
-    - host age unit
-    - host age bin
-    - host gender
-    - purpose of sequencing
-    - purpose of sequencing details
-    - sequencing date
-    - library preparation kit
-    - sequencing instrument
-    - raw sequence data processing method
-    - dehosting method
-    - assembly sequence software name
-    - assembly sequence software version
-    - consensus sequence software name
-    - consensus sequence software version
-    - bioinformatics protocol
+    - purpose_of_sampling
+    - purpose_of_sampling_details
+    - nml_submitted_specimen_type
+    - anatomical_material
+    - anatomical_part
+    - body_product
+    - environmental_material
+    - environmental_site
+    - collection_device
+    - collection_method
+    - specimen_processing
+    - specimen_processing_details
+    - host_scientific_name
+    - host_disease
+    - host_age
+    - host_age_unit
+    - host_age_bin
+    - host_gender
+    - purpose_of_sequencing
+    - purpose_of_sequencing_details
+    - sequencing_date
+    - library_preparation_kit
+    - sequencing_instrument
+    - raw_sequence_data_processing_method
+    - dehosting_method
+    - assembly_software_name
+    - assembly_software_version
+    - consensus_sequence_software_name
+    - consensus_sequence_software_version
+    - bioinformatics_protocol
     - authors
-    - DataHarmonizer provenance
+    - dataharmonizer_provenance
     slot_usage:
-      specimen collector sample ID:
+      specimen_collector_sample_id:
         rank: 1
         slot_group: Database Identifiers
-      third party lab service provider name:
+      third_party_lab_service_provider_name:
         rank: 2
         slot_group: Database Identifiers
-      third party lab sample ID:
+      third_party_lab_sample_id:
         rank: 3
         slot_group: Database Identifiers
-      case ID:
+      case_id:
         rank: 4
         slot_group: Database Identifiers
-      Related specimen primary ID:
+      related_specimen_primary_id:
         rank: 5
         slot_group: Database Identifiers
-      IRIDA sample name:
+      irida_sample_name:
         rank: 6
         slot_group: Database Identifiers
-      umbrella bioproject accession:
+      umbrella_bioproject_accession:
         rank: 7
         slot_group: Database Identifiers
-      bioproject accession:
+      bioproject_accession:
         rank: 8
         slot_group: Database Identifiers
-      biosample accession:
+      biosample_accession:
         rank: 9
         slot_group: Database Identifiers
-      SRA accession:
+      sra_accession:
         rank: 10
         slot_group: Database Identifiers
-      GenBank accession:
+      genbank_accession:
         rank: 11
         slot_group: Database Identifiers
-      GISAID accession:
+      gisaid_accession:
         rank: 12
         slot_group: Database Identifiers
-      sample collected by:
+      sample_collected_by:
         rank: 13
         slot_group: Sample collection and processing
-      sequenced by:
+      sequenced_by:
         rank: 14
         slot_group: Sample collection and processing
-      sequence submitted by:
+      sequence_submitted_by:
         rank: 15
         slot_group: Sample collection and processing
-      sample collection date:
+      sample_collection_date:
         rank: 16
         slot_group: Sample collection and processing
-      sample collection date precision:
+      sample_collection_date_precision:
         rank: 17
         slot_group: Sample collection and processing
-      geo_loc_name (country):
+      geo_loc_name_country:
         rank: 18
         slot_group: Sample collection and processing
-      geo_loc_name (state/province/territory):
+      geo_loc_name_state_province_territory:
         rank: 19
         slot_group: Sample collection and processing
       organism:
@@ -134,105 +135,105 @@ classes:
       isolate:
         rank: 21
         slot_group: Sample collection and processing
-      purpose of sampling:
+      purpose_of_sampling:
         rank: 22
         slot_group: Sample collection and processing
-      purpose of sampling details:
+      purpose_of_sampling_details:
         rank: 23
         slot_group: Sample collection and processing
-      NML submitted specimen type:
+      nml_submitted_specimen_type:
         rank: 24
         slot_group: Sample collection and processing
-      anatomical material:
+      anatomical_material:
         rank: 25
         slot_group: Sample collection and processing
-      anatomical part:
+      anatomical_part:
         rank: 26
         slot_group: Sample collection and processing
-      body product:
+      body_product:
         rank: 27
         slot_group: Sample collection and processing
-      environmental material:
+      environmental_material:
         rank: 28
         slot_group: Sample collection and processing
-      environmental site:
+      environmental_site:
         rank: 29
         slot_group: Sample collection and processing
-      collection device:
+      collection_device:
         rank: 30
         slot_group: Sample collection and processing
-      collection method:
+      collection_method:
         rank: 31
         slot_group: Sample collection and processing
-      specimen processing:
+      specimen_processing:
         rank: 32
         slot_group: Sample collection and processing
-      specimen processing details:
+      specimen_processing_details:
         rank: 33
         slot_group: Sample collection and processing
-      host (scientific name):
+      host_scientific_name:
         rank: 34
         slot_group: Host Information
-      host disease:
+      host_disease:
         rank: 35
         slot_group: Host Information
-      host age:
+      host_age:
         rank: 36
         slot_group: Host Information
-      host age unit:
+      host_age_unit:
         rank: 37
         slot_group: Host Information
-      host age bin:
+      host_age_bin:
         rank: 38
         slot_group: Host Information
-      host gender:
+      host_gender:
         rank: 39
         slot_group: Host Information
-      purpose of sequencing:
+      purpose_of_sequencing:
         rank: 40
         slot_group: Sequencing
-      purpose of sequencing details:
+      purpose_of_sequencing_details:
         rank: 41
         slot_group: Sequencing
-      sequencing date:
+      sequencing_date:
         rank: 42
         slot_group: Sequencing
-      library preparation kit:
+      library_preparation_kit:
         rank: 43
         slot_group: Sequencing
-      sequencing instrument:
+      sequencing_instrument:
         rank: 44
         slot_group: Sequencing
-      raw sequence data processing method:
+      raw_sequence_data_processing_method:
         rank: 45
         slot_group: Bioinformatics and QC metrics
-      dehosting method:
+      dehosting_method:
         rank: 46
         slot_group: Bioinformatics and QC metrics
-      assembly sequence software name:
+      assembly_software_name:
         rank: 47
         slot_group: Bioinformatics and QC metrics
-      assembly sequence software version:
+      assembly_software_version:
         rank: 48
         slot_group: Bioinformatics and QC metrics
-      consensus sequence software name:
+      consensus_sequence_software_name:
         rank: 49
         slot_group: Bioinformatics and QC metrics
-      consensus sequence software version:
+      consensus_sequence_software_version:
         rank: 50
         slot_group: Bioinformatics and QC metrics
-      bioinformatics protocol:
+      bioinformatics_protocol:
         rank: 51
         slot_group: Bioinformatics and QC metrics
       authors:
         rank: 52
         slot_group: Contributor acknowledgement
-      DataHarmonizer provenance:
+      dataharmonizer_provenance:
         rank: 53
         slot_group: Contributor acknowledgement
 slots:
-  specimen collector sample ID:
-    name: specimen collector sample ID
+  specimen_collector_sample_id:
+    name: specimen_collector_sample_id
     title: specimen collector sample ID
     description: The user-defined name for the sample.
     comments: Store the collector sample ID. If this number is considered identifiable
@@ -241,75 +242,75 @@ slots:
       Every collector sample ID from a single submitter must be unique. It can have
       any format, but we suggest that you make it concise, unique and consistent within
       your lab.
+    slot_uri: GENEPIO:0001123
+    identifier: true
+    range: WhitespaceMinimizedString
+    required: true
     examples:
     - value: prov_rona_99
-    slot_uri: GENEPIO:0001123
-    range: WhitespaceMinimizedString
-    identifier: true
-    required: true
     exact_mappings:
-    - GISAID:Sample ID given by the sample provider
-    - CNPHI:Primary Specimen ID
+    - GISAID:Sample%20ID%20given%20by%20the%20sample%20provider
+    - CNPHI:Primary%20Specimen%20ID
     - NML_LIMS:TEXT_ID
     - BIOSAMPLE:sample_name
-    - VirusSeq_Portal:specimen collector sample ID
-  third party lab service provider name:
-    name: third party lab service provider name
+    - VirusSeq_Portal:specimen%20collector%20sample%20ID
+  third_party_lab_service_provider_name:
+    name: third_party_lab_service_provider_name
     title: third party lab service provider name
     description: The name of the third party company or laboratory that provided services.
     comments: Provide the full, unabbreviated name of the company or laboratory.
-    examples:
-    - value: Switch Health
     slot_uri: GENEPIO:0001202
     range: WhitespaceMinimizedString
+    examples:
+    - value: Switch Health
     exact_mappings:
     - NML_LIMS:HC_TEXT5
-  third party lab sample ID:
-    name: third party lab sample ID
+  third_party_lab_sample_id:
+    name: third_party_lab_sample_id
     title: third party lab sample ID
     description: The identifier assigned to a sample by a third party service provider.
     comments: Store the sample identifier supplied by the third party services provider.
-    examples:
-    - value: SHK123456
     slot_uri: GENEPIO:0001149
     range: WhitespaceMinimizedString
+    examples:
+    - value: SHK123456
     exact_mappings:
     - NML_LIMS:PH_ID_NUMBER_PRIMARY
-  case ID:
-    name: case ID
+  case_id:
+    name: case_id
     title: case ID
     description: The identifier used to specify an epidemiologically detected case
       of disease.
     comments: Provide the case identifer. The case ID greatly facilitates linkage
       between laboratory and epidemiological data. The case ID may be considered identifiable
       information. Consult the data steward before sharing.
-    examples:
-    - value: ABCD1234
     slot_uri: GENEPIO:0100281
     range: WhitespaceMinimizedString
     recommended: true
+    examples:
+    - value: ABCD1234
     exact_mappings:
     - NML_LIMS:PH_CASE_ID
-  Related specimen primary ID:
-    name: Related specimen primary ID
+  related_specimen_primary_id:
+    name: related_specimen_primary_id
     title: Related specimen primary ID
     description: The primary ID of a related specimen previously submitted to the
       repository.
     comments: Store the primary ID of the related specimen previously submitted to
       the National Microbiology Laboratory so that the samples can be linked and tracked
       through the system.
-    examples:
-    - value: SR20-12345
     slot_uri: GENEPIO:0001128
     any_of:
     - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: NullValueMenu
+    examples:
+    - value: SR20-12345
     exact_mappings:
-    - CNPHI:Related Specimen ID
-    - CNPHI:Related Specimen Relationship Type
+    - CNPHI:Related%20Specimen%20ID
+    - CNPHI:Related%20Specimen%20Relationship%20Type
     - NML_LIMS:PH_RELATED_PRIMARY_ID
-  IRIDA sample name:
-    name: IRIDA sample name
+  irida_sample_name:
+    name: irida_sample_name
     title: IRIDA sample name
     description: The identifier assigned to a sequenced isolate in IRIDA.
     comments: Store the IRIDA sample name. The IRIDA sample name will be created by
@@ -320,14 +321,14 @@ slots:
       mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes
       should be replaced by underscores. See IRIDA documentation for more information
       regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample).
-    examples:
-    - value: prov_rona_99
     slot_uri: GENEPIO:0001131
     range: WhitespaceMinimizedString
+    examples:
+    - value: prov_rona_99
     exact_mappings:
-    - NML_LIMS:IRIDA sample name
-  umbrella bioproject accession:
-    name: umbrella bioproject accession
+    - NML_LIMS:IRIDA%20sample%20name
+  umbrella_bioproject_accession:
+    name: umbrella_bioproject_accession
     title: umbrella bioproject accession
     description: The INSDC accession number assigned to the umbrella BioProject for
       the Canadian SARS-CoV-2 sequencing effort.
@@ -335,18 +336,18 @@ slots:
       in the template. The umbrella BioProject accession will be identical for all
       CanCOGen submitters. Different provinces will have their own BioProjects, however
       these BioProjects will be linked under one umbrella BioProject.
-    examples:
-    - value: PRJNA623807
     slot_uri: GENEPIO:0001133
-    range: umbrella bioproject accession menu
+    range: UmbrellaBioprojectAccessionMenu
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: PRJNA623807
     exact_mappings:
-    - NML_LIMS:umbrella bioproject accession
-  bioproject accession:
-    name: bioproject accession
+    - NML_LIMS:umbrella%20bioproject%20accession
+  bioproject_accession:
+    name: bioproject_accession
     title: bioproject accession
     description: The INSDC accession number of the BioProject(s) to which the BioSample
       belongs.
@@ -356,90 +357,90 @@ slots:
       by the National Microbiology Lab. A valid NCBI BioProject accession has prefix
       PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing
       project.
-    examples:
-    - value: PRJNA608651
     slot_uri: GENEPIO:0001136
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: PRJNA608651
     exact_mappings:
-    - CNPHI:BioProject Accession
+    - CNPHI:BioProject%20Accession
     - NML_LIMS:PH_BIOPROJECT_ACCESSION
     - BIOSAMPLE:bioproject_accession
-  biosample accession:
-    name: biosample accession
+  biosample_accession:
+    name: biosample_accession
     title: biosample accession
     description: The identifier assigned to a BioSample in INSDC archives.
     comments: Store the accession returned from the BioSample submission. NCBI BioSamples
       will have the prefix SAMN.
-    examples:
-    - value: SAMN14180202
     slot_uri: GENEPIO:0001139
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: SAMN14180202
     exact_mappings:
-    - CNPHI:BioSample Accession
+    - CNPHI:BioSample%20Accession
     - NML_LIMS:PH_BIOSAMPLE_ACCESSION
-  SRA accession:
-    name: SRA accession
+  sra_accession:
+    name: sra_accession
     title: SRA accession
     description: The Sequence Read Archive (SRA) identifier linking raw read data,
       methodological metadata and quality control metrics submitted to the INSDC.
     comments: Store the accession assigned to the submitted "run". NCBI-SRA accessions
       start with SRR.
-    examples:
-    - value: SRR11177792
     slot_uri: GENEPIO:0001142
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: SRR11177792
     exact_mappings:
-    - CNPHI:SRA Accession
+    - CNPHI:SRA%20Accession
     - NML_LIMS:PH_SRA_ACCESSION
-  GenBank accession:
-    name: GenBank accession
+  genbank_accession:
+    name: genbank_accession
     title: GenBank accession
     description: The GenBank identifier assigned to the sequence in the INSDC archives.
     comments: Store the accession returned from a GenBank submission (viral genome
       assembly).
-    examples:
-    - value: MN908947.3
     slot_uri: GENEPIO:0001145
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: MN908947.3
     exact_mappings:
-    - CNPHI:GenBank Accession
-    - NML_LIMS:GenBank accession
-  GISAID accession:
-    name: GISAID accession
+    - CNPHI:GenBank%20Accession
+    - NML_LIMS:GenBank%20accession
+  gisaid_accession:
+    name: gisaid_accession
     title: GISAID accession
     description: The GISAID accession number assigned to the sequence.
     comments: Store the accession returned from the GISAID submission.
-    examples:
-    - value: EPI_ISL_436489
     slot_uri: GENEPIO:0001147
     range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: EPI_ISL_436489
     exact_mappings:
-    - CNPHI:GISAID Accession (if known)
-    - NML_LIMS:SUBMISSIONS - GISAID Accession ID
+    - CNPHI:GISAID%20Accession%20%28if%20known%29
+    - NML_LIMS:SUBMISSIONS%20-%20GISAID%20Accession%20ID
     - BIOSAMPLE:GISAID_accession
-    - VirusSeq_Portal:GISAID accession
-  sample collected by:
-    name: sample collected by
+    - VirusSeq_Portal:GISAID%20accession
+  sample_collected_by:
+    name: sample_collected_by
     title: sample collected by
     description: The name of the agency that collected the original sample.
     comments: The name of the sample collector should be written out in full, (with
@@ -447,58 +448,58 @@ slots:
       Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The
       sample collector specified is at the discretion of the data provider (i.e. may
       be hospital, provincial public health lab, or other).
-    examples:
-    - value: BC Centre for Disease Control
     slot_uri: GENEPIO:0001153
     any_of:
-    - range: sample collected by menu
-    - range: null value menu
+    - range: SampleCollectedByMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: BC Centre for Disease Control
     exact_mappings:
-    - GISAID:Originating lab
-    - CNPHI:Lab Name
+    - GISAID:Originating%20lab
+    - CNPHI:Lab%20Name
     - NML_LIMS:CUSTOMER
     - BIOSAMPLE:collected_by
-    - VirusSeq_Portal:sample collected by
-  sequenced by:
-    name: sequenced by
+    - VirusSeq_Portal:sample%20collected%20by
+  sequenced_by:
+    name: sequenced_by
     title: sequenced by
     description: The name of the agency that generated the sequence.
     comments: The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions. If submitting specimens rather
       than sequencing data, please put the "National Microbiology Laboratory (NML)".
-    examples:
-    - value: Public Health Ontario (PHO)
     slot_uri: GENEPIO:0100416
     any_of:
-    - range: sequence submitted by menu
-    - range: null value menu
+    - range: SequenceSubmittedByMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Public Health Ontario (PHO)
     exact_mappings:
     - NML_LIMS:PH_SEQUENCING_CENTRE
     - BIOSAMPLE:sequenced_by
-  sequence submitted by:
-    name: sequence submitted by
+  sequence_submitted_by:
+    name: sequence_submitted_by
     title: sequence submitted by
     description: The name of the agency that generated the sequence.
     comments: The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multple submissions. If submitting specimens rather
       than sequencing data, please put the "National Microbiology Laboratory (NML)".
-    examples:
-    - value: Public Health Ontario (PHO)
     slot_uri: GENEPIO:0001159
     any_of:
-    - range: sequence submitted by menu
-    - range: null value menu
+    - range: SequenceSubmittedByMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Public Health Ontario (PHO)
     exact_mappings:
-    - GISAID:Submitting lab
-    - CNPHI:Sequencing Centre
+    - GISAID:Submitting%20lab
+    - CNPHI:Sequencing%20Centre
     - NML_LIMS:PH_SEQUENCING_CENTRE
     - BIOSAMPLE:sequenced_by
-    - VirusSeq_Portal:sequence submitted by
-  sample collection date:
-    name: sample collection date
+    - VirusSeq_Portal:sequence%20submitted%20by
+  sample_collection_date:
+    name: sample_collection_date
     title: sample collection date
     description: The date on which the sample was collected.
     comments: "Sample collection date is critical for surveillance and many types\
@@ -507,88 +508,88 @@ slots:
       \ by adding or subtracting a calendar day (acceptable by GISAID). Alternatively,\
       \ \u201Dreceived date\u201D may be used as a substitute. The date should be\
       \ provided in ISO 8601 standard format \"YYYY-MM-DD\"."
-    examples:
-    - value: '2020-03-16'
     slot_uri: GENEPIO:0001174
     any_of:
     - range: date
-    - range: null value menu
-    required: true
+    - range: NullValueMenu
     todos:
     - '>=2019-10-01'
     - <={today}
+    required: true
+    examples:
+    - value: '2020-03-16'
     exact_mappings:
-    - GISAID:Collection date
-    - CNPHI:Patient Sample Collected Date
+    - GISAID:Collection%20date
+    - CNPHI:Patient%20Sample%20Collected%20Date
     - NML_LIMS:HC_COLLECT_DATE
-    - BIOSAMPLE:sample collection date
-    - VirusSeq_Portal:sample collection date
-  sample collection date precision:
-    name: sample collection date precision
+    - BIOSAMPLE:sample%20collection%20date
+    - VirusSeq_Portal:sample%20collection%20date
+  sample_collection_date_precision:
+    name: sample_collection_date_precision
     title: sample collection date precision
     description: The precision to which the "sample collection date" was provided.
     comments: Provide the precision of granularity to the "day", "month", or "year"
       for the date provided in the "sample collection date" field. The "sample collection
       date" will be truncated to the precision specified upon export; "day" for "YYYY-MM-DD",
       "month" for "YYYY-MM", or "year" for "YYYY".
-    examples:
-    - value: year
     slot_uri: GENEPIO:0001177
     any_of:
-    - range: sample collection date precision menu
-    - range: null value menu
+    - range: SampleCollectionDatePrecisionMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: year
     exact_mappings:
-    - CNPHI:Precision of date collected
+    - CNPHI:Precision%20of%20date%20collected
     - NML_LIMS:HC_TEXT2
-  geo_loc_name (country):
-    name: geo_loc_name (country)
+  geo_loc_name_country:
+    name: geo_loc_name_country
     title: geo_loc_name (country)
     description: The country where the sample was collected.
     comments: Provide the country name from the controlled vocabulary provided.
-    examples:
-    - value: Canada
     slot_uri: GENEPIO:0001181
     any_of:
-    - range: geo_loc_name (country) menu
-    - range: null value menu
+    - range: GeoLocNameCountryMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Canada
     exact_mappings:
     - GISAID:Location
-    - CNPHI:Patient Country
+    - CNPHI:Patient%20Country
     - NML_LIMS:HC_COUNTRY
     - BIOSAMPLE:geo_loc_name
-    - VirusSeq_Portal:geo_loc_name (country)
-  geo_loc_name (state/province/territory):
-    name: geo_loc_name (state/province/territory)
+    - VirusSeq_Portal:geo_loc_name%20%28country%29
+  geo_loc_name_state_province_territory:
+    name: geo_loc_name_state_province_territory
     title: geo_loc_name (state/province/territory)
     description: The province/territory where the sample was collected.
     comments: Provide the province/territory name from the controlled vocabulary provided.
-    examples:
-    - value: Saskatchewan
     slot_uri: GENEPIO:0001185
     any_of:
-    - range: geo_loc_name (state/province/territory) menu
-    - range: null value menu
+    - range: GeoLocNameStateProvinceTerritoryMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Saskatchewan
     exact_mappings:
-    - CNPHI:Patient Province
+    - CNPHI:Patient%20Province
     - NML_LIMS:HC_PROVINCE
     - BIOSAMPLE:geo_loc_name
-    - VirusSeq_Portal:geo_loc_name (state/province/territory)
+    - VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29
   organism:
     name: organism
     title: organism
     description: Taxonomic name of the organism.
     comments: Use "Severe acute respiratory syndrome coronavirus 2". This value is
       provided in the template.
-    examples:
-    - value: Severe acute respiratory syndrome coronavirus 2
     slot_uri: GENEPIO:0001191
     any_of:
-    - range: organism menu
-    - range: null value menu
+    - range: OrganismMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Severe acute respiratory syndrome coronavirus 2
     exact_mappings:
     - CNPHI:Pathogen
     - NML_LIMS:HC_CURRENT_ID
@@ -600,23 +601,23 @@ slots:
     description: Identifier of the specific isolate.
     comments: "Provide the GISAID virus name, which should be written in the format\
       \ \u201ChCov-19/CANADA/2 digit provincial ISO code-xxxxx/year\u201D."
-    examples:
-    - value: hCov-19/CANADA/BC-prov_rona_99/2020
     slot_uri: GENEPIO:0001195
     any_of:
     - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: hCov-19/CANADA/BC-prov_rona_99/2020
     exact_mappings:
-    - GISAID:Virus name
-    - CNPHI:GISAID Virus Name
-    - NML_LIMS:RESULT - CANCOGEN_SUBMISSIONS
+    - GISAID:Virus%20name
+    - CNPHI:GISAID%20Virus%20Name
+    - NML_LIMS:RESULT%20-%20CANCOGEN_SUBMISSIONS
     - BIOSAMPLE:isolate
     - BIOSAMPLE:GISAID_virus_name
     - VirusSeq_Portal:isolate
-    - VirusSeq_Portal:fasta header name
-  purpose of sampling:
-    name: purpose of sampling
+    - VirusSeq_Portal:fasta%20header%20name
+  purpose_of_sampling:
+    name: purpose_of_sampling
     title: purpose of sampling
     description: The reason that the sample was collected.
     comments: The reason a sample was collected may provide information about potential
@@ -625,20 +626,20 @@ slots:
       The reason why a sample was originally collected may differ from the reason
       why it was selected for sequencing, which should be indicated in the "purpose
       of sequencing" field.
-    examples:
-    - value: Diagnostic testing
     slot_uri: GENEPIO:0001198
     any_of:
-    - range: purpose of sampling menu
-    - range: null value menu
+    - range: PurposeOfSamplingMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Diagnostic testing
     exact_mappings:
-    - CNPHI:Reason for Sampling
+    - CNPHI:Reason%20for%20Sampling
     - NML_LIMS:HC_SAMPLE_CATEGORY
     - BIOSAMPLE:purpose_of_sampling
-    - VirusSeq_Portal:purpose of sampling
-  purpose of sampling details:
-    name: purpose of sampling details
+    - VirusSeq_Portal:purpose%20of%20sampling
+  purpose_of_sampling_details:
+    name: purpose_of_sampling_details
     title: purpose of sampling details
     description: The description of why the sample was collected, providing specific
       details.
@@ -646,21 +647,21 @@ slots:
       free text. The description may include the importance of the sample for a particular
       public health investigation/surveillance activity/research question. If details
       are not available, provide a null value.
-    examples:
-    - value: The sample was collected to investigate the prevalence of variants associated
-        with mink-to-human transmission in Canada.
     slot_uri: GENEPIO:0001200
     any_of:
     - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: The sample was collected to investigate the prevalence of variants associated
+        with mink-to-human transmission in Canada.
     exact_mappings:
-    - CNPHI:Details on the Reason for Sampling
+    - CNPHI:Details%20on%20the%20Reason%20for%20Sampling
     - NML_LIMS:PH_SAMPLING_DETAILS
     - BIOSAMPLE:description
-    - VirusSeq_Portal:purpose of sampling details
-  NML submitted specimen type:
-    name: NML submitted specimen type
+    - VirusSeq_Portal:purpose%20of%20sampling%20details
+  nml_submitted_specimen_type:
+    name: nml_submitted_specimen_type
     title: NML submitted specimen type
     description: The type of specimen submitted to the National Microbiology Laboratory
       (NML) for testing.
@@ -668,16 +669,16 @@ slots:
       \ Select the specimen type from the pick list provided. If sequence data is\
       \ being submitted rather than a specimen for testing, select \u201CNot Applicable\u201D\
       ."
+    slot_uri: GENEPIO:0001204
+    range: NMLSubmittedSpecimenTypeMenu
+    recommended: true
     examples:
     - value: swab
-    slot_uri: GENEPIO:0001204
-    range: NML submitted specimen type menu
-    recommended: true
     exact_mappings:
-    - CNPHI:Specimen Type
+    - CNPHI:Specimen%20Type
     - NML_LIMS:PH_SPECIMEN_TYPE
-  anatomical material:
-    name: anatomical material
+  anatomical_material:
+    name: anatomical_material
     title: anatomical material
     description: A substance obtained from an anatomical part of an organism e.g.
       tissue, blood.
@@ -685,46 +686,46 @@ slots:
       picklist provided in the template. If a desired term is missing from the picklist,
       contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose
       a null value.
-    examples:
-    - value: Blood
     slot_uri: GENEPIO:0001211
     any_of:
-    - range: anatomical material menu
-    - range: null value menu
+    - range: AnatomicalMaterialMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
+    examples:
+    - value: Blood
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Anatomical Material
+    - GISAID:Specimen%20source
+    - CNPHI:Anatomical%20Material
     - NML_LIMS:PH_ISOLATION_SITE_DESC
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:anatomical_material
-    - VirusSeq_Portal:anatomical material
-  anatomical part:
-    name: anatomical part
+    - VirusSeq_Portal:anatomical%20material
+  anatomical_part:
+    name: anatomical_part
     title: anatomical part
     description: An anatomical part of an organism e.g. oropharynx.
     comments: Provide a descriptor if an anatomical part was sampled. Use the picklist
       provided in the template. If a desired term is missing from the picklist, contact
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value.
-    examples:
-    - value: Nasopharynx (NP)
     slot_uri: GENEPIO:0001214
     any_of:
-    - range: anatomical part menu
-    - range: null value menu
+    - range: AnatomicalPartMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
+    examples:
+    - value: Nasopharynx (NP)
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Anatomical Site
+    - GISAID:Specimen%20source
+    - CNPHI:Anatomical%20Site
     - NML_LIMS:PH_ISOLATION_SITE
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:anatomical_part
-    - VirusSeq_Portal:anatomical part
-  body product:
-    name: body product
+    - VirusSeq_Portal:anatomical%20part
+  body_product:
+    name: body_product
     title: body product
     description: A substance excreted/secreted from an organism e.g. feces, urine,
       sweat.
@@ -732,23 +733,23 @@ slots:
       provided in the template.  If a desired term is missing from the picklist, contact
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value.
-    examples:
-    - value: Feces
     slot_uri: GENEPIO:0001216
     any_of:
-    - range: body product menu
-    - range: null value menu
+    - range: BodyProductMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
+    examples:
+    - value: Feces
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Body Product
+    - GISAID:Specimen%20source
+    - CNPHI:Body%20Product
     - NML_LIMS:PH_SPECIMEN_SOURCE_DESC
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:body_product
-    - VirusSeq_Portal:body product
-  environmental material:
-    name: environmental material
+    - VirusSeq_Portal:body%20product
+  environmental_material:
+    name: environmental_material
     title: environmental material
     description: A substance obtained from the natural or man-made environment e.g.
       soil, water, sewage.
@@ -756,23 +757,23 @@ slots:
       picklist provided in the template.  If a desired term is missing from the picklist,
       contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose
       a null value.
-    examples:
-    - value: Face mask
     slot_uri: GENEPIO:0001223
     any_of:
-    - range: environmental material menu
-    - range: null value menu
+    - range: EnvironmentalMaterialMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
+    examples:
+    - value: Face mask
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Environmental Material
+    - GISAID:Specimen%20source
+    - CNPHI:Environmental%20Material
     - NML_LIMS:PH_ENVIRONMENTAL_MATERIAL
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:environmental_material
-    - VirusSeq_Portal:environmental material
-  environmental site:
-    name: environmental site
+    - VirusSeq_Portal:environmental%20material
+  environmental_site:
+    name: environmental_site
     title: environmental site
     description: An environmental location may describe a site in the natural or built
       environment e.g. contact surface, metal can, hospital, wet market, bat cave.
@@ -780,69 +781,69 @@ slots:
       provided in the template.  If a desired term is missing from the picklist, contact
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value.
-    examples:
-    - value: Production Facility
     slot_uri: GENEPIO:0001232
     any_of:
-    - range: environmental site menu
-    - range: null value menu
+    - range: EnvironmentalSiteMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
+    examples:
+    - value: Production Facility
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Environmental Site
+    - GISAID:Specimen%20source
+    - CNPHI:Environmental%20Site
     - NML_LIMS:PH_ENVIRONMENTAL_SITE
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:environmental_site
-    - VirusSeq_Portal:environmental site
-  collection device:
-    name: collection device
+    - VirusSeq_Portal:environmental%20site
+  collection_device:
+    name: collection_device
     title: collection device
     description: The instrument or container used to collect the sample e.g. swab.
     comments: Provide a descriptor if a device was used for sampling. Use the picklist
       provided in the template. If a desired term is missing from the picklist, contact
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value.
-    examples:
-    - value: Swab
     slot_uri: GENEPIO:0001234
     any_of:
-    - range: collection device menu
-    - range: null value menu
+    - range: CollectionDeviceMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
+    examples:
+    - value: Swab
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Specimen Collection Matrix
+    - GISAID:Specimen%20source
+    - CNPHI:Specimen%20Collection%20Matrix
     - NML_LIMS:PH_SPECIMEN_TYPE_ORIG
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:collection_device
-    - VirusSeq_Portal:collection device
-  collection method:
-    name: collection method
+    - VirusSeq_Portal:collection%20device
+  collection_method:
+    name: collection_method
     title: collection method
     description: The process used to collect the sample e.g. phlebotamy, necropsy.
     comments: Provide a descriptor if a collection method was used for sampling. Use
       the picklist provided in the template.  If a desired term is missing from the
       picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank.
       Choose a null value.
-    examples:
-    - value: Bronchoalveolar lavage (BAL)
     slot_uri: GENEPIO:0001241
     any_of:
-    - range: collection method menu
-    - range: null value menu
+    - range: CollectionMethodMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
+    examples:
+    - value: Bronchoalveolar lavage (BAL)
     exact_mappings:
-    - GISAID:Specimen source
-    - CNPHI:Collection Method
+    - GISAID:Specimen%20source
+    - CNPHI:Collection%20Method
     - NML_LIMS:COLLECTION_METHOD
     - BIOSAMPLE:isolation_source
     - BIOSAMPLE:collection_method
-    - VirusSeq_Portal:collection method
-  specimen processing:
-    name: specimen processing
+    - VirusSeq_Portal:collection%20method
+  specimen_processing:
+    name: specimen_processing
     title: specimen processing
     description: Any processing applied to the sample during or after receiving the
       sample.
@@ -850,146 +851,146 @@ slots:
       from the pick list. If virus was passaged, include information in "lab host",
       "passage number", and "passage method" fields. If none of the processes in the
       pick list apply, put "not applicable".
-    examples:
-    - value: Specimens pooled
     slot_uri: GENEPIO:0001253
     any_of:
-    - range: specimen processing menu
-    - range: null value menu
+    - range: SpecimenProcessingMenu
+    - range: NullValueMenu
     multivalued: true
     recommended: true
+    examples:
+    - value: Specimens pooled
     exact_mappings:
-    - GISAID:Passage details/history
-    - NML_LIMS:specimen processing
-  specimen processing details:
-    name: specimen processing details
+    - GISAID:Passage%20details/history
+    - NML_LIMS:specimen%20processing
+  specimen_processing_details:
+    name: specimen_processing_details
     title: specimen processing details
     description: Detailed information regarding the processing applied to a sample
       during or after receiving the sample.
     comments: Provide a free text description of any processing details applied to
       a sample.
+    slot_uri: GENEPIO:0100311
+    range: WhitespaceMinimizedString
     examples:
     - value: 25 swabs were pooled and further prepared as a single sample during library
         prep.
-    slot_uri: GENEPIO:0100311
-    range: WhitespaceMinimizedString
-  host (scientific name):
-    name: host (scientific name)
+  host_scientific_name:
+    name: host_scientific_name
     title: host (scientific name)
     description: The taxonomic, or scientific name of the host.
     comments: Common name or scientific name are required if there was a host. Both
       can be provided, if known. Use terms from the pick lists in the template. Scientific
       name e.g. Homo sapiens, If the sample was environmental, put "not applicable
-    examples:
-    - value: Homo sapiens
     slot_uri: GENEPIO:0001387
     any_of:
-    - range: host (scientific name) menu
-    - range: null value menu
+    - range: HostScientificNameMenu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Homo sapiens
     exact_mappings:
     - GISAID:Host
-    - NML_LIMS:host (scientific name)
+    - NML_LIMS:host%20%28scientific%20name%29
     - BIOSAMPLE:host
-    - VirusSeq_Portal:host (scientific name)
-  host disease:
-    name: host disease
+    - VirusSeq_Portal:host%20%28scientific%20name%29
+  host_disease:
+    name: host_disease
     title: host disease
     description: The name of the disease experienced by the host.
     comments: Select "COVID-19" from the pick list provided in the template.
-    examples:
-    - value: COVID-19
     slot_uri: GENEPIO:0001391
     any_of:
-    - range: host disease menu
-    - range: null value menu
+    - range: HostDiseaseMenu
+    - range: NullValueMenu
     recommended: true
+    examples:
+    - value: COVID-19
     exact_mappings:
-    - CNPHI:Host Disease
+    - CNPHI:Host%20Disease
     - NML_LIMS:PH_HOST_DISEASE
     - BIOSAMPLE:host_disease
-    - VirusSeq_Portal:host disease
-  host age:
-    name: host age
+    - VirusSeq_Portal:host%20disease
+  host_age:
+    name: host_age
     title: host age
     description: Age of host at the time of sampling.
     comments: Enter the age of the host in years. If not available, provide a null
       value. If there is not host, put "Not Applicable".
-    examples:
-    - value: '79'
     slot_uri: GENEPIO:0001392
     any_of:
     - range: decimal
-    - range: null value menu
+    - range: NullValueMenu
+    minimum_value: 0
+    maximum_value: 130
     recommended: true
-    minimum_value: '0'
-    maximum_value: '130'
+    examples:
+    - value: '79'
     exact_mappings:
-    - GISAID:Patient age
-    - CNPHI:Patient Age
+    - GISAID:Patient%20age
+    - CNPHI:Patient%20Age
     - NML_LIMS:PH_AGE
     - BIOSAMPLE:host_age
-    - VirusSeq_Portal:host age
-  host age unit:
-    name: host age unit
+    - VirusSeq_Portal:host%20age
+  host_age_unit:
+    name: host_age_unit
     title: host age unit
     description: The unit used to measure the host age, in either months or years.
     comments: Indicate whether the host age is in months or years. Age indicated in
       months will be binned to the 0 - 9 year age bin.
-    examples:
-    - value: years
     slot_uri: GENEPIO:0001393
     any_of:
-    - range: host age unit menu
-    - range: null value menu
+    - range: HostAgeUnitMenu
+    - range: NullValueMenu
     recommended: true
+    examples:
+    - value: years
     exact_mappings:
-    - CNPHI:Age Units
+    - CNPHI:Age%20Units
     - NML_LIMS:PH_AGE_UNIT
-    - VirusSeq_Portal:host age unit
-  host age bin:
-    name: host age bin
+    - VirusSeq_Portal:host%20age%20unit
+  host_age_bin:
+    name: host_age_bin
     title: host age bin
     description: Age of host at the time of sampling, expressed as an age group.
     comments: Select the corresponding host age bin from the pick list provided in
       the template. If not available, provide a null value.
-    examples:
-    - value: 60 - 69
     slot_uri: GENEPIO:0001394
     any_of:
-    - range: host age bin menu
-    - range: null value menu
+    - range: HostAgeBinMenu
+    - range: NullValueMenu
     recommended: true
+    examples:
+    - value: 60 - 69
     exact_mappings:
-    - CNPHI:Host Age Category
+    - CNPHI:Host%20Age%20Category
     - NML_LIMS:PH_AGE_GROUP
-    - VirusSeq_Portal:host age bin
-  host gender:
-    name: host gender
+    - VirusSeq_Portal:host%20age%20bin
+  host_gender:
+    name: host_gender
     title: host gender
     description: The gender of the host at the time of sample collection.
     comments: Select the corresponding host gender from the pick list provided in
       the template. If not available, provide a null value. If there is no host, put
       "Not Applicable".
-    examples:
-    - value: Male
     slot_uri: GENEPIO:0001395
     any_of:
-    - range: host gender menu
-    - range: null value menu
+    - range: HostGenderMenu
+    - range: NullValueMenu
     recommended: true
     structured_pattern:
       syntax: '{Title_Case}'
       partial_match: false
       interpolated: true
+    examples:
+    - value: Male
     exact_mappings:
     - GISAID:Gender
-    - CNPHI:Patient Sex
+    - CNPHI:Patient%20Sex
     - NML_LIMS:VD_SEX
     - BIOSAMPLE:host_sex
-    - VirusSeq_Portal:host gender
-  purpose of sequencing:
-    name: purpose of sequencing
+    - VirusSeq_Portal:host%20gender
+  purpose_of_sequencing:
+    name: purpose_of_sequencing
     title: purpose of sequencing
     description: The reason that the sample was sequenced.
     comments: The reason why a sample was originally collected may differ from the
@@ -997,21 +998,21 @@ slots:
       may provide information about potential biases in sequencing strategy. Provide
       the purpose of sequencing from the picklist in the template. The reason for
       sample collection should be indicated in the "purpose of sampling" field.
-    examples:
-    - value: Baseline surveillance (random sampling)
     slot_uri: GENEPIO:0001445
     any_of:
-    - range: purpose of sequencing menu
-    - range: null value menu
+    - range: PurposeOfSequencingMenu
+    - range: NullValueMenu
     multivalued: true
     required: true
+    examples:
+    - value: Baseline surveillance (random sampling)
     exact_mappings:
-    - CNPHI:Reason for Sequencing
+    - CNPHI:Reason%20for%20Sequencing
     - NML_LIMS:PH_REASON_FOR_SEQUENCING
     - BIOSAMPLE:purpose_of_sequencing
-    - VirusSeq_Portal:purpose of sequencing
-  purpose of sequencing details:
-    name: purpose of sequencing details
+    - VirusSeq_Portal:purpose%20of%20sequencing
+  purpose_of_sequencing_details:
+    name: purpose_of_sequencing_details
     title: purpose of sequencing details
     description: The description of why the sample was sequenced providing specific
       details.
@@ -1026,157 +1027,157 @@ slots:
       airline-related exposures, Investigating temporary foreign worker, Investigating
       remote regions, Investigating health care workers, Investigating schools/universities,
       Investigating reinfection.'
-    examples:
-    - value: Screened for S gene target failure (S dropout)
     slot_uri: GENEPIO:0001446
     any_of:
     - range: WhitespaceMinimizedString
-    - range: null value menu
+    - range: NullValueMenu
     required: true
+    examples:
+    - value: Screened for S gene target failure (S dropout)
     exact_mappings:
-    - CNPHI:Details on the Reason for Sequencing
+    - CNPHI:Details%20on%20the%20Reason%20for%20Sequencing
     - NML_LIMS:PH_REASON_FOR_SEQUENCING_DETAILS
-    - VirusSeq_Portal:purpose of sequencing details
-  sequencing date:
-    name: sequencing date
+    - VirusSeq_Portal:purpose%20of%20sequencing%20details
+  sequencing_date:
+    name: sequencing_date
     title: sequencing date
     description: The date the sample was sequenced.
     comments: ISO 8601 standard "YYYY-MM-DD".
-    examples:
-    - value: '2020-06-22'
     slot_uri: GENEPIO:0001447
     any_of:
     - range: date
-    - range: null value menu
-    recommended: true
+    - range: NullValueMenu
     todos:
-    - '>={sample collection date}'
+    - '>={sample_collection_date}'
+    recommended: true
+    examples:
+    - value: '2020-06-22'
     exact_mappings:
     - NML_LIMS:PH_SEQUENCING_DATE
-  library preparation kit:
-    name: library preparation kit
+  library_preparation_kit:
+    name: library_preparation_kit
     title: library preparation kit
     description: The name of the DNA library preparation kit used to generate the
       library being sequenced.
     comments: Provide the name of the library preparation kit used.
-    examples:
-    - value: Nextera XT
     slot_uri: GENEPIO:0001450
     range: WhitespaceMinimizedString
     recommended: true
+    examples:
+    - value: Nextera XT
     exact_mappings:
     - NML_LIMS:PH_LIBRARY_PREP_KIT
-  sequencing instrument:
-    name: sequencing instrument
+  sequencing_instrument:
+    name: sequencing_instrument
     title: sequencing instrument
     description: The model of the sequencing instrument used.
     comments: Select a sequencing instrument from the picklist provided in the template.
-    examples:
-    - value: Oxford Nanopore MinION
     slot_uri: GENEPIO:0001452
     any_of:
-    - range: sequencing instrument menu
-    - range: null value menu
+    - range: SequencingInstrumentMenu
+    - range: NullValueMenu
     multivalued: true
     required: true
+    examples:
+    - value: Oxford Nanopore MinION
     exact_mappings:
-    - GISAID:Sequencing technology
-    - CNPHI:Sequencing Instrument
+    - GISAID:Sequencing%20technology
+    - CNPHI:Sequencing%20Instrument
     - NML_LIMS:PH_INSTRUMENT_CGN
-    - VirusSeq_Portal:sequencing instrument
-  raw sequence data processing method:
-    name: raw sequence data processing method
+    - VirusSeq_Portal:sequencing%20instrument
+  raw_sequence_data_processing_method:
+    name: raw_sequence_data_processing_method
     title: raw sequence data processing method
     description: The names of the software and version number used for raw data processing
       such as removing barcodes, adapter trimming, filtering etc.
     comments: Provide the software name followed by the version e.g. Trimmomatic v.
       0.38, Porechop v. 0.2.3
-    examples:
-    - value: Porechop 0.2.3
     slot_uri: GENEPIO:0001458
     range: WhitespaceMinimizedString
     required: true
+    examples:
+    - value: Porechop 0.2.3
     exact_mappings:
     - NML_LIMS:PH_RAW_SEQUENCE_METHOD
-    - VirusSeq_Portal:raw sequence data processing method
-  dehosting method:
-    name: dehosting method
+    - VirusSeq_Portal:raw%20sequence%20data%20processing%20method
+  dehosting_method:
+    name: dehosting_method
     title: dehosting method
     description: The method used to remove host reads from the pathogen sequence.
     comments: Provide the name and version number of the software used to remove host
       reads.
-    examples:
-    - value: Nanostripper
     slot_uri: GENEPIO:0001459
     range: WhitespaceMinimizedString
     required: true
+    examples:
+    - value: Nanostripper
     exact_mappings:
     - NML_LIMS:PH_DEHOSTING_METHOD
-    - VirusSeq_Portal:dehosting method
-  assembly sequence software name:
-    name: assembly sequence software name
-    title: assembly sequence software name
+    - VirusSeq_Portal:dehosting%20method
+  assembly_software_name:
+    name: assembly_software_name
+    title: assembly software name
     description: The name of software used to generate the assembled sequence.
     comments: Provide the name of the software used to generate the assembled sequence.
+    range: WhitespaceMinimizedString
+    recommended: true
     examples:
     - value: Shovill
-    range: WhitespaceMinimizedString
-    recommended: true
-  assembly sequence software version:
-    name: assembly sequence software version
-    title: assembly sequence software version
+  assembly_software_version:
+    name: assembly_software_version
+    title: assembly software version
     description: The version of the software used to generate the assembled sequence.
     comments: Provide the version of the software used to generate the assembled sequence.
-    examples:
-    - value: 1.2.3
     range: WhitespaceMinimizedString
     recommended: true
-  consensus sequence software name:
-    name: consensus sequence software name
+    examples:
+    - value: 1.2.3
+  consensus_sequence_software_name:
+    name: consensus_sequence_software_name
     title: consensus sequence software name
     description: The name of software used to generate the consensus sequence.
     comments: Provide the name of the software used to generate the consensus sequence.
-    examples:
-    - value: iVar
     slot_uri: GENEPIO:0001463
     range: WhitespaceMinimizedString
     recommended: true
+    examples:
+    - value: iVar
     exact_mappings:
-    - GISAID:Assembly method
-    - CNPHI:consensus sequence
+    - GISAID:Assembly%20method
+    - CNPHI:consensus%20sequence
     - NML_LIMS:PH_CONSENSUS_SEQUENCE
-    - VirusSeq_Portal:consensus sequence software name
-  consensus sequence software version:
-    name: consensus sequence software version
+    - VirusSeq_Portal:consensus%20sequence%20software%20name
+  consensus_sequence_software_version:
+    name: consensus_sequence_software_version
     title: consensus sequence software version
     description: The version of the software used to generate the consensus sequence.
     comments: Provide the version of the software used to generate the consensus sequence.
-    examples:
-    - value: '1.3'
     slot_uri: GENEPIO:0001469
     range: WhitespaceMinimizedString
     recommended: true
+    examples:
+    - value: '1.3'
     exact_mappings:
-    - CNPHI:consensus sequence
+    - CNPHI:consensus%20sequence
     - NML_LIMS:PH_CONSENSUS_SEQUENCE_VERSION
-    - VirusSeq_Portal:consensus sequence software version
-  bioinformatics protocol:
-    name: bioinformatics protocol
+    - VirusSeq_Portal:consensus%20sequence%20software%20version
+  bioinformatics_protocol:
+    name: bioinformatics_protocol
     title: bioinformatics protocol
     description: A description of the overall bioinformatics strategy used.
     comments: Further details regarding the methods used to process raw data, and/or
       generate assemblies, and/or generate consensus sequences can. This information
       can be provided in an SOP or protocol or pipeline/workflow. Provide the name
       and version number of the protocol, or a GitHub link to a pipeline or workflow.
-    examples:
-    - value: https://github.com/phac-nml/ncov2019-artic-nf
     slot_uri: GENEPIO:0001489
     range: WhitespaceMinimizedString
     required: true
+    examples:
+    - value: https://github.com/phac-nml/ncov2019-artic-nf
     exact_mappings:
-    - CNPHI:Bioinformatics Protocol
+    - CNPHI:Bioinformatics%20Protocol
     - NML_LIMS:PH_BIOINFORMATICS_PROTOCOL
-    - VirusSeq_Portal:bioinformatics protocol
+    - VirusSeq_Portal:bioinformatics%20protocol
   authors:
     name: authors
     title: authors
@@ -1184,33 +1185,34 @@ slots:
       sequence generation, analysis, and data submission.
     comments: Include the first and last names of all individuals that should be attributed,
       separated by a comma.
-    examples:
-    - value: Tejinder Singh, Fei Hu, Joe Blogs
     slot_uri: GENEPIO:0001517
     range: WhitespaceMinimizedString
     recommended: true
+    examples:
+    - value: Tejinder Singh, Fei Hu, Joe Blogs
     exact_mappings:
     - GISAID:Authors
     - CNPHI:Authors
     - NML_LIMS:PH_CANCOGEN_AUTHORS
-  DataHarmonizer provenance:
-    name: DataHarmonizer provenance
+  dataharmonizer_provenance:
+    name: dataharmonizer_provenance
     title: DataHarmonizer provenance
     description: The DataHarmonizer software and template version provenance.
     comments: The current software and template version information will be automatically
       generated in this field after the user utilizes the "validate" function. This
       information will be generated regardless as to whether the row is valid of not.
-    examples:
-    - value: DataHarmonizer v1.4.3, CanCOGeN Covid-19 v1.0.0
     slot_uri: GENEPIO:0001518
     range: Provenance
+    examples:
+    - value: DataHarmonizer v1.4.3, CanCOGeN Covid-19 v1.0.0
     exact_mappings:
-    - GISAID:DataHarmonizer provenance
-    - CNPHI:Additional Comments
+    - GISAID:DataHarmonizer%20provenance
+    - CNPHI:Additional%20Comments
     - NML_LIMS:HC_COMMENTS
 enums:
-  null value menu:
-    name: null value menu
+  NullValueMenu:
+    name: NullValueMenu
+    title: null value menu
     permissible_values:
       Not Applicable:
         text: Not Applicable
@@ -1227,8 +1229,9 @@ enums:
       Restricted Access:
         text: Restricted Access
         meaning: GENEPIO:0001810
-  geo_loc_name (state/province/territory) menu:
-    name: geo_loc_name (state/province/territory) menu
+  GeoLocNameStateProvinceTerritoryMenu:
+    name: GeoLocNameStateProvinceTerritoryMenu
+    title: geo_loc_name (state/province/territory) menu
     permissible_values:
       Alberta:
         text: Alberta
@@ -1269,8 +1272,9 @@ enums:
       Yukon:
         text: Yukon
         meaning: GAZ:00002576
-  host age unit menu:
-    name: host age unit menu
+  HostAgeUnitMenu:
+    name: HostAgeUnitMenu
+    title: host age unit menu
     permissible_values:
       month:
         text: month
@@ -1278,8 +1282,9 @@ enums:
       year:
         text: year
         meaning: UO:0000036
-  sample collection date precision menu:
-    name: sample collection date precision menu
+  SampleCollectionDatePrecisionMenu:
+    name: SampleCollectionDatePrecisionMenu
+    title: sample collection date precision menu
     permissible_values:
       year:
         text: year
@@ -1290,8 +1295,9 @@ enums:
       day:
         text: day
         meaning: UO:0000033
-  NML submitted specimen type menu:
-    name: NML submitted specimen type menu
+  NmlSubmittedSpecimenTypeMenu:
+    name: NmlSubmittedSpecimenTypeMenu
+    title: NML submitted specimen type menu
     permissible_values:
       Swab:
         text: Swab
@@ -1308,8 +1314,9 @@ enums:
       Not Applicable:
         text: Not Applicable
         meaning: GENEPIO:0001619
-  anatomical material menu:
-    name: anatomical material menu
+  AnatomicalMaterialMenu:
+    name: AnatomicalMaterialMenu
+    title: anatomical material menu
     permissible_values:
       Blood:
         text: Blood
@@ -1344,8 +1351,9 @@ enums:
       Tissue:
         text: Tissue
         meaning: UBERON:0000479
-  anatomical part menu:
-    name: anatomical part menu
+  AnatomicalPartMenu:
+    name: AnatomicalPartMenu
+    title: anatomical part menu
     permissible_values:
       Anus:
         text: Anus
@@ -1437,8 +1445,9 @@ enums:
         text: Oropharynx (OP)
         meaning: UBERON:0001729
         is_a: Upper respiratory tract
-  body product menu:
-    name: body product menu
+  BodyProductMenu:
+    name: BodyProductMenu
+    title: body product menu
     permissible_values:
       Breast Milk:
         text: Breast Milk
@@ -1465,8 +1474,9 @@ enums:
       Urine:
         text: Urine
         meaning: UBERON:0001088
-  environmental material menu:
-    name: environmental material menu
+  EnvironmentalMaterialMenu:
+    name: EnvironmentalMaterialMenu
+    title: environmental material menu
     permissible_values:
       Air vent:
         text: Air vent
@@ -1568,8 +1578,9 @@ enums:
       Wood:
         text: Wood
         meaning: ENVO:00002040
-  environmental site menu:
-    name: environmental site menu
+  EnvironmentalSiteMenu:
+    name: EnvironmentalSiteMenu
+    title: environmental site menu
     permissible_values:
       Acute care facility:
         text: Acute care facility
@@ -1637,8 +1648,9 @@ enums:
       Wet market:
         text: Wet market
         meaning: ENVO:03501198
-  collection method menu:
-    name: collection method menu
+  CollectionMethodMenu:
+    name: CollectionMethodMenu
+    title: collection method menu
     permissible_values:
       Amniocentesis:
         text: Amniocentesis
@@ -1711,8 +1723,9 @@ enums:
       Washout Tear Collection:
         text: Washout Tear Collection
         meaning: GENEPIO:0100038
-  collection device menu:
-    name: collection device menu
+  CollectionDeviceMenu:
+    name: CollectionDeviceMenu
+    title: collection device menu
     permissible_values:
       Air filter:
         text: Air filter
@@ -1765,8 +1778,9 @@ enums:
       Virus Transport Medium:
         text: Virus Transport Medium
         meaning: OBI:0002866
-  host (scientific name) menu:
-    name: host (scientific name) menu
+  HostScientificNameMenu:
+    name: HostScientificNameMenu
+    title: host (scientific name) menu
     permissible_values:
       Homo sapiens:
         text: Homo sapiens
@@ -1816,8 +1830,9 @@ enums:
       Viverridae:
         text: Viverridae
         meaning: NCBITaxon:9673
-  organism menu:
-    name: organism menu
+  OrganismMenu:
+    name: OrganismMenu
+    title: organism menu
     permissible_values:
       Severe acute respiratory syndrome coronavirus 2:
         text: Severe acute respiratory syndrome coronavirus 2
@@ -1834,8 +1849,9 @@ enums:
       Norovirus:
         text: Norovirus
         is_a: Enteric virus
-  purpose of sampling menu:
-    name: purpose of sampling menu
+  PurposeOfSamplingMenu:
+    name: PurposeOfSamplingMenu
+    title: purpose of sampling menu
     permissible_values:
       Cluster/Outbreak investigation:
         text: Cluster/Outbreak investigation
@@ -1849,8 +1865,9 @@ enums:
       Surveillance:
         text: Surveillance
         meaning: GENEPIO:0100004
-  purpose of sequencing menu:
-    name: purpose of sequencing menu
+  PurposeOfSequencingMenu:
+    name: PurposeOfSequencingMenu
+    title: purpose of sequencing menu
     permissible_values:
       Baseline surveillance (random sampling):
         text: Baseline surveillance (random sampling)
@@ -1944,8 +1961,9 @@ enums:
       Retrospective sequencing:
         text: Retrospective sequencing
         meaning: GENEPIO:0100356
-  specimen processing menu:
-    name: specimen processing menu
+  SpecimenProcessingMenu:
+    name: SpecimenProcessingMenu
+    title: specimen processing menu
     permissible_values:
       Virus passage:
         text: Virus passage
@@ -1956,16 +1974,18 @@ enums:
       Specimens pooled:
         text: Specimens pooled
         meaning: OBI:0600016
-  host disease menu:
-    name: host disease menu
+  HostDiseaseMenu:
+    name: HostDiseaseMenu
+    title: host disease menu
     permissible_values:
       COVID-19:
         text: COVID-19
         meaning: MONDO:0100096
       Gastrointestinal disease:
         text: Gastrointestinal disease
-  host age bin menu:
-    name: host age bin menu
+  HostAgeBinMenu:
+    name: HostAgeBinMenu
+    title: host age bin menu
     permissible_values:
       0 - 9:
         text: 0 - 9
@@ -1998,14 +2018,15 @@ enums:
         text: 90 - 99
         meaning: GENEPIO:0100058
         exact_mappings:
-        - VirusSeq_Portal:90+
+        - VirusSeq_Portal:90%2B
       100+:
         text: 100+
         meaning: GENEPIO:0100059
         exact_mappings:
-        - VirusSeq_Portal:90+
-  host gender menu:
-    name: host gender menu
+        - VirusSeq_Portal:90%2B
+  HostGenderMenu:
+    name: HostGenderMenu
+    title: host gender menu
     permissible_values:
       Female:
         text: Female
@@ -2025,8 +2046,9 @@ enums:
       Undeclared:
         text: Undeclared
         meaning: NCIT:C110959
-  sequencing instrument menu:
-    name: sequencing instrument menu
+  SequencingInstrumentMenu:
+    name: SequencingInstrumentMenu
+    title: sequencing instrument menu
     permissible_values:
       Illumina:
         text: Illumina
@@ -2206,8 +2228,9 @@ enums:
         text: MGI DNBSEQ-G50
         meaning: GENEPIO:0100150
         is_a: MGI
-  sequenced by menu:
-    name: sequenced by menu
+  SequencedByMenu:
+    name: SequencedByMenu
+    title: sequenced by menu
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
@@ -2239,8 +2262,9 @@ enums:
         text: Public Health Ontario (PHO)
       Saskatchewan - Roy Romanow Provincial Laboratory (RRPL):
         text: Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)
-  sequence submitted by menu:
-    name: sequence submitted by menu
+  SequenceSubmittedByMenu:
+    name: SequenceSubmittedByMenu
+    title: sequence submitted by menu
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
@@ -2294,8 +2318,9 @@ enums:
         text: Sunnybrook Health Sciences Centre
       Thunder Bay Regional Health Sciences Centre:
         text: Thunder Bay Regional Health Sciences Centre
-  sample collected by menu:
-    name: sample collected by menu
+  SampleCollectedByMenu:
+    name: SampleCollectedByMenu
+    title: sample collected by menu
     permissible_values:
       Alberta Precision Labs (APL):
         text: Alberta Precision Labs (APL)
@@ -2365,8 +2390,9 @@ enums:
         text: Unity Health Toronto
       William Osler Health System:
         text: William Osler Health System
-  geo_loc_name (country) menu:
-    name: geo_loc_name (country) menu
+  GeoLocNameCountryMenu:
+    name: GeoLocNameCountryMenu
+    title: geo_loc_name (country) menu
     permissible_values:
       Afghanistan:
         text: Afghanistan
