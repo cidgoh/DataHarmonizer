@@ -40,21 +40,7 @@
     "UmbrellaBioprojectAccessionMenu": {
       "name": "UmbrellaBioprojectAccessionMenu",
       "title": "Menu « Accès au bioprojet cadre »",
-      "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "permissible_values": {
-        "day 1": {
-          "text": "day 1",
-          "title": "Jour 1"
-        },
-        "day 8": {
-          "text": "day 8",
-          "title": "Jour 8"
-        },
-        "day 10": {
-          "text": "day 10",
-          "title": "Jour 10"
-        }
-      }
+      "from_schema": "https://example.com/CanCOGeN_Covid-19"
     },
     "NullValueMenu": {
       "name": "NullValueMenu",
@@ -2295,6 +2281,11 @@
         }
       }
     },
+    "HostDiseaseMenu": {
+      "name": "HostDiseaseMenu",
+      "title": "Menu « Maladie de l’hôte »",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19"
+    },
     "HostAgeBinMenu": {
       "name": "HostAgeBinMenu",
       "title": "Menu « Groupe d’âge de l’hôte »",
@@ -2855,6 +2846,25 @@
         "Land": {
           "text": "Land",
           "title": "Voie terrestre"
+        }
+      }
+    },
+    "BorderTestingTestDayTypeMenu": {
+      "name": "BorderTestingTestDayTypeMenu",
+      "title": "Menu « Jour du dépistage à la frontière »",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "permissible_values": {
+        "day 1": {
+          "text": "day 1",
+          "title": "Jour 1"
+        },
+        "day 8": {
+          "text": "day 8",
+          "title": "Jour 8"
+        },
+        "day 10": {
+          "text": "day 10",
+          "title": "Jour 10"
         }
       }
     },
