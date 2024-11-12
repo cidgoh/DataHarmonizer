@@ -614,7 +614,7 @@ lab host menu	LabHostMenu	Menu « Laboratoire hôte »	GENEPIO:0100041	293/ACE
 			GENEPIO:0100044			VeroE6/TMPRSS2 cell line					Lignée cellulaire VeroE6/TMPRSS2								
 																			
 																			
-host disease menu	HostDiseaseMenu	Menu « Maladie de l’hôte »	MONDO:0100096	COVID-19					COVID-19										
+host disease menu	UmbrellaBioprojectAccessionMenu	Menu « Maladie de l’hôte »	MONDO:0100096	COVID-19					COVID-19										
 																			
 																			
 host age bin menu	HostAgeBinMenu	Menu « Groupe d’âge de l’hôte »	GENEPIO:0100049	0 - 9					0 - 9										
@@ -778,7 +778,7 @@ travel point of entry type menu	TravelPointOfEntryTypeMenu	Menu «  Type de poi
 			GENEPIO:0100409	Land					Voie terrestre										
 																			
 																			
-border testing test day type menu	BorderTestingTestDayTypeMenu	Menu « Jour du dépistage à la frontière »	GENEPIO:0100410	day 1					Jour 1										
+border testing test day type menu	UmbrellaBioprojectAccessionMenu	Menu « Jour du dépistage à la frontière »	GENEPIO:0100410	day 1					Jour 1										
 			GENEPIO:0100411	day 8					Jour 8										
 			GENEPIO:0100412	day 10					Jour 10										
 																			

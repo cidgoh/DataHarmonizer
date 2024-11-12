@@ -9,113 +9,9 @@
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
     },
-    "BTO": {
-      "prefix_prefix": "BTO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/BTO_"
-    },
-    "CIDO": {
-      "prefix_prefix": "CIDO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/CIDO_"
-    },
-    "CLO": {
-      "prefix_prefix": "CLO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/CLO_"
-    },
-    "DOID": {
-      "prefix_prefix": "DOID",
-      "prefix_reference": "http://purl.obolibrary.org/obo/DOID_"
-    },
-    "ECTO": {
-      "prefix_prefix": "ECTO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/ECTO_"
-    },
-    "EFO": {
-      "prefix_prefix": "EFO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/EFO_"
-    },
-    "ENVO": {
-      "prefix_prefix": "ENVO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/ENVO_"
-    },
-    "FOODON": {
-      "prefix_prefix": "FOODON",
-      "prefix_reference": "http://purl.obolibrary.org/obo/FOODON_"
-    },
-    "GAZ": {
-      "prefix_prefix": "GAZ",
-      "prefix_reference": "http://purl.obolibrary.org/obo/GAZ_"
-    },
     "GENEPIO": {
       "prefix_prefix": "GENEPIO",
       "prefix_reference": "http://purl.obolibrary.org/obo/GENEPIO_"
-    },
-    "GSSO": {
-      "prefix_prefix": "GSSO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/GSSO_"
-    },
-    "HP": {
-      "prefix_prefix": "HP",
-      "prefix_reference": "http://purl.obolibrary.org/obo/HP_"
-    },
-    "IDO": {
-      "prefix_prefix": "IDO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/IDO_"
-    },
-    "MP": {
-      "prefix_prefix": "MP",
-      "prefix_reference": "http://purl.obolibrary.org/obo/MP_"
-    },
-    "MMO": {
-      "prefix_prefix": "MMO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/MMO_"
-    },
-    "MONDO": {
-      "prefix_prefix": "MONDO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/MONDO_"
-    },
-    "MPATH": {
-      "prefix_prefix": "MPATH",
-      "prefix_reference": "http://purl.obolibrary.org/obo/MPATH_"
-    },
-    "NCIT": {
-      "prefix_prefix": "NCIT",
-      "prefix_reference": "http://purl.obolibrary.org/obo/NCIT_"
-    },
-    "NCBITaxon": {
-      "prefix_prefix": "NCBITaxon",
-      "prefix_reference": "http://purl.obolibrary.org/obo/NCBITaxon_"
-    },
-    "NBO": {
-      "prefix_prefix": "NBO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/NBO_"
-    },
-    "OBI": {
-      "prefix_prefix": "OBI",
-      "prefix_reference": "http://purl.obolibrary.org/obo/OBI_"
-    },
-    "OMRSE": {
-      "prefix_prefix": "OMRSE",
-      "prefix_reference": "http://purl.obolibrary.org/obo/OMRSE_"
-    },
-    "PCO": {
-      "prefix_prefix": "PCO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/PCO_"
-    },
-    "TRANS": {
-      "prefix_prefix": "TRANS",
-      "prefix_reference": "http://purl.obolibrary.org/obo/TRANS_"
-    },
-    "UBERON": {
-      "prefix_prefix": "UBERON",
-      "prefix_reference": "http://purl.obolibrary.org/obo/UBERON_"
-    },
-    "UO": {
-      "prefix_prefix": "UO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/UO_"
-    },
-    "VO": {
-      "prefix_prefix": "VO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/VO_"
     },
     "xsd": {
       "prefix_prefix": "xsd",
@@ -3023,14 +2919,7 @@
           "text": "VeroE6/TMPRSS2 cell line",
           "meaning": "GENEPIO:0100044",
           "is_a": "Vero E6 cell line"
-        }
-      }
-    },
-    "HostDiseaseMenu": {
-      "name": "HostDiseaseMenu",
-      "title": "host disease menu",
-      "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "permissible_values": {
+        },
         "COVID-19": {
           "text": "COVID-19",
           "meaning": "MONDO:0100096"
@@ -3780,14 +3669,7 @@
         "Land": {
           "text": "Land",
           "meaning": "GENEPIO:0100409"
-        }
-      }
-    },
-    "BorderTestingTestDayTypeMenu": {
-      "name": "BorderTestingTestDayTypeMenu",
-      "title": "border testing test day type menu",
-      "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "permissible_values": {
+        },
         "day 1": {
           "text": "day 1",
           "meaning": "GENEPIO:0100410"
@@ -6157,10 +6039,6 @@
       "name": "sample_received_date",
       "description": "The date on which the sample was received.",
       "title": "sample received date",
-      "todos": [
-        ">={sample_collection_date}",
-        "<={today}"
-      ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
       ],
@@ -7317,9 +7195,6 @@
       "name": "symptom_onset_date",
       "description": "The date on which the symptoms began or were first noted.",
       "title": "symptom onset date",
-      "todos": [
-        "<={today}"
-      ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
       ],
@@ -7536,9 +7411,6 @@
       "name": "vaccination_dose_1_vaccination_date",
       "description": "The date the first dose of a vaccine was administered.",
       "title": "vaccination dose 1 vaccination date",
-      "todos": [
-        "<={today}"
-      ],
       "comments": [
         "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -7597,9 +7469,6 @@
       "name": "vaccination_dose_2_vaccination_date",
       "description": "The date the second dose of a vaccine was administered.",
       "title": "vaccination dose 2 vaccination date",
-      "todos": [
-        "<={today}"
-      ],
       "comments": [
         "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -7658,9 +7527,6 @@
       "name": "vaccination_dose_3_vaccination_date",
       "description": "The date the third dose of a vaccine was administered.",
       "title": "vaccination dose 3 vaccination date",
-      "todos": [
-        "<={today}"
-      ],
       "comments": [
         "Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -7719,9 +7585,6 @@
       "name": "vaccination_dose_4_vaccination_date",
       "description": "The date the fourth dose of a vaccine was administered.",
       "title": "vaccination dose 4 vaccination date",
-      "todos": [
-        "<={today}"
-      ],
       "comments": [
         "Provide the date the fourth dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -7887,9 +7750,6 @@
       "name": "most_recent_travel_departure_date",
       "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
       "title": "most recent travel departure date",
-      "todos": [
-        "<={today}"
-      ],
       "comments": [
         "Provide the travel departure date."
       ],
@@ -7920,10 +7780,6 @@
       "name": "most_recent_travel_return_date",
       "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
       "title": "most recent travel return date",
-      "todos": [
-        ">={most_recent_travel_departure_date}",
-        "<={today}"
-      ],
       "comments": [
         "Provide the travel return date."
       ],
@@ -8250,9 +8106,6 @@
       "name": "prior_sarscov2_infection_date",
       "description": "The date of diagnosis of the prior SARS-CoV-2 infection.",
       "title": "prior SARS-CoV-2 infection date",
-      "todos": [
-        "<={today}"
-      ],
       "comments": [
         "Provide the date that the most recent prior infection was diagnosed. Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -8415,8 +8268,7 @@
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
       "todos": [
-        ">={sample_collection_date}",
-        "<={today}"
+        ">={sample_collection_date}"
       ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -10945,10 +10797,6 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
-          "todos": [
-            ">={sample_collection_date}",
-            "<={today}"
-          ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
           ],
@@ -12253,9 +12101,6 @@
           "name": "symptom_onset_date",
           "description": "The date on which the symptoms began or were first noted.",
           "title": "symptom onset date",
-          "todos": [
-            "<={today}"
-          ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
           ],
@@ -12500,9 +12345,6 @@
           "name": "vaccination_dose_1_vaccination_date",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
-          "todos": [
-            "<={today}"
-          ],
           "comments": [
             "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -12569,9 +12411,6 @@
           "name": "vaccination_dose_2_vaccination_date",
           "description": "The date the second dose of a vaccine was administered.",
           "title": "vaccination dose 2 vaccination date",
-          "todos": [
-            "<={today}"
-          ],
           "comments": [
             "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -12638,9 +12477,6 @@
           "name": "vaccination_dose_3_vaccination_date",
           "description": "The date the third dose of a vaccine was administered.",
           "title": "vaccination dose 3 vaccination date",
-          "todos": [
-            "<={today}"
-          ],
           "comments": [
             "Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -12707,9 +12543,6 @@
           "name": "vaccination_dose_4_vaccination_date",
           "description": "The date the fourth dose of a vaccine was administered.",
           "title": "vaccination dose 4 vaccination date",
-          "todos": [
-            "<={today}"
-          ],
           "comments": [
             "Provide the date the fourth dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -12899,9 +12732,6 @@
           "name": "most_recent_travel_departure_date",
           "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
           "title": "most recent travel departure date",
-          "todos": [
-            "<={today}"
-          ],
           "comments": [
             "Provide the travel departure date."
           ],
@@ -12936,10 +12766,6 @@
           "name": "most_recent_travel_return_date",
           "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
           "title": "most recent travel return date",
-          "todos": [
-            ">={most_recent_travel_departure_date}",
-            "<={today}"
-          ],
           "comments": [
             "Provide the travel return date."
           ],
@@ -13314,9 +13140,6 @@
           "name": "prior_sarscov2_infection_date",
           "description": "The date of diagnosis of the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 infection date",
-          "todos": [
-            "<={today}"
-          ],
           "comments": [
             "Provide the date that the most recent prior infection was diagnosed. Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -13503,8 +13326,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}",
-            "<={today}"
+            ">={sample_collection_date}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."

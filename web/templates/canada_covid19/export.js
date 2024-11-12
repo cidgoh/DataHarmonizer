@@ -89,8 +89,8 @@ export default {
       const outputMatrix = [[...ExportHeaders.keys()]];
 
       const numeric_datatypes = new Set([
-        'xs:nonNegativeInteger',
-        'xs:decimal',
+        'xsd:nonNegativeInteger',
+        'xsd:decimal',
       ]);
 
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
@@ -113,7 +113,7 @@ export default {
 
             if (headerName == 'study_id') {
               // Autopopulate study_id based on studyMap
-              const lab = inputRow[sourceFieldNameMap['sequence submitted by']];
+              const lab = inputRow[sourceFieldNameMap['sequence_submitted_by']];
               if (lab && lab in studyMap) {
                 value = studyMap[lab];
               }
@@ -263,6 +263,7 @@ export default {
             ':',
             'BIOSAMPLE'
           );
+          // Note: isolation_source may be populated with Null Value parts.
           outputRow.push(value);
         }
         outputMatrix.push(outputRow);
@@ -292,7 +293,7 @@ export default {
         ['Submitter', []], // submitter
         ['FASTA filename', []], // fn
         ['Virus name', []], // covv_virus_name
-        ['Type', []], // covv_type
+        ['Type', []], // covv_type  // Not in MPox GSAID.
         ['Passage details/history', []], // covv_passage
         ['Collection date', []], // covv_collection_date
         ['Location', []], // covv_location
@@ -309,14 +310,14 @@ export default {
         ['Treatment', []], // covv_treatment
         ['Sequencing technology', []], // covv_seq_technology
         ['Assembly method', []], // covv_assembly_method
-        ['Coverage', []], // covv_coverage
+        ['Coverage', ['depth_of_coverage_value']], // covv_coverage
         ['Originating lab', []], // covv_orig_lab
-        ['Address', []], // covv_orig_lab_addr
+        ['Address', ['sample_collector_contact_address']], // covv_orig_lab_addr
         ['Sample ID given by the sample provider', []], // covv_provider_sample_id
         ['Submitting lab', []], // covv_subm_lab
         // Custom rule: 2nd address points to sequence submitter.
-        ['Address', ['sequence submitter contact address']], // covv_subm_lab_addr
-        ['Sample ID given by the submitting laboratory', []], // covv_subm_sample_id
+        ['Address', ['sequence_submitter_contact_address']], // covv_subm_lab_addr
+        ['Sample ID given by the submitting laboratory', ['specimen_collector_sample_id']], // covv_subm_sample_id
         ['Authors', []], // covv_authors
       ];
 
@@ -325,7 +326,7 @@ export default {
         'submitter',
         'fn',
         'covv_virus_name',
-        'covv_type',
+        'covv_type', // Not in Mpox GSAID
         'covv_passage',
         'covv_collection_date',
         'covv_location',
@@ -354,6 +355,7 @@ export default {
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+
       dh.getHeaderMap(ExportHeaders, sourceFields, 'GISAID');
 
       // Create an export table with target format's headers and remaining rows of data
@@ -382,7 +384,7 @@ export default {
             const field = sourceFields[sourceFieldIndex];
             const standardizedCellVal = mappedCellVal.toLowerCase().trim();
 
-            if (field.fieldName === 'specimen processing') {
+            if (field.name === 'specimen_processing') {
               // Specimen processing is a multi-select field
               const standardizedCellValArr = standardizedCellVal.split(';');
               if (!standardizedCellValArr.includes('virus passage')) continue;
@@ -390,6 +392,7 @@ export default {
               mappedCellVal = 'Virus passage';
             }
 
+            console.log(field.name,field)
             // All null values should be converted to "Unknown"
             if (field.dataStatus) {
               const standardizedDataStatus = field.dataStatus.map((val) =>
@@ -404,7 +407,7 @@ export default {
             }
 
             // Add 'passage number ' prefix to number.
-            if (field.fieldName === 'passage number') {
+            if (field.name === 'passage_number') {
               mappedCellVal = 'passage number ' + mappedCellVal;
             }
 
@@ -460,11 +463,18 @@ export default {
         ['SUBMISSIONS - GISAID Accession ID', []],
         ['CUSTOMER', []],
         ['PH_SEQUENCING_CENTRE', []],
+
         ['HC_COLLECT_DATE', []],
         ['HC_TEXT2', []],
         ['HC_COUNTRY', []],
         ['HC_PROVINCE', []],
         ['HC_CURRENT_ID', []],
+
+
+
+
+
+
         ['RESULT - CANCOGEN_SUBMISSIONS', []],
         ['HC_SAMPLE_CATEGORY', []],
         ['PH_SAMPLING_DETAILS', []],
@@ -501,12 +511,11 @@ export default {
         ['PH_EXPOSURE_DETAILS', []],
         ['PH_HOST_ROLE', []],
         ['PH_REASON_FOR_SEQUENCING', []],
-
         ['PH_REASON_FOR_SEQUENCING_DETAILS', []],
         ['PH_SEQUENCING_DATE', []],
         ['PH_LIBRARY_PREP_KIT', []],
-
         ['PH_INSTRUMENT_CGN', []],
+
         ['PH_TESTING_PROTOCOL', []],
         ['PH_SEQ_PROTOCOL_NAME', []],
         ['PH_RAW_SEQUENCE_METHOD', []],
@@ -527,6 +536,10 @@ export default {
         ['SUBMITTED_RESLT - Gene Target #2 CT Value', []],
         ['SUBMITTED_RESLT - Gene Target #3', []],
         ['SUBMITTED_RESLT - Gene Target #3 CT Value', []],
+
+
+
+
         ['PH_CANCOGEN_AUTHORS', []],
         ['HC_COMMENTS', []],
 
@@ -536,7 +549,8 @@ export default {
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-
+      const sourceFieldTitleMap = dh.getFieldTitleMap(sourceFields);
+      
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'NML_LIMS');
 
@@ -574,7 +588,7 @@ export default {
             // Note: if this field eventually gets null values, then must do
             // field.dataStatus check.
             const value =
-              inputRow[sourceFieldNameMap['signs and symptoms']] || '';
+              inputRow[sourceFieldTitleMap['signs and symptoms']] || '';
             outputRow.push(value ? 'Y' : 'N');
             continue;
           }
@@ -583,9 +597,9 @@ export default {
           // by looking at year or month in "sample collection date precision"
           if (headerName === 'HC_COLLECT_DATE') {
             let value =
-              inputRow[sourceFieldNameMap['sample collection date']] || '';
+              inputRow[sourceFieldTitleMap['sample collection date']] || '';
             const date_unit =
-              inputRow[sourceFieldNameMap['sample collection date precision']];
+              inputRow[sourceFieldTitleMap['sample collection date precision']];
             outputRow.push(dh.setDateChange(date_unit, value, '01'));
             continue;
           }
@@ -601,7 +615,7 @@ export default {
               'environmental material',
               'environmental site',
             ]) {
-              let value = inputRow[sourceFieldNameMap[fieldName]];
+              let value = inputRow[sourceFieldTitleMap[fieldName]];
 
               // Ignore all null value types
               if (!value || null_values.has(value)) {

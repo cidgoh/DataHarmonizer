@@ -1,5 +1,6 @@
 // Adds existing functions/methods to DataHarminizer.
 export default {
+  // NOTE: FUTURE DEV: This has a mixture of sourceFieldNameMap AND sourceFieldTitleMap rules/lookups that should be just moved to sourceFieldNameMap. ALTERNATELY, a new LinkML based vision of converting from source to destination schema class.
   'Dexa to GRDI': {
     fileType: 'xls',
     status: 'published',
@@ -109,15 +110,18 @@ export default {
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      const sourceFieldTitleMap = dh.getFieldTitleMap(sourceFields);
 
       // Fills in the above mapping of export field to source fields (or just set
       // source fields manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'GRDI');
 
+      //console.log("Headers", ExportHeaders, sourceFields);
+
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
-      let normalize = self.initLookup(self);
+      let normalize = self.initLookup();
 
       const inputMatrix = dh.getTrimmedData(dh.hot);
       for (const inputRow of inputMatrix) {
@@ -126,13 +130,15 @@ export default {
           dh,
           inputRow,
           sourceFields,
-          sourceFieldNameMap,
+          sourceFieldTitleMap, // TITLE Map
           normalize,
           preserveCapsFields
         );
 
+
         const outputRow = [];
         for (const headerName of ExportHeaders.keys()) {
+
           // If Export Header field is in RuleDB, set output value from it, and
           // continue.
           // Sometimes fields have been set to 0 length.
@@ -148,14 +154,19 @@ export default {
             continue;
           }
 
+
+          
           // Otherwise apply source (many to one) to target field transform:
           const sources = ExportHeaders.get(headerName);
+
+          //console.log("Header", headerName, headerName in RuleDB, inputRow, sources, sourceFields, sourceFieldNameMap)
+
           let value = dh.getMappedField(
             headerName,
             inputRow,
             sources,
             sourceFields,
-            sourceFieldNameMap,
+            sourceFieldNameMap, // NAME Map
             ';',
             'GRDI'
           );
@@ -191,6 +202,59 @@ export default {
 
       return value.join(';');
     },
+
+
+    /**
+     * Get a dictionary of empty arrays for each ExportHeader field
+     * FUTURE: enable it to work with hierarchic vocabulary lists
+     *
+     * @param {Array<String>} sourceRow array of values to be exported.
+     * @param {Array<String>} sourceFields list of source fields to examine for mappings.
+     * @param {Array<Array>} RuleDB list of export fields modified by rules.
+     * @param {Array<Array>} fields list of export fields modified by rules.
+     * @param {Array<Integer>} titleMap map of field names to column index.
+     * @param {String} prefix of export format to examine.
+     * @return {Array<Object>} fields Dictionary of all fields.
+     */
+
+    getRowMap: function (dh, sourceRow, ruleSourceFieldNames, RuleDB, fields, titleMap, prefix) {
+      for (const title of ruleSourceFieldNames) {
+        const sourceIndex = titleMap[title];
+        let value = sourceRow[sourceIndex]; // All text values.
+        // Sets source field to data value so that rules can reference it easily.
+        RuleDB[title] = value;
+        // Check to see if value is in vocabulary of given select field, and if it
+        // has a mapping for export to a GRDI target field above, then set target
+        // to value.
+        if (value && value.length > 0) {
+          let field = fields[sourceIndex];
+          const vocab_list = field['flatVocabulary'];
+          if (vocab_list && vocab_list.includes(value)) {
+            if ('sources' in field) {
+              // FUTURE REVISION: Currently ASSUMES first menu contains value (if multiple) menus.
+              const menu_name = field['sources'][0];
+              const permissible_values = dh.schema.enums[menu_name]['permissible_values'];
+              const term = permissible_values[value];
+              // Looking for 'GRDI' key in choice for example:
+              if ('exportField' in term && prefix in term.exportField) {
+                for (let mapping of term.exportField[prefix]) {
+                  // Here mapping involves a value substitution
+                  if ('value' in mapping) {
+                    value = mapping.value;
+                    // Changed on a copy of data, not handsongrid table
+                    sourceRow[sourceIndex] = value;
+                  }
+                  if ('field' in mapping && mapping['field'] in RuleDB) {
+                    RuleDB[mapping['field']] = value;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
 
     /** Rule-based target field value calculation based on given data row
      * @param {Object} dataRow.
@@ -238,7 +302,7 @@ export default {
       // This will set content of a target field based on data.js vocabulary
       // exportField {'field':[target column],'value':[replacement value]]}
       // mapping if any.
-      dh.getRowMap(
+      this.getRowMap(dh,
         dataRow,
         ruleSourceFieldNames,
         RuleDB,
@@ -247,6 +311,9 @@ export default {
         'GRDI'
       );
 
+      console.log(dataRow, ruleSourceFieldNames, RuleDB, sourceFields,sourceFieldNameMap); 
+
+      // So all rule field values can be referenced in lower case.
       for (let sourceField of Object.keys(RuleDB)) {
         if (RuleDB[sourceField])
           RuleDB[sourceField] = RuleDB[sourceField].toLowerCase();
@@ -254,6 +321,7 @@ export default {
 
       // STTYPE: ANIMAL ENVIRONMENT FOOD HUMAN PRODUCT QA UNKNOWN
       switch (RuleDB.STTYPE) {
+
         case 'animal': {
           // species-> host (common name);
           RuleDB['host (common name)'] = RuleDB.SPECIES;
@@ -265,6 +333,7 @@ export default {
           ) {
             RuleDB.animal_or_plant_population = RuleDB.SPECIES;
           }
+          //console.log("TESTING:RuleDB", RuleDB);
           break; // prevents advancing to FOOD
         }
 
@@ -345,9 +414,10 @@ export default {
      *
      * @return {Object} term normalize lookup table.
      */
-    initLookup: function (self) {
+    initLookup: function () {
       let normalize = {};
-      for (const line of self.LOOKUP.split('\n')) {
+      for (const line of this.LOOKUP.split('\n')) {
+
         let [ontology_id, parent, label, normalization] = line
           .split('\t')
           .map(function (e) {
@@ -810,5 +880,5 @@ FOODON_00002361	food_product	white pepper
 FOODON_03411345	food_product	yeast	
 UBERON_0001040	anatomical_part	yolk sac	
 ENVO_00010625	environmental_site	zoo	pet/zoo; calgary zoo`,
-  },
+  }
 };
