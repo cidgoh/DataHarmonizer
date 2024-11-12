@@ -1,31 +1,7 @@
 {
   "canada_covid19": {
-    "CanCOGeN Covid-19": {
+    "CanCOGeNCovid19": {
       "name": "CanCOGeN Covid-19",
-      "status": "published",
-      "display": true
-    }
-  },
-  "grdi": {
-    "GRDISample": {
-      "name": "GRDISample",
-      "status": "published",
-      "display": true
-    },
-    "AMRTest": {
-      "name": "AMRTest",
-      "status": "published",
-      "display": false
-    },
-    "Container": {
-      "name": "Container",
-      "status": "published",
-      "display": false
-    }
-  },
-  "phac_dexa": {
-    "PHAC Dexa": {
-      "name": "PHAC Dexa",
       "status": "published",
       "display": true
     }
@@ -44,6 +20,20 @@
       "display": true
     }
   },
+  "grdi": {
+    "GRDI": {
+      "name": "GRDI",
+      "status": "published",
+      "display": true
+    }
+  },
+  "phac_dexa": {
+    "PHACDexa": {
+      "name": "PHACDexa",
+      "status": "published",
+      "display": true
+    }
+  },
   "ambr": {
     "AMBR": {
       "name": "AMBR",
@@ -52,7 +42,7 @@
     }
   },
   "pathogen": {
-    "Pathogen Agnostic": {
+    "PathogenAgnostic": {
       "name": "Pathogen Agnostic",
       "status": "published",
       "display": true
@@ -71,8 +61,8 @@
       "status": "published",
       "display": true
     },
-    "Mpox_international": {
-      "name": "Mpox_international",
+    "MpoxInternational": {
+      "name": "MpoxInternational",
       "status": "published",
       "display": true
     }
@@ -94,46 +84,29 @@
       "display": true
     }
   },
-  "schema_editor": {
-    "Schema": {
-      "name": "Schema",
+  "hpai": {
+    "HPAI": {
+      "name": "HPAI",
       "status": "published",
       "display": true
     },
-    "Slot": {
-      "name": "Slot",
+    "HPAIFood": {
+      "name": "HPAIFood",
       "status": "published",
-      "display": false
+      "display": true
     },
-    "Enum": {
-      "name": "Enum",
+    "HPAIWW": {
+      "name": "HPAIWW",
       "status": "published",
-      "display": false
+      "display": true
     },
-    "Class": {
-      "name": "Class",
+    "HPAIEnviro": {
+      "name": "HPAIEnviro",
       "status": "published",
-      "display": false
+      "display": true
     },
-    "SlotUsage": {
-      "name": "SlotUsage",
-      "status": "published",
-      "display": false
-    },
-    "Prefix": {
-      "name": "Prefix",
-      "status": "published",
-      "display": false
-    },
-    "Container": {
-      "name": "Container",
-      "status": "published",
-      "display": false
-    }
-  },
-  "test": {
-    "TEST": {
-      "name": "TEST",
+    "HPAIHost": {
+      "name": "HPAIHost",
       "status": "published",
       "display": true
     }
