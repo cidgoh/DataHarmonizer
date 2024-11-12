@@ -2198,13 +2198,7 @@ slots:
 enums:
   UmbrellaBioprojectAccessionMenu:
     name: UmbrellaBioprojectAccessionMenu
-    permissible_values:
-      day 1:
-        title: Jour 1
-      day 8:
-        title: Jour 8
-      day 10:
-        title: Jour 10
+    permissible_values: {}
     title: "Menu \xAB\_Acc\xE8s au bioprojet cadre\_\xBB"
   NullValueMenu:
     name: NullValueMenu
@@ -3355,6 +3349,10 @@ enums:
       VeroE6/TMPRSS2 cell line:
         title: "Lign\xE9e cellulaire VeroE6/TMPRSS2"
     title: "Menu \xAB\_Laboratoire h\xF4te\_\xBB"
+  HostDiseaseMenu:
+    name: HostDiseaseMenu
+    permissible_values: {}
+    title: "Menu \xAB\_Maladie de l\u2019h\xF4te\_\xBB"
   HostAgeBinMenu:
     name: HostAgeBinMenu
     permissible_values: {}
@@ -3642,6 +3640,16 @@ enums:
       Land:
         title: Voie terrestre
     title: "Menu \xAB\_ Type de point d\u2019entr\xE9e du voyage\_\xBB"
+  BorderTestingTestDayTypeMenu:
+    name: BorderTestingTestDayTypeMenu
+    permissible_values:
+      day 1:
+        title: Jour 1
+      day 8:
+        title: Jour 8
+      day 10:
+        title: Jour 10
+    title: "Menu \xAB\_Jour du d\xE9pistage \xE0 la fronti\xE8re\_\xBB"
   TravelHistoryAvailabilityMenu:
     name: TravelHistoryAvailabilityMenu
     permissible_values:

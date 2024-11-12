@@ -2919,7 +2919,14 @@
           "text": "VeroE6/TMPRSS2 cell line",
           "meaning": "GENEPIO:0100044",
           "is_a": "Vero E6 cell line"
-        },
+        }
+      }
+    },
+    "HostDiseaseMenu": {
+      "name": "HostDiseaseMenu",
+      "title": "host disease menu",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "permissible_values": {
         "COVID-19": {
           "text": "COVID-19",
           "meaning": "MONDO:0100096"
@@ -3669,7 +3676,14 @@
         "Land": {
           "text": "Land",
           "meaning": "GENEPIO:0100409"
-        },
+        }
+      }
+    },
+    "BorderTestingTestDayTypeMenu": {
+      "name": "BorderTestingTestDayTypeMenu",
+      "title": "border testing test day type menu",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "permissible_values": {
         "day 1": {
           "text": "day 1",
           "meaning": "GENEPIO:0100410"
