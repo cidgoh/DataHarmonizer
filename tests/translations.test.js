@@ -1,7 +1,7 @@
 import {
   transformLangFirstSpec,
   transformStructFirstSpec,
-} from '@/lib/utils/i18n'; // Adjust the path
+} from ' ../lib/utils/i18n'; // Adjust the path
 
 describe('transformLangFirstSpec', () => {
   it('should transform a source object into the correct format', () => {

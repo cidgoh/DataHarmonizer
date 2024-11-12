@@ -5,7 +5,7 @@ import {
   formatMultivaluedValue,
   REMOVE,
   JSON_SCHEMA_FORMAT,
-} from '@/lib/utils/fields';
+} from '../lib/utils/fields';
 
 const fields = [
   {
