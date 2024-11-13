@@ -31,7 +31,7 @@
     "build:lib": "yarn clean:lib && rollup --config lib/rollup.config.js",
     "build:web": "yarn clean:web && webpack --mode=production --config web/webpack.config.js",
     "dev": "webpack serve --mode=development --config web/webpack.config.js",
-    "flightcheck": "yarn format && yarn lint && yarn test",
+    "flightcheck": "yarn format && yarn lint ; yarn test",
     "test": "jest tests/"
   },
   "peerDependencies": {
