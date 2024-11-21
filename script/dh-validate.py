@@ -53,6 +53,9 @@ from linkml_runtime.utils.schemaview import SchemaView
 from linkml_runtime.dumpers.yaml_dumper import YAMLDumper
 import subprocess
 
+BOOLEANS = {'y':1, 'yes':1, 't':1, 'true':1, 'on':1, '1':1,
+ 'n':0, 'no':0, 'f':0, 'false':0, 'off':0, '0':0}
+
 def init_parser():
 
 	parser = argparse.ArgumentParser(
@@ -74,11 +77,12 @@ def init_parser():
 		required=False, 
 	  help="A schema class to test given data file against.");
 
-	parser.add_argument("-S", "--index-slot", 
-		dest="index_slot", 
-		metavar="TEXT",
-		required=False, 
-	  help="A slot within target class which acts as an identifier or unique key. This is required for CSV dumping/loading.  It is optional when this slot can be identified automatically as the only identifier or unique_key in the slot.");
+
+	#parser.add_argument("-S", "--index-slot", 
+	#	dest="index_slot", 
+	#	metavar="TEXT",
+	#	required=False, 
+	#	help="A slot within target class which acts as an identifier or unique key. This is required for CSV dumping/loading.  It is optional when this slot can be identified automatically as the only identifier or unique_key in the slot.");
 
 	parser.add_argument('data_sources', 
 		metavar='DATA_SOURCES', 
@@ -142,10 +146,10 @@ def getTargetClass(SCHEMA, target_class, slot_key = None):
 
 			break;
 
-	if not found: 
-		exit("Target class [" + target_class + "] does not have an identifier or key slot!");
+	#if not found: 
+	#	exit("Target class [" + target_class + "] does not have an identifier or key slot!");
 
-	print ("index:", slot_key);
+	print ("Identifier slot:", slot_key);
 	return (target_class, slot_key);
 
 
@@ -392,6 +396,9 @@ def getLinkMLTransform(SCHEMA, template, row_data):
 			# datatype
 			for slot_range in ranges:
 				match slot_range:
+					case 'boolean':
+						if val.lower() in BOOLEANS:
+							output_val = bool(BOOLEANS[val.lower()]);
 					case 'integer': 
 						if isInteger(val): 
 							output_val = int(val);
