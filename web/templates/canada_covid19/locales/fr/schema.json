@@ -3,7 +3,7 @@
   "description": "",
   "in_language": "fr",
   "id": "https://example.com/CanCOGeN_Covid-19",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "imports": [
     "linkml:types"
   ],
