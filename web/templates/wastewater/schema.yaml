@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
 name: Wastewater
 description: ''
-version: 3.1.1
+version: 4.1.1
 imports:
 - linkml:types
 prefixes:
@@ -1079,6 +1079,7 @@ classes:
     - amr_reference_database_name
     - amr_reference_database_version
     - amr_analysis_report_filename
+    - target_taxonomic_name_1
     - assay_target_name_1
     - assay_target_details
     - gene_symbol_1
@@ -1680,14 +1681,17 @@ classes:
       amr_analysis_report_filename:
         rank: 189
         slot_group: AMR detection information
-      assay_target_name_1:
+      target_taxonomic_name_1:
         rank: 190
         slot_group: Pathogen diagnostic testing
-      assay_target_details:
+      assay_target_name_1:
         rank: 191
         slot_group: Pathogen diagnostic testing
-      gene_symbol_1:
+      assay_target_details:
         rank: 192
+        slot_group: Pathogen diagnostic testing
+      gene_symbol_1:
+        rank: 193
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. Standardized
           gene names can be found in the Gene Ontology using this look-up service:
@@ -1698,25 +1702,25 @@ classes:
         - range: WhitespaceMinimizedString
         - range: NullValueMenu
       diagnostic_target_presence_1:
-        rank: 193
-        slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_value_1:
         rank: 194
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_unit_1:
+      diagnostic_measurement_value_1:
         rank: 195
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_method_1:
+      diagnostic_measurement_unit_1:
         rank: 196
         slot_group: Pathogen diagnostic testing
-      assay_target_name_2:
+      diagnostic_measurement_method_1:
         rank: 197
         slot_group: Pathogen diagnostic testing
-      assay_target_details_2:
+      assay_target_name_2:
         rank: 198
         slot_group: Pathogen diagnostic testing
-      gene_symbol_2:
+      assay_target_details_2:
         rank: 199
+        slot_group: Pathogen diagnostic testing
+      gene_symbol_2:
+        rank: 200
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. Standardized
           gene names can be found in the Gene Ontology using this look-up service:
@@ -1727,25 +1731,25 @@ classes:
         - range: WhitespaceMinimizedString
         - range: NullValueMenu
       diagnostic_target_presence_2:
-        rank: 200
-        slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_value_2:
         rank: 201
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_unit_2:
+      diagnostic_measurement_value_2:
         rank: 202
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_method_2:
+      diagnostic_measurement_unit_2:
         rank: 203
         slot_group: Pathogen diagnostic testing
-      assay_target_name_3:
+      diagnostic_measurement_method_2:
         rank: 204
         slot_group: Pathogen diagnostic testing
-      assay_target_details_3:
+      assay_target_name_3:
         rank: 205
         slot_group: Pathogen diagnostic testing
-      gene_symbol_3:
+      assay_target_details_3:
         rank: 206
+        slot_group: Pathogen diagnostic testing
+      gene_symbol_3:
+        rank: 207
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. Standardized
           gene names can be found in the Gene Ontology using this look-up service:
@@ -1756,16 +1760,16 @@ classes:
         - range: WhitespaceMinimizedString
         - range: NullValueMenu
       diagnostic_target_presence_3:
-        rank: 207
-        slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_value_3:
         rank: 208
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_unit_3:
+      diagnostic_measurement_value_3:
         rank: 209
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_method_3:
+      diagnostic_measurement_unit_3:
         rank: 210
+        slot_group: Pathogen diagnostic testing
+      diagnostic_measurement_method_3:
+        rank: 211
         slot_group: Pathogen diagnostic testing
   WastewaterPathogenAgnostic:
     name: WastewaterPathogenAgnostic
@@ -1982,6 +1986,7 @@ classes:
     - taxonomic_analysis_report_filename
     - taxonomic_analysis_date
     - read_mapping_criteria
+    - target_taxonomic_name_1
     - assay_target_name_1
     - assay_target_details
     - gene_symbol_1
@@ -2639,14 +2644,17 @@ classes:
       read_mapping_criteria:
         rank: 208
         slot_group: Taxonomic identification information
-      assay_target_name_1:
+      target_taxonomic_name_1:
         rank: 209
         slot_group: Pathogen diagnostic testing
-      assay_target_details:
+      assay_target_name_1:
         rank: 210
         slot_group: Pathogen diagnostic testing
-      gene_symbol_1:
+      assay_target_details:
         rank: 211
+        slot_group: Pathogen diagnostic testing
+      gene_symbol_1:
+        rank: 212
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. Standardized
           gene names can be found in the Gene Ontology using this look-up service:
@@ -2657,25 +2665,25 @@ classes:
         - range: WhitespaceMinimizedString
         - range: NullValueMenu
       diagnostic_target_presence_1:
-        rank: 212
-        slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_value_1:
         rank: 213
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_unit_1:
+      diagnostic_measurement_value_1:
         rank: 214
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_method_1:
+      diagnostic_measurement_unit_1:
         rank: 215
         slot_group: Pathogen diagnostic testing
-      assay_target_name_2:
+      diagnostic_measurement_method_1:
         rank: 216
         slot_group: Pathogen diagnostic testing
-      assay_target_details_2:
+      assay_target_name_2:
         rank: 217
         slot_group: Pathogen diagnostic testing
-      gene_symbol_2:
+      assay_target_details_2:
         rank: 218
+        slot_group: Pathogen diagnostic testing
+      gene_symbol_2:
+        rank: 219
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. Standardized
           gene names can be found in the Gene Ontology using this look-up service:
@@ -2686,25 +2694,25 @@ classes:
         - range: WhitespaceMinimizedString
         - range: NullValueMenu
       diagnostic_target_presence_2:
-        rank: 219
-        slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_value_2:
         rank: 220
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_unit_2:
+      diagnostic_measurement_value_2:
         rank: 221
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_method_2:
+      diagnostic_measurement_unit_2:
         rank: 222
         slot_group: Pathogen diagnostic testing
-      assay_target_name_3:
+      diagnostic_measurement_method_2:
         rank: 223
         slot_group: Pathogen diagnostic testing
-      assay_target_details_3:
+      assay_target_name_3:
         rank: 224
         slot_group: Pathogen diagnostic testing
-      gene_symbol_3:
+      assay_target_details_3:
         rank: 225
+        slot_group: Pathogen diagnostic testing
+      gene_symbol_3:
+        rank: 226
         slot_group: Pathogen diagnostic testing
         comments: 'Provide the full name of the gene used in the test. Standardized
           gene names can be found in the Gene Ontology using this look-up service:
@@ -2715,16 +2723,16 @@ classes:
         - range: WhitespaceMinimizedString
         - range: NullValueMenu
       diagnostic_target_presence_3:
-        rank: 226
-        slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_value_3:
         rank: 227
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_unit_3:
+      diagnostic_measurement_value_3:
         rank: 228
         slot_group: Pathogen diagnostic testing
-      diagnostic_measurement_method_3:
+      diagnostic_measurement_unit_3:
         rank: 229
+        slot_group: Pathogen diagnostic testing
+      diagnostic_measurement_method_3:
+        rank: 230
         slot_group: Pathogen diagnostic testing
 slots:
   specimen_collector_sample_id:
@@ -4787,6 +4795,7 @@ slots:
     - value: whole genome sequencing assay
     exact_mappings:
     - NCBI_SRA:library_strategy
+    - NCBI_SRA:%20library_source
   library_preparation_kit:
     name: library_preparation_kit
     title: library preparation kit
@@ -4810,6 +4819,8 @@ slots:
     recommended: true
     examples:
     - value: https://www.protocols.io/view/ncov-2019-sequencing-protocol-bbmuik6w?version_warning=no
+    exact_mappings:
+    - NCBI_SRA:design_description
   dna_fragment_length:
     name: dna_fragment_length
     title: DNA fragment length
@@ -4836,6 +4847,7 @@ slots:
     - value: hybrid selection method
     exact_mappings:
     - NCBI_SRA:library_selection
+    - NCBI_SRA:%20design_description
   genomic_target_enrichment_method_details:
     name: genomic_target_enrichment_method_details
     title: genomic target enrichment method details
@@ -4996,6 +5008,8 @@ slots:
     - range: NullValueMenu
     examples:
     - value: mpxvassembly.fasta
+    exact_mappings:
+    - NCBI_SRA:filename
   genome_sequence_file_path:
     name: genome_sequence_file_path
     title: genome sequence file path
@@ -5399,6 +5413,21 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: aggregated-WWSC2-ABC-b_1234.tsv
+  target_taxonomic_name_1:
+    name: target_taxonomic_name_1
+    title: target taxonomic name 1
+    description: The scientific name of the organism or taxon that is the focus of
+      the study, assay, or diagnostic test.
+    comments: 'The target taxonomic name refers to the specific species, genus, or
+      other taxonomic classification that the assay or diagnostic test is designed
+      to identify, detect, or characterize. This may include the full binomial name
+      (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level
+      identification is not applicable.  Avoid abbreviations. Search for taxonomic
+      names here: ncbi.nlm.nih.gov/taxonomy.'
+    slot_uri: GENEPIO:0102049
+    range: WhitespaceMinimizedString
+    exact_mappings:
+    - NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1
   assay_target_name_1:
     name: assay_target_name_1
     title: assay target name 1
@@ -5407,7 +5436,7 @@ slots:
       in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions,
       or other genetic elements that serve as a marker for detecting the presence
       of a pathogen or other relevant entities.
-    slot_uri: GENEPIO:0101206
+    slot_uri: GENEPIO:0102052
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
@@ -5486,6 +5515,7 @@ slots:
       in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions,
       or other genetic elements that serve as a marker for detecting the presence
       of a pathogen or other relevant entities.
+    slot_uri: GENEPIO:0102038
     range: WhitespaceMinimizedString
   assay_target_details_2:
     name: assay_target_details_2
@@ -5493,11 +5523,13 @@ slots:
     description: Describe any details of the assay target.
     comments: Provide details that are applicable to the assay used for the diagnostic
       test.
+    slot_uri: GENEPIO:0102046
     range: WhitespaceMinimizedString
   gene_symbol_2:
     name: gene_symbol_2
     title: gene symbol 2
     description: The symbol of the gene used in the diagnostic RT-PCR test.
+    slot_uri: GENEPIO:0102042
     exact_mappings:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_gene
   diagnostic_target_presence_2:
@@ -5556,6 +5588,7 @@ slots:
       in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions,
       or other genetic elements that serve as a marker for detecting the presence
       of a pathogen or other relevant entities.
+    slot_uri: GENEPIO:0102039
     range: WhitespaceMinimizedString
   assay_target_details_3:
     name: assay_target_details_3
@@ -5563,11 +5596,13 @@ slots:
     description: Describe any details of the assay target.
     comments: Provide details that are applicable to the assay used for the diagnostic
       test.
+    slot_uri: GENEPIO:0102047
     range: WhitespaceMinimizedString
   gene_symbol_3:
     name: gene_symbol_3
     title: gene symbol 3
     description: The symbol of the gene used in the diagnostic RT-PCR test.
+    slot_uri: GENEPIO:0102043
   diagnostic_target_presence_3:
     name: diagnostic_target_presence_3
     title: diagnostic target presence 3
@@ -9490,10 +9525,6 @@ enums:
         description: A non-SI unit of density that is a thousand kilograms per cubic
           meter.
         meaning: UO:0000175
-  total nitrogen (TN) measurement unit menu:
-    name: total nitrogen (TN) measurement unit menu
-    title: total nitrogen (TN) measurement unit menu
-    permissible_values:
       gram per total solids (g/gTS):
         text: gram per total solids (g/gTS)
         description: A unitless comparison of the weight of a substance as a proportion
@@ -9786,7 +9817,7 @@ enums:
         description: A DNA sequencer manufactured by the Illumina corporation.
         meaning: GENEPIO:0100105
         exact_mappings:
-        - NCBI_SRA:ILLUMINA
+        - NCBI_SRA:%23REF%21
       Illumina Genome Analyzer [GENEPIO:0100106]:
         text: Illumina Genome Analyzer [GENEPIO:0100106]
         description: A DNA sequencer manufactured by Solexa as one of its first sequencer

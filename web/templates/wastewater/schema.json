@@ -2,7 +2,7 @@
   "name": "Wastewater",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "3.1.1",
+  "version": "4.1.1",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -3234,14 +3234,7 @@
           "text": "gram per liter (g/L) [UO:0000175]",
           "description": "A non-SI unit of density that is a thousand kilograms per cubic meter.",
           "meaning": "UO:0000175"
-        }
-      }
-    },
-    "total nitrogen (TN) measurement unit menu": {
-      "name": "total nitrogen (TN) measurement unit menu",
-      "title": "total nitrogen (TN) measurement unit menu",
-      "from_schema": "https://example.com/GRDI",
-      "permissible_values": {
+        },
         "gram per total solids (g/gTS)": {
           "text": "gram per total solids (g/gTS)",
           "description": "A unitless comparison of the weight of a substance as a proportion to the weight of total solids."
@@ -3587,7 +3580,7 @@
           "description": "A DNA sequencer manufactured by the Illumina corporation.",
           "meaning": "GENEPIO:0100105",
           "exact_mappings": [
-            "NCBI_SRA:ILLUMINA"
+            "NCBI_SRA:%23REF%21"
           ]
         },
         "Illumina Genome Analyzer [GENEPIO:0100106]": {
@@ -8796,7 +8789,8 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "NCBI_SRA:library_strategy"
+        "NCBI_SRA:library_strategy",
+        "NCBI_SRA:%20library_source"
       ],
       "slot_uri": "GENEPIO:0100997",
       "domain_of": [
@@ -8851,6 +8845,9 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "NCBI_SRA:design_description"
+      ],
       "slot_uri": "GENEPIO:0001454",
       "domain_of": [
         "WastewaterSARS-CoV-2",
@@ -8894,7 +8891,8 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "NCBI_SRA:library_selection"
+        "NCBI_SRA:library_selection",
+        "NCBI_SRA:%20design_description"
       ],
       "slot_uri": "GENEPIO:0100966",
       "domain_of": [
@@ -9199,6 +9197,9 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "NCBI_SRA:filename"
+      ],
       "slot_uri": "GENEPIO:0101715",
       "domain_of": [
         "WastewaterSARS-CoV-2",
@@ -10037,6 +10038,24 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
+    "target_taxonomic_name_1": {
+      "name": "target_taxonomic_name_1",
+      "description": "The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.",
+      "title": "target taxonomic name 1",
+      "comments": [
+        "The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1"
+      ],
+      "slot_uri": "GENEPIO:0102049",
+      "domain_of": [
+        "WastewaterAMR",
+        "WastewaterPathogenAgnostic"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
     "assay_target_name_1": {
       "name": "assay_target_name_1",
       "description": "The name of the assay target used in the diagnostic RT-PCR test.",
@@ -10045,7 +10064,7 @@
         "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
       ],
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0101206",
+      "slot_uri": "GENEPIO:0102052",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -10213,6 +10232,7 @@
         "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
       ],
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0102038",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -10228,6 +10248,7 @@
         "Provide details that are applicable to the assay used for the diagnostic test."
       ],
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0102046",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -10243,6 +10264,7 @@
       "exact_mappings": [
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_gene"
       ],
+      "slot_uri": "GENEPIO:0102042",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -10367,6 +10389,7 @@
         "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
       ],
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0102039",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -10382,6 +10405,7 @@
         "Provide details that are applicable to the assay used for the diagnostic test."
       ],
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0102047",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -10394,6 +10418,7 @@
       "description": "The symbol of the gene used in the diagnostic RT-PCR test.",
       "title": "gene symbol 3",
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0102043",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -16095,7 +16120,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRA:library_strategy"
+            "NCBI_SRA:library_strategy",
+            "NCBI_SRA:%20library_source"
           ],
           "rank": 152,
           "slot_uri": "GENEPIO:0100997",
@@ -16158,6 +16184,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_SRA:design_description"
+          ],
           "rank": 154,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
@@ -16474,6 +16503,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_SRA:filename"
+          ],
           "rank": 164,
           "slot_uri": "GENEPIO:0101715",
           "alias": "genome_sequence_file_name",
@@ -17103,7 +17135,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 189,
-          "slot_uri": "GENEPIO:0101206",
+          "slot_uri": "GENEPIO:0102052",
           "alias": "assay_target_name_1",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -17315,6 +17347,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 196,
+          "slot_uri": "GENEPIO:0102038",
           "alias": "assay_target_name_2",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -17334,6 +17367,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 197,
+          "slot_uri": "GENEPIO:0102046",
           "alias": "assay_target_details_2",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -17361,6 +17395,7 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_gene"
           ],
           "rank": 198,
+          "slot_uri": "GENEPIO:0102042",
           "alias": "gene_symbol_2",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -17513,6 +17548,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 203,
+          "slot_uri": "GENEPIO:0102039",
           "alias": "assay_target_name_3",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -17532,6 +17568,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 204,
+          "slot_uri": "GENEPIO:0102047",
           "alias": "assay_target_details_3",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -17556,6 +17593,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 205,
+          "slot_uri": "GENEPIO:0102043",
           "alias": "gene_symbol_3",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -18668,14 +18706,19 @@
           "rank": 189,
           "slot_group": "AMR detection information"
         },
+        "target_taxonomic_name_1": {
+          "name": "target_taxonomic_name_1",
+          "rank": 190,
+          "slot_group": "Pathogen diagnostic testing"
+        },
         "assay_target_name_1": {
           "name": "assay_target_name_1",
-          "rank": 190,
+          "rank": 191,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details": {
           "name": "assay_target_details",
-          "rank": 191,
+          "rank": 192,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_1": {
@@ -18688,7 +18731,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 192,
+          "rank": 193,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -18701,32 +18744,32 @@
         },
         "diagnostic_target_presence_1": {
           "name": "diagnostic_target_presence_1",
-          "rank": 193,
+          "rank": 194,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_1": {
           "name": "diagnostic_measurement_value_1",
-          "rank": 194,
+          "rank": 195,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_1": {
           "name": "diagnostic_measurement_unit_1",
-          "rank": 195,
+          "rank": 196,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_1": {
           "name": "diagnostic_measurement_method_1",
-          "rank": 196,
+          "rank": 197,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_name_2": {
           "name": "assay_target_name_2",
-          "rank": 197,
+          "rank": 198,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_2": {
           "name": "assay_target_details_2",
-          "rank": 198,
+          "rank": 199,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_2": {
@@ -18739,7 +18782,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 199,
+          "rank": 200,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -18752,32 +18795,32 @@
         },
         "diagnostic_target_presence_2": {
           "name": "diagnostic_target_presence_2",
-          "rank": 200,
+          "rank": 201,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_2": {
           "name": "diagnostic_measurement_value_2",
-          "rank": 201,
+          "rank": 202,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_2": {
           "name": "diagnostic_measurement_unit_2",
-          "rank": 202,
+          "rank": 203,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_2": {
           "name": "diagnostic_measurement_method_2",
-          "rank": 203,
+          "rank": 204,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_name_3": {
           "name": "assay_target_name_3",
-          "rank": 204,
+          "rank": 205,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_3": {
           "name": "assay_target_details_3",
-          "rank": 205,
+          "rank": 206,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_3": {
@@ -18790,7 +18833,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 206,
+          "rank": 207,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -18803,22 +18846,22 @@
         },
         "diagnostic_target_presence_3": {
           "name": "diagnostic_target_presence_3",
-          "rank": 207,
+          "rank": 208,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_3": {
           "name": "diagnostic_measurement_value_3",
-          "rank": 208,
+          "rank": 209,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_3": {
           "name": "diagnostic_measurement_unit_3",
-          "rank": 209,
+          "rank": 210,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_3": {
           "name": "diagnostic_measurement_method_3",
-          "rank": 210,
+          "rank": 211,
           "slot_group": "Pathogen diagnostic testing"
         }
       },
@@ -23310,7 +23353,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRA:library_strategy"
+            "NCBI_SRA:library_strategy",
+            "NCBI_SRA:%20library_source"
           ],
           "rank": 153,
           "slot_uri": "GENEPIO:0100997",
@@ -23373,6 +23417,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_SRA:design_description"
+          ],
           "rank": 155,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
@@ -23424,7 +23471,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRA:library_selection"
+            "NCBI_SRA:library_selection",
+            "NCBI_SRA:%20design_description"
           ],
           "rank": 157,
           "slot_uri": "GENEPIO:0100966",
@@ -23711,6 +23759,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_SRA:filename"
+          ],
           "rank": 166,
           "slot_uri": "GENEPIO:0101715",
           "alias": "genome_sequence_file_name",
@@ -24319,6 +24370,28 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
+        "target_taxonomic_name_1": {
+          "name": "target_taxonomic_name_1",
+          "description": "The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.",
+          "title": "target taxonomic name 1",
+          "comments": [
+            "The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1"
+          ],
+          "rank": 190,
+          "slot_uri": "GENEPIO:0102049",
+          "alias": "target_taxonomic_name_1",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Pathogen diagnostic testing",
+          "range": "WhitespaceMinimizedString"
+        },
         "assay_target_name_1": {
           "name": "assay_target_name_1",
           "description": "The name of the assay target used in the diagnostic RT-PCR test.",
@@ -24327,8 +24400,8 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 190,
-          "slot_uri": "GENEPIO:0101206",
+          "rank": 191,
+          "slot_uri": "GENEPIO:0102052",
           "alias": "assay_target_name_1",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24354,7 +24427,7 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 191,
+          "rank": 192,
           "slot_uri": "GENEPIO:0102040",
           "alias": "assay_target_details",
           "owner": "WastewaterAMR",
@@ -24379,7 +24452,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 192,
+          "rank": 193,
           "slot_uri": "GENEPIO:0102041",
           "alias": "gene_symbol_1",
           "owner": "WastewaterAMR",
@@ -24414,7 +24487,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1_known_present"
           ],
-          "rank": 193,
+          "rank": 194,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_1",
           "owner": "WastewaterAMR",
@@ -24449,7 +24522,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1_conc"
           ],
-          "rank": 194,
+          "rank": 195,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_1",
           "owner": "WastewaterAMR",
@@ -24477,7 +24550,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1_conc_unit"
           ],
-          "rank": 195,
+          "rank": 196,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_1",
           "owner": "WastewaterAMR",
@@ -24512,7 +24585,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1_protocol"
           ],
-          "rank": 196,
+          "rank": 197,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_1",
           "owner": "WastewaterAMR",
@@ -24539,7 +24612,8 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 197,
+          "rank": 198,
+          "slot_uri": "GENEPIO:0102038",
           "alias": "assay_target_name_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24558,7 +24632,8 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 198,
+          "rank": 199,
+          "slot_uri": "GENEPIO:0102046",
           "alias": "assay_target_details_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24585,7 +24660,8 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_gene"
           ],
-          "rank": 199,
+          "rank": 200,
+          "slot_uri": "GENEPIO:0102042",
           "alias": "gene_symbol_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24619,7 +24695,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_known_present"
           ],
-          "rank": 200,
+          "rank": 201,
           "alias": "diagnostic_target_presence_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24653,7 +24729,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_conc"
           ],
-          "rank": 201,
+          "rank": 202,
           "alias": "diagnostic_measurement_value_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24680,7 +24756,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_conc_unit"
           ],
-          "rank": 202,
+          "rank": 203,
           "alias": "diagnostic_measurement_unit_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24711,7 +24787,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 203,
+          "rank": 204,
           "alias": "diagnostic_measurement_method_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24737,7 +24813,8 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 204,
+          "rank": 205,
+          "slot_uri": "GENEPIO:0102039",
           "alias": "assay_target_name_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24756,7 +24833,8 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 205,
+          "rank": 206,
+          "slot_uri": "GENEPIO:0102047",
           "alias": "assay_target_details_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24780,7 +24858,8 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 206,
+          "rank": 207,
+          "slot_uri": "GENEPIO:0102043",
           "alias": "gene_symbol_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24811,7 +24890,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 207,
+          "rank": 208,
           "alias": "diagnostic_target_presence_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24842,7 +24921,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 208,
+          "rank": 209,
           "alias": "diagnostic_measurement_value_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24866,7 +24945,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 209,
+          "rank": 210,
           "alias": "diagnostic_measurement_unit_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -24897,7 +24976,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 210,
+          "rank": 211,
           "alias": "diagnostic_measurement_method_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -25988,14 +26067,19 @@
           "rank": 208,
           "slot_group": "Taxonomic identification information"
         },
+        "target_taxonomic_name_1": {
+          "name": "target_taxonomic_name_1",
+          "rank": 209,
+          "slot_group": "Pathogen diagnostic testing"
+        },
         "assay_target_name_1": {
           "name": "assay_target_name_1",
-          "rank": 209,
+          "rank": 210,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details": {
           "name": "assay_target_details",
-          "rank": 210,
+          "rank": 211,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_1": {
@@ -26008,7 +26092,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 211,
+          "rank": 212,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -26021,32 +26105,32 @@
         },
         "diagnostic_target_presence_1": {
           "name": "diagnostic_target_presence_1",
-          "rank": 212,
+          "rank": 213,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_1": {
           "name": "diagnostic_measurement_value_1",
-          "rank": 213,
+          "rank": 214,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_1": {
           "name": "diagnostic_measurement_unit_1",
-          "rank": 214,
+          "rank": 215,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_1": {
           "name": "diagnostic_measurement_method_1",
-          "rank": 215,
+          "rank": 216,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_name_2": {
           "name": "assay_target_name_2",
-          "rank": 216,
+          "rank": 217,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_2": {
           "name": "assay_target_details_2",
-          "rank": 217,
+          "rank": 218,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_2": {
@@ -26059,7 +26143,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 218,
+          "rank": 219,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -26072,32 +26156,32 @@
         },
         "diagnostic_target_presence_2": {
           "name": "diagnostic_target_presence_2",
-          "rank": 219,
+          "rank": 220,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_2": {
           "name": "diagnostic_measurement_value_2",
-          "rank": 220,
+          "rank": 221,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_2": {
           "name": "diagnostic_measurement_unit_2",
-          "rank": 221,
+          "rank": 222,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_2": {
           "name": "diagnostic_measurement_method_2",
-          "rank": 222,
+          "rank": 223,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_name_3": {
           "name": "assay_target_name_3",
-          "rank": 223,
+          "rank": 224,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_3": {
           "name": "assay_target_details_3",
-          "rank": 224,
+          "rank": 225,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_3": {
@@ -26110,7 +26194,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 225,
+          "rank": 226,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -26123,22 +26207,22 @@
         },
         "diagnostic_target_presence_3": {
           "name": "diagnostic_target_presence_3",
-          "rank": 226,
+          "rank": 227,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_3": {
           "name": "diagnostic_measurement_value_3",
-          "rank": 227,
+          "rank": 228,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_3": {
           "name": "diagnostic_measurement_unit_3",
-          "rank": 228,
+          "rank": 229,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_3": {
           "name": "diagnostic_measurement_method_3",
-          "rank": 229,
+          "rank": 230,
           "slot_group": "Pathogen diagnostic testing"
         }
       },
@@ -30974,7 +31058,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRA:library_strategy"
+            "NCBI_SRA:library_strategy",
+            "NCBI_SRA:%20library_source"
           ],
           "rank": 167,
           "slot_uri": "GENEPIO:0100997",
@@ -31037,6 +31122,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_SRA:design_description"
+          ],
           "rank": 169,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
@@ -31088,7 +31176,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRA:library_selection"
+            "NCBI_SRA:library_selection",
+            "NCBI_SRA:%20design_description"
           ],
           "rank": 171,
           "slot_uri": "GENEPIO:0100966",
@@ -31437,6 +31526,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_SRA:filename"
+          ],
           "rank": 182,
           "slot_uri": "GENEPIO:0101715",
           "alias": "genome_sequence_file_name",
@@ -32119,6 +32211,28 @@
           "slot_group": "Taxonomic identification information",
           "range": "WhitespaceMinimizedString"
         },
+        "target_taxonomic_name_1": {
+          "name": "target_taxonomic_name_1",
+          "description": "The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.",
+          "title": "target taxonomic name 1",
+          "comments": [
+            "The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1"
+          ],
+          "rank": 209,
+          "slot_uri": "GENEPIO:0102049",
+          "alias": "target_taxonomic_name_1",
+          "owner": "WastewaterPathogenAgnostic",
+          "domain_of": [
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Pathogen diagnostic testing",
+          "range": "WhitespaceMinimizedString"
+        },
         "assay_target_name_1": {
           "name": "assay_target_name_1",
           "description": "The name of the assay target used in the diagnostic RT-PCR test.",
@@ -32127,8 +32241,8 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 209,
-          "slot_uri": "GENEPIO:0101206",
+          "rank": 210,
+          "slot_uri": "GENEPIO:0102052",
           "alias": "assay_target_name_1",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32154,7 +32268,7 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 210,
+          "rank": 211,
           "slot_uri": "GENEPIO:0102040",
           "alias": "assay_target_details",
           "owner": "WastewaterPathogenAgnostic",
@@ -32179,7 +32293,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 211,
+          "rank": 212,
           "slot_uri": "GENEPIO:0102041",
           "alias": "gene_symbol_1",
           "owner": "WastewaterPathogenAgnostic",
@@ -32214,7 +32328,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1_known_present"
           ],
-          "rank": 212,
+          "rank": 213,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_1",
           "owner": "WastewaterPathogenAgnostic",
@@ -32249,7 +32363,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1_conc"
           ],
-          "rank": 213,
+          "rank": 214,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_1",
           "owner": "WastewaterPathogenAgnostic",
@@ -32277,7 +32391,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1_conc_unit"
           ],
-          "rank": 214,
+          "rank": 215,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_1",
           "owner": "WastewaterPathogenAgnostic",
@@ -32312,7 +32426,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_1_protocol"
           ],
-          "rank": 215,
+          "rank": 216,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_1",
           "owner": "WastewaterPathogenAgnostic",
@@ -32339,7 +32453,8 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 216,
+          "rank": 217,
+          "slot_uri": "GENEPIO:0102038",
           "alias": "assay_target_name_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32358,7 +32473,8 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 217,
+          "rank": 218,
+          "slot_uri": "GENEPIO:0102046",
           "alias": "assay_target_details_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32385,7 +32501,8 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_gene"
           ],
-          "rank": 218,
+          "rank": 219,
+          "slot_uri": "GENEPIO:0102042",
           "alias": "gene_symbol_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32419,7 +32536,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_known_present"
           ],
-          "rank": 219,
+          "rank": 220,
           "alias": "diagnostic_target_presence_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32453,7 +32570,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_conc"
           ],
-          "rank": 220,
+          "rank": 221,
           "alias": "diagnostic_measurement_value_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32480,7 +32597,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_surv_target_2_conc_unit"
           ],
-          "rank": 221,
+          "rank": 222,
           "alias": "diagnostic_measurement_unit_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32511,7 +32628,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 222,
+          "rank": 223,
           "alias": "diagnostic_measurement_method_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32537,7 +32654,8 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 223,
+          "rank": 224,
+          "slot_uri": "GENEPIO:0102039",
           "alias": "assay_target_name_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32556,7 +32674,8 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 224,
+          "rank": 225,
+          "slot_uri": "GENEPIO:0102047",
           "alias": "assay_target_details_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32580,7 +32699,8 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 225,
+          "rank": 226,
+          "slot_uri": "GENEPIO:0102043",
           "alias": "gene_symbol_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32611,7 +32731,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 226,
+          "rank": 227,
           "alias": "diagnostic_target_presence_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32642,7 +32762,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 227,
+          "rank": 228,
           "alias": "diagnostic_measurement_value_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32666,7 +32786,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 228,
+          "rank": 229,
           "alias": "diagnostic_measurement_unit_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -32697,7 +32817,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 229,
+          "rank": 230,
           "alias": "diagnostic_measurement_method_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
