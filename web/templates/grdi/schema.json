@@ -2,7 +2,7 @@
   "name": "GRDI",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "13.3.3",
+  "version": "13.4.4",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -2226,8 +2226,8 @@
           "text": "Animal manure [AGRO:00000079]",
           "is_a": "Manure [ENVO:00003031]"
         },
-        "Pig manure [AGRO:00000080]": {
-          "text": "Pig manure [AGRO:00000080]",
+        "Pig manure [ENVO:00003860]": {
+          "text": "Pig manure [ENVO:00003860]",
           "is_a": "Animal manure [AGRO:00000079]"
         },
         "Manure digester equipment [ENVO:03501424]": {
@@ -6725,6 +6725,9 @@
       "name": "sample_collection_date",
       "description": "The date on which the sample was collected.",
       "title": "sample_collection_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
       ],
@@ -6742,7 +6745,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Date",
+      "range": "date",
       "required": true
     },
     "sample_collection_date_precision": {
@@ -6776,6 +6779,9 @@
       "name": "sample_collection_end_date",
       "description": "The date on which sample collection ended for a continuous sample.",
       "title": "sample_collection_end_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD"
       ],
@@ -6792,7 +6798,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "Date"
+          "range": "date"
         },
         {
           "range": "NullValueMenu"
@@ -6803,6 +6809,9 @@
       "name": "sample_processing_date",
       "description": "The date on which the sample was processed.",
       "title": "sample_processing_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
       ],
@@ -6818,7 +6827,7 @@
       ],
       "any_of": [
         {
-          "range": "Date"
+          "range": "date"
         },
         {
           "range": "NullValueMenu"
@@ -6845,7 +6854,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "Time"
+          "range": "time"
         },
         {
           "range": "NullValueMenu"
@@ -6872,7 +6881,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "Time"
+          "range": "time"
         },
         {
           "range": "NullValueMenu"
@@ -6963,6 +6972,9 @@
       "name": "sample_received_date",
       "description": "The date on which the sample was received.",
       "title": "sample_received_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
       ],
@@ -6976,7 +6988,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "original_sample_description": {
       "name": "original_sample_description",
@@ -7461,6 +7473,9 @@
       "name": "food_quality_date",
       "description": "A date recommended for the use of a product while at peak quality, this date is not a reflection of safety unless used on infant formula.",
       "title": "food_quality_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "This date is typically labeled on a food product as \"best if used by\", best by\", \"use by\", or \"freeze by\" e.g. 5/24/2020. If the date is known, leave blank or provide a null value."
       ],
@@ -7477,12 +7492,15 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "food_packaging_date": {
       "name": "food_packaging_date",
       "description": "A food product's packaging date as marked by a food manufacturer or retailer.",
       "title": "food_packaging_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "The packaging date should not be confused with, nor replaced by a Best Before date or other food quality date. If the date is known, leave blank or provide a null value."
       ],
@@ -7496,7 +7514,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "collection_device": {
       "name": "collection_device",
@@ -8524,6 +8542,9 @@
       "name": "isolation_date",
       "description": "The date on which the isolate was isolated from a sample.",
       "title": "isolation_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
       ],
@@ -8540,12 +8561,15 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "isolate_received_date": {
       "name": "isolate_received_date",
       "description": "The date on which the isolate was received by the laboratory.",
       "title": "isolate_received_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
       ],
@@ -8981,7 +9005,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "genomic_target_enrichment_method": {
       "name": "genomic_target_enrichment_method",
@@ -9057,7 +9081,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "sequencing_flow_cell_version": {
       "name": "sequencing_flow_cell_version",
@@ -9157,7 +9181,7 @@
     "genome_sequence_filename": {
       "name": "genome_sequence_filename",
       "description": "The user-defined filename of the FASTA file.",
-      "title": "genome sequence filename",
+      "title": "genome_sequence_filename",
       "comments": [
         "Provide the FASTA filename."
       ],
@@ -9535,7 +9559,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "number_of_total_reads": {
       "name": "number_of_total_reads",
@@ -9554,7 +9578,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "number_of_unique_reads": {
       "name": "number_of_unique_reads",
@@ -9573,7 +9597,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "minimum_posttrimming_read_length": {
       "name": "minimum_posttrimming_read_length",
@@ -9592,7 +9616,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "number_of_contigs": {
       "name": "number_of_contigs",
@@ -9611,7 +9635,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "percent_ns_across_total_genome_length": {
       "name": "percent_ns_across_total_genome_length",
@@ -9630,7 +9654,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "ns_per_100_kbp": {
       "name": "ns_per_100_kbp",
@@ -9649,7 +9673,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "n50": {
       "name": "n50",
@@ -9668,7 +9692,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "percent_read_contamination_": {
       "name": "percent_read_contamination_",
@@ -9687,7 +9711,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "sequence_assembly_length": {
       "name": "sequence_assembly_length",
@@ -9706,7 +9730,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "consensus_genome_length": {
       "name": "consensus_genome_length",
@@ -9725,7 +9749,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "reference_genome_accession": {
       "name": "reference_genome_accession",
@@ -9883,6 +9907,9 @@
       "name": "taxonomic_analysis_date",
       "description": "The date a taxonomic analysis was performed.",
       "title": "taxonomic analysis date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
       ],
@@ -9896,7 +9923,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "read_mapping_criteria": {
       "name": "read_mapping_criteria",
@@ -10169,7 +10196,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "StageOfProductionMenu"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -10331,6 +10358,9 @@
       "name": "amr_testing_date",
       "description": "The date the antimicrobial resistance testing was performed.",
       "title": "AMR_testing_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
       ],
@@ -10344,7 +10374,7 @@
       "domain_of": [
         "GRDI"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "amikacin_resistance_phenotype": {
       "name": "amikacin_resistance_phenotype",
@@ -29517,6 +29547,9 @@
           "name": "sample_collection_date",
           "description": "The date on which the sample was collected.",
           "title": "sample_collection_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
           ],
@@ -29538,7 +29571,7 @@
             "GRDI"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Date",
+          "range": "date",
           "required": true
         },
         "sample_collection_date_precision": {
@@ -29576,6 +29609,9 @@
           "name": "sample_collection_end_date",
           "description": "The date on which sample collection ended for a continuous sample.",
           "title": "sample_collection_end_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD"
           ],
@@ -29596,7 +29632,7 @@
           "recommended": true,
           "any_of": [
             {
-              "range": "Date"
+              "range": "date"
             },
             {
               "range": "NullValueMenu"
@@ -29607,6 +29643,9 @@
           "name": "sample_processing_date",
           "description": "The date on which the sample was processed.",
           "title": "sample_processing_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
           ],
@@ -29626,7 +29665,7 @@
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
-              "range": "Date"
+              "range": "date"
             },
             {
               "range": "NullValueMenu"
@@ -29657,7 +29696,7 @@
           "recommended": true,
           "any_of": [
             {
-              "range": "Time"
+              "range": "time"
             },
             {
               "range": "NullValueMenu"
@@ -29688,7 +29727,7 @@
           "recommended": true,
           "any_of": [
             {
-              "range": "Time"
+              "range": "time"
             },
             {
               "range": "NullValueMenu"
@@ -29791,6 +29830,9 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample_received_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
           ],
@@ -29808,7 +29850,7 @@
             "GRDI"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Date"
+          "range": "date"
         },
         "original_sample_description": {
           "name": "original_sample_description",
@@ -30353,6 +30395,9 @@
           "name": "food_quality_date",
           "description": "A date recommended for the use of a product while at peak quality, this date is not a reflection of safety unless used on infant formula.",
           "title": "food_quality_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "This date is typically labeled on a food product as \"best if used by\", best by\", \"use by\", or \"freeze by\" e.g. 5/24/2020. If the date is known, leave blank or provide a null value."
           ],
@@ -30373,12 +30418,15 @@
             "GRDI"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Date"
+          "range": "date"
         },
         "food_packaging_date": {
           "name": "food_packaging_date",
           "description": "A food product's packaging date as marked by a food manufacturer or retailer.",
           "title": "food_packaging_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "The packaging date should not be confused with, nor replaced by a Best Before date or other food quality date. If the date is known, leave blank or provide a null value."
           ],
@@ -30396,7 +30444,7 @@
             "GRDI"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Date"
+          "range": "date"
         },
         "collection_device": {
           "name": "collection_device",
@@ -31600,6 +31648,9 @@
           "name": "isolation_date",
           "description": "The date on which the isolate was isolated from a sample.",
           "title": "isolation_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
           ],
@@ -31620,12 +31671,15 @@
             "GRDI"
           ],
           "slot_group": "Strain and isolation information",
-          "range": "Date"
+          "range": "date"
         },
         "isolate_received_date": {
           "name": "isolate_received_date",
           "description": "The date on which the isolate was received by the laboratory.",
           "title": "isolate_received_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
           ],
@@ -32137,7 +32191,7 @@
             "GRDI"
           ],
           "slot_group": "Sequence information",
-          "range": "Integer"
+          "range": "integer"
         },
         "genomic_target_enrichment_method": {
           "name": "genomic_target_enrichment_method",
@@ -32229,7 +32283,7 @@
             "GRDI"
           ],
           "slot_group": "Sequence information",
-          "range": "Integer"
+          "range": "integer"
         },
         "sequencing_flow_cell_version": {
           "name": "sequencing_flow_cell_version",
@@ -32349,7 +32403,7 @@
         "genome_sequence_filename": {
           "name": "genome_sequence_filename",
           "description": "The user-defined filename of the FASTA file.",
-          "title": "genome sequence filename",
+          "title": "genome_sequence_filename",
           "comments": [
             "Provide the FASTA filename."
           ],
@@ -32795,7 +32849,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "number_of_total_reads": {
           "name": "number_of_total_reads",
@@ -32818,7 +32872,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "number_of_unique_reads": {
           "name": "number_of_unique_reads",
@@ -32841,7 +32895,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "minimum_posttrimming_read_length": {
           "name": "minimum_posttrimming_read_length",
@@ -32864,7 +32918,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "number_of_contigs": {
           "name": "number_of_contigs",
@@ -32887,7 +32941,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "percent_ns_across_total_genome_length": {
           "name": "percent_ns_across_total_genome_length",
@@ -32910,7 +32964,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "ns_per_100_kbp": {
           "name": "ns_per_100_kbp",
@@ -32933,7 +32987,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "n50": {
           "name": "n50",
@@ -32956,7 +33010,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "percent_read_contamination_": {
           "name": "percent_read_contamination_",
@@ -32979,7 +33033,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "sequence_assembly_length": {
           "name": "sequence_assembly_length",
@@ -33002,7 +33056,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "consensus_genome_length": {
           "name": "consensus_genome_length",
@@ -33025,7 +33079,7 @@
             "GRDI"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "reference_genome_accession": {
           "name": "reference_genome_accession",
@@ -33215,6 +33269,9 @@
           "name": "taxonomic_analysis_date",
           "description": "The date a taxonomic analysis was performed.",
           "title": "taxonomic analysis date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -33232,7 +33289,7 @@
             "GRDI"
           ],
           "slot_group": "Taxonomic identification information",
-          "range": "Date"
+          "range": "date"
         },
         "read_mapping_criteria": {
           "name": "read_mapping_criteria",
@@ -33557,7 +33614,7 @@
           "recommended": true,
           "any_of": [
             {
-              "range": "StageOfProductionMenu"
+              "range": "WhitespaceMinimizedString"
             },
             {
               "range": "NullValueMenu"
@@ -33743,6 +33800,9 @@
           "name": "amr_testing_date",
           "description": "The date the antimicrobial resistance testing was performed.",
           "title": "AMR_testing_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
           ],
@@ -33760,7 +33820,7 @@
             "GRDI"
           ],
           "slot_group": "Antimicrobial resistance",
-          "range": "Date"
+          "range": "date"
         },
         "amikacin_resistance_phenotype": {
           "name": "amikacin_resistance_phenotype",
