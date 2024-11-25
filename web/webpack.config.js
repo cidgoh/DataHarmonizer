@@ -10,27 +10,15 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, 'dist'),
       filename: 'scripts/[name].js',
     },
+    externals: {
+      schemas: 'schemas',
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
       }),
       new CopyPlugin({
         patterns: [
-          {
-            context: 'templates',
-            from: '**/*.pdf',
-            to: 'templates/[path][name][ext]',
-          },
-          {
-            context: 'templates',
-            from: '**/schema.yaml',
-            to: 'templates/[path][name][ext]',
-          },
-          {
-            context: 'templates',
-            from: '**/exampleInput/*',
-            to: 'templates/[path][name][ext]',
-          },
           {
             from: 'main.html',
           },
@@ -68,6 +56,29 @@ module.exports = (env, argv) => {
 
   if (argv.mode === 'development') {
     config.devtool = 'eval-source-map';
+    config.resolve = {
+      alias: {
+        'schemas': path.resolve(__dirname, 'schemas.js'),
+      },
+    }
+    delete config.externals;
+    config.plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            context: 'templates',
+            from: '**/*.pdf',
+            to: 'templates/[path][name][ext]',
+          },
+        ],
+      }),
+    );
+    for (const rule of config.module.rules) {
+      if (rule.hasOwnProperty('generator')) {
+        delete rule.generator.filename;
+        delete rule.generator.emit;
+      }
+    }
   }
 
   return config;
