@@ -3,7 +3,7 @@ import { DataHarmonizer, Footer, Toolbar } from '../lib';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-import {menu, getSchema, getExportFormats} from 'schemas';
+import { menu, getSchema, getExportFormats } from 'schemas';
 
 document.addEventListener('DOMContentLoaded', function () {
   const dhRoot = document.querySelector('#data-harmonizer-grid');

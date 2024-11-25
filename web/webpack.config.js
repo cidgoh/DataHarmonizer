@@ -58,9 +58,9 @@ module.exports = (env, argv) => {
     config.devtool = 'eval-source-map';
     config.resolve = {
       alias: {
-        'schemas': path.resolve(__dirname, 'schemas.js'),
+        schemas: path.resolve(__dirname, 'schemas.js'),
       },
-    }
+    };
     delete config.externals;
     config.plugins.push(
       new CopyPlugin({
@@ -71,7 +71,7 @@ module.exports = (env, argv) => {
             to: 'templates/[path][name][ext]',
           },
         ],
-      }),
+      })
     );
     for (const rule of config.module.rules) {
       if (rule.hasOwnProperty('generator')) {

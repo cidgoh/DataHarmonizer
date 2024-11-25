@@ -1,4 +1,4 @@
-import menu_ from './templates/menu.json'
+import menu_ from './templates/menu.json';
 
 export const menu = menu_;
 export const getSchema = async (schema) => {
