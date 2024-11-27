@@ -1,7 +1,7 @@
-id: https://example.com/mpox
-name: Mpox
-version: 8.5.5
+id: https://example.com/GRDI
+name: "GRDI"
 description: ""
+version: 13.4.4
 imports:
   - 'linkml:types'
 prefixes:
@@ -11,21 +11,11 @@ classes:
   dh_interface:
     name: dh_interface
     description: 'A DataHarmonizer interface'
-    from_schema: https://example.com/Mpox
-  'Mpox':
-    name: 'Mpox'
-    description: Canadian specification for Mpox clinical virus biosample data gathering
+    from_schema: https://example.com/GRDI
+  'GRDI':
+    name: 'GRDI'
+    description: Specification for GRDI virus biosample data gathering
     is_a: dh_interface
-    see_also: templates/mpox/SOP_Mpox.pdf
-    annotations:
-      version: 7.5.5
-  "MpoxInternational":
-    name: "MpoxInternational"
-    description: International specification for Mpox clinical virus biosample data gathering
-    is_a: dh_interface
-    see_also: templates/mpox/SOP_Mpox_international.pdf
-    annotations:
-      version: 8.5.5
 slots: {}
 enums: {}
 types:
