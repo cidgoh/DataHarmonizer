@@ -3303,7 +3303,7 @@ slots:
     description: The reason that the sample was collected.
     comments: The reason a sample was collected may provide information about potential
       biases in sampling strategy. Provide the purpose of sampling from the picklist
-      in the template. Most likely, the sample was collected for Diagnostic testing.
+      in the template. Most likely, the sample was collected for diagnostic testing.
       The reason why a sample was originally collected may differ from the reason
       why it was selected for sequencing, which should be indicated in the "purpose
       of sequencing" field.
@@ -12828,8 +12828,8 @@ enums:
         text: Extended downtime between activities [GENEPIO:0100542]
       Fertilizer pre-treatment [GENEPIO:0100543]:
         text: Fertilizer pre-treatment [GENEPIO:0100543]
-      Genetic mutation [GENEPIO:0100544[:
-        text: Genetic mutation [GENEPIO:0100544[
+      Genetic mutation [GENEPIO:0100544]:
+        text: Genetic mutation [GENEPIO:0100544]
       Logistic slaughter [GENEPIO:0100545]:
         text: Logistic slaughter [GENEPIO:0100545]
       Microbial pre-treatment [GENEPIO:0100546]:
@@ -15961,8 +15961,8 @@ enums:
         is_a: Pantoea [NCBITaxon:53335]
       Photobacterium [NCBITaxon:657]:
         text: Photobacterium [NCBITaxon:657]
-      Photobacterium indicum[NCBITaxon:81447]:
-        text: Photobacterium indicum[NCBITaxon:81447]
+      Photobacterium indicum [NCBITaxon:81447]:
+        text: Photobacterium indicum [NCBITaxon:81447]
         is_a: Photobacterium [NCBITaxon:657]
       Photobacterium sp. [NCBITaxon:660]:
         text: Photobacterium sp. [NCBITaxon:660]
