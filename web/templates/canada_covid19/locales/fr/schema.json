@@ -2998,6 +2998,10 @@
           "text": "Ontario Institute for Cancer Research (OICR)",
           "title": "Institut ontarien de recherche sur le cancer (IORC)"
         },
+        "Ontario COVID-19 Genomic Network": {
+          "text": "Ontario COVID-19 Genomic Network",
+          "title": "Réseau génomique ontarien COVID-19"
+        },
         "Prince Edward Island - Health PEI": {
           "text": "Prince Edward Island - Health PEI",
           "title": "Île-du-Prince-Édouard – Santé Î.-P.-É."
@@ -3032,6 +3036,10 @@
         "Eastern Ontario Regional Laboratory Association": {
           "text": "Eastern Ontario Regional Laboratory Association",
           "title": "Association des laboratoires régionaux de l’Est de l’Ontario"
+        },
+        "Kingston Health Sciences Centre": {
+          "text": "Kingston Health Sciences Centre",
+          "title": "Centre des sciences de la santé de Kingston"
         },
         "Lake of the Woods District Hospital - Ontario": {
           "text": "Lake of the Woods District Hospital - Ontario",
