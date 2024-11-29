@@ -309,7 +309,7 @@ STTYPE menu	STTypeMenu		0
 			PRODUCT						
 			QA						
 			UNKNOWN						host (common name):
-			0						
+STYPE menu	STypeMenu		0						
 			2						
 			<=8						
 			<n/a>						

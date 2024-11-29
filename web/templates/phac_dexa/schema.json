@@ -2,7 +2,7 @@
   "name": "PHACDexa",
   "description": "",
   "id": "https://example.com/PHAC_Dexa",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -1850,6 +1850,16 @@
           "exact_mappings": [
             "GRDI:host%20%28common%20name%29%3A"
           ]
+        }
+      }
+    },
+    "STypeMenu": {
+      "name": "STypeMenu",
+      "title": "STYPE menu",
+      "from_schema": "https://example.com/PHAC_Dexa",
+      "permissible_values": {
+        "0": {
+          "text": "0"
         },
         "2": {
           "text": "2"
@@ -4754,7 +4764,7 @@
       "title": "SUBMITTINGORG_1",
       "from_schema": "https://example.com/PHAC_Dexa",
       "exact_mappings": [
-        "GRDI:collected_by"
+        "GRDI:sample_collected_by"
       ],
       "domain_of": [
         "PHACDexa"
@@ -4766,7 +4776,7 @@
       "title": "SUBMITTINGLAB_1",
       "from_schema": "https://example.com/PHAC_Dexa",
       "exact_mappings": [
-        "GRDI:laboratory_name"
+        "GRDI:sample_collected_by_laboratory_name"
       ],
       "domain_of": [
         "PHACDexa"
@@ -4867,6 +4877,9 @@
       "name": "datereceived_1",
       "title": "DATERECEIVED_1",
       "from_schema": "https://example.com/PHAC_Dexa",
+      "exact_mappings": [
+        "GRDI:sample_received_date"
+      ],
       "domain_of": [
         "PHACDexa"
       ],
@@ -6988,7 +7001,7 @@
           "title": "SUBMITTINGORG_1",
           "from_schema": "https://example.com/PHAC_Dexa",
           "exact_mappings": [
-            "GRDI:collected_by"
+            "GRDI:sample_collected_by"
           ],
           "rank": 9,
           "alias": "submittingorg_1",
@@ -7004,7 +7017,7 @@
           "title": "SUBMITTINGLAB_1",
           "from_schema": "https://example.com/PHAC_Dexa",
           "exact_mappings": [
-            "GRDI:laboratory_name"
+            "GRDI:sample_collected_by_laboratory_name"
           ],
           "rank": 10,
           "alias": "submittinglab_1",
@@ -7145,6 +7158,9 @@
           "name": "datereceived_1",
           "title": "DATERECEIVED_1",
           "from_schema": "https://example.com/PHAC_Dexa",
+          "exact_mappings": [
+            "GRDI:sample_received_date"
+          ],
           "rank": 20,
           "alias": "datereceived_1",
           "owner": "PHACDexa",
