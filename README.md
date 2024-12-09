@@ -1,14 +1,23 @@
 # MInAS - DataHarmonizer
 
-This repository is a fork of [DataHarmonizer](https://github.com/cidgoh/DataHarmonizer) ([Gill et al. 2023](https://doi.org/10.1099/mgen.0.000908)) but utilised to view and test the LinkML schemas of the [MInAS project](https://mixs-minas.org). 
+This repository is a fork of [DataHarmonizer](https://github.com/cidgoh/DataHarmonizer) ([Gill et al. 2023](https://doi.org/10.1099/mgen.0.000908)) but utilised to view and test the LinkML schemas of the [MInAS project](https://mixs-minas.org).
+
+## New template instructions
 
 The instructions for the updating of this fork are as follows:
 
 - Make new schema entry
   - Delete the contents of `/web/templates/`
   - Make a directory `/web/templates/[schema name]/` for each MInAS schema
-  - In each directory create `export.json` just containing `export default {};`
-  - For each schema, save a `schema.yaml` file in the directory, which is our schema, with an additional [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
+  - In each directory create `export.js` just containing `export default {};`
+  - For each schema, save a `schema.yaml` file in the directory
+
+    ```bash
+    wget https://github.com/MIxS-MInAS/extension-ancient/raw/refs/tags/v0.3.2/src/mixs/schema/ancient.yml
+    ```
+
+  - Write a txt file called (`dh_class_text.txt`) which includes the text for an additional classed called [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
+  - Inject this class into the `schema.yaml` file with e.g. `sed -i '/^classes:/r dh_class_text.txt' schema.yml`
   - Generate the DataHarmonizer compatible JSON with `python ../../../script/linkml.py -i schema.yaml`
   - Modify the `/web/templates/menu.json` so all `display: false` equals `display: true`
 - Test in a local web server
@@ -16,10 +25,29 @@ The instructions for the updating of this fork are as follows:
   - Clone the repo
   - Configure `corepack` so `yarn` works properly
   - Run `yarn` to install dependencies
+  - Open a local webserver with `yarn dev` and test can see the new template under 'Template:` in the top bar
 - Generate the static files (within the local clone)
   - Run `yarn build:web` to generate a standalone file (Stored in `/web/dist`)
 
 This viewing interface should be updated on each MInAS release.
+
+### New template quick reference
+
+Example for the ancient extension
+
+```bash
+cd /web/templates/
+rm -r *
+mkdir mixs-extension-ancient
+cd mixs-extension-ancient
+echo "export default {};" > export.js
+wget https://github.com/MIxS-MInAS/extension-ancient/raw/refs/tags/v0.3.2/src/mixs/schema/ancient.yml
+## Add the dh_interface class to the file manually here to a file called 'dh_class_text.txt'!
+sed -i '/^classes:/r dh_class_text.txt' ancient.yml
+python3 ../../../script/linkml.py --input ancient.yml
+sed -i 's/"display": false/"display": true/g' ../menu.json
+## optionally test with `yarn dev`
+```
 
 ## Original README
 
