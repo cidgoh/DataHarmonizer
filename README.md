@@ -28,6 +28,7 @@ The instructions for the updating of this fork are as follows:
   - Open a local webserver with `yarn dev` and test can see the new template under 'Template:` in the top bar
 - Generate the static files (within the local clone)
   - Run `yarn build:web` to generate a standalone file (Stored in `/web/dist`)
+- Move `/web/dist/` to `/docs` at the root of the repository so can be displayed on GitHub Pages
 
 This viewing interface should be updated on each MInAS release.
 
@@ -47,6 +48,8 @@ sed -i '/^classes:/r dh_class_text.txt' ancient.yml
 python3 ../../../script/linkml.py --input ancient.yml
 sed -i 's/"display": false/"display": true/g' ../menu.json
 ## optionally test with `yarn dev`
+yarn build:web
+mv web/dist/ docs/
 ```
 
 ## Original README
