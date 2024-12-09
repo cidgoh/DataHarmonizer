@@ -3,12 +3,12 @@
     "Mpox": {
       "name": "Mpox",
       "status": "published",
-      "display": true
+      "display": false
     },
     "MpoxInternational": {
       "name": "MpoxInternational",
       "status": "published",
-      "display": true
+      "display": false
     }
   },
   "minas-extension-ancient": {
