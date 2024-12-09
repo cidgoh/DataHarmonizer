@@ -4730,7 +4730,7 @@ slots:
     slot_uri: GENEPIO:0001447
     range: date
     todos:
-    - '>={sample_collection_date}'
+    - '>={sample_collection_start_date}'
     - <={today}
     examples:
     - value: '2020-06-22'
@@ -4795,7 +4795,7 @@ slots:
     - value: whole genome sequencing assay
     exact_mappings:
     - NCBI_SRA:library_strategy
-    - NCBI_SRA:%20library_source
+    - NCBI_SRA:library_source
   library_preparation_kit:
     name: library_preparation_kit
     title: library preparation kit
@@ -4847,7 +4847,7 @@ slots:
     - value: hybrid selection method
     exact_mappings:
     - NCBI_SRA:library_selection
-    - NCBI_SRA:%20design_description
+    - NCBI_SRA:design_description
   genomic_target_enrichment_method_details:
     name: genomic_target_enrichment_method_details
     title: genomic target enrichment method details

@@ -8666,7 +8666,7 @@
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
       "todos": [
-        ">={sample_collection_date}",
+        ">={sample_collection_start_date}",
         "<={today}"
       ],
       "comments": [
@@ -8790,7 +8790,7 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_SRA:library_strategy",
-        "NCBI_SRA:%20library_source"
+        "NCBI_SRA:library_source"
       ],
       "slot_uri": "GENEPIO:0100997",
       "domain_of": [
@@ -8892,7 +8892,7 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_SRA:library_selection",
-        "NCBI_SRA:%20design_description"
+        "NCBI_SRA:design_description"
       ],
       "slot_uri": "GENEPIO:0100966",
       "domain_of": [
@@ -15981,7 +15981,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}",
+            ">={sample_collection_start_date}",
             "<={today}"
           ],
           "comments": [
@@ -16121,7 +16121,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_strategy",
-            "NCBI_SRA:%20library_source"
+            "NCBI_SRA:library_source"
           ],
           "rank": 152,
           "slot_uri": "GENEPIO:0100997",
@@ -23214,7 +23214,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}",
+            ">={sample_collection_start_date}",
             "<={today}"
           ],
           "comments": [
@@ -23354,7 +23354,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_strategy",
-            "NCBI_SRA:%20library_source"
+            "NCBI_SRA:library_source"
           ],
           "rank": 153,
           "slot_uri": "GENEPIO:0100997",
@@ -23472,7 +23472,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_selection",
-            "NCBI_SRA:%20design_description"
+            "NCBI_SRA:design_description"
           ],
           "rank": 157,
           "slot_uri": "GENEPIO:0100966",
@@ -30919,7 +30919,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}",
+            ">={sample_collection_start_date}",
             "<={today}"
           ],
           "comments": [
@@ -31059,7 +31059,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_strategy",
-            "NCBI_SRA:%20library_source"
+            "NCBI_SRA:library_source"
           ],
           "rank": 167,
           "slot_uri": "GENEPIO:0100997",
@@ -31177,7 +31177,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_selection",
-            "NCBI_SRA:%20design_description"
+            "NCBI_SRA:design_description"
           ],
           "rank": 171,
           "slot_uri": "GENEPIO:0100966",
