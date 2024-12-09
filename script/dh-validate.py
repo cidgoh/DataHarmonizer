@@ -139,9 +139,6 @@ def getTargetClass(SCHEMA, target_class, slot_key = None):
 
 			break;
 
-	#if not found: 
-	#	exit("Target class [" + target_class + "] does not have an identifier or key slot!");
-
 	print ("Identifier slot:", slot_key);
 	return (target_class, slot_key);
 
