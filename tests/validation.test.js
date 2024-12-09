@@ -1,4 +1,4 @@
-import { validateUniqueValues } from '@/lib/utils/validation';
+import { validateUniqueValues } from '../lib/utils/validation';
 
 describe('validateUniqueValues', () => {
   test('it should pass validation for a single column of unique values', () => {

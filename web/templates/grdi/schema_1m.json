@@ -10196,11 +10196,31 @@
       "name": "Container",
       "from_schema": "https://example.com/GRDI",
       "attributes": {
-        "GRDI_samples": {
-          "name": "GRDI_samples",
+        "schema": {
+          "name": "schema",
+          "from_schema": "https://example.com/GRDI",
+          "alias": "schema",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "uri"
+        },
+        "version": {
+          "name": "version",
+          "from_schema": "https://example.com/GRDI",
+          "alias": "version",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "string"
+        },
+        "GRDI_Samples": {
+          "name": "GRDI_Samples",
           "from_schema": "https://example.com/GRDI",
           "multivalued": true,
-          "alias": "GRDI_samples",
+          "alias": "GRDI_Samples",
           "owner": "Container",
           "domain_of": [
             "Container"

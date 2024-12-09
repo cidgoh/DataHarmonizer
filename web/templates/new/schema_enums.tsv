@@ -1,32 +1,34 @@
-title	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	description		EXPORT_SOMEWHERE														
-null value menu	GENEPIO:0001619	Not Applicable											null value menu	GENEPIO:0001619	Not Applicable										
-	GENEPIO:0001618	Missing												GENEPIO:0001618	Missing										
-	GENEPIO:0001620	Not Collected												GENEPIO:0001620	Not Collected										
-	GENEPIO:0001668	Not Provided												GENEPIO:0001668	Not Provided										
-	GENEPIO:0001810	Restricted Access												GENEPIO:0001810	Restricted Access										
-																									
-sequence submitted by menu		Alberta Precision Labs (APL)											sequence submitted by menu		Alberta Precision Labs (APL)										
-			Alberta ProvLab North (APLN)													Alberta ProvLab North (APLN)									
-			Alberta ProvLab South (APLS)													Alberta ProvLab South (APLS)									
-		BCCDC Public Health Laboratory													BCCDC Public Health Laboratory										
-		Canadore College													Canadore College										
-		The Centre for Applied Genomics (TCAG)													The Centre for Applied Genomics (TCAG)										
-		Dynacare													Dynacare										
-		Dynacare (Brampton)													Dynacare (Brampton)										
-		Dynacare (Manitoba)													Dynacare (Manitoba)										
-		The Hospital for Sick Children (SickKids)													The Hospital for Sick Children (SickKids)										
-		Laboratoire de santé publique du Québec (LSPQ)													Laboratoire de santé publique du Québec (LSPQ)										
-		Manitoba Cadham Provincial Laboratory													Manitoba Cadham Provincial Laboratory										
-		McGill University													McGill University										
-		McMaster University													McMaster University										
-		National Microbiology Laboratory (NML)													National Microbiology Laboratory (NML)										
-		New Brunswick - Vitalité Health Network													New Brunswick - Vitalité Health Network										
-		Newfoundland and Labrador - Eastern Health													Newfoundland and Labrador - Eastern Health										
-		Nova Scotia Health Authority													Nova Scotia Health Authority										
-		Ontario Institute for Cancer Research (OICR)													Ontario Institute for Cancer Research (OICR)										
-		Prince Edward Island - Health PEI													Prince Edward Island - Health PEI										
-		Public Health Ontario (PHO)													Public Health Ontario (PHO)										
-		Queen's University / Kingston Health Sciences Centre													Queen's University / Kingston Health Sciences Centre										
-		Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)													Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)										
-		Sunnybrook Health Sciences Centre													Sunnybrook Health Sciences Centre										
-		Thunder Bay Regional Health Sciences Centre													Thunder Bay Regional Health Sciences Centre										
+name	title	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	description	EXPORT_SOMEWHERE
+NullValueMenu	null value menu							A menu of data collection status options for this field.	
+		GENEPIO:0001619	Not Applicable						
+		GENEPIO:0001618	Missing						
+		GENEPIO:0001620	Not Collected						
+		GENEPIO:0001668	Not Provided						
+		GENEPIO:0001810	Restricted Access						
+									
+SequenceSubmittedByMenu	sequence submitted by menu							A menu of analytic laboratories.	
+			Alberta Precision Labs (APL)						
+				Alberta ProvLab North (APLN)					
+				Alberta ProvLab South (APLS)					
+			BCCDC Public Health Laboratory						
+			Canadore College						
+			The Centre for Applied Genomics (TCAG)						
+			Dynacare						
+			Dynacare (Brampton)						
+			Dynacare (Manitoba)						
+			The Hospital for Sick Children (SickKids)						
+			Laboratoire de santé publique du Québec (LSPQ)						
+			Manitoba Cadham Provincial Laboratory						
+			McGill University						
+			McMaster University						
+			National Microbiology Laboratory (NML)						
+			New Brunswick - Vitalité Health Network						
+			Newfoundland and Labrador - Eastern Health						
+			Nova Scotia Health Authority						
+			Ontario Institute for Cancer Research (OICR)						
+			Prince Edward Island - Health PEI						
+			Public Health Ontario (PHO)						
+			Queen's University / Kingston Health Sciences Centre						
+			Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)						
+			Sunnybrook Health Sciences Centre						
+			Thunder Bay Regional Health Sciences Centre						

@@ -1,0 +1,531 @@
+{
+  "name": "SDRF",
+  "description": "A description of the schema containing one or more templates.",
+  "in_language": "['en']",
+  "id": "https://example.com/SDRF",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "ONTOLOGY1": {
+      "prefix_prefix": "ONTOLOGY1",
+      "prefix_reference": "http://purl.obolibrary.org/obo/ONTOLOGY1_"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/CanCOGeN_Covid-19/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:time",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "NullValueMenu": {
+      "name": "NullValueMenu",
+      "description": "A menu of data collection status options for this field.",
+      "title": "null value menu",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "permissible_values": {
+        "Not Applicable": {
+          "text": "Not Applicable",
+          "meaning": "GENEPIO:0001619"
+        },
+        "Missing": {
+          "text": "Missing",
+          "meaning": "GENEPIO:0001618"
+        },
+        "Not Collected": {
+          "text": "Not Collected",
+          "meaning": "GENEPIO:0001620"
+        },
+        "Not Provided": {
+          "text": "Not Provided",
+          "meaning": "GENEPIO:0001668"
+        },
+        "Restricted Access": {
+          "text": "Restricted Access",
+          "meaning": "GENEPIO:0001810"
+        }
+      }
+    },
+    "SequenceSubmittedByMenu": {
+      "name": "SequenceSubmittedByMenu",
+      "description": "A menu of analytic laboratories.",
+      "title": "sequence submitted by menu",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "permissible_values": {
+        "Alberta Precision Labs (APL)": {
+          "text": "Alberta Precision Labs (APL)"
+        },
+        "Alberta ProvLab North (APLN)": {
+          "text": "Alberta ProvLab North (APLN)",
+          "is_a": "Alberta Precision Labs (APL)"
+        },
+        "Alberta ProvLab South (APLS)": {
+          "text": "Alberta ProvLab South (APLS)",
+          "is_a": "Alberta Precision Labs (APL)"
+        },
+        "BCCDC Public Health Laboratory": {
+          "text": "BCCDC Public Health Laboratory"
+        },
+        "Canadore College": {
+          "text": "Canadore College"
+        },
+        "The Centre for Applied Genomics (TCAG)": {
+          "text": "The Centre for Applied Genomics (TCAG)"
+        },
+        "Dynacare": {
+          "text": "Dynacare"
+        },
+        "Dynacare (Brampton)": {
+          "text": "Dynacare (Brampton)"
+        },
+        "Dynacare (Manitoba)": {
+          "text": "Dynacare (Manitoba)"
+        },
+        "The Hospital for Sick Children (SickKids)": {
+          "text": "The Hospital for Sick Children (SickKids)"
+        },
+        "Laboratoire de santé publique du Québec (LSPQ)": {
+          "text": "Laboratoire de santé publique du Québec (LSPQ)"
+        },
+        "Manitoba Cadham Provincial Laboratory": {
+          "text": "Manitoba Cadham Provincial Laboratory"
+        },
+        "McGill University": {
+          "text": "McGill University"
+        },
+        "McMaster University": {
+          "text": "McMaster University"
+        },
+        "National Microbiology Laboratory (NML)": {
+          "text": "National Microbiology Laboratory (NML)"
+        },
+        "New Brunswick - Vitalité Health Network": {
+          "text": "New Brunswick - Vitalité Health Network"
+        },
+        "Newfoundland and Labrador - Eastern Health": {
+          "text": "Newfoundland and Labrador - Eastern Health"
+        },
+        "Nova Scotia Health Authority": {
+          "text": "Nova Scotia Health Authority"
+        },
+        "Ontario Institute for Cancer Research (OICR)": {
+          "text": "Ontario Institute for Cancer Research (OICR)"
+        },
+        "Prince Edward Island - Health PEI": {
+          "text": "Prince Edward Island - Health PEI"
+        },
+        "Public Health Ontario (PHO)": {
+          "text": "Public Health Ontario (PHO)"
+        },
+        "Queen's University / Kingston Health Sciences Centre": {
+          "text": "Queen's University / Kingston Health Sciences Centre"
+        },
+        "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)": {
+          "text": "Saskatchewan - Roy Romanow Provincial Laboratory (RRPL)"
+        },
+        "Sunnybrook Health Sciences Centre": {
+          "text": "Sunnybrook Health Sciences Centre"
+        },
+        "Thunder Bay Regional Health Sciences Centre": {
+          "text": "Thunder Bay Regional Health Sciences Centre"
+        }
+      }
+    }
+  },
+  "slots": {
+    "specimen_collector_sample_id": {
+      "name": "specimen_collector_sample_id",
+      "description": "The user-defined name for the sample.",
+      "title": "specimen collector sample ID",
+      "examples": [
+        {
+          "value": "prov_mpox_1234"
+        }
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "exact_mappings": [
+        "SOMEWHERE:Sample%20ID%20given%20by%20the%20sample%20provider"
+      ],
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "sequenced_by": {
+      "name": "sequenced_by",
+      "description": "The name of the agency that generated the sequence.",
+      "title": "sequenced by",
+      "examples": [
+        {
+          "value": "Public Health Ontario (PHO)"
+        }
+      ],
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "slot_uri": "GENEPIO:0100416",
+      "required": true,
+      "any_of": [
+        {
+          "range": "SequenceSubmittedByMenu"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19"
+    },
+    "TemplateName": {
+      "name": "TemplateName",
+      "description": "A description of the template.",
+      "title": "Template Name",
+      "from_schema": "https://example.com/CanCOGeN_Covid-19",
+      "see_also": [
+        "templates/TEMPLATE_FOLDER/SOP.pdf"
+      ],
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "specimen_collector_sample_id": {
+          "name": "specimen_collector_sample_id",
+          "rank": 1,
+          "slot_group": "Database Identifiers"
+        },
+        "sequenced_by": {
+          "name": "sequenced_by",
+          "rank": 2,
+          "slot_group": "Sample collection and processing"
+        }
+      },
+      "attributes": {
+        "specimen_collector_sample_id": {
+          "name": "specimen_collector_sample_id",
+          "description": "The user-defined name for the sample.",
+          "title": "specimen collector sample ID",
+          "from_schema": "https://example.com/CanCOGeN_Covid-19",
+          "rank": 1,
+          "identifier": true,
+          "alias": "specimen_collector_sample_id",
+          "owner": "TemplateName",
+          "domain_of": [
+            "TemplateName"
+          ],
+          "slot_group": "Database Identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "sequenced_by": {
+          "name": "sequenced_by",
+          "description": "The name of the agency that generated the sequence.",
+          "title": "sequenced by",
+          "from_schema": "https://example.com/CanCOGeN_Covid-19",
+          "rank": 2,
+          "slot_uri": "GENEPIO:0100416",
+          "alias": "sequenced_by",
+          "owner": "TemplateName",
+          "domain_of": [
+            "TemplateName"
+          ],
+          "slot_group": "Sample collection and processing",
+          "required": true
+        }
+      }
+    }
+  },
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}

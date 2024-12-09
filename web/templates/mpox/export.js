@@ -119,39 +119,65 @@ export default {
       // as below with 'Address', that a column name appears two or more times.
 
       const ExportHeaders = [
-        ['Submitter', []], // submitter
-        ['FASTA filename', []], // fn
-        ['Virus name', []], // covv_virus_name
+        ['Submitter',         []], // submitter
+        ['FASTA filename',    []], // fn
+        ['Virus name',        []], // pox_virus_name
         ['Passage details/history', []], // covv_passage
-        ['Collection date', []], // covv_collection_date
-        ['Location', []], // covv_location
+        ['Collection date',   []], // pox_collection_date
+        ['Location',          []], // pox_location
         ['Additional location information', []], // covv_add_location
-        ['Host', []], // covv_host
+        ['Host',              []], // pox_host
         ['Additional host information', []], // covv_add_host_info
-        ['Sampling Strategy', []], // covv_sampling_strategy
-        ['Gender', []], // covv_gender
-        ['Patient age', []], // covv_patient_age
-        ['Patient status', []], // covv_patient_status
-        ['Specimen source', []], // covv_specimen
-        ['Outbreak', []], // covv_outbreak
-        ['Last vaccinated', []], // covv_last_vaccinated
-        ['Treatment', []], // covv_treatment
-        ['Sequencing technology', []], // covv_seq_technology
-        ['Assembly method', []], // covv_assembly_method
-        ['Depth of coverage',       []],
-        ['Coverage', []], // covv_coverage
-        ['Originating lab', []], // covv_orig_lab
-        ['Address', []], // covv_orig_lab_addr
-        ['Sample ID given by the sample provider', []], // covv_provider_sample_id
-        ['Submitting lab', []], // covv_subm_lab
+        ['Sampling Strategy', []], // pox_sampling_strategy
+        ['Gender',            []], // pox_gender
+        ['Patient age',       []], // pox_patient_age
+        ['Patient status',    []], // pox_patient_status
+        ['Specimen source',   []], // pox_specimen
+        ['Outbreak',          []], // pox_outbreak
+        ['Last vaccinated',   []], // pox_last_vaccinated
+        ['Treatment',         []], // pox_treatment
+        ['Sequencing technology', []], // pox_seq_technology
+        ['Assembly method',   []], // pox_assembly_method
+        ['Depth of coverage', ['depth_of_coverage_value']], // pox_coverage
+        ['Originating lab',   []], // pox_orig_lab
+        ['Address',           ['sample_collector_contact_address']], // pox_orig_lab_addr
+        ['Sample ID given by the sample provider', []], // pox_provider_sample_id
+        ['Submitting lab',    []], // pox_subm_lab
         // Custom rule: 2nd address points to sequence submitter.
-        ['Address', ['sequence submitter contact address']], // covv_subm_lab_addr
-        ['Sample ID given by the submitting laboratory', []], // covv_subm_sample_id
+        ['Address',           ['sequence_submitter_contact_address']], // pox_subm_lab_addr
+        ['Sample ID given by the submitting laboratory', ['specimen_collector_sample_id']], // pox_subm_sample_id
         ['Authors', []], // covv_authors
       ];
 
       // GISAID has new sampling_strategy field as of May 12, 2021
-      const header_GISAID = ['submitter','fn','pox_virus_name','pox_passage','pox_collection_date','pox_location','pox_add_location','pox_host','pox_add_host_info','pox_sampling_strategy','pox_gender','pox_patient_age','pox_patient_status','pox_specimen','pox_outbreak','pox_last_vaccinated','pox_treatment','pox_seq_technology','pox_assembly_method','pox_coverage','pox_orig_lab','pox_orig_lab_addr','pox_provider_sample_id','pox_subm_lab','pox_subm_lab_addr','pox_subm_sample_id','pox_authors'];
+      const header_GISAID = [
+        'submitter',
+        'fn',
+        'pox_virus_name',
+        'pox_passage',
+        'pox_collection_date',
+        'pox_location',
+        'pox_add_location',
+        'pox_host',
+        'pox_add_host_info',
+        'pox_sampling_strategy',
+        'pox_gender',
+        'pox_patient_age',
+        'pox_patient_status',
+        'pox_specimen',
+        'pox_outbreak',
+        'pox_last_vaccinated',
+        'pox_treatment',
+        'pox_seq_technology',
+        'pox_assembly_method',
+        'pox_coverage',
+        'pox_orig_lab',
+        'pox_orig_lab_addr',
+        'pox_provider_sample_id',
+        'pox_subm_lab',
+        'pox_subm_lab_addr',
+        'pox_subm_sample_id',
+        'pox_authors'];
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
@@ -183,10 +209,12 @@ export default {
             const field = sourceFields[sourceFieldIndex];
             const standardizedCellVal = mappedCellVal.toLowerCase().trim();
 
+            // NOT APPLICABLE TO GISAID? Oct 25, 2024
             if (field.fieldName === 'specimen processing') {
               // Specimen processing is a multi-select field
               const standardizedCellValArr = standardizedCellVal.split(';');
-              if (!standardizedCellValArr.includes('virus passage')) continue;
+              if (!standardizedCellValArr.includes('virus passage')) 
+                continue;
               // We only want to map "virus passage"
               mappedCellVal = 'Virus passage';
             }
@@ -205,6 +233,7 @@ export default {
             }
 
             // Add 'passage number ' prefix to number.
+            // APPEARS UNUSED Oct 25 2024 in Mpox specification
             if (field.fieldName === 'passage number') {
               mappedCellVal = 'passage number ' + mappedCellVal;
             }
@@ -237,7 +266,7 @@ export default {
 
   'NML LIMS': {
     fileType: 'csv',
-    pertains_to: ['Monkeypox'],
+    pertains_to: ['Mpox'],
     status: 'published',
     method: function (dh) {
       // A full export table field list enables ordering of these fields in export
@@ -259,27 +288,24 @@ export default {
         ['PH_CASE_ID',              []],
         ['PH_RELATED_PRIMARY_ID', []],
 
+
+
+
         ['CUSTOMER', []],
-
         ['PH_SEQUENCING_CENTRE', []],
-
         ['PH_SEQUENCE_SUBMITTER', []],
-
         ['HC_COLLECT_DATE', []],
         ['HC_TEXT2', []],
-
         ['HC_COUNTRY', []],
         ['HC_PROVINCE', []],
-
         ['HC_CURRENT_ID', []],
-        
         ['SUBMISSIONS - BioProject Accession', []],
 				['SUBMISSIONS - BioSample Accession', []],
 				['SUBMISSIONS - SRA Accession', []],
 				['SUBMISSIONS - GenBank Accession', []],
 				['SUBMISSIONS - GISAID Virus Name', []],
 				['SUBMISSIONS - GISAID Accession', []],
-        
+
         ['HC_SAMPLE_CATEGORY', []],
         ['PH_SAMPLING_DETAILS', []],
         ['PH_SPECIMEN_TYPE', []],
@@ -292,7 +318,6 @@ export default {
         //['PH_ENVIRONMENTAL_SITE',   []],
         ['PH_SPECIMEN_TYPE_ORIG', []],
         ['COLLECTION_METHOD', []],
-
         ['PH_ANIMAL_TYPE',          []],
         ['PH_HOST_HEALTH',          []],
         ['PH_HOST_HEALTH_DETAILS',  []],
@@ -316,10 +341,10 @@ export default {
         ['PH_EXPOSURE_DETAILS',     []],
         ['PH_HOST_ROLE',            []],
         ['PH_REASON_FOR_SEQUENCING', []],
-
         ['PH_REASON_FOR_SEQUENCING_DETAILS', []],
         ['PH_SEQUENCING_DATE', []],
         ['PH_LIBRARY_PREP_KIT', []],
+
         ['PH_SEQUENCING_INSTRUMENT', []],
         ['PH_TESTING_PROTOCOL', []],
         //['PH_SEQ_PROTOCOL_NAME',     []],
@@ -328,7 +353,6 @@ export default {
 
         ['PH_CONSENSUS_SEQUENCE', []], // from 'Consensus Sequence Method Name' or 'consensus sequence software name'
         ['PH_CONSENSUS_SEQUENCE_VERSION', []], // From 'Consensus Sequence Method Version Name' or 'consensus sequence software version'
-
         ['PH_BIOINFORMATICS_PROTOCOL', []],
         //['PH_LINEAGE_CLADE_NAME',   []],
         //['PH_LINEAGE_CLADE_SOFTWARE',[]],
@@ -374,6 +398,7 @@ export default {
 
       const sourceFields = dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      const sourceFieldTitleMap = dh.getFieldTitleMap(sourceFields);
 
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'NML_LIMS');
@@ -399,6 +424,7 @@ export default {
 
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
+
         for (const [headerName, sources] of ExportHeaders) {
           if (headerName === 'HC_CURRENT_ID') {
             // Assign constant value.
@@ -411,7 +437,7 @@ export default {
             // Note: if this field eventually gets null values, then must do
             // field.dataStatus check.
             const value =
-              inputRow[sourceFieldNameMap['signs and symptoms']] || '';
+              inputRow[sourceFieldTitleMap['signs and symptoms']] || '';
             outputRow.push(value ? 'Y' : 'N');
             continue;
           }
@@ -420,9 +446,9 @@ export default {
           // by looking at year or month in "sample collection date precision"
           if (headerName === 'HC_COLLECT_DATE') {
             let value =
-              inputRow[sourceFieldNameMap['sample collection date']] || '';
+              inputRow[sourceFieldTitleMap['sample collection date']] || '';
             const date_unit =
-              inputRow[sourceFieldNameMap['sample collection date precision']];
+              inputRow[sourceFieldTitleMap['sample collection date precision']];
             outputRow.push(dh.setDateChange(date_unit, value, '01'));
             continue;
           }
@@ -438,19 +464,21 @@ export default {
               'environmental material',
               'environmental site',
             ]) {
-              const value = inputRow[sourceFieldNameMap[fieldName]];
+              const value = inputRow[sourceFieldTitleMap[fieldName]];
 
               // Ignore all null value types
               if (!value || null_values.has(value)) {
                 continue;
               }
+              // value = value.toLowerCase(); //Only in CanCoGEN
               if (
                 fieldName === 'host (scientific name)' ||
                 fieldName === 'host (common name)'
               ) {
                 if (value === 'Homo sapiens' || value === 'Human')
                   cellValue = 'Human';
-                else cellValue = 'ANIMAL';
+                else 
+                  cellValue = 'ANIMAL';
                 break;
               }
               if (

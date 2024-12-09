@@ -1,8 +1,8 @@
 {
-  "name": "Pathogen_Agnostic",
+  "name": "PathogenAgnostic",
   "description": "",
   "id": "https://example.com/Pathogen_Agnostic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -46,6 +46,9 @@
     "string": {
       "name": "string",
       "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "schema:Text"
@@ -56,6 +59,9 @@
     "integer": {
       "name": "integer",
       "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "schema:Integer"
@@ -66,6 +72,9 @@
     "boolean": {
       "name": "boolean",
       "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "schema:Boolean"
@@ -77,6 +86,9 @@
     "float": {
       "name": "float",
       "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "schema:Float"
@@ -87,6 +99,9 @@
     "double": {
       "name": "double",
       "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "close_mappings": [
         "schema:Float"
@@ -97,6 +112,9 @@
     "decimal": {
       "name": "decimal",
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "broad_mappings": [
         "schema:Number"
@@ -108,21 +126,23 @@
       "name": "time",
       "description": "A time object represents a (local) time of day, independent of any particular day",
       "notes": [
-        "URI is dateTime because OWL reasoners do not work with straight date or time"
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "schema:Time"
       ],
       "base": "XSDTime",
-      "uri": "xsd:dateTime",
+      "uri": "xsd:time",
       "repr": "str"
     },
     "date": {
       "name": "date",
       "description": "a date (year, month and day) in an idealized calendar",
       "notes": [
-        "URI is dateTime because OWL reasoners don't work with straight date or time"
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
@@ -135,6 +155,9 @@
     "datetime": {
       "name": "datetime",
       "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "schema:DateTime"
@@ -146,6 +169,9 @@
     "date_or_datetime": {
       "name": "date_or_datetime",
       "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "base": "str",
       "uri": "linkml:DateOrDatetime",
@@ -154,6 +180,9 @@
     "uriorcurie": {
       "name": "uriorcurie",
       "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "base": "URIorCURIE",
       "uri": "xsd:anyURI",
@@ -163,6 +192,9 @@
       "name": "curie",
       "conforms_to": "https://www.w3.org/TR/curie/",
       "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
       "comments": [
         "in RDF serializations this MUST be expanded to a URI",
         "in non-RDF serializations MAY be serialized as the compact representation"
@@ -176,6 +208,9 @@
       "name": "uri",
       "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
       "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
       "comments": [
         "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
       ],
@@ -190,6 +225,9 @@
     "ncname": {
       "name": "ncname",
       "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "base": "NCName",
       "uri": "xsd:string",
@@ -198,8 +236,11 @@
     "objectidentifier": {
       "name": "objectidentifier",
       "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
       "comments": [
-        "Used for inheritence and type checking"
+        "Used for inheritance and type checking"
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "base": "ElementIdentifier",
@@ -209,15 +250,55 @@
     "nodeidentifier": {
       "name": "nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "base": "NodeIdentifier",
       "uri": "shex:nonLiteral",
       "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://example.com/Pathogen_Agnostic",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://example.com/Pathogen_Agnostic",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://example.com/Pathogen_Agnostic",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
     }
   },
   "enums": {
-    "null value menu": {
-      "name": "null value menu",
+    "NullValueMenu": {
+      "name": "NullValueMenu",
+      "title": "null value menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Not Applicable": {
@@ -242,8 +323,9 @@
         }
       }
     },
-    "geo_loc_name (state/province/territory) menu": {
-      "name": "geo_loc_name (state/province/territory) menu",
+    "GeoLocNameStateProvinceTerritoryMenu": {
+      "name": "GeoLocNameStateProvinceTerritoryMenu",
+      "title": "geo_loc_name (state/province/territory) menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Alberta": {
@@ -300,8 +382,9 @@
         }
       }
     },
-    "host age unit menu": {
-      "name": "host age unit menu",
+    "HostAgeUnitMenu": {
+      "name": "HostAgeUnitMenu",
+      "title": "host age unit menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "month": {
@@ -314,8 +397,9 @@
         }
       }
     },
-    "sample collection date precision menu": {
-      "name": "sample collection date precision menu",
+    "SampleCollectionDatePrecisionMenu": {
+      "name": "SampleCollectionDatePrecisionMenu",
+      "title": "sample collection date precision menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "year": {
@@ -332,8 +416,9 @@
         }
       }
     },
-    "NML submitted specimen type menu": {
-      "name": "NML submitted specimen type menu",
+    "NmlSubmittedSpecimenTypeMenu": {
+      "name": "NmlSubmittedSpecimenTypeMenu",
+      "title": "NML submitted specimen type menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Swab": {
@@ -358,8 +443,9 @@
         }
       }
     },
-    "anatomical material menu": {
-      "name": "anatomical material menu",
+    "AnatomicalMaterialMenu": {
+      "name": "AnatomicalMaterialMenu",
+      "title": "anatomical material menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Blood": {
@@ -406,8 +492,9 @@
         }
       }
     },
-    "anatomical part menu": {
-      "name": "anatomical part menu",
+    "AnatomicalPartMenu": {
+      "name": "AnatomicalPartMenu",
+      "title": "anatomical part menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Anus": {
@@ -527,8 +614,9 @@
         }
       }
     },
-    "body product menu": {
-      "name": "body product menu",
+    "BodyProductMenu": {
+      "name": "BodyProductMenu",
+      "title": "body product menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Breast Milk": {
@@ -566,8 +654,9 @@
         }
       }
     },
-    "environmental material menu": {
-      "name": "environmental material menu",
+    "EnvironmentalMaterialMenu": {
+      "name": "EnvironmentalMaterialMenu",
+      "title": "environmental material menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Air vent": {
@@ -705,8 +794,9 @@
         }
       }
     },
-    "environmental site menu": {
-      "name": "environmental site menu",
+    "EnvironmentalSiteMenu": {
+      "name": "EnvironmentalSiteMenu",
+      "title": "environmental site menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Acute care facility": {
@@ -799,8 +889,9 @@
         }
       }
     },
-    "collection method menu": {
-      "name": "collection method menu",
+    "CollectionMethodMenu": {
+      "name": "CollectionMethodMenu",
+      "title": "collection method menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Amniocentesis": {
@@ -897,8 +988,9 @@
         }
       }
     },
-    "collection device menu": {
-      "name": "collection device menu",
+    "CollectionDeviceMenu": {
+      "name": "CollectionDeviceMenu",
+      "title": "collection device menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Air filter": {
@@ -971,8 +1063,9 @@
         }
       }
     },
-    "host (scientific name) menu": {
-      "name": "host (scientific name) menu",
+    "HostScientificNameMenu": {
+      "name": "HostScientificNameMenu",
+      "title": "host (scientific name) menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Homo sapiens": {
@@ -1041,8 +1134,9 @@
         }
       }
     },
-    "organism menu": {
-      "name": "organism menu",
+    "OrganismMenu": {
+      "name": "OrganismMenu",
+      "title": "organism menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Severe acute respiratory syndrome coronavirus 2": {
@@ -1068,8 +1162,9 @@
         }
       }
     },
-    "purpose of sampling menu": {
-      "name": "purpose of sampling menu",
+    "PurposeOfSamplingMenu": {
+      "name": "PurposeOfSamplingMenu",
+      "title": "purpose of sampling menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Cluster/Outbreak investigation": {
@@ -1090,8 +1185,9 @@
         }
       }
     },
-    "purpose of sequencing menu": {
-      "name": "purpose of sequencing menu",
+    "PurposeOfSequencingMenu": {
+      "name": "PurposeOfSequencingMenu",
+      "title": "purpose of sequencing menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Baseline surveillance (random sampling)": {
@@ -1211,8 +1307,9 @@
         }
       }
     },
-    "specimen processing menu": {
-      "name": "specimen processing menu",
+    "SpecimenProcessingMenu": {
+      "name": "SpecimenProcessingMenu",
+      "title": "specimen processing menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Virus passage": {
@@ -1229,8 +1326,9 @@
         }
       }
     },
-    "host disease menu": {
-      "name": "host disease menu",
+    "HostDiseaseMenu": {
+      "name": "HostDiseaseMenu",
+      "title": "host disease menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "COVID-19": {
@@ -1242,8 +1340,9 @@
         }
       }
     },
-    "host age bin menu": {
-      "name": "host age bin menu",
+    "HostAgeBinMenu": {
+      "name": "HostAgeBinMenu",
+      "title": "host age bin menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "0 - 9": {
@@ -1286,20 +1385,21 @@
           "text": "90 - 99",
           "meaning": "GENEPIO:0100058",
           "exact_mappings": [
-            "VirusSeq_Portal:90+"
+            "VirusSeq_Portal:90%2B"
           ]
         },
         "100+": {
           "text": "100+",
           "meaning": "GENEPIO:0100059",
           "exact_mappings": [
-            "VirusSeq_Portal:90+"
+            "VirusSeq_Portal:90%2B"
           ]
         }
       }
     },
-    "host gender menu": {
-      "name": "host gender menu",
+    "HostGenderMenu": {
+      "name": "HostGenderMenu",
+      "title": "host gender menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Female": {
@@ -1328,8 +1428,9 @@
         }
       }
     },
-    "sequencing instrument menu": {
-      "name": "sequencing instrument menu",
+    "SequencingInstrumentMenu": {
+      "name": "SequencingInstrumentMenu",
+      "title": "sequencing instrument menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Illumina": {
@@ -1558,8 +1659,9 @@
         }
       }
     },
-    "sequenced by menu": {
-      "name": "sequenced by menu",
+    "SequencedByMenu": {
+      "name": "SequencedByMenu",
+      "title": "sequenced by menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Alberta Precision Labs (APL)": {
@@ -1608,8 +1710,9 @@
         }
       }
     },
-    "sequence submitted by menu": {
-      "name": "sequence submitted by menu",
+    "SequenceSubmittedByMenu": {
+      "name": "SequenceSubmittedByMenu",
+      "title": "sequence submitted by menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Alberta Precision Labs (APL)": {
@@ -1691,8 +1794,9 @@
         }
       }
     },
-    "sample collected by menu": {
-      "name": "sample collected by menu",
+    "SampleCollectedByMenu": {
+      "name": "SampleCollectedByMenu",
+      "title": "sample collected by menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Alberta Precision Labs (APL)": {
@@ -1798,8 +1902,9 @@
         }
       }
     },
-    "geo_loc_name (country) menu": {
-      "name": "geo_loc_name (country) menu",
+    "GeoLocNameCountryMenu": {
+      "name": "GeoLocNameCountryMenu",
+      "title": "geo_loc_name (country) menu",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "permissible_values": {
         "Afghanistan": {
@@ -2890,8 +2995,8 @@
     }
   },
   "slots": {
-    "specimen collector sample ID": {
-      "name": "specimen collector sample ID",
+    "specimen_collector_sample_id": {
+      "name": "specimen_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "specimen collector sample ID",
       "comments": [
@@ -2904,19 +3009,22 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Sample ID given by the sample provider",
-        "CNPHI:Primary Specimen ID",
+        "GISAID:Sample%20ID%20given%20by%20the%20sample%20provider",
+        "CNPHI:Primary%20Specimen%20ID",
         "NML_LIMS:TEXT_ID",
         "BIOSAMPLE:sample_name",
-        "VirusSeq_Portal:specimen collector sample ID"
+        "VirusSeq_Portal:specimen%20collector%20sample%20ID"
       ],
       "slot_uri": "GENEPIO:0001123",
       "identifier": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "third party lab service provider name": {
-      "name": "third party lab service provider name",
+    "third_party_lab_service_provider_name": {
+      "name": "third_party_lab_service_provider_name",
       "description": "The name of the third party company or laboratory that provided services.",
       "title": "third party lab service provider name",
       "comments": [
@@ -2932,10 +3040,13 @@
         "NML_LIMS:HC_TEXT5"
       ],
       "slot_uri": "GENEPIO:0001202",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString"
     },
-    "third party lab sample ID": {
-      "name": "third party lab sample ID",
+    "third_party_lab_sample_id": {
+      "name": "third_party_lab_sample_id",
       "description": "The identifier assigned to a sample by a third party service provider.",
       "title": "third party lab sample ID",
       "comments": [
@@ -2951,10 +3062,13 @@
         "NML_LIMS:PH_ID_NUMBER_PRIMARY"
       ],
       "slot_uri": "GENEPIO:0001149",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString"
     },
-    "case ID": {
-      "name": "case ID",
+    "case_id": {
+      "name": "case_id",
       "description": "The identifier used to specify an epidemiologically detected case of disease.",
       "title": "case ID",
       "comments": [
@@ -2970,11 +3084,14 @@
         "NML_LIMS:PH_CASE_ID"
       ],
       "slot_uri": "GENEPIO:0100281",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "Related specimen primary ID": {
-      "name": "Related specimen primary ID",
+    "related_specimen_primary_id": {
+      "name": "related_specimen_primary_id",
       "description": "The primary ID of a related specimen previously submitted to the repository.",
       "title": "Related specimen primary ID",
       "comments": [
@@ -2987,22 +3104,25 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Related Specimen ID",
-        "CNPHI:Related Specimen Relationship Type",
+        "CNPHI:Related%20Specimen%20ID",
+        "CNPHI:Related%20Specimen%20Relationship%20Type",
         "NML_LIMS:PH_RELATED_PRIMARY_ID"
       ],
       "slot_uri": "GENEPIO:0001128",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "any_of": [
         {
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "IRIDA sample name": {
-      "name": "IRIDA sample name",
+    "irida_sample_name": {
+      "name": "irida_sample_name",
       "description": "The identifier assigned to a sequenced isolate in IRIDA.",
       "title": "IRIDA sample name",
       "comments": [
@@ -3015,13 +3135,16 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "NML_LIMS:IRIDA sample name"
+        "NML_LIMS:IRIDA%20sample%20name"
       ],
       "slot_uri": "GENEPIO:0001131",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString"
     },
-    "umbrella bioproject accession": {
-      "name": "umbrella bioproject accession",
+    "umbrella_bioproject_accession": {
+      "name": "umbrella_bioproject_accession",
       "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
       "title": "umbrella bioproject accession",
       "comments": [
@@ -3034,18 +3157,21 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "NML_LIMS:umbrella bioproject accession"
+        "NML_LIMS:umbrella%20bioproject%20accession"
       ],
       "slot_uri": "GENEPIO:0001133",
-      "range": "umbrella bioproject accession menu",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
+      "range": "UmbrellaBioprojectAccessionMenu",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
         "interpolated": true,
         "partial_match": false
       }
     },
-    "bioproject accession": {
-      "name": "bioproject accession",
+    "bioproject_accession": {
+      "name": "bioproject_accession",
       "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
       "title": "bioproject accession",
       "comments": [
@@ -3058,11 +3184,14 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:BioProject Accession",
+        "CNPHI:BioProject%20Accession",
         "NML_LIMS:PH_BIOPROJECT_ACCESSION",
         "BIOSAMPLE:bioproject_accession"
       ],
       "slot_uri": "GENEPIO:0001136",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
@@ -3070,8 +3199,8 @@
         "partial_match": false
       }
     },
-    "biosample accession": {
-      "name": "biosample accession",
+    "biosample_accession": {
+      "name": "biosample_accession",
       "description": "The identifier assigned to a BioSample in INSDC archives.",
       "title": "biosample accession",
       "comments": [
@@ -3084,10 +3213,13 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:BioSample Accession",
+        "CNPHI:BioSample%20Accession",
         "NML_LIMS:PH_BIOSAMPLE_ACCESSION"
       ],
       "slot_uri": "GENEPIO:0001139",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
@@ -3095,8 +3227,8 @@
         "partial_match": false
       }
     },
-    "SRA accession": {
-      "name": "SRA accession",
+    "sra_accession": {
+      "name": "sra_accession",
       "description": "The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
       "title": "SRA accession",
       "comments": [
@@ -3109,10 +3241,13 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:SRA Accession",
+        "CNPHI:SRA%20Accession",
         "NML_LIMS:PH_SRA_ACCESSION"
       ],
       "slot_uri": "GENEPIO:0001142",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
@@ -3120,8 +3255,8 @@
         "partial_match": false
       }
     },
-    "GenBank accession": {
-      "name": "GenBank accession",
+    "genbank_accession": {
+      "name": "genbank_accession",
       "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
       "title": "GenBank accession",
       "comments": [
@@ -3134,10 +3269,13 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:GenBank Accession",
-        "NML_LIMS:GenBank accession"
+        "CNPHI:GenBank%20Accession",
+        "NML_LIMS:GenBank%20accession"
       ],
       "slot_uri": "GENEPIO:0001145",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
@@ -3145,8 +3283,8 @@
         "partial_match": false
       }
     },
-    "GISAID accession": {
-      "name": "GISAID accession",
+    "gisaid_accession": {
+      "name": "gisaid_accession",
       "description": "The GISAID accession number assigned to the sequence.",
       "title": "GISAID accession",
       "comments": [
@@ -3159,12 +3297,15 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:GISAID Accession (if known)",
-        "NML_LIMS:SUBMISSIONS - GISAID Accession ID",
+        "CNPHI:GISAID%20Accession%20%28if%20known%29",
+        "NML_LIMS:SUBMISSIONS%20-%20GISAID%20Accession%20ID",
         "BIOSAMPLE:GISAID_accession",
-        "VirusSeq_Portal:GISAID accession"
+        "VirusSeq_Portal:GISAID%20accession"
       ],
       "slot_uri": "GENEPIO:0001147",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
@@ -3172,8 +3313,8 @@
         "partial_match": false
       }
     },
-    "sample collected by": {
-      "name": "sample collected by",
+    "sample_collected_by": {
+      "name": "sample_collected_by",
       "description": "The name of the agency that collected the original sample.",
       "title": "sample collected by",
       "comments": [
@@ -3186,25 +3327,28 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Originating lab",
-        "CNPHI:Lab Name",
+        "GISAID:Originating%20lab",
+        "CNPHI:Lab%20Name",
         "NML_LIMS:CUSTOMER",
         "BIOSAMPLE:collected_by",
-        "VirusSeq_Portal:sample collected by"
+        "VirusSeq_Portal:sample%20collected%20by"
       ],
       "slot_uri": "GENEPIO:0001153",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
-          "range": "sample collected by menu"
+          "range": "SampleCollectedByMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sequenced by": {
-      "name": "sequenced by",
+    "sequenced_by": {
+      "name": "sequenced_by",
       "description": "The name of the agency that generated the sequence.",
       "title": "sequenced by",
       "comments": [
@@ -3221,18 +3365,21 @@
         "BIOSAMPLE:sequenced_by"
       ],
       "slot_uri": "GENEPIO:0100416",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
-          "range": "sequence submitted by menu"
+          "range": "SequenceSubmittedByMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sequence submitted by": {
-      "name": "sequence submitted by",
+    "sequence_submitted_by": {
+      "name": "sequence_submitted_by",
       "description": "The name of the agency that generated the sequence.",
       "title": "sequence submitted by",
       "comments": [
@@ -3245,25 +3392,28 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Submitting lab",
-        "CNPHI:Sequencing Centre",
+        "GISAID:Submitting%20lab",
+        "CNPHI:Sequencing%20Centre",
         "NML_LIMS:PH_SEQUENCING_CENTRE",
         "BIOSAMPLE:sequenced_by",
-        "VirusSeq_Portal:sequence submitted by"
+        "VirusSeq_Portal:sequence%20submitted%20by"
       ],
       "slot_uri": "GENEPIO:0001159",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
-          "range": "sequence submitted by menu"
+          "range": "SequenceSubmittedByMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sample collection date": {
-      "name": "sample collection date",
+    "sample_collection_date": {
+      "name": "sample_collection_date",
       "description": "The date on which the sample was collected.",
       "title": "sample collection date",
       "todos": [
@@ -3280,25 +3430,28 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Collection date",
-        "CNPHI:Patient Sample Collected Date",
+        "GISAID:Collection%20date",
+        "CNPHI:Patient%20Sample%20Collected%20Date",
         "NML_LIMS:HC_COLLECT_DATE",
-        "BIOSAMPLE:sample collection date",
-        "VirusSeq_Portal:sample collection date"
+        "BIOSAMPLE:sample%20collection%20date",
+        "VirusSeq_Portal:sample%20collection%20date"
       ],
       "slot_uri": "GENEPIO:0001174",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sample collection date precision": {
-      "name": "sample collection date precision",
+    "sample_collection_date_precision": {
+      "name": "sample_collection_date_precision",
       "description": "The precision to which the \"sample collection date\" was provided.",
       "title": "sample collection date precision",
       "comments": [
@@ -3311,22 +3464,25 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Precision of date collected",
+        "CNPHI:Precision%20of%20date%20collected",
         "NML_LIMS:HC_TEXT2"
       ],
       "slot_uri": "GENEPIO:0001177",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
-          "range": "sample collection date precision menu"
+          "range": "SampleCollectionDatePrecisionMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "geo_loc_name (country)": {
-      "name": "geo_loc_name (country)",
+    "geo_loc_name_country": {
+      "name": "geo_loc_name_country",
       "description": "The country where the sample was collected.",
       "title": "geo_loc_name (country)",
       "comments": [
@@ -3340,24 +3496,27 @@
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "GISAID:Location",
-        "CNPHI:Patient Country",
+        "CNPHI:Patient%20Country",
         "NML_LIMS:HC_COUNTRY",
         "BIOSAMPLE:geo_loc_name",
-        "VirusSeq_Portal:geo_loc_name (country)"
+        "VirusSeq_Portal:geo_loc_name%20%28country%29"
       ],
       "slot_uri": "GENEPIO:0001181",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
-          "range": "geo_loc_name (country) menu"
+          "range": "GeoLocNameCountryMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "geo_loc_name (state/province/territory)": {
-      "name": "geo_loc_name (state/province/territory)",
+    "geo_loc_name_state_province_territory": {
+      "name": "geo_loc_name_state_province_territory",
       "description": "The province/territory where the sample was collected.",
       "title": "geo_loc_name (state/province/territory)",
       "comments": [
@@ -3370,19 +3529,22 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Patient Province",
+        "CNPHI:Patient%20Province",
         "NML_LIMS:HC_PROVINCE",
         "BIOSAMPLE:geo_loc_name",
-        "VirusSeq_Portal:geo_loc_name (state/province/territory)"
+        "VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29"
       ],
       "slot_uri": "GENEPIO:0001185",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
-          "range": "geo_loc_name (state/province/territory) menu"
+          "range": "GeoLocNameStateProvinceTerritoryMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -3406,13 +3568,16 @@
         "VirusSeq_Portal:organism"
       ],
       "slot_uri": "GENEPIO:0001191",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
-          "range": "organism menu"
+          "range": "OrganismMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
@@ -3430,27 +3595,30 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Virus name",
-        "CNPHI:GISAID Virus Name",
-        "NML_LIMS:RESULT - CANCOGEN_SUBMISSIONS",
+        "GISAID:Virus%20name",
+        "CNPHI:GISAID%20Virus%20Name",
+        "NML_LIMS:RESULT%20-%20CANCOGEN_SUBMISSIONS",
         "BIOSAMPLE:isolate",
         "BIOSAMPLE:GISAID_virus_name",
         "VirusSeq_Portal:isolate",
-        "VirusSeq_Portal:fasta header name"
+        "VirusSeq_Portal:fasta%20header%20name"
       ],
       "slot_uri": "GENEPIO:0001195",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "purpose of sampling": {
-      "name": "purpose of sampling",
+    "purpose_of_sampling": {
+      "name": "purpose_of_sampling",
       "description": "The reason that the sample was collected.",
       "title": "purpose of sampling",
       "comments": [
@@ -3463,24 +3631,27 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Reason for Sampling",
+        "CNPHI:Reason%20for%20Sampling",
         "NML_LIMS:HC_SAMPLE_CATEGORY",
         "BIOSAMPLE:purpose_of_sampling",
-        "VirusSeq_Portal:purpose of sampling"
+        "VirusSeq_Portal:purpose%20of%20sampling"
       ],
       "slot_uri": "GENEPIO:0001198",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
-          "range": "purpose of sampling menu"
+          "range": "PurposeOfSamplingMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "purpose of sampling details": {
-      "name": "purpose of sampling details",
+    "purpose_of_sampling_details": {
+      "name": "purpose_of_sampling_details",
       "description": "The description of why the sample was collected, providing specific details.",
       "title": "purpose of sampling details",
       "comments": [
@@ -3493,24 +3664,27 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Details on the Reason for Sampling",
+        "CNPHI:Details%20on%20the%20Reason%20for%20Sampling",
         "NML_LIMS:PH_SAMPLING_DETAILS",
         "BIOSAMPLE:description",
-        "VirusSeq_Portal:purpose of sampling details"
+        "VirusSeq_Portal:purpose%20of%20sampling%20details"
       ],
       "slot_uri": "GENEPIO:0001200",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "NML submitted specimen type": {
-      "name": "NML submitted specimen type",
+    "nml_submitted_specimen_type": {
+      "name": "nml_submitted_specimen_type",
       "description": "The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.",
       "title": "NML submitted specimen type",
       "comments": [
@@ -3523,15 +3697,18 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Specimen Type",
+        "CNPHI:Specimen%20Type",
         "NML_LIMS:PH_SPECIMEN_TYPE"
       ],
       "slot_uri": "GENEPIO:0001204",
-      "range": "NML submitted specimen type menu",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
+      "range": "NMLSubmittedSpecimenTypeMenu",
       "recommended": true
     },
-    "anatomical material": {
-      "name": "anatomical material",
+    "anatomical_material": {
+      "name": "anatomical_material",
       "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
       "title": "anatomical material",
       "comments": [
@@ -3544,27 +3721,30 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Anatomical Material",
+        "GISAID:Specimen%20source",
+        "CNPHI:Anatomical%20Material",
         "NML_LIMS:PH_ISOLATION_SITE_DESC",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:anatomical_material",
-        "VirusSeq_Portal:anatomical material"
+        "VirusSeq_Portal:anatomical%20material"
       ],
       "slot_uri": "GENEPIO:0001211",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "anatomical material menu"
+          "range": "AnatomicalMaterialMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "anatomical part": {
-      "name": "anatomical part",
+    "anatomical_part": {
+      "name": "anatomical_part",
       "description": "An anatomical part of an organism e.g. oropharynx.",
       "title": "anatomical part",
       "comments": [
@@ -3577,27 +3757,30 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Anatomical Site",
+        "GISAID:Specimen%20source",
+        "CNPHI:Anatomical%20Site",
         "NML_LIMS:PH_ISOLATION_SITE",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:anatomical_part",
-        "VirusSeq_Portal:anatomical part"
+        "VirusSeq_Portal:anatomical%20part"
       ],
       "slot_uri": "GENEPIO:0001214",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "anatomical part menu"
+          "range": "AnatomicalPartMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "body product": {
-      "name": "body product",
+    "body_product": {
+      "name": "body_product",
       "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
       "title": "body product",
       "comments": [
@@ -3610,27 +3793,30 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Body Product",
+        "GISAID:Specimen%20source",
+        "CNPHI:Body%20Product",
         "NML_LIMS:PH_SPECIMEN_SOURCE_DESC",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:body_product",
-        "VirusSeq_Portal:body product"
+        "VirusSeq_Portal:body%20product"
       ],
       "slot_uri": "GENEPIO:0001216",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "body product menu"
+          "range": "BodyProductMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "environmental material": {
-      "name": "environmental material",
+    "environmental_material": {
+      "name": "environmental_material",
       "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
       "title": "environmental material",
       "comments": [
@@ -3643,27 +3829,30 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Environmental Material",
+        "GISAID:Specimen%20source",
+        "CNPHI:Environmental%20Material",
         "NML_LIMS:PH_ENVIRONMENTAL_MATERIAL",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:environmental_material",
-        "VirusSeq_Portal:environmental material"
+        "VirusSeq_Portal:environmental%20material"
       ],
       "slot_uri": "GENEPIO:0001223",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "environmental material menu"
+          "range": "EnvironmentalMaterialMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "environmental site": {
-      "name": "environmental site",
+    "environmental_site": {
+      "name": "environmental_site",
       "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
       "title": "environmental site",
       "comments": [
@@ -3676,27 +3865,30 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Environmental Site",
+        "GISAID:Specimen%20source",
+        "CNPHI:Environmental%20Site",
         "NML_LIMS:PH_ENVIRONMENTAL_SITE",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:environmental_site",
-        "VirusSeq_Portal:environmental site"
+        "VirusSeq_Portal:environmental%20site"
       ],
       "slot_uri": "GENEPIO:0001232",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "environmental site menu"
+          "range": "EnvironmentalSiteMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "collection device": {
-      "name": "collection device",
+    "collection_device": {
+      "name": "collection_device",
       "description": "The instrument or container used to collect the sample e.g. swab.",
       "title": "collection device",
       "comments": [
@@ -3709,27 +3901,30 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Specimen Collection Matrix",
+        "GISAID:Specimen%20source",
+        "CNPHI:Specimen%20Collection%20Matrix",
         "NML_LIMS:PH_SPECIMEN_TYPE_ORIG",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:collection_device",
-        "VirusSeq_Portal:collection device"
+        "VirusSeq_Portal:collection%20device"
       ],
       "slot_uri": "GENEPIO:0001234",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "collection device menu"
+          "range": "CollectionDeviceMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "collection method": {
-      "name": "collection method",
+    "collection_method": {
+      "name": "collection_method",
       "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
       "title": "collection method",
       "comments": [
@@ -3742,27 +3937,30 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Specimen source",
-        "CNPHI:Collection Method",
+        "GISAID:Specimen%20source",
+        "CNPHI:Collection%20Method",
         "NML_LIMS:COLLECTION_METHOD",
         "BIOSAMPLE:isolation_source",
         "BIOSAMPLE:collection_method",
-        "VirusSeq_Portal:collection method"
+        "VirusSeq_Portal:collection%20method"
       ],
       "slot_uri": "GENEPIO:0001241",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "collection method menu"
+          "range": "CollectionMethodMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "specimen processing": {
-      "name": "specimen processing",
+    "specimen_processing": {
+      "name": "specimen_processing",
       "description": "Any processing applied to the sample during or after receiving the sample.",
       "title": "specimen processing",
       "comments": [
@@ -3775,23 +3973,26 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Passage details/history",
-        "NML_LIMS:specimen processing"
+        "GISAID:Passage%20details/history",
+        "NML_LIMS:specimen%20processing"
       ],
       "slot_uri": "GENEPIO:0001253",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "specimen processing menu"
+          "range": "SpecimenProcessingMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "specimen processing details": {
-      "name": "specimen processing details",
+    "specimen_processing_details": {
+      "name": "specimen_processing_details",
       "description": "Detailed information regarding the processing applied to a sample during or after receiving the sample.",
       "title": "specimen processing details",
       "comments": [
@@ -3804,10 +4005,13 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "slot_uri": "GENEPIO:0100311",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString"
     },
-    "host (scientific name)": {
-      "name": "host (scientific name)",
+    "host_scientific_name": {
+      "name": "host_scientific_name",
       "description": "The taxonomic, or scientific name of the host.",
       "title": "host (scientific name)",
       "comments": [
@@ -3821,23 +4025,26 @@
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "GISAID:Host",
-        "NML_LIMS:host (scientific name)",
+        "NML_LIMS:host%20%28scientific%20name%29",
         "BIOSAMPLE:host",
-        "VirusSeq_Portal:host (scientific name)"
+        "VirusSeq_Portal:host%20%28scientific%20name%29"
       ],
       "slot_uri": "GENEPIO:0001387",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
-          "range": "host (scientific name) menu"
+          "range": "HostScientificNameMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host disease": {
-      "name": "host disease",
+    "host_disease": {
+      "name": "host_disease",
       "description": "The name of the disease experienced by the host.",
       "title": "host disease",
       "comments": [
@@ -3850,24 +4057,27 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Host Disease",
+        "CNPHI:Host%20Disease",
         "NML_LIMS:PH_HOST_DISEASE",
         "BIOSAMPLE:host_disease",
-        "VirusSeq_Portal:host disease"
+        "VirusSeq_Portal:host%20disease"
       ],
       "slot_uri": "GENEPIO:0001391",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
       "any_of": [
         {
-          "range": "host disease menu"
+          "range": "HostDiseaseMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host age": {
-      "name": "host age",
+    "host_age": {
+      "name": "host_age",
       "description": "Age of host at the time of sampling.",
       "title": "host age",
       "comments": [
@@ -3880,13 +4090,16 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Patient age",
-        "CNPHI:Patient Age",
+        "GISAID:Patient%20age",
+        "CNPHI:Patient%20Age",
         "NML_LIMS:PH_AGE",
         "BIOSAMPLE:host_age",
-        "VirusSeq_Portal:host age"
+        "VirusSeq_Portal:host%20age"
       ],
       "slot_uri": "GENEPIO:0001392",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
       "minimum_value": 0,
       "maximum_value": 130,
@@ -3895,12 +4108,12 @@
           "range": "decimal"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host age unit": {
-      "name": "host age unit",
+    "host_age_unit": {
+      "name": "host_age_unit",
       "description": "The unit used to measure the host age, in either months or years.",
       "title": "host age unit",
       "comments": [
@@ -3913,23 +4126,26 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Age Units",
+        "CNPHI:Age%20Units",
         "NML_LIMS:PH_AGE_UNIT",
-        "VirusSeq_Portal:host age unit"
+        "VirusSeq_Portal:host%20age%20unit"
       ],
       "slot_uri": "GENEPIO:0001393",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
       "any_of": [
         {
-          "range": "host age unit menu"
+          "range": "HostAgeUnitMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host age bin": {
-      "name": "host age bin",
+    "host_age_bin": {
+      "name": "host_age_bin",
       "description": "Age of host at the time of sampling, expressed as an age group.",
       "title": "host age bin",
       "comments": [
@@ -3942,23 +4158,26 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Host Age Category",
+        "CNPHI:Host%20Age%20Category",
         "NML_LIMS:PH_AGE_GROUP",
-        "VirusSeq_Portal:host age bin"
+        "VirusSeq_Portal:host%20age%20bin"
       ],
       "slot_uri": "GENEPIO:0001394",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
       "any_of": [
         {
-          "range": "host age bin menu"
+          "range": "HostAgeBinMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "host gender": {
-      "name": "host gender",
+    "host_gender": {
+      "name": "host_gender",
       "description": "The gender of the host at the time of sample collection.",
       "title": "host gender",
       "comments": [
@@ -3972,12 +4191,15 @@
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "GISAID:Gender",
-        "CNPHI:Patient Sex",
+        "CNPHI:Patient%20Sex",
         "NML_LIMS:VD_SEX",
         "BIOSAMPLE:host_sex",
-        "VirusSeq_Portal:host gender"
+        "VirusSeq_Portal:host%20gender"
       ],
       "slot_uri": "GENEPIO:0001395",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
       "structured_pattern": {
         "syntax": "{Title_Case}",
@@ -3986,15 +4208,15 @@
       },
       "any_of": [
         {
-          "range": "host gender menu"
+          "range": "HostGenderMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "purpose of sequencing": {
-      "name": "purpose of sequencing",
+    "purpose_of_sequencing": {
+      "name": "purpose_of_sequencing",
       "description": "The reason that the sample was sequenced.",
       "title": "purpose of sequencing",
       "comments": [
@@ -4007,25 +4229,28 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Reason for Sequencing",
+        "CNPHI:Reason%20for%20Sequencing",
         "NML_LIMS:PH_REASON_FOR_SEQUENCING",
         "BIOSAMPLE:purpose_of_sequencing",
-        "VirusSeq_Portal:purpose of sequencing"
+        "VirusSeq_Portal:purpose%20of%20sequencing"
       ],
       "slot_uri": "GENEPIO:0001445",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "purpose of sequencing menu"
+          "range": "PurposeOfSequencingMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "purpose of sequencing details": {
-      "name": "purpose of sequencing details",
+    "purpose_of_sequencing_details": {
+      "name": "purpose_of_sequencing_details",
       "description": "The description of why the sample was sequenced providing specific details.",
       "title": "purpose of sequencing details",
       "comments": [
@@ -4038,27 +4263,30 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Details on the Reason for Sequencing",
+        "CNPHI:Details%20on%20the%20Reason%20for%20Sequencing",
         "NML_LIMS:PH_REASON_FOR_SEQUENCING_DETAILS",
-        "VirusSeq_Portal:purpose of sequencing details"
+        "VirusSeq_Portal:purpose%20of%20sequencing%20details"
       ],
       "slot_uri": "GENEPIO:0001446",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
       "any_of": [
         {
           "range": "WhitespaceMinimizedString"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "sequencing date": {
-      "name": "sequencing date",
+    "sequencing_date": {
+      "name": "sequencing_date",
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
       "todos": [
-        ">={sample collection date}"
+        ">={sample_collection_date}"
       ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -4073,18 +4301,21 @@
         "NML_LIMS:PH_SEQUENCING_DATE"
       ],
       "slot_uri": "GENEPIO:0001447",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "recommended": true,
       "any_of": [
         {
           "range": "date"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "library preparation kit": {
-      "name": "library preparation kit",
+    "library_preparation_kit": {
+      "name": "library_preparation_kit",
       "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
       "title": "library preparation kit",
       "comments": [
@@ -4100,11 +4331,14 @@
         "NML_LIMS:PH_LIBRARY_PREP_KIT"
       ],
       "slot_uri": "GENEPIO:0001450",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "sequencing instrument": {
-      "name": "sequencing instrument",
+    "sequencing_instrument": {
+      "name": "sequencing_instrument",
       "description": "The model of the sequencing instrument used.",
       "title": "sequencing instrument",
       "comments": [
@@ -4117,25 +4351,28 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Sequencing technology",
-        "CNPHI:Sequencing Instrument",
+        "GISAID:Sequencing%20technology",
+        "CNPHI:Sequencing%20Instrument",
         "NML_LIMS:PH_INSTRUMENT_CGN",
-        "VirusSeq_Portal:sequencing instrument"
+        "VirusSeq_Portal:sequencing%20instrument"
       ],
       "slot_uri": "GENEPIO:0001452",
-      "multivalued": true,
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "required": true,
+      "multivalued": true,
       "any_of": [
         {
-          "range": "sequencing instrument menu"
+          "range": "SequencingInstrumentMenu"
         },
         {
-          "range": "null value menu"
+          "range": "NullValueMenu"
         }
       ]
     },
-    "raw sequence data processing method": {
-      "name": "raw sequence data processing method",
+    "raw_sequence_data_processing_method": {
+      "name": "raw_sequence_data_processing_method",
       "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
       "title": "raw sequence data processing method",
       "comments": [
@@ -4149,14 +4386,17 @@
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "NML_LIMS:PH_RAW_SEQUENCE_METHOD",
-        "VirusSeq_Portal:raw sequence data processing method"
+        "VirusSeq_Portal:raw%20sequence%20data%20processing%20method"
       ],
       "slot_uri": "GENEPIO:0001458",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "dehosting method": {
-      "name": "dehosting method",
+    "dehosting_method": {
+      "name": "dehosting_method",
       "description": "The method used to remove host reads from the pathogen sequence.",
       "title": "dehosting method",
       "comments": [
@@ -4170,16 +4410,19 @@
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
         "NML_LIMS:PH_DEHOSTING_METHOD",
-        "VirusSeq_Portal:dehosting method"
+        "VirusSeq_Portal:dehosting%20method"
       ],
       "slot_uri": "GENEPIO:0001459",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "assembly sequence software name": {
-      "name": "assembly sequence software name",
+    "assembly_software_name": {
+      "name": "assembly_software_name",
       "description": "The name of software used to generate the assembled sequence.",
-      "title": "assembly sequence software name",
+      "title": "assembly software name",
       "comments": [
         "Provide the name of the software used to generate the assembled sequence."
       ],
@@ -4189,13 +4432,16 @@
         }
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "assembly sequence software version": {
-      "name": "assembly sequence software version",
+    "assembly_software_version": {
+      "name": "assembly_software_version",
       "description": "The version of the software used to generate the assembled sequence.",
-      "title": "assembly sequence software version",
+      "title": "assembly software version",
       "comments": [
         "Provide the version of the software used to generate the assembled sequence."
       ],
@@ -4205,11 +4451,14 @@
         }
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "consensus sequence software name": {
-      "name": "consensus sequence software name",
+    "consensus_sequence_software_name": {
+      "name": "consensus_sequence_software_name",
       "description": "The name of software used to generate the consensus sequence.",
       "title": "consensus sequence software name",
       "comments": [
@@ -4222,17 +4471,20 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:Assembly method",
-        "CNPHI:consensus sequence",
+        "GISAID:Assembly%20method",
+        "CNPHI:consensus%20sequence",
         "NML_LIMS:PH_CONSENSUS_SEQUENCE",
-        "VirusSeq_Portal:consensus sequence software name"
+        "VirusSeq_Portal:consensus%20sequence%20software%20name"
       ],
       "slot_uri": "GENEPIO:0001463",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "consensus sequence software version": {
-      "name": "consensus sequence software version",
+    "consensus_sequence_software_version": {
+      "name": "consensus_sequence_software_version",
       "description": "The version of the software used to generate the consensus sequence.",
       "title": "consensus sequence software version",
       "comments": [
@@ -4245,16 +4497,19 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:consensus sequence",
+        "CNPHI:consensus%20sequence",
         "NML_LIMS:PH_CONSENSUS_SEQUENCE_VERSION",
-        "VirusSeq_Portal:consensus sequence software version"
+        "VirusSeq_Portal:consensus%20sequence%20software%20version"
       ],
       "slot_uri": "GENEPIO:0001469",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "bioinformatics protocol": {
-      "name": "bioinformatics protocol",
+    "bioinformatics_protocol": {
+      "name": "bioinformatics_protocol",
       "description": "A description of the overall bioinformatics strategy used.",
       "title": "bioinformatics protocol",
       "comments": [
@@ -4267,11 +4522,14 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "CNPHI:Bioinformatics Protocol",
+        "CNPHI:Bioinformatics%20Protocol",
         "NML_LIMS:PH_BIOINFORMATICS_PROTOCOL",
-        "VirusSeq_Portal:bioinformatics protocol"
+        "VirusSeq_Portal:bioinformatics%20protocol"
       ],
       "slot_uri": "GENEPIO:0001489",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -4294,11 +4552,14 @@
         "NML_LIMS:PH_CANCOGEN_AUTHORS"
       ],
       "slot_uri": "GENEPIO:0001517",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "DataHarmonizer provenance": {
-      "name": "DataHarmonizer provenance",
+    "dataharmonizer_provenance": {
+      "name": "dataharmonizer_provenance",
       "description": "The DataHarmonizer software and template version provenance.",
       "title": "DataHarmonizer provenance",
       "comments": [
@@ -4311,11 +4572,14 @@
       ],
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "exact_mappings": [
-        "GISAID:DataHarmonizer provenance",
-        "CNPHI:Additional Comments",
+        "GISAID:DataHarmonizer%20provenance",
+        "CNPHI:Additional%20Comments",
         "NML_LIMS:HC_COMMENTS"
       ],
       "slot_uri": "GENEPIO:0001518",
+      "domain_of": [
+        "PathogenAgnostic"
+      ],
       "range": "Provenance"
     }
   },
@@ -4325,103 +4589,104 @@
       "description": "A DataHarmonizer interface",
       "from_schema": "https://example.com/Pathogen_Agnostic"
     },
-    "Pathogen Agnostic": {
-      "name": "Pathogen Agnostic",
+    "PathogenAgnostic": {
+      "name": "PathogenAgnostic",
+      "title": "Pathogen Agnostic",
       "from_schema": "https://example.com/Pathogen_Agnostic",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen collector sample ID": {
-          "name": "specimen collector sample ID",
+        "specimen_collector_sample_id": {
+          "name": "specimen_collector_sample_id",
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
-        "third party lab service provider name": {
-          "name": "third party lab service provider name",
+        "third_party_lab_service_provider_name": {
+          "name": "third_party_lab_service_provider_name",
           "rank": 2,
           "slot_group": "Database Identifiers"
         },
-        "third party lab sample ID": {
-          "name": "third party lab sample ID",
+        "third_party_lab_sample_id": {
+          "name": "third_party_lab_sample_id",
           "rank": 3,
           "slot_group": "Database Identifiers"
         },
-        "case ID": {
-          "name": "case ID",
+        "case_id": {
+          "name": "case_id",
           "rank": 4,
           "slot_group": "Database Identifiers"
         },
-        "Related specimen primary ID": {
-          "name": "Related specimen primary ID",
+        "related_specimen_primary_id": {
+          "name": "related_specimen_primary_id",
           "rank": 5,
           "slot_group": "Database Identifiers"
         },
-        "IRIDA sample name": {
-          "name": "IRIDA sample name",
+        "irida_sample_name": {
+          "name": "irida_sample_name",
           "rank": 6,
           "slot_group": "Database Identifiers"
         },
-        "umbrella bioproject accession": {
-          "name": "umbrella bioproject accession",
+        "umbrella_bioproject_accession": {
+          "name": "umbrella_bioproject_accession",
           "rank": 7,
           "slot_group": "Database Identifiers"
         },
-        "bioproject accession": {
-          "name": "bioproject accession",
+        "bioproject_accession": {
+          "name": "bioproject_accession",
           "rank": 8,
           "slot_group": "Database Identifiers"
         },
-        "biosample accession": {
-          "name": "biosample accession",
+        "biosample_accession": {
+          "name": "biosample_accession",
           "rank": 9,
           "slot_group": "Database Identifiers"
         },
-        "SRA accession": {
-          "name": "SRA accession",
+        "sra_accession": {
+          "name": "sra_accession",
           "rank": 10,
           "slot_group": "Database Identifiers"
         },
-        "GenBank accession": {
-          "name": "GenBank accession",
+        "genbank_accession": {
+          "name": "genbank_accession",
           "rank": 11,
           "slot_group": "Database Identifiers"
         },
-        "GISAID accession": {
-          "name": "GISAID accession",
+        "gisaid_accession": {
+          "name": "gisaid_accession",
           "rank": 12,
           "slot_group": "Database Identifiers"
         },
-        "sample collected by": {
-          "name": "sample collected by",
+        "sample_collected_by": {
+          "name": "sample_collected_by",
           "rank": 13,
           "slot_group": "Sample collection and processing"
         },
-        "sequenced by": {
-          "name": "sequenced by",
+        "sequenced_by": {
+          "name": "sequenced_by",
           "rank": 14,
           "slot_group": "Sample collection and processing"
         },
-        "sequence submitted by": {
-          "name": "sequence submitted by",
+        "sequence_submitted_by": {
+          "name": "sequence_submitted_by",
           "rank": 15,
           "slot_group": "Sample collection and processing"
         },
-        "sample collection date": {
-          "name": "sample collection date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "rank": 16,
           "slot_group": "Sample collection and processing"
         },
-        "sample collection date precision": {
-          "name": "sample collection date precision",
+        "sample_collection_date_precision": {
+          "name": "sample_collection_date_precision",
           "rank": 17,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name (country)": {
-          "name": "geo_loc_name (country)",
+        "geo_loc_name_country": {
+          "name": "geo_loc_name_country",
           "rank": 18,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name (state/province/territory)": {
-          "name": "geo_loc_name (state/province/territory)",
+        "geo_loc_name_state_province_territory": {
+          "name": "geo_loc_name_state_province_territory",
           "rank": 19,
           "slot_group": "Sample collection and processing"
         },
@@ -4435,153 +4700,153 @@
           "rank": 21,
           "slot_group": "Sample collection and processing"
         },
-        "purpose of sampling": {
-          "name": "purpose of sampling",
+        "purpose_of_sampling": {
+          "name": "purpose_of_sampling",
           "rank": 22,
           "slot_group": "Sample collection and processing"
         },
-        "purpose of sampling details": {
-          "name": "purpose of sampling details",
+        "purpose_of_sampling_details": {
+          "name": "purpose_of_sampling_details",
           "rank": 23,
           "slot_group": "Sample collection and processing"
         },
-        "NML submitted specimen type": {
-          "name": "NML submitted specimen type",
+        "nml_submitted_specimen_type": {
+          "name": "nml_submitted_specimen_type",
           "rank": 24,
           "slot_group": "Sample collection and processing"
         },
-        "anatomical material": {
-          "name": "anatomical material",
+        "anatomical_material": {
+          "name": "anatomical_material",
           "rank": 25,
           "slot_group": "Sample collection and processing"
         },
-        "anatomical part": {
-          "name": "anatomical part",
+        "anatomical_part": {
+          "name": "anatomical_part",
           "rank": 26,
           "slot_group": "Sample collection and processing"
         },
-        "body product": {
-          "name": "body product",
+        "body_product": {
+          "name": "body_product",
           "rank": 27,
           "slot_group": "Sample collection and processing"
         },
-        "environmental material": {
-          "name": "environmental material",
+        "environmental_material": {
+          "name": "environmental_material",
           "rank": 28,
           "slot_group": "Sample collection and processing"
         },
-        "environmental site": {
-          "name": "environmental site",
+        "environmental_site": {
+          "name": "environmental_site",
           "rank": 29,
           "slot_group": "Sample collection and processing"
         },
-        "collection device": {
-          "name": "collection device",
+        "collection_device": {
+          "name": "collection_device",
           "rank": 30,
           "slot_group": "Sample collection and processing"
         },
-        "collection method": {
-          "name": "collection method",
+        "collection_method": {
+          "name": "collection_method",
           "rank": 31,
           "slot_group": "Sample collection and processing"
         },
-        "specimen processing": {
-          "name": "specimen processing",
+        "specimen_processing": {
+          "name": "specimen_processing",
           "rank": 32,
           "slot_group": "Sample collection and processing"
         },
-        "specimen processing details": {
-          "name": "specimen processing details",
+        "specimen_processing_details": {
+          "name": "specimen_processing_details",
           "rank": 33,
           "slot_group": "Sample collection and processing"
         },
-        "host (scientific name)": {
-          "name": "host (scientific name)",
+        "host_scientific_name": {
+          "name": "host_scientific_name",
           "rank": 34,
           "slot_group": "Host Information"
         },
-        "host disease": {
-          "name": "host disease",
+        "host_disease": {
+          "name": "host_disease",
           "rank": 35,
           "slot_group": "Host Information"
         },
-        "host age": {
-          "name": "host age",
+        "host_age": {
+          "name": "host_age",
           "rank": 36,
           "slot_group": "Host Information"
         },
-        "host age unit": {
-          "name": "host age unit",
+        "host_age_unit": {
+          "name": "host_age_unit",
           "rank": 37,
           "slot_group": "Host Information"
         },
-        "host age bin": {
-          "name": "host age bin",
+        "host_age_bin": {
+          "name": "host_age_bin",
           "rank": 38,
           "slot_group": "Host Information"
         },
-        "host gender": {
-          "name": "host gender",
+        "host_gender": {
+          "name": "host_gender",
           "rank": 39,
           "slot_group": "Host Information"
         },
-        "purpose of sequencing": {
-          "name": "purpose of sequencing",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "rank": 40,
           "slot_group": "Sequencing"
         },
-        "purpose of sequencing details": {
-          "name": "purpose of sequencing details",
+        "purpose_of_sequencing_details": {
+          "name": "purpose_of_sequencing_details",
           "rank": 41,
           "slot_group": "Sequencing"
         },
-        "sequencing date": {
-          "name": "sequencing date",
+        "sequencing_date": {
+          "name": "sequencing_date",
           "rank": 42,
           "slot_group": "Sequencing"
         },
-        "library preparation kit": {
-          "name": "library preparation kit",
+        "library_preparation_kit": {
+          "name": "library_preparation_kit",
           "rank": 43,
           "slot_group": "Sequencing"
         },
-        "sequencing instrument": {
-          "name": "sequencing instrument",
+        "sequencing_instrument": {
+          "name": "sequencing_instrument",
           "rank": 44,
           "slot_group": "Sequencing"
         },
-        "raw sequence data processing method": {
-          "name": "raw sequence data processing method",
+        "raw_sequence_data_processing_method": {
+          "name": "raw_sequence_data_processing_method",
           "rank": 45,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "dehosting method": {
-          "name": "dehosting method",
+        "dehosting_method": {
+          "name": "dehosting_method",
           "rank": 46,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "assembly sequence software name": {
-          "name": "assembly sequence software name",
+        "assembly_software_name": {
+          "name": "assembly_software_name",
           "rank": 47,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "assembly sequence software version": {
-          "name": "assembly sequence software version",
+        "assembly_software_version": {
+          "name": "assembly_software_version",
           "rank": 48,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "consensus sequence software name": {
-          "name": "consensus sequence software name",
+        "consensus_sequence_software_name": {
+          "name": "consensus_sequence_software_name",
           "rank": 49,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "consensus sequence software version": {
-          "name": "consensus sequence software version",
+        "consensus_sequence_software_version": {
+          "name": "consensus_sequence_software_version",
           "rank": 50,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "bioinformatics protocol": {
-          "name": "bioinformatics protocol",
+        "bioinformatics_protocol": {
+          "name": "bioinformatics_protocol",
           "rank": 51,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -4590,136 +4855,240 @@
           "rank": 52,
           "slot_group": "Contributor acknowledgement"
         },
-        "DataHarmonizer provenance": {
-          "name": "DataHarmonizer provenance",
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
           "rank": 53,
           "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
-        "specimen collector sample ID": {
-          "name": "specimen collector sample ID",
+        "specimen_collector_sample_id": {
+          "name": "specimen_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
+          "comments": [
+            "Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab."
+          ],
+          "examples": [
+            {
+              "value": "prov_rona_99"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Sample%20ID%20given%20by%20the%20sample%20provider",
+            "CNPHI:Primary%20Specimen%20ID",
+            "NML_LIMS:TEXT_ID",
+            "BIOSAMPLE:sample_name",
+            "VirusSeq_Portal:specimen%20collector%20sample%20ID"
+          ],
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_ID",
-          "owner": "Pathogen Agnostic",
+          "alias": "specimen_collector_sample_id",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "third party lab service provider name": {
-          "name": "third party lab service provider name",
+        "third_party_lab_service_provider_name": {
+          "name": "third_party_lab_service_provider_name",
           "description": "The name of the third party company or laboratory that provided services.",
           "title": "third party lab service provider name",
+          "comments": [
+            "Provide the full, unabbreviated name of the company or laboratory."
+          ],
+          "examples": [
+            {
+              "value": "Switch Health"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:HC_TEXT5"
+          ],
           "rank": 2,
           "slot_uri": "GENEPIO:0001202",
           "alias": "third_party_lab_service_provider_name",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
-        "third party lab sample ID": {
-          "name": "third party lab sample ID",
+        "third_party_lab_sample_id": {
+          "name": "third_party_lab_sample_id",
           "description": "The identifier assigned to a sample by a third party service provider.",
           "title": "third party lab sample ID",
+          "comments": [
+            "Store the sample identifier supplied by the third party services provider."
+          ],
+          "examples": [
+            {
+              "value": "SHK123456"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:PH_ID_NUMBER_PRIMARY"
+          ],
           "rank": 3,
           "slot_uri": "GENEPIO:0001149",
-          "alias": "third_party_lab_sample_ID",
-          "owner": "Pathogen Agnostic",
+          "alias": "third_party_lab_sample_id",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
-        "case ID": {
-          "name": "case ID",
+        "case_id": {
+          "name": "case_id",
           "description": "The identifier used to specify an epidemiologically detected case of disease.",
           "title": "case ID",
+          "comments": [
+            "Provide the case identifer. The case ID greatly facilitates linkage between laboratory and epidemiological data. The case ID may be considered identifiable information. Consult the data steward before sharing."
+          ],
+          "examples": [
+            {
+              "value": "ABCD1234"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:PH_CASE_ID"
+          ],
           "rank": 4,
           "slot_uri": "GENEPIO:0100281",
-          "alias": "case_ID",
-          "owner": "Pathogen Agnostic",
+          "alias": "case_id",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "Related specimen primary ID": {
-          "name": "Related specimen primary ID",
+        "related_specimen_primary_id": {
+          "name": "related_specimen_primary_id",
           "description": "The primary ID of a related specimen previously submitted to the repository.",
           "title": "Related specimen primary ID",
+          "comments": [
+            "Store the primary ID of the related specimen previously submitted to the National Microbiology Laboratory so that the samples can be linked and tracked through the system."
+          ],
+          "examples": [
+            {
+              "value": "SR20-12345"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Related%20Specimen%20ID",
+            "CNPHI:Related%20Specimen%20Relationship%20Type",
+            "NML_LIMS:PH_RELATED_PRIMARY_ID"
+          ],
           "rank": 5,
           "slot_uri": "GENEPIO:0001128",
-          "alias": "Related_specimen_primary_ID",
-          "owner": "Pathogen Agnostic",
+          "alias": "related_specimen_primary_id",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
-          "slot_group": "Database Identifiers"
+          "slot_group": "Database Identifiers",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "IRIDA sample name": {
-          "name": "IRIDA sample name",
+        "irida_sample_name": {
+          "name": "irida_sample_name",
           "description": "The identifier assigned to a sequenced isolate in IRIDA.",
           "title": "IRIDA sample name",
+          "comments": [
+            "Store the IRIDA sample name. The IRIDA sample name will be created by the individual entering data into the IRIDA platform. IRIDA samples may be linked to metadata and sequence data, or just metadata alone. It is recommended that the IRIDA sample name be the same as, or contain, the specimen collector sample ID for better traceability. It is also recommended that the IRIDA sample name mirror the GISAID accession. IRIDA sample names cannot contain slashes. Slashes should be replaced by underscores. See IRIDA documentation for more information regarding special characters (https://irida.corefacility.ca/documentation/user/user/samples/#adding-a-new-sample)."
+          ],
+          "examples": [
+            {
+              "value": "prov_rona_99"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:IRIDA%20sample%20name"
+          ],
           "rank": 6,
           "slot_uri": "GENEPIO:0001131",
-          "alias": "IRIDA_sample_name",
-          "owner": "Pathogen Agnostic",
+          "alias": "irida_sample_name",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString"
         },
-        "umbrella bioproject accession": {
-          "name": "umbrella bioproject accession",
+        "umbrella_bioproject_accession": {
+          "name": "umbrella_bioproject_accession",
           "description": "The INSDC accession number assigned to the umbrella BioProject for the Canadian SARS-CoV-2 sequencing effort.",
           "title": "umbrella bioproject accession",
+          "comments": [
+            "Store the umbrella BioProject accession by selecting it from the picklist in the template. The umbrella BioProject accession will be identical for all CanCOGen submitters. Different provinces will have their own BioProjects, however these BioProjects will be linked under one umbrella BioProject."
+          ],
+          "examples": [
+            {
+              "value": "PRJNA623807"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:umbrella%20bioproject%20accession"
+          ],
           "rank": 7,
           "slot_uri": "GENEPIO:0001133",
           "alias": "umbrella_bioproject_accession",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
-          "range": "umbrella bioproject accession menu",
+          "range": "UmbrellaBioprojectAccessionMenu",
           "structured_pattern": {
             "syntax": "{UPPER_CASE}",
             "interpolated": true,
             "partial_match": false
           }
         },
-        "bioproject accession": {
-          "name": "bioproject accession",
+        "bioproject_accession": {
+          "name": "bioproject_accession",
           "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
           "title": "bioproject accession",
+          "comments": [
+            "Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project."
+          ],
+          "examples": [
+            {
+              "value": "PRJNA608651"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:BioProject%20Accession",
+            "NML_LIMS:PH_BIOPROJECT_ACCESSION",
+            "BIOSAMPLE:bioproject_accession"
+          ],
           "rank": 8,
           "slot_uri": "GENEPIO:0001136",
           "alias": "bioproject_accession",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
@@ -4729,17 +5098,29 @@
             "partial_match": false
           }
         },
-        "biosample accession": {
-          "name": "biosample accession",
+        "biosample_accession": {
+          "name": "biosample_accession",
           "description": "The identifier assigned to a BioSample in INSDC archives.",
           "title": "biosample accession",
+          "comments": [
+            "Store the accession returned from the BioSample submission. NCBI BioSamples will have the prefix SAMN."
+          ],
+          "examples": [
+            {
+              "value": "SAMN14180202"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:BioSample%20Accession",
+            "NML_LIMS:PH_BIOSAMPLE_ACCESSION"
+          ],
           "rank": 9,
           "slot_uri": "GENEPIO:0001139",
           "alias": "biosample_accession",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
@@ -4749,17 +5130,29 @@
             "partial_match": false
           }
         },
-        "SRA accession": {
-          "name": "SRA accession",
+        "sra_accession": {
+          "name": "sra_accession",
           "description": "The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",
           "title": "SRA accession",
+          "comments": [
+            "Store the accession assigned to the submitted \"run\". NCBI-SRA accessions start with SRR."
+          ],
+          "examples": [
+            {
+              "value": "SRR11177792"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:SRA%20Accession",
+            "NML_LIMS:PH_SRA_ACCESSION"
+          ],
           "rank": 10,
           "slot_uri": "GENEPIO:0001142",
-          "alias": "SRA_accession",
-          "owner": "Pathogen Agnostic",
+          "alias": "sra_accession",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
@@ -4769,17 +5162,29 @@
             "partial_match": false
           }
         },
-        "GenBank accession": {
-          "name": "GenBank accession",
+        "genbank_accession": {
+          "name": "genbank_accession",
           "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
           "title": "GenBank accession",
+          "comments": [
+            "Store the accession returned from a GenBank submission (viral genome assembly)."
+          ],
+          "examples": [
+            {
+              "value": "MN908947.3"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:GenBank%20Accession",
+            "NML_LIMS:GenBank%20accession"
+          ],
           "rank": 11,
           "slot_uri": "GENEPIO:0001145",
-          "alias": "GenBank_accession",
-          "owner": "Pathogen Agnostic",
+          "alias": "genbank_accession",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
@@ -4789,17 +5194,31 @@
             "partial_match": false
           }
         },
-        "GISAID accession": {
-          "name": "GISAID accession",
+        "gisaid_accession": {
+          "name": "gisaid_accession",
           "description": "The GISAID accession number assigned to the sequence.",
           "title": "GISAID accession",
+          "comments": [
+            "Store the accession returned from the GISAID submission."
+          ],
+          "examples": [
+            {
+              "value": "EPI_ISL_436489"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:GISAID%20Accession%20%28if%20known%29",
+            "NML_LIMS:SUBMISSIONS%20-%20GISAID%20Accession%20ID",
+            "BIOSAMPLE:GISAID_accession",
+            "VirusSeq_Portal:GISAID%20accession"
+          ],
           "rank": 12,
           "slot_uri": "GENEPIO:0001147",
-          "alias": "GISAID_accession",
-          "owner": "Pathogen Agnostic",
+          "alias": "gisaid_accession",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
@@ -4809,418 +5228,999 @@
             "partial_match": false
           }
         },
-        "sample collected by": {
-          "name": "sample collected by",
+        "sample_collected_by": {
+          "name": "sample_collected_by",
           "description": "The name of the agency that collected the original sample.",
           "title": "sample collected by",
+          "comments": [
+            "The name of the sample collector should be written out in full, (with minor exceptions) and be consistent across multple submissions e.g. Public Health Agency of Canada, Public Health Ontario, BC Centre for Disease Control. The sample collector specified is at the discretion of the data provider (i.e. may be hospital, provincial public health lab, or other)."
+          ],
+          "examples": [
+            {
+              "value": "BC Centre for Disease Control"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Originating%20lab",
+            "CNPHI:Lab%20Name",
+            "NML_LIMS:CUSTOMER",
+            "BIOSAMPLE:collected_by",
+            "VirusSeq_Portal:sample%20collected%20by"
+          ],
           "rank": 13,
           "slot_uri": "GENEPIO:0001153",
           "alias": "sample_collected_by",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "SampleCollectedByMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "sequenced by": {
-          "name": "sequenced by",
+        "sequenced_by": {
+          "name": "sequenced_by",
           "description": "The name of the agency that generated the sequence.",
           "title": "sequenced by",
+          "comments": [
+            "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions. If submitting specimens rather than sequencing data, please put the \"National Microbiology Laboratory (NML)\"."
+          ],
+          "examples": [
+            {
+              "value": "Public Health Ontario (PHO)"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:PH_SEQUENCING_CENTRE",
+            "BIOSAMPLE:sequenced_by"
+          ],
           "rank": 14,
           "slot_uri": "GENEPIO:0100416",
           "alias": "sequenced_by",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "SequenceSubmittedByMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "sequence submitted by": {
-          "name": "sequence submitted by",
+        "sequence_submitted_by": {
+          "name": "sequence_submitted_by",
           "description": "The name of the agency that generated the sequence.",
           "title": "sequence submitted by",
+          "comments": [
+            "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions. If submitting specimens rather than sequencing data, please put the \"National Microbiology Laboratory (NML)\"."
+          ],
+          "examples": [
+            {
+              "value": "Public Health Ontario (PHO)"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Submitting%20lab",
+            "CNPHI:Sequencing%20Centre",
+            "NML_LIMS:PH_SEQUENCING_CENTRE",
+            "BIOSAMPLE:sequenced_by",
+            "VirusSeq_Portal:sequence%20submitted%20by"
+          ],
           "rank": 15,
           "slot_uri": "GENEPIO:0001159",
           "alias": "sequence_submitted_by",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "SequenceSubmittedByMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "sample collection date": {
-          "name": "sample collection date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "description": "The date on which the sample was collected.",
           "title": "sample collection date",
+          "todos": [
+            ">=2019-10-01",
+            "<={today}"
+          ],
+          "comments": [
+            "Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add \"jitter\" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, ”received date” may be used as a substitute. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
+          ],
+          "examples": [
+            {
+              "value": "2020-03-16"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Collection%20date",
+            "CNPHI:Patient%20Sample%20Collected%20Date",
+            "NML_LIMS:HC_COLLECT_DATE",
+            "BIOSAMPLE:sample%20collection%20date",
+            "VirusSeq_Portal:sample%20collection%20date"
+          ],
           "rank": 16,
           "slot_uri": "GENEPIO:0001174",
           "alias": "sample_collection_date",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "date"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "sample collection date precision": {
-          "name": "sample collection date precision",
+        "sample_collection_date_precision": {
+          "name": "sample_collection_date_precision",
           "description": "The precision to which the \"sample collection date\" was provided.",
           "title": "sample collection date precision",
+          "comments": [
+            "Provide the precision of granularity to the \"day\", \"month\", or \"year\" for the date provided in the \"sample collection date\" field. The \"sample collection date\" will be truncated to the precision specified upon export; \"day\" for \"YYYY-MM-DD\", \"month\" for \"YYYY-MM\", or \"year\" for \"YYYY\"."
+          ],
+          "examples": [
+            {
+              "value": "year"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Precision%20of%20date%20collected",
+            "NML_LIMS:HC_TEXT2"
+          ],
           "rank": 17,
           "slot_uri": "GENEPIO:0001177",
           "alias": "sample_collection_date_precision",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "SampleCollectionDatePrecisionMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "geo_loc_name (country)": {
-          "name": "geo_loc_name (country)",
+        "geo_loc_name_country": {
+          "name": "geo_loc_name_country",
           "description": "The country where the sample was collected.",
           "title": "geo_loc_name (country)",
+          "comments": [
+            "Provide the country name from the controlled vocabulary provided."
+          ],
+          "examples": [
+            {
+              "value": "Canada"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Location",
+            "CNPHI:Patient%20Country",
+            "NML_LIMS:HC_COUNTRY",
+            "BIOSAMPLE:geo_loc_name",
+            "VirusSeq_Portal:geo_loc_name%20%28country%29"
+          ],
           "rank": 18,
           "slot_uri": "GENEPIO:0001181",
-          "alias": "geo_loc_name_(country)",
-          "owner": "Pathogen Agnostic",
+          "alias": "geo_loc_name_country",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "GeoLocNameCountryMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "geo_loc_name (state/province/territory)": {
-          "name": "geo_loc_name (state/province/territory)",
+        "geo_loc_name_state_province_territory": {
+          "name": "geo_loc_name_state_province_territory",
           "description": "The province/territory where the sample was collected.",
           "title": "geo_loc_name (state/province/territory)",
+          "comments": [
+            "Provide the province/territory name from the controlled vocabulary provided."
+          ],
+          "examples": [
+            {
+              "value": "Saskatchewan"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Patient%20Province",
+            "NML_LIMS:HC_PROVINCE",
+            "BIOSAMPLE:geo_loc_name",
+            "VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29"
+          ],
           "rank": 19,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_(state/province/territory)",
-          "owner": "Pathogen Agnostic",
+          "alias": "geo_loc_name_state_province_territory",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "GeoLocNameStateProvinceTerritoryMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
         "organism": {
           "name": "organism",
           "description": "Taxonomic name of the organism.",
           "title": "organism",
+          "comments": [
+            "Use \"Severe acute respiratory syndrome coronavirus 2\". This value is provided in the template."
+          ],
+          "examples": [
+            {
+              "value": "Severe acute respiratory syndrome coronavirus 2"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Pathogen",
+            "NML_LIMS:HC_CURRENT_ID",
+            "BIOSAMPLE:organism",
+            "VirusSeq_Portal:organism"
+          ],
           "rank": 20,
           "slot_uri": "GENEPIO:0001191",
           "alias": "organism",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "OrganismMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
         "isolate": {
           "name": "isolate",
           "description": "Identifier of the specific isolate.",
           "title": "isolate",
+          "comments": [
+            "Provide the GISAID virus name, which should be written in the format “hCov-19/CANADA/2 digit provincial ISO code-xxxxx/year”."
+          ],
+          "examples": [
+            {
+              "value": "hCov-19/CANADA/BC-prov_rona_99/2020"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Virus%20name",
+            "CNPHI:GISAID%20Virus%20Name",
+            "NML_LIMS:RESULT%20-%20CANCOGEN_SUBMISSIONS",
+            "BIOSAMPLE:isolate",
+            "BIOSAMPLE:GISAID_virus_name",
+            "VirusSeq_Portal:isolate",
+            "VirusSeq_Portal:fasta%20header%20name"
+          ],
           "rank": 21,
           "slot_uri": "GENEPIO:0001195",
           "alias": "isolate",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "purpose of sampling": {
-          "name": "purpose of sampling",
+        "purpose_of_sampling": {
+          "name": "purpose_of_sampling",
           "description": "The reason that the sample was collected.",
           "title": "purpose of sampling",
+          "comments": [
+            "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field."
+          ],
+          "examples": [
+            {
+              "value": "Diagnostic testing"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Reason%20for%20Sampling",
+            "NML_LIMS:HC_SAMPLE_CATEGORY",
+            "BIOSAMPLE:purpose_of_sampling",
+            "VirusSeq_Portal:purpose%20of%20sampling"
+          ],
           "rank": 22,
           "slot_uri": "GENEPIO:0001198",
           "alias": "purpose_of_sampling",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "PurposeOfSamplingMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "purpose of sampling details": {
-          "name": "purpose of sampling details",
+        "purpose_of_sampling_details": {
+          "name": "purpose_of_sampling_details",
           "description": "The description of why the sample was collected, providing specific details.",
           "title": "purpose of sampling details",
+          "comments": [
+            "Provide an expanded description of why the sample was collected using free text. The description may include the importance of the sample for a particular public health investigation/surveillance activity/research question. If details are not available, provide a null value."
+          ],
+          "examples": [
+            {
+              "value": "The sample was collected to investigate the prevalence of variants associated with mink-to-human transmission in Canada."
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Details%20on%20the%20Reason%20for%20Sampling",
+            "NML_LIMS:PH_SAMPLING_DETAILS",
+            "BIOSAMPLE:description",
+            "VirusSeq_Portal:purpose%20of%20sampling%20details"
+          ],
           "rank": 23,
           "slot_uri": "GENEPIO:0001200",
           "alias": "purpose_of_sampling_details",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "NML submitted specimen type": {
-          "name": "NML submitted specimen type",
+        "nml_submitted_specimen_type": {
+          "name": "nml_submitted_specimen_type",
           "description": "The type of specimen submitted to the National Microbiology Laboratory (NML) for testing.",
           "title": "NML submitted specimen type",
+          "comments": [
+            "This information is required for upload through the CNPHI LaSER system. Select the specimen type from the pick list provided. If sequence data is being submitted rather than a specimen for testing, select “Not Applicable”."
+          ],
+          "examples": [
+            {
+              "value": "swab"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Specimen%20Type",
+            "NML_LIMS:PH_SPECIMEN_TYPE"
+          ],
           "rank": 24,
           "slot_uri": "GENEPIO:0001204",
-          "alias": "NML_submitted_specimen_type",
-          "owner": "Pathogen Agnostic",
+          "alias": "nml_submitted_specimen_type",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "NML submitted specimen type menu",
+          "range": "NMLSubmittedSpecimenTypeMenu",
           "recommended": true
         },
-        "anatomical material": {
-          "name": "anatomical material",
+        "anatomical_material": {
+          "name": "anatomical_material",
           "description": "A substance obtained from an anatomical part of an organism e.g. tissue, blood.",
           "title": "anatomical material",
+          "comments": [
+            "Provide a descriptor if an anatomical material was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
+          ],
+          "examples": [
+            {
+              "value": "Blood"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Specimen%20source",
+            "CNPHI:Anatomical%20Material",
+            "NML_LIMS:PH_ISOLATION_SITE_DESC",
+            "BIOSAMPLE:isolation_source",
+            "BIOSAMPLE:anatomical_material",
+            "VirusSeq_Portal:anatomical%20material"
+          ],
           "rank": 25,
           "slot_uri": "GENEPIO:0001211",
-          "multivalued": true,
           "alias": "anatomical_material",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "AnatomicalMaterialMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "anatomical part": {
-          "name": "anatomical part",
+        "anatomical_part": {
+          "name": "anatomical_part",
           "description": "An anatomical part of an organism e.g. oropharynx.",
           "title": "anatomical part",
+          "comments": [
+            "Provide a descriptor if an anatomical part was sampled. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
+          ],
+          "examples": [
+            {
+              "value": "Nasopharynx (NP)"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Specimen%20source",
+            "CNPHI:Anatomical%20Site",
+            "NML_LIMS:PH_ISOLATION_SITE",
+            "BIOSAMPLE:isolation_source",
+            "BIOSAMPLE:anatomical_part",
+            "VirusSeq_Portal:anatomical%20part"
+          ],
           "rank": 26,
           "slot_uri": "GENEPIO:0001214",
-          "multivalued": true,
           "alias": "anatomical_part",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "AnatomicalPartMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "body product": {
-          "name": "body product",
+        "body_product": {
+          "name": "body_product",
           "description": "A substance excreted/secreted from an organism e.g. feces, urine, sweat.",
           "title": "body product",
+          "comments": [
+            "Provide a descriptor if a body product was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
+          ],
+          "examples": [
+            {
+              "value": "Feces"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Specimen%20source",
+            "CNPHI:Body%20Product",
+            "NML_LIMS:PH_SPECIMEN_SOURCE_DESC",
+            "BIOSAMPLE:isolation_source",
+            "BIOSAMPLE:body_product",
+            "VirusSeq_Portal:body%20product"
+          ],
           "rank": 27,
           "slot_uri": "GENEPIO:0001216",
-          "multivalued": true,
           "alias": "body_product",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "BodyProductMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "environmental material": {
-          "name": "environmental material",
+        "environmental_material": {
+          "name": "environmental_material",
           "description": "A substance obtained from the natural or man-made environment e.g. soil, water, sewage.",
           "title": "environmental material",
+          "comments": [
+            "Provide a descriptor if an environmental material was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
+          ],
+          "examples": [
+            {
+              "value": "Face mask"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Specimen%20source",
+            "CNPHI:Environmental%20Material",
+            "NML_LIMS:PH_ENVIRONMENTAL_MATERIAL",
+            "BIOSAMPLE:isolation_source",
+            "BIOSAMPLE:environmental_material",
+            "VirusSeq_Portal:environmental%20material"
+          ],
           "rank": 28,
           "slot_uri": "GENEPIO:0001223",
-          "multivalued": true,
           "alias": "environmental_material",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "EnvironmentalMaterialMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "environmental site": {
-          "name": "environmental site",
+        "environmental_site": {
+          "name": "environmental_site",
           "description": "An environmental location may describe a site in the natural or built environment e.g. contact surface, metal can, hospital, wet market, bat cave.",
           "title": "environmental site",
+          "comments": [
+            "Provide a descriptor if an environmental site was sampled. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
+          ],
+          "examples": [
+            {
+              "value": "Production Facility"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Specimen%20source",
+            "CNPHI:Environmental%20Site",
+            "NML_LIMS:PH_ENVIRONMENTAL_SITE",
+            "BIOSAMPLE:isolation_source",
+            "BIOSAMPLE:environmental_site",
+            "VirusSeq_Portal:environmental%20site"
+          ],
           "rank": 29,
           "slot_uri": "GENEPIO:0001232",
-          "multivalued": true,
           "alias": "environmental_site",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "EnvironmentalSiteMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "collection device": {
-          "name": "collection device",
+        "collection_device": {
+          "name": "collection_device",
           "description": "The instrument or container used to collect the sample e.g. swab.",
           "title": "collection device",
+          "comments": [
+            "Provide a descriptor if a device was used for sampling. Use the picklist provided in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
+          ],
+          "examples": [
+            {
+              "value": "Swab"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Specimen%20source",
+            "CNPHI:Specimen%20Collection%20Matrix",
+            "NML_LIMS:PH_SPECIMEN_TYPE_ORIG",
+            "BIOSAMPLE:isolation_source",
+            "BIOSAMPLE:collection_device",
+            "VirusSeq_Portal:collection%20device"
+          ],
           "rank": 30,
           "slot_uri": "GENEPIO:0001234",
-          "multivalued": true,
           "alias": "collection_device",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "CollectionDeviceMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "collection method": {
-          "name": "collection method",
+        "collection_method": {
+          "name": "collection_method",
           "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
           "title": "collection method",
+          "comments": [
+            "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
+          ],
+          "examples": [
+            {
+              "value": "Bronchoalveolar lavage (BAL)"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Specimen%20source",
+            "CNPHI:Collection%20Method",
+            "NML_LIMS:COLLECTION_METHOD",
+            "BIOSAMPLE:isolation_source",
+            "BIOSAMPLE:collection_method",
+            "VirusSeq_Portal:collection%20method"
+          ],
           "rank": 31,
           "slot_uri": "GENEPIO:0001241",
-          "multivalued": true,
           "alias": "collection_method",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "CollectionMethodMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "specimen processing": {
-          "name": "specimen processing",
+        "specimen_processing": {
+          "name": "specimen_processing",
           "description": "Any processing applied to the sample during or after receiving the sample.",
           "title": "specimen processing",
+          "comments": [
+            "Critical for interpreting data. Select all the applicable processes from the pick list. If virus was passaged, include information in \"lab host\", \"passage number\", and \"passage method\" fields. If none of the processes in the pick list apply, put \"not applicable\"."
+          ],
+          "examples": [
+            {
+              "value": "Specimens pooled"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Passage%20details/history",
+            "NML_LIMS:specimen%20processing"
+          ],
           "rank": 32,
           "slot_uri": "GENEPIO:0001253",
-          "multivalued": true,
           "alias": "specimen_processing",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
-          "recommended": true
+          "recommended": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "SpecimenProcessingMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "specimen processing details": {
-          "name": "specimen processing details",
+        "specimen_processing_details": {
+          "name": "specimen_processing_details",
           "description": "Detailed information regarding the processing applied to a sample during or after receiving the sample.",
           "title": "specimen processing details",
+          "comments": [
+            "Provide a free text description of any processing details applied to a sample."
+          ],
+          "examples": [
+            {
+              "value": "25 swabs were pooled and further prepared as a single sample during library prep."
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
           "rank": 33,
           "slot_uri": "GENEPIO:0100311",
           "alias": "specimen_processing_details",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "host (scientific name)": {
-          "name": "host (scientific name)",
+        "host_scientific_name": {
+          "name": "host_scientific_name",
           "description": "The taxonomic, or scientific name of the host.",
           "title": "host (scientific name)",
+          "comments": [
+            "Common name or scientific name are required if there was a host. Both can be provided, if known. Use terms from the pick lists in the template. Scientific name e.g. Homo sapiens, If the sample was environmental, put \"not applicable"
+          ],
+          "examples": [
+            {
+              "value": "Homo sapiens"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Host",
+            "NML_LIMS:host%20%28scientific%20name%29",
+            "BIOSAMPLE:host",
+            "VirusSeq_Portal:host%20%28scientific%20name%29"
+          ],
           "rank": 34,
           "slot_uri": "GENEPIO:0001387",
-          "alias": "host_(scientific_name)",
-          "owner": "Pathogen Agnostic",
+          "alias": "host_scientific_name",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Host Information",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "HostScientificNameMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "host disease": {
-          "name": "host disease",
+        "host_disease": {
+          "name": "host_disease",
           "description": "The name of the disease experienced by the host.",
           "title": "host disease",
+          "comments": [
+            "Select \"COVID-19\" from the pick list provided in the template."
+          ],
+          "examples": [
+            {
+              "value": "COVID-19"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Host%20Disease",
+            "NML_LIMS:PH_HOST_DISEASE",
+            "BIOSAMPLE:host_disease",
+            "VirusSeq_Portal:host%20disease"
+          ],
           "rank": 35,
           "slot_uri": "GENEPIO:0001391",
           "alias": "host_disease",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Host Information",
-          "recommended": true
+          "recommended": true,
+          "any_of": [
+            {
+              "range": "HostDiseaseMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "host age": {
-          "name": "host age",
+        "host_age": {
+          "name": "host_age",
           "description": "Age of host at the time of sampling.",
           "title": "host age",
+          "comments": [
+            "Enter the age of the host in years. If not available, provide a null value. If there is not host, put \"Not Applicable\"."
+          ],
+          "examples": [
+            {
+              "value": "79"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Patient%20age",
+            "CNPHI:Patient%20Age",
+            "NML_LIMS:PH_AGE",
+            "BIOSAMPLE:host_age",
+            "VirusSeq_Portal:host%20age"
+          ],
           "rank": 36,
           "slot_uri": "GENEPIO:0001392",
           "alias": "host_age",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Host Information",
           "recommended": true,
           "minimum_value": 0,
-          "maximum_value": 130
+          "maximum_value": 130,
+          "any_of": [
+            {
+              "range": "decimal"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "host age unit": {
-          "name": "host age unit",
+        "host_age_unit": {
+          "name": "host_age_unit",
           "description": "The unit used to measure the host age, in either months or years.",
           "title": "host age unit",
+          "comments": [
+            "Indicate whether the host age is in months or years. Age indicated in months will be binned to the 0 - 9 year age bin."
+          ],
+          "examples": [
+            {
+              "value": "years"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Age%20Units",
+            "NML_LIMS:PH_AGE_UNIT",
+            "VirusSeq_Portal:host%20age%20unit"
+          ],
           "rank": 37,
           "slot_uri": "GENEPIO:0001393",
           "alias": "host_age_unit",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Host Information",
-          "recommended": true
+          "recommended": true,
+          "any_of": [
+            {
+              "range": "HostAgeUnitMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "host age bin": {
-          "name": "host age bin",
+        "host_age_bin": {
+          "name": "host_age_bin",
           "description": "Age of host at the time of sampling, expressed as an age group.",
           "title": "host age bin",
+          "comments": [
+            "Select the corresponding host age bin from the pick list provided in the template. If not available, provide a null value."
+          ],
+          "examples": [
+            {
+              "value": "60 - 69"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Host%20Age%20Category",
+            "NML_LIMS:PH_AGE_GROUP",
+            "VirusSeq_Portal:host%20age%20bin"
+          ],
           "rank": 38,
           "slot_uri": "GENEPIO:0001394",
           "alias": "host_age_bin",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Host Information",
-          "recommended": true
+          "recommended": true,
+          "any_of": [
+            {
+              "range": "HostAgeBinMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "host gender": {
-          "name": "host gender",
+        "host_gender": {
+          "name": "host_gender",
           "description": "The gender of the host at the time of sample collection.",
           "title": "host gender",
+          "comments": [
+            "Select the corresponding host gender from the pick list provided in the template. If not available, provide a null value. If there is no host, put \"Not Applicable\"."
+          ],
+          "examples": [
+            {
+              "value": "Male"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Gender",
+            "CNPHI:Patient%20Sex",
+            "NML_LIMS:VD_SEX",
+            "BIOSAMPLE:host_sex",
+            "VirusSeq_Portal:host%20gender"
+          ],
           "rank": 39,
           "slot_uri": "GENEPIO:0001395",
           "alias": "host_gender",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Host Information",
           "recommended": true,
@@ -5228,191 +6228,377 @@
             "syntax": "{Title_Case}",
             "interpolated": true,
             "partial_match": false
-          }
+          },
+          "any_of": [
+            {
+              "range": "HostGenderMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "purpose of sequencing": {
-          "name": "purpose of sequencing",
+        "purpose_of_sequencing": {
+          "name": "purpose_of_sequencing",
           "description": "The reason that the sample was sequenced.",
           "title": "purpose of sequencing",
+          "comments": [
+            "The reason why a sample was originally collected may differ from the reason why it was selected for sequencing. The reason a sample was sequenced may provide information about potential biases in sequencing strategy. Provide the purpose of sequencing from the picklist in the template. The reason for sample collection should be indicated in the \"purpose of sampling\" field."
+          ],
+          "examples": [
+            {
+              "value": "Baseline surveillance (random sampling)"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Reason%20for%20Sequencing",
+            "NML_LIMS:PH_REASON_FOR_SEQUENCING",
+            "BIOSAMPLE:purpose_of_sequencing",
+            "VirusSeq_Portal:purpose%20of%20sequencing"
+          ],
           "rank": 40,
           "slot_uri": "GENEPIO:0001445",
-          "multivalued": true,
           "alias": "purpose_of_sequencing",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sequencing",
-          "required": true
+          "required": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "PurposeOfSequencingMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "purpose of sequencing details": {
-          "name": "purpose of sequencing details",
+        "purpose_of_sequencing_details": {
+          "name": "purpose_of_sequencing_details",
           "description": "The description of why the sample was sequenced providing specific details.",
           "title": "purpose of sequencing details",
+          "comments": [
+            "Provide an expanded description of why the sample was sequenced using free text. The description may include the importance of the sequences for a particular public health investigation/surveillance activity/research question. Suggested standardized descriotions include: Screened for S gene target failure (S dropout), Screened for mink variants, Screened for B.1.1.7 variant, Screened for B.1.135 variant, Screened for P.1 variant, Screened due to travel history, Screened due to close contact with infected individual, Assessing public health control measures, Determining early introductions and spread, Investigating airline-related exposures, Investigating temporary foreign worker, Investigating remote regions, Investigating health care workers, Investigating schools/universities, Investigating reinfection."
+          ],
+          "examples": [
+            {
+              "value": "Screened for S gene target failure (S dropout)"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Details%20on%20the%20Reason%20for%20Sequencing",
+            "NML_LIMS:PH_REASON_FOR_SEQUENCING_DETAILS",
+            "VirusSeq_Portal:purpose%20of%20sequencing%20details"
+          ],
           "rank": 41,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sequencing",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "sequencing date": {
-          "name": "sequencing date",
+        "sequencing_date": {
+          "name": "sequencing_date",
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
+          "todos": [
+            ">={sample_collection_date}"
+          ],
+          "comments": [
+            "ISO 8601 standard \"YYYY-MM-DD\"."
+          ],
+          "examples": [
+            {
+              "value": "2020-06-22"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:PH_SEQUENCING_DATE"
+          ],
           "rank": 42,
           "slot_uri": "GENEPIO:0001447",
           "alias": "sequencing_date",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sequencing",
-          "recommended": true
+          "recommended": true,
+          "any_of": [
+            {
+              "range": "date"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "library preparation kit": {
-          "name": "library preparation kit",
+        "library_preparation_kit": {
+          "name": "library_preparation_kit",
           "description": "The name of the DNA library preparation kit used to generate the library being sequenced.",
           "title": "library preparation kit",
+          "comments": [
+            "Provide the name of the library preparation kit used."
+          ],
+          "examples": [
+            {
+              "value": "Nextera XT"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:PH_LIBRARY_PREP_KIT"
+          ],
           "rank": 43,
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sequencing",
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "sequencing instrument": {
-          "name": "sequencing instrument",
+        "sequencing_instrument": {
+          "name": "sequencing_instrument",
           "description": "The model of the sequencing instrument used.",
           "title": "sequencing instrument",
+          "comments": [
+            "Select a sequencing instrument from the picklist provided in the template."
+          ],
+          "examples": [
+            {
+              "value": "Oxford Nanopore MinION"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Sequencing%20technology",
+            "CNPHI:Sequencing%20Instrument",
+            "NML_LIMS:PH_INSTRUMENT_CGN",
+            "VirusSeq_Portal:sequencing%20instrument"
+          ],
           "rank": 44,
           "slot_uri": "GENEPIO:0001452",
-          "multivalued": true,
           "alias": "sequencing_instrument",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Sequencing",
-          "required": true
+          "required": true,
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "SequencingInstrumentMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
-        "raw sequence data processing method": {
-          "name": "raw sequence data processing method",
+        "raw_sequence_data_processing_method": {
+          "name": "raw_sequence_data_processing_method",
           "description": "The names of the software and version number used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
+          "comments": [
+            "Provide the software name followed by the version e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3"
+          ],
+          "examples": [
+            {
+              "value": "Porechop 0.2.3"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:PH_RAW_SEQUENCE_METHOD",
+            "VirusSeq_Portal:raw%20sequence%20data%20processing%20method"
+          ],
           "rank": 45,
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "dehosting method": {
-          "name": "dehosting method",
+        "dehosting_method": {
+          "name": "dehosting_method",
           "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
+          "comments": [
+            "Provide the name and version number of the software used to remove host reads."
+          ],
+          "examples": [
+            {
+              "value": "Nanostripper"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "NML_LIMS:PH_DEHOSTING_METHOD",
+            "VirusSeq_Portal:dehosting%20method"
+          ],
           "rank": 46,
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "assembly sequence software name": {
-          "name": "assembly sequence software name",
+        "assembly_software_name": {
+          "name": "assembly_software_name",
           "description": "The name of software used to generate the assembled sequence.",
-          "title": "assembly sequence software name",
+          "title": "assembly software name",
+          "comments": [
+            "Provide the name of the software used to generate the assembled sequence."
+          ],
+          "examples": [
+            {
+              "value": "Shovill"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
           "rank": 47,
-          "alias": "assembly_sequence_software_name",
-          "owner": "Pathogen Agnostic",
+          "alias": "assembly_software_name",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "assembly sequence software version": {
-          "name": "assembly sequence software version",
+        "assembly_software_version": {
+          "name": "assembly_software_version",
           "description": "The version of the software used to generate the assembled sequence.",
-          "title": "assembly sequence software version",
+          "title": "assembly software version",
+          "comments": [
+            "Provide the version of the software used to generate the assembled sequence."
+          ],
+          "examples": [
+            {
+              "value": "1.2.3"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
           "rank": 48,
-          "alias": "assembly_sequence_software_version",
-          "owner": "Pathogen Agnostic",
+          "alias": "assembly_software_version",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "consensus sequence software name": {
-          "name": "consensus sequence software name",
+        "consensus_sequence_software_name": {
+          "name": "consensus_sequence_software_name",
           "description": "The name of software used to generate the consensus sequence.",
           "title": "consensus sequence software name",
+          "comments": [
+            "Provide the name of the software used to generate the consensus sequence."
+          ],
+          "examples": [
+            {
+              "value": "iVar"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Assembly%20method",
+            "CNPHI:consensus%20sequence",
+            "NML_LIMS:PH_CONSENSUS_SEQUENCE",
+            "VirusSeq_Portal:consensus%20sequence%20software%20name"
+          ],
           "rank": 49,
           "slot_uri": "GENEPIO:0001463",
           "alias": "consensus_sequence_software_name",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "consensus sequence software version": {
-          "name": "consensus sequence software version",
+        "consensus_sequence_software_version": {
+          "name": "consensus_sequence_software_version",
           "description": "The version of the software used to generate the consensus sequence.",
           "title": "consensus sequence software version",
+          "comments": [
+            "Provide the version of the software used to generate the consensus sequence."
+          ],
+          "examples": [
+            {
+              "value": "1.3"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:consensus%20sequence",
+            "NML_LIMS:PH_CONSENSUS_SEQUENCE_VERSION",
+            "VirusSeq_Portal:consensus%20sequence%20software%20version"
+          ],
           "rank": 50,
           "slot_uri": "GENEPIO:0001469",
           "alias": "consensus_sequence_software_version",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "bioinformatics protocol": {
-          "name": "bioinformatics protocol",
+        "bioinformatics_protocol": {
+          "name": "bioinformatics_protocol",
           "description": "A description of the overall bioinformatics strategy used.",
           "title": "bioinformatics protocol",
+          "comments": [
+            "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can. This information can be provided in an SOP or protocol or pipeline/workflow. Provide the name and version number of the protocol, or a GitHub link to a pipeline or workflow."
+          ],
+          "examples": [
+            {
+              "value": "https://github.com/phac-nml/ncov2019-artic-nf"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "CNPHI:Bioinformatics%20Protocol",
+            "NML_LIMS:PH_BIOINFORMATICS_PROTOCOL",
+            "VirusSeq_Portal:bioinformatics%20protocol"
+          ],
           "rank": 51,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString",
@@ -5422,29 +6608,55 @@
           "name": "authors",
           "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
           "title": "authors",
+          "comments": [
+            "Include the first and last names of all individuals that should be attributed, separated by a comma."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh, Fei Hu, Joe Blogs"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:Authors",
+            "CNPHI:Authors",
+            "NML_LIMS:PH_CANCOGEN_AUTHORS"
+          ],
           "rank": 52,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
-          "owner": "Pathogen Agnostic",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Contributor acknowledgement",
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "DataHarmonizer provenance": {
-          "name": "DataHarmonizer provenance",
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
           "description": "The DataHarmonizer software and template version provenance.",
           "title": "DataHarmonizer provenance",
+          "comments": [
+            "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v1.4.3, CanCOGeN Covid-19 v1.0.0"
+            }
+          ],
           "from_schema": "https://example.com/Pathogen_Agnostic",
+          "exact_mappings": [
+            "GISAID:DataHarmonizer%20provenance",
+            "CNPHI:Additional%20Comments",
+            "NML_LIMS:HC_COMMENTS"
+          ],
           "rank": 53,
           "slot_uri": "GENEPIO:0001518",
-          "alias": "DataHarmonizer_provenance",
-          "owner": "Pathogen Agnostic",
+          "alias": "dataharmonizer_provenance",
+          "owner": "PathogenAgnostic",
           "domain_of": [
-            "Pathogen Agnostic"
+            "PathogenAgnostic"
           ],
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
@@ -5452,7 +6664,6 @@
       }
     }
   },
-  "source_file": "schema.yaml",
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",

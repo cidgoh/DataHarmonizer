@@ -1,3 +1,10 @@
-class_name	slot_group	slot_uri	title	name	range	range_2	identifier	multivalued	required	recommended	minimum_value	maximum_value	pattern	structured_pattern	description	comments	examples	EXPORT_SOMEWHERE		
-TEMPLATE_NAME	Database Identifiers		specimen collector sample ID		WhitespaceMinimizedString		TRUE		TRUE						The user-defined name for the sample.		prov_mpox_1234	Sample ID given by the sample provider	Primary Specimen ID	TEXT_ID	sample_name	specimen collector sample ID			
-TEMPLATE_NAME	Sample collection and processing	GENEPIO:0100416	sequenced by		sequence submitted by menu	null value menu			TRUE						The name of the agency that generated the sequence.		Public Health Ontario (PHO)			PH_SEQUENCING_CENTRE	sequenced_by				
+class_name	slot_group	slot_uri	title	name	range	range_2	identifier	multivalued	required	recommended	minimum_value	maximum_value	pattern	structured_pattern	description	comments	examples	EXPORT_SOMEWHERE
+TemplateName	Database Identifiers		specimen collector sample ID	specimen_collector_sample_id	WhitespaceMinimizedString		TRUE		TRUE						The user-defined name for the sample.		prov_mpox_1234	Sample ID given by the sample provider
+TemplateName	Sample collection and processing	GENEPIO:0100416	sequenced by	sequenced_by	SequenceSubmittedByMenu	NullValueMenu			TRUE						The name of the agency that generated the sequence.		Public Health Ontario (PHO)	
+																		
+																		
+																		
+																		
+																		
+																		
+																		
