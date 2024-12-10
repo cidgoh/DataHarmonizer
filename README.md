@@ -4,13 +4,23 @@ This repository is a fork of [DataHarmonizer](https://github.com/cidgoh/DataHarm
 
 ## New template instructions
 
+Initial set up of this fork:
+
+- Clone the repository
+- Install all dependencies set up as described below in the original [DataHarmonizer](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#prerequisites) with `yarn`
+  - Configure `corepack` so `yarn` works properly
+  - Run `yarn` to install dependencies
+- Make sure you've installed [LinkML](https://linkml.io/)
+- Delete most of the contents of `/web/templates/` (leave one example until the new templates are added, and also `new/` for reference)
+- Delete most of the contents of `menu.json` (leave one example until the new templates are added)
+  - Set the example entries to `"display": false` in `menu.json`.
+
 The instructions for the updating of this fork are as follows:
 
 - Make new schema entry
-  - Delete the contents of `/web/templates/`
   - Make a directory `/web/templates/[schema name]/` for each MInAS schema
   - In each directory create `export.js` just containing `export default {};`
-  - For each schema, save a `schema.yaml` file in the directory
+  - For each schema, save a `schema.yaml` file in the directory, e.g.
 
     ```bash
     wget https://github.com/MIxS-MInAS/extension-ancient/raw/refs/tags/v0.3.2/src/mixs/schema/ancient.yml
@@ -19,13 +29,11 @@ The instructions for the updating of this fork are as follows:
   - Write a txt file called (`dh_class_text.txt`) which includes the text for an additional classed called [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
   - Inject this class into the `schema.yaml` file with e.g. `sed -i '/^classes:/r dh_class_text.txt' schema.yml`
   - Generate the DataHarmonizer compatible JSON with `python ../../../script/linkml.py -i schema.yaml`
-  - Modify the `/web/templates/menu.json` so all `display: false` equals `display: true`
+  - Modify the `/web/templates/menu.json` so all `"display": false` equals `"display": true` with `sed -i 's/"display": false/"display": true/g' ../menu.json`
+    - If you still have an example, make sure to reset to false!
 - Test in a local web server
-  - [Install DataHarmonizer](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#prerequisites)
-  - Clone the repo
-  - Configure `corepack` so `yarn` works properly
-  - Run `yarn` to install dependencies
-  - Open a local webserver with `yarn dev` and test can see the new template under 'Template:` in the top bar
+  - Open a local webserver with `yarn dev`
+  - Check you can see the new template under 'Template:` in the top bar
 - Generate the static files (within the local clone)
   - Run `yarn build:web` to generate a standalone file (Stored in `/web/dist`)
 - Move `/web/dist/` to `/docs` at the root of the repository so can be displayed on GitHub Pages

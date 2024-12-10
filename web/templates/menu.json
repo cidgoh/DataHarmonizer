@@ -17,5 +17,12 @@
       "status": "published",
       "display": true
     }
+  },
+  "minas-extension-radiocarbon": {
+    "RadiocarbonDating": {
+      "name": "RadiocarbonDating",
+      "status": "published",
+      "display": true
+    }
   }
 }
