@@ -1,8 +1,9 @@
 import { DataHarmonizer, Footer, Toolbar } from '../lib';
-import menu from './templates/menu.json';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+
+import { menu, getSchema, getExportFormats } from 'schemas';
 
 document.addEventListener('DOMContentLoaded', function () {
   const dhRoot = document.querySelector('#data-harmonizer-grid');
@@ -25,11 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
   new Toolbar(dhToolbarRoot, dh, menu, {
     templatePath: templatePath,
     releasesURL: 'https://github.com/cidgoh/pathogen-genomics-package/releases',
-    getSchema: async (schema) => {
-      return (await import(`./templates/${schema}/schema.json`)).default;
-    },
-    getExportFormats: async (schema) => {
-      return (await import(`./templates/${schema}/export.js`)).default;
-    },
+    getSchema: getSchema,
+    getExportFormats: getExportFormats,
   });
 });

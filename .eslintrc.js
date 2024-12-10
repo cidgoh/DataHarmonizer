@@ -2,6 +2,7 @@ module.exports = {
   ignorePatterns: [
     '.eslintrc.js',
     'web/webpack.config.js',
+    'web/webpack.schemas.js',
     'lib/rollup.config.js',
     '**/dist/**/*.js',
     '.venv',
