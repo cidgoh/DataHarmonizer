@@ -93,7 +93,6 @@ const main = async function () {
       });
 
       new Footer(dhFooterRoot, context);
-      console.log(context);
       return context;
     })
     .then(async (context) => {
