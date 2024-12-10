@@ -2539,6 +2539,10 @@
       "name": "sample_received_date",
       "description": "The date on which the sample was received.",
       "title": "sample received date",
+      "todos": [
+        ">=2019-10-01",
+        "<={today}"
+      ],
       "comments": [
         "The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -2923,7 +2927,7 @@
     },
     "collection_method": {
       "name": "collection_method",
-      "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
+      "description": "The process used to collect the sample e.g. phlebotomy, necropsy.",
       "title": "collection method",
       "comments": [
         "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
@@ -3442,6 +3446,10 @@
       "name": "sequencing_date",
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
+      "todos": [
+        ">=2019-10-01",
+        "<={today}"
+      ],
       "comments": [
         "The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -4443,6 +4451,10 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
+          "todos": [
+            ">=2019-10-01",
+            "<={today}"
+          ],
           "comments": [
             "The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -4887,7 +4899,7 @@
         },
         "collection_method": {
           "name": "collection_method",
-          "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
+          "description": "The process used to collect the sample e.g. phlebotomy, necropsy.",
           "title": "collection method",
           "comments": [
             "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value. Information for populating this field may be available in the \"Source of Isolation\" field in the Alberta Microbiota Repository (AMBR) Master file."
@@ -5490,6 +5502,10 @@
           "name": "sequencing_date",
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
+          "todos": [
+            ">=2019-10-01",
+            "<={today}"
+          ],
           "comments": [
             "The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],

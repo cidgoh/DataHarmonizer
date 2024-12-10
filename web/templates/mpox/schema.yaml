@@ -823,9 +823,9 @@ classes:
     - specimen_processing_details
     - experimental_specimen_role_type
     - experimental_control_details
-    - lineage/clade name
-    - lineage/clade analysis software name
-    - lineage/clade analysis software version
+    - lineage_clade_name
+    - lineage_clade_analysis_software_name
+    - lineage_clade_analysis_software_version
     - host_common_name
     - host_scientific_name
     - host_health_state
@@ -1120,13 +1120,13 @@ classes:
       experimental_control_details:
         rank: 31
         slot_group: Sample collection and processing
-      lineage/clade name:
+      lineage_clade_name:
         rank: 32
         slot_group: Lineage and Variant information
-      lineage/clade analysis software name:
+      lineage_clade_analysis_software_name:
         rank: 33
         slot_group: Lineage and Variant information
-      lineage/clade analysis software version:
+      lineage_clade_analysis_software_version:
         rank: 34
         slot_group: Lineage and Variant information
       host_common_name:
@@ -1910,7 +1910,7 @@ slots:
     - range: date
     - range: NullValueMenu
     todos:
-    - '>=2019-10-01'
+    - '>={sample_collection_date}'
     - <={today}
     examples:
     - value: '2020-03-20'
@@ -2216,8 +2216,8 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: Human coronavirus 229E (HCoV-229E) spiked in sample as process control
-  lineage/clade name:
-    name: lineage/clade name
+  lineage_clade_name:
+    name: lineage_clade_name
     title: lineage/clade name
     description: The name of the lineage or clade.
     comments: Provide the lineage/clade name.
@@ -2229,8 +2229,8 @@ slots:
     - value: B.1.1.7
     exact_mappings:
     - NML_LIMS:PH_LINEAGE_CLADE_NAME
-  lineage/clade analysis software name:
-    name: lineage/clade analysis software name
+  lineage_clade_analysis_software_name:
+    name: lineage_clade_analysis_software_name
     title: lineage/clade analysis software name
     description: The name of the software used to determine the lineage/clade.
     comments: Provide the name of the software used to determine the lineage/clade.
@@ -2242,8 +2242,8 @@ slots:
     - value: Pangolin
     exact_mappings:
     - NML_LIMS:PH_LINEAGE_CLADE_SOFTWARE
-  lineage/clade analysis software version:
-    name: lineage/clade analysis software version
+  lineage_clade_analysis_software_version:
+    name: lineage_clade_analysis_software_version
     title: lineage/clade analysis software version
     description: The version of the software used to determine the lineage/clade.
     comments: Provide the version of the software used ot determine the lineage/clade.
@@ -2566,7 +2566,7 @@ slots:
     - range: date
     - range: NullValueMenu
     todos:
-    - <={most_recent_travel_departure_date}
+    - '>={most_recent_travel_departure_date}'
     examples:
     - value: '2020-04-26'
     exact_mappings:
@@ -3496,6 +3496,7 @@ slots:
     slot_uri: GENEPIO:0101075
     range: date
     todos:
+    - '>={sample_collection_date}'
     - <={today}
     examples:
     - value: '2024-02-01'
