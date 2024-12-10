@@ -1,0 +1,29 @@
+title	name	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	description
+TrueFalseMenu	TrueFalseMenu		TRUE					
+			FALSE					
+								
+DataTypeMenu	DataTypeMenu		string					
+			WhitespaceMinimizedString					
+			boolean					
+			integer					
+			decimal					
+			double					
+			float					
+			date					
+			datetime					
+			date_or_datetime					
+			time					
+			uriorcurie					
+			curie					
+			uri					
+			Schema					
+			Slot					
+			Class					
+			Provenance					
+			TrueFalseMenu					
+			DataTypeMenu					
+			LanguagesMenu					
+								
+LanguagesMenu	LanguagesMenu		en					
+			fr					
+								

@@ -1,0 +1,76 @@
+id: https://example.com/GRDI
+name: "GRDI"
+description: ""
+version: 12.2.2
+imports:
+  - 'linkml:types'
+prefixes:
+  linkml: 'https://w3id.org/linkml/'
+  GENEPIO: 'http://purl.obolibrary.org/obo/GENEPIO_'
+classes:
+  GRDISample: 
+    name: "GRDISample"
+    title: "GRDI Sample"
+    description: "Specification for GRDI virus biosample data gathering"
+    from_schema: "https://example.com/GRDI"
+    unique_keys:
+      grdisample_id:
+        description: A GRDI Sample is uniquely identified by the sample_collector_sample_id slot.
+        unique_key_slots:
+          - sample_collector_sample_id
+  AMRTest: 
+    name: "AMRTest"
+    title: "GRDI Sample"
+    description: "Antimicrobial test result"
+    from_schema: "https://example.com/GRDI"
+    unique_keys:
+      amrtest_id:
+        description: An AMR test is uniquely identified by the sample_collector_sample_id slot and the tested antibiotic.
+        unique_key_slots:
+          - sample_collector_sample_id
+          - antimicrobial_drug
+    slot_usage:
+      sample_collector_sample_id:
+        annotations:
+          required:
+            tag: required
+            value: True
+          foreign_key:
+            tag: foreign_key
+            value: GRDISample.sample_collector_sample_id
+  Container: 
+    name: "Container"
+    from_schema: "https://example.com/GRDI"
+    attributes: 
+      GRDISamples: 
+        name: "GRDISamples"
+        from_schema: "https://example.com/GRDI"
+        multivalued: True
+        range: "GRDISample"
+        inlined_as_list: True
+      AMRTests: 
+        name: "AMRTests"
+        from_schema: "https://example.com/GRDI"
+        multivalued: "true"
+        range: "AMRTest"
+        inlined_as_list: True
+    tree_root: True
+slots: {}
+enums: {}
+types:
+  WhitespaceMinimizedString:
+    name: 'WhitespaceMinimizedString'
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: 'Provenance'
+    typeof: string
+    description: 'A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.'
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+  UPPER_CASE: "[A-Z\\W\\d_]*"
+  lower_case: "[a-z\\W\\d_]*"

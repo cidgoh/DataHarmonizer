@@ -620,4 +620,3 @@ write_locales(locale_schemas);
 # Adjust menu.json to include or update entries for given schema's template(s)
 if options.menu:
 	write_menu('../menu.json', os.path.basename(os.getcwd()), schema_view);
-
