@@ -1,7 +1,7 @@
 // A dictionary of possible export formats
 export default {
   NCBI_SRA: {
-    fileType: 'xls',
+    fileType: 'xlsx',
     status: 'published',
     method: function(dh) {
       const exportHeaders = new Map([
