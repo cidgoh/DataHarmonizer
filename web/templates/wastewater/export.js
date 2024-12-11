@@ -49,7 +49,7 @@ export default {
               sources,
               sourceFields,
               sourceFieldNameMap,
-              ':',
+              '; ',
               'NCBI_SRA'
             );
           outputRow.push(value);
