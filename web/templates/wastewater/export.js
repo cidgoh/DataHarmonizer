@@ -12,7 +12,7 @@ export default {
         ["library_source", []],
         ["library_selection", []],
         ["library_layout", []],
-        ["platform (click for details)", []],
+        ["platform", []],
         ["instrument_model", []],
         ["design_description", []],
         ["filetype", []],
