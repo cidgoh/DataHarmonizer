@@ -2360,10 +2360,21 @@
           "description": "A human construction which confines wastewater in a depression enclosed by earthen structures.",
           "meaning": "ENVO:03600076"
         },
-        "Sewer [ENVO:01000924]": {
-          "text": "Sewer [ENVO:01000924]",
+        "Plumbing drain [ENVO:01000924]": {
+          "text": "Plumbing drain [ENVO:01000924]",
           "description": "An artificial channel which transports unwanted water or waste liquids away from their source, either to a more useful area, a receptacle, or into sewers or stormwater mains as waste discharge to be released or processed.",
           "meaning": "ENVO:01000924"
+        },
+        "Toilet [ENVO:01000516]": {
+          "text": "Toilet [ENVO:01000516]",
+          "description": "A fixture which is used primarily for the collection and, in some cases, disposal of human urine and feces.",
+          "meaning": "ENVO:01000516"
+        },
+        "Toilet bowl [ENVO:03501218]": {
+          "text": "Toilet bowl [ENVO:03501218]",
+          "description": "A plumbing fixture which is bowl-shaped, part of a toilet fixture, and capable of contain human waste until it is disposed of.",
+          "meaning": "ENVO:03501218",
+          "is_a": "Toilet [ENVO:01000516]"
         },
         "Transportation vehicle [ENVO:01000604]": {
           "text": "Transportation vehicle [ENVO:01000604]",
@@ -2548,8 +2559,8 @@
           "description": "A composting toilet fixture is a dry toilet fixture in which managed, aerobic decomposition converts human excreta into organic matter suitable for the fertilisation or amendment of soils.",
           "meaning": "ENVO:01000550"
         },
-        "Sewer drain [ENVO:01000924]": {
-          "text": "Sewer drain [ENVO:01000924]",
+        "Plumbing drain [ENVO:01000924]": {
+          "text": "Plumbing drain [ENVO:01000924]",
           "description": "An artificial channel which transports unwanted water or waste liquids away from their source, either to a more useful area, a receptacle, or into sewers or stormwater mains as waste discharge to be released or processed.",
           "meaning": "ENVO:01000924"
         }
@@ -3614,13 +3625,19 @@
           "text": "Illumina HiScanSQ [GENEPIO:0100109]",
           "description": "A DNA sequencer manufactured by the Illumina corporation using sequence-by-synthesis chemistry, and contains a HiScan Reader for sequencing and microarray-based analyses as well as an \"SQ Module\" to support microfluidics.",
           "meaning": "GENEPIO:0100109",
-          "is_a": "Illumina [GENEPIO:0100105]"
+          "is_a": "Illumina [GENEPIO:0100105]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiScanSQ"
+          ]
         },
         "Illumina HiSeq [GENEPIO:0100110]": {
           "text": "Illumina HiSeq [GENEPIO:0100110]",
           "description": "A DNA sequencer manufactured by the Illumina corporation using sequence-by-synthesis chemistry, enabling deep sequencing and high yield.",
           "meaning": "GENEPIO:0100110",
-          "is_a": "Illumina [GENEPIO:0100105]"
+          "is_a": "Illumina [GENEPIO:0100105]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiSeq"
+          ]
         },
         "Illumina HiSeq X [GENEPIO:0100111]": {
           "text": "Illumina HiSeq X [GENEPIO:0100111]",
@@ -3993,7 +4010,10 @@
           "text": "MGI DNBSEQ-E25 [GENEPIO:0100973]",
           "description": "An MGI sequencing instrument model that is a compact and lightweight standalone system which can bu used inside or outside the lab.",
           "meaning": "GENEPIO:0100973",
-          "is_a": "MGI sequencing instrument [GENEPIO:0100146]"
+          "is_a": "MGI sequencing instrument [GENEPIO:0100146]",
+          "exact_mappings": [
+            "NCBI_SRA:MGI%20DNBSEQ-E25"
+          ]
         },
         "MGI DNBSEQ-G50 [GENEPIO:0100150]": {
           "text": "MGI DNBSEQ-G50 [GENEPIO:0100150]",
@@ -4262,7 +4282,7 @@
           "description": "A DNA sequencing assay that intends to provide information on the DNA sequences of multiple genomes (a metagenome) from different organisms present in the same input sample.",
           "meaning": "OBI:0002623",
           "exact_mappings": [
-            "NCBI_SRA:OTHER"
+            "NCBI_SRA:METAGENOME"
           ]
         },
         "Whole virome sequencing assay [OBI:0002768]": {
@@ -4271,7 +4291,7 @@
           "meaning": "OBI:0002768",
           "is_a": "Whole metagenome sequencing assay [OBI:0002623]",
           "exact_mappings": [
-            "NCBI_SRA:OTHER"
+            "NCBI_SRA:VIRAL%20RNA"
           ]
         }
       }
