@@ -23,7 +23,7 @@ module.exports = (env, argv) => {
       new DirectoryTreePlugin({
         dir: './web/templates',
         path: './web/templates/manifest.json',
-        extensions: /\.md|\.json|\.yaml/,
+        extensions: /\.md|\.json/,
         enhance: (item, options) => {
           item.path = item.path.replace('web', '');
         },
@@ -40,17 +40,7 @@ module.exports = (env, argv) => {
           },
           {
             context: 'templates',
-            from: '**/schema.yaml',
-            to: 'templates/[path][name][ext]',
-          },
-          {
-            context: 'templates',
             from: '**/schema.json',
-            to: 'templates/[path][name][ext]',
-          },
-          {
-            context: 'templates',
-            from: '**/exampleInput/*',
             to: 'templates/[path][name][ext]',
           },
           {
