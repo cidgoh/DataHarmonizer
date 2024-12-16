@@ -9,7 +9,7 @@ body {
 
 /* For dh2-i18n-rc1 only! */
 #data-harmonizer-tabs {
-  display: none;
+  /* display: none; */
 }
 
 .data-harmonizer-grid .secondary-header-cell:hover {
