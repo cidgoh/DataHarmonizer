@@ -30,6 +30,9 @@ The instructions for the updating of this fork are as follows:
     >[!WARNING]
     > For the core MIxS + MinAS combninations this point you may need to do some extensive manual modifications
     > namely, deleting irrelevant combinations and extensions, and creating a new combination.
+    > BRAIN DUMP: 
+    >  - OR JUST GO ADDITIVE AND SET ALL ENTRIES TO FALSE IN MENU.JSON?
+    >  - THEN NEED TO ADD ADDITIONAL CLASSES YAML OF COMBINATION FOR MERGING WITH MAIN  
 
   - Write a txt file called (`dh_class_text.txt`) which includes the text for an additional classed called [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
   - Inject this class into the `schema.yaml` file with e.g. `sed -i '/^classes:/r dh_class_text.txt' schema.yml`
