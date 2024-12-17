@@ -15177,49 +15177,49 @@ classes:
     mixin: true
     slots:
       - samp_name
-      - size_frac
-      - lib_screen
-      - ref_db
-      - nucl_acid_amp
-      - lib_size
-      - mid
-      - assembly_name
-      - temp
-      - nucl_acid_ext
-      - samp_size
-      - alt
-      - source_mat_id
-      - samp_vol_we_dna_ext
-      - lib_reads_seqd
-      - rel_to_oxygen
-      - samp_collect_device
-      - number_contig
-      - lib_layout
-      - assembly_qual
-      - ref_biomaterial
       - project_name
-      - lib_vector
-      - adapters
-      - neg_cont_type
-      - assembly_software
-      - annot
-      - pos_cont_type
-      - feat_pred
-      - env_local_scale
-      - samp_mat_process
-      - sim_search_meth
-      - depth
-      - samp_collect_method
-      - env_medium
+      - collection_date
       - samp_taxon_id
       - geo_loc_name
-      - collection_date
-      - seq_meth
       - lat_lon
-      - elev
       - env_broad_scale
-      - tax_class
+      - env_local_scale
+      - env_medium
+      - elev
+      - alt
+      - depth
+      - temp
       - experimental_factor
+      - rel_to_oxygen
+      - source_mat_id
+      - samp_mat_process
+      - samp_collect_device
+      - samp_size
+      - samp_collect_method
+      - ref_biomaterial
+      - nucl_acid_ext
+      - neg_cont_type
+      - pos_cont_type
+      - nucl_acid_amp
+      - samp_vol_we_dna_ext
+      - size_frac
+      - lib_screen
+      - lib_layout
+      - lib_vector
+      - lib_size
+      - mid
+      - adapters
+      - seq_meth
+      - lib_reads_seqd
+      - assembly_name
+      - assembly_software
+      - number_contig
+      - assembly_qual
+      - annot
+      - feat_pred
+      - sim_search_meth
+      - ref_db
+      - tax_class
       - associated_resource
       - sop
     slot_usage:

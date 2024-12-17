@@ -44,7 +44,7 @@ The instructions for the updating of this fork are as follows:
   - Check you can see the new template under 'Template:` in the top bar
 - Generate the static files (within the local clone)
   - Run `yarn build:web` to generate a standalone file (Stored in `/web/dist`)
-- Move `/web/dist/` to `/docs` at the root of the repository so can be displayed on GitHub Pages
+- Move `web/dist/` to `docs/` at the root of the repository so can be displayed on GitHub Pages
 - After moving, make the following edits:
   - _NOT WORKING_: `sed -i '/^<body>/r minas-dataharmonizer-header.txt' docs/index.html`
 

@@ -11,6 +11,103 @@
       "display": false
     }
   },
+  "minas": {
+    "Mims": {
+      "name": "Mims",
+      "status": "published",
+      "display": false
+    },
+    "HostAssociated": {
+      "name": "HostAssociated",
+      "status": "published",
+      "display": false
+    },
+    "HumanAssociated": {
+      "name": "HumanAssociated",
+      "status": "published",
+      "display": false
+    },
+    "HumanGut": {
+      "name": "HumanGut",
+      "status": "published",
+      "display": false
+    },
+    "HumanOral": {
+      "name": "HumanOral",
+      "status": "published",
+      "display": false
+    },
+    "HumanSkin": {
+      "name": "HumanSkin",
+      "status": "published",
+      "display": false
+    },
+    "PlantAssociated": {
+      "name": "PlantAssociated",
+      "status": "published",
+      "display": false
+    },
+    "Sediment": {
+      "name": "Sediment",
+      "status": "published",
+      "display": false
+    },
+    "Soil": {
+      "name": "Soil",
+      "status": "published",
+      "display": false
+    },
+    "MixsCompliantData": {
+      "name": "MixsCompliantData",
+      "status": "published",
+      "display": false
+    },
+    "MimsHostAssociated": {
+      "name": "MimsHostAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanAssociated": {
+      "name": "MimsHumanAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanGut": {
+      "name": "MimsHumanGut",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanOral": {
+      "name": "MimsHumanOral",
+      "status": "published",
+      "display": false
+    },
+    "MimsHumanSkin": {
+      "name": "MimsHumanSkin",
+      "status": "published",
+      "display": false
+    },
+    "MimsPlantAssociated": {
+      "name": "MimsPlantAssociated",
+      "status": "published",
+      "display": false
+    },
+    "MimsSediment": {
+      "name": "MimsSediment",
+      "status": "published",
+      "display": false
+    },
+    "MimsAncient": {
+      "name": "MimsAncient",
+      "status": "published",
+      "display": true
+    },
+    "Ancient": {
+      "name": "Ancient",
+      "status": "published",
+      "display": false
+    }
+  },
   "minas-extension-ancient": {
     "Ancient": {
       "name": "Ancient",
@@ -23,104 +120,6 @@
       "name": "RadiocarbonDating",
       "status": "published",
       "display": true
-    }
-  },
-  "minas": {
-    "MimsAncient": {
-      "name": "MimsAncient",
-      "status": "published",
-      "display": true
-    },
-    "Mims": {
-      "name": "Mims",
-      "status": "published",
-      "display": true
-    },
-    "HostAssociated": {
-      "name": "HostAssociated",
-      "status": "published",
-      "display": true
-    },
-    "HumanAssociated": {
-      "name": "HumanAssociated",
-      "status": "published",
-      "display": true
-    },
-    "HumanGut": {
-      "name": "HumanGut",
-      "status": "published",
-      "display": true
-    },
-    "HumanOral": {
-      "name": "HumanOral",
-      "status": "published",
-      "display": true
-    },
-    "HumanSkin": {
-      "name": "HumanSkin",
-      "status": "published",
-      "display": true
-    },
-    "PlantAssociated": {
-      "name": "PlantAssociated",
-      "status": "published",
-      "display": true
-    },
-    "Sediment": {
-      "name": "Sediment",
-      "status": "published",
-      "display": true
-    },
-    "Soil": {
-      "name": "Soil",
-      "status": "published",
-      "display": true
-    },
-    "MixsCompliantData": {
-      "name": "MixsCompliantData",
-      "status": "published",
-      "display": true
-    },
-    "MimsHostAssociated": {
-      "name": "MimsHostAssociated",
-      "status": "published",
-      "display": true
-    },
-    "MimsHumanAssociated": {
-      "name": "MimsHumanAssociated",
-      "status": "published",
-      "display": true
-    },
-    "MimsHumanGut": {
-      "name": "MimsHumanGut",
-      "status": "published",
-      "display": true
-    },
-    "MimsHumanOral": {
-      "name": "MimsHumanOral",
-      "status": "published",
-      "display": true
-    },
-    "MimsHumanSkin": {
-      "name": "MimsHumanSkin",
-      "status": "published",
-      "display": true
-    },
-    "MimsPlantAssociated": {
-      "name": "MimsPlantAssociated",
-      "status": "published",
-      "display": true
-    },
-    "MimsSediment": {
-      "name": "MimsSediment",
-      "status": "published",
-      "display": true
-    },
-
-    "Ancient": {
-      "name": "Ancient",
-      "status": "published",
-      "display": false
     }
   }
 }
