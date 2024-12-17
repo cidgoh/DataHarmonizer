@@ -77,13 +77,6 @@ def init_parser():
 		required=False, 
 	  help="A schema class to test given data file against.");
 
-
-	#parser.add_argument("-S", "--index-slot", 
-	#	dest="index_slot", 
-	#	metavar="TEXT",
-	#	required=False, 
-	#	help="A slot within target class which acts as an identifier or unique key. This is required for CSV dumping/loading.  It is optional when this slot can be identified automatically as the only identifier or unique_key in the slot.");
-
 	parser.add_argument('data_sources', 
 		metavar='DATA_SOURCES', 
 		#nargs='+',
@@ -145,9 +138,6 @@ def getTargetClass(SCHEMA, target_class, slot_key = None):
 				slot_key = name;
 
 			break;
-
-	#if not found: 
-	#	exit("Target class [" + target_class + "] does not have an identifier or key slot!");
 
 	print ("Identifier slot:", slot_key);
 	return (target_class, slot_key);
