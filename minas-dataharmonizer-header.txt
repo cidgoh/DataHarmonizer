@@ -1,0 +1,7 @@
+    <div style="display:flex;align-items:center;justify-content:left;font-family:'Albert Sans'">
+      <img style="padding:20px" src="https://github.com/MIxS-MInAS/MIxS-MInAS.github.io/raw/refs/heads/master/docs/assets/images/logos/minas-logo-full-name-flat.svg"></img>
+      <div>
+        <h2>MInAS Feedback Interface</h2>
+        <p><i>Powered by <a href="https://github.com/cidgoh/DataHarmonizer">DataHarmonizer</a>.</i><p>
+      </div>
+    </div>
