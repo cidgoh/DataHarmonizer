@@ -566,7 +566,7 @@ salinity measurement unit menu	SalinityMeasurementUnitMenu		practical salinity u
 																										
 total nitrogen (TN) measurement unit menu	TotalNitrogenTnMeasurementUnitMenu	UO:0000273	milligram per liter (mg/L) [UO:0000273]					A non-SI unit of density that is equivalent to the SI metric kilogram per cubic meter.																		
 		UO:0000175	gram per liter (g/L) [UO:0000175]					A non-SI unit of density that is a thousand kilograms per cubic meter.																		
-total nitrogen (TN) measurement unit menu			gram per total solids (g/gTS)					A unitless comparison of the weight of a substance as a proportion to the weight of total solids. 																		
+			gram per total solids (g/gTS)					A unitless comparison of the weight of a substance as a proportion to the weight of total solids. 																		
 																										
 total phosphorpus (TP) measurement unit menu	TotalPhosphorpusTpMeasurementUnitMenu		gram per total solids (g/gTS)					A unitless comparison of the weight of a substance as a proportion to the weight of total solids. 																		
 		GENEPIO:0100998	orthophosphate as phosphorus per total solids (gPO4-P/gTS) [GENEPIO:0100998]					A substance unit which describes the weight of orthophosphate as phosphorus (gPO4-P) within a sample to the weight of total solids.																		
@@ -624,7 +624,7 @@ sequencing platform menu	SequencingPlatformMenu	GENEPIO:0001923	Illumina [GENEPI
 		GENEPIO:0002682	Helicos [GENEPIO:0002682]					A sequencing platform brand provided by Helicos corporation (now defunct).		HELICOS																
 		GENEPIO:0100985	Applied Biosystems [GENEPIO:0100985]					A sequencing platform provided by ThermoFisher.		CAPILLARY																
 																										
-sequencing instrument menu	SequencingInstrumentMenu	GENEPIO:0100105	Illumina [GENEPIO:0100105]					A DNA sequencer manufactured by the Illumina corporation.		ILLUMINA																
+sequencing instrument menu	SequencingInstrumentMenu	GENEPIO:0100105	Illumina [GENEPIO:0100105]					A DNA sequencer manufactured by the Illumina corporation.		#REF!																
 		GENEPIO:0100106		Illumina Genome Analyzer [GENEPIO:0100106]				A DNA sequencer manufactured by Solexa as one of its first sequencer lines, launched in 2006, and capable of sequencing 1 gigabase (Gb) of data in a single run.																		
 		OBI:0000703		Illumina Genome Analyzer II [OBI:0000703]				A DNA sequencer manufactured by the Illumina (Solexa) corporation, which supports sequencing of single or paired end clone libraries relying on sequencing by synthesis technology.																		
 		OBI:0002000		Illumina Genome Analyzer IIx [OBI:0002000]				An Illumina Genome Analyzer II which is manufactured by the Illumina corporation. It supports sequencing of single, long or short insert paired end clone libraries relying on sequencing by synthesis technology. The Genome Analyzer IIx is the most widely adopted next-generation sequencing platform and proven and published across the broadest range of research applications.																		

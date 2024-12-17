@@ -1,7 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: CanCOGeN_Covid-19
 description: ''
-version: 2.4.0
+version: 2.4.1
 in_language: fr
 imports:
 - linkml:types
@@ -3717,6 +3717,8 @@ enums:
         title: "Autorit\xE9 sanitaire de la Nouvelle-\xC9cosse"
       Ontario Institute for Cancer Research (OICR):
         title: Institut ontarien de recherche sur le cancer (IORC)
+      Ontario COVID-19 Genomic Network:
+        title: "R\xE9seau g\xE9nomique ontarien COVID-19"
       Prince Edward Island - Health PEI:
         title: "\xCEle-du-Prince-\xC9douard\_\u2013 Sant\xE9 \xCE.-P.-\xC9."
       Public Health Ontario (PHO):
@@ -3737,6 +3739,8 @@ enums:
       Eastern Ontario Regional Laboratory Association:
         title: "Association des laboratoires r\xE9gionaux de l\u2019Est de l\u2019\
           Ontario"
+      Kingston Health Sciences Centre:
+        title: "Centre des sciences de la sant\xE9 de Kingston"
       Lake of the Woods District Hospital - Ontario:
         title: "Lake of the Woods District Hospital\_\u2013 Ontario"
       Manitoba Cadham Provincial Laboratory:

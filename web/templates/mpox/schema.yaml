@@ -1,6 +1,6 @@
 id: https://example.com/mpox
 name: Mpox
-version: 7.5.5
+version: 8.5.5
 description: ''
 imports:
 - linkml:types
@@ -18,7 +18,7 @@ classes:
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox.pdf
     annotations:
-      version: 6.5.5
+      version: 7.5.5
     slots:
     - specimen_collector_sample_id
     - related_specimen_primary_id
@@ -118,6 +118,9 @@ classes:
     - r2_fastq_filepath
     - fast5_filename
     - fast5_filepath
+    - breadth_of_coverage_value
+    - depth_of_coverage_value
+    - depth_of_coverage_threshold
     - number_of_base_pairs_sequenced
     - consensus_genome_length
     - reference_genome_accession
@@ -568,7 +571,7 @@ classes:
         - range: PriorMpoxInfectionMenu
         - range: NullValueMenu
         exact_mappings:
-        - NML_LIMS:prior%20Monkeypox%20infection
+        - NML_LIMS:prior%20Mpox%20infection
       prior_mpox_infection_date:
         rank: 67
         slot_group: Host reinfection information
@@ -581,7 +584,7 @@ classes:
         - range: PriorMpoxAntiviralTreatmentMenu
         - range: NullValueMenu
         exact_mappings:
-        - NML_LIMS:prior%20Monkeypox%20antiviral%20treatment
+        - NML_LIMS:prior%20Mpox%20antiviral%20treatment
       prior_antiviral_treatment_during_prior_mpox_infection:
         rank: 69
         slot_group: Host reinfection information
@@ -722,54 +725,63 @@ classes:
       fast5_filepath:
         rank: 98
         slot_group: Bioinformatics and QC metrics
-      number_of_base_pairs_sequenced:
+      breadth_of_coverage_value:
         rank: 99
         slot_group: Bioinformatics and QC metrics
-      consensus_genome_length:
+      depth_of_coverage_value:
         rank: 100
         slot_group: Bioinformatics and QC metrics
-      reference_genome_accession:
+      depth_of_coverage_threshold:
         rank: 101
         slot_group: Bioinformatics and QC metrics
-      bioinformatics_protocol:
+      number_of_base_pairs_sequenced:
         rank: 102
+        slot_group: Bioinformatics and QC metrics
+      consensus_genome_length:
+        rank: 103
+        slot_group: Bioinformatics and QC metrics
+      reference_genome_accession:
+        rank: 104
+        slot_group: Bioinformatics and QC metrics
+      bioinformatics_protocol:
+        rank: 105
         slot_group: Bioinformatics and QC metrics
         required: true
       gene_name_1:
-        rank: 103
-        slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_ct_value_1:
-        rank: 104
-        slot_group: Pathogen diagnostic testing
-      gene_name_2:
-        rank: 105
-        slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_ct_value_2:
         rank: 106
         slot_group: Pathogen diagnostic testing
-      gene_name_3:
+      diagnostic_pcr_ct_value_1:
         rank: 107
         slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_ct_value_3:
+      gene_name_2:
         rank: 108
         slot_group: Pathogen diagnostic testing
-      gene_name_4:
+      diagnostic_pcr_ct_value_2:
         rank: 109
         slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_ct_value_4:
+      gene_name_3:
         rank: 110
         slot_group: Pathogen diagnostic testing
-      gene_name_5:
+      diagnostic_pcr_ct_value_3:
         rank: 111
         slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_ct_value_5:
+      gene_name_4:
         rank: 112
         slot_group: Pathogen diagnostic testing
-      authors:
+      diagnostic_pcr_ct_value_4:
         rank: 113
+        slot_group: Pathogen diagnostic testing
+      gene_name_5:
+        rank: 114
+        slot_group: Pathogen diagnostic testing
+      diagnostic_pcr_ct_value_5:
+        rank: 115
+        slot_group: Pathogen diagnostic testing
+      authors:
+        rank: 116
         slot_group: Contributor acknowledgement
       dataharmonizer_provenance:
-        rank: 114
+        rank: 117
         slot_group: Contributor acknowledgement
   MpoxInternational:
     name: MpoxInternational
@@ -778,7 +790,7 @@ classes:
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox_international.pdf
     annotations:
-      version: 7.5.5
+      version: 8.5.5
     slots:
     - specimen_collector_sample_id
     - case_id
@@ -811,9 +823,9 @@ classes:
     - specimen_processing_details
     - experimental_specimen_role_type
     - experimental_control_details
-    - lineage/clade name
-    - lineage/clade analysis software name
-    - lineage/clade analysis software version
+    - lineage_clade_name
+    - lineage_clade_analysis_software_name
+    - lineage_clade_analysis_software_version
     - host_common_name
     - host_scientific_name
     - host_health_state
@@ -899,6 +911,7 @@ classes:
     - number_of_total_reads
     - number_of_unique_reads
     - minimum_posttrimming_read_length
+    - breadth_of_coverage_value
     - depth_of_coverage_value
     - depth_of_coverage_threshold
     - number_of_base_pairs_sequenced
@@ -1107,13 +1120,13 @@ classes:
       experimental_control_details:
         rank: 31
         slot_group: Sample collection and processing
-      lineage/clade name:
+      lineage_clade_name:
         rank: 32
         slot_group: Lineage and Variant information
-      lineage/clade analysis software name:
+      lineage_clade_analysis_software_name:
         rank: 33
         slot_group: Lineage and Variant information
-      lineage/clade analysis software version:
+      lineage_clade_analysis_software_version:
         rank: 34
         slot_group: Lineage and Variant information
       host_common_name:
@@ -1525,113 +1538,116 @@ classes:
       minimum_posttrimming_read_length:
         rank: 119
         slot_group: Bioinformatics and QC metrics
-      depth_of_coverage_value:
+      breadth_of_coverage_value:
         rank: 120
         slot_group: Bioinformatics and QC metrics
-      depth_of_coverage_threshold:
+      depth_of_coverage_value:
         rank: 121
         slot_group: Bioinformatics and QC metrics
-      number_of_base_pairs_sequenced:
+      depth_of_coverage_threshold:
         rank: 122
         slot_group: Bioinformatics and QC metrics
-      consensus_genome_length:
+      number_of_base_pairs_sequenced:
         rank: 123
         slot_group: Bioinformatics and QC metrics
-      sequence_assembly_length:
+      consensus_genome_length:
         rank: 124
         slot_group: Bioinformatics and QC metrics
-      number_of_contigs:
+      sequence_assembly_length:
         rank: 125
         slot_group: Bioinformatics and QC metrics
-      genome_completeness:
+      number_of_contigs:
         rank: 126
         slot_group: Bioinformatics and QC metrics
-      n50:
+      genome_completeness:
         rank: 127
         slot_group: Bioinformatics and QC metrics
-      percent_ns_across_total_genome_length:
+      n50:
         rank: 128
         slot_group: Bioinformatics and QC metrics
-      ns_per_100_kbp:
+      percent_ns_across_total_genome_length:
         rank: 129
         slot_group: Bioinformatics and QC metrics
-      reference_genome_accession:
+      ns_per_100_kbp:
         rank: 130
         slot_group: Bioinformatics and QC metrics
-      bioinformatics_protocol:
+      reference_genome_accession:
         rank: 131
         slot_group: Bioinformatics and QC metrics
-      read_mapping_software_name:
+      bioinformatics_protocol:
         rank: 132
-        slot_group: Taxonomic identification information
-      read_mapping_software_version:
+        slot_group: Bioinformatics and QC metrics
+      read_mapping_software_name:
         rank: 133
         slot_group: Taxonomic identification information
-      taxonomic_reference_database_name:
+      read_mapping_software_version:
         rank: 134
         slot_group: Taxonomic identification information
-      taxonomic_reference_database_version:
+      taxonomic_reference_database_name:
         rank: 135
         slot_group: Taxonomic identification information
-      taxonomic_analysis_report_filename:
+      taxonomic_reference_database_version:
         rank: 136
         slot_group: Taxonomic identification information
-      taxonomic_analysis_date:
+      taxonomic_analysis_report_filename:
         rank: 137
         slot_group: Taxonomic identification information
-      read_mapping_criteria:
+      taxonomic_analysis_date:
         rank: 138
         slot_group: Taxonomic identification information
-      assay_target_name_1:
+      read_mapping_criteria:
         rank: 139
-        slot_group: Pathogen diagnostic testing
-      assay_target_details_1:
+        slot_group: Taxonomic identification information
+      assay_target_name_1:
         rank: 140
         slot_group: Pathogen diagnostic testing
-      gene_symbol_1:
+      assay_target_details_1:
         rank: 141
         slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_protocol_1:
+      gene_symbol_1:
         rank: 142
         slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_ct_value_1:
+      diagnostic_pcr_protocol_1:
         rank: 143
         slot_group: Pathogen diagnostic testing
-      assay_target_name_2:
+      diagnostic_pcr_ct_value_1:
         rank: 144
         slot_group: Pathogen diagnostic testing
-      assay_target_details_2:
+      assay_target_name_2:
         rank: 145
         slot_group: Pathogen diagnostic testing
-      gene_symbol_2:
+      assay_target_details_2:
         rank: 146
         slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_protocol_2:
+      gene_symbol_2:
         rank: 147
         slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_ct_value_2:
+      diagnostic_pcr_protocol_2:
         rank: 148
         slot_group: Pathogen diagnostic testing
-      assay_target_name_3:
+      diagnostic_pcr_ct_value_2:
         rank: 149
         slot_group: Pathogen diagnostic testing
-      assay_target_details_3:
+      assay_target_name_3:
         rank: 150
         slot_group: Pathogen diagnostic testing
-      gene_symbol_3:
+      assay_target_details_3:
         rank: 151
         slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_protocol_3:
+      gene_symbol_3:
         rank: 152
         slot_group: Pathogen diagnostic testing
-      diagnostic_pcr_ct_value_3:
+      diagnostic_pcr_protocol_3:
         rank: 153
         slot_group: Pathogen diagnostic testing
-      authors:
+      diagnostic_pcr_ct_value_3:
         rank: 154
+        slot_group: Pathogen diagnostic testing
+      authors:
+        rank: 155
         slot_group: Contributor acknowledgement
       dataharmonizer_provenance:
-        rank: 155
+        rank: 156
         slot_group: Contributor acknowledgement
 slots:
   specimen_collector_sample_id:
@@ -1709,6 +1725,7 @@ slots:
     - value: PRJNA12345
     exact_mappings:
     - NML_LIMS:SUBMISSIONS%20-%20BioProject%20Accession
+    - BIOSAMPLE:bioproject_accession
   biosample_accession:
     name: biosample_accession
     title: biosample accession
@@ -1745,7 +1762,7 @@ slots:
     - value: SRR123456, ERR123456, DRR123456, CRR123456
     exact_mappings:
     - CNPHI:SRA%20Accession
-    - NML_LIMS:PH_SRA_ACCESSION
+    - NML_LIMS:SUBMISSIONS%20-%20SRA%20Accession
   insdc_assembly_accession:
     name: insdc_assembly_accession
     title: INSDC assembly accession
@@ -1765,7 +1782,7 @@ slots:
     - value: LZ986655.1
     exact_mappings:
     - CNPHI:GenBank%20Accession
-    - NML_LIMS:GenBank%20accession
+    - NML_LIMS:SUBMISSIONS%20-%20GenBank%20Accession
   gisaid_virus_name:
     name: gisaid_virus_name
     title: GISAID virus name
@@ -1893,7 +1910,7 @@ slots:
     - range: date
     - range: NullValueMenu
     todos:
-    - '>=2019-10-01'
+    - '>={sample_collection_date}'
     - <={today}
     examples:
     - value: '2020-03-20'
@@ -2199,8 +2216,8 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: Human coronavirus 229E (HCoV-229E) spiked in sample as process control
-  lineage/clade name:
-    name: lineage/clade name
+  lineage_clade_name:
+    name: lineage_clade_name
     title: lineage/clade name
     description: The name of the lineage or clade.
     comments: Provide the lineage/clade name.
@@ -2212,8 +2229,8 @@ slots:
     - value: B.1.1.7
     exact_mappings:
     - NML_LIMS:PH_LINEAGE_CLADE_NAME
-  lineage/clade analysis software name:
-    name: lineage/clade analysis software name
+  lineage_clade_analysis_software_name:
+    name: lineage_clade_analysis_software_name
     title: lineage/clade analysis software name
     description: The name of the software used to determine the lineage/clade.
     comments: Provide the name of the software used to determine the lineage/clade.
@@ -2225,8 +2242,8 @@ slots:
     - value: Pangolin
     exact_mappings:
     - NML_LIMS:PH_LINEAGE_CLADE_SOFTWARE
-  lineage/clade analysis software version:
-    name: lineage/clade analysis software version
+  lineage_clade_analysis_software_version:
+    name: lineage_clade_analysis_software_version
     title: lineage/clade analysis software version
     description: The version of the software used to determine the lineage/clade.
     comments: Provide the version of the software used ot determine the lineage/clade.
@@ -2373,7 +2390,7 @@ slots:
     - range: NullValueMenu
     todos:
     - '>=2019-10-01'
-    - <={today}
+    - <={sample_collection_date}
     examples:
     - value: '2022-05-25'
     exact_mappings:
@@ -2532,6 +2549,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={sample_collection_date}
     examples:
     - value: '2020-03-16'
     exact_mappings:
@@ -2546,6 +2565,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - '>={most_recent_travel_departure_date}'
     examples:
     - value: '2020-04-26'
     exact_mappings:
@@ -2639,7 +2660,7 @@ slots:
     examples:
     - value: '2022-06-20'
     exact_mappings:
-    - NML_LIMS:prior%20Monkeypox%20infection%20date
+    - NML_LIMS:prior%20Mpox%20infection%20date
   prior_mpox_antiviral_treatment:
     name: prior_mpox_antiviral_treatment
     title: prior Mpox antiviral treatment
@@ -2660,7 +2681,7 @@ slots:
     examples:
     - value: AZT was administered for HIV infection during the prior Mpox infection.
     exact_mappings:
-    - NML_LIMS:prior%20antiviral%20treatment%20during%20Monkeypox%20infection
+    - NML_LIMS:prior%20antiviral%20treatment%20during%20Mpox%20infection
   sequencing_project_name:
     name: sequencing_project_name
     title: sequencing project name
@@ -2976,6 +2997,8 @@ slots:
     range: integer
     examples:
     - value: 300bp
+    exact_mappings:
+    - NML_LIMS:amplicon%20size
   quality_control_method_name:
     name: quality_control_method_name
     title: quality control method name
@@ -3261,6 +3284,18 @@ slots:
     range: Integer
     examples:
     - value: '150'
+  breadth_of_coverage_value:
+    name: breadth_of_coverage_value
+    title: breadth of coverage value
+    description: The percentage of the reference genome covered by the sequenced data,
+      to a prescribed depth.
+    comments: Provide value as a percentage.
+    slot_uri: GENEPIO:0001472
+    range: WhitespaceMinimizedString
+    examples:
+    - value: 95%
+    exact_mappings:
+    - NML_LIMS:breadth%20of%20coverage%20value
   depth_of_coverage_value:
     name: depth_of_coverage_value
     title: depth of coverage value
@@ -3460,6 +3495,9 @@ slots:
       analysis was performed in ISO 8601 format, i.e. "YYYY-MM-DD".
     slot_uri: GENEPIO:0101075
     range: date
+    todos:
+    - '>={sample_collection_date}'
+    - <={today}
     examples:
     - value: '2024-02-01'
   read_mapping_criteria:
@@ -3479,7 +3517,7 @@ slots:
       in a diagnostic test. This may include parts of a gene, non-coding regions,
       or other genetic elements that serve as a marker for detecting the presence
       of a pathogen or other relevant entities.
-    slot_uri: GENEPIO:0101206
+    slot_uri: GENEPIO:0102052
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu

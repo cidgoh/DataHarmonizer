@@ -1,7 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: CanCOGeN_Covid-19
 description: ''
-version: 2.4.0
+version: 2.4.1
 in_language:
 - en
 - fr
@@ -952,6 +952,9 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - '>={sample_collection_date}'
+    - <={today}
     examples:
     - value: '2020-03-20'
     exact_mappings:
@@ -1049,7 +1052,7 @@ slots:
     description: The reason that the sample was collected.
     comments: The reason a sample was collected may provide information about potential
       biases in sampling strategy. Provide the purpose of sampling from the picklist
-      in the template. Most likely, the sample was collected for Diagnostic testing.
+      in the template. Most likely, the sample was collected for diagnostic testing.
       The reason why a sample was originally collected may differ from the reason
       why it was selected for sequencing, which should be indicated in the "purpose
       of sequencing" field.
@@ -1265,7 +1268,7 @@ slots:
   collection_method:
     name: collection_method
     title: collection method
-    description: The process used to collect the sample e.g. phlebotamy, necropsy.
+    description: The process used to collect the sample e.g. phlebotomy, necropsy.
     comments: Provide a descriptor if a collection method was used for sampling. Use
       the picklist provided in the template.  If a desired term is missing from the
       picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank.
@@ -1612,6 +1615,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2020-03-16'
     exact_mappings:
@@ -1722,6 +1727,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2021-03-01'
     exact_mappings:
@@ -1751,6 +1758,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2021-09-01'
     exact_mappings:
@@ -1780,6 +1789,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2021-12-30'
     exact_mappings:
@@ -1809,6 +1820,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2022-01-15'
     exact_mappings:
@@ -1896,6 +1909,8 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - <={today}
     examples:
     - value: '2020-03-16'
     exact_mappings:
@@ -1911,6 +1926,9 @@ slots:
     any_of:
     - range: date
     - range: NullValueMenu
+    todos:
+    - '>={most_recent_travel_departure_date}'
+    - <={today}
     examples:
     - value: '2020-04-26'
     exact_mappings:
@@ -2078,6 +2096,8 @@ slots:
       Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0001437
     range: date
+    todos:
+    - <={today}
     examples:
     - value: '2021-01-23'
     exact_mappings:
@@ -2184,6 +2204,7 @@ slots:
     - range: NullValueMenu
     todos:
     - '>={sample_collection_date}'
+    - <={today}
     required: true
     examples:
     - value: '2020-06-22'
@@ -5821,6 +5842,8 @@ enums:
         text: Nova Scotia Health Authority
       Ontario Institute for Cancer Research (OICR):
         text: Ontario Institute for Cancer Research (OICR)
+      Ontario COVID-19 Genomic Network:
+        text: Ontario COVID-19 Genomic Network
       Prince Edward Island - Health PEI:
         text: Prince Edward Island - Health PEI
       Public Health Ontario (PHO):
@@ -5859,6 +5882,8 @@ enums:
         text: Hamilton Health Sciences
       The Hospital for Sick Children (SickKids):
         text: The Hospital for Sick Children (SickKids)
+      Kingston Health Sciences Centre:
+        text: Kingston Health Sciences Centre
       "Laboratoire de sant\xE9 publique du Qu\xE9bec (LSPQ)":
         text: "Laboratoire de sant\xE9 publique du Qu\xE9bec (LSPQ)"
       Lake of the Woods District Hospital - Ontario:
@@ -5899,6 +5924,8 @@ enums:
         text: Shared Hospital Laboratory
       St. John's Rehab at Sunnybrook Hospital:
         text: St. John's Rehab at Sunnybrook Hospital
+      "St. Joseph\u2019s Healthcare Hamilton":
+        text: "St. Joseph\u2019s Healthcare Hamilton"
       Switch Health:
         text: Switch Health
       Sunnybrook Health Sciences Centre:

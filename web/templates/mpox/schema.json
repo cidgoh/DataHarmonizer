@@ -2,7 +2,7 @@
   "name": "Mpox",
   "description": "",
   "id": "https://example.com/mpox",
-  "version": "7.5.5",
+  "version": "8.5.5",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -9843,7 +9843,8 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:SUBMISSIONS%20-%20BioProject%20Accession"
+        "NML_LIMS:SUBMISSIONS%20-%20BioProject%20Accession",
+        "BIOSAMPLE:bioproject_accession"
       ],
       "slot_uri": "GENEPIO:0001136",
       "domain_of": [
@@ -9900,7 +9901,7 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "CNPHI:SRA%20Accession",
-        "NML_LIMS:PH_SRA_ACCESSION"
+        "NML_LIMS:SUBMISSIONS%20-%20SRA%20Accession"
       ],
       "slot_uri": "GENEPIO:0101203",
       "domain_of": [
@@ -9930,7 +9931,7 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "CNPHI:GenBank%20Accession",
-        "NML_LIMS:GenBank%20accession"
+        "NML_LIMS:SUBMISSIONS%20-%20GenBank%20Accession"
       ],
       "slot_uri": "GENEPIO:0101204",
       "domain_of": [
@@ -10142,7 +10143,7 @@
       "description": "The date on which the sample was received.",
       "title": "sample received date",
       "todos": [
-        ">=2019-10-01",
+        ">={sample_collection_date}",
         "<={today}"
       ],
       "comments": [
@@ -10628,8 +10629,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "lineage/clade name": {
-      "name": "lineage/clade name",
+    "lineage_clade_name": {
+      "name": "lineage_clade_name",
       "description": "The name of the lineage or clade.",
       "title": "lineage/clade name",
       "comments": [
@@ -10657,8 +10658,8 @@
         }
       ]
     },
-    "lineage/clade analysis software name": {
-      "name": "lineage/clade analysis software name",
+    "lineage_clade_analysis_software_name": {
+      "name": "lineage_clade_analysis_software_name",
       "description": "The name of the software used to determine the lineage/clade.",
       "title": "lineage/clade analysis software name",
       "comments": [
@@ -10686,8 +10687,8 @@
         }
       ]
     },
-    "lineage/clade analysis software version": {
-      "name": "lineage/clade analysis software version",
+    "lineage_clade_analysis_software_version": {
+      "name": "lineage_clade_analysis_software_version",
       "description": "The version of the software used to determine the lineage/clade.",
       "title": "lineage/clade analysis software version",
       "comments": [
@@ -10962,7 +10963,7 @@
       "title": "symptom onset date",
       "todos": [
         ">=2019-10-01",
-        "<={today}"
+        "<={sample_collection_date}"
       ],
       "comments": [
         "If known, provide the symptom onset date in ISO 8601 standard format \"YYYY-MM-DD\"."
@@ -11260,6 +11261,9 @@
       "name": "most_recent_travel_departure_date",
       "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
       "title": "most recent travel departure date",
+      "todos": [
+        "<={sample_collection_date}"
+      ],
       "comments": [
         "Provide the travel departure date."
       ],
@@ -11290,6 +11294,9 @@
       "name": "most_recent_travel_return_date",
       "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
       "title": "most recent travel return date",
+      "todos": [
+        ">={most_recent_travel_departure_date}"
+      ],
       "comments": [
         "Provide the travel return date."
       ],
@@ -11471,7 +11478,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:prior%20Monkeypox%20infection%20date"
+        "NML_LIMS:prior%20Mpox%20infection%20date"
       ],
       "slot_uri": "GENEPIO:0100533",
       "domain_of": [
@@ -11515,7 +11522,7 @@
       ],
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
-        "NML_LIMS:prior%20antiviral%20treatment%20during%20Monkeypox%20infection"
+        "NML_LIMS:prior%20antiviral%20treatment%20during%20Mpox%20infection"
       ],
       "slot_uri": "GENEPIO:0100535",
       "domain_of": [
@@ -12068,6 +12075,9 @@
         }
       ],
       "from_schema": "https://example.com/mpox",
+      "exact_mappings": [
+        "NML_LIMS:amplicon%20size"
+      ],
       "slot_uri": "GENEPIO:0001449",
       "domain_of": [
         "Mpox",
@@ -12616,6 +12626,29 @@
       ],
       "range": "Integer"
     },
+    "breadth_of_coverage_value": {
+      "name": "breadth_of_coverage_value",
+      "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
+      "title": "breadth of coverage value",
+      "comments": [
+        "Provide value as a percentage."
+      ],
+      "examples": [
+        {
+          "value": "95%"
+        }
+      ],
+      "from_schema": "https://example.com/mpox",
+      "exact_mappings": [
+        "NML_LIMS:breadth%20of%20coverage%20value"
+      ],
+      "slot_uri": "GENEPIO:0001472",
+      "domain_of": [
+        "Mpox",
+        "MpoxInternational"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
     "depth_of_coverage_value": {
       "name": "depth_of_coverage_value",
       "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
@@ -12636,6 +12669,7 @@
       ],
       "slot_uri": "GENEPIO:0001474",
       "domain_of": [
+        "Mpox",
         "MpoxInternational"
       ],
       "range": "WhitespaceMinimizedString"
@@ -12658,6 +12692,7 @@
       ],
       "slot_uri": "GENEPIO:0001475",
       "domain_of": [
+        "Mpox",
         "MpoxInternational"
       ],
       "range": "WhitespaceMinimizedString"
@@ -12975,6 +13010,10 @@
       "name": "taxonomic_analysis_date",
       "description": "The date a taxonomic analysis was performed.",
       "title": "taxonomic analysis date",
+      "todos": [
+        ">={sample_collection_date}",
+        "<={today}"
+      ],
       "comments": [
         "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
       ],
@@ -13022,7 +13061,7 @@
         }
       ],
       "from_schema": "https://example.com/mpox",
-      "slot_uri": "GENEPIO:0101206",
+      "slot_uri": "GENEPIO:0102052",
       "domain_of": [
         "MpoxInternational"
       ],
@@ -13657,7 +13696,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "6.5.5"
+          "value": "7.5.5"
         }
       },
       "description": "Canadian specification for Mpox clinical virus biosample data gathering",
@@ -14490,7 +14529,7 @@
             }
           ],
           "exact_mappings": [
-            "NML_LIMS:prior%20Monkeypox%20infection"
+            "NML_LIMS:prior%20Mpox%20infection"
           ],
           "rank": 66,
           "slot_group": "Host reinfection information",
@@ -14516,7 +14555,7 @@
             }
           ],
           "exact_mappings": [
-            "NML_LIMS:prior%20Monkeypox%20antiviral%20treatment"
+            "NML_LIMS:prior%20Mpox%20antiviral%20treatment"
           ],
           "rank": 68,
           "slot_group": "Host reinfection information",
@@ -14766,85 +14805,100 @@
           "rank": 98,
           "slot_group": "Bioinformatics and QC metrics"
         },
+        "breadth_of_coverage_value": {
+          "name": "breadth_of_coverage_value",
+          "rank": 99,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "depth_of_coverage_value": {
+          "name": "depth_of_coverage_value",
+          "rank": 100,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
+        "depth_of_coverage_threshold": {
+          "name": "depth_of_coverage_threshold",
+          "rank": 101,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
         "number_of_base_pairs_sequenced": {
           "name": "number_of_base_pairs_sequenced",
-          "rank": 99,
+          "rank": 102,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus_genome_length": {
           "name": "consensus_genome_length",
-          "rank": 100,
+          "rank": 103,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "reference_genome_accession": {
           "name": "reference_genome_accession",
-          "rank": 101,
+          "rank": 104,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics_protocol": {
           "name": "bioinformatics_protocol",
-          "rank": 102,
+          "rank": 105,
           "slot_group": "Bioinformatics and QC metrics",
           "required": true
         },
         "gene_name_1": {
           "name": "gene_name_1",
-          "rank": 103,
+          "rank": 106,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_ct_value_1": {
           "name": "diagnostic_pcr_ct_value_1",
-          "rank": 104,
+          "rank": 107,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_name_2": {
           "name": "gene_name_2",
-          "rank": 105,
+          "rank": 108,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_ct_value_2": {
           "name": "diagnostic_pcr_ct_value_2",
-          "rank": 106,
+          "rank": 109,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_name_3": {
           "name": "gene_name_3",
-          "rank": 107,
+          "rank": 110,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_ct_value_3": {
           "name": "diagnostic_pcr_ct_value_3",
-          "rank": 108,
+          "rank": 111,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_name_4": {
           "name": "gene_name_4",
-          "rank": 109,
+          "rank": 112,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_ct_value_4": {
           "name": "diagnostic_pcr_ct_value_4",
-          "rank": 110,
+          "rank": 113,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_name_5": {
           "name": "gene_name_5",
-          "rank": 111,
+          "rank": 114,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_ct_value_5": {
           "name": "diagnostic_pcr_ct_value_5",
-          "rank": 112,
+          "rank": 115,
           "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
           "name": "authors",
-          "rank": 113,
+          "rank": 116,
           "slot_group": "Contributor acknowledgement"
         },
         "dataharmonizer_provenance": {
           "name": "dataharmonizer_provenance",
-          "rank": 114,
+          "rank": 117,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -14959,7 +15013,8 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:SUBMISSIONS%20-%20BioProject%20Accession"
+            "NML_LIMS:SUBMISSIONS%20-%20BioProject%20Accession",
+            "BIOSAMPLE:bioproject_accession"
           ],
           "rank": 4,
           "slot_uri": "GENEPIO:0001136",
@@ -15024,7 +15079,7 @@
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
             "CNPHI:SRA%20Accession",
-            "NML_LIMS:PH_SRA_ACCESSION"
+            "NML_LIMS:SUBMISSIONS%20-%20SRA%20Accession"
           ],
           "rank": 6,
           "slot_uri": "GENEPIO:0101203",
@@ -15058,7 +15113,7 @@
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
             "CNPHI:GenBank%20Accession",
-            "NML_LIMS:GenBank%20accession"
+            "NML_LIMS:SUBMISSIONS%20-%20GenBank%20Accession"
           ],
           "rank": 7,
           "slot_uri": "GENEPIO:0101204",
@@ -15290,7 +15345,7 @@
           "description": "The date on which the sample was received.",
           "title": "sample received date",
           "todos": [
-            ">=2019-10-01",
+            ">={sample_collection_date}",
             "<={today}"
           ],
           "comments": [
@@ -16382,7 +16437,7 @@
           "title": "symptom onset date",
           "todos": [
             ">=2019-10-01",
-            "<={today}"
+            "<={sample_collection_date}"
           ],
           "comments": [
             "If known, provide the symptom onset date in ISO 8601 standard format \"YYYY-MM-DD\"."
@@ -16835,6 +16890,9 @@
           "name": "most_recent_travel_departure_date",
           "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
           "title": "most recent travel departure date",
+          "todos": [
+            "<={sample_collection_date}"
+          ],
           "comments": [
             "Provide the travel departure date."
           ],
@@ -16869,6 +16927,9 @@
           "name": "most_recent_travel_return_date",
           "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
           "title": "most recent travel return date",
+          "todos": [
+            ">={most_recent_travel_departure_date}"
+          ],
           "comments": [
             "Provide the travel return date."
           ],
@@ -17099,7 +17160,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:prior%20Monkeypox%20infection"
+            "NML_LIMS:prior%20Mpox%20infection"
           ],
           "rank": 66,
           "slot_uri": "GENEPIO:0100532",
@@ -17136,7 +17197,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:prior%20Monkeypox%20infection%20date"
+            "NML_LIMS:prior%20Mpox%20infection%20date"
           ],
           "rank": 67,
           "slot_uri": "GENEPIO:0100533",
@@ -17170,7 +17231,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:prior%20Monkeypox%20antiviral%20treatment"
+            "NML_LIMS:prior%20Mpox%20antiviral%20treatment"
           ],
           "rank": 68,
           "slot_uri": "GENEPIO:0100534",
@@ -17204,7 +17265,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:prior%20antiviral%20treatment%20during%20Monkeypox%20infection"
+            "NML_LIMS:prior%20antiviral%20treatment%20during%20Mpox%20infection"
           ],
           "rank": 69,
           "slot_uri": "GENEPIO:0100535",
@@ -17730,6 +17791,9 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
+          "exact_mappings": [
+            "NML_LIMS:amplicon%20size"
+          ],
           "rank": 85,
           "slot_uri": "GENEPIO:0001449",
           "alias": "amplicon_size",
@@ -18085,6 +18149,89 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
+        "breadth_of_coverage_value": {
+          "name": "breadth_of_coverage_value",
+          "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
+          "title": "breadth of coverage value",
+          "comments": [
+            "Provide value as a percentage."
+          ],
+          "examples": [
+            {
+              "value": "95%"
+            }
+          ],
+          "from_schema": "https://example.com/mpox",
+          "exact_mappings": [
+            "NML_LIMS:breadth%20of%20coverage%20value"
+          ],
+          "rank": 99,
+          "slot_uri": "GENEPIO:0001472",
+          "alias": "breadth_of_coverage_value",
+          "owner": "Mpox",
+          "domain_of": [
+            "Mpox",
+            "MpoxInternational"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
+        "depth_of_coverage_value": {
+          "name": "depth_of_coverage_value",
+          "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
+          "title": "depth of coverage value",
+          "comments": [
+            "Provide value as a fold of coverage."
+          ],
+          "examples": [
+            {
+              "value": "400x"
+            }
+          ],
+          "from_schema": "https://example.com/mpox",
+          "exact_mappings": [
+            "GISAID:Depth%20of%20coverage",
+            "NML_LIMS:depth%20of%20coverage%20value",
+            "VirusSeq_Portal:depth%20of%20coverage%20value"
+          ],
+          "rank": 100,
+          "slot_uri": "GENEPIO:0001474",
+          "alias": "depth_of_coverage_value",
+          "owner": "Mpox",
+          "domain_of": [
+            "Mpox",
+            "MpoxInternational"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
+        "depth_of_coverage_threshold": {
+          "name": "depth_of_coverage_threshold",
+          "description": "The threshold used as a cut-off for the depth of coverage.",
+          "title": "depth of coverage threshold",
+          "comments": [
+            "Provide the threshold fold coverage."
+          ],
+          "examples": [
+            {
+              "value": "100x"
+            }
+          ],
+          "from_schema": "https://example.com/mpox",
+          "exact_mappings": [
+            "NML_LIMS:depth%20of%20coverage%20threshold"
+          ],
+          "rank": 101,
+          "slot_uri": "GENEPIO:0001475",
+          "alias": "depth_of_coverage_threshold",
+          "owner": "Mpox",
+          "domain_of": [
+            "Mpox",
+            "MpoxInternational"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
         "number_of_base_pairs_sequenced": {
           "name": "number_of_base_pairs_sequenced",
           "description": "The number of total base pairs generated by the sequencing process.",
@@ -18101,7 +18248,7 @@
           "exact_mappings": [
             "NML_LIMS:number%20of%20base%20pairs%20sequenced"
           ],
-          "rank": 99,
+          "rank": 102,
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "Mpox",
@@ -18129,7 +18276,7 @@
           "exact_mappings": [
             "NML_LIMS:consensus%20genome%20length"
           ],
-          "rank": 100,
+          "rank": 103,
           "slot_uri": "GENEPIO:0001483",
           "alias": "consensus_genome_length",
           "owner": "Mpox",
@@ -18157,7 +18304,7 @@
           "exact_mappings": [
             "NML_LIMS:reference%20genome%20accession"
           ],
-          "rank": 101,
+          "rank": 104,
           "slot_uri": "GENEPIO:0001485",
           "alias": "reference_genome_accession",
           "owner": "Mpox",
@@ -18186,7 +18333,7 @@
             "NML_LIMS:PH_BIOINFORMATICS_PROTOCOL",
             "VirusSeq_Portal:bioinformatics%20protocol"
           ],
-          "rank": 102,
+          "rank": 105,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "Mpox",
@@ -18217,7 +18364,7 @@
             "BIOSAMPLE:gene_name_1",
             "VirusSeq_Portal:gene%20name"
           ],
-          "rank": 103,
+          "rank": 106,
           "slot_uri": "GENEPIO:0001507",
           "alias": "gene_name_1",
           "owner": "Mpox",
@@ -18253,7 +18400,7 @@
             "BIOSAMPLE:diagnostic_PCR_CT_value_1",
             "VirusSeq_Portal:diagnostic%20pcr%20Ct%20value"
           ],
-          "rank": 104,
+          "rank": 107,
           "slot_uri": "GENEPIO:0001509",
           "alias": "diagnostic_pcr_ct_value_1",
           "owner": "Mpox",
@@ -18289,7 +18436,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232",
             "BIOSAMPLE:gene_name_2"
           ],
-          "rank": 105,
+          "rank": 108,
           "slot_uri": "GENEPIO:0001510",
           "alias": "gene_name_2",
           "owner": "Mpox",
@@ -18324,7 +18471,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232%20CT%20Value",
             "BIOSAMPLE:diagnostic_PCR_CT_value_2"
           ],
-          "rank": 106,
+          "rank": 109,
           "slot_uri": "GENEPIO:0001512",
           "alias": "diagnostic_pcr_ct_value_2",
           "owner": "Mpox",
@@ -18360,7 +18507,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233",
             "BIOSAMPLE:gene_name_3"
           ],
-          "rank": 107,
+          "rank": 110,
           "slot_uri": "GENEPIO:0001513",
           "alias": "gene_name_3",
           "owner": "Mpox",
@@ -18395,7 +18542,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233%20CT%20Value",
             "BIOSAMPLE:diagnostic_PCR_CT_value_3"
           ],
-          "rank": 108,
+          "rank": 111,
           "slot_uri": "GENEPIO:0001515",
           "alias": "diagnostic_pcr_ct_value_3",
           "owner": "Mpox",
@@ -18431,7 +18578,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%234",
             "BIOSAMPLE:gene_name_4"
           ],
-          "rank": 109,
+          "rank": 112,
           "slot_uri": "GENEPIO:0100576",
           "alias": "gene_name_4",
           "owner": "Mpox",
@@ -18466,7 +18613,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%234%20CT%20Value",
             "BIOSAMPLE:diagnostic_PCR_CT_value_4"
           ],
-          "rank": 110,
+          "rank": 113,
           "slot_uri": "GENEPIO:0100577",
           "alias": "diagnostic_pcr_ct_value_4",
           "owner": "Mpox",
@@ -18501,7 +18648,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%235",
             "BIOSAMPLE:gene_name_5"
           ],
-          "rank": 111,
+          "rank": 114,
           "slot_uri": "GENEPIO:0100578",
           "alias": "gene_name_5",
           "owner": "Mpox",
@@ -18536,7 +18683,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%235%20CT%20Value",
             "BIOSAMPLE:diagnostic_PCR_CT_value_5"
           ],
-          "rank": 112,
+          "rank": 115,
           "slot_uri": "GENEPIO:0100579",
           "alias": "diagnostic_pcr_ct_value_5",
           "owner": "Mpox",
@@ -18571,7 +18718,7 @@
             "CNPHI:Authors",
             "NML_LIMS:PH_SEQUENCING_AUTHORS"
           ],
-          "rank": 113,
+          "rank": 116,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "Mpox",
@@ -18600,7 +18747,7 @@
             "CNPHI:Additional%20Comments",
             "NML_LIMS:HC_COMMENTS"
           ],
-          "rank": 114,
+          "rank": 117,
           "slot_uri": "GENEPIO:0001518",
           "alias": "dataharmonizer_provenance",
           "owner": "Mpox",
@@ -18618,7 +18765,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "7.5.5"
+          "value": "8.5.5"
         }
       },
       "description": "International specification for Mpox clinical virus biosample data gathering",
@@ -18956,18 +19103,18 @@
           "rank": 31,
           "slot_group": "Sample collection and processing"
         },
-        "lineage/clade name": {
-          "name": "lineage/clade name",
+        "lineage_clade_name": {
+          "name": "lineage_clade_name",
           "rank": 32,
           "slot_group": "Lineage and Variant information"
         },
-        "lineage/clade analysis software name": {
-          "name": "lineage/clade analysis software name",
+        "lineage_clade_analysis_software_name": {
+          "name": "lineage_clade_analysis_software_name",
           "rank": 33,
           "slot_group": "Lineage and Variant information"
         },
-        "lineage/clade analysis software version": {
-          "name": "lineage/clade analysis software version",
+        "lineage_clade_analysis_software_version": {
+          "name": "lineage_clade_analysis_software_version",
           "rank": 34,
           "slot_group": "Lineage and Variant information"
         },
@@ -19747,184 +19894,189 @@
           "rank": 119,
           "slot_group": "Bioinformatics and QC metrics"
         },
+        "breadth_of_coverage_value": {
+          "name": "breadth_of_coverage_value",
+          "rank": 120,
+          "slot_group": "Bioinformatics and QC metrics"
+        },
         "depth_of_coverage_value": {
           "name": "depth_of_coverage_value",
-          "rank": 120,
+          "rank": 121,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth_of_coverage_threshold": {
           "name": "depth_of_coverage_threshold",
-          "rank": 121,
+          "rank": 122,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_base_pairs_sequenced": {
           "name": "number_of_base_pairs_sequenced",
-          "rank": 122,
+          "rank": 123,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus_genome_length": {
           "name": "consensus_genome_length",
-          "rank": 123,
+          "rank": 124,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "sequence_assembly_length": {
           "name": "sequence_assembly_length",
-          "rank": 124,
+          "rank": 125,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_contigs": {
           "name": "number_of_contigs",
-          "rank": 125,
+          "rank": 126,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "genome_completeness": {
           "name": "genome_completeness",
-          "rank": 126,
+          "rank": 127,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "n50": {
           "name": "n50",
-          "rank": 127,
+          "rank": 128,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "percent_ns_across_total_genome_length": {
           "name": "percent_ns_across_total_genome_length",
-          "rank": 128,
+          "rank": 129,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "ns_per_100_kbp": {
           "name": "ns_per_100_kbp",
-          "rank": 129,
+          "rank": 130,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "reference_genome_accession": {
           "name": "reference_genome_accession",
-          "rank": 130,
+          "rank": 131,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics_protocol": {
           "name": "bioinformatics_protocol",
-          "rank": 131,
+          "rank": 132,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "read_mapping_software_name": {
           "name": "read_mapping_software_name",
-          "rank": 132,
+          "rank": 133,
           "slot_group": "Taxonomic identification information"
         },
         "read_mapping_software_version": {
           "name": "read_mapping_software_version",
-          "rank": 133,
+          "rank": 134,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_reference_database_name": {
           "name": "taxonomic_reference_database_name",
-          "rank": 134,
+          "rank": 135,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_reference_database_version": {
           "name": "taxonomic_reference_database_version",
-          "rank": 135,
+          "rank": 136,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_analysis_report_filename": {
           "name": "taxonomic_analysis_report_filename",
-          "rank": 136,
+          "rank": 137,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_analysis_date": {
           "name": "taxonomic_analysis_date",
-          "rank": 137,
+          "rank": 138,
           "slot_group": "Taxonomic identification information"
         },
         "read_mapping_criteria": {
           "name": "read_mapping_criteria",
-          "rank": 138,
+          "rank": 139,
           "slot_group": "Taxonomic identification information"
         },
         "assay_target_name_1": {
           "name": "assay_target_name_1",
-          "rank": 139,
+          "rank": 140,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_1": {
           "name": "assay_target_details_1",
-          "rank": 140,
+          "rank": 141,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_1": {
           "name": "gene_symbol_1",
-          "rank": 141,
+          "rank": 142,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_protocol_1": {
           "name": "diagnostic_pcr_protocol_1",
-          "rank": 142,
+          "rank": 143,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_ct_value_1": {
           "name": "diagnostic_pcr_ct_value_1",
-          "rank": 143,
+          "rank": 144,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_name_2": {
           "name": "assay_target_name_2",
-          "rank": 144,
+          "rank": 145,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_2": {
           "name": "assay_target_details_2",
-          "rank": 145,
+          "rank": 146,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_2": {
           "name": "gene_symbol_2",
-          "rank": 146,
+          "rank": 147,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_protocol_2": {
           "name": "diagnostic_pcr_protocol_2",
-          "rank": 147,
+          "rank": 148,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_ct_value_2": {
           "name": "diagnostic_pcr_ct_value_2",
-          "rank": 148,
+          "rank": 149,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_name_3": {
           "name": "assay_target_name_3",
-          "rank": 149,
+          "rank": 150,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_3": {
           "name": "assay_target_details_3",
-          "rank": 150,
+          "rank": 151,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_3": {
           "name": "gene_symbol_3",
-          "rank": 151,
+          "rank": 152,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_protocol_3": {
           "name": "diagnostic_pcr_protocol_3",
-          "rank": 152,
+          "rank": 153,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_pcr_ct_value_3": {
           "name": "diagnostic_pcr_ct_value_3",
-          "rank": 153,
+          "rank": 154,
           "slot_group": "Pathogen diagnostic testing"
         },
         "authors": {
           "name": "authors",
-          "rank": 154,
+          "rank": 155,
           "slot_group": "Contributor acknowledgement"
         },
         "dataharmonizer_provenance": {
           "name": "dataharmonizer_provenance",
-          "rank": 155,
+          "rank": 156,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -20003,7 +20155,8 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:SUBMISSIONS%20-%20BioProject%20Accession"
+            "NML_LIMS:SUBMISSIONS%20-%20BioProject%20Accession",
+            "BIOSAMPLE:bioproject_accession"
           ],
           "rank": 3,
           "slot_uri": "GENEPIO:0001136",
@@ -20068,7 +20221,7 @@
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
             "CNPHI:SRA%20Accession",
-            "NML_LIMS:PH_SRA_ACCESSION"
+            "NML_LIMS:SUBMISSIONS%20-%20SRA%20Accession"
           ],
           "rank": 5,
           "slot_uri": "GENEPIO:0101203",
@@ -20102,7 +20255,7 @@
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
             "CNPHI:GenBank%20Accession",
-            "NML_LIMS:GenBank%20accession"
+            "NML_LIMS:SUBMISSIONS%20-%20GenBank%20Accession"
           ],
           "rank": 6,
           "slot_uri": "GENEPIO:0101204",
@@ -20323,7 +20476,7 @@
           "description": "The date on which the sample was received.",
           "title": "sample received date",
           "todos": [
-            ">=2019-10-01",
+            ">={sample_collection_date}",
             "<={today}"
           ],
           "comments": [
@@ -20991,8 +21144,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "lineage/clade name": {
-          "name": "lineage/clade name",
+        "lineage_clade_name": {
+          "name": "lineage_clade_name",
           "description": "The name of the lineage or clade.",
           "title": "lineage/clade name",
           "comments": [
@@ -21009,7 +21162,7 @@
           ],
           "rank": 32,
           "slot_uri": "GENEPIO:0001500",
-          "alias": "lineage/clade_name",
+          "alias": "lineage_clade_name",
           "owner": "MpoxInternational",
           "domain_of": [
             "MpoxInternational"
@@ -21024,8 +21177,8 @@
             }
           ]
         },
-        "lineage/clade analysis software name": {
-          "name": "lineage/clade analysis software name",
+        "lineage_clade_analysis_software_name": {
+          "name": "lineage_clade_analysis_software_name",
           "description": "The name of the software used to determine the lineage/clade.",
           "title": "lineage/clade analysis software name",
           "comments": [
@@ -21042,7 +21195,7 @@
           ],
           "rank": 33,
           "slot_uri": "GENEPIO:0001501",
-          "alias": "lineage/clade_analysis_software_name",
+          "alias": "lineage_clade_analysis_software_name",
           "owner": "MpoxInternational",
           "domain_of": [
             "MpoxInternational"
@@ -21057,8 +21210,8 @@
             }
           ]
         },
-        "lineage/clade analysis software version": {
-          "name": "lineage/clade analysis software version",
+        "lineage_clade_analysis_software_version": {
+          "name": "lineage_clade_analysis_software_version",
           "description": "The version of the software used to determine the lineage/clade.",
           "title": "lineage/clade analysis software version",
           "comments": [
@@ -21075,7 +21228,7 @@
           ],
           "rank": 34,
           "slot_uri": "GENEPIO:0001502",
-          "alias": "lineage/clade_analysis_software_version",
+          "alias": "lineage_clade_analysis_software_version",
           "owner": "MpoxInternational",
           "domain_of": [
             "MpoxInternational"
@@ -21509,7 +21662,7 @@
           "title": "symptom onset date",
           "todos": [
             ">=2019-10-01",
-            "<={today}"
+            "<={sample_collection_date}"
           ],
           "comments": [
             "If known, provide the symptom onset date in ISO 8601 standard format \"YYYY-MM-DD\"."
@@ -21945,6 +22098,9 @@
           "name": "most_recent_travel_departure_date",
           "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
           "title": "most recent travel departure date",
+          "todos": [
+            "<={sample_collection_date}"
+          ],
           "comments": [
             "Provide the travel departure date."
           ],
@@ -21979,6 +22135,9 @@
           "name": "most_recent_travel_return_date",
           "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
           "title": "most recent travel return date",
+          "todos": [
+            ">={most_recent_travel_departure_date}"
+          ],
           "comments": [
             "Provide the travel return date."
           ],
@@ -22243,7 +22402,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:prior%20Monkeypox%20infection%20date"
+            "NML_LIMS:prior%20Mpox%20infection%20date"
           ],
           "rank": 70,
           "slot_uri": "GENEPIO:0100533",
@@ -22308,7 +22467,7 @@
           ],
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
-            "NML_LIMS:prior%20antiviral%20treatment%20during%20Monkeypox%20infection"
+            "NML_LIMS:prior%20antiviral%20treatment%20during%20Mpox%20infection"
           ],
           "rank": 72,
           "slot_uri": "GENEPIO:0100535",
@@ -23009,6 +23168,9 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
+          "exact_mappings": [
+            "NML_LIMS:amplicon%20size"
+          ],
           "rank": 96,
           "slot_uri": "GENEPIO:0001449",
           "alias": "amplicon_size",
@@ -23587,6 +23749,33 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "Integer"
         },
+        "breadth_of_coverage_value": {
+          "name": "breadth_of_coverage_value",
+          "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
+          "title": "breadth of coverage value",
+          "comments": [
+            "Provide value as a percentage."
+          ],
+          "examples": [
+            {
+              "value": "95%"
+            }
+          ],
+          "from_schema": "https://example.com/mpox",
+          "exact_mappings": [
+            "NML_LIMS:breadth%20of%20coverage%20value"
+          ],
+          "rank": 120,
+          "slot_uri": "GENEPIO:0001472",
+          "alias": "breadth_of_coverage_value",
+          "owner": "MpoxInternational",
+          "domain_of": [
+            "Mpox",
+            "MpoxInternational"
+          ],
+          "slot_group": "Bioinformatics and QC metrics",
+          "range": "WhitespaceMinimizedString"
+        },
         "depth_of_coverage_value": {
           "name": "depth_of_coverage_value",
           "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
@@ -23605,11 +23794,12 @@
             "NML_LIMS:depth%20of%20coverage%20value",
             "VirusSeq_Portal:depth%20of%20coverage%20value"
           ],
-          "rank": 120,
+          "rank": 121,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
           "owner": "MpoxInternational",
           "domain_of": [
+            "Mpox",
             "MpoxInternational"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -23631,11 +23821,12 @@
           "exact_mappings": [
             "NML_LIMS:depth%20of%20coverage%20threshold"
           ],
-          "rank": 121,
+          "rank": 122,
           "slot_uri": "GENEPIO:0001475",
           "alias": "depth_of_coverage_threshold",
           "owner": "MpoxInternational",
           "domain_of": [
+            "Mpox",
             "MpoxInternational"
           ],
           "slot_group": "Bioinformatics and QC metrics",
@@ -23657,7 +23848,7 @@
           "exact_mappings": [
             "NML_LIMS:number%20of%20base%20pairs%20sequenced"
           ],
-          "rank": 122,
+          "rank": 123,
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "MpoxInternational",
@@ -23685,7 +23876,7 @@
           "exact_mappings": [
             "NML_LIMS:consensus%20genome%20length"
           ],
-          "rank": 123,
+          "rank": 124,
           "slot_uri": "GENEPIO:0001483",
           "alias": "consensus_genome_length",
           "owner": "MpoxInternational",
@@ -23710,7 +23901,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 124,
+          "rank": 125,
           "slot_uri": "GENEPIO:0100846",
           "alias": "sequence_assembly_length",
           "owner": "MpoxInternational",
@@ -23733,7 +23924,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 125,
+          "rank": 126,
           "slot_uri": "GENEPIO:0100937",
           "alias": "number_of_contigs",
           "owner": "MpoxInternational",
@@ -23756,7 +23947,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 126,
+          "rank": 127,
           "slot_uri": "GENEPIO:0100844",
           "alias": "genome_completeness",
           "owner": "MpoxInternational",
@@ -23779,7 +23970,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 127,
+          "rank": 128,
           "slot_uri": "GENEPIO:0100938",
           "alias": "n50",
           "owner": "MpoxInternational",
@@ -23802,7 +23993,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 128,
+          "rank": 129,
           "slot_uri": "GENEPIO:0100830",
           "alias": "percent_ns_across_total_genome_length",
           "owner": "MpoxInternational",
@@ -23825,7 +24016,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 129,
+          "rank": 130,
           "slot_uri": "GENEPIO:0001484",
           "alias": "ns_per_100_kbp",
           "owner": "MpoxInternational",
@@ -23851,7 +24042,7 @@
           "exact_mappings": [
             "NML_LIMS:reference%20genome%20accession"
           ],
-          "rank": 130,
+          "rank": 131,
           "slot_uri": "GENEPIO:0001485",
           "alias": "reference_genome_accession",
           "owner": "MpoxInternational",
@@ -23880,7 +24071,7 @@
             "NML_LIMS:PH_BIOINFORMATICS_PROTOCOL",
             "VirusSeq_Portal:bioinformatics%20protocol"
           ],
-          "rank": 131,
+          "rank": 132,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "MpoxInternational",
@@ -23904,7 +24095,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 132,
+          "rank": 133,
           "slot_uri": "GENEPIO:0100832",
           "alias": "read_mapping_software_name",
           "owner": "MpoxInternational",
@@ -23928,7 +24119,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 133,
+          "rank": 134,
           "slot_uri": "GENEPIO:0100833",
           "alias": "read_mapping_software_version",
           "owner": "MpoxInternational",
@@ -23952,7 +24143,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 134,
+          "rank": 135,
           "slot_uri": "GENEPIO:0100834",
           "alias": "taxonomic_reference_database_name",
           "owner": "MpoxInternational",
@@ -23976,7 +24167,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 135,
+          "rank": 136,
           "slot_uri": "GENEPIO:0100835",
           "alias": "taxonomic_reference_database_version",
           "owner": "MpoxInternational",
@@ -24000,7 +24191,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 136,
+          "rank": 137,
           "slot_uri": "GENEPIO:0101074",
           "alias": "taxonomic_analysis_report_filename",
           "owner": "MpoxInternational",
@@ -24014,6 +24205,10 @@
           "name": "taxonomic_analysis_date",
           "description": "The date a taxonomic analysis was performed.",
           "title": "taxonomic analysis date",
+          "todos": [
+            ">={sample_collection_date}",
+            "<={today}"
+          ],
           "comments": [
             "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -24023,7 +24218,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 137,
+          "rank": 138,
           "slot_uri": "GENEPIO:0101075",
           "alias": "taxonomic_analysis_date",
           "owner": "MpoxInternational",
@@ -24046,7 +24241,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 138,
+          "rank": 139,
           "slot_uri": "GENEPIO:0100836",
           "alias": "read_mapping_criteria",
           "owner": "MpoxInternational",
@@ -24069,8 +24264,8 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 139,
-          "slot_uri": "GENEPIO:0101206",
+          "rank": 140,
+          "slot_uri": "GENEPIO:0102052",
           "alias": "assay_target_name_1",
           "owner": "MpoxInternational",
           "domain_of": [
@@ -24094,7 +24289,7 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 140,
+          "rank": 141,
           "slot_uri": "GENEPIO:0102045",
           "alias": "assay_target_details_1",
           "owner": "MpoxInternational",
@@ -24123,7 +24318,7 @@
             "BIOSAMPLE:gene_name_1",
             "VirusSeq_Portal:gene%20name"
           ],
-          "rank": 141,
+          "rank": 142,
           "slot_uri": "GENEPIO:0102041",
           "alias": "gene_symbol_1",
           "owner": "MpoxInternational",
@@ -24153,7 +24348,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 142,
+          "rank": 143,
           "slot_uri": "GENEPIO:0001508",
           "alias": "diagnostic_pcr_protocol_1",
           "owner": "MpoxInternational",
@@ -24182,7 +24377,7 @@
             "BIOSAMPLE:diagnostic_PCR_CT_value_1",
             "VirusSeq_Portal:diagnostic%20pcr%20Ct%20value"
           ],
-          "rank": 143,
+          "rank": 144,
           "slot_uri": "GENEPIO:0001509",
           "alias": "diagnostic_pcr_ct_value_1",
           "owner": "MpoxInternational",
@@ -24213,7 +24408,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 144,
+          "rank": 145,
           "slot_uri": "GENEPIO:0102038",
           "alias": "assay_target_name_2",
           "owner": "MpoxInternational",
@@ -24238,7 +24433,7 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 145,
+          "rank": 146,
           "slot_uri": "GENEPIO:0102046",
           "alias": "assay_target_details_2",
           "owner": "MpoxInternational",
@@ -24266,7 +24461,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232",
             "BIOSAMPLE:gene_name_2"
           ],
-          "rank": 146,
+          "rank": 147,
           "slot_uri": "GENEPIO:0102042",
           "alias": "gene_symbol_2",
           "owner": "MpoxInternational",
@@ -24296,7 +24491,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 147,
+          "rank": 148,
           "slot_uri": "GENEPIO:0001511",
           "alias": "diagnostic_pcr_protocol_2",
           "owner": "MpoxInternational",
@@ -24324,7 +24519,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%232%20CT%20Value",
             "BIOSAMPLE:diagnostic_PCR_CT_value_2"
           ],
-          "rank": 148,
+          "rank": 149,
           "slot_uri": "GENEPIO:0001512",
           "alias": "diagnostic_pcr_ct_value_2",
           "owner": "MpoxInternational",
@@ -24355,7 +24550,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 149,
+          "rank": 150,
           "slot_uri": "GENEPIO:0102039",
           "alias": "assay_target_name_3",
           "owner": "MpoxInternational",
@@ -24380,7 +24575,7 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 150,
+          "rank": 151,
           "slot_uri": "GENEPIO:0102047",
           "alias": "assay_target_details_3",
           "owner": "MpoxInternational",
@@ -24408,7 +24603,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233",
             "BIOSAMPLE:gene_name_3"
           ],
-          "rank": 151,
+          "rank": 152,
           "slot_uri": "GENEPIO:0102043",
           "alias": "gene_symbol_3",
           "owner": "MpoxInternational",
@@ -24438,7 +24633,7 @@
             }
           ],
           "from_schema": "https://example.com/mpox",
-          "rank": 152,
+          "rank": 153,
           "slot_uri": "GENEPIO:0001514",
           "alias": "diagnostic_pcr_protocol_3",
           "owner": "MpoxInternational",
@@ -24466,7 +24661,7 @@
             "NML_LIMS:SUBMITTED_RESLT%20-%20Gene%20Target%20%233%20CT%20Value",
             "BIOSAMPLE:diagnostic_PCR_CT_value_3"
           ],
-          "rank": 153,
+          "rank": 154,
           "slot_uri": "GENEPIO:0001515",
           "alias": "diagnostic_pcr_ct_value_3",
           "owner": "MpoxInternational",
@@ -24502,7 +24697,7 @@
             "CNPHI:Authors",
             "NML_LIMS:PH_SEQUENCING_AUTHORS"
           ],
-          "rank": 154,
+          "rank": 155,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "MpoxInternational",
@@ -24531,7 +24726,7 @@
             "CNPHI:Additional%20Comments",
             "NML_LIMS:HC_COMMENTS"
           ],
-          "rank": 155,
+          "rank": 156,
           "slot_uri": "GENEPIO:0001518",
           "alias": "dataharmonizer_provenance",
           "owner": "MpoxInternational",

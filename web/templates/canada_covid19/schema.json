@@ -3,7 +3,7 @@
   "description": "",
   "in_language": "['en', 'fr']",
   "id": "https://example.com/CanCOGeN_Covid-19",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -4279,6 +4279,9 @@
         "Ontario Institute for Cancer Research (OICR)": {
           "text": "Ontario Institute for Cancer Research (OICR)"
         },
+        "Ontario COVID-19 Genomic Network": {
+          "text": "Ontario COVID-19 Genomic Network"
+        },
         "Prince Edward Island - Health PEI": {
           "text": "Prince Edward Island - Health PEI"
         },
@@ -4335,6 +4338,9 @@
         },
         "The Hospital for Sick Children (SickKids)": {
           "text": "The Hospital for Sick Children (SickKids)"
+        },
+        "Kingston Health Sciences Centre": {
+          "text": "Kingston Health Sciences Centre"
         },
         "Laboratoire de santé publique du Québec (LSPQ)": {
           "text": "Laboratoire de santé publique du Québec (LSPQ)"
@@ -4395,6 +4401,9 @@
         },
         "St. John's Rehab at Sunnybrook Hospital": {
           "text": "St. John's Rehab at Sunnybrook Hospital"
+        },
+        "St. Joseph’s Healthcare Hamilton": {
+          "text": "St. Joseph’s Healthcare Hamilton"
         },
         "Switch Health": {
           "text": "Switch Health"
@@ -6053,6 +6062,10 @@
       "name": "sample_received_date",
       "description": "The date on which the sample was received.",
       "title": "sample received date",
+      "todos": [
+        ">={sample_collection_date}",
+        "<={today}"
+      ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
       ],
@@ -6242,7 +6255,7 @@
       "description": "The reason that the sample was collected.",
       "title": "purpose of sampling",
       "comments": [
-        "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field."
+        "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field."
       ],
       "examples": [
         {
@@ -6569,7 +6582,7 @@
     },
     "collection_method": {
       "name": "collection_method",
-      "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
+      "description": "The process used to collect the sample e.g. phlebotomy, necropsy.",
       "title": "collection method",
       "comments": [
         "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
@@ -7209,6 +7222,9 @@
       "name": "symptom_onset_date",
       "description": "The date on which the symptoms began or were first noted.",
       "title": "symptom onset date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
       ],
@@ -7425,6 +7441,9 @@
       "name": "vaccination_dose_1_vaccination_date",
       "description": "The date the first dose of a vaccine was administered.",
       "title": "vaccination dose 1 vaccination date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -7483,6 +7502,9 @@
       "name": "vaccination_dose_2_vaccination_date",
       "description": "The date the second dose of a vaccine was administered.",
       "title": "vaccination dose 2 vaccination date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -7541,6 +7563,9 @@
       "name": "vaccination_dose_3_vaccination_date",
       "description": "The date the third dose of a vaccine was administered.",
       "title": "vaccination dose 3 vaccination date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -7599,6 +7624,9 @@
       "name": "vaccination_dose_4_vaccination_date",
       "description": "The date the fourth dose of a vaccine was administered.",
       "title": "vaccination dose 4 vaccination date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date the fourth dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -7764,6 +7792,9 @@
       "name": "most_recent_travel_departure_date",
       "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
       "title": "most recent travel departure date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the travel departure date."
       ],
@@ -7794,6 +7825,10 @@
       "name": "most_recent_travel_return_date",
       "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
       "title": "most recent travel return date",
+      "todos": [
+        ">={most_recent_travel_departure_date}",
+        "<={today}"
+      ],
       "comments": [
         "Provide the travel return date."
       ],
@@ -8120,6 +8155,9 @@
       "name": "prior_sarscov2_infection_date",
       "description": "The date of diagnosis of the prior SARS-CoV-2 infection.",
       "title": "prior SARS-CoV-2 infection date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date that the most recent prior infection was diagnosed. Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format \"YYYY-MM-DD\"."
       ],
@@ -8282,7 +8320,8 @@
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
       "todos": [
-        ">={sample_collection_date}"
+        ">={sample_collection_date}",
+        "<={today}"
       ],
       "comments": [
         "ISO 8601 standard \"YYYY-MM-DD\"."
@@ -10811,6 +10850,10 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample received date",
+          "todos": [
+            ">={sample_collection_date}",
+            "<={today}"
+          ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
           ],
@@ -11024,7 +11067,7 @@
           "description": "The reason that the sample was collected.",
           "title": "purpose of sampling",
           "comments": [
-            "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field."
+            "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field."
           ],
           "examples": [
             {
@@ -11391,7 +11434,7 @@
         },
         "collection_method": {
           "name": "collection_method",
-          "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
+          "description": "The process used to collect the sample e.g. phlebotomy, necropsy.",
           "title": "collection method",
           "comments": [
             "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
@@ -12115,6 +12158,9 @@
           "name": "symptom_onset_date",
           "description": "The date on which the symptoms began or were first noted.",
           "title": "symptom onset date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
           ],
@@ -12359,6 +12405,9 @@
           "name": "vaccination_dose_1_vaccination_date",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -12425,6 +12474,9 @@
           "name": "vaccination_dose_2_vaccination_date",
           "description": "The date the second dose of a vaccine was administered.",
           "title": "vaccination dose 2 vaccination date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -12491,6 +12543,9 @@
           "name": "vaccination_dose_3_vaccination_date",
           "description": "The date the third dose of a vaccine was administered.",
           "title": "vaccination dose 3 vaccination date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -12557,6 +12612,9 @@
           "name": "vaccination_dose_4_vaccination_date",
           "description": "The date the fourth dose of a vaccine was administered.",
           "title": "vaccination dose 4 vaccination date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date the fourth dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -12746,6 +12804,9 @@
           "name": "most_recent_travel_departure_date",
           "description": "The date of a person's most recent departure from their primary residence (at that time) on a journey to one or more other locations.",
           "title": "most recent travel departure date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the travel departure date."
           ],
@@ -12780,6 +12841,10 @@
           "name": "most_recent_travel_return_date",
           "description": "The date of a person's most recent return to some residence from a journey originating at that residence.",
           "title": "most recent travel return date",
+          "todos": [
+            ">={most_recent_travel_departure_date}",
+            "<={today}"
+          ],
           "comments": [
             "Provide the travel return date."
           ],
@@ -13154,6 +13219,9 @@
           "name": "prior_sarscov2_infection_date",
           "description": "The date of diagnosis of the prior SARS-CoV-2 infection.",
           "title": "prior SARS-CoV-2 infection date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date that the most recent prior infection was diagnosed. Provide the prior SARS-CoV-2 infection date in ISO 8601 standard format \"YYYY-MM-DD\"."
           ],
@@ -13340,7 +13408,8 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}"
+            ">={sample_collection_date}",
+            "<={today}"
           ],
           "comments": [
             "ISO 8601 standard \"YYYY-MM-DD\"."
