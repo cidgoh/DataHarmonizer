@@ -2360,10 +2360,21 @@
           "description": "A human construction which confines wastewater in a depression enclosed by earthen structures.",
           "meaning": "ENVO:03600076"
         },
-        "Sewer [ENVO:01000924]": {
-          "text": "Sewer [ENVO:01000924]",
+        "Plumbing drain [ENVO:01000924]": {
+          "text": "Plumbing drain [ENVO:01000924]",
           "description": "An artificial channel which transports unwanted water or waste liquids away from their source, either to a more useful area, a receptacle, or into sewers or stormwater mains as waste discharge to be released or processed.",
           "meaning": "ENVO:01000924"
+        },
+        "Toilet [ENVO:01000516]": {
+          "text": "Toilet [ENVO:01000516]",
+          "description": "A fixture which is used primarily for the collection and, in some cases, disposal of human urine and feces.",
+          "meaning": "ENVO:01000516"
+        },
+        "Toilet bowl [ENVO:03501218]": {
+          "text": "Toilet bowl [ENVO:03501218]",
+          "description": "A plumbing fixture which is bowl-shaped, part of a toilet fixture, and capable of contain human waste until it is disposed of.",
+          "meaning": "ENVO:03501218",
+          "is_a": "Toilet [ENVO:01000516]"
         },
         "Transportation vehicle [ENVO:01000604]": {
           "text": "Transportation vehicle [ENVO:01000604]",
@@ -2548,8 +2559,8 @@
           "description": "A composting toilet fixture is a dry toilet fixture in which managed, aerobic decomposition converts human excreta into organic matter suitable for the fertilisation or amendment of soils.",
           "meaning": "ENVO:01000550"
         },
-        "Sewer drain [ENVO:01000924]": {
-          "text": "Sewer drain [ENVO:01000924]",
+        "Plumbing drain [ENVO:01000924]": {
+          "text": "Plumbing drain [ENVO:01000924]",
           "description": "An artificial channel which transports unwanted water or waste liquids away from their source, either to a more useful area, a receptacle, or into sewers or stormwater mains as waste discharge to be released or processed.",
           "meaning": "ENVO:01000924"
         }
@@ -3580,95 +3591,137 @@
           "description": "A DNA sequencer manufactured by the Illumina corporation.",
           "meaning": "GENEPIO:0100105",
           "exact_mappings": [
-            "NCBI_SRA:%23REF%21"
+            "NCBI_SRA:ILLUMINA"
           ]
         },
         "Illumina Genome Analyzer [GENEPIO:0100106]": {
           "text": "Illumina Genome Analyzer [GENEPIO:0100106]",
           "description": "A DNA sequencer manufactured by Solexa as one of its first sequencer lines, launched in 2006, and capable of sequencing 1 gigabase (Gb) of data in a single run.",
           "meaning": "GENEPIO:0100106",
-          "is_a": "Illumina [GENEPIO:0100105]"
+          "is_a": "Illumina [GENEPIO:0100105]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20Genome%20Analyzer"
+          ]
         },
         "Illumina Genome Analyzer II [OBI:0000703]": {
           "text": "Illumina Genome Analyzer II [OBI:0000703]",
           "description": "A DNA sequencer manufactured by the Illumina (Solexa) corporation, which supports sequencing of single or paired end clone libraries relying on sequencing by synthesis technology.",
           "meaning": "OBI:0000703",
-          "is_a": "Illumina [GENEPIO:0100105]"
+          "is_a": "Illumina [GENEPIO:0100105]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20Genome%20Analyzer%20II"
+          ]
         },
         "Illumina Genome Analyzer IIx [OBI:0002000]": {
           "text": "Illumina Genome Analyzer IIx [OBI:0002000]",
           "description": "An Illumina Genome Analyzer II which is manufactured by the Illumina corporation. It supports sequencing of single, long or short insert paired end clone libraries relying on sequencing by synthesis technology. The Genome Analyzer IIx is the most widely adopted next-generation sequencing platform and proven and published across the broadest range of research applications.",
           "meaning": "OBI:0002000",
-          "is_a": "Illumina [GENEPIO:0100105]"
+          "is_a": "Illumina [GENEPIO:0100105]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20Genome%20Analyzer%20IIx"
+          ]
         },
         "Illumina HiScanSQ [GENEPIO:0100109]": {
           "text": "Illumina HiScanSQ [GENEPIO:0100109]",
           "description": "A DNA sequencer manufactured by the Illumina corporation using sequence-by-synthesis chemistry, and contains a HiScan Reader for sequencing and microarray-based analyses as well as an \"SQ Module\" to support microfluidics.",
           "meaning": "GENEPIO:0100109",
-          "is_a": "Illumina [GENEPIO:0100105]"
+          "is_a": "Illumina [GENEPIO:0100105]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiScanSQ"
+          ]
         },
         "Illumina HiSeq [GENEPIO:0100110]": {
           "text": "Illumina HiSeq [GENEPIO:0100110]",
           "description": "A DNA sequencer manufactured by the Illumina corporation using sequence-by-synthesis chemistry, enabling deep sequencing and high yield.",
           "meaning": "GENEPIO:0100110",
-          "is_a": "Illumina [GENEPIO:0100105]"
+          "is_a": "Illumina [GENEPIO:0100105]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiSeq"
+          ]
         },
         "Illumina HiSeq X [GENEPIO:0100111]": {
           "text": "Illumina HiSeq X [GENEPIO:0100111]",
           "description": "A DNA sequencer manufactured by the Illumina corporation using sequence-by-synthesis chemistry that enables sufficient depth and coverage to produce the first 30x human genome for $1000.",
           "meaning": "GENEPIO:0100111",
-          "is_a": "Illumina HiSeq [GENEPIO:0100110]"
+          "is_a": "Illumina HiSeq [GENEPIO:0100110]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiSeq%20X"
+          ]
         },
-        "Illumina HiSeq X Five  [GENEPIO:0100112]": {
-          "text": "Illumina HiSeq X Five  [GENEPIO:0100112]",
+        "Illumina HiSeq X Five [GENEPIO:0100112]": {
+          "text": "Illumina HiSeq X Five [GENEPIO:0100112]",
           "description": "A DNA sequencer manufactured by the Illumina corporation using sequence-by-synthesis chemistry that consists of a set of 5 HiSeq X Sequencing Systems.",
           "meaning": "GENEPIO:0100112",
-          "is_a": "Illumina HiSeq [GENEPIO:0100110]"
+          "is_a": "Illumina HiSeq [GENEPIO:0100110]",
+          "exact_mappings": [
+            "NCBI_SRA:HiSeq%20X%20Five"
+          ]
         },
         "Illumina HiSeq X Ten [GENEPIO:0100113]": {
           "text": "Illumina HiSeq X Ten [GENEPIO:0100113]",
           "description": "A DNA sequencer that consists of a set of 10 HiSeq X Sequencing Systems.",
           "meaning": "GENEPIO:0100113",
-          "is_a": "Illumina HiSeq [GENEPIO:0100110]"
+          "is_a": "Illumina HiSeq [GENEPIO:0100110]",
+          "exact_mappings": [
+            "NCBI_SRA:HiSeq%20X%20Ten"
+          ]
         },
         "Illumina HiSeq 1000 [OBI:0002022]": {
           "text": "Illumina HiSeq 1000 [OBI:0002022]",
           "description": "A DNA sequencer which is manufactured by the Illumina corporation, with a single flow cell and a throughput of up to 35 Gb per day. It supports sequencing of single, long or short insert paired end clone libraries relying on sequencing by synthesis technology.",
           "meaning": "OBI:0002022",
-          "is_a": "Illumina HiSeq [GENEPIO:0100110]"
+          "is_a": "Illumina HiSeq [GENEPIO:0100110]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiSeq%201000"
+          ]
         },
         "Illumina HiSeq 1500 [GENEPIO:0100115]": {
           "text": "Illumina HiSeq 1500 [GENEPIO:0100115]",
           "description": "A DNA sequencer which is manufactured by the Illumina corporation, with a single flow cell and a throughput of up to 35-50 Gb per day.",
           "meaning": "GENEPIO:0100115",
-          "is_a": "Illumina HiSeq [GENEPIO:0100110]"
+          "is_a": "Illumina HiSeq [GENEPIO:0100110]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiSeq%201500"
+          ]
         },
-        "Illumina HiSeq 2000    [OBI:0002001]": {
-          "text": "Illumina HiSeq 2000    [OBI:0002001]",
+        "Illumina HiSeq 2000 [OBI:0002001]": {
+          "text": "Illumina HiSeq 2000 [OBI:0002001]",
           "description": "A DNA sequencer which is manufactured by the Illumina corporation, with two flow cells and a throughput of up to 55 Gb per day. Built upon sequencing by synthesis technology, the machine is optimized for generation of data for multiple samples in a single run.",
           "meaning": "OBI:0002001",
-          "is_a": "Illumina HiSeq [GENEPIO:0100110]"
+          "is_a": "Illumina HiSeq [GENEPIO:0100110]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiSeq%202000"
+          ]
         },
         "Illumina HiSeq 2500 [OBI:0002002]": {
           "text": "Illumina HiSeq 2500 [OBI:0002002]",
           "description": "A DNA sequencer which is manufactured by the Illumina corporation, with two flow cells and a throughput of up to 160 Gb per day. Built upon sequencing by synthesis technology, the machine is optimized for generation of data for batching multiple samples or rapid results on a few samples.",
           "meaning": "OBI:0002002",
-          "is_a": "Illumina HiSeq [GENEPIO:0100110]"
+          "is_a": "Illumina HiSeq [GENEPIO:0100110]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiSeq%202500"
+          ]
         },
         "Illumina HiSeq 3000 [OBI:0002048]": {
           "text": "Illumina HiSeq 3000 [OBI:0002048]",
           "description": "A DNA sequencer manufactured by Illumina corporation, with a single flow cell and a throughput of more than 200 Gb per day.",
           "meaning": "OBI:0002048",
-          "is_a": "Illumina HiSeq [GENEPIO:0100110]"
+          "is_a": "Illumina HiSeq [GENEPIO:0100110]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiSeq%203000"
+          ]
         },
         "Illumina HiSeq 4000 [OBI:0002049]": {
           "text": "Illumina HiSeq 4000 [OBI:0002049]",
           "description": "A DNA sequencer manufactured by Illumina corporation, with two flow cell and a throughput of more than 400 Gb per day.",
           "meaning": "OBI:0002049",
-          "is_a": "Illumina HiSeq [GENEPIO:0100110]"
+          "is_a": "Illumina HiSeq [GENEPIO:0100110]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20HiSeq%204000"
+          ]
         },
-        "Illumina iSeq   [GENEPIO:0100120]": {
-          "text": "Illumina iSeq   [GENEPIO:0100120]",
+        "Illumina iSeq [GENEPIO:0100120]": {
+          "text": "Illumina iSeq [GENEPIO:0100120]",
           "description": "A DNA sequencer manufactured by the Illumina corporation using sequence-by-synthesis chemistry that is lightweight.",
           "meaning": "GENEPIO:0100120",
           "is_a": "Illumina [GENEPIO:0100105]"
@@ -3677,10 +3730,13 @@
           "text": "Illumina iSeq 100 [GENEPIO:0100121]",
           "description": "A DNA sequencer manufactured by the Illumina corporation using sequence-by-synthesis chemistry that is lightweight and has an output capacity between 144MB-1.2GB.",
           "meaning": "GENEPIO:0100121",
-          "is_a": "Illumina iSeq   [GENEPIO:0100120]"
+          "is_a": "Illumina iSeq [GENEPIO:0100120]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20iSeq%20100"
+          ]
         },
-        "Illumina NovaSeq   [GENEPIO:0100122]": {
-          "text": "Illumina NovaSeq   [GENEPIO:0100122]",
+        "Illumina NovaSeq [GENEPIO:0100122]": {
+          "text": "Illumina NovaSeq [GENEPIO:0100122]",
           "description": "A DNA sequencer manufactured by the Illumina corporation using sequence-by-synthesis chemistry that has an output capacity of 6 Tb and 20 billion reads in dual flow cell mode.",
           "meaning": "GENEPIO:0100122",
           "is_a": "Illumina [GENEPIO:0100105]"
@@ -3689,19 +3745,28 @@
           "text": "Illumina NovaSeq 6000 [GENEPIO:0100123]",
           "description": "A DNA sequencer which is manufactured by the Illumina corporation, with two flow cells and an output of up to 6000 Gb (32-40 B reads per run). The sequencer utilizes synthesis technology and patterned flow cells to optimize throughput and even spacing of sequencing clusters.",
           "meaning": "GENEPIO:0100123",
-          "is_a": "Illumina NovaSeq   [GENEPIO:0100122]"
+          "is_a": "Illumina NovaSeq [GENEPIO:0100122]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20NovaSeq%206000"
+          ]
         },
         "Illumina MiniSeq [GENEPIO:0100124]": {
           "text": "Illumina MiniSeq [GENEPIO:0100124]",
           "description": "A DNA sequencer which is manufactured by the Illumina corporation using sequence-by-synthesis chemistry that fits on a benchtop and has an output capacity of 1.65-7.5 Gb.",
           "meaning": "GENEPIO:0100124",
-          "is_a": "Illumina [GENEPIO:0100105]"
+          "is_a": "Illumina [GENEPIO:0100105]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20MiniSeq"
+          ]
         },
         "Illumina MiSeq [OBI:0002003]": {
           "text": "Illumina MiSeq [OBI:0002003]",
           "description": "A DNA sequencer which is manufactured by the Illumina corporation. Built upon sequencing by synthesis technology, the machine provides an end-to-end solution (cluster generation, amplification, sequencing, and data analysis) in a single machine.",
           "meaning": "OBI:0002003",
-          "is_a": "Illumina [GENEPIO:0100105]"
+          "is_a": "Illumina [GENEPIO:0100105]",
+          "exact_mappings": [
+            "NCBI_SRA:Illumina%20MiSeq"
+          ]
         },
         "Illumina NextSeq [GENEPIO:0100126]": {
           "text": "Illumina NextSeq [GENEPIO:0100126]",
@@ -3713,88 +3778,133 @@
           "text": "Illumina NextSeq 500 [OBI:0002021]",
           "description": "A DNA sequencer which is a desktop sequencer ideal for smaller-scale studies manufactured by the Illumina corporation. It supports sequencing of single, long or short insert paired end clone libraries relying on sequencing by synthesis technology.",
           "meaning": "OBI:0002021",
-          "is_a": "Illumina NextSeq [GENEPIO:0100126]"
+          "is_a": "Illumina NextSeq [GENEPIO:0100126]",
+          "exact_mappings": [
+            "NCBI_SRA:NextSeq%20500"
+          ]
         },
         "Illumina NextSeq 550 [GENEPIO:0100128]": {
           "text": "Illumina NextSeq 550 [GENEPIO:0100128]",
           "description": "A DNA sequencer which is a desktop sequencer ideal for smaller-scale studies manufactured by the Illumina corporation. It supports sequencing of single, long or short insert paired end clone libraries relying on sequencing by synthesis technology. The 550 is an upgrade on the 500 model.",
           "meaning": "GENEPIO:0100128",
-          "is_a": "Illumina NextSeq [GENEPIO:0100126]"
+          "is_a": "Illumina NextSeq [GENEPIO:0100126]",
+          "exact_mappings": [
+            "NCBI_SRA:NextSeq%20550"
+          ]
         },
         "Illumina NextSeq 1000 [GENEPIO:0004432]": {
           "text": "Illumina NextSeq 1000 [GENEPIO:0004432]",
           "description": "A DNA sequencer which is manufactured by the Illumina corporation using sequence-by-synthesis chemistry that fits on a benchtop and uses P1 and P2 flow cells.",
           "meaning": "GENEPIO:0004432",
-          "is_a": "Illumina NextSeq [GENEPIO:0100126]"
+          "is_a": "Illumina NextSeq [GENEPIO:0100126]",
+          "exact_mappings": [
+            "NCBI_SRA:NextSeq%201000"
+          ]
         },
         "Illumina NextSeq 2000 [GENEPIO:0100129]": {
           "text": "Illumina NextSeq 2000 [GENEPIO:0100129]",
           "description": "A DNA sequencer which is manufactured by the Illumina corporation using sequence-by-synthesis chemistry that fits on a benchtop and has an output capacity of 30-360 Gb.",
           "meaning": "GENEPIO:0100129",
-          "is_a": "Illumina NextSeq [GENEPIO:0100126]"
+          "is_a": "Illumina NextSeq [GENEPIO:0100126]",
+          "exact_mappings": [
+            "NCBI_SRA:NextSeq%202000"
+          ]
         },
         "PacBio [GENEPIO:0100130]": {
           "text": "PacBio [GENEPIO:0100130]",
           "description": "A DNA sequencer manufactured by the Pacific Biosciences corporation.",
-          "meaning": "GENEPIO:0100130"
+          "meaning": "GENEPIO:0100130",
+          "exact_mappings": [
+            "NCBI_SRA:PACBIO_SMRT"
+          ]
         },
-        "PacBio RS  [GENEPIO:0100131]": {
-          "text": "PacBio RS  [GENEPIO:0100131]",
+        "PacBio RS [GENEPIO:0100131]": {
+          "text": "PacBio RS [GENEPIO:0100131]",
           "description": "A DNA sequencer manufactured by the Pacific Biosciences corporation which utilizes “SMRT Cells” for single-molecule real-time sequencing. The RS was the first model made by the company.",
           "meaning": "GENEPIO:0100131",
-          "is_a": "PacBio [GENEPIO:0100130]"
+          "is_a": "PacBio [GENEPIO:0100130]",
+          "exact_mappings": [
+            "NCBI_SRA:PacBio%20RS"
+          ]
         },
         "PacBio RS II [OBI:0002012]": {
           "text": "PacBio RS II [OBI:0002012]",
           "description": "A DNA sequencer which is manufactured by the Pacific Biosciences corporation. Built upon single molecule real-time sequencing technology, the machine is optimized for generation with long reads and high consensus accuracy.",
           "meaning": "OBI:0002012",
-          "is_a": "PacBio [GENEPIO:0100130]"
+          "is_a": "PacBio [GENEPIO:0100130]",
+          "exact_mappings": [
+            "NCBI_SRA:PacBio%20RS%20II"
+          ]
         },
         "PacBio Sequel [GENEPIO:0100133]": {
           "text": "PacBio Sequel [GENEPIO:0100133]",
           "description": "A DNA sequencer built upon single molecule real-time sequencing technology, optimized for generation with long reads and high consensus accuracy, and manufactured by the Pacific Biosciences corporation",
           "meaning": "GENEPIO:0100133",
-          "is_a": "PacBio [GENEPIO:0100130]"
+          "is_a": "PacBio [GENEPIO:0100130]",
+          "exact_mappings": [
+            "NCBI_SRA:Sequel"
+          ]
         },
         "PacBio Sequel II [GENEPIO:0100134]": {
           "text": "PacBio Sequel II [GENEPIO:0100134]",
           "description": "A DNA sequencer built upon single molecule real-time sequencing technology, optimized for generation of highly accurate (\"HiFi\") long reads, and which is manufactured by the Pacific Biosciences corporation.",
           "meaning": "GENEPIO:0100134",
-          "is_a": "PacBio [GENEPIO:0100130]"
+          "is_a": "PacBio [GENEPIO:0100130]",
+          "exact_mappings": [
+            "NCBI_SRA:Sequel%20II"
+          ]
         },
         "Ion Torrent [GENEPIO:0100135]": {
           "text": "Ion Torrent [GENEPIO:0100135]",
           "description": "A DNA sequencer manufactured by the Ion Torrent corporation.",
-          "meaning": "GENEPIO:0100135"
+          "meaning": "GENEPIO:0100135",
+          "exact_mappings": [
+            "NCBI_SRA:ION_TORRENT"
+          ]
         },
         "Ion Torrent PGM [GENEPIO:0100136]": {
           "text": "Ion Torrent PGM [GENEPIO:0100136]",
           "description": "A DNA sequencer manufactured by the Ion Torrent corporation which utilizes Ion semiconductor sequencing and has an output capacity of 300 MB - 1GB.",
           "meaning": "GENEPIO:0100136",
-          "is_a": "Ion Torrent [GENEPIO:0100135]"
+          "is_a": "Ion Torrent [GENEPIO:0100135]",
+          "exact_mappings": [
+            "NCBI_SRA:Ion%20Torrent%20PGM"
+          ]
         },
         "Ion Torrent Proton [GENEPIO:0100137]": {
           "text": "Ion Torrent Proton [GENEPIO:0100137]",
           "description": "A DNA sequencer manufactured by the Ion Torrent corporation which utilizes Ion semiconductor sequencing and has an output capacity of up to 15 Gb.",
           "meaning": "GENEPIO:0100137",
-          "is_a": "Ion Torrent [GENEPIO:0100135]"
+          "is_a": "Ion Torrent [GENEPIO:0100135]",
+          "exact_mappings": [
+            "NCBI_SRA:Ion%20Torrent%20Proton"
+          ]
         },
         "Ion Torrent S5 XL [GENEPIO:0100138]": {
           "text": "Ion Torrent S5 XL [GENEPIO:0100138]",
           "description": "A DNA sequencer manufactured by the Ion Torrent corporation which utilizes Ion semiconductor sequencing and requires only a small amount of input material while producing data faster than the S5 model.",
           "meaning": "GENEPIO:0100138",
-          "is_a": "Ion Torrent [GENEPIO:0100135]"
+          "is_a": "Ion Torrent [GENEPIO:0100135]",
+          "exact_mappings": [
+            "NCBI_SRA:Ion%20Torrent%20S5%20XL"
+          ]
         },
         "Ion Torrent S5 [GENEPIO:0100139]": {
           "text": "Ion Torrent S5 [GENEPIO:0100139]",
           "description": "A DNA sequencer manufactured by the Ion Torrent corporation which utilizes Ion semiconductor sequencing and requires only a small amount of input material.",
           "meaning": "GENEPIO:0100139",
-          "is_a": "Ion Torrent [GENEPIO:0100135]"
+          "is_a": "Ion Torrent [GENEPIO:0100135]",
+          "exact_mappings": [
+            "NCBI_SRA:Ion%20Torrent%20S5"
+          ]
         },
         "Oxford Nanopore [GENEPIO:0100140]": {
           "text": "Oxford Nanopore [GENEPIO:0100140]",
           "description": "A DNA sequencer manufactured by the Oxford Nanopore corporation.",
-          "meaning": "GENEPIO:0100140"
+          "meaning": "GENEPIO:0100140",
+          "exact_mappings": [
+            "NCBI_SRA:OXFORT_NANOPORE"
+          ]
         },
         "Oxford Nanopore Flongle [GENEPIO:0004433]": {
           "text": "Oxford Nanopore Flongle [GENEPIO:0004433]",
@@ -3806,41 +3916,62 @@
           "text": "Oxford Nanopore GridION [GENEPIO:0100141]",
           "description": "A DNA sequencer that is manufactured by the Oxford Nanopore Technologies corporation, that can run and analyze up to five individual flow cells producing up to 150 Gb of data per run. The sequencer produces real-time results and utilizes nanopore technology with the option of running the flow cells concurrently or individual",
           "meaning": "GENEPIO:0100141",
-          "is_a": "Oxford Nanopore [GENEPIO:0100140]"
+          "is_a": "Oxford Nanopore [GENEPIO:0100140]",
+          "exact_mappings": [
+            "NCBI_SRA:GridION"
+          ]
         },
         "Oxford Nanopore MinION [GENEPIO:0100142]": {
           "text": "Oxford Nanopore MinION [GENEPIO:0100142]",
           "description": "A portable DNA sequencer which is manufactured by the Oxford Nanopore Technologies corporation, that uses consumable flow cells producing up to 30 Gb of DNA sequence data per flow cell. The sequencer produces real-time results and utilizes nanopore technology with up to 512 nanopore channels in the sensor array.",
           "meaning": "GENEPIO:0100142",
-          "is_a": "Oxford Nanopore [GENEPIO:0100140]"
+          "is_a": "Oxford Nanopore [GENEPIO:0100140]",
+          "exact_mappings": [
+            "NCBI_SRA:MinION"
+          ]
         },
         "Oxford Nanopore PromethION [GENEPIO:0100143]": {
           "text": "Oxford Nanopore PromethION [GENEPIO:0100143]",
           "description": "A DNA sequencer that is manufactured by the Oxford Nanopore Technologies corporation, capable of running up to 48 flow cells and producing up to 7.6 Tb of data per run. The sequencer produces real-time results and utilizes Nanopore technology, with each flow cell allowing up to 3,000 nanopores to be sequencing simultaneously.",
           "meaning": "GENEPIO:0100143",
-          "is_a": "Oxford Nanopore [GENEPIO:0100140]"
+          "is_a": "Oxford Nanopore [GENEPIO:0100140]",
+          "exact_mappings": [
+            "NCBI_SRA:PromethION"
+          ]
         },
         "BGI Genomics sequencing instrument [GENEPIO:0100144]": {
           "text": "BGI Genomics sequencing instrument [GENEPIO:0100144]",
           "description": "A DNA sequencer manufactured by the BGI Genomics corporation.",
-          "meaning": "GENEPIO:0100144"
+          "meaning": "GENEPIO:0100144",
+          "exact_mappings": [
+            "NCBI_SRA:BGISEQ"
+          ]
         },
         "BGISEQ-500 [GENEPIO:0100145]": {
           "text": "BGISEQ-500 [GENEPIO:0100145]",
           "description": "A DNA sequencer manufactured by the BGI Genomics corporation that utilizes Probe-Anchor Synthesis (cPAS) chemistry and \"DNA Nanoballs\".",
           "meaning": "GENEPIO:0100145",
-          "is_a": "BGI Genomics sequencing instrument [GENEPIO:0100144]"
+          "is_a": "BGI Genomics sequencing instrument [GENEPIO:0100144]",
+          "exact_mappings": [
+            "NCBI_SRA:BGISEQ-500"
+          ]
         },
         "MGI sequencing instrument [GENEPIO:0100146]": {
           "text": "MGI sequencing instrument [GENEPIO:0100146]",
           "description": "A DNA sequencer manufactured by the MGI corporation.",
-          "meaning": "GENEPIO:0100146"
+          "meaning": "GENEPIO:0100146",
+          "exact_mappings": [
+            "NCBI_SRA:BGISEQ"
+          ]
         },
         "MGISEQ-2000RS [GENEPIO:0100971]": {
           "text": "MGISEQ-2000RS [GENEPIO:0100971]",
           "description": "An MGI sequencing instrument model that utilises DNA nanoball and (DNB) and probe-anchor synthesis (cPAS) for next generation sequencing ad which is capable of medium to high throughput sequencing.",
           "meaning": "GENEPIO:0100971",
-          "is_a": "MGI sequencing instrument [GENEPIO:0100146]"
+          "is_a": "MGI sequencing instrument [GENEPIO:0100146]",
+          "exact_mappings": [
+            "NCBI_SRA:MGISEQ-2000RS"
+          ]
         },
         "MGI DNBSEQ-G99 [GENEPIO:0100972]": {
           "text": "MGI DNBSEQ-G99 [GENEPIO:0100972]",
@@ -3852,177 +3983,267 @@
           "text": "MGI DNBSEQ-G400 [GENEPIO:0100148]",
           "description": "A DNA sequencer manufactured by the MGI corporation with an output capacity of 55GB; 1440GB per run.",
           "meaning": "GENEPIO:0100148",
-          "is_a": "MGI sequencing instrument [GENEPIO:0100146]"
+          "is_a": "MGI sequencing instrument [GENEPIO:0100146]",
+          "exact_mappings": [
+            "NCBI_SRA:DNBSEQ-G400"
+          ]
         },
         "MGI DNBSEQ-G400RS FAST [GENEPIO:0100149]": {
           "text": "MGI DNBSEQ-G400RS FAST [GENEPIO:0100149]",
           "description": "A DNA sequencer manufactured by the MGI corporation with an output capacity of 55GB; 330GB per run, which enables faster sequencing than the DNBSEQ-G400.",
           "meaning": "GENEPIO:0100149",
-          "is_a": "MGI DNBSEQ-G400 [GENEPIO:0100148]"
+          "is_a": "MGI DNBSEQ-G400 [GENEPIO:0100148]",
+          "exact_mappings": [
+            "NCBI_SRA:DNBSEQ-G400%20FAST"
+          ]
         },
         "MGI DNBSEQ-T7 [GENEPIO:0100147]": {
           "text": "MGI DNBSEQ-T7 [GENEPIO:0100147]",
           "description": "A high throughput DNA sequencer manufactured by the MGI corporation with an output capacity of 1; 6TB of data per day.",
           "meaning": "GENEPIO:0100147",
-          "is_a": "MGI sequencing instrument [GENEPIO:0100146]"
+          "is_a": "MGI sequencing instrument [GENEPIO:0100146]",
+          "exact_mappings": [
+            "NCBI_SRA:DNBSEQ-T7"
+          ]
         },
         "MGI DNBSEQ-E25 [GENEPIO:0100973]": {
           "text": "MGI DNBSEQ-E25 [GENEPIO:0100973]",
           "description": "An MGI sequencing instrument model that is a compact and lightweight standalone system which can bu used inside or outside the lab.",
           "meaning": "GENEPIO:0100973",
-          "is_a": "MGI sequencing instrument [GENEPIO:0100146]"
+          "is_a": "MGI sequencing instrument [GENEPIO:0100146]",
+          "exact_mappings": [
+            "NCBI_SRA:MGI%20DNBSEQ-E25"
+          ]
         },
         "MGI DNBSEQ-G50 [GENEPIO:0100150]": {
           "text": "MGI DNBSEQ-G50 [GENEPIO:0100150]",
           "description": "A DNA sequencer manufactured by the MGI corporation with an output capacity of 10～150 GB per run and enables different read lengths.",
           "meaning": "GENEPIO:0100150",
-          "is_a": "MGI sequencing instrument [GENEPIO:0100146]"
+          "is_a": "MGI sequencing instrument [GENEPIO:0100146]",
+          "exact_mappings": [
+            "NCBI_SRA:DNBSEQ-G50"
+          ]
         },
         "454 Genome Sequencer [GENEPIO:0001937]": {
           "text": "454 Genome Sequencer [GENEPIO:0001937]",
           "description": "A DNA sequencer first manufactured by 454 Life Science Corporation that conducts pyrosequencing.",
-          "meaning": "GENEPIO:0001937"
+          "meaning": "GENEPIO:0001937",
+          "exact_mappings": [
+            "NCBI_SRA:454%20GS"
+          ]
         },
         "454 Genome Sequencer 20 [OBI:0000689]": {
           "text": "454 Genome Sequencer 20 [OBI:0000689]",
           "description": "A DNA sequencer first manufactured by 454 Life Science Corporation in 2005, and enables pyrosequencing to be performed. It comprises both optics and fluidics subsystems, which are controlled by a computer subsystem.",
           "meaning": "OBI:0000689",
-          "is_a": "454 Genome Sequencer [GENEPIO:0001937]"
+          "is_a": "454 Genome Sequencer [GENEPIO:0001937]",
+          "exact_mappings": [
+            "NCBI_SRA:454%20GS%2020"
+          ]
         },
         "454 Genome Sequencer FLX [OBI:0000702]": {
           "text": "454 Genome Sequencer FLX [OBI:0000702]",
           "description": "A DNA sequencer which was first manufactured by 454 Life Science Corporation in 2008 and enables pyrosequencing to be performed. It comprises both optics and fluidics subsystems, which are controlled by a computer subsystem. It has the ability to sequence 400-600 million base pairs per run with 400-500 base pair read lengths.",
           "meaning": "OBI:0000702",
-          "is_a": "454 Genome Sequencer [GENEPIO:0001937]"
+          "is_a": "454 Genome Sequencer [GENEPIO:0001937]",
+          "exact_mappings": [
+            "NCBI_SRA:454%20GS%20FLX"
+          ]
         },
         "454 Genome Sequencer FLX+ [GENEPIO:0100982]": {
           "text": "454 Genome Sequencer FLX+ [GENEPIO:0100982]",
           "description": "A 454 Genome Sequencer that performs pyrosequencing and comprises both optics and fluidics subsystems and can be used for longer reads when used with the long-read Sequencing Kit XL+.",
           "meaning": "GENEPIO:0100982",
-          "is_a": "454 Genome Sequencer [GENEPIO:0001937]"
+          "is_a": "454 Genome Sequencer [GENEPIO:0001937]",
+          "exact_mappings": [
+            "NCBI_SRA:454%20GS%20FLX%2B"
+          ]
         },
         "454 Genome Sequencer FLX Titanium [GENEPIO:0001936]": {
           "text": "454 Genome Sequencer FLX Titanium [GENEPIO:0001936]",
           "description": "A 454 Genome Sequencer that performs pyrosequencing and has enhanced capacity and generates longer reads.",
           "meaning": "GENEPIO:0001936",
-          "is_a": "454 Genome Sequencer [GENEPIO:0001937]"
+          "is_a": "454 Genome Sequencer [GENEPIO:0001937]",
+          "exact_mappings": [
+            "NCBI_SRA:454%20GS%20FLX%20Titanium"
+          ]
         },
         "454 Genome Sequencer Junior [GENEPIO:0001938]": {
           "text": "454 Genome Sequencer Junior [GENEPIO:0001938]",
           "description": "A 454 Genome Sequencer that performs pyrosequencing and is more compact.",
           "meaning": "GENEPIO:0001938",
-          "is_a": "454 Genome Sequencer [GENEPIO:0001937]"
+          "is_a": "454 Genome Sequencer [GENEPIO:0001937]",
+          "exact_mappings": [
+            "NCBI_SRA:454%20GS%20Junior"
+          ]
         },
         "SOLiD System [OBI:0000696]": {
           "text": "SOLiD System [OBI:0000696]",
           "description": "A DNA sequencer which is manufactured by Applied Biosystems and which enable DNA sequencing by ligation.",
-          "meaning": "OBI:0000696"
+          "meaning": "OBI:0000696",
+          "exact_mappings": [
+            "NCBI_SRA:AB%20SOLiD%20System"
+          ]
         },
         "SOLiD 5500 [GENEPIO:0001929]": {
           "text": "SOLiD 5500 [GENEPIO:0001929]",
           "description": "A DNA sequencer which is manufactured by Applied Biosystems and utillizes sequencing by ligation technology and faster run times than the SOLiD 4 series.",
           "meaning": "GENEPIO:0001929",
-          "is_a": "SOLiD System [OBI:0000696]"
+          "is_a": "SOLiD System [OBI:0000696]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%205500%20Genetic%20Analyzer"
+          ]
         },
         "SOLiD 5500xl Genetic Analyzer [GENEPIO:0001930]": {
           "text": "SOLiD 5500xl Genetic Analyzer [GENEPIO:0001930]",
           "description": "A DNA sequencer which is manufactured by Applied Biosystems and has two FlowChips for across 12 lanes and with a higher throughput than the 5500 model.",
           "meaning": "GENEPIO:0001930",
-          "is_a": "SOLiD System [OBI:0000696]"
+          "is_a": "SOLiD System [OBI:0000696]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%205500xl%20Genetic%20Analyzer"
+          ]
         },
         "SOLiD 5500x-Wl Genetic Analyzer [GENEPIO:0100984]": {
           "text": "SOLiD 5500x-Wl Genetic Analyzer [GENEPIO:0100984]",
           "description": "A DNA sequencer which is manufactured by the Applied Biosystems corporation. Built upon SOLiD sequencing technology and with a higher throughput than  SOLiD 5500xl Genetic Analyzer.",
           "meaning": "GENEPIO:0100984",
-          "is_a": "SOLiD System [OBI:0000696]"
+          "is_a": "SOLiD System [OBI:0000696]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%205500x-Wl%20Genetic%20Analyzer"
+          ]
         },
         "SOLiD 3 Plus System [OBI:0002007]": {
           "text": "SOLiD 3 Plus System [OBI:0002007]",
           "description": "A DNA sequencer which is manufactured by the Applied Biosystems corporation. Built upon SOLiD sequencing technology, the machine generates greater than 1 billion mappable reads per run.",
           "meaning": "OBI:0002007",
-          "is_a": "SOLiD System [OBI:0000696]"
+          "is_a": "SOLiD System [OBI:0000696]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%20SOLiD%203%20Plus%20System"
+          ]
         },
         "SOLiD 4 System [OBI:0002024]": {
           "text": "SOLiD 4 System [OBI:0002024]",
           "description": "A DNA sequencer which is manufactured by the Applied Biosystems corporation. Built upon SOLiD sequencing technology with 100 Gb mappable throughput.",
           "meaning": "OBI:0002024",
-          "is_a": "SOLiD System [OBI:0000696]"
+          "is_a": "SOLiD System [OBI:0000696]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%20SOLiD%204%20System"
+          ]
         },
         "SOLiD 4hq System [GENEPIO:0001928]": {
           "text": "SOLiD 4hq System [GENEPIO:0001928]",
           "description": "A DNA sequencer which is manufactured by the Applied Biosystems corporation. Built upon SOLiD sequencing technology with 300 Gb mappable throughput.",
           "meaning": "GENEPIO:0001928",
-          "is_a": "SOLiD System [OBI:0000696]"
+          "is_a": "SOLiD System [OBI:0000696]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%20SOLiD%204hq%20System"
+          ]
         },
         "SOLiD PI System [GENEPIO:0001931]": {
           "text": "SOLiD PI System [GENEPIO:0001931]",
           "description": "A DNA sequencer which is manufactured by the Applied Biosystems corporation. Built upon SOLiD sequencing technology, the machine offers 50Gb mappable throughput.",
           "meaning": "GENEPIO:0001931",
-          "is_a": "SOLiD System [OBI:0000696]"
+          "is_a": "SOLiD System [OBI:0000696]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%20SOLiD%20PI%20System"
+          ]
         },
         "SOLiD System 2.0 [GENEPIO:0001932]": {
           "text": "SOLiD System 2.0 [GENEPIO:0001932]",
           "description": "A DNA sequencer which is manufactured by the Applied Biosystems corporation.",
           "meaning": "GENEPIO:0001932",
-          "is_a": "SOLiD System [OBI:0000696]"
+          "is_a": "SOLiD System [OBI:0000696]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%20SOLiD%20System%202.0"
+          ]
         },
         "SOLiD System 3.0 [GENEPIO:0001933]": {
           "text": "SOLiD System 3.0 [GENEPIO:0001933]",
           "description": "A DNA sequencer which is manufactured by the Applied Biosystems corporation.",
           "meaning": "GENEPIO:0001933",
-          "is_a": "SOLiD System [OBI:0000696]"
+          "is_a": "SOLiD System [OBI:0000696]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%20SOLiD%20System%203.0"
+          ]
         },
         "HeliScope Single Molecule Sequencer [OBI:0000717]": {
           "text": "HeliScope Single Molecule Sequencer [OBI:0000717]",
           "description": "A DNA sequencer manufacturer by Helicos Corporation to carry out Single Molecule sequencing using reversible termination chemistry.",
-          "meaning": "OBI:0000717"
+          "meaning": "OBI:0000717",
+          "exact_mappings": [
+            "NCBI_SRA:Helicos%20HeliScope"
+          ]
         },
         "Applied Biosystems sequencing instrument model [GENEPIO:0100974]": {
           "text": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]",
           "description": "A sequencing instrument model that is manufactured by Applied Biosystems and which performs Sanger sequencing and fragment analysis by capillary electrophoresis.",
-          "meaning": "GENEPIO:0100974"
+          "meaning": "GENEPIO:0100974",
+          "exact_mappings": [
+            "NCBI_SRA:CAPILLARY"
+          ]
         },
         "AB 310 Genetic Analyzer [GENEPIO:0100975]": {
           "text": "AB 310 Genetic Analyzer [GENEPIO:0100975]",
           "description": "An Applied Biosystems sequencing instrument model which utilises a single capillary electrophoresis system to perform Sanger sequencing and fragment analysis that is automated.",
           "meaning": "GENEPIO:0100975",
-          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]"
+          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%20310%20Genetic%20Analyzer"
+          ]
         },
         "AB 3130 Genetic Analyzer [GENEPIO:0100976]": {
           "text": "AB 3130 Genetic Analyzer [GENEPIO:0100976]",
           "description": "An Applied Biosystems sequencing instrument model which performs capillary electrophoresis to sequence DNA and has 4 capillaries.",
           "meaning": "GENEPIO:0100976",
-          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]"
+          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%203130%20Genetic%20Analyzer"
+          ]
         },
         "AB 3130xL Genetic Analyzer [GENEPIO:0100977]": {
           "text": "AB 3130xL Genetic Analyzer [GENEPIO:0100977]",
           "description": "An Applied Biosystems sequencing instrument model which performs capillary electrophoresis to sequence DNA and has 16 capillaries.",
           "meaning": "GENEPIO:0100977",
-          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]"
+          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%203130xL%20Genetic%20Analyzer"
+          ]
         },
         "AB 3500 Genetic Analyzer [GENEPIO:0100978]": {
           "text": "AB 3500 Genetic Analyzer [GENEPIO:0100978]",
           "description": "An Applied Biosystems sequencing instrument model which performs capillary electrophoresis to sequence DNA and has 8 capillaries, which can run 96 well plates.",
           "meaning": "GENEPIO:0100978",
-          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]"
+          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%203500%20Genetic%20Analyzer"
+          ]
         },
         "AB 3500xL Genetic Analyzer [GENEPIO:0100979]": {
           "text": "AB 3500xL Genetic Analyzer [GENEPIO:0100979]",
           "description": "An Applied Biosystems sequencing instrument model which performs capillary electrophoresis to sequence DNA and has 24 capillaries, which can run 384 well plates.",
           "meaning": "GENEPIO:0100979",
-          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]"
+          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%203500xL%20Genetic%20Analyzer"
+          ]
         },
         "AB 3730 Genetic Analyzer [GENEPIO:0100980]": {
           "text": "AB 3730 Genetic Analyzer [GENEPIO:0100980]",
           "description": "An Applied Biosystems sequencing instrument model which utilises an 48 capillary array electrophoresis system for sequencing.",
           "meaning": "GENEPIO:0100980",
-          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]"
+          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%203730%20Genetic%20Analyzer"
+          ]
         },
         "AB 3730xL Genetic Analyzer [GENEPIO:0100981]": {
           "text": "AB 3730xL Genetic Analyzer [GENEPIO:0100981]",
           "description": "An Applied Biosystems sequencing instrument model which utilises an 96 capillary array electrophoresis system for sequencing.",
           "meaning": "GENEPIO:0100981",
-          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]"
+          "is_a": "Applied Biosystems sequencing instrument model [GENEPIO:0100974]",
+          "exact_mappings": [
+            "NCBI_SRA:AB%203730xL%20Genetic%20Analyzer"
+          ]
         }
       }
     },
@@ -4061,7 +4282,7 @@
           "description": "A DNA sequencing assay that intends to provide information on the DNA sequences of multiple genomes (a metagenome) from different organisms present in the same input sample.",
           "meaning": "OBI:0002623",
           "exact_mappings": [
-            "NCBI_SRA:OTHER"
+            "NCBI_SRA:METAGENOME"
           ]
         },
         "Whole virome sequencing assay [OBI:0002768]": {
@@ -4070,7 +4291,7 @@
           "meaning": "OBI:0002768",
           "is_a": "Whole metagenome sequencing assay [OBI:0002623]",
           "exact_mappings": [
-            "NCBI_SRA:OTHER"
+            "NCBI_SRA:VIRAL%20RNA"
           ]
         }
       }
@@ -8666,7 +8887,7 @@
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
       "todos": [
-        ">={sample_collection_date}",
+        ">={sample_collection_start_date}",
         "<={today}"
       ],
       "comments": [
@@ -8790,7 +9011,7 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_SRA:library_strategy",
-        "NCBI_SRA:%20library_source"
+        "NCBI_SRA:library_source"
       ],
       "slot_uri": "GENEPIO:0100997",
       "domain_of": [
@@ -8892,7 +9113,7 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_SRA:library_selection",
-        "NCBI_SRA:%20design_description"
+        "NCBI_SRA:design_description"
       ],
       "slot_uri": "GENEPIO:0100966",
       "domain_of": [
@@ -10079,10 +10300,10 @@
         }
       ]
     },
-    "assay_target_details": {
-      "name": "assay_target_details",
+    "assay_target_details_1": {
+      "name": "assay_target_details_1",
       "description": "Describe any details of the assay target.",
-      "title": "assay target details",
+      "title": "assay target details 1",
       "comments": [
         "Provide details that are applicable to the assay used for the diagnostic test."
       ],
@@ -11507,8 +11728,8 @@
           "rank": 189,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "assay_target_details": {
-          "name": "assay_target_details",
+        "assay_target_details_1": {
+          "name": "assay_target_details_1",
           "rank": 190,
           "slot_group": "Pathogen diagnostic testing"
         },
@@ -15981,7 +16202,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}",
+            ">={sample_collection_start_date}",
             "<={today}"
           ],
           "comments": [
@@ -16121,7 +16342,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_strategy",
-            "NCBI_SRA:%20library_source"
+            "NCBI_SRA:library_source"
           ],
           "rank": 152,
           "slot_uri": "GENEPIO:0100997",
@@ -17153,17 +17374,17 @@
             }
           ]
         },
-        "assay_target_details": {
-          "name": "assay_target_details",
+        "assay_target_details_1": {
+          "name": "assay_target_details_1",
           "description": "Describe any details of the assay target.",
-          "title": "assay target details",
+          "title": "assay target details 1",
           "comments": [
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 190,
           "slot_uri": "GENEPIO:0102040",
-          "alias": "assay_target_details",
+          "alias": "assay_target_details_1",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -18716,8 +18937,8 @@
           "rank": 191,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "assay_target_details": {
-          "name": "assay_target_details",
+        "assay_target_details_1": {
+          "name": "assay_target_details_1",
           "rank": 192,
           "slot_group": "Pathogen diagnostic testing"
         },
@@ -23214,7 +23435,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}",
+            ">={sample_collection_start_date}",
             "<={today}"
           ],
           "comments": [
@@ -23354,7 +23575,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_strategy",
-            "NCBI_SRA:%20library_source"
+            "NCBI_SRA:library_source"
           ],
           "rank": 153,
           "slot_uri": "GENEPIO:0100997",
@@ -23472,7 +23693,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_selection",
-            "NCBI_SRA:%20design_description"
+            "NCBI_SRA:design_description"
           ],
           "rank": 157,
           "slot_uri": "GENEPIO:0100966",
@@ -24419,17 +24640,17 @@
             }
           ]
         },
-        "assay_target_details": {
-          "name": "assay_target_details",
+        "assay_target_details_1": {
+          "name": "assay_target_details_1",
           "description": "Describe any details of the assay target.",
-          "title": "assay target details",
+          "title": "assay target details 1",
           "comments": [
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 192,
           "slot_uri": "GENEPIO:0102040",
-          "alias": "assay_target_details",
+          "alias": "assay_target_details_1",
           "owner": "WastewaterAMR",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -26077,8 +26298,8 @@
           "rank": 210,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "assay_target_details": {
-          "name": "assay_target_details",
+        "assay_target_details_1": {
+          "name": "assay_target_details_1",
           "rank": 211,
           "slot_group": "Pathogen diagnostic testing"
         },
@@ -30919,7 +31140,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_date}",
+            ">={sample_collection_start_date}",
             "<={today}"
           ],
           "comments": [
@@ -31059,7 +31280,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_strategy",
-            "NCBI_SRA:%20library_source"
+            "NCBI_SRA:library_source"
           ],
           "rank": 167,
           "slot_uri": "GENEPIO:0100997",
@@ -31177,7 +31398,7 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRA:library_selection",
-            "NCBI_SRA:%20design_description"
+            "NCBI_SRA:design_description"
           ],
           "rank": 171,
           "slot_uri": "GENEPIO:0100966",
@@ -32260,17 +32481,17 @@
             }
           ]
         },
-        "assay_target_details": {
-          "name": "assay_target_details",
+        "assay_target_details_1": {
+          "name": "assay_target_details_1",
           "description": "Describe any details of the assay target.",
-          "title": "assay target details",
+          "title": "assay target details 1",
           "comments": [
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 211,
           "slot_uri": "GENEPIO:0102040",
-          "alias": "assay_target_details",
+          "alias": "assay_target_details_1",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
