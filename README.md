@@ -20,11 +20,16 @@ The instructions for the updating of this fork are as follows:
 - Make new schema entry
   - Make a directory `/web/templates/[schema name]/` for each MInAS schema
   - In each directory create `export.js` just containing `export default {};`
+    - `echo "export default {};" > export.js`
   - For each schema, save a `schema.yaml` file in the directory, e.g.
 
     ```bash
     wget https://github.com/MIxS-MInAS/extension-ancient/raw/refs/tags/v0.3.2/src/mixs/schema/ancient.yml
     ```
+
+    >[!WARNING]
+    > For the core MIxS + MinAS combninations this point you may need to do some extensive manual modifications
+    > namely, deleting irrelevant combinations and extensions, and creating a new combination.
 
   - Write a txt file called (`dh_class_text.txt`) which includes the text for an additional classed called [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
   - Inject this class into the `schema.yaml` file with e.g. `sed -i '/^classes:/r dh_class_text.txt' schema.yml`

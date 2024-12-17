@@ -584,7 +584,7 @@ classes:
   dh_interface:
     name: dh_interface
     description: A DataHarmonizer interface
-    from_schema: https://example.com/MInAS-extension-ancient
+    from_schema: https://github.com/MIxS-MInAS/extension-ancient
   MInAS-extension-ancient:
     name: MInAS-extension-ancient
     description:

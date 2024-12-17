@@ -1,12 +1,13 @@
   dh_interface:
     name: dh_interface
     description: A DataHarmonizer interface
-    from_schema: https://github.com/MIxS-MInAS/extension-ancient
-  MInAS-extension-ancient:
-    name: MInAS-extension-ancient
+    from_schema: https://github.com/MIxS-MInAS/MInAS
+  MInAS-MInAS:
+    name: MInAS-MInAS
     description:
       The Minimum Information about any Ancient Sequence (MInAS) project aims 
       to develop standardised metadata reporting schemes of ancient DNA samples and 
       sequencing data via community-based consensus and training.
-      This extension is a MIxS extension with metadata terms specific for ancient samples.
+      This schema is a combination of the core MIxS schemas, plus all MInAS related
+      extensions (currently includes extension-ancient, and extension-radiocarbon-dating).
     is_a: dh_interface

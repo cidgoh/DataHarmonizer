@@ -1,0 +1,46 @@
+erDiagram
+DhInterface {
+
+}
+MInAS-extension-ancient {
+
+}
+Extension {
+
+}
+Ancient {
+    stringList collection_context_name  
+    string cultural_era  
+    DamageTreatmentEnumList damage_treatment  
+    datetime dna_extraction_date  
+    stringList ethical_authority  
+    datetime ethical_date  
+    stringList ethical_id  
+    stringList experimental_procedures  
+    stringList lib_concentration  
+    string lib_index_polymerase  
+    stringList lib_preparation_protocol  
+    string lib_reamplification_polymerase  
+    LibTypeEnum lib_type  
+    boolean neg_cont_status  
+    integerList num_capture_amp_cycles  
+    integer num_reamp_cycles  
+    stringList preservational_treatment  
+    stringList prev_pubs  
+    datetime recovery_date  
+    stringList samp_decontam_pretreat  
+    string sample_age  
+    stringList sample_age_inference_methods  
+    stringList sample_alt_lab_ids  
+    string storage_conditions  
+    string palaeopath_status  
+    BioCulturalLabelList biocultural_label  
+    stringList ethics_perm_scope  
+    string host_body_preservation_state  
+    LibStrandList lib_strandedness  
+    stringList probe_set  
+    stringList mid_config  
+}
+
+
+

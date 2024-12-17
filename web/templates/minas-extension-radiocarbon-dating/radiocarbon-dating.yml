@@ -507,7 +507,7 @@ classes:
   dh_interface:
     name: dh_interface
     description: A DataHarmonizer interface
-    from_schema: https://example.com/MInAS-extension-radiocarbon-dating
+    from_schema: https://github.com/MIxS-MInAS/extension-radiocarbon-dating
   MInAS-extension-radiocarbon-dating:
     name: MInAS-extension-radiocarbon-dating
     description:
