@@ -27,9 +27,11 @@
     "lint": "prettier --check . && eslint .",
     "clean:lib": "rimraf lib/dist",
     "clean:web": "rimraf web/dist",
+    "clean:schemas": "rimraf web/dist/dist-schemas web/dist/templates",
     "clean": "yarn clean:lib && yarn clean:web",
     "build:lib": "yarn clean:lib && rollup --config lib/rollup.config.js",
-    "build:web": "yarn clean:web && webpack --mode=production --config web/webpack.config.js",
+    "build:web": "yarn clean:web && webpack --mode=production --config web/webpack.config.js && yarn build:schemas",
+    "build:schemas": "yarn clean:schemas && webpack --config web/webpack.schemas.js",
     "dev": "webpack serve --mode=development --config web/webpack.config.js",
     "flightcheck": "yarn format && yarn lint ; yarn test",
     "test": "jest tests/"

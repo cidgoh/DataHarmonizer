@@ -4,13 +4,13 @@ import * as $ from 'jquery';
 import 'bootstrap/js/dist/tab';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { initI18n } from '@/lib/utils/i18n';
-import { Template } from '@/lib/utils/templates';
-import { getGettingStartedMarkup } from '@/lib/toolbarGettingStarted';
-import { Footer, Toolbar, AppContext } from '@/lib';
+import { initI18n } from '../lib/utils/i18n';
+import { Template } from '../lib/utils/templates';
+import { getGettingStartedMarkup } from '../lib/toolbarGettingStarted';
+import { Footer, Toolbar, AppContext } from '../lib';
 
 // Order matters: place this at bottom of imports for CSS overrides
-import '@/web/index.css';
+import './index.css';
 
 const dhRoot = document.querySelector('#data-harmonizer-grid');
 const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
