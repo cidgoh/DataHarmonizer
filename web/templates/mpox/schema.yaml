@@ -1753,7 +1753,6 @@ slots:
       Sequence Archive (GSA) accessions start with CRR.
     slot_uri: GENEPIO:0101203
     range: WhitespaceMinimizedString
-    pattern: '{UPPER_CASE}'
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
@@ -1773,7 +1772,6 @@ slots:
       the GenBank accession version.
     slot_uri: GENEPIO:0101204
     range: WhitespaceMinimizedString
-    pattern: '{UPPER_CASE}'
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
@@ -1828,7 +1826,7 @@ slots:
     slot_uri: GENEPIO:0001153
     required: true
     examples:
-    - value: BC Centre for Disease Control
+    - value: BCCDC Public Health Laboratory
   sample_collector_contact_email:
     name: sample_collector_contact_email
     title: sample collector contact email
@@ -2155,7 +2153,7 @@ slots:
   collection_method:
     name: collection_method
     title: collection method
-    description: The process used to collect the sample e.g. phlebotamy, necropsy.
+    description: The process used to collect the sample e.g. phlebotomy, necropsy.
     comments: Provide a descriptor if a collection method was used for sampling. Use
       the picklist provided in the template.  If a desired term is missing from the
       picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank.
@@ -2355,10 +2353,6 @@ slots:
     description: The gender of the host at the time of sample collection.
     comments: If known, select a value from the pick list.
     slot_uri: GENEPIO:0001395
-    structured_pattern:
-      syntax: '{Title_Case}'
-      partial_match: false
-      interpolated: true
   host_residence_geo_loc_name_country:
     name: host_residence_geo_loc_name_country
     title: host residence geo_loc name (country)

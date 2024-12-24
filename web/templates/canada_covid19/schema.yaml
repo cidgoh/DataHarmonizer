@@ -1687,7 +1687,7 @@ slots:
     comments: Select the vaccination status of the host from the pick list.
     slot_uri: GENEPIO:0001404
     any_of:
-    - range: host vaccination status menu
+    - range: HostVaccinationStatusMenu
     - range: NullValueMenu
     examples:
     - value: Fully Vaccinated

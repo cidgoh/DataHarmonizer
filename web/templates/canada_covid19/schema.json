@@ -7382,7 +7382,7 @@
       ],
       "any_of": [
         {
-          "range": "host vaccination status menu"
+          "range": "HostVaccinationStatusMenu"
         },
         {
           "range": "NullValueMenu"
@@ -12338,7 +12338,7 @@
           "slot_group": "Host vaccination information",
           "any_of": [
             {
-              "range": "host vaccination status menu"
+              "range": "HostVaccinationStatusMenu"
             },
             {
               "range": "NullValueMenu"
