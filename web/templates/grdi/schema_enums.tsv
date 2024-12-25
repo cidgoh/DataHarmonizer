@@ -6,14 +6,17 @@ null value menu	NullValueMenu		Not Applicable [GENEPIO:0001619]							Not applic
 			Not Provided [GENEPIO:0001668]							Not provided
 			Restricted Access [GENEPIO:0001810]							Restricted access
 										
-sample_collected_by menu	SampleCollectedByMenu		Public Health Agency of Canada (PHAC) [GENEPIO:0100551]							
+sample_collected_by menu	SampleCollectedByMenu		Agriculture and Agri-Food Canada (AAFC) [GENEPIO:0100553]							
+			BCCDC Public Health Laboratory [GENEPIO:0102053]							
 			Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]							
-			Agriculture and Agri-Food Canada (AAFC) [GENEPIO:0100553]							
-			Health Canada (HC) [GENEPIO:0100554]							
 			Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]							
 			Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]							
+			Health Canada (HC) [GENEPIO:0100554]							
+			Laboratoire de santé publique du Québec (LSPQ) [GENEPIO:0102056]							
+			Manitoba Cadham Provincial Laboratory [GENEPIO:0102054]							
+			New Brunswick - Vitalité Health Network [GENEPIO:0102055]							
+			Public Health Agency of Canada (PHAC) [GENEPIO:0100551]							
 			University of Manitoba (UM) [GENEPIO:0004434]							
-										
 										
 purpose_of_sampling menu	PurposeOfSamplingMenu		Cluster/Outbreak investigation [GENEPIO:0100001]							
 			Diagnostic testing [GENEPIO:0100002]							
@@ -333,23 +336,23 @@ geo_loc_name (country) menu	GeoLocNameCountryMenu		Afghanistan [GAZ:00006882]
 										
 										
 geo_loc_name (state/province/region) menu	GeoLocNameStateProvinceRegionMenu		Atlantic region (Canada) [wikidata:Q246972]							
-				     New Brunswick [GAZ:00002570]						
-				     Newfoundland & Labrador [GAZ:00002567]						
-				     Nova Scotia [GAZ:00002565]						
-				     Prince Edward Island [GAZ:00002572]						
+				New Brunswick [GAZ:00002570]						
+				Newfoundland & Labrador [GAZ:00002567]						
+				Nova Scotia [GAZ:00002565]						
+				Prince Edward Island [GAZ:00002572]						
 			Central region (Canada) [wikidata:Q1048064]							
-				     Ontario [GAZ:00002563]						
-				     Quebec [GAZ:00002569]						
+				Ontario [GAZ:00002563]						
+				Quebec [GAZ:00002569]						
 			Northern region (Canada) [wikidata:Q764146]							
-				     Northwest Territories [GAZ:00002575]						
-				     Nunuvut [GAZ:00002574]						
-				     Yukon [GAZ:00002576]						
+				Northwest Territories [GAZ:00002575]						
+				Nunuvut [GAZ:00002574]						
+				Yukon [GAZ:00002576]						
 			Pacific region (Canada) [wikidata:Q122953299]							
-				     British Columbia [GAZ:00002562]						
+				British Columbia [GAZ:00002562]						
 			Prairie region (Canada) [wikidata:Q1364746]							
-				     Alberta [GAZ:00002566]						
-				     Manitoba [GAZ:00002571]						
-				     Saskatchewan [GAZ:00002564]						
+				Alberta [GAZ:00002566]						
+				Manitoba [GAZ:00002571]						
+				Saskatchewan [GAZ:00002564]						
 										
 										
 sample_collection_date_precision menu	SampleCollectionDatePrecisionMenu		year [UO:0000036]							
@@ -1568,10 +1571,12 @@ Antimicrobial Resistance Test Drug Menu	AntimicrobialResistanceTestDrugMenu		ami
 			linezolid							linezolid
 			meropenem							meropenem
 			nalidixic_acid							nalidixic acid
+			neomycin							neomycin
 			nitrofurantoin							nitrofurantoin
 			norfloxacin							norfloxacin
 			oxolinic-acid							oxolinic-acid
 			oxytetracycline							oxytetracycline
+			penicillin							penicillin
 			piperacillin							piperacillin
 			piperacillin-tazobactam							piperacillin-tazobactam
 			polymyxin-b							polymyxin-b
