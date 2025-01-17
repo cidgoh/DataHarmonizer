@@ -498,6 +498,12 @@ def write_schema(schema):
 			new_obj = schema_view.induced_class(name);
 			schema_view.add_class(new_obj);
 
+	# SchemaView() is coercing "in_language" into a string when it is an array
+	# of i18n languages as per official LinkML spec.  We're bending the rules
+	# slightly.  Put it back into an array.
+	if 'in_language' in SCHEMA:
+		schema_view.schema['in_language'] = SCHEMA['in_language'];
+
 	# Output the amalgamated content:
 	JSONDumper().dump(schema_view.schema, w_filename_base + '.json')
 	
@@ -566,7 +572,7 @@ def write_menu(menu_path, schema_folder, schema_spec):
 
 		menu[schema_folder][name] = {
 			"name": name,
-			"status": "published",
+			#"status": "published",
 			"display": 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface'
 		};
 
