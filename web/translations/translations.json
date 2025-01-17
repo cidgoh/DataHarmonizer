@@ -204,8 +204,8 @@
     "fr": "avec valeur"
   },
   "fill-column-help": {
-    "en": "Utilisez cette fonctionnalité pour remplir toutes les cellules d'une colonne avec une valeur donnée. Cela ne remplira pas les lignes vides de la feuille de calcul (comme cela se produit lors du collage d'une valeur dans la cellule d'en-tête d'une colonne).",
-    "fr": ""
+    "en": "Use this feature to populate all the cells of a column with given value. This won't populate empty rows of the spreadsheet (as occurs when pasting a value to a column's header cell).",
+    "fr": "Utilisez cette fonctionnalité pour remplir toutes les cellules d'une colonne avec une valeur donnée. Cela ne remplira pas les lignes vides de la feuille de calcul (comme cela se produit lors du collage d'une valeur dans la cellule d'en-tête d'une colonne)."
   },
   "template-help-title": {
     "en": "Are you ready to harmonize your contextual data?",
