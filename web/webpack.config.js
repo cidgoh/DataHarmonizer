@@ -28,7 +28,7 @@ module.exports = (env, argv) => {
       schemas: 'schemas',
     },
     plugins: [
-      // necessary for templates.js
+      /* necessary for templates.js
       new DirectoryTreePlugin({
         dir: './web/templates',
         path: './web/templates/manifest.json',
@@ -37,10 +37,11 @@ module.exports = (env, argv) => {
           item.path = item.path.replace('web', '');
         },
       }),
+      */
       new HtmlWebpackPlugin({
         template: './index.html',
       }),
-      new CopyPlugin({
+      new CopyPlugin({ // Covers all schema.json including locales
         patterns: [
           {
             context: 'templates',
