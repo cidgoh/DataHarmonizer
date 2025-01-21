@@ -2,7 +2,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const DirectoryTreePlugin = require('directory-tree-webpack-plugin');
+//const DirectoryTreePlugin = require('directory-tree-webpack-plugin');
 
 module.exports = (env, argv) => {
   var config = {
