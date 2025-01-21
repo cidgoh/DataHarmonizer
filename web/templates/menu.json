@@ -1,96 +1,165 @@
 {
-  "canada_covid19": {
-    "CanCOGeNCovid19": {
-      "name": "CanCOGeN Covid-19",
-      "display": true
-    }
-  },
-  "gisaid": {
-    "GISAID": {
-      "name": "GISAID",
-      "display": true
-    }
-  },
-  "pha4ge": {
-    "PHA4GE": {
-      "name": "PHA4GE",
-      "display": true
-    }
-  },
-  "grdi": {
-    "GRDI": {
-      "name": "GRDI",
-      "display": true
-    }
-  },
-  "phac_dexa": {
-    "PHACDexa": {
-      "name": "PHACDexa",
-      "display": true
-    }
-  },
-  "ambr": {
-    "AMBR": {
-      "name": "AMBR",
-      "display": true
-    }
-  },
-  "pathogen": {
-    "PathogenAgnostic": {
-      "name": "Pathogen Agnostic",
-      "display": true
-    }
-  },
-  "influenza": {
-    "Influenza": {
-      "name": "Influenza",
-      "display": true
-    }
-  },
-  "mpox": {
-    "Mpox": {
-      "name": "Mpox",
-      "display": true
+  "CanCOGeN_Covid-19": {
+    "folder": "canada_covid19",
+    "id": "https://example.com/CanCOGeN_Covid-19",
+    "version": "2.4.1",
+    "templates": {
+      "CanCOGeNCovid19": {
+        "name": "CanCOGeNCovid19",
+        "display": true
+      }
     },
-    "MpoxInternational": {
-      "name": "MpoxInternational",
-      "display": true
+    "locales": [
+      "en",
+      "fr"
+    ]
+  },
+  "GISAID": {
+    "folder": "gisaid",
+    "id": "https://example.com/GISAID",
+    "version": "1.0.2",
+    "templates": {
+      "GISAID": {
+        "name": "GISAID",
+        "display": true
+      }
     }
   },
-  "wastewater": {
-    "WastewaterSARS-CoV-2": {
-      "name": "WastewaterSARS-CoV-2",
-      "display": true
-    },
-    "WastewaterAMR": {
-      "name": "WastewaterAMR",
-      "display": true
-    },
-    "WastewaterPathogenAgnostic": {
-      "name": "WastewaterPathogenAgnostic",
-      "display": true
+  "PHA4GE": {
+    "folder": "pha4ge",
+    "id": "https://example.com/CanCOGeN_Covid-19",
+    "version": "1.0.2",
+    "templates": {
+      "PHA4GE": {
+        "name": "PHA4GE",
+        "display": true
+      }
     }
   },
-  "hpai": {
-    "HPAI": {
-      "name": "HPAI",
-      "display": true
-    },
-    "HPAIFood": {
-      "name": "HPAIFood",
-      "display": true
-    },
-    "HPAIWW": {
-      "name": "HPAIWW",
-      "display": true
-    },
-    "HPAIEnviro": {
-      "name": "HPAIEnviro",
-      "display": true
-    },
-    "HPAIHost": {
-      "name": "HPAIHost",
-      "display": true
+  "GRDI": {
+    "folder": "grdi",
+    "id": "https://example.com/GRDI",
+    "version": "13.4.4",
+    "templates": {
+      "GRDI": {
+        "name": "GRDI",
+        "display": true
+      }
+    }
+  },
+  "PHACDexa": {
+    "folder": "phac_dexa",
+    "id": "https://example.com/PHAC_Dexa",
+    "version": "1.2.0",
+    "templates": {
+      "PHACDexa": {
+        "name": "PHACDexa",
+        "display": true
+      }
+    }
+  },
+  "AMBR": {
+    "folder": "ambr",
+    "id": "https://example.com/AMBR",
+    "version": "2.3.1",
+    "templates": {
+      "AMBR": {
+        "name": "AMBR",
+        "display": true
+      }
+    }
+  },
+  "PathogenAgnostic": {
+    "folder": "pathogen",
+    "id": "https://example.com/Pathogen_Agnostic",
+    "version": "1.0.1",
+    "templates": {
+      "PathogenAgnostic": {
+        "name": "PathogenAgnostic",
+        "display": true
+      }
+    }
+  },
+  "Influenza": {
+    "folder": "influenza",
+    "id": "https://example.com/Influenza",
+    "version": "1.0.1",
+    "templates": {
+      "Influenza": {
+        "name": "Influenza",
+        "display": true
+      }
+    }
+  },
+  "Mpox": {
+    "folder": "mpox",
+    "id": "https://example.com/mpox",
+    "version": "8.5.5",
+    "templates": {
+      "Mpox": {
+        "name": "Mpox",
+        "display": true,
+        "version": "7.5.5"
+      },
+      "MpoxInternational": {
+        "name": "MpoxInternational",
+        "display": true,
+        "version": "8.5.5"
+      }
+    }
+  },
+  "Wastewater": {
+    "folder": "wastewater",
+    "id": "https://example.com/GRDI",
+    "version": "4.1.1",
+    "templates": {
+      "WastewaterSARS-CoV-2": {
+        "name": "WastewaterSARS-CoV-2",
+        "display": true,
+        "version": "3.1.1"
+      },
+      "WastewaterAMR": {
+        "name": "WastewaterAMR",
+        "display": true,
+        "version": "3.1.1"
+      },
+      "WastewaterPathogenAgnostic": {
+        "name": "WastewaterPathogenAgnostic",
+        "display": true,
+        "version": "3.1.1"
+      }
+    }
+  },
+  "HPAI": {
+    "folder": "hpai",
+    "id": "https://example.com/hpai",
+    "version": "4.3.3",
+    "templates": {
+      "HPAI": {
+        "name": "HPAI",
+        "display": true,
+        "version": "1.0.0"
+      },
+      "HPAIFood": {
+        "name": "HPAIFood",
+        "display": true,
+        "version": "1.0.0"
+      },
+      "HPAIWW": {
+        "name": "HPAIWW",
+        "display": true,
+        "version": "1.0.0"
+      },
+      "HPAIEnviro": {
+        "name": "HPAIEnviro",
+        "display": true,
+        "version": "1.0.0"
+      },
+      "HPAIHost": {
+        "name": "HPAIHost",
+        "display": true,
+        "version": "1.0.0"
+      }
     }
   }
 }

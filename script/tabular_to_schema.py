@@ -547,7 +547,9 @@ def write_locales(locale_schemas):
 #     ... etc
 #   }
 # }
-def write_menu(menu_path, schema_folder, schema_spec):
+def write_menu(menu_path, schema_folder, schema_view):
+
+	schema_name = schema_view.schema['name'];
 
 	# Work with existing MENU menu.js, or start new one.
 	if os.path.isfile(menu_path):
@@ -556,27 +558,41 @@ def write_menu(menu_path, schema_folder, schema_spec):
 	else:
 	    menu = {};
 
-	# Overwrite this folder's menu content
-	menu[schema_folder] = {};
+	# Reset this folder's menu content
+	menu[schema_name] = {
+		"folder": schema_folder,
+		"id": schema_view.schema['id'],
+		"version": schema_view.schema['version'],
+		"templates":{}
+	};
+
+	print(schema_view.schema and schema_view.schema['in_language'])
+
+	if 'in_language' in schema_view.schema and schema_view.schema['in_language'] != None:
+		menu[schema_name]['locales'] = schema_view.schema['in_language'];
 
 	class_menu = {};
 
 	# Get all top level classes
-	for name, class_obj in schema_spec.all_classes().items():
+	for class_name, class_obj in schema_view.all_classes().items():
 
-    # Presence of "slots" in class indicates field hierarchy
-		if schema_spec.class_slots(name):
-			class_menu[name] = class_obj;
+    	# Presence of "slots" in class indicates field hierarchy
+		if schema_view.class_slots(class_name):
+			class_menu[class_name] = class_obj;
 
-	for name, class_obj in class_menu.items():
+	# Now cycle through each template:
+	for class_name, class_obj in class_menu.items():
 
-		menu[schema_folder][name] = {
-			"name": name,
-			#"status": "published",
+		menu[schema_name]['templates'][class_name] = {
+			"name": class_name,
 			"display": 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface'
 		};
 
-		print("Updated menu for", schema_folder+'/', name);
+		annotations = schema_view.annotation_dict(class_name);
+		if 'version' in annotations:
+			menu[schema_name]['templates'][class_name]['version'] = annotations['version'];
+
+		print("Updated menu for", schema_name+'/' + class_name);
 
 	# Update or create whole menu
 	with open(menu_path, "w") as output_handle:
