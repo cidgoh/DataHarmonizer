@@ -13,14 +13,19 @@
 # > python3 ../../../script/oca_to_linkml.py [-i oca_bundle_file_name]
 #
 # Output: 
-# 	schema_core.yaml 	- the main LinkML upper structure within which slots and enums are added.
-#	schema_slots.tsv 	- the list of column fields
-#	schema_enums.tsv 	- the list of enumerations (code lists)
+#
+# 	schema_core.yaml 	- the main LinkML upper yaml structure .
+#	schema_slots.tsv 	- the list of column fields added to above yaml.
+#	schema_enums.tsv 	- the list of enumerations (code lists) added to above.
 #
 # Then in DH context, run "> python3 tabular_to_schema.py" to generate
+#
 # 	schema.yaml	- yaml version of complete LinkML schema for default language
-#	schema.json - json version of complete LinkML schema for default language used by DataHarmonizer
-# and for any language locale variants, a language overlay file which is layered on top of the above schema.json file:
+#	schema.json - json version of schema.yaml used by DataHarmonizer
+#
+# Also for any language locale variants, a language overlay file which is 
+# layered on top of the above schema.json file:
+#
 # 	locales/[i18n locale code]/schema.yaml
 # 	locales/[i18n locale code]/schema.json
 #
