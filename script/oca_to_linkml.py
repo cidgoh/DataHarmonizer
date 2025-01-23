@@ -295,33 +295,37 @@ else:
 # the structure:
 # 	"type": [string absolute/relative URI], 
 # 	"capture_base": hash, # Ignore
+# ALSO, it is assumed that language variant objects all have the "default" 
+# and consistent primary language as first entry.
+
+oca_overlays = oca_obj["bundle"]["overlays"];
 
 # Contains {schema.name,.description,.language} in array 
 # Optional?
-oca_metas = oca_obj["bundle"]["overlays"]["meta"][0];
+oca_metas = oca_overlays["meta"][0];
 
 # oca_attributes contains slot.name and slot.datatype
 oca_attributes = oca_obj["bundle"]["capture_base"]["attributes"];
 
 # Contains slot.name and slot.pattern
-oca_formats = oca_obj["bundle"]["overlays"]["format"]["attribute_formats"];
+oca_formats = oca_overlays["format"]["attribute_formats"];
 
 # Contains {slot.title,.language} in array
-oca_labels = oca_obj["bundle"]["overlays"]["label"][0]["attribute_labels"];
+oca_labels = oca_overlays["label"][0]["attribute_labels"];
 
 # Contains {slot.name,.description,.language} in array 
 # Optional?
-oca_informations = oca_obj["bundle"]["overlays"]["information"][0]["attribute_information"];
+oca_informations = oca_overlays["information"][0]["attribute_information"];
 
 # Contains {"d": "M", "i": "M", "passed": "M"}  # "M" ?
-oca_conformance = oca_obj["bundle"]["overlays"]["conformance"]["attribute_conformance"];
+oca_conformance = oca_overlays["conformance"]["attribute_conformance"];
 
 # Contains [enumeration name]:[code,...]
-oca_entry_codes = oca_obj["bundle"]["overlays"]["entry_code"]["attribute_entry_codes"];
+oca_entry_codes = oca_overlays["entry_code"]["attribute_entry_codes"];
 
 # Contains array of {enumeration.language,.attribute_entries} where 
 # attribute_entries is dictionary of [enumeration name]: {code, label}
-oca_entry_labels = oca_obj["bundle"]["overlays"]["entry"][0]["attribute_entries"];
+oca_entry_labels = oca_overlays["entry"][0]["attribute_entries"];
 
 SCHEMA = writeSchemaCore();
 writeSlots();
