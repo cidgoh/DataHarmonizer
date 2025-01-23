@@ -505,7 +505,7 @@ def write_schema(schema):
 		schema_view.schema['in_language'] = SCHEMA['in_language'];
 
 	# Output the amalgamated content:
-	JSONDumper().dump(schema_view.schema, w_filename_base + '.json')
+	JSONDumper().dump(schema_view.schema, w_filename_base + '.json');
 	
 	return schema_view;
 
@@ -536,17 +536,6 @@ def write_locales(locale_schemas):
 
 
 # ********* Adjust the menu to include this schema and its classes ******
-# Creating a JSON file structure which can be loaded directly into DH:
-#
-# {
-#   "MIxS": {
-#     "soil": {
-#       "name": 'soil', 
-#       "status": "published"
-#     },
-#     ... etc
-#   }
-# }
 def write_menu(menu_path, schema_folder, schema_view):
 
 	schema_name = schema_view.schema['name'];
