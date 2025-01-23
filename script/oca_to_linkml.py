@@ -6,6 +6,27 @@
 #
 # Author: Damion Dooley
 #
+# Run this in folder where one wants DataHarmonizer schema to be built, so 
+# typically, in some DH web/templates/[schema folder]/, which reads by default
+# a file called oca_bundle.json
+#
+# > python3 ../../../script/oca_to_linkml.py [-i oca_bundle_file_name]
+#
+# Output: 
+# 	schema_core.yaml 	- the main LinkML upper structure within which slots and enums are added.
+#	schema_slots.tsv 	- the list of column fields
+#	schema_enums.tsv 	- the list of enumerations (code lists)
+#
+# Then in DH context, run "> python3 tabular_to_schema.py" to generate
+# 	schema.yaml	- yaml version of complete LinkML schema for default language
+#	schema.json - json version of complete LinkML schema for default language used by DataHarmonizer
+# and for any language locale variants, a language overlay file which is layered on top of the above schema.json file:
+# 	locales/[i18n locale code]/schema.yaml
+# 	locales/[i18n locale code]/schema.json
+#
+# DataHarmonizer can load the complete schema.json file directly via
+# "load template" option.  However access to multilingual functionality will
+# require adding the complete schema into the schema bundle and menu.js file.
 
 import json
 import optparse
@@ -18,8 +39,6 @@ import re
 
 ###############################################################################
 
-input_oca_file = 'oca_bundle.json';
-schema_core_file = 'schema_core.yaml';
 warnings = [];
 locale_mapping = {}; # Converting OCA language terms to i18n
 
@@ -91,16 +110,15 @@ SCHEMA_ENUMS = [
 
 def init_parser():
 	parser = optparse.OptionParser()
-	"""
+
 	parser.add_option(
-		"-m",
-		"--menu",
-		dest="menu",
-		default=False,
-		action="store_true",
-		help="A flag which indicates menu entries should be generated or updated for a schema's templates (classes).",
+		"-i",
+		"--input",
+		dest="input_oca_file",
+		default="oca_bundle.json",
+		help="Provide an OCA json bundle file path and name to read.",
 	)
-	"""
+
 	return parser.parse_args();
 
 def save_tsv(file_name, headers, data):
@@ -267,9 +285,11 @@ def writeEnums():
 options, args = init_parser();
 
 # Load OCA schema bundle specification
-if os.path.isfile(input_oca_file):
-    with open(input_oca_file, "r") as f:
+if options.input_oca_file and os.path.isfile(options.input_oca_file):
+    with open(options.input_oca_file, "r") as f:
         oca_obj = json.load(f);
+else:
+	os.exit("- [Input OCA bundle file is required]")
 
 # In parsing input_oca_file, a few attributes are ignored for now in much of
 # the structure:
