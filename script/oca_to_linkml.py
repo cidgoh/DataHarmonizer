@@ -49,7 +49,7 @@ types:
     base: str
     uri: xsd:token
 settings:
-  Title_Case: '(((?<=\b)[^a-z\W]\w*?|[\W])+)'
+  Title_Case: '((?<=\b)[^a-z\W]\w*?|[\W])+'
   UPPER_CASE: '[A-Z\W\d_]*'
   lower_case: '[a-z\W\d_]*'
 """
@@ -182,6 +182,9 @@ def writeSchemaCore():
     	'description': SCHEMA["description"],
     	'is_a': 'dh_interface'
 	}
+	# ISSUE: Each class may have (meta) title and description fields translated
+	# but we don't have a SCHEMA_CLASSES table to handle translations in 
+	# tabular_to_schema.py, so can't communicate them.
 
 	with open("schema_core.yaml", 'w') as output_handle:
 		yaml.dump(SCHEMA, output_handle, sort_keys=False);
@@ -201,7 +204,7 @@ def writeSlots():
 		slot['name'] = slot_name;
 		slot['title'] = oca_labels[slot_name];
 		slot['range'] = oca_attributes[slot_name]; # ISSUE: Numeric
-		slot['pattern'] = "^" + oca_formats[slot_name] + "$";
+		slot['pattern'] = oca_formats[slot_name];
 		slot['description'] = oca_informations[slot_name];
 
 		# Range 2 gets any picklist for now.
