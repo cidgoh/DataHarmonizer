@@ -161,5 +161,16 @@
         "version": "1.0.0"
       }
     }
+  },
+  "B2B2B": {
+    "folder": "b2b2b",
+    "id": "https://example.com/B2B2B",
+    "version": "1.0.0",
+    "templates": {
+      "B2B2B": {
+        "name": "B2B2B",
+        "display": true
+      }
+    }
   }
 }
