@@ -1,0 +1,1 @@
+"use strict";(this.webpackChunkschemas=this.webpackChunkschemas||[]).push([[825],{825:(s,h,c)=>{c.r(h),c.d(h,{default:()=>e});const e={}}}]);

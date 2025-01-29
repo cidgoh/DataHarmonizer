@@ -11,14 +11,15 @@ Initial set up of this fork:
   - Configure `corepack` so `yarn` works properly
   - Run `yarn` to install dependencies
 - Make sure you've installed [LinkML](https://linkml.io/)
+- Make sure you've installed [linkml-toolkit](https://github.com/genomewalker/linkml-toolkit)
 - Delete most of the contents of `/web/templates/` (leave one example until the new templates are added, and also `new/` for reference)
 - Delete most of the contents of `menu.json` (leave one example until the new templates are added)
   - Set the example entries to `"display": false` in `menu.json`.
 
-The instructions for the updating of this fork are as follows:
+The instructions for adding a **single extension** to this repo's DataHarmonizer instance:
 
 - Make new schema entry
-  - Make a directory `/web/templates/[schema name]/` for each MInAS schema
+  - Make a directory `/web/templates/[schema name]/` for each extension
   - In each directory create `export.js` just containing `export default {};`
     - `echo "export default {};" > export.js`
   - For each schema, save a `schema.yaml` file in the directory, e.g.
@@ -26,13 +27,6 @@ The instructions for the updating of this fork are as follows:
     ```bash
     wget https://github.com/MIxS-MInAS/extension-ancient/raw/refs/tags/v0.3.2/src/mixs/schema/ancient.yml
     ```
-
-    >[!WARNING]
-    > For the core MIxS + MinAS combninations this point you may need to do some extensive manual modifications
-    > namely, deleting irrelevant combinations and extensions, and creating a new combination.
-    > BRAIN DUMP: 
-    >  - OR JUST GO ADDITIVE AND SET ALL ENTRIES TO FALSE IN MENU.JSON?
-    >  - THEN NEED TO ADD ADDITIONAL CLASSES YAML OF COMBINATION FOR MERGING WITH MAIN  
 
   - Write a txt file called (`dh_class_text.txt`) which includes the text for an additional classed called [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
   - Inject this class into the `schema.yaml` file with e.g. `sed -i '/^classes:/r dh_class_text.txt' schema.yml`
@@ -49,6 +43,70 @@ The instructions for the updating of this fork are as follows:
   - `cp -r web/dist/ docs/` 
 - After moving, make the following edits:
   - _NOT WORKING_: `sed -i '/^<body>/r minas-dataharmonizer-header.txt' docs/index.html`
+
+The instructions for adding a **full schema** to this repo's DataHarmonizer instance:
+
+- One time: Make new schema entry
+  - Make a directory `/web/templates/minas-checklists/` for the MInAS schema
+  - In the directory create `export.js` just containing `export default {};`
+    - `echo "export default {};" > export.js`
+- For each schema, download the corresponding `schema.yaml` files in the directory, e.g.
+
+    ```bash
+    ## Core MIxS
+    wget https://github.com/GenomicsStandardsConsortium/mixs/raw/refs/tags/v6.2.0/src/mixs/schema/mixs.yaml
+
+    ## MInAS specific combinations
+    wget https://github.com/MIxS-MInAS/minas-combinations/raw/refs/heads/main/src/mixs/schema/minas-combinations.yml
+
+    ## Extensions
+    wget https://github.com/MIxS-MInAS/extension-ancient/raw/refs/tags/v0.4.0/src/mixs/schema/ancient.yml
+    wget https://github.com/MIxS-MInAS/extension-radiocarbon-dating/raw/refs/tags/v0.1.2/src/mixs/schema/radiocarbon-dating.yml
+    ```
+
+- Merge the different schemas together using linkml toolkit into one mega schema
+
+  ```bash
+  lmtk combine --mode merge --schema mixs.yaml -a ancient.yml -a radiocarbon-dating.yml -a minas-combinations.yml --output minas-total.yml
+  ```
+
+- Subset the mega schema to just those combinations relevant to MInAS (i.e., the ones in `minas-combinations.yml`)
+
+  ```bash
+  lmtk subset --schema minas-total.yml --output minas.yml --classes Ancient,RadiocarbonDating,MimsHostAssociatedAncient,MimsSedimentAncient,MixsCompliantData
+  ```
+
+- TODO: CLEANUP COMMANDS
+- One Time: Write a txt file called (`dh_class_text.txt`) which includes the text for an additional classed called [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
+- Inject this class into the `minas.yml` file with:
+
+    ```bash
+    sed -i '/^classes:/r dh_class_text.txt' minas.yml
+    ```
+  
+  - Generate the DataHarmonizer compatible JSON with:
+
+    ```bash
+    python ../../../script/linkml.py -i minas.yml
+    ```
+
+  - Modify the `/web/templates/menu.json` so all `"display": false` equals `"display": true` with 
+
+  ```bash
+  sed -i '15,$s/"display": false/"display": true/g' ../menu.json
+  ```
+
+  TODO: CHANGE COMMAND ABOVE TO INStEAD FILTER MENU.JSON TO OBJETS OF INTEREST 
+
+  - If you still have an example template from the original dataharmonizer repo, make sure to reset to false! (Sed command above skips first 15 lines as we keep an mpox example)
+- Test in a local web server
+  - Open a local webserver with `yarn dev`
+  - Check you can see the new template under 'Template:` in the top bar
+- Generate the static files (within the local clone)
+  - Run `yarn build:web` to generate a standalone file (Stored in `/web/dist`)
+- Remove the old docs directory at the root of the repository, the cp new static to replace it to allow rendering on GitHub pages
+  - `rm -r docs/`
+  - `cp -r web/dist/ docs/` 
 
 This viewing interface should be updated on each MInAS release.
 

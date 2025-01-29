@@ -1,0 +1,747 @@
+name: mixs
+description: >-
+  This file contains a YAML-formatted specification of the Minimum Information about any (x) Sequence (MIxS) standard, generated using LinkML (https://linkml.io/linkml/). This file is released by the Genomic Standards Consortium (GSC; https://www.gensc.org/) for use by anyone handling data or information about biological sequences. This file is also used as an authoritative 'source of truth' to generate downstream GSC artifacts, available here: https://github.com/GenomicsStandardsConsortium/mixs/tree/main/project
+comments:
+  - "slot titles that are associated with more than one slot name/SCN: host sex"
+source: https://github.com/GenomicsStandardsConsortium/mixs/raw/issue-610-temp-mixs-xlsx-home/mixs/excel/mixs_v6.xlsx
+id: https://w3id.org/mixs
+version: v6.2.0
+imports:
+  - linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  MIXS: https://w3id.org/mixs/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  shex: http://www.w3.org/ns/shex#
+  schema: http://schema.org/
+default_prefix: MIXS
+default_range: string
+subsets:
+  combination_classes:
+  sequencing:
+  environment:
+  nucleic acid sequence source:
+  investigation:
+  ethics:
+enums:
+  DamageTreatmentEnum:
+    permissible_values:
+      none:
+      partial-udg:
+      full-udg:
+      enriched:
+      other:
+  LibTypeEnum:
+    permissible_values:
+      amplicon:
+      enriched:
+      shotgun:
+  BioCulturalLabel:
+    permissible_values:
+      "BC P":
+      "BC MC":
+      "BC CL":
+      "BC CV":
+      "BC CNV":
+      "BC R":
+      "BC CB":
+      "BC OC":
+      "BC O":
+      "BC NC":
+  LibStrand:
+    permissible_values:
+      single:
+      double:
+  SampAgeUnit:
+    permissible_values:
+      BCE:
+      CE:
+      BP:
+      cal BP:
+      cal BCE:
+      cal CE:
+      ka:
+      Ma:
+  SampAgeInferMethod:
+    permissible_values:
+      radiocarbon dating:
+      optically stimulated infrared luminescence:
+      amino acid racemisation:
+      electron spin resonance:
+      uranium thorium:
+      stratigraphic inference:
+      relative dating:
+      historical records:
+      other:
+slots:
+  ancient_data:
+    description: Data that comply with Extension Ancient
+    title: Ancient data
+    domain: MixsCompliantData
+    slot_uri: MIXS:ancient_data
+    multivalued: true
+    range: Ancient
+    inlined: true
+    inlined_as_list: true
+  collection_context_name:
+    annotations:
+      Expected_value: name of institution
+    description: Name of where sample originated and is typically stored. Typically will be 'owning institution'.
+    title: context name where location was collected
+    examples:
+      - value: Natural History Museum London
+    in_subset:
+      - nucleic acid sequence source
+    keywords:
+      - storage
+    slot_uri: MIXS:999999901
+    multivalued: true
+    range: string
+    required: false
+    recommended: true
+  cultural_era:
+    annotations:
+      Expected_value: chronotology or PeriodO term; text
+    description: >-
+      The cultural era approximating the period in which the individual lived from https://chronontology.dainst.org/ or PeriodO if possible.
+      If not available, follow INSDC standard for reporting missing data (https://www.insdc.org/submitting-standards/missing-value-reporting/).
+    title: cultural era or period
+    examples:
+      - value: "Copper Age [Chronotology: NW6hofAScJSE]"
+      - value: "Upper Middle Palaeolthic"
+      - value: "Not collected"
+    in_subset:
+      - nucleic acid sequence source
+    keywords:
+      - ancient
+      - age
+    string_serialization: "{termLabel} [{termID}]|{text}"
+    slot_uri: MIXS:999999902
+    multivalued: false
+    required: true
+    recommended: true
+  damage_treatment:
+    annotations:
+      Expected_value: enumeration
+    description: >-
+      Indication of whether characteristic ancient DNA damage has been 
+      altered or removed from a DNA extract in a laboratory
+    title: Damage treatment type
+    examples:
+      - value: none
+      - value: partial-udg
+    in_subset:
+      - sequencing
+    keywords:
+      - ancient
+    slot_uri: MIXS:999999903
+    multivalued: true
+    range: DamageTreatmentEnum ## or name of defined enum as above
+    required: true
+  dna_extraction_date:
+    description: >-
+      The date when the nucleic acid extraction was started from the sample material.
+      In case no exact time is available, the date can be right truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant
+    title: date of extraction of nucleic acids from sample
+    examples:
+      - value: "2023-12-01"
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:9999999904
+    range: datetime ## or name of defined enum as above
+    required: false
+    recommended: true
+  ethical_authority:
+    annotations:
+      Expected_value: name of authority providing ethical approval
+    description: >-
+      Name of the authorit(ies) or institution(s) that awarded sampling and 
+      analysis (e.g. human remains) and/or export permission 
+      (e.g. animal remains)
+    title: ethical authority
+    examples:
+      - value: "University of Copenhagen"
+      - value: "Federal Foreign Office (Germany)"
+    in_subset:
+      - investigation
+    keywords:
+      - ethics
+      - location
+    slot_uri: MIXS:999999905
+    multivalued: true
+    range: string
+    required: false
+    recommended: true
+  ethical_date:
+    description: >-
+      Date of award of ethical/export permission. The date can be right truncated 
+      i.e. all of these are valid times: 2008-01-23; 2008-01; 2008; 
+      Except: 2008-01; 2008 all are ISO8601 compliant
+    title: date of ethical approval
+    examples:
+      - value: "2023-12-01"
+    in_subset:
+      - investigation
+    slot_uri: MIXS:9999999906
+    range: datetime
+    required: false
+    recommended: true
+  ethical_id:
+    description: >-
+      The permissions code, ID, document, or similar provided by any authority 
+      (socal, legal, academic etc.) associated with approval of the analysis of 
+      this particular sample.
+    title: ethical permit or approval ID
+    examples:
+      - value: "DE-123-JK"
+    in_subset:
+      - investigation
+    keywords:
+      - ethics
+    slot_uri: MIXS:999999906
+    multivalued: true
+    range: string
+    required: false
+    recommended: true
+  experimental_procedures:
+    description: >-
+      Provide a DOI or URL to refer to the paper where the field report, nucleic acid extraction, 
+      library construction, and other procedures are explained in more detail, e.g. the paper reporting the data.
+    title: experimental procedures
+    examples:
+      - value: doi:10.1093/nar/gkr771
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:999999907
+    multivalued: true
+    range: string
+    pattern: ^^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$$
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  lib_concentration:
+    annotations:
+      Expected_value: measurement value in number of ng per µl
+    description: >-
+      Concentration of library in ng per µl, as inferred by qPCR, digital PCR, Qubit etc.
+    title: library concentration
+    examples:
+      - value: "2"
+      - value: "0.5"
+    in_subset:
+      - sequencing
+    slot_uri: MIXS:999999908
+    string_serialization: "{float}"
+    multivalued: true
+  lib_index_polymerase:
+    annotations:
+      Expected_value: name of polymerase used during library indexing
+    description: >-
+      The DNA polymerase enzyme used for indexing DNA libraries
+    title: library index polymerase
+    examples:
+      - value: "Agilent PfuTurbo Cx HotStart"
+    in_subset:
+      - sequencing
+    keywords:
+      - polymerase
+      - library
+      - preparation
+    string_serialization: "{text}"
+    slot_uri: MIXS:999999909
+    range: string
+    required: false
+    recommended: true
+  lib_preparation_protocol:
+    description: >-
+      Citation(s) for the DNA library preparation protocol
+    title: library preparation protocols
+    examples:
+      - value: doi:10.1093/nar/gkr771
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:999999907
+    multivalued: true
+    range: string
+    pattern: ^^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$$
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  lib_reamplification_polymerase:
+    annotations:
+      Expected_value: name of polymerase used during library indexing
+    description: >-
+      The name of the DNA polymerase enzyme used for reamplifying DNA libraries post-indexing.
+    title: library reamplification polymerase
+    examples:
+      - value: "KAPA HiFi HotStart Uracil+"
+    in_subset:
+      - sequencing
+    keywords:
+      - polymerase
+      - library
+      - preparation
+    string_serialization: "{text}"
+    slot_uri: MIXS:999999909
+    range: string
+    required: false
+    recommended: true
+  lib_type:
+    description: >-
+      The type of library created, i.e., amplicon, enriched, or shotgun. 
+      Amplicon based is a library that has been amplified to target a specific single region of a genome (e.g. a specific gene). 
+      An enriched library is a library has had a particular genome or genome regions 'captured' or enriched typically via baits or probes.
+      A shotgun library has had no type of targeted enrichment for a particular gene or genome.
+    title: library type
+    examples:
+      - value: amplicon
+    in_subset:
+      - sequencing
+    keywords:
+      - library
+      - preparation
+    slot_uri: MIXS:999999910
+    range: LibTypeEnum
+    required: false
+  neg_cont_status:
+    description: >-
+      Specify whether the sample is a negative control or not.
+    title: negative control status
+    examples:
+      - value: "true"
+    keywords:
+      - control
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:999999911
+    range: boolean
+  num_capture_amp_cycles:
+    description: >-
+      Number of amplification cycles after capture enrichment
+    title: number of reamplification cycles after capture
+    examples:
+      - value: "12"
+    in_subset:
+      - sequencing
+    slot_uri: MIXS:999999912
+    range: integer
+    multivalued: true
+  num_reamp_cycles:
+    description: >-
+      Number of amplification cycles after library indexing PCR. If capture data, this refers to amplifications prior to the capture experiments.
+    title: number of reamplification cycles
+    examples:
+      - value: "12"
+    in_subset:
+      - sequencing
+    slot_uri: MIXS:999999913
+    range: integer
+  preservational_treatment:
+    description: >-
+      Description of any treatment applied to samples for the purpose of 
+      maximising collection preservation that may influence downstream 
+      DNA recovery or library construction, such as storage fluid or 
+      reconstructive glue
+    title: preservational treatment
+    examples:
+      - value: "stored in formalin"
+    in_subset:
+      - nucleic acid sequence source
+    keywords:
+      - ancient
+    slot_uri: MIXS:999999914
+    multivalued: true
+    range: string
+    string_serialization: "{text}"
+  prev_pubs:
+    description: >-
+      Any publications that report data from the same body/skeleton/individual
+    title: previous publications
+    examples:
+      - value: doi:10.1016/j.jas.2015.02.0181
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:999999915
+    multivalued: true
+    range: string
+    pattern: ^^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$$
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  recovery_date:
+    annotations:
+      Preferred_unit: year
+    description: >-
+      Date of excavation or retrieval from burial or depositional context, if known.
+      In case no exact time is available, the date can be right truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant.
+      If excavations were done during a longer period, report its midpoint at a month or year level.
+    title: date of retrieval from depositional context
+    examples:
+      - value: "2023"
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:9999999916
+    range: datetime
+    required: false
+    recommended: true
+  samp_decontam_pretreat:
+    description: >-
+      Method(s) employed for surface decontamination of samples of external 
+      modern DNA; Treatment used on the samples. Depends on the sample type. 
+      More relevant for bones than environmental samples. E.g. buffers, EDTA, etc.
+    title: sample decontamination pretreatment
+    examples:
+      - value: doi:10.1016/j.jas.2015.02.0181
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:999999917
+    multivalued: true
+    range: string
+    pattern: ^^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$$
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  samp_age_range_youngest_limit:
+    annotations:
+      Expected_value: age value corresponding to unit
+    description: >-
+      The youngest possible age of the sample.
+      Youngest refers to the time closest to present day.
+      If a sample has only a single age value, the value from samp_age_range_oldest_limit can be repeated.
+      Sample age refers to a period of time in the past, such as when an organism was living and then died, not the biological age.
+    title: sample age range youngest limit
+    examples:
+      - value: "100000"
+      - value: "1700"
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:999999918
+    range: integer
+    required: true
+    recommended: true
+  samp_age_range_youngest_unit:
+    description: >-
+      The unit of the youngest age in the sample age range.
+    title: sample age range youngest unit
+    examples:
+      - value: "cal BP"
+      - value: "CE"
+      - value: "Ma"
+    in_subset:
+      - investigation
+    slot_uri: MIXS:999999919
+    multivalued: true
+    range: SampAgeUnit
+    required: true
+    recommended: true
+  samp_age_range_oldest_limit:
+    annotations:
+      Expected_value: age value corresponding to unit
+    description: >-
+      The oldest possible age of the sample.
+      Oldest refers to the time furthest from present day.
+      If a sample has only a single age value, the value from samp_age_range_youngest_limit can be repeated.
+      Sample age refers to a period of time in the past, such as when an organism was living and then died, not the biological age.
+    title: sample age range oldest limit
+    examples:
+      - value: "120000"
+      - value: "1900"
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:999999920
+    range: integer
+    required: true
+    recommended: true
+  samp_age_range_oldest_unit:
+    description: >-
+      The unit of the oldest age in sample age range.
+    title: sample age range oldest unit
+    examples:
+      - value: "cal BP"
+      - value: "CE"
+      - value: "Ma"
+    in_subset:
+      - investigation
+    slot_uri: MIXS:999999921
+    multivalued: true
+    range: SampAgeUnit
+    required: true
+    recommended: true
+  samp_age_range_inference_methods:
+    description: >-
+      The method used to infer the sample age. This corresponds to a fixed list of most commonly used dating methods, such as 14C, OSL, stratigraphic inference, historical records, other etc.
+      If the method is not in the list, please provide a description in samp_age_range_inference_description.
+    title: sample age inference methods
+    examples:
+      - value: "radiocarbon dating, calibrated with OxCal v4.3"
+    in_subset:
+      - investigation
+    slot_uri: MIXS:999999922
+    multivalued: true
+    range: SampAgeInferMethod
+    required: true
+    recommended: true
+  samp_age_range_inference_description:
+    description: >-
+      Additional general information about the inference method used to infer the sample age that can be useful for 
+      understanding how the sample age was estimated.
+      This can be things such as whether radiocarbon age estimated on AMS or conventional radiocarbon dating, or which calibration confidence interval was used. 
+      It can also be used to describe what artefacts were used to age the stratigraphic layer of historical contexts.
+    title: sample age inference description
+    examples:
+      - value: "radiocarbon dating, calibrated with OxCal v4.3 with 95% confidence interval"
+      - value: "based on proxy dating from other bone samples of stratigraphic layer"
+      - value: "a coin found in the burial was from the 3rd century"
+      - value: "age taken from previous publication Doe et al. 2019"
+      - value: "radiocarbon age ID: OxA-12345"
+    in_subset:
+      - investigation
+    slot_uri: MIXS:999999923
+    multivalued: false
+    range: string
+    required: false
+    recommended: false
+  samp_alt_lab_ids:
+    description: >-
+      An alternative sample or material ID related to the sample not already covered by terms samp_name and source_mat_id, including from associated other non-genetic analyses of the same sample (e.g. museum IDs, internal lab sample ID from sampling such a bone drilling). Can be specified multiple times for different ID contexts.
+    title: alternative sample IDs
+    examples:
+      - value: "ABC_24"
+    in_subset:
+      - investigation
+    slot_uri: MIXS:999999924
+    multivalued: true
+    range: string
+    string_serialization: "{text}"
+  storage_conditions:
+    description: >-
+      General conditions in which the material (before sampling for DNA analysis) was stored in long-term collection storage, that may influenced DNA recovery or library construction. For example, specify temperature, humidity, presence of microbial overgrowth etc..
+    title: storage conditions
+    examples:
+      - value: "climate-controlled"
+      - value: "Stored in the museum from recovery_date to collection_date"
+      - value: "Stored at -20oC until dna_extraction_date"
+    in_subset:
+      - nucleic acid sequence source
+    slot_uri: MIXS:999999925
+    range: string
+    string_serialization: "{text}"
+  palaeopath_status:
+    annotations:
+      Expected_value: description of health related observation on ancient remains
+    description: >-
+      Describe briefly any relevant palaeopathological or health-related observations of the remains of the individual under study.
+    title: palaeopathology status.
+    examples:
+      - value: "Osteoporosis."
+      - value: "Parasites found in pelvic area."
+      - value: "Caries on right upper molar."
+    in_subset:
+      - nucleic acid sequence source
+    keywords:
+      - palaeopathology
+      - host health
+      - ancient
+    slot_uri: MIXS:999999926 #Not assigned
+    multivalued: false
+    range: string
+    string_serialization: "{text}"
+    required: false
+    recommended: false
+  biocultural_label:
+    annotations:
+      Expected_value: Relevant biocultural label from https://localcontexts.org/labels/biocultural-labels/
+    description: >-
+      Relevant biocultural labels that apply to the sample under study, based on https://localcontexts.org/label/bc-provenance/. These help indicate how indigenous peoples and similar communities view in which contexts this data can be reused.
+    title: biocultural label
+    examples:
+      - value: "BC R"
+      - value: "BC MC"
+    in_subset:
+      - ethics
+    keywords:
+      - ethics
+    slot_uri: MIXS:999999927 #Not assigned
+    multivalued: true
+    range: BioCulturalLabel #enum value
+    required: false
+    recommended: false
+  ethics_perm_scope:
+    annotations:
+      Expected_value: Description of the scope of ethical permissions for data use
+    description: >-
+      Description of the original scope and permissions of the research on the genetic material, as was approved by the ethical authority (e.g. bacteria only, DNA only, bacteria and human, no host read analysis allowed).
+    title: ethical Permissions & Scope
+    examples:
+      - value: "Defined scope only includes the study of bacterial sequences and any human sequence is not covered under the agreement."
+    in_subset:
+      - ethics
+    keywords:
+      - ethics
+    slot_uri: MIXS:999999928 #Not assigned
+    multivalued: true
+    range: string
+    string_serialization: "{text}"
+    required: false
+    recommended: true
+  host_body_preservation_state:
+    annotations:
+      Expected_value: Description of the preservation of the sampled (ancient) organism/host
+    description: >-
+      Description of the state of the sampled (ancient) organism/host as originally preserved in the burial environment, e.g. if the the sample was artificially or naturally (fully/partially) mummified at the time of death.
+    title: ancient body preservation state
+    examples:
+      - value: "complete artificial mummification."
+      - value: "natural partial mummification."
+      - value: "fully skeletonised."
+    in_subset:
+      - nucleic acid sequence source
+    keywords:
+      - ancient
+    slot_uri: MIXS:999999929 #Not assigned
+    multivalued: false
+    range: string
+    string_serialization: "{text}"
+    required: false
+    recommended: false
+  lib_strandedness:
+    annotations:
+      Expected_value: DNA library strandedness
+    description: >-
+      The strandedness of the original template DNA molecules used for constructing the sequencing library
+    title: DNA strandedness in library creation
+    examples:
+      - value: single
+      - value: double
+    in_subset:
+      - sequencing
+    keywords:
+      - library
+      - preparation
+    slot_uri: MIXS:999999930 #Not assigned
+    multivalued: true
+    range: LibStrand #enum value
+    required: false
+    recommended: true
+  enrichment_probe_set:
+    annotations:
+      Expected_value: Description of probe set used for target enrichment/library selection
+    description: >-
+      Description of target enrichment probe designs used (e.g., species included, sequences, type, company). This can include custom kits (please provide a general description and DOI if available) or commercially available kit (provide ID and company).
+    title: enrichment probe design description
+    examples:
+      - value: "Custom probe design (70 bp biotinylated RNA probes) covering 500 full E. Coli genomes; company TE-Science"
+      - value: "Commercial kit ABC001-EC from company TE-Science, purchased 2020"
+    in_subset:
+      - sequencing
+    keywords:
+      - library
+      - enrichment
+    slot_uri: MIXS:999999931 #Not assigned
+    multivalued: true
+    range: string
+    string_serialization: "{text}"
+    required: false
+    recommended: false
+  mid_config:
+    annotations:
+      Expected_value: Description of the indexing configuration of the library
+    description: >-
+      Index/barcode/primer configuration used during library building for sequencing. This includes information such as the number, type and location of indexes, the index/primer kit/list, or if 'inline' barcodes or UMIs were ligated directly onto the template molecules.
+    title: multiplex identifiers or indexing configuration of libraries
+    examples:
+      - value: "dual index with single internal barcode."
+      - value: "UDI index sequences."
+    in_subset:
+      - sequencing
+    keywords:
+      - library
+      - preparation
+    slot_uri: MIXS:999999932 #Not assigned
+    multivalued: true
+    range: string
+    string_serialization: "{text}"
+    required: false
+    recommended: true
+classes:
+  MixsCompliantData:
+    description:
+      A collection of data that complies with some combination of a MIxS
+      checklist and environmental extension
+    title: MIxS compliant data
+    slots:
+      - ancient_data
+    tree_root: true
+  Extension:
+    description:
+      A collection of recommended metadata terms (slots) developed by community
+      experts, describing the specific context under which a sample was collected.
+    aliases:
+      - EnvironmentalPackage
+  Ancient:
+    description: >-
+      A collection of terms appropriate when collecting samples and sequencing samples 
+      of data containing ancient DNA, i.e., degraded molecules not from living organisms.
+    comments:
+      - This extension that is intended to be used in very specific cases but almost always in conjunction with other MIxS checklists and extensions.
+        It does not therefore (currently) include additional common terms from checklists.
+    title: ancient
+    is_a: Extension
+    slots:
+      - collection_context_name
+      - cultural_era
+      - damage_treatment
+      - dna_extraction_date
+      - ethical_authority
+      - ethical_date
+      - ethical_id
+      - experimental_procedures
+      - lib_concentration
+      - lib_index_polymerase
+      - lib_preparation_protocol
+      - lib_reamplification_polymerase
+      - lib_type
+      - neg_cont_status
+      - num_capture_amp_cycles
+      - num_reamp_cycles
+      - preservational_treatment
+      - prev_pubs
+      - recovery_date
+      - samp_decontam_pretreat
+      - samp_age_range_youngest_limit
+      - samp_age_range_youngest_unit
+      - samp_age_range_oldest_limit
+      - samp_age_range_oldest_unit
+      - samp_age_range_inference_methods
+      - samp_age_range_inference_description
+      - samp_alt_lab_ids
+      - storage_conditions
+      - palaeopath_status
+      - biocultural_label
+      - ethics_perm_scope
+      - host_body_preservation_state
+      - lib_strandedness
+      - enrichment_probe_set
+      - mid_config
+    slot_usage:
+      samp_age_range_youngest_limit:
+        recommended: true
+      samp_age_range_oldest_limit:
+        recommended: true
+    class_uri: MIXS:9999903
+    annotations:
+      use_cases: ancient dna samples
+settings:
+  country: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  parameters: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  region: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  room_name: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  software: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  specific_location: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  storage_condition_type: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  termLabel: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  unit: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
