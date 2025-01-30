@@ -39,7 +39,7 @@
   "GRDI": {
     "folder": "grdi",
     "id": "https://example.com/GRDI",
-    "version": "13.4.4",
+    "version": "14.5.5",
     "templates": {
       "GRDI": {
         "name": "GRDI",
