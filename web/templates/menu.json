@@ -2,7 +2,7 @@
   "CanCOGeN_Covid-19": {
     "folder": "canada_covid19",
     "id": "https://example.com/CanCOGeN_Covid-19",
-    "version": "2.4.1",
+    "version": "3.0.0",
     "templates": {
       "CanCOGeNCovid19": {
         "name": "CanCOGeNCovid19",
