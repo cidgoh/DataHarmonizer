@@ -106,7 +106,7 @@ The instructions for adding a **full schema** to this repo's DataHarmonizer inst
   - Run `yarn build:web` to generate a standalone file (Stored in `/web/dist`)
 - Remove the old docs directory at the root of the repository, the cp new static to replace it to allow rendering on GitHub pages
   - `rm -r docs/`
-  - `cp -r web/dist/ docs/` 
+  - `cp -r web/dist/ docs/`
 
 This viewing interface should be updated on each MInAS release.
 
