@@ -111,22 +111,22 @@
   "Wastewater": {
     "folder": "wastewater",
     "id": "https://example.com/GRDI",
-    "version": "4.1.1",
+    "version": "4.2.2",
     "templates": {
       "WastewaterSARS-CoV-2": {
         "name": "WastewaterSARS-CoV-2",
         "display": true,
-        "version": "3.1.1"
+        "version": "4.2.2"
       },
       "WastewaterAMR": {
         "name": "WastewaterAMR",
         "display": true,
-        "version": "3.1.1"
+        "version": "4.2.2"
       },
       "WastewaterPathogenAgnostic": {
         "name": "WastewaterPathogenAgnostic",
         "display": true,
-        "version": "3.1.1"
+        "version": "4.2.2"
       }
     }
   },
