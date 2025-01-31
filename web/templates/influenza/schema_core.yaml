@@ -1,7 +1,7 @@
 id: https://example.com/Influenza
 name: "Influenza"
 description: "Draft template for harmonizing human influenza virus genomic surveillance contextual data."
-version: 1.0.1
+version: 1.0.2
 imports:
   - 'linkml:types'
 prefixes:

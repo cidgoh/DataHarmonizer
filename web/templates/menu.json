@@ -61,7 +61,7 @@
   "AMBR": {
     "folder": "ambr",
     "id": "https://example.com/AMBR",
-    "version": "2.3.1",
+    "version": "2.3.2",
     "templates": {
       "AMBR": {
         "name": "AMBR",
@@ -83,7 +83,7 @@
   "Influenza": {
     "folder": "influenza",
     "id": "https://example.com/Influenza",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "templates": {
       "Influenza": {
         "name": "Influenza",
