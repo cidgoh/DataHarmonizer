@@ -32,6 +32,55 @@
 # DataHarmonizer can load the complete schema.json file directly via
 # "load template" option.  However access to multilingual functionality will
 # require adding the complete schema into the schema bundle and menu.js file.
+#
+# Detecting OCA data types via regular expression Numeric, Text, 
+#
+# Numeric:
+# integer or decimal number, may begin with + or -	/^[-+]?\d*\.?\d+$/gm
+# integer		/^-?[0-9]+$/gm
+# 
+# Textual:
+# Entries of any length with only capital letters		^[A-Z]*$
+# Capital or lower case letters only, at least 1 character, and 50 characters max		^[A-Za-z]{1,50}$
+# Capital or lower case letters only, 50 characters max		^[A-Za-z]{0,50}$
+# Short text, 50 characters max		^.{0,50}$
+# Short text, 250 characters max		^.{0,250}$
+# long text, 800 characters max		^.{0,800}$
+# long text, 4000 characters max		^.{0,4000}$
+# Canadian postal codes (A1A 1A1)		^[A-Z][0-9][A-Z]\s[0-9][A-Z][0-9]$
+# Zip code		^\d{5,6}(?:[-\s]\d{4})?$
+# Email address		[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+
+# URL	https?\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}
+# Phone number		\+?\(?\d{2,4}\)?[\d\s-]{3,}
+# Latitude in formats S30°15'45.678" or N12°30.999"		^[NS]-?(?:[0-8]?\d|90)°(?:\d+(?:\.\d+)?)(?:'(\d+(?:\.\d+)?)")?$
+# Longitude in formats E30°15'45.678" or W90°00.000"		^[WE]-?(?:[0-8]?\d|90)°(?:\d+(?:\.\d+)?)(?:'(\d+(?:\.\d+)?)")?$
+#
+# Date
+#
+# ISO: YYYY-MM-DD: year month day	^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$
+# ISO: YYYYMMDD: year month day	^(\d{4})(0[1-9]|1[0-2])(0[1-9]|[1-2]\d|3[0-1])$
+# ISO: YYYY-MM: year month	^(\d{4})-(0[1-9]|1[0-2])$
+# ISO: YYYY-Www: year week (e.g. W01)	^(?:\d{4})-W(0[1-9]|[1-4][0-9]|5[0-3])$
+# ISO: YYYYWww: year week (e.g. W01)	^(?:\d{4})W(0[1-9]|[1-4][0-9]|5[0-3])$
+# ISO: YYYY-DDD: Ordinal date (day number from the year)	^(?:\d{4})-(00[1-9]|0[1-9][0-9]|[1-2][0-9]{2}|3[0-5][0-9]|36[0-6])$
+# ISO: YYYYDDD: Ordinal date (day number from the year)	^(?:\d{4})(00[1-9]|0[1-9][0-9]|[1-2][0-9]{2}|3[0-5][0-9]|36[0-6])$
+# ISO: YYYY: year	^(\d{4})$
+# ISO: MM: month	^(0[1-9]|1[0-2])$
+# ISO: DD: day	^(0[1-9]|[1-2][0-9]|3[01])$
+# ISO: YYYY-MM-DDTHH:MM:SSZ: Date and Time Combined (UTC)	^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])T([01]\d|2[0-3]):([0-5]\d):([0-5]\d)Z$
+# ISO: YYYY-MM-DDTHH:MM:SS±hh:mm: Date and Time Combined (with Timezone Offset)	^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])T([01]\d|2[0-3]):([0-5]\d):([0-5]\\d)([+-][01]\\d:[0-5]\d)$
+# ISO: PnYnMnDTnHnMnS :durations e.g. P3Y6M4DT12H30M5S	^P(?!$)((\d+Y)|(\d+.\d+Y)$)?((\d+M)|(\d+.\d+M)$)?((\d+W)|(\d+.\d+W)$)?((\d+D)|(\d+.\d+D)$)?(T(?=\d)((\d+H)|(\d+.\d+H)$)?((\d+M)|(\d+.\d+M)$)?(\d+(.\d+S)?)?)?$
+# ISO: HH:MM: hour, minutes in 24 hour notation	^([01]\d|2[0-3]):([0-5]\d)$
+# ISO: HH:MM:SS: hour, minutes, seconds in 24 hour notation	^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$
+# DD/MM/YYYY: day, month, year	^(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/\d{4}$
+# DD/MM/YY: day, month, year	^(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/\d{2}$
+# MM/DD/YYYY: month, day, year	^(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])/\d{4}$
+# DDMMYYYY: day, month, year	^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])\d{4}$
+# MMDDYYYY: month, day, year	^(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{4}$
+# YYYYMMDD: year, month, day	^(\d{4})(0[1-9]|1[0-2])(0[1-9]|[1-2]\d|3[0-1])$
+# HH:MM:SS: hour, minutes, seconds 12 hour notation AM/PM	^(0?[1-9]|1[0-2]):[0-5][0-9]:[0-5][0-9] ?[APMapm]{2}$
+# H:MM or HH:MM: hour, minutes AM/PM	^(0?[1-9]|1[0-2]):[0-5][0-9] ?[APMapm]{2}$
+
 
 import json
 import optparse
