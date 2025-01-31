@@ -498,8 +498,14 @@ def write_schema(schema):
 			new_obj = schema_view.induced_class(name);
 			schema_view.add_class(new_obj);
 
+	# SchemaView() is coercing "in_language" into a string when it is an array
+	# of i18n languages as per official LinkML spec.  We're bending the rules
+	# slightly.  Put it back into an array.
+	if 'in_language' in SCHEMA:
+		schema_view.schema['in_language'] = SCHEMA['in_language'];
+
 	# Output the amalgamated content:
-	JSONDumper().dump(schema_view.schema, w_filename_base + '.json')
+	JSONDumper().dump(schema_view.schema, w_filename_base + '.json');
 	
 	return schema_view;
 
@@ -530,18 +536,9 @@ def write_locales(locale_schemas):
 
 
 # ********* Adjust the menu to include this schema and its classes ******
-# Creating a JSON file structure which can be loaded directly into DH:
-#
-# {
-#   "MIxS": {
-#     "soil": {
-#       "name": 'soil', 
-#       "status": "published"
-#     },
-#     ... etc
-#   }
-# }
-def write_menu(menu_path, schema_folder, schema_spec):
+def write_menu(menu_path, schema_folder, schema_view):
+
+	schema_name = schema_view.schema['name'];
 
 	# Work with existing MENU menu.js, or start new one.
 	if os.path.isfile(menu_path):
@@ -550,27 +547,41 @@ def write_menu(menu_path, schema_folder, schema_spec):
 	else:
 	    menu = {};
 
-	# Overwrite this folder's menu content
-	menu[schema_folder] = {};
+	# Reset this folder's menu content
+	menu[schema_name] = {
+		"folder": schema_folder,
+		"id": schema_view.schema['id'],
+		"version": schema_view.schema['version'],
+		"templates":{}
+	};
+
+	print(schema_view.schema and schema_view.schema['in_language'])
+
+	if 'in_language' in schema_view.schema and schema_view.schema['in_language'] != None:
+		menu[schema_name]['locales'] = schema_view.schema['in_language'];
 
 	class_menu = {};
 
 	# Get all top level classes
-	for name, class_obj in schema_spec.all_classes().items():
+	for class_name, class_obj in schema_view.all_classes().items():
 
-    # Presence of "slots" in class indicates field hierarchy
-		if schema_spec.class_slots(name):
-			class_menu[name] = class_obj;
+    	# Presence of "slots" in class indicates field hierarchy
+		if schema_view.class_slots(class_name):
+			class_menu[class_name] = class_obj;
 
-	for name, class_obj in class_menu.items():
+	# Now cycle through each template:
+	for class_name, class_obj in class_menu.items():
 
-		menu[schema_folder][name] = {
-			"name": name,
-			"status": "published",
+		menu[schema_name]['templates'][class_name] = {
+			"name": class_name,
 			"display": 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface'
 		};
 
-		print("Updated menu for", schema_folder+'/', name);
+		annotations = schema_view.annotation_dict(class_name);
+		if 'version' in annotations:
+			menu[schema_name]['templates'][class_name]['version'] = annotations['version'];
+
+		print("Updated menu for", schema_name+'/' + class_name);
 
 	# Update or create whole menu
 	with open(menu_path, "w") as output_handle:
@@ -620,4 +631,3 @@ write_locales(locale_schemas);
 # Adjust menu.json to include or update entries for given schema's template(s)
 if options.menu:
 	write_menu('../menu.json', os.path.basename(os.getcwd()), schema_view);
-

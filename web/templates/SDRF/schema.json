@@ -2,7 +2,7 @@
   "name": "SDRF",
   "description": "A description of the schema containing one or more templates.",
   "in_language": "['en']",
-  "id": "https://example.com/CanCOGeN_Covid-19",
+  "id": "https://example.com/SDRF",
   "version": "1.0.0",
   "prefixes": {
     "linkml": {

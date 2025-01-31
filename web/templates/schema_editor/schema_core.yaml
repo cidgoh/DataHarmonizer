@@ -1,0 +1,124 @@
+id: https://example.com/DH_LinkML
+name: DH_LinkML
+description: "The DataHarmonizer template for editing a schema."
+version: 1.0.0
+in_language: 
+- 'en'
+imports:
+- 'linkml:types'
+prefixes:
+  linkml: 'https://w3id.org/linkml/'
+  ONTOLOGY1: 'http://purl.obolibrary.org/obo/ONTOLOGY1_'
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/GRDI
+    
+  Schema:
+    name: Schema
+    description: The top-level description of a LinkML schema.  A schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
+    see_also: templates/schema_editor/SOP.pdf
+    is_a: dh_interface
+  
+  Prefix:
+    name: Prefix
+    description: A prefix used in the URIs mentioned in this schema.
+
+  Slot:
+    name: Slot
+    description: One or more slots contained in given schema. A slot can be used in one or more classes (templates).  A slot defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
+    unique_keys:
+      main:
+        description: A slot is uniquely identified by the schema it appears in as well as its name
+        unique_key_slots:
+          - schema_id
+          - name
+
+  Enum:
+    name: Enum
+    description: One or more enumerations in given schema.  An enumeration can be used in the "range" or "any of" attribute of a slot.  Each enumeration has a flat list or hierarchy of permitted values.
+    unique_keys:
+      main:
+        description: An enumeration is uniquely identified by the schema it appears in as well as its name.
+        unique_key_slots:
+          - schema_id
+          - name
+
+  PermissibleValue:
+    name: PermissibleValue
+    description: An enumeration picklist value.
+
+  Class:
+    name: Class
+    description: A class contained in given schema.  A class may be a top-level DataHarmonizer "template" that can be displayed in a spreadsheet tab, or it may be a subordinate 1-many class linked to a parent class by a primary key field.  
+    unique_keys:
+      main:
+        description: A class is uniquely identified by the schema it appears in as well as its name.
+        unique_key_slots:
+          - schema_id
+          - name
+
+  SlotUsage:
+    name: SlotUsage
+    description: A table linking slots to classes they appear in, as well as attributes which override the generic slot inheritance.
+
+  UniqueKey:
+    name: UniqueKey
+    description: A table linking the name of each multi-component(slot) key to the schema class it appears in.
+
+  Container:
+      tree_root: true
+      attributes:
+        Schemas:
+          range: Schema
+          multivalued: true
+          inlined_as_list: true
+        Prefixes:
+          range: Prefix
+          multivalued: true
+          inlined_as_list: true
+        Slots:
+          range: Slot
+          multivalued: true
+          inlined_as_list: true
+        Enums:
+          range: Enum
+          multivalued: true
+          inlined_as_list: true
+        PermissibleValues:
+          range: PermissibleValue
+          multivalued: true
+          inlined_as_list: true
+        Classes:
+          range: Class
+          multivalued: true
+          inlined_as_list: true
+        SlotUsages:
+          range: SlotUsage
+          multivalued: true
+          inlined_as_list: true
+        UniqueKeys:
+          range: UniqueKey
+          multivalued: true
+          inlined_as_list: true        
+
+slots: {}
+enums: {}
+types:
+  WhitespaceMinimizedString:
+    name: 'WhitespaceMinimizedString'
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: 'Provenance'
+    typeof: string
+    description: 'A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.'
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+  UPPER_CASE: "[A-Z\\W\\d_]*"
+  lower_case: "[a-z\\W\\d_]*"

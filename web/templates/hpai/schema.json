@@ -1,5 +1,5 @@
 {
-  "name": "Mpox",
+  "name": "HPAI",
   "description": "The HPAI specification was developed by the Public Health Alliance for Genomic Epidemiology (PHA4GE) to better enable harmonization of highly pathogenic avian influenza genomic surveillance contextual data. The specification is intended to support H5N1 monitoring, and provides standardized, ontology-based fields and terms for samples, sequences, and bioinformatics analysis.",
   "id": "https://example.com/hpai",
   "version": "4.3.3",

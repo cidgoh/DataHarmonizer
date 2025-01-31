@@ -311,8 +311,6 @@ export default {
         'GRDI'
       );
 
-      console.log(dataRow, ruleSourceFieldNames, RuleDB, sourceFields,sourceFieldNameMap); 
-
       // So all rule field values can be referenced in lower case.
       for (let sourceField of Object.keys(RuleDB)) {
         if (RuleDB[sourceField])

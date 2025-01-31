@@ -2,7 +2,7 @@ title	name	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	description	EXPORT_GISAID	
 													
 umbrella bioproject accession menu	UmbrellaBioprojectAccessionMenu												
 													
-null value menu		GENEPIO:0001619	Not Applicable										
+null value menu	NullValueMenu	GENEPIO:0001619	Not Applicable										
 		GENEPIO:0001618	Missing										
 		GENEPIO:0001620	Not Collected										
 		GENEPIO:0001668	Not Provided										
@@ -60,8 +60,8 @@ Related specimen relationship type menu	RelatedSpecimenRelationshipTypeMenu	HP:0
 			Sequencing/bioinformatics methods development/validation 										
 			Specimen sampling methods testing										
 													
-presampling activity menu	PresamplingActivityMenu	Post-infection convalescence											
-		Vaccination											
+presampling activity menu	PresamplingActivityMenu		Post-infection convalescence										
+			Vaccination										
 													
 													
 													

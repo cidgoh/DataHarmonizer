@@ -2,7 +2,7 @@
   "name": "AMBR",
   "description": "",
   "id": "https://example.com/AMBR",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",

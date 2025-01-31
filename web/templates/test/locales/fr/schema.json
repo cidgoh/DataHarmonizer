@@ -1,0 +1,4712 @@
+{
+  "name": "TEST",
+  "in_language": "fr",
+  "description": "french_description",
+  "id": "https://example.com/TEST",
+  "version": "2.3.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+      },
+    "GENEPIO": {
+      "prefix_prefix": "GENEPIO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GENEPIO_"
+      },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+      },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+      },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+      }
+    },
+  "default_prefix": "https://example.com/TEST/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "null value menu": {
+      "name": "menu de valeurs nulles",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Not Applicable": {
+          "text": "Non applicable",
+          "meaning": "GENEPIO:0001619"
+                },
+        "Not Collected": {
+          "text": "Non collecté",
+          "meaning": "GENEPIO:0001620"
+                },
+        "Not Provided": {
+          "text": "Non fourni",
+          "meaning": "GENEPIO:0001668"
+                },
+        "Missing": {
+          "text": "Manquant",
+          "meaning": "GENEPIO:0001618"
+                },
+        "Restricted Access": {
+          "text": "Accès restreint",
+          "meaning": "GENEPIO:0001810"
+                }
+            }
+        },
+    "geo_loc_name (country) menu": {
+      "name": "menu geo_loc_name (pays)",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Afghanistan": {
+          "text": "Afghanistan",
+          "meaning": "GAZ:00006882"
+                },
+        "Albania": {
+          "text": "Albanie",
+          "meaning": "GAZ:00002953"
+                },
+        "Algeria": {
+          "text": "Algérie",
+          "meaning": "GAZ:00000563"
+                },
+        "American Samoa": {
+          "text": "Samoa américaines",
+          "meaning": "GAZ:00003957"
+                },
+        "Andorra": {
+          "text": "Andorre",
+          "meaning": "GAZ:00002948"
+                },
+        "Angola": {
+          "text": "Angola",
+          "meaning": "GAZ:00001095"
+                },
+        "Anguilla": {
+          "text": "Anguilla",
+          "meaning": "GAZ:00009159"
+                },
+        "Antarctica": {
+          "text": "Antarctique",
+          "meaning": "GAZ:00000462"
+                },
+        "Antigua and Barbuda": {
+          "text": "Antigua-et-Barbuda",
+          "meaning": "GAZ:00006883"
+                },
+        "Argentina": {
+          "text": "Argentine",
+          "meaning": "GAZ:00002928"
+                },
+        "Armenia": {
+          "text": "Arménie",
+          "meaning": "GAZ:00004094"
+                },
+        "Aruba": {
+          "text": "Aruba",
+          "meaning": "GAZ:00004025"
+                },
+        "Ashmore and Cartier Islands": {
+          "text": "Îles Ashmore et Cartier",
+          "meaning": "GAZ:00005901"
+                },
+        "Australia": {
+          "text": "Australie",
+          "meaning": "GAZ:00000463"
+                },
+        "Austria": {
+          "text": "Autriche",
+          "meaning": "GAZ:00002942"
+                },
+        "Azerbaijan": {
+          "text": "Azerbaïdjan",
+          "meaning": "GAZ:00004941"
+                },
+        "Bahamas": {
+          "text": "Bahamas",
+          "meaning": "GAZ:00002733"
+                },
+        "Bahrain": {
+          "text": "Bahreïn",
+          "meaning": "GAZ:00005281"
+                },
+        "Baker Island": {
+          "text": "Île Boulanger",
+          "meaning": "GAZ:00007117"
+                },
+        "Bangladesh": {
+          "text": "Bangladesh",
+          "meaning": "GAZ:00003750"
+                },
+        "Barbados": {
+          "text": "Barbade",
+          "meaning": "GAZ:00001251"
+                },
+        "Bassas da India": {
+          "text": "Bassas da India",
+          "meaning": "GAZ:00005810"
+                },
+        "Belarus": {
+          "text": "Biélorussie",
+          "meaning": "GAZ:00006886"
+                },
+        "Belgium": {
+          "text": "Belgique",
+          "meaning": "GAZ:00002938"
+                },
+        "Belize": {
+          "text": "Belize",
+          "meaning": "GAZ:00002934"
+                },
+        "Benin": {
+          "text": "Bénin",
+          "meaning": "GAZ:00000904"
+                },
+        "Bermuda": {
+          "text": "Bermudes",
+          "meaning": "GAZ:00001264"
+                },
+        "Bhutan": {
+          "text": "Bhoutan",
+          "meaning": "GAZ:00003920"
+                },
+        "Bolivia": {
+          "text": "Bolivie",
+          "meaning": "GAZ:00002511"
+                },
+        "Borneo": {
+          "text": "Bornéo",
+          "meaning": "GAZ:00025355"
+                },
+        "Bosnia and Herzegovina": {
+          "text": "Bosnie-Herzégovine",
+          "meaning": "GAZ:00006887"
+                },
+        "Botswana": {
+          "text": "Botswana",
+          "meaning": "GAZ:00001097"
+                },
+        "Bouvet Island": {
+          "text": "Île Bouvet",
+          "meaning": "GAZ:00001453"
+                },
+        "Brazil": {
+          "text": "Brésil",
+          "meaning": "GAZ:00002828"
+                },
+        "British Virgin Islands": {
+          "text": "Îles Vierges britanniques",
+          "meaning": "GAZ:00003961"
+                },
+        "Brunei": {
+          "text": "Brunéi",
+          "meaning": "GAZ:00003901"
+                },
+        "Bulgaria": {
+          "text": "Bulgarie",
+          "meaning": "GAZ:00002950"
+                },
+        "Burkina Faso": {
+          "text": "Burkina Faso",
+          "meaning": "GAZ:00000905"
+                },
+        "Burundi": {
+          "text": "Burundi",
+          "meaning": "GAZ:00001090"
+                },
+        "Cambodia": {
+          "text": "Cambodge",
+          "meaning": "GAZ:00006888"
+                },
+        "Cameroon": {
+          "text": "Cameroun",
+          "meaning": "GAZ:00001093"
+                },
+        "Canada": {
+          "text": "Canada",
+          "meaning": "GAZ:00002560"
+                },
+        "Cape Verde": {
+          "text": "Cap-Vert",
+          "meaning": "GAZ:00001227"
+                },
+        "Cayman Islands": {
+          "text": "Îles Caïmans",
+          "meaning": "GAZ:00003986"
+                },
+        "Central African Republic": {
+          "text": "République Centrafricaine",
+          "meaning": "GAZ:00001089"
+                },
+        "Chad": {
+          "text": "Tchad",
+          "meaning": "GAZ:00000586"
+                },
+        "Chile": {
+          "text": "Chili",
+          "meaning": "GAZ:00002825"
+                },
+        "China": {
+          "text": "Chine",
+          "meaning": "GAZ:00002845"
+                },
+        "Christmas Island": {
+          "text": "Île Noël",
+          "meaning": "GAZ:00005915"
+                },
+        "Clipperton Island": {
+          "text": "Île Clipperton",
+          "meaning": "GAZ:00005838"
+                },
+        "Cocos Islands": {
+          "text": "Îles Cocos",
+          "meaning": "GAZ:00009721"
+                },
+        "Colombia": {
+          "text": "Colombie",
+          "meaning": "GAZ:00002929"
+                },
+        "Comoros": {
+          "text": "Comores",
+          "meaning": "GAZ:00005820"
+                },
+        "Cook Islands": {
+          "text": "Îles Cook",
+          "meaning": "GAZ:00053798"
+                },
+        "Coral Sea Islands": {
+          "text": "Îles de la mer de Corail",
+          "meaning": "GAZ:00005917"
+                },
+        "Costa Rica": {
+          "text": "Costa Rica",
+          "meaning": "GAZ:00002901"
+                },
+        "Cote d'Ivoire": {
+          "text": "Côte d'Ivoire",
+          "meaning": "GAZ:00000906"
+                },
+        "Croatia": {
+          "text": "Croatie",
+          "meaning": "GAZ:00002719"
+                },
+        "Cuba": {
+          "text": "Cuba",
+          "meaning": "GAZ:00003762"
+                },
+        "Curacao": {
+          "text": "Curaçao",
+          "meaning": "GAZ:00012582"
+                },
+        "Cyprus": {
+          "text": "Chypre",
+          "meaning": "GAZ:00004006"
+                },
+        "Czech Republic": {
+          "text": "République tchèque",
+          "meaning": "GAZ:00002954"
+                },
+        "Democratic Republic of the Congo": {
+          "text": "République démocratique du Congo",
+          "meaning": "GAZ:00001086"
+                },
+        "Denmark": {
+          "text": "Danemark",
+          "meaning": "GAZ:00005852"
+                },
+        "Djibouti": {
+          "text": "Djibouti",
+          "meaning": "GAZ:00000582"
+                },
+        "Dominica": {
+          "text": "Dominique",
+          "meaning": "GAZ:00006890"
+                },
+        "Dominican Republic": {
+          "text": "République Dominicaine",
+          "meaning": "GAZ:00003952"
+                },
+        "Ecuador": {
+          "text": "Équateur",
+          "meaning": "GAZ:00002912"
+                },
+        "Egypt": {
+          "text": "Egypte",
+          "meaning": "GAZ:00003934"
+                },
+        "El Salvador": {
+          "text": "El Salvador",
+          "meaning": "GAZ:00002935"
+                },
+        "Equatorial Guinea": {
+          "text": "Guinée équatoriale",
+          "meaning": "GAZ:00001091"
+                },
+        "Eritrea": {
+          "text": "Érythrée",
+          "meaning": "GAZ:00000581"
+                },
+        "Estonia": {
+          "text": "Estonie",
+          "meaning": "GAZ:00002959"
+                },
+        "Eswatini": {
+          "text": "Eswatini",
+          "meaning": "GAZ:00001099"
+                },
+        "Ethiopia": {
+          "text": "Éthiopie",
+          "meaning": "GAZ:00000567"
+                },
+        "Europa Island": {
+          "text": "L'Île d'Europe",
+          "meaning": "GAZ:00005811"
+                },
+        "Falkland Islands (Islas Malvinas)": {
+          "text": "Îles Falkland (Islas Malvinas)",
+          "meaning": "GAZ:00001412"
+                },
+        "Faroe Islands": {
+          "text": "Îles Féroé",
+          "meaning": "GAZ:00059206"
+                },
+        "Fiji": {
+          "text": "Fidji",
+          "meaning": "GAZ:00006891"
+                },
+        "Finland": {
+          "text": "Finlande",
+          "meaning": "GAZ:00002937"
+                },
+        "France": {
+          "text": "France",
+          "meaning": "GAZ:00003940"
+                },
+        "French Guiana": {
+          "text": "Guyane française",
+          "meaning": "GAZ:00002516"
+                },
+        "French Polynesia": {
+          "text": "Polynésie française",
+          "meaning": "GAZ:00002918"
+                },
+        "French Southern and Antarctic Lands": {
+          "text": "Terres australes et antarctiques françaises",
+          "meaning": "GAZ:00003753"
+                },
+        "Gabon": {
+          "text": "Gabon",
+          "meaning": "GAZ:00001092"
+                },
+        "Gambia": {
+          "text": "Gambie",
+          "meaning": "GAZ:00000907"
+                },
+        "Gaza Strip": {
+          "text": "Bande de Gaza",
+          "meaning": "GAZ:00009571"
+                },
+        "Georgia": {
+          "text": "Géorgie",
+          "meaning": "GAZ:00004942"
+                },
+        "Germany": {
+          "text": "Allemagne",
+          "meaning": "GAZ:00002646"
+                },
+        "Ghana": {
+          "text": "Ghana",
+          "meaning": "GAZ:00000908"
+                },
+        "Gibraltar": {
+          "text": "Gibraltar",
+          "meaning": "GAZ:00003987"
+                },
+        "Glorioso Islands": {
+          "text": "Îles Glorieuses",
+          "meaning": "GAZ:00005808"
+                },
+        "Greece": {
+          "text": "Grèce",
+          "meaning": "GAZ:00002945"
+                },
+        "Greenland": {
+          "text": "Groenland",
+          "meaning": "GAZ:00001507"
+                },
+        "Grenada": {
+          "text": "Grenade",
+          "meaning": "GAZ:02000573"
+                },
+        "Guadeloupe": {
+          "text": "Guadeloupe",
+          "meaning": "GAZ:00067142"
+                },
+        "Guam": {
+          "text": "Guam",
+          "meaning": "GAZ:00003706"
+                },
+        "Guatemala": {
+          "text": "Guatemala",
+          "meaning": "GAZ:00002936"
+                },
+        "Guernsey": {
+          "text": "Guernesey",
+          "meaning": "GAZ:00001550"
+                },
+        "Guinea": {
+          "text": "Guinée",
+          "meaning": "GAZ:00000909"
+                },
+        "Guinea-Bissau": {
+          "text": "Guinée-Bissau",
+          "meaning": "GAZ:00000910"
+                },
+        "Guyana": {
+          "text": "Guyane",
+          "meaning": "GAZ:00002522"
+                },
+        "Haiti": {
+          "text": "Haïti",
+          "meaning": "GAZ:00003953"
+                },
+        "Heard Island and McDonald Islands": {
+          "text": "Îles Heard et îles McDonald",
+          "meaning": "GAZ:00009718"
+                },
+        "Honduras": {
+          "text": "Honduras",
+          "meaning": "GAZ:00002894"
+                },
+        "Hong Kong": {
+          "text": "Hong Kong",
+          "meaning": "GAZ:00003203"
+                },
+        "Howland Island": {
+          "text": "Île Howland",
+          "meaning": "GAZ:00007120"
+                },
+        "Hungary": {
+          "text": "Hongrie",
+          "meaning": "GAZ:00002952"
+                },
+        "Iceland": {
+          "text": "Islande",
+          "meaning": "GAZ:00000843"
+                },
+        "India": {
+          "text": "Inde",
+          "meaning": "GAZ:00002839"
+                },
+        "Indonesia": {
+          "text": "Indonésie",
+          "meaning": "GAZ:00003727"
+                },
+        "Iran": {
+          "text": "Iran",
+          "meaning": "GAZ:00004474"
+                },
+        "Iraq": {
+          "text": "Irak",
+          "meaning": "GAZ:00004483"
+                },
+        "Ireland": {
+          "text": "Irlande",
+          "meaning": "GAZ:00002943"
+                },
+        "Isle of Man": {
+          "text": "Île de Man",
+          "meaning": "GAZ:00052477"
+                },
+        "Israel": {
+          "text": "Israël",
+          "meaning": "GAZ:00002476"
+                },
+        "Italy": {
+          "text": "Italie",
+          "meaning": "GAZ:00002650"
+                },
+        "Jamaica": {
+          "text": "Jamaïque",
+          "meaning": "GAZ:00003781"
+                },
+        "Jan Mayen": {
+          "text": "Jan Mayen",
+          "meaning": "GAZ:00005853"
+                },
+        "Japan": {
+          "text": "Japon",
+          "meaning": "GAZ:00002747"
+                },
+        "Jarvis Island": {
+          "text": "Île Jarvis",
+          "meaning": "GAZ:00007118"
+                },
+        "Jersey": {
+          "text": "Jersey",
+          "meaning": "GAZ:00001551"
+                },
+        "Johnston Atoll": {
+          "text": "Atoll Johnston",
+          "meaning": "GAZ:00007114"
+                },
+        "Jordan": {
+          "text": "Jordanie",
+          "meaning": "GAZ:00002473"
+                },
+        "Juan de Nova Island": {
+          "text": "Île Juan de Nova",
+          "meaning": "GAZ:00005809"
+                },
+        "Kazakhstan": {
+          "text": "Kazakhstan",
+          "meaning": "GAZ:00004999"
+                },
+        "Kenya": {
+          "text": "Kenya",
+          "meaning": "GAZ:00001101"
+                },
+        "Kerguelen Archipelago": {
+          "text": "Archipel des Kerguelen",
+          "meaning": "GAZ:00005682"
+                },
+        "Kingman Reef": {
+          "text": "Récif Kingman",
+          "meaning": "GAZ:00007116"
+                },
+        "Kiribati": {
+          "text": "Kiribati",
+          "meaning": "GAZ:00006894"
+                },
+        "Kosovo": {
+          "text": "Kosovo",
+          "meaning": "GAZ:00011337"
+                },
+        "Kuwait": {
+          "text": "Koweït",
+          "meaning": "GAZ:00005285"
+                },
+        "Kyrgyzstan": {
+          "text": "Kirghizistan",
+          "meaning": "GAZ:00006893"
+                },
+        "Laos": {
+          "text": "Laos",
+          "meaning": "GAZ:00006889"
+                },
+        "Latvia": {
+          "text": "Lettonie",
+          "meaning": "GAZ:00002958"
+                },
+        "Lebanon": {
+          "text": "Liban",
+          "meaning": "GAZ:00002478"
+                },
+        "Lesotho": {
+          "text": "Lesotho",
+          "meaning": "GAZ:00001098"
+                },
+        "Liberia": {
+          "text": "Libéria",
+          "meaning": "GAZ:00000911"
+                },
+        "Libya": {
+          "text": "Libye",
+          "meaning": "GAZ:00000566"
+                },
+        "Liechtenstein": {
+          "text": "Liechtenstein",
+          "meaning": "GAZ:00003858"
+                },
+        "Line Islands": {
+          "text": "Îles de ligne",
+          "meaning": "GAZ:00007144"
+                },
+        "Lithuania": {
+          "text": "Lituanie",
+          "meaning": "GAZ:00002960"
+                },
+        "Luxembourg": {
+          "text": "Luxembourg",
+          "meaning": "GAZ:00002947"
+                },
+        "Macau": {
+          "text": "Macao",
+          "meaning": "GAZ:00003202"
+                },
+        "Madagascar": {
+          "text": "Madagascar",
+          "meaning": "GAZ:00001108"
+                },
+        "Malawi": {
+          "text": "Malawi",
+          "meaning": "GAZ:00001105"
+                },
+        "Malaysia": {
+          "text": "Malaisie",
+          "meaning": "GAZ:00003902"
+                },
+        "Maldives": {
+          "text": "Maldives",
+          "meaning": "GAZ:00006924"
+                },
+        "Mali": {
+          "text": "Mali",
+          "meaning": "GAZ:00000584"
+                },
+        "Malta": {
+          "text": "Malte",
+          "meaning": "GAZ:00004017"
+                },
+        "Marshall Islands": {
+          "text": "Îles Marshall",
+          "meaning": "GAZ:00007161"
+                },
+        "Martinique": {
+          "text": "Martinique",
+          "meaning": "GAZ:00067143"
+                },
+        "Mauritania": {
+          "text": "Mauritanie",
+          "meaning": "GAZ:00000583"
+                },
+        "Mauritius": {
+          "text": "Maurice",
+          "meaning": "GAZ:00003745"
+                },
+        "Mayotte": {
+          "text": "Mayotte",
+          "meaning": "GAZ:00003943"
+                },
+        "Mexico": {
+          "text": "Mexique",
+          "meaning": "GAZ:00002852"
+                },
+        "Micronesia": {
+          "text": "Micronésie",
+          "meaning": "GAZ:00005862"
+                },
+        "Midway Islands": {
+          "text": "Îles Midway",
+          "meaning": "GAZ:00007112"
+                },
+        "Moldova": {
+          "text": "Moldavie",
+          "meaning": "GAZ:00003897"
+                },
+        "Monaco": {
+          "text": "Monaco",
+          "meaning": "GAZ:00003857"
+                },
+        "Mongolia": {
+          "text": "Mongolie",
+          "meaning": "GAZ:00008744"
+                },
+        "Montenegro": {
+          "text": "Monténégro",
+          "meaning": "GAZ:00006898"
+                },
+        "Montserrat": {
+          "text": "Montserrat",
+          "meaning": "GAZ:00003988"
+                },
+        "Morocco": {
+          "text": "Maroc",
+          "meaning": "GAZ:00000565"
+                },
+        "Mozambique": {
+          "text": "Mozambique",
+          "meaning": "GAZ:00001100"
+                },
+        "Myanmar": {
+          "text": "Myanmar",
+          "meaning": "GAZ:00006899"
+                },
+        "Namibia": {
+          "text": "Namibie",
+          "meaning": "GAZ:00001096"
+                },
+        "Nauru": {
+          "text": "Nauru",
+          "meaning": "GAZ:00006900"
+                },
+        "Navassa Island": {
+          "text": "Île Navasse",
+          "meaning": "GAZ:00007119"
+                },
+        "Nepal": {
+          "text": "Népal",
+          "meaning": "GAZ:00004399"
+                },
+        "Netherlands": {
+          "text": "Pays-Bas",
+          "meaning": "GAZ:00002946"
+                },
+        "New Caledonia": {
+          "text": "Nouvelle-Calédonie",
+          "meaning": "GAZ:00005206"
+                },
+        "New Zealand": {
+          "text": "Nouvelle-Zélande",
+          "meaning": "GAZ:00000469"
+                },
+        "Nicaragua": {
+          "text": "Nicaragua",
+          "meaning": "GAZ:00002978"
+                },
+        "Niger": {
+          "text": "Niger",
+          "meaning": "GAZ:00000585"
+                },
+        "Nigeria": {
+          "text": "Nigéria",
+          "meaning": "GAZ:00000912"
+                },
+        "Niue": {
+          "text": "Nioué",
+          "meaning": "GAZ:00006902"
+                },
+        "Norfolk Island": {
+          "text": "Île Norfolk",
+          "meaning": "GAZ:00005908"
+                },
+        "North Korea": {
+          "text": "Corée du Nord",
+          "meaning": "GAZ:00002801"
+                },
+        "North Macedonia": {
+          "text": "Macédoine du Nord",
+          "meaning": "GAZ:00006895"
+                },
+        "North Sea": {
+          "text": "Mer du Nord",
+          "meaning": "GAZ:00002284"
+                },
+        "Northern Mariana Islands": {
+          "text": "Îles Mariannes du Nord",
+          "meaning": "GAZ:00003958"
+                },
+        "Norway": {
+          "text": "Norvège",
+          "meaning": "GAZ:00002699"
+                },
+        "Oman": {
+          "text": "Oman",
+          "meaning": "GAZ:00005283"
+                },
+        "Pakistan": {
+          "text": "Pakistan",
+          "meaning": "GAZ:00005246"
+                },
+        "Palau": {
+          "text": "Palau",
+          "meaning": "GAZ:00006905"
+                },
+        "Panama": {
+          "text": "Panama",
+          "meaning": "GAZ:00002892"
+                },
+        "Papua New Guinea": {
+          "text": "Papouasie-Nouvelle-Guinée",
+          "meaning": "GAZ:00003922"
+                },
+        "Paracel Islands": {
+          "text": "Îles Paracels",
+          "meaning": "GAZ:00010832"
+                },
+        "Paraguay": {
+          "text": "Paraguay",
+          "meaning": "GAZ:00002933"
+                },
+        "Peru": {
+          "text": "Pérou",
+          "meaning": "GAZ:00002932"
+                },
+        "Philippines": {
+          "text": "Philippines",
+          "meaning": "GAZ:00004525"
+                },
+        "Pitcairn Islands": {
+          "text": "Îles Pitcairn",
+          "meaning": "GAZ:00005867"
+                },
+        "Poland": {
+          "text": "Pologne",
+          "meaning": "GAZ:00002939"
+                },
+        "Portugal": {
+          "text": "Portugal",
+          "meaning": "GAZ:00004126"
+                },
+        "Puerto Rico": {
+          "text": "Porto Rico",
+          "meaning": "GAZ:00006935"
+                },
+        "Qatar": {
+          "text": "Qatar",
+          "meaning": "GAZ:00005286"
+                },
+        "Republic of the Congo": {
+          "text": "République du Congo",
+          "meaning": "GAZ:00001088"
+                },
+        "Reunion": {
+          "text": "Réunion",
+          "meaning": "GAZ:00003945"
+                },
+        "Romania": {
+          "text": "Roumanie",
+          "meaning": "GAZ:00002951"
+                },
+        "Ross Sea": {
+          "text": "Mer de Ross",
+          "meaning": "GAZ:00023304"
+                },
+        "Russia": {
+          "text": "Russie",
+          "meaning": "GAZ:00002721"
+                },
+        "Rwanda": {
+          "text": "Rwanda",
+          "meaning": "GAZ:00001087"
+                },
+        "Saint Helena": {
+          "text": "Sainte-Hélène",
+          "meaning": "GAZ:00000849"
+                },
+        "Saint Kitts and Nevis": {
+          "text": "Saint Kitts et Nevis",
+          "meaning": "GAZ:00006906"
+                },
+        "Saint Lucia": {
+          "text": "Sainte Lucie",
+          "meaning": "GAZ:00006909"
+                },
+        "Saint Pierre and Miquelon": {
+          "text": "Saint Pierre et Miquelon",
+          "meaning": "GAZ:00003942"
+                },
+        "Saint Martin": {
+          "text": "Saint Martin",
+          "meaning": "GAZ:00005841"
+                },
+        "Saint Vincent and the Grenadines": {
+          "text": "Saint Vincent et les Grenadines",
+          "meaning": "GAZ:02000565"
+                },
+        "Samoa": {
+          "text": "Samoa",
+          "meaning": "GAZ:00006910"
+                },
+        "San Marino": {
+          "text": "Saint-Marin",
+          "meaning": "GAZ:00003102"
+                },
+        "Sao Tome and Principe": {
+          "text": "Sao Tomé et Principe",
+          "meaning": "GAZ:00006927"
+                },
+        "Saudi Arabia": {
+          "text": "Arabie Saoudite",
+          "meaning": "GAZ:00005279"
+                },
+        "Senegal": {
+          "text": "Sénégal",
+          "meaning": "GAZ:00000913"
+                },
+        "Serbia": {
+          "text": "Serbie",
+          "meaning": "GAZ:00002957"
+                },
+        "Seychelles": {
+          "text": "Seychelles",
+          "meaning": "GAZ:00006922"
+                },
+        "Sierra Leone": {
+          "text": "Sierra Leone",
+          "meaning": "GAZ:00000914"
+                },
+        "Singapore": {
+          "text": "Singapour",
+          "meaning": "GAZ:00003923"
+                },
+        "Sint Maarten": {
+          "text": "Saint-Martin",
+          "meaning": "GAZ:00012579"
+                },
+        "Slovakia": {
+          "text": "Slovaquie",
+          "meaning": "GAZ:00002956"
+                },
+        "Slovenia": {
+          "text": "Slovénie",
+          "meaning": "GAZ:00002955"
+                },
+        "Solomon Islands": {
+          "text": "Îles Salomon",
+          "meaning": "GAZ:00005275"
+                },
+        "Somalia": {
+          "text": "Somalie",
+          "meaning": "GAZ:00001104"
+                },
+        "South Africa": {
+          "text": "Afrique du Sud",
+          "meaning": "GAZ:00001094"
+                },
+        "South Georgia and the South Sandwich Islands": {
+          "text": "Géorgie du Sud et îles Sandwich du Sud",
+          "meaning": "GAZ:00003990"
+                },
+        "South Korea": {
+          "text": "Corée du Sud",
+          "meaning": "GAZ:00002802"
+                },
+        "South Sudan": {
+          "text": "Soudan du Sud",
+          "meaning": "GAZ:00233439"
+                },
+        "Spain": {
+          "text": "Espagne",
+          "meaning": "GAZ:00003936"
+                },
+        "Spratly Islands": {
+          "text": "Îles Spratly",
+          "meaning": "GAZ:00010831"
+                },
+        "Sri Lanka": {
+          "text": "Sri Lanka",
+          "meaning": "GAZ:00003924"
+                },
+        "State of Palestine": {
+          "text": "État de Palestine",
+          "meaning": "GAZ:00002475"
+                },
+        "Sudan": {
+          "text": "Soudan",
+          "meaning": "GAZ:00000560"
+                },
+        "Suriname": {
+          "text": "Suriname",
+          "meaning": "GAZ:00002525"
+                },
+        "Svalbard": {
+          "text": "Svalbard",
+          "meaning": "GAZ:00005396"
+                },
+        "Swaziland": {
+          "text": "Swaziland",
+          "meaning": "GAZ:00001099"
+                },
+        "Sweden": {
+          "text": "Suède",
+          "meaning": "GAZ:00002729"
+                },
+        "Switzerland": {
+          "text": "Suisse",
+          "meaning": "GAZ:00002941"
+                },
+        "Syria": {
+          "text": "Syrie",
+          "meaning": "GAZ:00002474"
+                },
+        "Taiwan": {
+          "text": "Taïwan",
+          "meaning": "GAZ:00005341"
+                },
+        "Tajikistan": {
+          "text": "Tadjikistan",
+          "meaning": "GAZ:00006912"
+                },
+        "Tanzania": {
+          "text": "Tanzanie",
+          "meaning": "GAZ:00001103"
+                },
+        "Thailand": {
+          "text": "Thaïlande",
+          "meaning": "GAZ:00003744"
+                },
+        "Timor-Leste": {
+          "text": "Timor-Leste",
+          "meaning": "GAZ:00006913"
+                },
+        "Togo": {
+          "text": "Togo",
+          "meaning": "GAZ:00000915"
+                },
+        "Tokelau": {
+          "text": "Tokélaou",
+          "meaning": "GAZ:00260188"
+                },
+        "Tonga": {
+          "text": "Tonga",
+          "meaning": "GAZ:00006916"
+                },
+        "Trinidad and Tobago": {
+          "text": "Trinité-et-Tobago",
+          "meaning": "GAZ:00003767"
+                },
+        "Tromelin Island": {
+          "text": "Île Tromelin",
+          "meaning": "GAZ:00005812"
+                },
+        "Tunisia": {
+          "text": "Tunisie",
+          "meaning": "GAZ:00000562"
+                },
+        "Turkey": {
+          "text": "Turquie",
+          "meaning": "GAZ:00000558"
+                },
+        "Turkmenistan": {
+          "text": "Turkménistan",
+          "meaning": "GAZ:00005018"
+                },
+        "Turks and Caicos Islands": {
+          "text": "Îles Turques et Caïques",
+          "meaning": "GAZ:00003955"
+                },
+        "Tuvalu": {
+          "text": "Tuvalu",
+          "meaning": "GAZ:00009715"
+                },
+        "United States of America": {
+          "text": "États-Unis d'Amérique",
+          "meaning": "GAZ:00002459"
+                },
+        "Uganda": {
+          "text": "Ouganda",
+          "meaning": "GAZ:00001102"
+                },
+        "Ukraine": {
+          "text": "Ukraine",
+          "meaning": "GAZ:00002724"
+                },
+        "United Arab Emirates": {
+          "text": "Emirats Arabes Unis",
+          "meaning": "GAZ:00005282"
+                },
+        "United Kingdom": {
+          "text": "Royaume-Uni",
+          "meaning": "GAZ:00002637"
+                },
+        "Uruguay": {
+          "text": "Uruguay",
+          "meaning": "GAZ:00002930"
+                },
+        "Uzbekistan": {
+          "text": "Ouzbékistan",
+          "meaning": "GAZ:00004979"
+                },
+        "Vanuatu": {
+          "text": "Vanuatu",
+          "meaning": "GAZ:00006918"
+                },
+        "Venezuela": {
+          "text": "Venezuela",
+          "meaning": "GAZ:00002931"
+                },
+        "Viet Nam": {
+          "text": "Viet Nam",
+          "meaning": "GAZ:00003756"
+                },
+        "Virgin Islands": {
+          "text": "Îles Vierges",
+          "meaning": "GAZ:00003959"
+                },
+        "Wake Island": {
+          "text": "L'Île de Wake",
+          "meaning": "GAZ:00007111"
+                },
+        "Wallis and Futuna": {
+          "text": "Wallis et Futuna",
+          "meaning": "GAZ:00007191"
+                },
+        "West Bank": {
+          "text": "Cisjordanie",
+          "meaning": "GAZ:00009572"
+                },
+        "Western Sahara": {
+          "text": "Sahara occidental",
+          "meaning": "GAZ:00000564"
+                },
+        "Yemen": {
+          "text": "Yémen",
+          "meaning": "GAZ:00005284"
+                },
+        "Zambia": {
+          "text": "Zambie",
+          "meaning": "GAZ:00001107"
+                },
+        "Zimbabwe": {
+          "text": "Zimbabwe",
+          "meaning": "GAZ:00001106"
+                }
+            }
+        },
+    "geo_loc_name (site) menu": {
+      "name": "menu nom_geo_loc (site)",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Banff National Park": {
+          "text": "Parc national Banff",
+          "meaning": "GAZ:00055489"
+                },
+        "Clayoquot Sound": {
+          "text": "Clayoquot Sound",
+          "meaning": "GAZ:00055538"
+                },
+        "Grassi Lakes": {
+          "text": "Lacs Grassi"
+                },
+        "Horseshoe Canyon": {
+          "text": "Horseshoe Canyon",
+          "meaning": "GAZ:00284745"
+                },
+        "Ink Pots": {
+          "text": "Pots d'encre"
+                },
+        "Lake Louise": {
+          "text": "Lac Louise",
+          "meaning": "GAZ:00084160"
+                },
+        "Sylvan Lake": {
+          "text": "Sylvan Lake",
+          "meaning": "GAZ:00084188"
+                }
+            }
+        },
+    "purpose of sampling menu": {
+      "name": "objectif du menu d'échantillonnage",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Cluster/Outbreak investigation": {
+          "text": "Enquête sur un cluster/épidémie",
+          "meaning": "GENEPIO:0100001"
+                },
+        "Diagnostic testing": {
+          "text": "Tests de diagnostic",
+          "meaning": "GENEPIO:0100002"
+                },
+        "Research": {
+          "text": "Recherche",
+          "meaning": "GENEPIO:0100003"
+                },
+        "Survey study": {
+          "text": "Enquête d'étude",
+          "meaning": "GENEPIO:0100582",
+          "is_a": "Research"
+                },
+        "Surveillance": {
+          "text": "Surveillance",
+          "meaning": "GENEPIO:0100004"
+                }
+            }
+        },
+    "anatomical material menu": {
+      "name": "menu matériel anatomique",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Skin": {
+          "text": "Peau",
+          "meaning": "UBERON:0002097"
+                },
+        "Tissue": {
+          "text": "Tissu",
+          "meaning": "UBERON:0000479"
+                },
+        "Pierced tissue": {
+          "text": "Tissu percé",
+          "is_a": "Tissue"
+                },
+        "Wound tissue (injury)": {
+          "text": "Tissu de la plaie (blessure)",
+          "meaning": "NCIT:C3671",
+          "is_a": "Tissue"
+                }
+            }
+        },
+    "anatomical part menu": {
+      "name": "menu des parties anatomiques",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Animal body or body part": {
+          "text": "Corps ou partie du corps d'un animal",
+          "meaning": "FOODON:03420127"
+                },
+        "Berry": {
+          "text": "Baie",
+          "meaning": "FOODON:00003521"
+                },
+        "Colon": {
+          "text": "Côlon",
+          "meaning": "UBERON:0001155"
+                },
+        "Ascending colon": {
+          "text": "Côlons ascendants",
+          "meaning": "UBERON:0001156",
+          "is_a": "Colon"
+                },
+        "Ear": {
+          "text": "Oreille",
+          "meaning": "UBERON:0001690"
+                },
+        "Flower": {
+          "text": "Fleur",
+          "meaning": "PO:0009046"
+                },
+        "Flower petal": {
+          "text": "Pétale de fleur",
+          "meaning": "PO:0009032",
+          "is_a": "Flower"
+                },
+        "Leaf": {
+          "text": "Feuille",
+          "meaning": "PO:0025034"
+                },
+        "Nasal cavity": {
+          "text": "Cave nasale",
+          "meaning": "UBERON:0001707"
+                },
+        "Oral cavity": {
+          "text": "Cavité buccale",
+          "meaning": "UBERON:0000167"
+                },
+        "Vagina": {
+          "text": "Vagin",
+          "meaning": "UBERON:0000996"
+                }
+            }
+        },
+    "body product menu": {
+      "name": "menu des produits corporels",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Feces": {
+          "text": "Excréments",
+          "meaning": "UBERON:0001988"
+                }
+            }
+        },
+    "environmental material menu": {
+      "name": "menu des matériaux environnementaux",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Algal film": {
+          "text": "Film d'algues",
+          "meaning": "ENVO:01001189"
+                },
+        "Bandage": {
+          "text": "Bandage"
+                },
+        "Cerebral spinal fluid (CSF) shunt": {
+          "text": "Shunt du liquide céphalo-rachidien (LCR)"
+                },
+        "Food": {
+          "text": "Nourriture",
+          "meaning": "CHEBI:33290"
+                },
+        "Gauze": {
+          "text": "Gaze"
+                },
+        "Gravel": {
+          "text": "Gravier",
+          "meaning": "ENVO:01000018"
+                },
+        "Moss": {
+          "text": "Mousse"
+                },
+        "Peat": {
+          "text": "Tourbe",
+          "meaning": "ENVO:00005774"
+                },
+        "Phone": {
+          "text": "Téléphone",
+          "meaning": "ENVO:01000581"
+                },
+        "Phone screen": {
+          "text": "Écran du téléphone",
+          "is_a": "Phone"
+                },
+        "Pipe (metal)": {
+          "text": "Tuyau (métal)"
+                },
+        "Prosthetic limb": {
+          "text": "Membre prothétique"
+                },
+        "Prosthetic hip": {
+          "text": "Prothèse de hanche",
+          "is_a": "Prosthetic limb"
+                },
+        "Rock": {
+          "text": "Rocher",
+          "meaning": "ENVO:00001995"
+                },
+        "Sand": {
+          "text": "Sable",
+          "meaning": "ENVO:01000017"
+                },
+        "Black sand": {
+          "text": "Sable noir",
+          "is_a": "Sand"
+                },
+        "Copper sand": {
+          "text": "Sable de cuivre",
+          "is_a": "Sand"
+                },
+        "Sludge": {
+          "text": "Boues",
+          "meaning": "ENVO:00002044"
+                },
+        "Soil": {
+          "text": "Sol",
+          "meaning": "ENVO:00001998"
+                },
+        "Snow": {
+          "text": "Neige",
+          "meaning": "ENVO:01000406"
+                },
+        "Water": {
+          "text": "Eau",
+          "meaning": "ENVO:00002006"
+                },
+        "Surface runoff": {
+          "text": "Ruisseau de surface",
+          "is_a": "Water"
+                },
+        "Surface water foam": {
+          "text": "Mousse d'eau de surface",
+          "meaning": "ENVO:00005738",
+          "is_a": "Water"
+                },
+        "Tap water": {
+          "text": "L'eau du robinet",
+          "is_a": "Water"
+                },
+        "Drinking water": {
+          "text": "Eau potable",
+          "meaning": "ENVO:00003064",
+          "is_a": "Tap water"
+                },
+        "Water outlet": {
+          "text": "Sortie d'eau"
+                }
+            }
+        },
+    "environmental site menu": {
+      "name": "menu environnemental du site",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Bird bath": {
+          "text": "Bain d'oiseau"
+                },
+        "Deep water area": {
+          "text": "Zone d'eau profonde"
+                },
+        "Fish tank": {
+          "text": "Aquarium"
+                },
+        "Fountain": {
+          "text": "Fontaine"
+                },
+        "Fountain pond": {
+          "text": "Étang-fontaine",
+          "is_a": "Fountain"
+                },
+        "Hoodoo": {
+          "text": "Hoodoo"
+                },
+        "Hospital": {
+          "text": "Hôpital",
+          "meaning": "ENVO:00002173"
+                },
+        "Laboratory": {
+          "text": "Laboratoire",
+          "meaning": "ENVO:01001406"
+                },
+        "Lake": {
+          "text": "Lac",
+          "meaning": "ENVO:00000020"
+                },
+        "Pond": {
+          "text": "Étang",
+          "meaning": "ENVO:00000033"
+                },
+        "Shoreline": {
+          "text": "Rivage",
+          "meaning": "ENVO:00000486"
+                },
+        "Stream": {
+          "text": "Flux",
+          "meaning": "ENVO:00000023"
+                },
+        "Tailing pond": {
+          "text": "Étang à résidus",
+          "meaning": "ENVO:03600021"
+                },
+        "Waterfall": {
+          "text": "Cascade",
+          "meaning": "ENVO:00000040"
+                }
+            }
+        },
+    "collection device menu": {
+      "name": "menu du périphérique de collecte",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Filter": {
+          "text": "Filtre",
+          "meaning": "GENEPIO:0100103"
+                },
+        "Filter cage": {
+          "text": "Cage du filtre",
+          "is_a": "Filter"
+                },
+        "Swab": {
+          "text": "écouvillon",
+          "meaning": "GENEPIO:0100027"
+                }
+            }
+        },
+    "collection method menu": {
+      "name": "menu méthode de collecte",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Biopsy": {
+          "text": "Biopsie",
+          "meaning": "OBI:0002650"
+                }
+            }
+        },
+    "specimen processing menu": {
+      "name": "menu de traitement des échantillons",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Biological replicate": {
+          "text": "Réplication biologique",
+          "meaning": "EFO:0002091"
+                }
+            }
+        },
+    "incubation temperature unit menu": {
+      "name": "menu de l'unité de température d'incubation",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Degree Celsius": {
+          "text": "Degré Celsius",
+          "meaning": "UO:0000027"
+                },
+        "Degree Farenheit": {
+          "text": "Degré Farenheit",
+          "meaning": "UO:0000195"
+                }
+            }
+        },
+    "isolation medium menu": {
+      "name": "menu du support d'isolation",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "1/10 869": {
+          "text": "1/10 869"
+                },
+        "Anaerobic agar (AA)": {
+          "text": "Gélose anaérobie (AA)"
+                },
+        "Bile esculin agar (BEA)": {
+          "text": "Gélose bile esculine (BEA)",
+          "meaning": "MICRO:0000605"
+                },
+        "Brain heart infusion (BHI)": {
+          "text": "Infusion cœur-cerveau (BHI)",
+          "meaning": "MICRO:0000566"
+                },
+        "Brain heart infusion III + Supplement Set A (BHI-A)": {
+          "text": "Infusion cerveau-cœur III + supplément Set A (BHI-A)",
+          "is_a": "Brain heart infusion (BHI)"
+                },
+        "Brain heart infusion II + Supplement Set B (BHI-B)": {
+          "text": "Infusion cerveau-cœur II + supplément Set B (BHI-B)",
+          "is_a": "Brain heart infusion (BHI)"
+                },
+        "Brain heart infusion IV + Supplement Set A & B (BHI-AB)": {
+          "text": "Infusion cerveau-cœur IV + supplément Set A & B (BHI-AB)",
+          "is_a": "Brain heart infusion (BHI)"
+                },
+        "Supplemented BHI (sBHI 2.0)": {
+          "text": "BHI complété (sBHI 2.0)",
+          "is_a": "Brain heart infusion (BHI)"
+                },
+        "Brewer’s anaerobic agar (BAA)": {
+          "text": "Gélose anaérobie de brasserie (BAA)"
+                },
+        "Brucella blood agar + 5% sheep’s blood": {
+          "text": "Gélose au sang Brucella + 5% sang de mouton",
+          "meaning": "MICRO:0000086"
+                },
+        "Chocolate blood agar": {
+          "text": "Gélose au sang et chocolat",
+          "meaning": "MICRO:0000591"
+                },
+        "Columbia blood agar + 5% sheep’s blood (CBA)": {
+          "text": "Gélose au sang Columbia + 5% sang de mouton (CBA)",
+          "meaning": "MICRO:0000535"
+                },
+        "Cooked meat medium from dehydrated meat extracts (Meat)": {
+          "text": "Milieu de viande cuite à partir d'extraits de viande déshydratés (Viande)"
+                },
+        "Cooke rose bengal agar (CRB)": {
+          "text": "Gélose Cooke au rose Bengale (CRB)"
+                },
+        "Desoxycholate (DOC)": {
+          "text": "Désoxycholate (DOC)"
+                },
+        "Fastidious anaerobic agar (FAA)": {
+          "text": "Gélose anaérobie fastidieuse (FAA)"
+                },
+        "Kligler iron agar (KIA)": {
+          "text": "Gélose au fer Kligler (KIA)",
+          "meaning": "MICRO:0001182"
+                },
+        "Lysogeny broth agar (LB)": {
+          "text": "Gélose de bouillon de lysogénie (LB)"
+                },
+        "M9 minimal medium (M9)": {
+          "text": "M9 support minimal (M9)"
+                },
+        "M9 minimal media + insulin (M9 + insulin)": {
+          "text": "M9 support minimal + insuline (M9 + insuline)",
+          "is_a": "M9 minimal medium (M9)"
+                },
+        "M9 minimal media + mucin (M9 + mucin)": {
+          "text": "M9 support minimal + mucine (M9 + mucine)",
+          "is_a": "M9 minimal medium (M9)"
+                },
+        "M9 minimal media + starch (M9 + starch)": {
+          "text": "M9 support minimal + amidon (M9 + amidon)",
+          "is_a": "M9 minimal medium (M9)"
+                },
+        "M17 minimal medium (M17)": {
+          "text": "M17 moyen minimal (M17)"
+                },
+        "MacConkey agar (MCA)": {
+          "text": "Gélose MacConkey (MCA)",
+          "meaning": "MICRO:0000558"
+                },
+        "Marine broth agar (MBA)": {
+          "text": "Gélose au bouillon marin (MBA)"
+                },
+        "Medium 10 agar (M10)": {
+          "text": "Gélose moyenne 10 (M10)"
+                },
+        "Medium DAMS5.8 simple": {
+          "text": "Moyen DAMS5.8 simple"
+                },
+        "No salt lysogeny broth agar (NSLB)": {
+          "text": "Gélose de bouillon de lysogénie sans sel (NSLB)"
+                },
+        "No salt lysogeny broth agar + 5-15% sucrose (NSLB + 5-15% sucrose)": {
+          "text": "Gélose de bouillon de lysogénie sans sel + 5-15% de saccharose (NSLB + 5-15% de saccharose)",
+          "is_a": "No salt lysogeny broth agar (NSLB)"
+                },
+        "Nutrient agar": {
+          "text": "Gélose nutritive",
+          "meaning": "MICRO:0000553"
+                },
+        "Phenylethyl alcohol agar + 5% sheep’s blood (PEA)": {
+          "text": "Gélose à l'alcool phényléthylique + 5% de sang de mouton (PEA)",
+          "meaning": "MICRO:0000622"
+                },
+        "Plate count medium (PC)": {
+          "text": "Support pour comptage de plaques (PC)",
+          "meaning": "MICRO:0000549"
+                },
+        "Pseudomonas isolation medium (PIA)": {
+          "text": "Milieu d'isolement de Pseudomonas (PIA)",
+          "meaning": "MICRO:0000550"
+                },
+        "Reasoner's 2A agar (R2A)": {
+          "text": "Gélose Reasoner 2A (R2A)",
+          "meaning": "MICRO:0000543"
+                },
+        "Reinforced Clostridial agar (RCA)": {
+          "text": "Gélose Clostridiale renforcée (RCA)"
+                },
+        "Staphylococcus isolation medium (SIA)": {
+          "text": "Milieu d'isolement de Staphylococcus (SIA)"
+                },
+        "Tryptic soy agar + Supplement A & B + yeast (TSY)": {
+          "text": "Gélose tryptique soja + Supplément A & B + levure (TSY)"
+                },
+        "Sheep’s blood (5%)": {
+          "text": "Sang de mouton (5%)"
+                },
+        "Supplement A": {
+          "text": "Supplément A"
+                },
+        "Supplement B": {
+          "text": "Supplément B"
+                },
+        "Supplement 2.0": {
+          "text": "Supplément 2.0"
+                }
+            }
+        },
+    "taxonomic identification method menu": {
+      "name": "menu de la méthode d'identification taxonomique",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Whole genome sequencing assay": {
+          "text": "Test de séquençage du génome entier",
+          "meaning": "OBI:0002117"
+                },
+        "16S ribosomal gene sequencing assay": {
+          "text": "Test de séquençage du gène ribosomal 16S",
+          "meaning": "OBI:0002763"
+                },
+        "PCR assay": {
+          "text": "Test PCR",
+          "meaning": "OBI:0002740"
+                },
+        "Comparative phenotypic assessment": {
+          "text": "Évaluation phénotypique comparative",
+          "meaning": "OBI:0001546"
+                }
+            }
+        },
+    "taxonomic identification method details menu": {
+      "name": "taxonomique imenu de détails de la méthode d'identification",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Species-level ID: >99.3% identity and unambiguous match to one type (T) sequence in a curated database": {
+          "text": "ID au niveau de l'espèce : > 99,3 % d'identité et correspondance sans ambiguïté avec une séquence de type (T) dans une base de données organisée"
+                },
+        "Genus-level ID: >99.0% identity but ambiguous match to >1 type (T) sequence in databases": {
+          "text": "ID au niveau du genre : identité > 99,0 % mais correspondance ambiguë avec > 1 séquence de type (T) dans les bases de données"
+                },
+        "Genus-level ID: >98.7% identity to a type (T) sequence AND/OR >99.0% identity with a sequence that has not been typed*": {
+          "text": "ID au niveau du genre : >98,7 % d'identité avec une séquence de type (T) ET/OU >99,0 % d'identité avec une séquence qui n'a pas été typée*"
+                },
+        "Need to do whole genome sequencing to confirm their identity": {
+          "text": "Besoin de faire un séquençage du génome entier pour confirmer leur identité"
+                }
+            }
+        },
+    "cellular respiration type menu": {
+      "name": "menu type de respiration cellulaire",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Aerobic respiration": {
+          "text": "Respiration aérobie",
+          "meaning": "GO:0009060"
+                },
+        "Anaerobic respiration": {
+          "text": "Respiration anaérobie",
+          "meaning": "GO:0009061"
+                }
+            }
+        },
+    "host (common name) menu": {
+      "name": "menu hôte (nom commun)",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Horse": {
+          "text": "Cheval",
+          "meaning": "NCBITaxon:9796"
+                },
+        "Human": {
+          "text": "Humain",
+          "meaning": "NCBITaxon:9606"
+                },
+        "Plant": {
+          "text": "Plante",
+          "meaning": "NCBITaxon:47299"
+                },
+        "Bush": {
+          "text": "Bush",
+          "is_a": "Plant"
+                },
+        "Canola plant": {
+          "text": "Plante de canola",
+          "is_a": "Plant"
+                },
+        "Gerranium plant": {
+          "text": "Plante de géranium",
+          "meaning": "NCBITaxon:4028",
+          "is_a": "Plant"
+                },
+        "Tree": {
+          "text": "Arbre",
+          "is_a": "Plant"
+                },
+        "Poplar tree": {
+          "text": "Peuplier",
+          "is_a": "Tree"
+                },
+        "Willow tree": {
+          "text": "Saule",
+          "is_a": "Tree"
+                },
+        "Snail": {
+          "text": "Escargot",
+          "meaning": "FOODON:03412114"
+                }
+            }
+        },
+    "host (scientific name) menu": {
+      "name": "menu hôte (nom scientifique)",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Equus caballus": {
+          "text": "Equus caballus"
+                },
+        "Homo sapiens": {
+          "text": "Homo sapiens"
+                }
+            }
+        },
+    "host disease menu": {
+      "name": "menu des maladies hôtes",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Colitis": {
+          "text": "Colite"
+                },
+        "Acute colitis": {
+          "text": "Colite aiguë",
+          "is_a": "Colitis"
+                },
+        "Cystic fibrosis": {
+          "text": "Mibrose kystique"
+                },
+        "Gastroenteritis": {
+          "text": "Gastroentérite"
+                },
+        "Pyelonephritis": {
+          "text": "Pyélonéphrite"
+                },
+        "Acute pyelonephritis": {
+          "text": "Pyélonéphrite aiguë",
+          "is_a": "Pyelonephritis"
+                },
+        "Urinary tract infection": {
+          "text": "Infection des voies urinaires"
+                }
+            }
+        },
+    "sequencing instrument menu": {
+      "name": "menu de l'instrument de séquençage",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "Illumina": {
+          "text": "Illumina",
+          "meaning": "GENEPIO:0100105"
+                },
+        "Illumina Genome Analyzer": {
+          "text": "Analyseur de génome Illumina",
+          "meaning": "GENEPIO:0100106",
+          "is_a": "Illumina"
+                },
+        "Illumina Genome Analyzer II": {
+          "text": "Analyseur de génome Illumina II",
+          "meaning": "GENEPIO:0100107",
+          "is_a": "Illumina Genome Analyzer"
+                },
+        "Illumina Genome Analyzer IIx": {
+          "text": "Analyseur de génome Illumina IIx",
+          "meaning": "GENEPIO:0100108",
+          "is_a": "Illumina Genome Analyzer"
+                },
+        "Illumina HiScanSQ": {
+          "text": "Illumina HiScanSQ",
+          "meaning": "GENEPIO:0100109",
+          "is_a": "Illumina"
+                },
+        "Illumina HiSeq": {
+          "text": "Illumina HiSeq",
+          "meaning": "GENEPIO:0100110",
+          "is_a": "Illumina"
+                },
+        "Illumina HiSeq X": {
+          "text": "Illumina HiSeq X",
+          "meaning": "GENEPIO:0100111",
+          "is_a": "Illumina HiSeq"
+                },
+        "Illumina HiSeq X Five": {
+          "text": "Illumina HiSeqX Cinq",
+          "meaning": "GENEPIO:0100112",
+          "is_a": "Illumina HiSeq X"
+                },
+        "Illumina HiSeq X Ten": {
+          "text": "Illumina HiSeq X Ten",
+          "meaning": "GENEPIO:0100113",
+          "is_a": "Illumina HiSeq X"
+                },
+        "Illumina HiSeq 1000": {
+          "text": "Illumina HiSeq 1000",
+          "meaning": "GENEPIO:0100114",
+          "is_a": "Illumina HiSeq"
+                },
+        "Illumina HiSeq 1500": {
+          "text": "Illumina HiSeq 1500",
+          "meaning": "GENEPIO:0100115",
+          "is_a": "Illumina HiSeq"
+                },
+        "Illumina HiSeq 2000": {
+          "text": "Illumina HiSeq 2000",
+          "meaning": "GENEPIO:0100116",
+          "is_a": "Illumina HiSeq"
+                },
+        "Illumina HiSeq 2500": {
+          "text": "Illumina HiSeq 2500",
+          "meaning": "GENEPIO:0100117",
+          "is_a": "Illumina HiSeq"
+                },
+        "Illumina HiSeq 3000": {
+          "text": "Illumina HiSeq 3000",
+          "meaning": "GENEPIO:0100118",
+          "is_a": "Illumina HiSeq"
+                },
+        "Illumina HiSeq 4000": {
+          "text": "Illumina HiSeq 4000",
+          "meaning": "GENEPIO:0100119",
+          "is_a": "Illumina HiSeq"
+                },
+        "Illumina iSeq": {
+          "text": "Illumina iSeq",
+          "meaning": "GENEPIO:0100120",
+          "is_a": "Illumina"
+                },
+        "Illumina iSeq 100": {
+          "text": "Illumina iSeq 100",
+          "meaning": "GENEPIO:0100121",
+          "is_a": "Illumina iSeq"
+                },
+        "Illumina NovaSeq": {
+          "text": "Illumina NovaSeq",
+          "meaning": "GENEPIO:0100122",
+          "is_a": "Illumina"
+                },
+        "Illumina NovaSeq 6000": {
+          "text": "Illumina NovaSeq 6000",
+          "meaning": "GENEPIO:0100123",
+          "is_a": "Illumina NovaSeq"
+                },
+        "Illumina MiniSeq": {
+          "text": "Illumina MiniSeq",
+          "meaning": "GENEPIO:0100124",
+          "is_a": "Illumina"
+                },
+        "Illumina MiSeq": {
+          "text": "Illumina MiSeq",
+          "meaning": "GENEPIO:0100125",
+          "is_a": "Illumina"
+                },
+        "Illumina NextSeq": {
+          "text": "Illumina NextSeq",
+          "meaning": "GENEPIO:0100126",
+          "is_a": "Illumina"
+                },
+        "Illumina NextSeq 500": {
+          "text": "Illumina NextSeq 500",
+          "meaning": "GENEPIO:0100127",
+          "is_a": "Illumina NextSeq"
+                },
+        "Illumina NextSeq 550": {
+          "text": "Illumina NextSeq 550",
+          "meaning": "GENEPIO:0100128",
+          "is_a": "Illumina NextSeq"
+                },
+        "Illumina NextSeq 2000": {
+          "text": "Illumina NextSeq 2000",
+          "meaning": "GENEPIO:0100129",
+          "is_a": "Illumina NextSeq"
+                },
+        "Pacific Biosciences": {
+          "text": "Biosciences du Pacifique",
+          "meaning": "GENEPIO:0100130"
+                },
+        "PacBio RS": {
+          "text": "PacBioRS",
+          "meaning": "GENEPIO:0100131",
+          "is_a": "Pacific Biosciences"
+                },
+        "PacBio RS II": {
+          "text": "PacBio RS II",
+          "meaning": "GENEPIO:0100132",
+          "is_a": "Pacific Biosciences"
+                },
+        "PacBio Sequel": {
+          "text": "Suite PacBio",
+          "meaning": "GENEPIO:0100133",
+          "is_a": "Pacific Biosciences"
+                },
+        "PacBio Sequel II": {
+          "text": "PacBio Suite II",
+          "meaning": "GENEPIO:0100134",
+          "is_a": "Pacific Biosciences"
+                },
+        "Ion Torrent": {
+          "text": "Ion Torrent",
+          "meaning": "GENEPIO:0100135"
+                },
+        "Ion Torrent PGM": {
+          "text": "Ion Torrent PGM",
+          "meaning": "GENEPIO:0100136",
+          "is_a": "Ion Torrent"
+                },
+        "Ion Torrent Proton": {
+          "text": "Ion Torrent Proton",
+          "meaning": "GENEPIO:0100137",
+          "is_a": "Ion Torrent"
+                },
+        "Ion Torrent S5 XL": {
+          "text": "Ion Torrent S5 XL",
+          "meaning": "GENEPIO:0100138",
+          "is_a": "Ion Torrent"
+                },
+        "Ion Torrent S5": {
+          "text": "Ion Torrent S5",
+          "meaning": "GENEPIO:0100139",
+          "is_a": "Ion Torrent"
+                },
+        "Oxford Nanopore": {
+          "text": "Oxford Nanopore",
+          "meaning": "GENEPIO:0100140"
+                },
+        "Oxford Nanopore GridION": {
+          "text": "Oxford Nanopore GridION",
+          "meaning": "GENEPIO:0100141",
+          "is_a": "Oxford Nanopore"
+                },
+        "Oxford Nanopore MinION": {
+          "text": "Oxford Nanopore MinION",
+          "meaning": "GENEPIO:0100142",
+          "is_a": "Oxford Nanopore"
+                },
+        "Oxford Nanopore PromethION": {
+          "text": "Oxford Nanopore ProméthION",
+          "meaning": "GENEPIO:0100143",
+          "is_a": "Oxford Nanopore"
+                },
+        "BGI Genomics": {
+          "text": "BGI Génomique",
+          "meaning": "GENEPIO:0100144"
+                },
+        "BGI Genomics BGISEQ-500": {
+          "text": "BGI génomique BGISEQ-500",
+          "meaning": "GENEPIO:0100145",
+          "is_a": "BGI Genomics"
+                },
+        "MGI": {
+          "text": "MGI",
+          "meaning": "GENEPIO:0100146"
+                },
+        "MGI DNBSEQ-T7": {
+          "text": "MGI DNBSEQ-T7",
+          "meaning": "GENEPIO:0100147",
+          "is_a": "MGI"
+                },
+        "MGI DNBSEQ-G400": {
+          "text": "MGI DNBSEQ-G400",
+          "meaning": "GENEPIO:0100148",
+          "is_a": "MGI"
+                },
+        "MGI DNBSEQ-G400 FAST": {
+          "text": "MGI DNBSEQ-G400 RAPIDE",
+          "meaning": "GENEPIO:0100149",
+          "is_a": "MGI"
+                },
+        "MGI DNBSEQ-G50": {
+          "text": "MGI DNBSEQ-G50",
+          "meaning": "GENEPIO:0100150",
+          "is_a": "MGI"
+                }
+            }
+        },
+    "amplicon pcr primer list menu": {
+      "name": "menu de la liste des amorces pcr de l'amplicon",
+      "from_schema": "https://example.com/TEST",
+      "permissible_values": {
+        "27F": {
+          "text": "27F",
+          "meaning": "GENEPIO:0100640"
+                },
+        "357F": {
+          "text": "357F",
+          "meaning": "GENEPIO:0100645"
+                },
+        "543R": {
+          "text": "543R",
+          "meaning": "GENEPIO:0100642"
+                },
+        "926R": {
+          "text": "926R",
+          "meaning": "GENEPIO:0100643"
+                },
+        "1492R": {
+          "text": "1492R",
+          "meaning": "GENEPIO:0100644"
+                },
+        "ITS1F": {
+          "text": "ITS1F",
+          "meaning": "GENEPIO:0100668"
+                },
+        "ITS3F": {
+          "text": "ITS3F",
+          "meaning": "GENEPIO:0100646"
+                },
+        "ITS4F": {
+          "text": "ITS4F",
+          "meaning": "GENEPIO:0100647"
+                },
+        "ITS4R": {
+          "text": "ITS4R",
+          "meaning": "GENEPIO:0100669"
+                }
+            }
+        }
+    },
+  "slots": {
+    "isolate ID": {
+      "name": "isoler l'ID",
+      "description": "L'identifiant défini par l'utilisateur pour l'isolat, tel que fourni par le laboratoire qui a initialement isolé l'isolat.",
+      "title": "isoler l'ID",
+      "comments": [
+                "Fournissez l'identifiant créé par le laboratoire pour l'organisme après l'isolement. Cette valeur correspond au \"Strain ID#\" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "SA01"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100456",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+        },
+    "alternative isolate ID": {
+      "name": "ID d'isolement alternatif",
+      "description": "Un ID d'isolat alternatif attribué à l'isolat par une autre organisation.",
+      "title": "ID d'isolement alternatif",
+      "comments": [
+                "Fournissez l'identifiant qui représente le code du site, la source et/ou l'identifiant du patient, le type de milieu, l'identifiant de la souche, le numéro de colonie, l'état de croissance et le facteur de dilution sous la forme d'un code unique. Cette valeur correspond aux cartes \"ID d'étiquette\" dans le Fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "3411301"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100457",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+        },
+    "specimen collector sample ID": {
+      "name": "ID de l'échantillon du collecteur d'échantillons",
+      "description": "Le nom défini par l'utilisateur pour l'échantillon.",
+      "title": "ID de l'échantillon du collecteur d'échantillons",
+      "comments": [
+                "Fournissez l'ID de l'échantillon fourni par le collecteur d'échantillons d'origine. Cette valeur est différente de \"isolat_ID\" car elle représente le matériel d'origine échantillonné plutôt que l'organisme qui a été isolé du matériel échantillonné. Cet identifiant peut ou non être disponible."
+            ],
+      "examples": [
+                {
+          "value": "Lake_Louise_Water23"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001123",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString"
+        },
+    "sample collected by": {
+      "name": "échantillon collecté par",
+      "description": "Le nom de l'agence qui a collecté l'échantillon original.",
+      "title": "échantillon collecté par",
+      "comments": [
+                "Le nom de l'institution du collecteur d'échantillons d'origine doit être écrit au complet (sans abréviations, à quelques exceptions près) et être cohérent dans plusieurs soumissions, par exemple, Université de Calgary, Alberta Health Services. Le collecteur d'échantillons spécifié est à la discrétion de le fournisseur de données (c.-à-d. peut être un hôpital, un laboratoire de santé publique provincial ou autre)."
+            ],
+      "examples": [
+                {
+          "value": "Université de Calgary"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001153",
+      "recommended": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "sample collection project name": {
+      "name": "nom du projet de collecte d'échantillons",
+      "description": "Le nom du projet/initiative/programme pour lequel l'échantillon a été collecté.",
+      "title": "nom du projet de collecte d'échantillons",
+      "comments": [
+                "Indiquez ici le nom du projet et/ou l'ID du projet. Si les informations sont inconnues ou ne peuvent pas être fournies, laissez ce champ vide ou indiquez une valeur nulle."
+            ],
+      "examples": [
+                {
+          "value": "Étude sur le biofilm de l'hôpital pour enfants (A3-701-01)"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100429",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+        },
+    "sample collector contact email": {
+      "name": "e-mail de contact du collecteur d'échantillons",
+      "description": "L'adresse email du contact responsable du suivi concernant l'échantillon.",
+      "title": "e-mail de contact du collecteur d'échantillons",
+      "comments": [
+                "L'adresse électronique peut représenter une personne ou un laboratoire spécifique, par exemple johnnyblogs@lab.ca ou RespLab@lab.ca"
+            ],
+      "examples": [
+                {
+          "value": "RespLab@lab.ca"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001156",
+      "range": "WhitespaceMinimizedString",
+      "pattern": "^\\S+@\\S+\\.\\S+$"
+        },
+    "sample collector contact address": {
+      "name": "adresse de contact du collecteur d'échantillons",
+      "description": "L'adresse postale de l'agence soumettant l'échantillon.",
+      "title": "adresse de contact du collecteur d'échantillons",
+      "comments": [
+                "L'adresse postale doit être au format : Numéro et nom de la rue, Ville, Province/Territoire, Code postal, Pays"
+            ],
+      "examples": [
+                {
+          "value": "655 Lab St, Vancouver, Colombie-Britannique, V5N 2A2, Canada"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001158",
+      "range": "WhitespaceMinimizedString"
+        },
+    "sample collection date": {
+      "name": "date de prélèvement de l'échantillon",
+      "description": "La date à laquelle l'échantillon a été prélevé.",
+      "title": "date de prélèvement de l'échantillon",
+      "todos": [
+                ">=01/10/2019",
+                "<={aujourd'hui}"
+            ],
+      "comments": [
+                "La date doit être fournie au format standard ISO 8601 \"AAAA-MM-JJ\"."
+            ],
+      "examples": [
+                {
+          "value": "2020-03-16"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001174",
+      "recommended": true,
+      "any_of": [
+                {
+          "range": "date"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "sample received date": {
+      "name": "date de réception de l'échantillon",
+      "description": "La date à laquelle l'échantillon a été reçu.",
+      "title": "date de réception de l'échantillon",
+      "comments": [
+                "La date doit être fournie au format standard ISO 8601 \"AAAA-MM-JJ\"."
+            ],
+      "examples": [
+                {
+          "value": "20/03/2020"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001179",
+      "any_of": [
+                {
+          "range": "date"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "geo_loc_name (country)": {
+      "name": "geo_loc_name (pays)",
+      "description": "Le pays où l'échantillon a été collecté.",
+      "title": "geo_loc_name (pays)",
+      "comments": [
+                "Fournissez le nom du pays à partir du vocabulaire contrôlé fourni."
+            ],
+      "examples": [
+                {
+          "value": "Canada"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001181",
+      "recommended": true,
+      "any_of": [
+                {
+          "range": "geo_loc_name (country) menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "geo_loc_name (state/province/territory)": {
+      "name": "geo_loc_name (état/province/territoire)",
+      "description": "La province/territoire où l'échantillon a été collecté.",
+      "title": "geo_loc_name (état/province/territoire)",
+      "comments": [
+                "Fournissez le nom de la province/du territoire à partir du vocabulaire contrôlé fourni."
+            ],
+      "examples": [
+                {
+          "value": "Saskatchewan"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001185",
+      "recommended": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "geo_loc_name (city)": {
+      "name": "geo_loc_name (ville)",
+      "description": "La ville où l'échantillon a été collecté.",
+      "title": "geo_loc_name (ville)",
+      "comments": [
+                "Fournissez le nom de la ville. Utilisez ce service de recherche pour identifier le terme standardisé : https://www.ebi.ac.uk/ols/ontologies/gaz"
+            ],
+      "examples": [
+                {
+          "value": "Chapeau médicinal"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001189",
+      "range": "WhitespaceMinimizedString"
+        },
+    "geo_loc_name (site)": {
+      "name": "geo_loc_name (site)",
+      "description": "Le nom d'un emplacement géographique spécifique, par exemple Credit River (plutôt qu'une rivière).",
+      "title": "geo_loc_name (site)",
+      "comments": [
+                "Fournissez le nom du site géographique spécifique à l'aide d'un nom spécifique (un mot qui nomme un certain lieu, une chose)."
+            ],
+      "examples": [
+                {
+          "value": "Lac Louise"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100436",
+      "range": "geo_loc_name (site) menu"
+        },
+    "organism": {
+      "name": "organisme",
+      "description": "Nom taxonomique de l'organisme.",
+      "title": "organisme",
+      "comments": [
+                "Fournissez le nom taxonomique confirmé de l'espèce. Cette valeur correspond à \"Identification recommendede\" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Staphylococcus aureus"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001191",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "purpose of sampling": {
+      "name": "objectif de l'échantillonnage",
+      "description": "La raison pour laquelle l'échantillon a été collecté.",
+      "title": "but de l'échantillonnage",
+      "comments": [
+                "La raison pour laquelle un échantillon a été collecté peut fournir des informations sur les biais potentiels dans la stratégie d'échantillonnage. Fournissez le but de l'échantillonnage à partir de la liste de sélection dans le modèle. La raison pour laquelle un échantillon a été initialement collecté peut différer de la raison pour laquelle il a été sélectionné pour le séquençage, qui doit être indiqué dans le champ \"Objectif du séquençage\". La motivation pour l'échantillonnage peut être disponible dans le champ \"Source d'isolement\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Surveillance ciblée"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001198",
+      "recommended": true,
+      "any_of": [
+                {
+          "range": "purpose of sampling menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "purpose of sampling details": {
+      "name": "objectif des détails de l'échantillonnage",
+      "description": "La description de la raison pour laquelle l'échantillon a été collecté, fournissant des détails spécifiques.",
+      "title": "objectif des détails de l'échantillonnage",
+      "comments": [
+                "Fournissez une description détaillée de la raison pour laquelle l'échantillon a été collecté en utilisant du texte libre. La description peut inclure l'importance de l'échantillon pour une enquête/activité de surveillance/question de recherche particulière. Les informations pour remplir ce champ peuvent être disponibles dans la zone \"Source d'isolement. \" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Surveillance de routine ProvLab/IPC"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001200",
+      "recommended": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "original sample description": {
+      "name": "description originale de l'échantillon",
+      "description": "La description originale de l'échantillon fournie par le collecteur d'échantillons.",
+      "title": "description originale de l'échantillon",
+      "comments": [
+                "Fournissez la description de l'échantillon fournie par le collecteur d'échantillon d'origine ou le champ \"Source d'isolement\" dans le fichier principal de l'Alberta Microbiota Repository (TEST). La description originale est utile car elle peut fournir des détails supplémentaires ou peut être utilisée pour clarifier classifications de niveau supérieur."
+            ],
+      "examples": [
+                {
+          "value": "Étude sur les coupons ACH-eau, isolats 2010, 2011 voir annexe 3 (Alberta Childrens Hospital)"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100439",
+      "range": "WhitespaceMinimizedString"
+        },
+    "anatomical material": {
+      "name": "matériel anatomique",
+      "description": "Substance obtenue à partir d'une partie anatomique d'un organisme, par exemple un tissu, du sang.",
+      "title": "matériel anatomique",
+      "comments": [
+                "Fournissez un descripteur si un matériau anatomique a été échantillonné. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, contactez emma_griffiths@sfu.ca. Si cela ne s'applique pas, ne laissez pas de blanc. Choisissez une valeur nulle. Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source d'isolement\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Tissu de la plaie (blessure)"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001211",
+      "multivalued": true,
+      "required": true,
+      "any_of": [
+                {
+          "range": "anatomical material menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "anatomical part": {
+      "name": "partie anatomique",
+      "description": "Partie anatomique d'un organisme, par exemple l'oropharynx.",
+      "title": "partie anatomique",
+      "comments": [
+                "Fournissez un descripteur si une partie anatomique a été échantillonnée. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité est manquant dans la liste de sélection, contactez emma_griffiths@sfu.ca. Si cela ne s'applique pas, ne laissez pas de blanc. Choisissez une valeur nulle. Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source d'isolement\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Cavité nasale"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001214",
+      "multivalued": true,
+      "required": true,
+      "any_of": [
+                {
+          "range": "anatomical part menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "body product": {
+      "name": "produit pour le corps",
+      "description": "Une substance excrétée/sécrétée par un organisme, par exemple les selles, l'urine, la sueur.",
+      "title": "produit pour le corps",
+      "comments": [
+                "Fournissez un descripteur si un produit pour le corps a été échantillonné. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, contactez emma_griffiths@sfu.ca. Si cela ne s'applique pas, ne laissez pas de blanc. Choisissez une valeur nulle. Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source d'isolement\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Excréments"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001216",
+      "multivalued": true,
+      "required": true,
+      "any_of": [
+                {
+          "range": "body product menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "environmental material": {
+      "name": "matériau environnemental",
+      "description": "Une substance obtenue à partir d'un environnement naturel ou artificiel, par exemple le sol, l'eau, les eaux usées.",
+      "title": "matériel environnemental",
+      "comments": [
+                "Fournissez un descripteur si un matériau environnemental a été échantillonné. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, contactez emma_griffiths@sfu.ca. Si cela ne s'applique pas, ne laissez pas de blanc. Choisissez une valeur nulle. Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source d'isolement\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Bandage"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001223",
+      "multivalued": true,
+      "required": true,
+      "any_of": [
+                {
+          "range": "environmental material menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "environmental site": {
+      "name": "site environnemental",
+      "description": "Un emplacement environnemental peut décrire un site dans l'environnement naturel ou bâti, par exemple une surface de contact, une boîte métallique, un hôpital, un marché humide, une grotte à chauves-souris.",
+      "title": "site environnemental",
+      "comments": [
+                "Fournissez un descripteur si un site environnemental a été échantillonné. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, contactez emma_griffiths@sfu.ca. Si cela ne s'applique pas, ne laissez pas de blanc. Choisissez une valeur nulle. Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source d'isolement\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Hôpital"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001232",
+      "multivalued": true,
+      "required": true,
+      "any_of": [
+                {
+          "range": "environmental site menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "collection device": {
+      "name": "dispositif de collecte",
+      "description": "L'instrument ou le récipient utilisé pour prélever l'échantillon, par exemple un écouvillon.",
+      "title": "dispositif de collecte",
+      "comments": [
+                "Fournissez un descripteur si un appareil a été utilisé pour l'échantillonnage. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, contactez emma_griffiths@sfu.ca. Si cela ne s'applique pas, ne laissez pas de blanc. Choisissez une valeur nulle. . Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source d'isolement\" de l'Alberta Microbiota Repository (TEST) Fichier maître."
+            ],
+      "examples": [
+                {
+          "value": "écouvillon"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001234",
+      "multivalued": true,
+      "required": true,
+      "any_of": [
+                {
+          "range": "collection device menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "collection method": {
+      "name": "méthode de collecte",
+      "description": "Le processus utilisé pour collecter l'échantillon, par exemple phlébotamie, autopsie.",
+      "title": "méthode de collecte",
+      "comments": [
+                "Fournissez un descripteur si une méthode de collecte a été utilisée pour l'échantillonnage. Utilisez la liste de sélection fournie dans le modèle. Si un terme souhaité manque dans la liste de sélection, contactez emma_griffiths@sfu.ca. Si cela ne s'applique pas, ne laissez pas de blanc. Choisissez une valeur nulle. Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source d'isolement\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Biopsie"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001241",
+      "multivalued": true,
+      "required": true,
+      "any_of": [
+                {
+          "range": "collection method menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "collection protocol": {
+      "name": "protocole de collecte",
+      "description": "Le nom et la version d'un protocole particulier utilisé pour l'échantillonnage.",
+      "title": "protocole de collecte",
+      "comments": [
+                "Texte libre. Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source d'isolement\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Collection_protocol_Children's Hospital étude sur le biofilm (A3-701-01)"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001243",
+      "range": "WhitespaceMinimizedString"
+        },
+    "specimen processing": {
+      "name": "traitement des échantillons",
+      "description": "Tout traitement appliqué à l'échantillon pendant ou après la réception de l'échantillon.",
+      "title": "traitement des échantillons",
+      "comments": [
+                "Si plusieurs produits PCR ont été générés à partir de l'isolat à l'aide de différents jeux d'amorces, indiquez que les enregistrements de séquence représentent le même isolat en sélectionnant \"Réplication biologique\" dans le champ \"Traitement des échantillons\". Chaque expérience de séquence différente doit avoir sa propre expérience. enregistrement (c'est-à-dire que si différents amplicons ont la même séquence mais ont été générés à l'aide de différents jeux d'amorces, ceux-ci doivent être stockés sous forme d'entrées/lignes distinctes dans la feuille de calcul). Les informations sur les réplications peuvent être disponibles dans le \"Taxon (taxons) le plus touché\" ou \" Trimmed Ribosomal Sequence \" s'il existe plusieurs valeurs pour le même \" Strain ID # \" dans le fichier principal de l'Alberta Microbiota Repository (TEST). "
+            ],
+      "examples": [
+                {
+          "value": "Réplication biologique"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001253",
+      "multivalued": true,
+      "recommended": true,
+      "any_of": [
+                {
+          "range": "specimen processing menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "specimen processing details": {
+      "name": "détails du traitement des échantillons",
+      "description": "Informations détaillées concernant le traitement appliqué à un échantillon pendant ou après la réception de l'échantillon.",
+      "title": "détails sur le traitement des échantillons",
+      "comments": [
+                "Fournissez une description en texte libre de tous les détails de traitement appliqués à un échantillon. Des informations sur les réplications peuvent être disponibles dans les champs \"Taxon (taxons) le plus touché\" ou \"Séquence ribosomale tronquée\" s'il existe plusieurs valeurs pour le même \"ID de souche #\" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Plusieurs amplicons générés pour l'isolat SA32 à l'aide de différents jeux d'amorces"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100311",
+      "range": "WhitespaceMinimizedString"
+        },
+    "strain": {
+      "name": "souche",
+      "description": "L'identifiant de la souche.",
+      "title": "souche",
+      "comments": [
+                "Fournissez la souche de l'isolat. Cette valeur correspond à la \"Souche\" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "CL10"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100455",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "taxonomic identification method": {
+      "name": "méthode d'identification taxonomique",
+      "description": "Le ttype de processus planifié par lequel une entité organique est associée à un ou plusieurs taxons.",
+      "title": "méthode d'identification taxonomique",
+      "comments": [
+                "Fournissez le type de méthode utilisée pour déterminer l'identité taxonomique de l'organisme en sélectionnant une valeur dans la liste de sélection. Pour le projet TEST, la valeur \"Test de séquençage du gène ribosomal 16S\" sera la plus appropriée. Si l'information est inconnu ou ne peut pas être fourni, laissez ce champ vide ou indiquez une valeur nulle."
+            ],
+      "examples": [
+                {
+          "value": "Test de séquençage du gène ribosomal 16S"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100583",
+      "required": true,
+      "any_of": [
+                {
+          "range": "taxonomic identification method menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "taxonomic identification method details": {
+      "name": "détails de la méthode d'identification taxonomique",
+      "description": "Les détails du processus utilisé pour déterminer l'identification taxonomique d'un organisme.",
+      "title": "détails de la méthode d'identification taxonomique",
+      "comments": [
+                "Fournissez les critères utilisés pour la détermination taxonomique du séquençage 16S en sélectionnant une valeur dans la liste de sélection. Ces critères sont spécifiques au projet TEST et ne correspondent donc aux critères standardisés d'aucune ontologie. La liste de sélection est strictement destinée à assurer la cohérence des enregistrements plutôt que que la mise en œuvre des normes de données communautaires. Si une autre méthode a été utilisée pour la détermination taxonomique, laissez vide. Cette valeur correspond aux informations stockées dans le champ \"ID Category*\" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "ID au niveau de l'espèce : > 99,3 % d'identité et correspondance sans ambiguïté avec une séquence de type (T) dans une base de données organisée"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100584",
+      "required": true,
+      "any_of": [
+                {
+          "range": "taxonomic identification method details menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "incubation temperature value": {
+      "name": "valeur de la température d'incubation",
+      "description": "Une donnée environnementale spécifiant la température à laquelle un ou plusieurs organismes ont été incubés à des fins de croissance sur ou dans un milieu particulier.",
+      "title": "valeur de la température d'incubation",
+      "comments": [
+                "Fournissez la température à laquelle l'isolat a été isolé. Cette valeur correspond aux informations stockées dans le champ \"Température d'incubation\" du fichier principal de l'Alberta Microbiota Repository (TEST). "
+            ],
+      "examples": [
+                {
+          "value": "37"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100617",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "incubation temperature unit": {
+      "name": "unité de température d'incubation",
+      "description": "Une donnée environnementale spécifiant l'unité de température à laquelle un ou plusieurs organismes ont été incubés à des fins de croissance sur ou dans un milieu particulier.",
+      "title": "unité de température d'incubation",
+      "comments": [
+                "Sélectionnez l'unité de température dans la liste de sélection. Cette valeur correspond aux informations stockées dans le champ \"Température d'incubation\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Degré Celsius"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100618",
+      "required": true,
+      "any_of": [
+                {
+          "range": "incubation temperature unit menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "isolation medium": {
+      "name": "milieu d'isolement",
+      "description": "Un milieu d'isolement est un milieu de culture qui a la capacité de favoriser la croissance de bactéries particulières à l'exclusion d'autres dans le même environnement de croissance.",
+      "title": "milieu d'isolement",
+      "comments": [
+                "Sélectionnez le milieu d'isolement dans la liste de sélection. Cette valeur correspond aux informations stockées dans le champ \"Médias d'incubation\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Infusion cœur-cerveau (BHI)"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0002107",
+      "required": true,
+      "any_of": [
+                {
+          "range": "isolation medium menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "isolate storage location": {
+      "name": "isoler l'emplacement de stockage",
+      "description": "Une donnée isolée spécifiant l'emplacement deoù un isolat est stocké, par ex. dans un congélateur particulier, sur une étagère particulière",
+      "title": "isoler l'emplacement de stockage",
+      "comments": [
+                "Entrez l'emplacement de stockage du congélateur de l'isolat sous la forme \"numéro de congélateur-numéro d'étagère-numéro de boîte-numéro d'unité\", par exemple FR1-R3-B1-S01. Cette valeur correspond aux informations stockées dans le \"code spot\". dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "FR1-R3-B1-S01"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100619",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+        },
+    "cellular respiration type": {
+      "name": "type de respiration cellulaire",
+      "description": "Une donnée d'isolat spécifiant le type de processus de respiration cellulaire utilisé par l'organisme.",
+      "title": "type de respiration cellulaire",
+      "comments": [
+                "Sélectionnez le type de respiration dans la liste de sélection. Cette valeur correspond aux informations stockées dans le champ \"Aérobie/Anaérobie\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Respiration aérobie"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100620",
+      "required": true,
+      "any_of": [
+                {
+          "range": "cellular respiration type menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "host (common name)": {
+      "name": "hôte (nom commun)",
+      "description": "Le nom couramment utilisé de l'hôte.",
+      "title": "hôte (nom commun)",
+      "comments": [
+                "Le nom commun est requis s'il y avait un hôte. Le nom commun d'anime et le nom scientifique peuvent être fournis, s'ils sont connus. Utilisez les termes des listes de sélection du modèle. Les hôtes peuvent être des animaux (y compris les humains) et des plantes. Des exemples de noms communs sont \"Humain\" et \"Plante de canola\". Des exemples de noms scientifiques sont \"Homo sapiens\" et \"Equus caballus\". Si l'échantillon était environnemental, sélectionnez \"Non applicable\". Les informations pour remplir ce champ peuvent être disponibles dans le champ \"Champ Source of Isolation\" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Humain"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001386",
+      "required": true,
+      "any_of": [
+                {
+          "range": "host (common name) menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "host (scientific name)": {
+      "name": "hôte (nom scientifique)",
+      "description": "Le nom taxonomique ou scientifique de l'hôte.",
+      "title": "hôte (nom scientifique)",
+      "comments": [
+                "Le nom commun ou le nom scientifique sont requis s'il y avait un hôte. Les deux peuvent être fournis, s'ils sont connus. Utilisez les termes des listes de sélection du modèle. Les hôtes peuvent être des animaux (y compris les humains) et des plantes. Nom commun, par exemple humain, plante de canola . Si l'échantillon était environnemental, sélectionnez \"Non applicable\". Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source of Isolation\" du fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Homo sapiens"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001387",
+      "any_of": [
+                {
+          "range": "host (scientific name) menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "host disease": {
+      "name": "maladie hôte",
+      "description": "Le nom de la maladie ressentie par l'hôte.",
+      "title": "maladie hôte",
+      "comments": [
+                "Si l'échantillon a été obtenu auprès d'un hôte atteint d'une maladie connue, indiquez le nom de la maladie en sélectionnant une valeur dans la liste de sélection. Les informations permettant de remplir ce champ peuvent être disponibles dans le champ \"Source d'isolement\" dans le microbiote de l'Alberta. Fichier maître du référentiel (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "Mibrose kystique"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001391",
+      "any_of": [
+                {
+          "range": "host disease menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "sequenced by": {
+      "name": "séquencé par",
+      "description": "Le nom de l'agence, de l'organisation ou de l'institution responsable du séquençage du génome de l'isolat.",
+      "title": "séquencé par",
+      "comments": [
+                "Fournissez le nom complet de l'organisation qui a effectué le séquençage (évitez les abréviations). Si l'information est inconnue ou ne peut être fournie, laissez en blanc ou indiquez une valeur nulle. Pour le projet TEST, la valeur est très probablement celle de l'Université. de Calgary\"."
+            ],
+      "examples": [
+                {
+          "value": "Université de Calgary"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100416",
+      "any_of": [
+                {
+          "range": "sequenced_by menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "sequenced by laboratory name": {
+      "name": "séquencé par nom de laboratoire",
+      "description": "L'affiliation spécifique au laboratoire du responsable du séquençage du génome de l'isolat.",
+      "title": "séquencé par nom de laboratoire",
+      "comments": [
+                "Fournissez le nom du laboratoire spécifique qui a effectué le séquençage dans son intégralité (évitez les abréviations). Si l'information est inconnue ou ne peut pas être fournie, laissez en blanc ou indiquez une valeur nulle. Pour le projet TEST, la valeur est probablement la \"Laboratoire Harrison\"."
+            ],
+      "examples": [
+                {
+          "value": "Harrison Lab"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100470",
+      "range": "WhitespaceMinimizedString"
+        },
+    "sequenced by contact name": {
+      "name": "séquencé par nom de contact",
+      "description": "Le nom ou le titre du contact responsable du suivi de la séquence.",
+      "title": "séquencé par nom de contact",
+      "comments": [
+                "Fournissez le nom d'une personne ou son titre d'emploi. Comme le roulement de personnel peut rendre le nom de la personne-ressource obsolète, il est préférable de fournir un titre d'emploi pour assurer l'exactitude des informations et la mémoire institutionnelle. Si l'information est inconnue ou ne peut être fournie, laissez vide ou indiquez une valeur nulle."
+            ],
+      "examples": [
+                {
+          "value": "Joe Harrison"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100471",
+      "range": "WhitespaceMinimizedString"
+        },
+    "sequenced by contact email": {
+      "name": "séquencé par email de contact",
+      "description": "L'adresse email du contact chargé du suivi de la séquence.",
+      "title": "séquencé par email de contact",
+      "comments": [
+                "Fournissez l'adresse e-mail associée au contact répertorié. Comme le roulement du personnel peut rendre l'adresse e-mail d'un individu obsolète, il est préférable de fournir une adresse pour un poste ou un laboratoire, afin de garantir l'exactitude des informations et la mémoire institutionnelle. Si l'information est inconnue ou ne peut pas être fourni, laisser vide ou fournir une valeur nulle."
+            ],
+      "examples": [
+                {
+          "value": "jjharris@ucalgary.ca"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100422",
+      "range": "WhitespaceMinimizedString"
+        },
+    "purpose of sequencing": {
+      "name": "but du séquençage",
+      "description": "La raison pour laquelle l'échantillon a été séquencé.",
+      "title": "but du séquençage",
+      "comments": [
+                "La raison pour laquelle un échantillon a été initialement collecté peut différer de la raison pour laquelle il a été sélectionné pour le séquençage. La raison pour laquelle un échantillon a été séquencé peut fournir des informations sur les biais potentiels dans la stratégie de séquençage. Fournissez le but du séquençage à partir de la liste de sélection dans le modèle. la raison du prélèvement de l’échantillon doit être indiquée dans le champ \"objectif de l’échantillonnage\"."
+            ],
+      "examples": [
+                {
+          "value": "Recherche"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001445",
+      "any_of": [
+                {
+          "range": "purpose of sequencing menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "purpose of sequencing details": {
+      "name": "but des détails de séquençage",
+      "description": "La description de la raison pour laquelle l'échantillon a été séquencé, fournissant des détails spécifiques.",
+      "title": "but des détails de séquençage",
+      "comments": [
+                "Fournissez une description détaillée de la raison pour laquelle l'échantillon a été séquencé en utilisant du texte libre. Ces informations peuvent fournir des détails sur les raisons pour lesquelles la source d'échantillon peut contenir des potentialisateurs d'antibiotiques."
+            ],
+      "examples": [
+                {
+          "value": "Dépistage des potentialisateurs d'antibiotiques dans les contextes de la mucoviscidose."
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001446",
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "sequencing date": {
+      "name": "date de séquençage",
+      "description": "La date à laquelle l'échantillon a été séquencé.",
+      "title": "date de séquençage",
+      "todos": [
+                ">={date de prélèvement de l'échantillon}"
+            ],
+      "comments": [
+                "La date doit être fournie au format standard ISO 8601 \"AAAA-MM-JJ\"."
+            ],
+      "examples": [
+                {
+          "value": "2020-06-22"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001447",
+      "any_of": [
+                {
+          "range": "date"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "library ID": {
+      "name": "ID de bibliothèque",
+      "description": "L'identifiant spécifié par l'utilisateur pour la bibliothèque préparée pour le séquençage.",
+      "title": "ID de bibliothèque",
+      "comments": [
+                "Fournissez le nom de l'analyse. Cette valeur correspond aux informations contenues dans le champ \"Sequencing Batch #\" Fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "1876515_SA01_Plate 02"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001448",
+      "range": "WhitespaceMinimizedString"
+        },
+    "sequencing instrument": {
+      "name": "instrument de séquençage",
+      "description": "Le modèle de l'instrument de séquençage utilisé.",
+      "title": "instrument de séquençage",
+      "comments": [
+                "Sélectionnez un instrument de séquençage dans la liste de sélection fournie dans le modèle."
+            ],
+      "examples": [
+                {
+          "value": "Oxford Nanopore MinION"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001452",
+      "multivalued": true,
+      "required": true,
+      "any_of": [
+                {
+          "range": "sequencing instrument menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "sequencing protocol name": {
+      "name": "nom du protocole de séquençage",
+      "description": "Le nom et le numéro de version du protocole de séquençage utilisé.",
+      "title": "nom du protocole de séquençage",
+      "comments": [
+                "Fournissez le nom et la version du protocole de séquençage, par exemple 1D_DNA_MinION"
+            ],
+      "examples": [
+                {
+          "value": "https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001453",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+        },
+    "amplicon pcr primer list": {
+      "name": "liste d'amorces pcr des amplicons",
+      "description": "Une entité de contenu informationnel spécifiant une liste d'amorces utilisées pour le séquençage des amplicons.",
+      "title": "liste d'amorces pcr des amplicons",
+      "comments": [
+                "Sélectionnez les amorces utilisées pour générer l'amplicon ribosomal 16S ou 23S pour le séquençage dans la liste de sélection. Cette valeur correspond aux informations contenues dans le champ \"Amorces utilisées pour le séquençage\" Fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "27F"
+                },
+                {
+          "value": "1492R"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100623",
+      "multivalued": true,
+      "required": true,
+      "any_of": [
+                {
+          "range": "amplicon pcr primer list menu"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "input file name": {
+      "name": "nom du fichier d'entrée",
+      "description": "Le nom du fichier contenant les données de séquence à analyser.",
+      "title": "nom du fichier d'entrée",
+      "comments": [
+                "Entrez le nom de fichier de la séquence du gène cible à analyser."
+            ],
+      "examples": [
+                {
+          "value": "TEST_staph_ABC_123.fasta"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "OBI:0002874",
+      "range": "WhitespaceMinimizedString"
+        },
+    "reference accession": {
+      "name": "adhésion de référence",
+      "description": "Un identifiant qui spécifie un enregistrement de séquence individuel dans un référentiel de séquences public.",
+      "title": "adhésion de référence",
+      "comments": [
+                "Entrez l'accession du gène EZBioCloud qui correspond le plus à la séquence analysée. Cette valeur correspond aux informations contenues dans le champ \"Numéro(s) d'accession\" dans le fichier principal de l'Alberta Microbiota Repository (TEST). "
+            ],
+      "examples": [
+                {
+          "value": "FR821777"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "OBI:0002885",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "bioinformatics protocol": {
+      "name": "protocole bioinformatique",
+      "description": "Une description de la stratégie bioinformatique globale utilisée.",
+      "title": "protocole bioinformatique",
+      "comments": [
+                "Fournissez le nom du protocole utilisé pour effectuer l'identification de l'espèce (c'est-à-dire le nom du protocole pour effectuer la recherche EZBioCloud)."
+            ],
+      "examples": [
+                {
+          "value": "EZBioCloud_searchprotocol_2023.txt"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001489",
+      "range": "WhitespaceMinimizedString"
+        },
+    "reference database name": {
+      "name": "nom de la base de données de référence",
+      "description": "Un identifiant d'une base de données biologique ou bioinformatique.",
+      "title": "nom de la base de données de référence",
+      "comments": [
+                "Sélectionnez le nom de la base de données de référence dans la liste de sélection. Pour le projet TEST, la base de données de référence sera EZBioCloud."
+            ],
+      "examples": [
+                {
+          "value": "EZBioCloud"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "OBI:0002883",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "reference database version": {
+      "name": "version de la base de données de référence",
+      "description": "La version de la base de données contenant les séquences de référence utilisées pour l'analyse.",
+      "title": "version de la base de données de référence",
+      "comments": [
+                "Entrez la date de recherche de séquence selon la version d'EZBioCloud utilisée. Enregistrez la date au format ISO 8601, c'est-à-dire AAAA_MM_JJ. Cette valeur correspond aux informations contenues dans le champ \"Date de recherche\" du fichier principal de l'Alberta Microbiota Repository (TEST). "
+            ],
+      "examples": [
+                {
+          "value": "2021-05-23"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "OBI:0002884",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "coverage (percentage)": {
+      "name": "couverture (pourcentage)",
+      "description": "Le pourcentage de la séquence de référence couverte par la séquence d'intérêt.",
+      "title": "couverture (pourcentage)",
+      "comments": [
+                "Entrez la valeur d'exhaustivité. N'incluez aucun symbole, par exemple %. Cette valeur correspond à \"Complétude (%)\" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "98,2"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "OBI:0002880",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "sequence identity percentage": {
+      "name": "pourcentage d'identité de séquence",
+      "description": "L'identité de séquence est le nombre (%) de correspondances (caractères identiques) dans des positions issues d'un alignement de deux séquences moléculaires.",
+      "title": "pourcentage d'identité de séquence",
+      "comments": [
+                "Entrez la valeur d'identité. N'incluez aucun symbole, par exemple %. Cette valeur correspond à \"Similarité (%)\" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "99"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "OBI:0002882",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "sequence identity (variance ratio)": {
+      "name": "identité de séquence (rapport de variance)",
+      "description": "Le rapport de la séquence de référence non couvert par la séquence d'intérêt.",
+      "title": "identité de séquence (rapport de variance)",
+      "comments": [
+                "Entrez le nombre de positions différentes dans la séquence cible par rapport à la longueur de la séquence de référence, exprimé sous forme de rapport. Cette valeur correspond au \"rapport de variation\" dans le fichier principal de l'Alberta Microbiota Repository (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "1/420"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100624",
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "top-hit taxon determination": {
+      "name": "détermination du taxon le plus populaire",
+      "description": "Le taxon dérivé du premier résultat dans les résultats de recherche produits à partir d'une comparaison de similarité de séquence.",
+      "title": "détermination du taxon le plus populaire",
+      "comments": [
+                "Entrez le taxon le plus hit d'EZBioCloud. Cette valeur correspond aux informations contenues dans le champ \"Taxon le plus hit (taxons)\" dans le fichier principal de l'Alberta Microbiota Repository (TEST). "
+            ],
+      "examples": [
+                {
+          "value": "Staphylococcus argenteus"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100625",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "top-hit strain determination": {
+      "name": "détermination de la souche la plus efficace",
+      "description": "La désignation de la souche dérivée du premier résultat dans les résultats de recherche produits à partir d'une comparaison de similarité de séquence.",
+      "title": "détermination de la souche la plus efficace",
+      "comments": [
+                "Entrez la souche EZBioCloud la plus touchée. Cette valeur correspond aux informations contenues dans le champ \"Souche(s) la plus touchée\" dans l'Alberta Microbio.ta Fichier maître du référentiel (TEST)."
+            ],
+      "examples": [
+                {
+          "value": "MSHR1132(T)"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100648",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "trimmed ribosomal gene sequence": {
+      "name": "séquence du gène ribosomal découpée",
+      "description": "Les résultats d'une transformation de données de séquence dans laquelle (par exemple, de faible qualité) les bases de lecture sont supprimées pour produire une séquence d'ARN ribosomique découpée.",
+      "title": "séquence du gène ribosomal découpée",
+      "comments": [
+                "Entrez la séquence du gène ribosomal coupé. Cette valeur correspond à la séquence dans le champ \"Séquence ribosomique coupée\" du fichier principal de l'Alberta Microbiota Repository (TEST). "
+            ],
+      "examples": [
+                {
+          "value": "TGCAAGTCGAGCGAACGGACGAGAAGCTTGCTTCTCTGATGTTAGCGGCGGACGSGTGAGTAACACGTGGATAACCTACCTATAAGACTGGGATAACTTCGGGAAACCGGGAGCTAATACCGGATAATATTTTGAACCGCATGGTTCAAAAGTGAAAGACGGTCTTGCTGTCACTTATAGATGGATCCGCGCTGCATTAGCTAGTTGGTAAGGTAACGGCTTACCAAGGCAACGATGCATAGCCGACCTGAG AGGGTGATCGGCCACACTGGAACTGAGACACGGTCCAGACTCCTACGGGAGGCAGCAGTAGGGAATCTTCCGCAATGGGCGAAAGCCTGACGGAGCAACGCCGCGTGAGTGATGAAGGTCTTCGGATCGTAAAACTCTGTTATTAGGGAAGAACATATGTGTAAGTAACTGTGCACATCTTGACGGTACCTAATCAGAAAGCCACGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTAT CCGGAATTATTGGGCGTAAAGCGCGCGTAGGCGGTTTTAAGTCTGATGTGAAAGCCCACGGCTCAACCGTGGAGGGTCATTGGAAACTGGAAAACTTGAGTGCAGAAGAGGAAAGTGGAATTCCATGTGTAGCGGTGAAATGCGCAGATATGGAGGAACACCAGTGGCGAAGGCGACTTTCTGGTCTGTAACTGACGCTGAATGTGCGAAAGCGTGGGGATCAAACAGGATTAGATACCCTGGTAGTCCACGC CGTAAACGATGAGTGCTAAGTGTTAGGGGGTTTCCCGCCCCTTAGTGCTGCAGCTAACGCATTAAGCACTCCGCCTGGGGAGTACGACCGCAAGGTTGAAACTCAAAGGAATTGACGGGGACCCGCACAAGCGGTGGAGCATGTGGTTTAATTCGAAGCAACGCGAAGAACCTTACCAAATCTTGACATCCTTTGACACTCTAGAGATAGAGCCTTCCCCTTCGGGGGACAAAGTGACAGGTGGTGCATGG TTGTCGTCAGCTCGTGTCGTGAGATGTTGGGTTAAGTCCCGCAACGAGCGCAACCCTTAAGCTTAGTTGCCATCATTAAGTTGGGCACTCTAAGTTGACTGCCGGTGACAAACCGGAGGAAGGTGGGGATGACGTCAAATCATGCCCCTTATGATTTGGGCTACACACGTGCTACAATGGACAATACAAAGGGCAGCGAAACCGCGAGGTCAAGCAAATCCCATAAAGTTGTTCTCAGTTCGGATTGTAGTCTG CAACTCGACTACATGAAGCTGGAATCGCTAGTAATCGTAGATCAGCATGCTACGGTGAATACGTTCCCGGGTCTTGTACACACCGCCCGTCACACCACGAGAGTTTGTAACACCCGAAGCCGGTGGAGTAACCTTTTAGGAGCTAGCCGTCGAAG"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100626",
+      "required": true,
+      "any_of": [
+                {
+          "range": "WhitespaceMinimizedString"
+                },
+                {
+          "range": "null value menu"
+                }
+            ]
+        },
+    "bioinformatics analysis details": {
+      "name": "détails de l'analyse bioinformatique",
+      "description": "Toutes notes concernant l'analyse bioinformatique.",
+      "title": "détails de l'analyse bioinformatique",
+      "comments": [
+                "Saisissez toutes les notes concernant l'analyse sous forme de texte libre. Cette valeur correspond au champ \"Commentaire\" dans les informations du fichier principal de l'Alberta Microbiota Repository (TEST). "
+            ],
+      "examples": [
+                {
+          "value": "Pure-Juin 09-2022,Tube remplacé par Rahgavi"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0100627",
+      "range": "WhitespaceMinimizedString"
+        },
+    "authors": {
+      "name": "auteurs",
+      "description": "Noms des personnes contribuant aux processus de collecte d'échantillons, de génération de séquences, d'analyse et de soumission des données.",
+      "title": "auteurs",
+      "comments": [
+                "Inclure le prénom et le nom de toutes les personnes qui doivent être attribuées, séparés par une virgule."
+            ],
+      "examples": [
+                {
+          "value": "Rahgavi Poopalaraj, Shirin Afroj, Joe Harrison"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001517",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+        },
+    "DataHarmonizer provenance": {
+      "name": "Provenance DataHarmonizer",
+      "description": "Provenance du logiciel DataHarmonizer et de la version du modèle.",
+      "title": "Provenance DataHarmonizer",
+      "comments": [
+                "Les informations actuelles sur la version du logiciel et du modèle seront automatiquement générées dans ce champ une fois que l'utilisateur aura utilisé la fonction \"valider\". Ces informations seront générées indépendamment du fait que la ligne soit valide ou non."
+            ],
+      "examples": [
+                {
+          "value": "DataHarmonizer v1.4.3, TEST v1.0.0"
+                }
+            ],
+      "from_schema": "https://example.com/TEST",
+      "slot_uri": "GENEPIO:0001518",
+      "range": "Provenance"
+        }
+    },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "Une interface DataHarmonizer",
+      "from_schema": "https://example.com/TEST"
+        },
+    "TEST": {
+      "name": "TEST",
+      "description": "Le projet TEST, dirigé par le Harrison Lab àde l'Université de Calgary, est une étude interdisciplinaire visant à utiliser le séquençage 16S dans le cadre d'une plateforme culturomique pour identifier les potentialisateurs d'antibiotiques à partir des produits naturels du microbiote. Le modèle TEST DataHarmonizer a été conçu pour standardiser les données contextuelles associées au référentiel isolé de ce travail.",
+      "from_schema": "https://example.com/TEST",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "isolate ID": {
+          "name": "isoler l'ID",
+          "rank": 1,
+          "slot_group": "Identifiants de base de données"
+                },
+        "alternative isolate ID": {
+          "name": "ID d'isolement alternatif",
+          "rank": 2,
+          "slot_group": "Identifiants de base de données"
+                },
+        "specimen collector sample ID": {
+          "name": "ID de l'échantillon du collecteur d'échantillons",
+          "rank": 3,
+          "slot_group": "Identifiants de base de données"
+                },
+        "sample collected by": {
+          "name": "échantillon collecté par",
+          "rank": 4,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "sample collection project name": {
+          "name": "nom du projet de collecte d'échantillons",
+          "rank": 5,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "sample collector contact email": {
+          "name": "e-mail de contact du collecteur d'échantillons",
+          "rank": 6,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "sample collector contact address": {
+          "name": "adresse de contact du collecteur d'échantillons",
+          "rank": 7,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "sample collection date": {
+          "name": "date de prélèvement de l'échantillon",
+          "rank": 8,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "sample received date": {
+          "name": "date de réception de l'échantillon",
+          "rank": 9,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "geo_loc_name (country)": {
+          "name": "geo_loc_name (pays)",
+          "rank": 10,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "geo_loc_name (state/province/territory)": {
+          "name": "geo_loc_name (état/province/territoire)",
+          "rank": 11,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "geo_loc_name (city)": {
+          "name": "geo_loc_name (ville)",
+          "rank": 12,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "geo_loc_name (site)": {
+          "name": "geo_loc_name (site)",
+          "rank": 13,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "organism": {
+          "name": "organisme",
+          "rank": 14,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "purpose of sampling": {
+          "name": "objectif de l'échantillonnage",
+          "rank": 15,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "purpose of sampling details": {
+          "name": "objectif des détails de l'échantillonnage",
+          "rank": 16,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "original sample description": {
+          "name": "description originale de l'échantillon",
+          "rank": 17,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "anatomical material": {
+          "name": "matériel anatomique",
+          "rank": 18,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "anatomical part": {
+          "name": "partie anatomique",
+          "rank": 19,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "body product": {
+          "name": "produit pour le corps",
+          "rank": 20,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "environmental material": {
+          "name": "matériau environnemental",
+          "rank": 21,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "environmental site": {
+          "name": "site environnemental",
+          "rank": 22,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "collection device": {
+          "name": "dispositif de collecte",
+          "rank": 23,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "collection method": {
+          "name": "méthode de collecte",
+          "rank": 24,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "collection protocol": {
+          "name": "protocole de collecte",
+          "rank": 25,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "specimen processing": {
+          "name": "traitement des échantillons",
+          "rank": 26,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "specimen processing details": {
+          "name": "détails du traitement des échantillons",
+          "rank": 27,
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "strain": {
+          "name": "souche",
+          "rank": 28,
+          "slot_group": "Informations sur la souche et l'isolement"
+                },
+        "taxonomic identification method": {
+          "name": "méthode d'identification taxonomique",
+          "rank": 29,
+          "slot_group": "Informations sur la souche et l'isolement"
+                },
+        "taxonomic identification method details": {
+          "name": "détails de la méthode d'identification taxonomique",
+          "rank": 30,
+          "slot_group": "Informations sur la souche et l'isolement"
+                },
+        "incubation temperature value": {
+          "name": "valeur de la température d'incubation",
+          "rank": 31,
+          "slot_group": "Informations sur la souche et l'isolement"
+                },
+        "incubation temperature unit": {
+          "name": "unité de température d'incubation",
+          "rank": 32,
+          "slot_group": "Informations sur la souche et l'isolement"
+                },
+        "isolation medium": {
+          "name": "milieu d'isolement",
+          "rank": 33,
+          "slot_group": "Informations sur la souche et l'isolement"
+                },
+        "isolate storage location": {
+          "name": "isoler l'emplacement de stockage",
+          "rank": 34,
+          "slot_group": "Informations sur la souche et l'isolement"
+                },
+        "cellular respiration type": {
+          "name": "type de respiration cellulaire",
+          "rank": 35,
+          "slot_group": "Informations sur la souche et l'isolement"
+                },
+        "host (common name)": {
+          "name": "hôte (nom commun)",
+          "rank": 36,
+          "slot_group": "Informations sur l'hôte"
+                },
+        "host (scientific name)": {
+          "name": "hôte (nom scientifique)",
+          "rank": 37,
+          "slot_group": "Informations sur l'hôte"
+                },
+        "host disease": {
+          "name": "maladie hôte",
+          "rank": 38,
+          "slot_group": "Informations sur l'hôte"
+                },
+        "sequenced by": {
+          "name": "séquencé par",
+          "rank": 39,
+          "slot_group": "Séquençage"
+                },
+        "sequenced by laboratory name": {
+          "name": "séquencé par nom de laboratoire",
+          "rank": 40,
+          "slot_group": "Séquençage"
+                },
+        "sequenced by contact name": {
+          "name": "séquencé par nom de contact",
+          "rank": 41,
+          "slot_group": "Séquençage"
+                },
+        "sequenced by contact email": {
+          "name": "séquencé par email de contact",
+          "rank": 42,
+          "slot_group": "Séquençage"
+                },
+        "purpose of sequencing": {
+          "name": "but du séquençage",
+          "rank": 43,
+          "slot_group": "Séquençage"
+                },
+        "purpose of sequencing details": {
+          "name": "but des détails de séquençage",
+          "rank": 44,
+          "slot_group": "Séquençage"
+                },
+        "sequencing date": {
+          "name": "date de séquençage",
+          "rank": 45,
+          "slot_group": "Séquençage"
+                },
+        "library ID": {
+          "name": "ID de bibliothèque",
+          "rank": 46,
+          "slot_group": "Séquençage"
+                },
+        "sequencing instrument": {
+          "name": "instrument de séquençage",
+          "rank": 47,
+          "slot_group": "Séquençage"
+                },
+        "sequencing protocol name": {
+          "name": "nom du protocole de séquençage",
+          "rank": 48,
+          "slot_group": "Séquençage"
+                },
+        "amplicon pcr primer list": {
+          "name": "liste d'amorces pcr des amplicons",
+          "rank": 49,
+          "slot_group": "Séquençage"
+                },
+        "input file name": {
+          "name": "nom du fichier d'entrée",
+          "rank": 50,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "reference accession": {
+          "name": "adhésion de référence",
+          "rank": 51,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "bioinformatics protocol": {
+          "name": "protocole bioinformatique",
+          "rank": 52,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "reference database name": {
+          "name": "nom de la base de données de référence",
+          "rank": 53,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "reference database version": {
+          "name": "version de la base de données de référence",
+          "rank": 54,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "coverage (percentage)": {
+          "name": "couverture (pourcentage)",
+          "rank": 55,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "sequence identity percentage": {
+          "name": "pourcentage d'identité de séquence",
+          "rank": 56,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "sequence identity (variance ratio)": {
+          "name": "identité de séquence (rapport de variance)",
+          "rank": 57,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "top-hit taxon determination": {
+          "name": "détermination du taxon le plus populaire",
+          "rank": 58,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "top-hit strain determination": {
+          "name": "détermination de la souche la plus efficace",
+          "rank": 59,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "trimmed ribosomal gene sequence": {
+          "name": "séquence du gène ribosomal découpée",
+          "rank": 60,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "bioinformatics analysis details": {
+          "name": "détails de l'analyse bioinformatique",
+          "rank": 61,
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "authors": {
+          "name": "auteurs",
+          "rank": 62,
+          "slot_group": "Reconnaissance du contributeur"
+                },
+        "DataHarmonizer provenance": {
+          "name": "Provenance DataHarmonizer",
+          "rank": 63,
+          "slot_group": "Reconnaissance du contributeur"
+                }
+            },
+      "attributes": {
+        "isolate ID": {
+          "name": "isoler l'ID",
+          "description": "L'identifiant défini par l'utilisateur pour l'isolat, tel que fourni par le laboratoire qui a initialement isolé l'isolat.",
+          "title": "isoler l'ID",
+          "from_schema": "https://example.com/TEST",
+          "rank": 1,
+          "slot_uri": "GENEPIO:0100456",
+          "alias": "isolate_ID",
+          "owner": "TEST",
+          "slot_group": "Identifiants de base de données",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+                },
+        "alternative isolate ID": {
+          "name": "ID d'isolement alternatif",
+          "description": "Un ID d'isolat alternatif attribué à l'isolat par une autre organisation.",
+          "title": "ID d'isolement alternatif",
+          "from_schema": "https://example.com/TEST",
+          "rank": 2,
+          "slot_uri": "GENEPIO:0100457",
+          "alias": "alternative_isolate_ID",
+          "owner": "TEST",
+          "slot_group": "Identifiants de base de données",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+                },
+        "specimen collector sample ID": {
+          "name": "ID de l'échantillon du collecteur d'échantillons",
+          "description": "Le nom défini par l'utilisateur pour l'échantillon.",
+          "title": "ID de l'échantillon du collecteur d'échantillons",
+          "from_schema": "https://example.com/TEST",
+          "rank": 3,
+          "slot_uri": "GENEPIO:0001123",
+          "identifier": true,
+          "alias": "specimen_collector_sample_ID",
+          "owner": "TEST",
+          "slot_group": "Identifiants de base de données",
+          "range": "WhitespaceMinimizedString"
+                },
+        "sample collected by": {
+          "name": "échantillon collecté par",
+          "description": "Le nom de l'agence qui a collecté l'échantillon original.",
+          "title": "échantillon collecté par",
+          "from_schema": "https://example.com/TEST",
+          "rank": 4,
+          "slot_uri": "GENEPIO:0001153",
+          "alias": "sample_collected_by",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "recommended": true
+                },
+        "sample collection project name": {
+          "name": "nom du projet de collecte d'échantillons",
+          "description": "Le nom du projet/initiative/programme pour lequel l'échantillon a été collecté.",
+          "title": "nom du projet de collecte d'échantillons",
+          "from_schema": "https://example.com/TEST",
+          "rank": 5,
+          "slot_uri": "GENEPIO:0100429",
+          "alias": "sample_collection_project_name",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+                },
+        "sample collector contact email": {
+          "name": "e-mail de contact du collecteur d'échantillons",
+          "description": "L'adresse email du contact responsable du suivi concernant l'échantillon.",
+          "title": "e-mail de contact du collecteur d'échantillons",
+          "from_schema": "https://example.com/TEST",
+          "rank": 6,
+          "slot_uri": "GENEPIO:0001156",
+          "alias": "sample_collector_contact_email",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "range": "WhitespaceMinimizedString",
+          "pattern": "^\\S+@\\S+\\.\\S+$"
+                },
+        "sample collector contact address": {
+          "name": "adresse de contact du collecteur d'échantillons",
+          "description": "L'adresse postale de l'agence soumettant l'échantillon.",
+          "title": "adresse de contact du collecteur d'échantillons",
+          "from_schema": "https://example.com/TEST",
+          "rank": 7,
+          "slot_uri": "GENEPIO:0001158",
+          "alias": "sample_collector_contact_address",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "range": "WhitespaceMinimizedString"
+                },
+        "sample collection date": {
+          "name": "date de prélèvement de l'échantillon",
+          "description": "La date à laquelle l'échantillon a été prélevé.",
+          "title": "date de prélèvement de l'échantillon",
+          "from_schema": "https://example.com/TEST",
+          "rank": 8,
+          "slot_uri": "GENEPIO:0001174",
+          "alias": "sample_collection_date",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "recommended": true
+                },
+        "sample received date": {
+          "name": "date de réception de l'échantillon",
+          "description": "La date à laquelle l'échantillon a été reçu.",
+          "title": "date de réception de l'échantillon",
+          "from_schema": "https://example.com/TEST",
+          "rank": 9,
+          "slot_uri": "GENEPIO:0001179",
+          "alias": "sample_received_date",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons"
+                },
+        "geo_loc_name (country)": {
+          "name": "geo_loc_name (pays)",
+          "description": "Le pays où l'échantillon a été collecté.",
+          "title": "geo_loc_name (pays)",
+          "from_schema": "https://example.com/TEST",
+          "rank": 10,
+          "slot_uri": "GENEPIO:0001181",
+          "alias": "geo_loc_name_(country)",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "recommended": true
+                },
+        "geo_loc_name (state/province/territory)": {
+          "name": "geo_loc_name (état/province/territoire)",
+          "description": "La province/territoire où l'échantillon a été collecté.",
+          "title": "geo_loc_name (état/province/territoire)",
+          "from_schema": "https://example.com/TEST",
+          "rank": 11,
+          "slot_uri": "GENEPIO:0001185",
+          "alias": "geo_loc_name_(state/province/territory)",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "recommended": true
+                },
+        "geo_loc_name (city)": {
+          "name": "geo_loc_name (ville)",
+          "description": "La ville où l'échantillon a été collecté.",
+          "title": "geo_loc_name (ville)",
+          "from_schema": "https://example.com/TEST",
+          "rank": 12,
+          "slot_uri": "GENEPIO:0001189",
+          "alias": "geo_loc_name_(city)",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "range": "WhitespaceMinimizedString"
+                },
+        "geo_loc_name (site)": {
+          "name": "geo_loc_name (site)",
+          "description": "Le nom d'un emplacement géographique spécifique, par exemple Credit River (plutôt qu'une rivière).",
+          "title": "geo_loc_name (site)",
+          "from_schema": "https://example.com/TEST",
+          "rank": 13,
+          "slot_uri": "GENEPIO:0100436",
+          "alias": "geo_loc_name_(site)",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "range": "geo_loc_name (site) menu"
+                },
+        "organism": {
+          "name": "organisme",
+          "description": "Nom taxonomique de l'organisme.",
+          "title": "organisme",
+          "from_schema": "https://example.com/TEST",
+          "rank": 14,
+          "slot_uri": "GENEPIO:0001191",
+          "alias": "organism",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "required": true
+                },
+        "purpose of sampling": {
+          "name": "objectif de l'échantillonnage",
+          "description": "La raison pour laquelle l'échantillon a été collecté.",
+          "title": "but de l'échantillonnage",
+          "from_schema": "https://example.com/TEST",
+          "rank": 15,
+          "slot_uri": "GENEPIO:0001198",
+          "alias": "purpose_of_sampling",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "recommended": true
+                },
+        "purpose of sampling details": {
+          "name": "objectif des détails de l'échantillonnage",
+          "description": "La description de la raison pour laquelle l'échantillon a été collecté, fournissant des détails spécifiques.",
+          "title": "objectif des détails de l'échantillonnage",
+          "from_schema": "https://example.com/TEST",
+          "rank": 16,
+          "slot_uri": "GENEPIO:0001200",
+          "alias": "purpose_of_sampling_details",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "recommended": true
+                },
+        "original sample description": {
+          "name": "description originale de l'échantillon",
+          "description": "La description originale de l'échantillon fournie par le collecteur d'échantillons.",
+          "title": "description originale de l'échantillon",
+          "from_schema": "https://example.com/TEST",
+          "rank": 17,
+          "slot_uri": "GENEPIO:0100439",
+          "alias": "original_sample_description",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "range": "WhitespaceMinimizedString"
+                },
+        "anatomical material": {
+          "name": "matériel anatomique",
+          "description": "Substance obtenue à partir d'une partie anatomique d'un organisme, par exemple un tissu, du sang.",
+          "title": "matériel anatomique",
+          "from_schema": "https://example.com/TEST",
+          "rank": 18,
+          "slot_uri": "GENEPIO:0001211",
+          "multivalued": true,
+          "alias": "anatomical_material",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "required": true
+                },
+        "anatomical part": {
+          "name": "partie anatomique",
+          "description": "Partie anatomique d'un organisme, par exemple l'oropharynx.",
+          "title": "partie anatomique",
+          "from_schema": "https://example.com/TEST",
+          "rank": 19,
+          "slot_uri": "GENEPIO:0001214",
+          "multivalued": true,
+          "alias": "anatomical_part",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "required": true
+                },
+        "body product": {
+          "name": "produit pour le corps",
+          "description": "Une substance excrétée/sécrétée par un organisme, par exemple les selles, l'urine, la sueur.",
+          "title": "produit pour le corps",
+          "from_schema": "https://example.com/TEST",
+          "rank": 20,
+          "slot_uri": "GENEPIO:0001216",
+          "multivalued": true,
+          "alias": "body_product",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "required": true
+                },
+        "environmental material": {
+          "name": "matériau environnemental",
+          "description": "Une substance obtenue à partir d'un environnement naturel ou artificiel, par exemple le sol, l'eau, les eaux usées.",
+          "title": "matériel environnemental",
+          "from_schema": "https://example.com/TEST",
+          "rank": 21,
+          "slot_uri": "GENEPIO:0001223",
+          "multivalued": true,
+          "alias": "environmental_material",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "required": true
+                },
+        "environmental site": {
+          "name": "site environnemental",
+          "description": "Un emplacement environnemental peut décrire un site dans l'environnement naturel ou bâti, par exemple une surface de contact, une boîte métallique, un hôpital, un marché humide, une grotte à chauves-souris.",
+          "title": "site environnemental",
+          "from_schema": "https://example.com/TEST",
+          "rank": 22,
+          "slot_uri": "GENEPIO:0001232",
+          "multivalued": true,
+          "alias": "environmental_site",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "required": true
+                },
+        "collection device": {
+          "name": "dispositif de collecte",
+          "description": "L'instrument ou le récipient utilisé pour prélever l'échantillon, par exemple un écouvillon.",
+          "title": "dispositif de collecte",
+          "from_schema": "https://example.com/TEST",
+          "rank": 23,
+          "slot_uri": "GENEPIO:0001234",
+          "multivalued": true,
+          "alias": "collection_device",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "required": true
+                },
+        "collection method": {
+          "name": "méthode de collecte",
+          "description": "Le processus utilisé pour collecter l'échantillon, par exemple phlébotamie, autopsie.",
+          "title": "méthode de collecte",
+          "from_schema": "https://example.com/TEST",
+          "rank": 24,
+          "slot_uri": "GENEPIO:0001241",
+          "multivalued": true,
+          "alias": "collection_method",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "required": true
+                },
+        "collection protocol": {
+          "name": "protocole de collecte",
+          "description": "Le nom et la version d'un protocole particulier utilisé pour l'échantillonnage.",
+          "title": "protocole de collecte",
+          "from_schema": "https://example.com/TEST",
+          "rank": 25,
+          "slot_uri": "GENEPIO:0001243",
+          "alias": "collection_protocol",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "range": "WhitespaceMinimizedString"
+                },
+        "specimen processing": {
+          "name": "traitement des échantillons",
+          "description": "Tout traitement appliqué à l'échantillon pendant ou après la réception de l'échantillon.",
+          "title": "traitement des échantillons",
+          "from_schema": "https://example.com/TEST",
+          "rank": 26,
+          "slot_uri": "GENEPIO:0001253",
+          "multivalued": true,
+          "alias": "specimen_processing",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "recommended": true
+                },
+        "specimen processing details": {
+          "name": "détails du traitement des échantillons",
+          "description": "Informations détaillées concernant le traitement appliqué à un échantillon pendant ou après la réception de l'échantillon.",
+          "title": "détails sur le traitement des échantillons",
+          "from_schema": "https://example.com/TEST",
+          "rank": 27,
+          "slot_uri": "GENEPIO:0100311",
+          "alias": "specimen_processing_details",
+          "owner": "TEST",
+          "slot_group": "Collecte et traitement des échantillons",
+          "range": "WhitespaceMinimizedString"
+                },
+        "strain": {
+          "name": "souche",
+          "description": "L'identifiant de la souche.",
+          "title": "souche",
+          "from_schema": "https://example.com/TEST",
+          "rank": 28,
+          "slot_uri": "GENEPIO:0100455",
+          "alias": "strain",
+          "owner": "TEST",
+          "slot_group": "Informations sur la souche et l'isolement",
+          "required": true
+                },
+        "taxonomic identification method": {
+          "name": "méthode d'identification taxonomique",
+          "description": "Le type de processus planifié par lequel une entité organique est associée à un ou plusieurs taxons.",
+          "title": "méthode d'identification taxonomique",
+          "from_schema": "https://example.com/TEST",
+          "rank": 29,
+          "slot_uri": "GENEPIO:0100583",
+          "alias": "taxonomic_identification_method",
+          "owner": "TEST",
+          "slot_group": "Informations sur la souche et l'isolement",
+          "required": true
+                },
+        "taxonomic identification method details": {
+          "name": "détails de la méthode d'identification taxonomique",
+          "description": "Les détails du processus utilisé pour déterminer l'identification taxonomique d'un organisme.",
+          "title": "détails de la méthode d'identification taxonomique",
+          "from_schema": "https://example.com/TEST",
+          "rank": 30,
+          "slot_uri": "GENEPIO:0100584",
+          "alias": "taxonomic_identification_method_details",
+          "owner": "TEST",
+          "slot_group": "Informations sur la souche et l'isolement",
+          "required": true
+                },
+        "incubation temperature value": {
+          "name": "valeur de la température d'incubation",
+          "description": "Une donnée environnementale spécifiant la température à laquelle un ou plusieurs organismes ont été incubés à des fins de croissance sur ou dans un milieu particulier.",
+          "title": "valeur de la température d'incubation",
+          "from_schema": "https://example.com/TEST",
+          "rank": 31,
+          "slot_uri": "GENEPIO:0100617",
+          "alias": "incubation_temperature_value",
+          "owner": "TEST",
+          "slot_group": "Informations sur la souche et l'isolement",
+          "required": true
+                },
+        "incubation temperature unit": {
+          "name": "unité de température d'incubation",
+          "description": "Une donnée environnementale spécifiant l'unité de température à laquelle un ou plusieurs organismes ont été incubés à des fins de croissance sur ou dans un milieu particulier.",
+          "title": "unité de température d'incubation",
+          "from_schema": "https://example.com/TEST",
+          "rank": 32,
+          "slot_uri": "GENEPIO:0100618",
+          "alias": "incubation_temperature_unit",
+          "owner": "TEST",
+          "slot_group": "Informations sur la souche et l'isolement",
+          "required": true
+                },
+        "isolation medium": {
+          "name": "milieu d'isolement",
+          "description": "Un milieu d'isolement est un milieu de culture qui a la capacité de favoriser la croissance de bactéries particulières à l'exclusion d'autres dans le même environnement de croissance.",
+          "title": "milieu d'isolement",
+          "from_schema": "https://example.com/TEST",
+          "rank": 33,
+          "slot_uri": "GENEPIO:0002107",
+          "alias": "isolation_medium",
+          "owner": "TEST",
+          "slot_group": "Informations sur la souche et l'isolement",
+          "required": true
+                },
+        "isolate storage location": {
+          "name": "isoler l'emplacement de stockage",
+          "description": "Une donnée d'isolat spécifiant l'emplacement où un isolat est stocké, par exemple dans un congélateur particulier, sur une étagère particulière",
+          "title": "isoler l'emplacement de stockage",
+          "from_schema": "https://example.com/TEST",
+          "rank": 34,
+          "slot_uri": "GENEPIO:0100619",
+          "alias": "isolate_storage_location",
+          "owner": "TEST",
+          "slot_group": "Informations sur la souche et l'isolement",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+                },
+        "cellular respiration type": {
+          "name": "type de respiration cellulaire",
+          "description": "Une donnée d'isolat spécifiant le type de processus de respiration cellulaire utilisé par l'organisme.",
+          "title": "type de respiration cellulaire",
+          "from_schema": "https://example.com/TEST",
+          "rank": 35,
+          "slot_uri": "GENEPIO:0100620",
+          "alias": "cellular_respiration_type",
+          "owner": "TEST",
+          "slot_group": "Informations sur la souche et l'isolement",
+          "required": true
+                },
+        "host (common name)": {
+          "name": "hôte (nom commun)",
+          "description": "Le nom couramment utilisé de l'hôte.",
+          "title": "hôte (nom commun)",
+          "from_schema": "https://example.com/TEST",
+          "rank": 36,
+          "slot_uri": "GENEPIO:0001386",
+          "alias": "host_(common_name)",
+          "owner": "TEST",
+          "slot_group": "Informations sur l'hôte",
+          "required": true
+                },
+        "host (scientific name)": {
+          "name": "hôte (nom scientifique)",
+          "description": "Le nom taxonomique ou scientifique de l'hôte.",
+          "title": "hôte (nom scientifique)",
+          "from_schema": "https://example.com/TEST",
+          "rank": 37,
+          "slot_uri": "GENEPIO:0001387",
+          "alias": "host_(scientific_name)",
+          "owner": "TEST",
+          "slot_group": "Informations sur l'hôte"
+                },
+        "host disease": {
+          "name": "maladie hôte",
+          "description": "Le nom de la maladie ressentie par l'hôte.",
+          "title": "maladie hôte",
+          "from_schema": "https://example.com/TEST",
+          "rank": 38,
+          "slot_uri": "GENEPIO:0001391",
+          "alias": "host_disease",
+          "owner": "TEST",
+          "slot_group": "Informations sur l'hôte"
+                },
+        "sequenced by": {
+          "name": "séquencé par",
+          "description": "Le nom de l'agence, de l'organisation ou de l'institution responsable du séquençage du génome de l'isolat.",
+          "title": "séquencé par",
+          "from_schema": "https://example.com/TEST",
+          "rank": 39,
+          "slot_uri": "GENEPIO:0100416",
+          "alias": "sequenced_by",
+          "owner": "TEST",
+          "slot_group": "Séquençage"
+                },
+        "sequenced by laboratory name": {
+          "name": "séquencé par nom de laboratoire",
+          "description": "L'affiliation spécifique au laboratoire du responsable du séquençage du génome de l'isolat.",
+          "title": "séquencé par nom de laboratoire",
+          "from_schema": "https://example.com/TEST",
+          "rank": 40,
+          "slot_uri": "GENEPIO:0100470",
+          "alias": "sequenced_by_laboratory_name",
+          "owner": "TEST",
+          "slot_group": "Séquençage",
+          "range": "WhitespaceMinimizedString"
+                },
+        "sequenced by contact name": {
+          "name": "séquencé par nom de contact",
+          "description": "Le nom ou le titre du contact responsable du suivi de la séquence.",
+          "title": "séquencé par nom de contact",
+          "from_schema": "https://example.com/TEST",
+          "rank": 41,
+          "slot_uri": "GENEPIO:0100471",
+          "alias": "sequenced_by_contact_name",
+          "owner": "TEST",
+          "slot_group": "Séquençage",
+          "range": "WhitespaceMinimizedString"
+                },
+        "sequenced by contact email": {
+          "name": "séquencé par email de contact",
+          "description": "L'adresse email du contact chargé du suivi de la séquence.",
+          "title": "séquencé par email de contact",
+          "from_schema": "https://example.com/TEST",
+          "rank": 42,
+          "slot_uri": "GENEPIO:0100422",
+          "alias": "sequenced_by_contact_email",
+          "owner": "TEST",
+          "slot_group": "Séquençage",
+          "range": "WhitespaceMinimizedString"
+                },
+        "purpose of sequencing": {
+          "name": "but du séquençage",
+          "description": "La raison pour laquelle l'échantillon a été séquencé.",
+          "title": "but du séquençage",
+          "from_schema": "https://example.com/TEST",
+          "rank": 43,
+          "slot_uri": "GENEPIO:0001445",
+          "alias": "purpose_of_sequencing",
+          "owner": "TEST",
+          "slot_group": "Séquençage"
+                },
+        "purpose of sequencing details": {
+          "name": "but des détails de séquençage",
+          "description": "La description de la raison pour laquelle l'échantillon a été séquencé, fournissant des détails spécifiques.",
+          "title": "but des détails de séquençage",
+          "from_schema": "https://example.com/TEST",
+          "rank": 44,
+          "slot_uri": "GENEPIO:0001446",
+          "alias": "purpose_of_sequencing_details",
+          "owner": "TEST",
+          "slot_group": "Séquençage"
+                },
+        "sequencing date": {
+          "name": "date de séquençage",
+          "description": "La date à laquelle l'échantillon a été séquencé.",
+          "title": "date de séquençage",
+          "from_schema": "https://example.com/TEST",
+          "rank": 45,
+          "slot_uri": "GENEPIO:0001447",
+          "alias": "sequencing_date",
+          "owner": "TEST",
+          "slot_group": "Séquençage"
+                },
+        "library ID": {
+          "name": "ID de bibliothèque",
+          "description": "L'identifiant spécifié par l'utilisateur pour la bibliothèque préparée pour le séquençage.",
+          "title": "ID de bibliothèque",
+          "from_schema": "https://example.com/TEST",
+          "rank": 46,
+          "slot_uri": "GENEPIO:0001448",
+          "alias": "library_ID",
+          "owner": "TEST",
+          "slot_group": "Séquençage",
+          "range": "WhitespaceMinimizedString"
+                },
+        "sequencing instrument": {
+          "name": "instrument de séquençage",
+          "description": "Le modèle de l'instrument de séquençage utilisé.",
+          "title": "instrument de séquençage",
+          "from_schema": "https://example.com/TEST",
+          "rank": 47,
+          "slot_uri": "GENEPIO:0001452",
+          "multivalued": true,
+          "alias": "sequencing_instrument",
+          "owner": "TEST",
+          "slot_group": "Séquençage",
+          "required": true
+                },
+        "sequencing protocol name": {
+          "name": "nom du protocole de séquençage",
+          "description": "Le nom et le numéro de version du protocole de séquençage utilisé.",
+          "title": "nom du protocole de séquençage",
+          "from_schema": "https://example.com/TEST",
+          "rank": 48,
+          "slot_uri": "GENEPIO:0001453",
+          "alias": "sequencing_protocol_name",
+          "owner": "TEST",
+          "slot_group": "Séquençage",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+                },
+        "amplicon pcr primer list": {
+          "name": "liste d'amorces pcr des amplicons",
+          "description": "Une entité de contenu informationnel spécifiant une liste d'amorces utilisées pour le séquençage des amplicons.",
+          "title": "liste d'amorces pcr des amplicons",
+          "from_schema": "https://example.com/TEST",
+          "rank": 49,
+          "slot_uri": "GENEPIO:0100623",
+          "multivalued": true,
+          "alias": "amplicon_pcr_primer_list",
+          "owner": "TEST",
+          "slot_group": "Séquençage",
+          "required": true
+                },
+        "input file name": {
+          "name": "nom du fichier d'entrée",
+          "description": "Le nom du fichier contenant les données de séquence à analyser.",
+          "title": "nom du fichier d'entrée",
+          "from_schema": "https://example.com/TEST",
+          "rank": 50,
+          "slot_uri": "OBI:0002874",
+          "alias": "input_file_name",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "range": "WhitespaceMinimizedString"
+                },
+        "reference accession": {
+          "name": "adhésion de référence",
+          "description": "Un identifiant qui spécifie un enregistrement de séquence individuel dans un référentiel de séquences public.",
+          "title": "adhésion de référence",
+          "from_schema": "https://example.com/TEST",
+          "rank": 51,
+          "slot_uri": "OBI:0002885",
+          "alias": "reference_accession",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "required": true
+                },
+        "bioinformatics protocol": {
+          "name": "protocole bioinformatique",
+          "description": "Une description de la stratégie bioinformatique globale utilisée.",
+          "title": "protocole bioinformatique",
+          "from_schema": "https://example.com/TEST",
+          "rank": 52,
+          "slot_uri": "GENEPIO:0001489",
+          "alias": "bioinformatics_protocol",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "range": "WhitespaceMinimizedString"
+                },
+        "reference database name": {
+          "name": "nom de la base de données de référence",
+          "description": "Un identifiant d'une base de données biologique ou bioinformatique.",
+          "title": "nom de la base de données de référence",
+          "from_schema": "https://example.com/TEST",
+          "rank": 53,
+          "slot_uri": "OBI:0002883",
+          "alias": "reference_database_name",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "required": true
+                },
+        "reference database version": {
+          "name": "version de la base de données de référence",
+          "description": "La version de la base de données contenant les séquences de référence utilisées pour l'analyse.",
+          "title": "version de la base de données de référence",
+          "from_schema": "https://example.com/TEST",
+          "rank": 54,
+          "slot_uri": "OBI:0002884",
+          "alias": "reference_database_version",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "required": true
+                },
+        "coverage (percentage)": {
+          "name": "couverture (pourcentage)",
+          "description": "Le pourcentage de la séquence de référence couverte par la séquence d'intérêt.",
+          "title": "couverture (pourcentage)",
+          "from_schema": "https://example.com/TEST",
+          "rank": 55,
+          "slot_uri": "OBI:0002880",
+          "alias": "coverage_(percentage)",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "required": true
+                },
+        "sequence identity percentage": {
+          "name": "pourcentage d'identité de séquence",
+          "description": "L'identité de séquence est le nombre (%) de correspondances (caractères identiques) dans des positions issues d'un alignement de deux séquences moléculaires.",
+          "title": "pourcentage d'identité de séquence",
+          "from_schema": "https://example.com/TEST",
+          "rank": 56,
+          "slot_uri": "OBI:0002882",
+          "alias": "sequence_identity_percentage",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et CQ rencontrésrics",
+          "required": true
+                },
+        "sequence identity (variance ratio)": {
+          "name": "identité de séquence (rapport de variance)",
+          "description": "Le rapport de la séquence de référence non couvert par la séquence d'intérêt.",
+          "title": "identité de séquence (rapport de variance)",
+          "from_schema": "https://example.com/TEST",
+          "rank": 57,
+          "slot_uri": "GENEPIO:0100624",
+          "alias": "sequence_identity_(variance_ratio)",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ"
+                },
+        "top-hit taxon determination": {
+          "name": "détermination du taxon le plus populaire",
+          "description": "Le taxon dérivé du premier résultat dans les résultats de recherche produits à partir d'une comparaison de similarité de séquence.",
+          "title": "détermination du taxon le plus populaire",
+          "from_schema": "https://example.com/TEST",
+          "rank": 58,
+          "slot_uri": "GENEPIO:0100625",
+          "alias": "top_hit_taxon_determination",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "required": true
+                },
+        "top-hit strain determination": {
+          "name": "détermination de la souche la plus efficace",
+          "description": "La désignation de la souche dérivée du premier résultat dans les résultats de recherche produits à partir d'une comparaison de similarité de séquence.",
+          "title": "détermination de la souche la plus efficace",
+          "from_schema": "https://example.com/TEST",
+          "rank": 59,
+          "slot_uri": "GENEPIO:0100648",
+          "alias": "top_hit_strain_determination",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "required": true
+                },
+        "trimmed ribosomal gene sequence": {
+          "name": "séquence du gène ribosomal découpée",
+          "description": "Les résultats d'une transformation de données de séquence dans laquelle (par exemple, de faible qualité) les bases de lecture sont supprimées pour produire une séquence d'ARN ribosomique découpée.",
+          "title": "séquence du gène ribosomal découpée",
+          "from_schema": "https://example.com/TEST",
+          "rank": 60,
+          "slot_uri": "GENEPIO:0100626",
+          "alias": "trimmed_ribosomal_gene_sequence",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "required": true
+                },
+        "bioinformatics analysis details": {
+          "name": "détails de l'analyse bioinformatique",
+          "description": "Toutes notes concernant l'analyse bioinformatique.",
+          "title": "détails de l'analyse bioinformatique",
+          "from_schema": "https://example.com/TEST",
+          "rank": 61,
+          "slot_uri": "GENEPIO:0100627",
+          "alias": "bioinformatics_analysis_details",
+          "owner": "TEST",
+          "slot_group": "Bioinformatique et métriques CQ",
+          "range": "WhitespaceMinimizedString"
+                },
+        "authors": {
+          "name": "auteurs",
+          "description": "Noms des personnes contribuant aux processus de collecte d'échantillons, de génération de séquences, d'analyse et de soumission des données.",
+          "title": "auteurs",
+          "from_schema": "https://example.com/TEST",
+          "rank": 62,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "TEST",
+          "slot_group": "Reconnaissance du contributeur",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+                },
+        "DataHarmonizer provenance": {
+          "name": "DataHarmonizer Provenance",
+          "description": "Provenance du logiciel DataHarmonizer et de la version du modèle.",
+          "title": "Provenance DataHarmonizer",
+          "from_schema": "https://example.com/TEST",
+          "rank": 63,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "DataHarmonizer_provenance",
+          "owner": "TEST",
+          "slot_group": "Reconnaissance du contributeur",
+          "range": "Provenance"
+                }
+            }
+        }
+    },
+  "source_file": "schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+        },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+        },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+        }
+    },
+  "@type": "SchemaDefinition"
+}

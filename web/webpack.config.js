@@ -1,11 +1,18 @@
 const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+//const DirectoryTreePlugin = require('directory-tree-webpack-plugin');
 
 module.exports = (env, argv) => {
   var config = {
     context: path.resolve(__dirname),
     entry: './index.js',
+    resolve: {
+      alias: {
+        '@': path.dirname(path.resolve(__dirname)), // this sets '@/' as an alias for the projectroot
+      },
+    },
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'scripts/[name].js',
@@ -21,11 +28,26 @@ module.exports = (env, argv) => {
       schemas: 'schemas',
     },
     plugins: [
+      /* necessary for templates.js
+      new DirectoryTreePlugin({
+        dir: './web/templates',
+        path: './web/templates/manifest.json',
+        extensions: /\.md|\.json/,
+        enhance: (item, options) => {
+          item.path = item.path.replace('web', '');
+        },
+      }),
+      */
       new HtmlWebpackPlugin({
         template: './index.html',
       }),
-      new CopyPlugin({
+      new CopyPlugin({ // Covers all schema.json including locales
         patterns: [
+          {
+            context: 'templates',
+            from: '**/schema.json',
+            to: 'templates/[path][name][ext]',
+          },
           {
             from: 'main.html',
           },
@@ -34,6 +56,11 @@ module.exports = (env, argv) => {
     ],
     module: {
       rules: [
+        { test: /\.xlsx$/, loader: 'webpack-xlsx-loader' },
+        {
+          test: /\.(c|d|t)sv$/, // load all .csv, .dsv, .tsv files with dsv-loader
+          use: ['dsv-loader'], // or dsv-loader?delimiter=,
+        },
         {
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
@@ -100,6 +127,5 @@ module.exports = (env, argv) => {
       }
     }
   }
-
   return config;
 };

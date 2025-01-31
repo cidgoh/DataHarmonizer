@@ -392,7 +392,6 @@ export default {
               mappedCellVal = 'Virus passage';
             }
 
-            console.log(field.name,field)
             // All null values should be converted to "Unknown"
             if (field.dataStatus) {
               const standardizedDataStatus = field.dataStatus.map((val) =>

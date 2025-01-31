@@ -9,7 +9,7 @@ function getDateObjectForTime(hours, minutes, seconds) {
 test.each([
   // value, datatype, expected
   ['13', 'xsd:integer', 13],
-  ['13.5', 'xsd:integer', undefined],
+  ['1ß3.5', 'xsd:integer', undefined],
   ['-14', 'xsd:integer', -14],
   ['+2', 'xsd:integer', 2],
   ['0', 'xsd:integer', 0],

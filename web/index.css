@@ -7,6 +7,11 @@ body {
   overscroll-behavior: contain;
 }
 
+/* For dh2-i18n-rc1 only! */
+#data-harmonizer-tabs {
+  /* display: none; */
+}
+
 .data-harmonizer-grid .secondary-header-cell:hover {
   cursor: pointer;
 }

@@ -1,9 +1,12 @@
 {
   "name": "CanCOGeN_Covid-19",
   "description": "",
-  "in_language": "['en', 'fr']",
+  "in_language": [
+    "en",
+    "fr"
+  ],
   "id": "https://example.com/CanCOGeN_Covid-19",
-  "version": "2.4.1",
+  "version": "3.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -4402,8 +4405,8 @@
         "St. John's Rehab at Sunnybrook Hospital": {
           "text": "St. John's Rehab at Sunnybrook Hospital"
         },
-        "St. Joseph’s Healthcare Hamilton": {
-          "text": "St. Joseph’s Healthcare Hamilton"
+        "St. Joseph's Healthcare Hamilton": {
+          "text": "St. Joseph's Healthcare Hamilton"
         },
         "Switch Health": {
           "text": "Switch Health"
@@ -7382,7 +7385,7 @@
       ],
       "any_of": [
         {
-          "range": "host vaccination status menu"
+          "range": "HostVaccinationStatusMenu"
         },
         {
           "range": "NullValueMenu"
@@ -8584,8 +8587,15 @@
       "domain_of": [
         "CanCOGeNCovid19"
       ],
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "required": true,
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
     },
     "dehosting_method": {
       "name": "dehosting_method",
@@ -8608,8 +8618,15 @@
       "domain_of": [
         "CanCOGeNCovid19"
       ],
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "required": true,
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
     },
     "consensus_sequence_name": {
       "name": "consensus_sequence_name",
@@ -8700,8 +8717,15 @@
       "domain_of": [
         "CanCOGeNCovid19"
       ],
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "required": true,
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
     },
     "consensus_sequence_software_version": {
       "name": "consensus_sequence_software_version",
@@ -8725,8 +8749,15 @@
       "domain_of": [
         "CanCOGeNCovid19"
       ],
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "required": true,
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
     },
     "breadth_of_coverage_value": {
       "name": "breadth_of_coverage_value",
@@ -9045,8 +9076,15 @@
       "domain_of": [
         "CanCOGeNCovid19"
       ],
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "required": true,
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
     },
     "lineage_clade_name": {
       "name": "lineage_clade_name",
@@ -12338,7 +12376,7 @@
           "slot_group": "Host vaccination information",
           "any_of": [
             {
-              "range": "host vaccination status menu"
+              "range": "HostVaccinationStatusMenu"
             },
             {
               "range": "NullValueMenu"
@@ -13716,8 +13754,15 @@
             "CanCOGeNCovid19"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
         "dehosting_method": {
           "name": "dehosting_method",
@@ -13744,8 +13789,15 @@
             "CanCOGeNCovid19"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
         "consensus_sequence_name": {
           "name": "consensus_sequence_name",
@@ -13852,8 +13904,15 @@
             "CanCOGeNCovid19"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
         "consensus_sequence_software_version": {
           "name": "consensus_sequence_software_version",
@@ -13881,8 +13940,15 @@
             "CanCOGeNCovid19"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
         "breadth_of_coverage_value": {
           "name": "breadth_of_coverage_value",
@@ -14257,8 +14323,15 @@
             "CanCOGeNCovid19"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
         },
         "lineage_clade_name": {
           "name": "lineage_clade_name",

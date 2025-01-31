@@ -1,0 +1,82 @@
+class_name	slot_group	slot_uri	title	name	range	range_2	identifier	multivalued	required	recommended	pattern	minimum_value	maximum_value	structured_pattern	description	comments	examples
+Schema	key		Name	name	WhitespaceMinimizedString		TRUE		TRUE		^([A-Z][a-z0-9]+)+$				The coding name of a LinkML schema.	"This is a **CamelCase** formatted name in the LinkML standard naming convention.
+
+A schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations).
+
+A schema can also import other schemas and their slots, classes, etc."	Wastewater
+	key		ID	id	uri		TRUE		TRUE						The unique URI for identifying this LinkML schema.	Typically the schema can be downloaded from this URI, but currently it is often left as an "example" URI during schema development.	
+	attributes		Description	description	string				TRUE						The plain language description of this LinkML schema.		
+	attributes		Version	version	WhitespaceMinimizedString		TRUE		TRUE		^\d+\.\d+\.\d+$				The semantic version identifier for this schema.	See https://semver.org/	1.2.3
+	attributes		Languages	in_language	LanguagesMenu			TRUE							A list of i18n language codes that this schema is available in.	The first listed schema is the default (usually english), while remaining ones are language overlays compiled into a locales/ subfolder.	
+	attributes		Default prefix	default_prefix	uri				TRUE							A prefix to assume all classes and slots can be addressed by.	
+Prefix	key		Schema	schema_id	Schema		TRUE		TRUE						The coding name of the schema this prefix is listed in.		
+	key		Prefix	prefix	WhitespaceMinimizedString		TRUE		TRUE						The namespace prefix string.		
+	attributes		Reference	reference	uri										The URI the prefix expands to.		
+																	
+Slot	key		Schema	schema_id	Schema		TRUE		TRUE						The coding name of the schema that this slot is contained in.	A schema has a list of slots it defines, but a schema can also import other schemas' slots.	
+	key		Name	name	WhitespaceMinimizedString		TRUE		TRUE		^[a-z]([a-z0-9_]+)+$				The coding name of this schema slot.	"This is a lowercase **snake_case** formatted name in the LinkML standard naming convention.
+
+A slot can be used in one or more classes (templates). A slot may appear as a visible single-field datatype column in a spreadsheet (template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."	
+	attributes		Title	title	WhitespaceMinimizedString				TRUE						The plain language name of this LinkML schema slot.	This can be displayed in applications and documentation.	
+	attributes		Aliases	aliases	WhitespaceMinimizedString										A list of other names that slot can be known by.	See https://linkml.io/linkml/schemas/metadata.html#providing-aliases	
+	attributes		Description	description	string				TRUE						A plan text description of this LinkML schema slot.		
+	attributes		Slot URI	slot_uri	uri				 						A URI for identifying this slot's semantic type.		
+	attributes		Slot Group	slot_group	WhitespaceMinimizedString										The name of a grouping to place slot within during presentation.		
+	attributes		Range	range	DataTypeMenu			TRUE	TRUE						The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of "any of" ranges.		
+	attributes		Identifier	identifier	TrueFalseMenu										A boolean TRUE indicates this slot is an identifier, or refers to one.  		
+	attributes		Key	key	TrueFalseMenu										A boolean TRUE indicates this slot is part of a primary key for the Class it is an attribute of.  		
+	attributes		Multivalued	multivalued	TrueFalseMenu										A boolean TRUE indicates this slot can hold more than one values taken from its range.  		
+	attributes		Required	required	TrueFalseMenu										A boolean TRUE indicates this slot is a mandatory data field.  	A mandatory data field will fail validation if empty.	
+	attributes		Recommended	recommended	TrueFalseMenu										A boolean TRUE indicates this slot is a recommended data field.  		
+	attributes		Minimum_value	minimum_value	integer										A minimum value which is appropriate for the range data type of the slot.		
+	attributes		Maximum_value	maximum_value	integer										A maximum value which is appropriate for the range data type of the slot.		
+	attributes		Calculated value	equals_expression	WhitespaceMinimizedString										Enables inferring (calculating) value based on other slot values. Expressed as a python expression.	See https://linkml.io/linkml/schemas/advanced.html#equals-expression 	
+	attributes		Pattern	pattern	WhitespaceMinimizedString										A regular expression pattern used to validate a slot's string range data type content.	Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested.	
+	attributes		Comments	comments	WhitespaceMinimizedString										A free text field for adding other comments to guide usage of field.		
+	attributes		Examples	examples	WhitespaceMinimizedString										A free text field for including examples of string, numeric, date or categorical values.		
+Enum	key		Schema	schema_id	Schema		TRUE		TRUE						The coding name of the schema this enumeration is contained in.		
+	key		Name	name	WhitespaceMinimizedString		TRUE		TRUE						The coding name of this LinkML schema enumeration.	See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/ 	
+	attributes		Title	title	WhitespaceMinimizedString				TRUE						The plain language name of this enumeration menu.		
+	attributes		Description	description	string				TRUE						A plan text description of this LinkML schema enumeration menu of terms.		
+	attributes		Enum URI	enum_uri	uri										A URI for identifying this enumeration's semantic type.		
+PermissibleValue	key		Schema	schema_id	Schema		TRUE		TRUE						The coding name of the schema this menu choice's menu (enumeration) is contained in.		
+	key		Enum	enum_id	WhitespaceMinimizedString				TRUE						The coding name of the menu (enumeration) that this choice is contained in.		
+	key		Name	name	WhitespaceMinimizedString				TRUE						The coding name of this menu choice (PermissibleValue).		
+	attributes		Text	text	WhitespaceMinimizedString										The plain language text of this menu choice (PermissibleValue) to display.		
+	attributes		Description	description	string										A plan text description of the meaning of this menu choice.		
+	attributes		Meaning	meaning	uri										A URI for identifying this choice's semantic type.		
+																	
+Class	key		Schema	schema_id	Schema		TRUE		TRUE						The coding name of the schema this class is contained in.		
+	key		Name	name	WhitespaceMinimizedString		TRUE		TRUE		^([A-Z][a-z0-9]+)+$				A class contained in given schema.  	Each class can be displayed in DataHarmonizer in a spreadsheet tab. A class may be visible as a top-level DataHarmonizer "template", or it may be a subordinate 1-many class linked to a parent class by a primary key field.	WastewaterAMR|WastewaterPathogenAgnostic
+	attributes		Title	title	WhitespaceMinimizedString				TRUE						The plain language name of a LinkML schema class.		
+	attributes		Description	description	string				TRUE								
+	attributes		Version	version	WhitespaceMinimizedString						^\d+\.\d+\.\d+$				A semantic version identifier.	See https://semver.org/	
+	attributes		Class URI	class_uri	uri										A URI for identifying this class's semantic type.		
+	attributes		Container	tree_root	TrueFalseMenu										A boolian indicating whether this is a specification for a top-level data container on which serializations are based.	Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html 	
+	attributes		Unique Keys	unique_keys	WhitespaceMinimizedString												
+	attributes		Inlined as list	Inlined as list	TrueFalseMenu										A boolian indicating whether the content of this class is present inside its containing object as an array.		
+SlotUsage	key		Schema	schema_id	Schema		TRUE		TRUE						The coding name of the schema this slot usage's class is contained in.		
+	key		Class	class	Class		TRUE		TRUE						The coding name of this slot usage's class.		
+	key		Slot	slot	Slot		TRUE		TRUE						The coding name of the slot this slot usage pertains to.		
+	attributes		Rank	rank	integer										An integer which sets the order of this slot relative to the others within a given class.  		
+	attributes		Slot Group	slot_group	WhitespaceMinimizedString										An override on a slot's **slot_group** attribute.		
+	attributes		Range	range	DataTypeMenu			TRUE							An override on a slot's **range* attribute.		
+	attributes		Inlined	inlined	TrueFalseMenu										An override on a slot's **Inlined** attribute.		
+	attributes		Identifier	identifier	TrueFalseMenu										An override on a slot's **Identifier** attribute.		
+	attributes		Key	key	TrueFalseMenu										An override on a slot's **Key** attribute.		
+	attributes		Multivalued	multivalued	TrueFalseMenu										An override on a slot's **Multivalued** attribute.		
+	attributes		Required	required	TrueFalseMenu										An override on a slot's **Required** attribute.		
+	attributes		Recommended	recommended	TrueFalseMenu										An override on a slot's **Recommended** attribute.		
+	attributes		Minimum_value	minimum_value	integer										A minimum value which is appropriate for the range data type of the slot.		
+	attributes		Maximum_value	maximum_value	integer										A maximum value which is appropriate for the range data type of the slot.		
+	attributes		Pattern	pattern	WhitespaceMinimizedString										A regular expression pattern used to validate a slot's string range data type content.	Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested.	
+	attributes		Comments	comments	WhitespaceMinimizedString										A free text field for adding other comments to guide usage of field.		
+	attributes		Examples	examples	WhitespaceMinimizedString										A free text field for including examples of string, numeric, date or categorical values.		
+UniqueKey	key		Schema	schema_id	Schema		TRUE		TRUE						The coding name of the schema this slot usage's class is contained in.		
+	key		Class	class	Class		TRUE		TRUE						The coding name of this slot usage's class.		
+	key		Name	name	WhitespaceMinimizedString		TRUE		TRUE		^[a-z]([a-z0-9_]+)+$				A class contained in given schema.  		
+	attributes		Unique Key Slots	unique_key_slots:	Slot			TRUE	TRUE						A list of a class's slots that make up a unique key	See https://linkml.io/linkml/schemas/constraints.html	
+	attributes		Description	description	WhitespaceMinimizedString										The description of this unique key combination.		
+	attributes		Notes	notes	WhitespaceMinimizedString										Notes about use of this key in other classes via slot ranges etc.		
+																	
+																	

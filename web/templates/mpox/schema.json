@@ -9909,7 +9909,6 @@
         "MpoxInternational"
       ],
       "range": "WhitespaceMinimizedString",
-      "pattern": "{UPPER_CASE}",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
         "interpolated": true,
@@ -9939,7 +9938,6 @@
         "MpoxInternational"
       ],
       "range": "WhitespaceMinimizedString",
-      "pattern": "{UPPER_CASE}",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
         "interpolated": true,
@@ -10009,7 +10007,7 @@
       ],
       "examples": [
         {
-          "value": "BC Centre for Disease Control"
+          "value": "BCCDC Public Health Laboratory"
         }
       ],
       "from_schema": "https://example.com/mpox",
@@ -10535,7 +10533,7 @@
     },
     "collection_method": {
       "name": "collection_method",
-      "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
+      "description": "The process used to collect the sample e.g. phlebotomy, necropsy.",
       "title": "collection method",
       "comments": [
         "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
@@ -10907,12 +10905,7 @@
       "domain_of": [
         "Mpox",
         "MpoxInternational"
-      ],
-      "structured_pattern": {
-        "syntax": "{Title_Case}",
-        "interpolated": true,
-        "partial_match": false
-      }
+      ]
     },
     "host_residence_geo_loc_name_country": {
       "name": "host_residence_geo_loc_name_country",
@@ -15091,7 +15084,6 @@
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
-          "pattern": "{UPPER_CASE}",
           "structured_pattern": {
             "syntax": "{UPPER_CASE}",
             "interpolated": true,
@@ -15125,7 +15117,6 @@
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
-          "pattern": "{UPPER_CASE}",
           "structured_pattern": {
             "syntax": "{UPPER_CASE}",
             "interpolated": true,
@@ -15176,7 +15167,7 @@
           ],
           "examples": [
             {
-              "value": "BC Centre for Disease Control"
+              "value": "BCCDC Public Health Laboratory"
             }
           ],
           "from_schema": "https://example.com/mpox",
@@ -15839,7 +15830,7 @@
         },
         "collection_method": {
           "name": "collection_method",
-          "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
+          "description": "The process used to collect the sample e.g. phlebotomy, necropsy.",
           "title": "collection method",
           "comments": [
             "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
@@ -16350,11 +16341,6 @@
           ],
           "slot_group": "Host Information",
           "required": true,
-          "structured_pattern": {
-            "syntax": "{Title_Case}",
-            "interpolated": true,
-            "partial_match": false
-          },
           "any_of": [
             {
               "range": "HostGenderMenu"
@@ -20233,7 +20219,6 @@
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
-          "pattern": "{UPPER_CASE}",
           "structured_pattern": {
             "syntax": "{UPPER_CASE}",
             "interpolated": true,
@@ -20267,7 +20252,6 @@
           ],
           "slot_group": "Database Identifiers",
           "range": "WhitespaceMinimizedString",
-          "pattern": "{UPPER_CASE}",
           "structured_pattern": {
             "syntax": "{UPPER_CASE}",
             "interpolated": true,
@@ -20345,7 +20329,7 @@
           ],
           "examples": [
             {
-              "value": "BC Centre for Disease Control"
+              "value": "BCCDC Public Health Laboratory"
             }
           ],
           "from_schema": "https://example.com/mpox",
@@ -20990,7 +20974,7 @@
         },
         "collection_method": {
           "name": "collection_method",
-          "description": "The process used to collect the sample e.g. phlebotamy, necropsy.",
+          "description": "The process used to collect the sample e.g. phlebotomy, necropsy.",
           "title": "collection method",
           "comments": [
             "Provide a descriptor if a collection method was used for sampling. Use the picklist provided in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null value."
@@ -21611,11 +21595,6 @@
           ],
           "slot_group": "Host Information",
           "recommended": true,
-          "structured_pattern": {
-            "syntax": "{Title_Case}",
-            "interpolated": true,
-            "partial_match": false
-          },
           "any_of": [
             {
               "range": "HostGenderInternationalMenu"
