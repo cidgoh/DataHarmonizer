@@ -15,13 +15,13 @@
 # Output: 
 #
 # 	schema_core.yaml 	- the main LinkML upper yaml structure .
-#	schema_slots.tsv 	- the list of column fields added to above yaml.
-#	schema_enums.tsv 	- the list of enumerations (code lists) added to above.
+#	  schema_slots.tsv 	- the list of column fields added to above yaml.
+#	  schema_enums.tsv 	- the list of enumerations (code lists) added to above.
 #
 # Then in DH context, run "> python3 tabular_to_schema.py" to generate
 #
 # 	schema.yaml	- yaml version of complete LinkML schema for default language
-#	schema.json - json version of schema.yaml used by DataHarmonizer
+#	  schema.json - json version of schema.yaml used by DataHarmonizer
 #
 # Also for any language locale variants, a language overlay file which is 
 # layered on top of the above schema.json file:
