@@ -223,6 +223,10 @@
     "en": "Column",
     "fr": "Colonne"
   },
+  "help-sidebar__slot_uri": {
+    "en": "Semantic ID",
+    "fr": "ID sémantique"
+  },
   "help-sidebar__description": {
     "en": "Description",
     "fr": "Description"
