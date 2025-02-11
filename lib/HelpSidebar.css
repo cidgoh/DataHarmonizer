@@ -23,11 +23,9 @@
   overflow-x: hidden;
   overflow-y: auto;
   margin: 8px;
-  z-index: 200;
 }
 
 .help-sidebar__placeholder {
   color: #808080;
   font-style: italic;
-  z-index: 10000000000;
 }
