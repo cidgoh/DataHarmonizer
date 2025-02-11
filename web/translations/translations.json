@@ -216,8 +216,8 @@
     "fr": ""
   },
   "dataharmonizer-contact-blurb": {
-    "en": "If you have questions about the DataHarmonizer application, or want to notify us of bugs or potential improvements, contact us by either posting an issue at https://github.com/cidgoh/DataHarmonizer/issues or emailing us at emma_griffiths@sfu.ca",
-    "fr": "Si vous avez des questions sur l’application DataHarmonizer, ou si vous souhaitez nous informer de bogues ou d’améliorations potentielles, communiquez avec nous en publiant un problème sur https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues ou en nous envoyant un courriel à l’adresse emma_griffiths@sfu.ca"
+    "en": "If you have questions about the DataHarmonizer application, or want to notify us of bugs or potential improvements, contact the MInAS team by either posting an issue at https://github.com/MIxS-MInAS/MInAS-DataHarmonizer/issues or emailing us at info@mixs-minas.org",
+    "fr": "Si vous avez des questions sur l’application DataHarmonizer, ou si vous souhaitez nous informer de bogues ou d’améliorations potentielles, communiquez avec nous en publiant un problème sur https://github.com/MIxS-MInAS/MInAS-DataHarmonizer/issues ou en nous envoyant un courriel à l’adresse info@mixs-minas.org"
   },
   "help-sidebar__column": {
     "en": "Column",
