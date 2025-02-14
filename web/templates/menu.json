@@ -12,36 +12,6 @@
     }
   },
   "minas-checklists": {
-    "Mims": {
-      "name": "Mims",
-      "status": "published",
-      "display": false
-    },
-    "HostAssociated": {
-      "name": "HostAssociated",
-      "status": "published",
-      "display": false
-    },
-    "Sediment": {
-      "name": "Sediment",
-      "status": "published",
-      "display": false
-    },
-    "MixsCompliantData": {
-      "name": "MixsCompliantData",
-      "status": "published",
-      "display": false
-    },
-    "MimsHostAssociated": {
-      "name": "MimsHostAssociated",
-      "status": "published",
-      "display": false
-    },
-    "MimsSediment": {
-      "name": "MimsSediment",
-      "status": "published",
-      "display": false
-    },
     "Ancient": {
       "name": "Ancient",
       "status": "published",
@@ -52,13 +22,103 @@
       "status": "published",
       "display": true
     },
+    "MigsOrgHostAssociatedAncient": {
+      "name": "MigsOrgHostAssociatedAncient",
+      "status": "published",
+      "display": true
+    },
+    "MigsOrgHumanAssociatedAncient": {
+      "name": "MigsOrgHumanAssociatedAncient",
+      "status": "published",
+      "display": true
+    },
+    "MiuvigHostAssociatedAncient": {
+      "name": "MiuvigHostAssociatedAncient",
+      "status": "published",
+      "display": true
+    },
+    "MiuvigHumanAssociatedAncient": {
+      "name": "MiuvigHumanAssociatedAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimagHostAssociatedAncient": {
+      "name": "MimagHostAssociatedAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimagHumanAssociatedAncient": {
+      "name": "MimagHumanAssociatedAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimagHumanOralAncient": {
+      "name": "MimagHumanOralAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimagHumanGutAncient": {
+      "name": "MimagHumanGutAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimagHumanSkinAncient": {
+      "name": "MimagHumanSkinAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimagSedimentAncient": {
+      "name": "MimagSedimentAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimagSoilAncient": {
+      "name": "MimagSoilAncient",
+      "status": "published",
+      "display": true
+    },
     "MimsHostAssociatedAncient": {
       "name": "MimsHostAssociatedAncient",
       "status": "published",
       "display": true
     },
+    "MimsHumanAssociatedAncient": {
+      "name": "MimsHumanAssociatedAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimsHumanOralAncient": {
+      "name": "MimsHumanOralAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimsHumanGutAncient": {
+      "name": "MimsHumanGutAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimsHumanSkinAncient": {
+      "name": "MimsHumanSkinAncient",
+      "status": "published",
+      "display": true
+    },
     "MimsSedimentAncient": {
       "name": "MimsSedimentAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimsSoilAncient": {
+      "name": "MimsSoilAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimsPlantAssociatedAncient": {
+      "name": "MimsPlantAssociatedAncient",
+      "status": "published",
+      "display": true
+    },
+    "MimsSymbiontAssociatedAncient": {
+      "name": "MimsSymbiontAssociatedAncient",
       "status": "published",
       "display": true
     }

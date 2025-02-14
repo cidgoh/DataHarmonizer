@@ -73,6 +73,13 @@ enums:
       phosphate buffer:
       sterile swab:
       sterile syringe:
+  BIOTIC_RELATIONSHIP_ENUM:
+    permissible_values:
+      commensalism:
+      free living:
+      mutualism:
+      parasitism:
+      symbiotic:
   REL_TO_OXYGEN_ENUM:
     permissible_values:
       aerobe:
@@ -82,12 +89,85 @@ enums:
       microanaerobe:
       obligate aerobe:
       obligate anaerobe:
+  VIRUS_ENRICH_APPR_ENUM:
+    permissible_values:
+      CsCl density gradient:
+      DNAse:
+      FeCl Precipitation:
+      PEG Precipitation:
+      RNAse:
+      centrifugation:
+      filtration:
+      none:
+      other:
+      targeted sequence capture:
+      ultracentrifugation:
+      ultrafiltration:
   LIB_LAYOUT_ENUM:
     permissible_values:
       other:
       paired:
       single:
       vector:
+  TAX_IDENT_ENUM:
+    permissible_values:
+      16S rRNA gene:
+      multi-marker approach:
+      other:
+  COMPL_APPR_ENUM:
+    permissible_values:
+      marker gene:
+      other:
+      reference based:
+  CONTAM_SCREEN_INPUT_ENUM:
+    permissible_values:
+      contigs:
+      reads:
+  SORT_TECH_ENUM:
+    permissible_values:
+      flow cytometric cell sorting:
+      lazer-tweezing:
+      microfluidics:
+      micromanipulation:
+      optical manipulation:
+      other:
+  SC_LYSIS_APPROACH_ENUM:
+    permissible_values:
+      chemical:
+      combination:
+      enzymatic:
+      physical:
+  WGA_AMP_APPR_ENUM:
+    permissible_values:
+      mda based:
+      pcr based:
+  BIN_PARAM_ENUM:
+    permissible_values:
+      codon usage:
+      combination:
+      coverage:
+      homology search:
+      kmer:
+  MAG_COV_SOFTWARE_ENUM:
+    permissible_values:
+      bbmap:
+      bowtie:
+      bwa:
+      other:
+  PRED_GENOME_STRUC_ENUM:
+    permissible_values:
+      non-segmented:
+      segmented:
+      undetermined:
+  HOST_PRED_APPR_ENUM:
+    permissible_values:
+      CRISPR spacer match:
+      co-occurrence:
+      combination:
+      host sequence similarity:
+      kmer similarity:
+      other:
+      provirus:
   OXY_STAT_SAMP_ENUM:
     permissible_values:
       aerobic:
@@ -108,6 +188,52 @@ enums:
       inoculation:
       other:
       penetration:
+  URINE_COLLECT_METH_ENUM:
+    permissible_values:
+      catheter:
+      clean catch:
+  DOMINANT_HAND_ENUM:
+    permissible_values:
+      ambidextrous:
+      left:
+      right:
+  GROWTH_HABIT_ENUM:
+    permissible_values:
+      erect:
+      prostrate:
+      semi-erect:
+      spreading:
+  PLANT_SEX_ENUM:
+    permissible_values:
+      Androdioecious:
+      Androecious:
+      Androgynomonoecious:
+      Androgynous:
+      Andromonoecious:
+      Bisexual:
+      Dichogamous:
+      Diclinous:
+      Dioecious:
+      Gynodioecious:
+      Gynoecious:
+      Gynomonoecious:
+      Hermaphroditic:
+      Imperfect:
+      Monoclinous:
+      Monoecious:
+      Perfect:
+      Polygamodioecious:
+      Polygamomonoecious:
+      Polygamous:
+      Protandrous:
+      Protogynous:
+      Subandroecious:
+      Subdioecious:
+      Subgynoecious:
+      Synoecious:
+      Trimonoecious:
+      Trioecious:
+      Unisexual:
   SEDIMENT_TYPE_ENUM:
     permissible_values:
       biogenous:
@@ -120,6 +246,122 @@ enums:
       flood tide:
       high tide:
       low tide:
+  TILLAGE_ENUM:
+    permissible_values:
+      chisel:
+      cutting disc:
+      disc plough:
+      drill:
+      mouldboard:
+      ridge till:
+      strip tillage:
+      tined:
+      zonal tillage:
+  SOIL_HORIZON_ENUM:
+    permissible_values:
+      A horizon:
+      B horizon:
+      C horizon:
+      E horizon:
+      O horizon:
+      Permafrost:
+      R layer:
+  FAO_CLASS_ENUM:
+    permissible_values:
+      Acrisols:
+      Andosols:
+      Arenosols:
+      Cambisols:
+      Chernozems:
+      Ferralsols:
+      Fluvisols:
+      Gleysols:
+      Greyzems:
+      Gypsisols:
+      Histosols:
+      Kastanozems:
+      Lithosols:
+      Luvisols:
+      Nitosols:
+      Phaeozems:
+      Planosols:
+      Podzols:
+      Podzoluvisols:
+      Rankers:
+      Regosols:
+      Rendzinas:
+      Solonchaks:
+      Solonetz:
+      Vertisols:
+      Yermosols:
+  PROFILE_POSITION_ENUM:
+    permissible_values:
+      backslope:
+      footslope:
+      shoulder:
+      summit:
+      toeslope:
+  DRAINAGE_CLASS_ENUM:
+    permissible_values:
+      excessively drained:
+      moderately well:
+      poorly:
+      somewhat poorly:
+      very poorly:
+      well:
+  HOST_DEPENDENCE_ENUM:
+    permissible_values:
+      facultative:
+      obligate:
+  TYPE_OF_SYMBIOSIS_ENUM:
+    permissible_values:
+      commensalistic:
+      mutualistic:
+      parasitic:
+  SYM_LIFE_CYCLE_TYPE_ENUM:
+    permissible_values:
+      complex life cycle:
+      simple life cycle:
+  UROBIOM_SEX_ENUM:
+    permissible_values:
+      female:
+      hermaphrodite:
+      male:
+      neuter:
+  MODE_TRANSMISSION_ENUM:
+    permissible_values:
+      "horizontal:castrator":
+      "horizontal:directly transmitted":
+      "horizontal:micropredator":
+      "horizontal:parasitoid":
+      "horizontal:trophically transmitted":
+      "horizontal:vector transmitted":
+      vertical:
+  ROUTE_TRANSMISSION_ENUM:
+    permissible_values:
+      "environmental:faecal-oral":
+      transplacental:
+      "vector-borne:vector penetration":
+  HOST_SPECIFICITY_ENUM:
+    permissible_values:
+      family-specific:
+      generalist:
+      genus-specific:
+      species-specific:
+  SYMBIONT_HOST_ROLE_ENUM:
+    permissible_values:
+      accidental:
+      dead-end:
+      definitive:
+      intermediate:
+      paratenic:
+      reservoir:
+      single host:
+  HOST_CELLULAR_LOC_ENUM:
+    permissible_values:
+      extracellular:
+      intracellular:
+      not determined:
   DamageTreatmentEnum:
     permissible_values:
       none:
@@ -227,6 +469,67 @@ slots:
     - sequencing
     string_serialization: '{dna};{dna}'
     slot_uri: "MIXS:0000048"
+  agrochem_addition:
+    annotations:
+      Expected_value: agrochemical name;agrochemical amount;timestamp
+      Preferred_unit: gram, mole per liter, milligram per liter
+    description: Addition of fertilizers, pesticides, etc. - amount and time of applications
+    title: history/agrochemical additions
+    examples:
+    - value: roundup;5 milligram per liter;2018-06-21
+    keywords:
+    - history
+    string_serialization: '{text};{float} {unit};{timestamp}'
+    slot_uri: "MIXS:0000639"
+    multivalued: true
+  air_temp_regm:
+    annotations:
+      Expected_value: temperature value;treatment interval and duration
+      Preferred_unit: meter
+    description: Information about treatment involving an exposure to varying temperatures; should include the temperature, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include different temperature regimens
+    title: air temperature regimen
+    examples:
+    - value: "25 degree Celsius;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - air
+    - regimen
+    - temperature
+    string_serialization: '{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000551"
+    multivalued: true
+  al_sat:
+    annotations:
+      Preferred_unit: percentage
+    description: Aluminum saturation (esp. For tropical soils)
+    title: extreme_unusual_properties/Al saturation
+    keywords:
+    - extreme
+    - properties
+    - saturation
+    - unusual
+    slot_uri: "MIXS:0000607"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  al_sat_meth:
+    description: Reference or method used in determining Al saturation
+    title: extreme_unusual_properties/Al saturation method
+    keywords:
+    - extreme
+    - method
+    - properties
+    - saturation
+    - unusual
+    slot_uri: "MIXS:0000324"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
   alkalinity:
     annotations:
       Preferred_unit: milliequivalent per liter, milligram per liter
@@ -299,6 +602,11 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  amniotic_fluid_color:
+    description: Specification of the color of the amniotic fluid sample
+    title: amniotic fluid/color
+    slot_uri: "MIXS:0000276"
+    range: string
   ances_data:
     description: Information about either pedigree or other ancestral information description (e.g. parental variety in case of mutant or selection), e.g. A/3*B (meaning [(A x B) x B] x B)
     title: ancestral data
@@ -317,6 +625,50 @@ slots:
     - sequencing
     string_serialization: '{text}'
     slot_uri: "MIXS:0000059"
+  annual_precpt:
+    annotations:
+      Preferred_unit: millimeter
+    description: The average of all annual precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps
+    title: mean annual precipitation
+    keywords:
+    - mean
+    slot_uri: "MIXS:0000644"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  annual_temp:
+    annotations:
+      Preferred_unit: degree Celsius
+    description: Mean annual temperature
+    title: mean annual temperature
+    examples:
+    - value: 12.5 degree Celsius
+    keywords:
+    - mean
+    - temperature
+    slot_uri: "MIXS:0000642"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  antibiotic_regm:
+    annotations:
+      Expected_value: antibiotic name;antibiotic amount;treatment interval and duration
+      Preferred_unit: milligram
+    description: Information about treatment involving antibiotic administration; should include the name of antibiotic, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple antibiotic regimens
+    title: antibiotic regimen
+    examples:
+    - value: "penicillin;5 milligram;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000553"
+    multivalued: true
   assembly_name:
     annotations:
       Expected_value: name and version of assembly
@@ -372,6 +724,23 @@ slots:
     slot_uri: "MIXS:0000091"
     multivalued: true
     recommended: true
+  association_duration:
+    annotations:
+      Preferred_unit: year, day, hour
+    description: Time spent in host of the symbiotic organism at the time of sampling; relevant scale depends on symbiotic organism and study
+    title: duration of association with the host
+    keywords:
+    - duration
+    - host
+    - host.
+    - period
+    slot_uri: "MIXS:0001299"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
   bacteria_carb_prod:
     description: Measurement of bacterial carbon production
     title: bacterial carbon production
@@ -387,6 +756,33 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  bin_param:
+    description: The parameters that have been applied during the extraction of genomes from metagenomic datasets
+    title: binning parameters
+    examples:
+    - value: coverage
+      description: was 'coverage and kmer'
+    - value: kmer
+      description: was coverage and kmer
+    in_subset:
+    - sequencing
+    keywords:
+    - parameter
+    slot_uri: "MIXS:0000077"
+    range: BIN_PARAM_ENUM
+  bin_software:
+    annotations:
+      Expected_value: names and versions of software(s) used
+    description: Tool(s) used for the extraction of genomes from metagenomic datasets, where possible include a product ID (PID) of the tool(s) used
+    title: binning software
+    examples:
+    - value: "MetaCluster-TA (RRID:SCR_004599), MaxBin (biotools:maxbin)"
+    in_subset:
+    - sequencing
+    keywords:
+    - software
+    string_serialization: '{software};{version}{PID}'
+    slot_uri: "MIXS:0000078"
   biol_stat:
     annotations:
       Expected_value: enumeration
@@ -411,6 +807,28 @@ slots:
     string_serialization: '{text};{float} {unit}'
     slot_uri: "MIXS:0000174"
     multivalued: true
+  biotic_regm:
+    description: Information about treatment(s) involving use of biotic factors, such as bacteria, viruses or fungi
+    title: biotic regimen
+    examples:
+    - value: sample inoculated with Rhizobium spp. Culture
+    keywords:
+    - regimen
+    slot_uri: "MIXS:0001038"
+    multivalued: true
+    range: string
+  biotic_relationship:
+    description: Description of relationship(s) between the subject organism and other organism(s) it is associated with. E.g., parasite on species X; mutualist with species Y. The target organism is the subject of the relationship, and the other organism(s) is the object
+    title: observed biotic relationship
+    examples:
+    - value: free living
+    in_subset:
+    - nucleic acid sequence source
+    keywords:
+    - observed
+    - relationship
+    slot_uri: "MIXS:0000028"
+    range: BIOTIC_RELATIONSHIP_ENUM
   bishomohopanol:
     annotations:
       Preferred_unit: microgram per liter, microgram per gram
@@ -425,6 +843,14 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  blood_blood_disord:
+    description: "History of blood disorders; can include multiple disorders.  The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, hematopoietic system disease (https://disease-ontology.org/?id=DOID:74)"
+    title: blood/blood disorder
+    keywords:
+    - disorder
+    slot_uri: "MIXS:0000271"
+    multivalued: true
+    range: string
   blood_press_diast:
     annotations:
       Preferred_unit: millimeter mercury
@@ -514,6 +940,17 @@ slots:
     string_serialization: '{termLabel} [{termID}];{timestamp}'
     slot_uri: "MIXS:0000751"
     multivalued: true
+  chem_mutagen:
+    annotations:
+      Expected_value: mutagen name;mutagen amount;treatment interval and duration
+      Preferred_unit: milligram per liter
+    description: Treatment involving use of mutagens; should include the name of mutagen, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple mutagen regimens
+    title: chemical mutagen
+    examples:
+    - value: "nitrous acid;0.5 milligram per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000555"
+    multivalued: true
   chloride:
     annotations:
       Preferred_unit: milligram per liter, parts per million
@@ -542,6 +979,16 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  climate_environment:
+    description: Treatment involving an exposure to a particular climate; treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple climates
+    title: climate environment
+    examples:
+    - value: "tropical climate;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - environment
+    slot_uri: "MIXS:0001040"
+    multivalued: true
+    range: string
   collection_date:
     description: "The time of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant"
     title: collection date
@@ -554,6 +1001,145 @@ slots:
     slot_uri: "MIXS:0000011"
     range: datetime
     required: true
+  compl_appr:
+    annotations:
+      Expected_value: text
+    description: The approach used to determine the completeness of a given genomic assembly, which would typically make use of a set of conserved marker genes or a closely related reference genome. For UViG completeness, include reference genome or group used, and contig feature suggesting a complete genome
+    title: completeness approach
+    examples:
+    - value: other
+      description: was other <colon> UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)
+    in_subset:
+    - sequencing
+    slot_uri: "MIXS:0000071"
+    range: COMPL_APPR_ENUM
+  compl_score:
+    annotations:
+      Expected_value: quality;percent completeness
+    description: "Completeness score is typically based on either the fraction of markers found as compared to a database or the percent of a genome found as compared to a closely related reference genome. High Quality Draft: >90%, Medium Quality Draft: >50%, and Low Quality Draft: < 50% should have the indicated completeness scores"
+    title: completeness score
+    examples:
+    - value: med;60%
+    in_subset:
+    - sequencing
+    keywords:
+    - score
+    string_serialization: '[high|med|low];{percentage}'
+    slot_uri: "MIXS:0000069"
+  compl_software:
+    annotations:
+      Expected_value: names and versions of software(s) used
+    description: Tools used for completion estimate, i.e. checkm, anvi'o, busco
+    title: completeness software
+    examples:
+    - value: checkm
+    in_subset:
+    - sequencing
+    keywords:
+    - software
+    string_serialization: '{software};{version}'
+    slot_uri: "MIXS:0000070"
+  contam_score:
+    description: "The contamination score is based on the fraction of single-copy genes that are observed more than once in a query genome. The following scores are acceptable for; High Quality Draft: < 5%, Medium Quality Draft: < 10%, Low Quality Draft: < 10%. Contamination must be below 5% for a SAG or MAG to be deposited into any of the public databases"
+    title: contamination score
+    examples:
+    - value: '0.01'
+    in_subset:
+    - sequencing
+    keywords:
+    - score
+    slot_uri: "MIXS:0000072"
+    range: float
+  contam_screen_input:
+    description: The type of sequence data used as input
+    title: contamination screening input
+    examples:
+    - value: contigs
+    in_subset:
+    - sequencing
+    slot_uri: "MIXS:0000005"
+    range: CONTAM_SCREEN_INPUT_ENUM
+  contam_screen_param:
+    annotations:
+      Expected_value: enumeration;value or name
+    description: Specific parameters used in the decontamination sofware, such as reference database, coverage, and kmers. Combinations of these parameters may also be used, i.e. kmer and coverage, or reference database and kmer
+    title: contamination screening parameters
+    examples:
+    - value: kmer
+    in_subset:
+    - sequencing
+    keywords:
+    - parameter
+    string_serialization: '[ref db|kmer|coverage|combination];{text|integer}'
+    slot_uri: "MIXS:0000073"
+  crop_rotation:
+    annotations:
+      Expected_value: crop rotation status;schedule
+    description: Whether or not crop is rotated, and if yes, rotation schedule
+    title: history/crop rotation
+    examples:
+    - value: yes;R2/2017-01-01/2018-12-31/P6M
+    keywords:
+    - history
+    slot_uri: "MIXS:0000318"
+  cult_root_med:
+    annotations:
+      Expected_value: name, PMID,DOI or url
+    description: Name or reference for the hydroponic or in vitro culture rooting medium; can be the name of a commonly used medium or reference to a specific medium, e.g. Murashige and Skoog medium. If the medium has not been formally published, use the rooting medium descriptors
+    title: culture rooting medium
+    examples:
+    - value: "http://himedialabs.com/TD/PT158.pdf"
+    keywords:
+    - culture
+    string_serialization: '{text}|{PMID}|{DOI}|{URL}'
+    slot_uri: "MIXS:0001041"
+  cur_land_use:
+    annotations:
+      Expected_value: enumeration
+    description: Present state of sample site
+    title: current land use
+    examples:
+    - value: conifers
+    keywords:
+    - land
+    - use
+    string_serialization: '[cities|farmstead|industrial areas|roads/railroads|rock|sand|gravel|mudflats|salt flats|badlands|permanent snow or ice|saline seeps|mines/quarries|oil waste areas|small grains|row crops|vegetable crops|horticultural plants (e.g. tulips)|marshlands (grass,sedges,rushes)|tundra (mosses,lichens)|rangeland|pastureland (grasslands used for livestock grazing)|hayland|meadows (grasses,alfalfa,fescue,bromegrass,timothy)|shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)|successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)|shrub crops (blueberries,nursery ornamentals,filberts)|vine crops (grapes)|conifers (e.g. pine,spruce,fir,cypress)|hardwoods (e.g. oak,hickory,elm,aspen)|intermixed hardwood and conifers|tropical (e.g. mangrove,palms)|rainforest (evergreen forest receiving >406 cm annual rainfall)|swamp (permanent or semi-permanent water body dominated by woody plants)|crop trees (nuts,fruit,christmas trees,nursery trees)]'
+    slot_uri: "MIXS:0001080"
+  cur_vegetation:
+    annotations:
+      Expected_value: current vegetation type
+    description: Vegetation classification from one or more standard classification systems, or agricultural crop
+    title: current vegetation
+    keywords:
+    - vegetation
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0000312"
+  cur_vegetation_meth:
+    description: Reference or method used in vegetation classification
+    title: current vegetation method
+    keywords:
+    - method
+    - vegetation
+    slot_uri: "MIXS:0000314"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  decontam_software:
+    annotations:
+      Expected_value: enumeration
+    description: Tool(s) used in contamination screening
+    title: decontamination software
+    examples:
+    - value: anvi'o
+    in_subset:
+    - sequencing
+    keywords:
+    - software
+    string_serialization: "[checkm/refinem|anvi'o|prodege|bbtools:decontaminate.sh|acdc|combination]"
+    slot_uri: "MIXS:0000074"
   density:
     annotations:
       Preferred_unit: gram per cubic meter, gram per cubic centimeter
@@ -586,6 +1172,39 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  dermatology_disord:
+    description: "History of dermatology disorders; can include multiple disorders. The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, skin disease (https://disease-ontology.org/?id=DOID:37)"
+    title: dermatology disorder
+    keywords:
+    - disorder
+    slot_uri: "MIXS:0000284"
+    multivalued: true
+    range: string
+  detec_type:
+    annotations:
+      Expected_value: enumeration
+    description: Type of UViG detection
+    title: detection type
+    examples:
+    - value: independent sequence (UViG)
+    in_subset:
+    - sequencing
+    keywords:
+    - type
+    string_serialization: '[independent sequence (UViG)|provirus (UpViG)]'
+    slot_uri: "MIXS:0000084"
+  diet_last_six_month:
+    annotations:
+      Expected_value: diet change;current diet
+    description: Specification of major diet changes in the last six months, if yes the change should be specified
+    title: major diet change in last six months
+    examples:
+    - value: yes;vegetarian diet
+    keywords:
+    - diet
+    - months
+    string_serialization: '{boolean};{text}'
+    slot_uri: "MIXS:0000266"
   diether_lipids:
     annotations:
       Expected_value: diether lipid name;measurement value
@@ -699,6 +1318,35 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  dominant_hand:
+    description: Dominant hand of the subject
+    title: dominant hand
+    examples:
+    - value: right
+    slot_uri: "MIXS:0000944"
+    range: DOMINANT_HAND_ENUM
+  drainage_class:
+    description: Drainage classification from a standard system such as the USDA system
+    title: drainage classification
+    examples:
+    - value: well
+    keywords:
+    - classification
+    slot_uri: "MIXS:0001085"
+    range: DRAINAGE_CLASS_ENUM
+  drug_usage:
+    annotations:
+      Expected_value: drug name;frequency
+    description: Any drug used by subject and the frequency of usage; can include multiple drugs used
+    title: drug usage
+    examples:
+    - value: Lipitor;2/day
+    keywords:
+    - drug
+    - use
+    string_serialization: '{text};{integer}/[year|month|week|day|hour]'
+    slot_uri: "MIXS:0000894"
+    multivalued: true
   elev:
     annotations:
       Preferred_unit: meter
@@ -767,6 +1415,29 @@ slots:
       syntax: ^{termLabel} \[{termID}\]$
       interpolated: true
       partial_match: true
+  estimated_size:
+    annotations:
+      Expected_value: number of base pairs
+    description: The estimated size of the genome prior to sequencing. Of particular importance in the sequencing of (eukaryotic) genome which could remain in draft form for a long or unspecified period
+    title: estimated size
+    examples:
+    - value: 300000 bp
+    in_subset:
+    - nucleic acid sequence source
+    keywords:
+    - size
+    string_serialization: '{integer} bp'
+    slot_uri: "MIXS:0000024"
+  ethnicity:
+    annotations:
+      Expected_value: text recommend from Wikipedia list
+    description: "A category of people who identify with each other, usually on the basis of presumed similarities such as a common language, ancestry, history, society, culture, nation or social treatment within their residing area. https://en.wikipedia.org/wiki/List_of_contemporary_ethnic_groups"
+    title: ethnicity
+    examples:
+    - value: native american
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0000895"
+    multivalued: true
   experimental_factor:
     annotations:
       Expected_value: text or EFO and/or OBI
@@ -784,6 +1455,32 @@ slots:
     multivalued: true
     range: string
     pattern: "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$"
+  extrachrom_elements:
+    description: Do plasmids exist of significant phenotypic consequence (e.g. ones that determine virulence or antibiotic resistance). Megaplasmids? Other plasmids (borrelia has 15+ plasmids)
+    title: extrachromosomal elements
+    examples:
+    - value: '5'
+    in_subset:
+    - nucleic acid sequence source
+    slot_uri: "MIXS:0000023"
+    range: integer
+  extreme_event:
+    description: Unusual physical events that may have affected microbial populations
+    title: history/extreme events
+    keywords:
+    - event
+    - history
+    slot_uri: "MIXS:0000320"
+    range: datetime
+  fao_class:
+    description: "Soil classification from the FAO World Reference Database for Soil Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups"
+    title: soil_taxonomic/FAO classification
+    examples:
+    - value: Luvisols
+    keywords:
+    - classification
+    slot_uri: "MIXS:0001083"
+    range: FAO_CLASS_ENUM
   feat_pred:
     description: Method used to predict UViGs features such as ORFs, integration site, etc
     title: feature prediction
@@ -801,6 +1498,72 @@ slots:
       syntax: ^{software};{version};{parameters}$
       interpolated: true
       partial_match: true
+  fertilizer_regm:
+    annotations:
+      Expected_value: fertilizer name;fertilizer amount;treatment interval and duration
+      Preferred_unit: gram, mole per liter, milligram per liter
+    description: Information about treatment involving the use of fertilizers; should include the name of fertilizer, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple fertilizer regimens
+    title: fertilizer regimen
+    examples:
+    - value: "urea;0.6 milligram per liter;R2/2018-05-11:T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000556"
+    multivalued: true
+  fire:
+    description: Historical and/or physical evidence of fire
+    title: history/fire
+    keywords:
+    - history
+    slot_uri: "MIXS:0001086"
+    range: datetime
+  flooding:
+    description: Historical and/or physical evidence of flooding
+    title: history/flooding
+    keywords:
+    - history
+    slot_uri: "MIXS:0000319"
+    range: datetime
+  foetal_health_stat:
+    description: Specification of foetal health status, should also include abortion
+    title: amniotic fluid/foetal health status
+    keywords:
+    - status
+    slot_uri: "MIXS:0000275"
+    range: string
+  fungicide_regm:
+    annotations:
+      Preferred_unit: gram, mole per liter, milligram per liter
+    description: Information about treatment involving use of fungicides; should include the name of fungicide, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple fungicide regimens
+    title: fungicide regimen
+    examples:
+    - value: "bifonazole;1 mole per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    slot_uri: "MIXS:0000557"
+    multivalued: true
+    range: string
+  gaseous_environment:
+    annotations:
+      Preferred_unit: micromole per liter
+    description: Use of conditions with differing gaseous environments; should include the name of gaseous compound, amount administered, treatment duration, interval and total experimental duration; can include multiple gaseous environment regimens
+    title: gaseous environment
+    examples:
+    - value: "nitric oxide;0.5 micromole per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - environment
+    slot_uri: "MIXS:0000558"
+    multivalued: true
+    range: string
+  gastrointest_disord:
+    description: "History of gastrointestinal tract disorders; can include multiple disorders. History of blood disorders; can include multiple disorders.  The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, gastrointestinal system disease (https://disease-ontology.org/?id=DOID:77)"
+    title: gastrointestinal tract disorder
+    keywords:
+    - disorder
+    slot_uri: "MIXS:0000280"
+    multivalued: true
+    range: string
   genetic_mod:
     annotations:
       Expected_value: PMID, DOI, URL or text
@@ -828,6 +1591,11 @@ slots:
       syntax: "^{text}: {text}, {text}$"
       interpolated: true
       partial_match: true
+  gestation_state:
+    description: Specification of the gestation state
+    title: amniotic fluid/gestation state
+    slot_uri: "MIXS:0000272"
+    range: string
   glucosidase_act:
     annotations:
       Preferred_unit: mol per liter per hour
@@ -849,6 +1617,107 @@ slots:
     - value: "yes;due date:2018-05-11"
     string_serialization: '{boolean};{timestamp}'
     slot_uri: "MIXS:0000875"
+  gravity:
+    annotations:
+      Expected_value: gravity factor value;treatment interval and duration
+      Preferred_unit: meter per square second, g
+    description: Information about treatment involving use of gravity factor to study various types of responses in presence, absence or modified levels of gravity; treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple treatments
+    title: gravity
+    examples:
+    - value: "12 g;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    string_serialization: '{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000559"
+    multivalued: true
+  growth_facil:
+    annotations:
+      Expected_value: free text or CO
+    description: "Type of facility where the sampled plant was grown; controlled vocabulary: growth chamber, open top chamber, glasshouse, experimental garden, field. Alternatively use Crop Ontology (CO) terms, see http://www.cropontology.org/ontology/CO_715/Crop%20Research"
+    title: growth facility
+    examples:
+    - value: "Growth chamber [CO_715:0000189]"
+    keywords:
+    - facility
+    - growth
+    string_serialization: '{text}|{termLabel} [{termID}]'
+    slot_uri: "MIXS:0001043"
+  growth_habit:
+    description: Characteristic shape, appearance or growth form of a plant species
+    title: growth habit
+    examples:
+    - value: spreading
+    keywords:
+    - growth
+    slot_uri: "MIXS:0001044"
+    range: GROWTH_HABIT_ENUM
+  growth_hormone_regm:
+    annotations:
+      Expected_value: growth hormone name;growth hormone amount;treatment interval and duration
+      Preferred_unit: gram, mole per liter, milligram per liter
+    description: Information about treatment involving use of growth hormones; should include the name of growth hormone, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple growth hormone regimens
+    title: growth hormone regimen
+    examples:
+    - value: "abscisic acid;0.5 milligram per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - growth
+    - regimen
+    string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000560"
+    multivalued: true
+  heavy_metals:
+    annotations:
+      Expected_value: heavy metal name;measurement value unit
+      Preferred_unit: microgram per gram
+    description: Heavy metals present in the sequenced sample and their concentrations. For multiple heavy metals and concentrations, add multiple copies of this field
+    title: extreme_unusual_properties/heavy metals
+    examples:
+    - value: mercury;0.09 micrograms per gram
+    keywords:
+    - extreme
+    - properties
+    - unusual
+    string_serialization: '{text};{float} {unit}'
+    slot_uri: "MIXS:0000652"
+    multivalued: true
+  heavy_metals_meth:
+    description: Reference or method used in determining heavy metals
+    title: extreme_unusual_properties/heavy metals method
+    keywords:
+    - extreme
+    - method
+    - properties
+    - unusual
+    slot_uri: "MIXS:0000343"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  herbicide_regm:
+    annotations:
+      Preferred_unit: gram, mole per liter, milligram per liter
+    description: Information about treatment involving use of herbicides; information about treatment involving use of growth hormones; should include the name of herbicide, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens
+    title: herbicide regimen
+    examples:
+    - value: "atrazine;10 milligram per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    slot_uri: "MIXS:0000561"
+    multivalued: true
+    range: string
+  horizon_meth:
+    description: Reference or method used in determining the horizon
+    title: horizon method
+    keywords:
+    - horizon
+    - method
+    slot_uri: "MIXS:0000321"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
   host_age:
     annotations:
       Preferred_unit: year, day, hour
@@ -875,6 +1744,23 @@ slots:
     - host.
     slot_uri: "MIXS:0000866"
     range: string
+  host_body_mass_index:
+    annotations:
+      Preferred_unit: kilogram per square meter
+    description: Body mass index, calculated as weight/(height)squared
+    title: host body-mass index
+    examples:
+    - value: 22 kilogram per square meter
+    keywords:
+    - host
+    - host.
+    slot_uri: "MIXS:0000317"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
   host_body_product:
     annotations:
       Expected_value: FMA or UBERON
@@ -918,6 +1804,18 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  host_cellular_loc:
+    description: "The localization of the symbiotic host organism within the host from which it was sampled: e.g. intracellular if the symbiotic host organism is localized within the cells or extracellular if the symbiotic host organism is localized outside of cells"
+    title: host cellular location
+    examples:
+    - value: extracellular
+    keywords:
+    - host
+    - host.
+    - location
+    slot_uri: "MIXS:0001313"
+    range: HOST_CELLULAR_LOC_ENUM
+    recommended: true
   host_color:
     description: The color of host
     title: host color
@@ -936,6 +1834,17 @@ slots:
     - host.
     slot_uri: "MIXS:0000248"
     range: string
+  host_dependence:
+    description: Type of host dependence for the symbiotic host organism to its host
+    title: host dependence
+    examples:
+    - value: obligate
+    keywords:
+    - host
+    - host.
+    slot_uri: "MIXS:0001315"
+    range: HOST_DEPENDENCE_ENUM
+    required: true
   host_diet:
     description: Type of diet depending on the host, for animals omnivore, herbivore etc., for humans high-fat, meditteranean etc.; can include multiple diet types
     title: host diet
@@ -1033,6 +1942,36 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  host_hiv_stat:
+    annotations:
+      Expected_value: HIV status;HAART initiation status
+    description: HIV status of subject, if yes HAART initiation status should also be indicated as [YES or NO]
+    title: host HIV status
+    examples:
+    - value: yes;yes
+    keywords:
+    - host
+    - host.
+    - status
+    string_serialization: '{boolean};{boolean}'
+    slot_uri: "MIXS:0000265"
+  host_infra_spec_name:
+    description: Taxonomic information about the host below subspecies level
+    title: host infra-specific name
+    keywords:
+    - host
+    - host.
+    slot_uri: "MIXS:0000253"
+    range: string
+  host_infra_spec_rank:
+    description: Taxonomic rank information about the host below subspecies level, such as variety, form, rank etc
+    title: host infra-specific rank
+    keywords:
+    - host
+    - host.
+    - rank
+    slot_uri: "MIXS:0000254"
+    range: string
   host_last_meal:
     annotations:
       Expected_value: content;duration
@@ -1073,6 +2012,210 @@ slots:
     - life
     string_serialization: '{text}'
     slot_uri: "MIXS:0000251"
+  host_number:
+    annotations:
+      Expected_value: count
+    description: Number of symbiotic host individuals pooled at the time of collection
+    title: host number individual
+    examples:
+    - value: '3'
+    keywords:
+    - host
+    - host.
+    - number
+    string_serialization: '{float} m'
+    slot_uri: "MIXS:0001305"
+  host_occupation:
+    description: Most frequent job performed by subject
+    title: host occupation
+    comments:
+    - Couldn't convert host_occupation with value veterinary to integer
+    - almost all host_occupation values in the NCBI biosample_set are strings, not integers
+    examples:
+    - value: veterinary
+    keywords:
+    - host
+    - host.
+    slot_uri: "MIXS:0000896"
+    range: string
+  host_of_host_coinf:
+    annotations:
+      Expected_value: species name of coinfecting organism(s)
+    description: The taxonomic name of any coinfecting organism observed in a symbiotic relationship with the host of the sampled host organism. e.g. where a sample collected from a host trematode species (A) which was collected from a host_of_host fish (B) that was also infected with a nematode (C), the value here would be (C) the nematode {species name} or {common name}. Multiple co-infecting species may be added in a comma-separated list. For listing symbiotic organisms associated with the host (A) use the term Observed host symbiont
+    title: observed coinfecting organisms in host of host
+    examples:
+    - value: Maritrema novaezealandense
+    keywords:
+    - host
+    - host.
+    - observed
+    - organism
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0001310"
+  host_of_host_disease:
+    annotations:
+      Expected_value: disease name or Disease Ontology term
+    description: "List of diseases with which the host of the symbiotic host organism has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text"
+    title: host of the symbiotic host disease status
+    examples:
+    - value: "rabies [DOID:11260]"
+    keywords:
+    - disease
+    - host
+    - host.
+    - status
+    - symbiosis
+    string_serialization: '{termLabel} [{termID}]|{text}'
+    slot_uri: "MIXS:0001319"
+    multivalued: true
+  host_of_host_env_loc:
+    annotations:
+      Expected_value: UBERON term(s), multiple values can be separated by pipes
+    description: "For a symbiotic host organism the local anatomical environment within its host may have causal influences. Report the anatomical entity(s) which are in the direct environment of the symbiotic host organism being sampled and which you believe have significant causal influences on your sample or specimen. For example, if the symbiotic host organism being sampled is an intestinal worm, its local environmental context will be the term for intestine from UBERON (http://uberon.github.io/)"
+    title: host of the symbiotic host local environmental context
+    examples:
+    - value: "small intestine[uberon:0002108]"
+    keywords:
+    - context
+    - environmental
+    - host
+    - host.
+    - symbiosis
+    string_serialization: "small intestine [UBERON:0002108]"
+    slot_uri: "MIXS:0001325"
+    multivalued: true
+  host_of_host_env_med:
+    annotations:
+      Expected_value: An ontology term for a material such as a tissue type or excreted substance
+    description: "Report the environmental material(s) immediately surrounding the symbiotic host organism at the time of sampling. This usually will be a tissue or substance type from the host, but may be another material if the symbiont is external to the host. We recommend using classes from the UBERON ontology, but subclasses of 'environmental material' (http://purl.obolibrary.org/obo/ENVO_00010483) may also be used. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS . Terms from other OBO ontologies are permissible as long as they reference mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities (e.g. intestines, heart).MIxS . Terms from other OBO ontologies are permissible as long as they reference mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities (e.g. intestines, heart)"
+    title: host of the symbiotic host environemental medium
+    examples:
+    - value: "feces[uberon:0001988]"
+    keywords:
+    - environmental
+    - host
+    - host.
+    - symbiosis
+    string_serialization: '{termLabel} [{termID}]'
+    slot_uri: "MIXS:0001326"
+  host_of_host_fam_rel:
+    annotations:
+      Expected_value: relationship type;arbitrary identifier
+    description: Familial relationship of the host of the symbiotic host organisms to other hosts of symbiotic host organism in the same study; can include multiple relationships
+    title: host of the symbiotic host family relationship
+    keywords:
+    - family
+    - host
+    - host.
+    - relationship
+    - symbiosis
+    string_serialization: '{text};{text}'
+    slot_uri: "MIXS:0001328"
+    multivalued: true
+  host_of_host_geno:
+    description: Observed genotype of the host of the symbiotic host organism
+    title: host of the symbiotic host genotype
+    keywords:
+    - host
+    - host.
+    - symbiosis
+    slot_uri: "MIXS:0001331"
+    range: string
+  host_of_host_gravid:
+    annotations:
+      Expected_value: gravidity status;timestamp
+    description: Whether or not the host of the symbiotic host organism is gravid, and if yes date due or date post-conception, specifying which is used
+    title: host of the symbiotic host gravidity
+    keywords:
+    - host
+    - host.
+    - symbiosis
+    string_serialization: '{boolean};{timestamp}'
+    slot_uri: "MIXS:0001333"
+  host_of_host_infname:
+    description: Taxonomic name information of the host of the symbiotic host organism below subspecies level
+    title: host of the symbiotic host infra-specific name
+    keywords:
+    - host
+    - host.
+    - symbiosis
+    slot_uri: "MIXS:0001329"
+    range: string
+  host_of_host_infrank:
+    description: Taxonomic rank information about the host of the symbiotic host organism below subspecies level, such as variety, form, rank etc
+    title: host of the symbiotic host infra-specific rank
+    keywords:
+    - host
+    - host.
+    - rank
+    - symbiosis
+    slot_uri: "MIXS:0001330"
+    range: string
+  host_of_host_name:
+    description: Common name of the host of the symbiotic host organism
+    title: host of the symbiotic host common name
+    examples:
+    - value: snail
+    keywords:
+    - host
+    - host.
+    - symbiosis
+    slot_uri: "MIXS:0001324"
+    range: string
+  host_of_host_pheno:
+    annotations:
+      Expected_value: phenotype of the host of the symbiotic organism; PATO
+    description: "Phenotype of the host of the symbiotic host organism. For phenotypic quality ontology (PATO) terms, see http://purl.bioontology.org/ontology/pato"
+    title: host of the symbiotic host phenotype
+    keywords:
+    - host
+    - host.
+    - symbiosis
+    string_serialization: '{term}'
+    slot_uri: "MIXS:0001332"
+  host_of_host_sub_id:
+    description: "A unique identifier by which each host of the symbiotic host organism subject can be referred to, de-identified, e.g. #H14"
+    title: host of the symbiotic host subject id
+    examples:
+    - value: H3
+    keywords:
+    - host
+    - host.
+    - identifier
+    - symbiosis
+    slot_uri: "MIXS:0001327"
+    range: string
+  host_of_host_taxid:
+    annotations:
+      Expected_value: NCBI taxon identifier of the host of the symbiotic taxon organism
+    description: NCBI taxon id of the host of the symbiotic host organism
+    title: host of the symbiotic host taxon id
+    examples:
+    - value: '145637'
+    keywords:
+    - host
+    - host.
+    - identifier
+    - symbiosis
+    - taxon
+    string_serialization: '{integer}'
+    slot_uri: "MIXS:0001306"
+  host_of_host_totmass:
+    description: Total mass of the host of the symbiotic host organism at collection, the unit depends on the host
+    title: host of the symbiotic host total mass
+    keywords:
+    - host
+    - host.
+    - mass
+    - symbiosis
+    - total
+    slot_uri: "MIXS:0001334"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
   host_phenotype:
     annotations:
       Expected_value: PATO or HP
@@ -1083,6 +2226,49 @@ slots:
     - host.
     string_serialization: '{termLabel} [{termID}]'
     slot_uri: "MIXS:0000874"
+  host_pred_appr:
+    description: Tool or approach used for host prediction
+    title: host prediction approach
+    examples:
+    - value: CRISPR spacer match
+    in_subset:
+    - sequencing
+    keywords:
+    - host
+    - host.
+    - predict
+    slot_uri: "MIXS:0000088"
+    range: HOST_PRED_APPR_ENUM
+  host_pred_est_acc:
+    description: For each tool or approach used for host prediction, estimated false discovery rates should be included, either computed de novo or from the literature
+    title: host prediction estimated accuracy
+    examples:
+    - value: "CRISPR spacer match: 0 or 1 mismatches, estimated 8% FDR at the host genus rank (Edwards et al. 2016 doi:10.1093/femsre/fuv048)"
+    in_subset:
+    - sequencing
+    keywords:
+    - host
+    - host.
+    - predict
+    slot_uri: "MIXS:0000089"
+    range: string
+  host_pulse:
+    annotations:
+      Preferred_unit: beats per minute
+    description: Resting pulse, measured as beats per minute
+    title: host pulse
+    examples:
+    - value: 65 beats per minute
+    keywords:
+    - host
+    - host.
+    slot_uri: "MIXS:0000333"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
   host_sex:
     annotations:
       Expected_value: enumeration
@@ -1107,6 +2293,33 @@ slots:
     - host.
     slot_uri: "MIXS:0000261"
     range: string
+  host_spec_range:
+    annotations:
+      Expected_value: NCBI taxid
+    description: The range and diversity of host species that an organism is capable of infecting, defined by NCBI taxonomy identifier
+    title: host specificity or range
+    examples:
+    - value: '9606'
+    in_subset:
+    - nucleic acid sequence source
+    keywords:
+    - host
+    - host.
+    - range
+    string_serialization: '{integer}'
+    slot_uri: "MIXS:0000030"
+    multivalued: true
+  host_specificity:
+    description: "Level of specificity of symbiont-host interaction: e.g. generalist (symbiont able to establish associations with distantly related hosts) or species-specific"
+    title: host specificity
+    examples:
+    - value: species-specific
+    keywords:
+    - host
+    - host.
+    slot_uri: "MIXS:0001308"
+    range: HOST_SPECIFICITY_ENUM
+    recommended: true
   host_subject_id:
     description: A unique identifier by which each subject can be referred to, de-identified
     title: host subject id
@@ -1180,6 +2393,75 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  host_wet_mass:
+    annotations:
+      Preferred_unit: kilogram, gram
+    description: Measurement of wet mass
+    title: host wet mass
+    examples:
+    - value: 1500 gram
+    keywords:
+    - host
+    - host.
+    - mass
+    - wet
+    slot_uri: "MIXS:0000567"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  humidity_regm:
+    annotations:
+      Expected_value: humidity value;treatment interval and duration
+      Preferred_unit: gram per cubic meter
+    description: Information about treatment involving an exposure to varying degree of humidity; information about treatment involving use of growth hormones; should include amount of humidity administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens
+    title: humidity regimen
+    examples:
+    - value: "25 gram per cubic meter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - humidity
+    - regimen
+    string_serialization: '{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000568"
+    multivalued: true
+  ihmc_medication_code:
+    description: Can include multiple medication codes
+    title: IHMC medication code
+    examples:
+    - value: '810'
+    keywords:
+    - code
+    slot_uri: "MIXS:0000884"
+    multivalued: true
+    range: integer
+  isol_growth_condt:
+    description: Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material
+    title: isolation and growth condition
+    examples:
+    - value: "doi:10.1016/j.syapm.2018.01.009"
+    in_subset:
+    - nucleic acid sequence source
+    keywords:
+    - condition
+    - growth
+    - isolation
+    slot_uri: "MIXS:0000003"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  kidney_disord:
+    description: "History of kidney disorders; can include multiple disorders. The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, kidney disease (https://disease-ontology.org/?id=DOID:557)"
+    title: urine/kidney disorder
+    keywords:
+    - disorder
+    slot_uri: "MIXS:0000277"
+    multivalued: true
+    range: string
   lat_lon:
     annotations:
       Expected_value: decimal degrees,  limit to 8 decimal points
@@ -1260,6 +2542,96 @@ slots:
     - library
     string_serialization: '{text}'
     slot_uri: "MIXS:0000042"
+  light_regm:
+    annotations:
+      Expected_value: exposure type;light intensity;light quality
+      Preferred_unit: lux; micrometer, nanometer, angstrom
+    description: Information about treatment(s) involving exposure to light, including both light intensity and quality
+    title: light regimen
+    examples:
+    - value: incandescant light;10 lux;450 nanometer
+    keywords:
+    - light
+    - regimen
+    string_serialization: '{text};{float} {unit};{float} {unit}'
+    slot_uri: "MIXS:0000569"
+  link_addit_analys:
+    description: Link to additional analysis results performed on the sample
+    title: links to additional analysis
+    keywords:
+    - link
+    slot_uri: "MIXS:0000340"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  link_class_info:
+    annotations:
+      Expected_value: PMID,DOI or url
+    description: Link to digitized soil maps or other soil classification information
+    title: link to classification information
+    keywords:
+    - classification
+    - information
+    - link
+    string_serialization: '{termLabel} [{termID}]'
+    slot_uri: "MIXS:0000329"
+  link_climate_info:
+    description: Link to climate resource
+    title: link to climate information
+    keywords:
+    - information
+    - link
+    slot_uri: "MIXS:0000328"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  liver_disord:
+    description: "History of liver disorders; can include multiple disorders. The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, liver disease (https://disease-ontology.org/?id=DOID:409)"
+    title: liver disorder
+    keywords:
+    - disorder
+    slot_uri: "MIXS:0000282"
+    multivalued: true
+    range: string
+  local_class:
+    annotations:
+      Expected_value: local classification name
+    description: Soil classification based on local soil classification system
+    title: soil_taxonomic/local classification
+    keywords:
+    - classification
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0000330"
+  local_class_meth:
+    description: Reference or method used in determining the local soil classification
+    title: soil_taxonomic/local classification method
+    keywords:
+    - classification
+    - method
+    slot_uri: "MIXS:0000331"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  mag_cov_software:
+    description: Tool(s) used to determine the genome coverage if coverage is used as a binning parameter in the extraction of genomes from metagenomic datasets
+    title: MAG coverage software
+    examples:
+    - value: bbmap
+    in_subset:
+    - sequencing
+    keywords:
+    - software
+    slot_uri: "MIXS:0000080"
+    range: MAG_COV_SOFTWARE_ENUM
   magnesium:
     annotations:
       Preferred_unit: mole per liter, milligram per liter, parts per million, micromole per kilogram
@@ -1274,6 +2646,13 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  maternal_health_stat:
+    description: Specification of the maternal health status
+    title: amniotic fluid/maternal health status
+    keywords:
+    - status
+    slot_uri: "MIXS:0000273"
+    range: string
   mean_frict_vel:
     annotations:
       Preferred_unit: meter per second
@@ -1309,12 +2688,64 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  mechanical_damage:
+    annotations:
+      Expected_value: damage type;body site
+    description: Information about any mechanical damage exerted on the plant; can include multiple damages and sites
+    title: mechanical damage
+    examples:
+    - value: pruning;bark
+    string_serialization: '{text};{text}'
+    slot_uri: "MIXS:0001052"
+    multivalued: true
+  medic_hist_perform:
+    description: Whether full medical history was collected
+    title: medical history performed
+    examples:
+    - value: '1'
+    keywords:
+    - history
+    slot_uri: "MIXS:0000897"
+    range: boolean
   methane:
     annotations:
       Preferred_unit: micromole per liter, parts per billion, parts per million
     description: Methane (gas) amount or concentration at the time of sampling
     title: methane
     slot_uri: "MIXS:0000101"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  micro_biomass_meth:
+    description: Reference or method used in determining microbial biomass
+    title: microbial biomass method
+    comments:
+    - slot name/scn was microbial_biomass_meth
+    examples:
+    - value: "http://dx.doi.org/10.1016/j.soilbio.2005.01.021"
+    keywords:
+    - biomass
+    - method
+    - microbial
+    slot_uri: "MIXS:0000339"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  microbial_biomass:
+    annotations:
+      Preferred_unit: ton, kilogram, gram per kilogram soil
+    description: The part of the organic matter in the soil that constitutes living microorganisms smaller than 5-10 micrometer. If you keep this, you would need to have correction factors used for conversion to the final units
+    title: microbial biomass
+    keywords:
+    - biomass
+    - microbial
+    slot_uri: "MIXS:0000650"
     range: string
     pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
     structured_pattern:
@@ -1337,6 +2768,21 @@ slots:
       syntax: ^{ambiguous_nucleotides}$
       interpolated: true
       partial_match: true
+  mineral_nutr_regm:
+    annotations:
+      Expected_value: mineral nutrient name;mineral nutrient amount;treatment interval and duration
+      Preferred_unit: gram, mole per liter, milligram per liter
+    description: Information about treatment involving the use of mineral supplements; should include the name of mineral nutrient, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple mineral nutrient regimens
+    title: mineral nutrient regimen
+    examples:
+    - value: "potassium;15 gram;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - mineral
+    - nutrient
+    - regimen
+    string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000570"
+    multivalued: true
   misc_param:
     annotations:
       Expected_value: parameter name;measurement value
@@ -1349,6 +2795,14 @@ slots:
     string_serialization: '{text};{float} {unit}'
     slot_uri: "MIXS:0000752"
     multivalued: true
+  mode_transmission:
+    description: The process through which the symbiotic host organism entered the host from which it was sampled
+    title: mode of transmission
+    examples:
+    - value: "horizontal:castrator"
+    slot_uri: "MIXS:0001312"
+    range: MODE_TRANSMISSION_ENUM
+    recommended: true
   n_alkanes:
     annotations:
       Expected_value: n-alkane name;measurement value
@@ -1419,6 +2873,36 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  non_min_nutr_regm:
+    annotations:
+      Preferred_unit: gram, mole per liter, milligram per liter
+    description: Information about treatment involving the exposure of plant to non-mineral nutrient such as oxygen, hydrogen or carbon; should include the name of non-mineral nutrient, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple non-mineral nutrient regimens
+    title: non-mineral nutrient regimen
+    examples:
+    - value: "https://phylogenomics.me/protocols/16s-pcr-protocol/"
+    keywords:
+    - non-mineral
+    - nutrient
+    - regimen
+    slot_uri: "MIXS:0000571"
+    multivalued: true
+    range: string
+  nose_mouth_teeth_throat_disord:
+    description: "History of nose/mouth/teeth/throat disorders; can include multiple disorders. The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, nose disease (https://disease-ontology.org/?id=DOID:2825), mouth disease (https://disease-ontology.org/?id=DOID:403), tooth disease (https://disease-ontology.org/?id=DOID:1091), or upper respiratory tract disease (https://disease-ontology.org/?id=DOID:974)"
+    title: nose/mouth/teeth/throat disorder
+    keywords:
+    - disorder
+    slot_uri: "MIXS:0000283"
+    multivalued: true
+    range: string
+  nose_throat_disord:
+    description: "History of nose-throat disorders; can include multiple disorders,  The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, lung disease (https://disease-ontology.org/?id=DOID:850), upper respiratory tract disease (https://disease-ontology.org/?id=DOID:974)"
+    title: nose throat disorder
+    keywords:
+    - disorder
+    slot_uri: "MIXS:0000270"
+    multivalued: true
+    range: string
   nucl_acid_amp:
     description: A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids
     title: nucleic acid amplification
@@ -1515,6 +2999,47 @@ slots:
     string_serialization: '{text};{float} {unit};[ATP|MPN|qPCR|other]'
     slot_uri: "MIXS:0000103"
     multivalued: true
+  otu_class_appr:
+    annotations:
+      Expected_value: cutoffs and method used
+    description: Cutoffs and approach used when clustering  species-level  OTUs. Note that results from standard 95% ANI / 85% AF clustering should be provided alongside OTUS defined from another set of thresholds, even if the latter are the ones primarily used during the analysis
+    title: OTU classification approach
+    examples:
+    - value: 95% ANI;85% AF; greedy incremental clustering
+    in_subset:
+    - sequencing
+    keywords:
+    - classification
+    - otu
+    string_serialization: '{ANI cutoff};{AF cutoff};{clustering method}'
+    slot_uri: "MIXS:0000085"
+  otu_db:
+    annotations:
+      Expected_value: database and version
+    description: Reference database (i.e. sequences not generated as part of the current study) used to cluster new genomes in "species-level" OTUs, if any
+    title: OTU database
+    examples:
+    - value: NCBI Viral RefSeq;83
+    in_subset:
+    - sequencing
+    keywords:
+    - database
+    - otu
+    string_serialization: '{database};{version}'
+    slot_uri: "MIXS:0000087"
+  otu_seq_comp_appr:
+    annotations:
+      Expected_value: software name, version and relevant parameters
+    description: Tool and thresholds used to compare sequences when computing "species-level" OTUs
+    title: OTU sequence comparison approach
+    examples:
+    - value: "blastn;2.6.0+;e-value cutoff: 0.001"
+    in_subset:
+    - sequencing
+    keywords:
+    - otu
+    string_serialization: '{software};{version};{parameters}'
+    slot_uri: "MIXS:0000086"
   oxy_stat_samp:
     description: Oxygenation status of sample
     title: oxygenation status of sample
@@ -1555,6 +3080,17 @@ slots:
     string_serialization: '{text};{float} {unit}'
     slot_uri: "MIXS:0000206"
     multivalued: true
+  pathogenicity:
+    annotations:
+      Expected_value: names of organisms that the entity is pathogenic to
+    description: To what is the entity pathogenic
+    title: known pathogenicity
+    examples:
+    - value: human, animal, plant, fungi, bacteria
+    in_subset:
+    - nucleic acid sequence source
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0000027"
   perturbation:
     annotations:
       Expected_value: perturbation type name;perturbation interval and duration
@@ -1566,6 +3102,32 @@ slots:
     - perturbation
     string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: "MIXS:0000754"
+    multivalued: true
+  pesticide_regm:
+    annotations:
+      Preferred_unit: gram, mole per liter, milligram per liter
+    description: Information about treatment involving use of insecticides; should include the name of pesticide, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple pesticide regimens
+    title: pesticide regimen
+    examples:
+    - value: "pyrethrum;0.6 milligram per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    slot_uri: "MIXS:0000573"
+    multivalued: true
+    range: string
+  pet_farm_animal:
+    annotations:
+      Expected_value: presence status;type of animal or pet
+    description: Specification of presence of pets or farm animals in the environment of subject, if yes the animals should be specified; can include multiple animals present
+    title: presence of pets or farm animals
+    examples:
+    - value: yes; 5 cats
+    keywords:
+    - animal
+    - farm
+    - presence
+    string_serialization: '{boolean};{text}'
+    slot_uri: "MIXS:0000267"
     multivalued: true
   petroleum_hydrocarb:
     annotations:
@@ -1593,6 +3155,32 @@ slots:
     - ph
     slot_uri: "MIXS:0001001"
     range: float
+  ph_meth:
+    description: Reference or method used in determining pH
+    title: pH method
+    examples:
+    - value: "https://www.epa.gov/sites/production/files/2015-12/documents/9040c.pdf"
+    keywords:
+    - method
+    - ph
+    slot_uri: "MIXS:0001106"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  ph_regm:
+    description: Information about treatment involving exposure of plants to varying levels of ph of the growth media, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimen
+    title: pH regimen
+    examples:
+    - value: "7.6;R2/2018-05-11:T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - ph
+    - regimen
+    slot_uri: "MIXS:0001056"
+    multivalued: true
+    range: string
   phaeopigments:
     annotations:
       Expected_value: phaeopigment name;measurement value
@@ -1630,6 +3218,63 @@ slots:
     string_serialization: '{text};{float} {unit}'
     slot_uri: "MIXS:0000181"
     multivalued: true
+  plant_growth_med:
+    annotations:
+      Expected_value: EO or enumeration
+    description: "Specification of the media for growing the plants or tissue cultured samples, e.g. soil, aeroponic, hydroponic, in vitro solid culture medium, in vitro liquid culture medium. Recommended value is a specific value from EO:plant growth medium (follow this link for terms http://purl.obolibrary.org/obo/EO_0007147) or other controlled vocabulary"
+    title: plant growth medium
+    keywords:
+    - growth
+    - plant
+    string_serialization: '{termLabel} [{termID}] or [husk|other artificial liquid medium|other artificial solid medium|peat moss|perlite|pumice|sand|soil|vermiculite|water]'
+    slot_uri: "MIXS:0001057"
+  plant_product:
+    annotations:
+      Expected_value: product name
+    description: Substance produced by the plant, where the sample was obtained from
+    title: plant product
+    examples:
+    - value: "xylem sap [PO:0025539]"
+    keywords:
+    - plant
+    - product
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0001058"
+  plant_sex:
+    description: Sex of the reproductive parts on the whole plant, e.g. pistillate, staminate, monoecieous, hermaphrodite
+    title: plant sex
+    examples:
+    - value: Hermaphroditic
+    keywords:
+    - plant
+    slot_uri: "MIXS:0001059"
+    range: PLANT_SEX_ENUM
+  plant_struc:
+    description: "Name of plant structure the sample was obtained from; for Plant Ontology (PO) (v releases/2017-12-14) terms, see http://purl.bioontology.org/ontology/PO, e.g. petiole epidermis (PO_0000051). If an individual flower is sampled, the sex of it can be recorded here"
+    title: plant structure
+    examples:
+    - value: "epidermis [PO:0005679]"
+    keywords:
+    - plant
+    slot_uri: "MIXS:0001060"
+    range: string
+    pattern: "^([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+) \\[[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+\\]$"
+    structured_pattern:
+      syntax: ^{termLabel} \[{termID}\]$
+      interpolated: true
+      partial_match: true
+  pool_dna_extracts:
+    annotations:
+      Expected_value: pooling status;number of pooled extracts
+      Preferred_unit: gram, milliliter, microliter
+    description: Indicate whether multiple DNA extractions were mixed. If the answer yes, the number of extracts that were pooled should be given
+    title: pooling of DNA extracts (if done)
+    examples:
+    - value: yes, 5
+    keywords:
+    - dna
+    - pooling
+    slot_uri: "MIXS:0000325"
   porosity:
     annotations:
       Expected_value: measurement value or range
@@ -1664,6 +3309,31 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  pred_genome_struc:
+    description: Expected structure of the viral genome
+    title: predicted genome structure
+    examples:
+    - value: non-segmented
+    in_subset:
+    - sequencing
+    keywords:
+    - predict
+    slot_uri: "MIXS:0000083"
+    range: PRED_GENOME_STRUC_ENUM
+  pred_genome_type:
+    annotations:
+      Expected_value: enumeration
+    description: Type of genome predicted for the UViG
+    title: predicted genome type
+    examples:
+    - value: dsDNA
+    in_subset:
+    - sequencing
+    keywords:
+    - predict
+    - type
+    string_serialization: '[DNA|dsDNA|ssDNA|RNA|dsRNA|ssRNA|ssRNA (+)|ssRNA (-)|mixed|uncharacterized]'
+    slot_uri: "MIXS:0000082"
   pressure:
     annotations:
       Preferred_unit: atmosphere
@@ -1680,6 +3350,41 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  prev_land_use_meth:
+    description: Reference or method used in determining previous land use and dates
+    title: history/previous land use method
+    keywords:
+    - history
+    - land
+    - method
+    - use
+    slot_uri: "MIXS:0000316"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  previous_land_use:
+    annotations:
+      Expected_value: land use name;date
+    description: Previous land use and dates
+    title: history/previous land use
+    examples:
+    - value: "fallow; 2018-05-11:T14:30Z"
+    keywords:
+    - history
+    - land
+    - use
+    string_serialization: '{text};{timestamp}'
+    slot_uri: "MIXS:0000315"
+  profile_position:
+    description: Cross-sectional position in the hillslope where sample was collected.sample area position in relation to surrounding areas
+    title: profile position
+    examples:
+    - value: summit
+    slot_uri: "MIXS:0001084"
+    range: PROFILE_POSITION_ENUM
   project_name:
     description: Name of the project within which the sequencing was organized
     title: project name
@@ -1692,6 +3397,52 @@ slots:
     slot_uri: "MIXS:0000092"
     range: string
     required: true
+  pulmonary_disord:
+    description: "History of pulmonary disorders; can include multiple disorders. The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, lung disease (https://disease-ontology.org/?id=DOID:850)"
+    title: lung/pulmonary disorder
+    keywords:
+    - disorder
+    slot_uri: "MIXS:0000269"
+    multivalued: true
+    range: string
+  radiation_regm:
+    annotations:
+      Expected_value: radiation type name;radiation amount;treatment interval and duration
+      Preferred_unit: rad, gray
+    description: Information about treatment involving exposure of plant or a plant part to a particular radiation regimen; should include the radiation type, amount or intensity administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple radiation regimens
+    title: radiation regimen
+    examples:
+    - value: "gamma radiation;60 gray;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000575"
+    multivalued: true
+  rainfall_regm:
+    annotations:
+      Expected_value: measurement value;treatment interval and duration
+      Preferred_unit: millimeter
+    description: Information about treatment involving an exposure to a given amount of rainfall, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens
+    title: rainfall regimen
+    examples:
+    - value: "15 millimeter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - rain
+    - regimen
+    string_serialization: '{float} {unit};{Rn/start_time/end_time/duration}'
+    slot_uri: "MIXS:0000576"
+    multivalued: true
+  reassembly_bin:
+    description: Has an assembly been performed on a genome bin extracted from a metagenomic assembly?
+    title: reassembly post binning
+    examples:
+    - value: 'no'
+    in_subset:
+    - sequencing
+    keywords:
+    - post
+    slot_uri: "MIXS:0000079"
+    range: boolean
   redox_potential:
     annotations:
       Preferred_unit: millivolt
@@ -1745,6 +3496,101 @@ slots:
     - relationship
     slot_uri: "MIXS:0000015"
     range: REL_TO_OXYGEN_ENUM
+  root_cond:
+    description: Relevant rooting conditions such as field plot size, sowing density, container dimensions, number of plants per container
+    title: rooting conditions
+    examples:
+    - value: "http://himedialabs.com/TD/PT158.pdf"
+    keywords:
+    - condition
+    slot_uri: "MIXS:0001061"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$|([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}|{text}$
+      interpolated: true
+      partial_match: true
+  root_med_carbon:
+    annotations:
+      Expected_value: carbon source name;measurement value
+      Preferred_unit: milligram per liter
+    description: Source of organic carbon in the culture rooting medium; e.g. sucrose
+    title: rooting medium carbon
+    examples:
+    - value: sucrose
+    keywords:
+    - carbon
+    string_serialization: '{text};{float} {unit}'
+    slot_uri: "MIXS:0000577"
+  root_med_macronutr:
+    annotations:
+      Expected_value: macronutrient name;measurement value
+      Preferred_unit: milligram per liter
+    description: Measurement of the culture rooting medium macronutrients (N,P, K, Ca, Mg, S); e.g. KH2PO4 (170 mg/L)
+    title: rooting medium macronutrients
+    examples:
+    - value: KH2PO4;170  milligram per liter
+    keywords:
+    - macronutrients
+    string_serialization: '{text};{float} {unit}'
+    slot_uri: "MIXS:0000578"
+  root_med_micronutr:
+    annotations:
+      Expected_value: micronutrient name;measurement value
+      Preferred_unit: milligram per liter
+    description: Measurement of the culture rooting medium micronutrients (Fe, Mn, Zn, B, Cu, Mo); e.g. H3BO3 (6.2 mg/L)
+    title: rooting medium micronutrients
+    examples:
+    - value: H3BO3;6.2  milligram per liter
+    keywords:
+    - micronutrients
+    string_serialization: '{text};{float} {unit}'
+    slot_uri: "MIXS:0000579"
+  root_med_ph:
+    description: pH measurement of the culture rooting medium; e.g. 5.5
+    title: rooting medium pH
+    examples:
+    - value: '7.5'
+    keywords:
+    - ph
+    slot_uri: "MIXS:0001062"
+    range: float
+  root_med_regl:
+    annotations:
+      Expected_value: regulator name;measurement value
+      Preferred_unit: milligram per liter
+    description: Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5  mg/L NAA
+    title: rooting medium regulators
+    examples:
+    - value: abscisic acid;0.75 milligram per liter
+    string_serialization: '{text};{float} {unit}'
+    slot_uri: "MIXS:0000581"
+  root_med_solid:
+    description: Specification of the solidifying agent in the culture rooting medium; e.g. agar
+    title: rooting medium solidifier
+    examples:
+    - value: agar
+    slot_uri: "MIXS:0001063"
+    range: string
+  root_med_suppl:
+    annotations:
+      Expected_value: supplement name;measurement value
+      Preferred_unit: milligram per liter
+    description: Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5  mg/L)
+    title: rooting medium organic supplements
+    examples:
+    - value: nicotinic acid;0.5 milligram per liter
+    keywords:
+    - organic
+    string_serialization: '{text};{float} {unit}'
+    slot_uri: "MIXS:0000580"
+  route_transmission:
+    description: Description of path taken by the symbiotic host organism being sampled in order to establish a symbiotic relationship with the host (with which it was observed at the time of sampling) via a mode of transmission (specified in mode_transmission)
+    title: route of transmission
+    keywords:
+    - route
+    slot_uri: "MIXS:0001316"
+    range: ROUTE_TRANSMISSION_ENUM
   salinity:
     annotations:
       Preferred_unit: practical salinity unit, percentage
@@ -1761,6 +3607,19 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  salt_regm:
+    annotations:
+      Preferred_unit: gram, microgram, mole per liter, gram per liter
+    description: Information about treatment involving use of salts as supplement to liquid and soil growth media; should include the name of salt, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple salt regimens
+    title: salt regimen
+    examples:
+    - value: "NaCl;5 gram per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    - salt
+    slot_uri: "MIXS:0000582"
+    multivalued: true
+    range: string
   samp_capt_status:
     description: Reason for the sample
     title: sample capture status
@@ -1882,6 +3741,18 @@ slots:
     - storage
     string_serialization: '{text}'
     slot_uri: "MIXS:0000755"
+  samp_store_sol:
+    annotations:
+      Expected_value: solution name
+    description: Solution within which sample was stored, if any
+    title: sample storage solution
+    examples:
+    - value: 5% ethanol
+    keywords:
+    - sample
+    - storage
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0001317"
   samp_store_temp:
     annotations:
       Preferred_unit: degree Celsius
@@ -1941,6 +3812,80 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  sc_lysis_approach:
+    description: Method used to free DNA from interior of the cell(s) or particle(s)
+    title: single cell or viral particle lysis approach
+    examples:
+    - value: enzymatic
+    in_subset:
+    - sequencing
+    keywords:
+    - particle
+    - single
+    slot_uri: "MIXS:0000076"
+    range: SC_LYSIS_APPROACH_ENUM
+  sc_lysis_method:
+    annotations:
+      Expected_value: kit, protocol name
+    description: Name of the kit or standard protocol used for cell(s) or particle(s) lysis
+    title: single cell or viral particle lysis kit protocol
+    examples:
+    - value: ambion single cell lysis kit
+    in_subset:
+    - sequencing
+    keywords:
+    - kit
+    - particle
+    - protocol
+    - single
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0000054"
+  season_environment:
+    description: Treatment involving an exposure to a particular season (e.g. Winter, summer, rabi, rainy etc.), treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment
+    title: seasonal environment
+    examples:
+    - value: "rainy;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - environment
+    - season
+    slot_uri: "MIXS:0001068"
+    multivalued: true
+    range: string
+  season_precpt:
+    annotations:
+      Preferred_unit: millimeter
+    description: The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps
+    title: mean seasonal precipitation
+    examples:
+    - value: 75 millimeters
+    keywords:
+    - mean
+    - season
+    slot_uri: "MIXS:0000645"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  season_temp:
+    annotations:
+      Preferred_unit: degree Celsius
+    description: Mean seasonal temperature
+    title: mean seasonal temperature
+    examples:
+    - value: 18 degree Celsius
+    keywords:
+    - mean
+    - season
+    - temperature
+    slot_uri: "MIXS:0000643"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
   sediment_type:
     description: Information about the sediment type based on major constituents
     title: sediment type
@@ -1968,6 +3913,13 @@ slots:
       syntax: ^{text}|({termLabel} \[{termID}\])$
       interpolated: true
       partial_match: true
+  sieving:
+    annotations:
+      Expected_value: design name and/or size;amount
+    description: Collection design of pooled samples and/or sieve size and amount of sample sieved
+    title: sieving
+    string_serialization: '{text};{float} {unit}'
+    slot_uri: "MIXS:0000322"
   silicate:
     annotations:
       Preferred_unit: micromole per liter
@@ -2012,6 +3964,41 @@ slots:
     - size
     string_serialization: '{float}-{float} {unit}'
     slot_uri: "MIXS:0000017"
+  slope_aspect:
+    annotations:
+      Preferred_unit: degree
+    description: The direction a slope faces. While looking down a slope use a compass to record the direction you are facing (direction or degrees); e.g., nw or 315 degrees. This measure provides an indication of sun and wind exposure that will influence soil temperature and evapotranspiration
+    title: slope aspect
+    keywords:
+    - slope
+    slot_uri: "MIXS:0000647"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  slope_gradient:
+    annotations:
+      Preferred_unit: percentage
+    description: Commonly called 'slope'. The angle between ground surface and a horizontal line (in percent). This is the direction that overland water would flow. This measure is usually taken with a hand level meter or clinometer
+    title: slope gradient
+    keywords:
+    - slope
+    slot_uri: "MIXS:0000646"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  smoker:
+    description: Specification of smoking status
+    title: smoker
+    examples:
+    - value: 'yes'
+    slot_uri: "MIXS:0000262"
+    range: boolean
   sodium:
     annotations:
       Preferred_unit: milligram per liter, parts per million
@@ -2024,6 +4011,72 @@ slots:
     pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
     structured_pattern:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  soil_horizon:
+    description: Specific layer in the land area which measures parallel to the soil surface and possesses physical characteristics which differ from the layers above and beneath
+    title: soil horizon
+    examples:
+    - value: A horizon
+    keywords:
+    - horizon
+    - soil
+    slot_uri: "MIXS:0001082"
+    range: SOIL_HORIZON_ENUM
+  soil_texture:
+    description: The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional
+    title: soil texture
+    keywords:
+    - soil
+    - texture
+    slot_uri: "MIXS:0000335"
+    range: string
+    pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  soil_texture_meth:
+    description: Reference or method used in determining soil texture
+    title: soil texture method
+    examples:
+    - value: "https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf"
+    keywords:
+    - method
+    - soil
+    - texture
+    slot_uri: "MIXS:0000336"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
+  soil_type:
+    annotations:
+      Expected_value: "ENVO:00001998"
+    description: "Description of the soil type or classification. This field accepts terms under soil (http://purl.obolibrary.org/obo/ENVO_00001998).  Multiple terms can be separated by pipes"
+    title: soil type
+    examples:
+    - value: "plinthosol [ENVO:00002250]"
+    keywords:
+    - soil
+    - type
+    slot_uri: "MIXS:0000332"
+  soil_type_meth:
+    description: Reference or method used in determining soil series name or other lower-level classification
+    title: soil type method
+    examples:
+    - value: "https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf"
+    keywords:
+    - method
+    - soil
+    - type
+    slot_uri: "MIXS:0000334"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
       interpolated: true
       partial_match: true
   sop:
@@ -2040,6 +4093,15 @@ slots:
     string_serialization: '{PMID}|{DOI}|{URL}'
     slot_uri: "MIXS:0000090"
     multivalued: true
+  sort_tech:
+    description: Method used to sort/isolate cells or particles of interest
+    title: sorting technology
+    examples:
+    - value: optical manipulation
+    in_subset:
+    - sequencing
+    slot_uri: "MIXS:0000075"
+    range: SORT_TECH_ENUM
   source_mat_id:
     annotations:
       Expected_value: "for cultures of microorganisms: identifiers for two culture collections; for other material a unique arbitrary identifer"
@@ -2056,6 +4118,92 @@ slots:
     string_serialization: '{text}'
     slot_uri: "MIXS:0000026"
     multivalued: true
+  source_uvig:
+    annotations:
+      Expected_value: enumeration
+    description: Type of dataset from which the UViG was obtained
+    title: source of UViGs
+    examples:
+    - value: viral fraction metagenome (virome)
+    in_subset:
+    - nucleic acid sequence source
+    keywords:
+    - source
+    string_serialization: '[metagenome (not viral targeted)|viral fraction metagenome (virome)|sequence-targeted metagenome|metatranscriptome (not viral targeted)|viral fraction RNA metagenome (RNA virome)|sequence-targeted RNA metagenome|microbial single amplified genome (SAG)|viral single amplified genome (vSAG)|isolate microbial genome|other]'
+    slot_uri: "MIXS:0000035"
+  special_diet:
+    annotations:
+      Expected_value: enumeration
+    description: Specification of special diet; can include multiple special diets
+    title: special diet
+    examples:
+    - value: "other:vegan"
+    keywords:
+    - diet
+    string_serialization: '[low carb|reduced calorie|vegetarian|other(to be specified)]'
+    slot_uri: "MIXS:0000905"
+    multivalued: true
+  specific_host:
+    annotations:
+      Expected_value: host scientific name, taxonomy ID
+    description: Report the host's taxonomic name and/or NCBI taxonomy ID
+    title: host scientific name
+    examples:
+    - value: Homo sapiens and/or 9606
+    in_subset:
+    - nucleic acid sequence source
+    keywords:
+    - host
+    - host.
+    string_serialization: '{text}|{NCBI taxid}'
+    slot_uri: "MIXS:0000029"
+  standing_water_regm:
+    description: Treatment involving an exposure to standing water during a plant's life span, types can be flood water or standing water, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens
+    title: standing water regimen
+    examples:
+    - value: "standing water;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    - water
+    slot_uri: "MIXS:0001069"
+    multivalued: true
+    range: string
+  store_cond:
+    annotations:
+      Expected_value: storage condition type;duration
+    description: Explain how and for how long the soil sample was stored before DNA extraction (fresh/frozen/other)
+    title: storage conditions
+    examples:
+    - value: -20 degree Celsius freezer;P2Y10D
+    keywords:
+    - condition
+    - storage
+    string_serialization: '{text};{period}'
+    slot_uri: "MIXS:0000327"
+  study_complt_stat:
+    annotations:
+      Expected_value: YES or NO due to (1)adverse event (2) non-compliance (3) lost to follow up (4)other-specify
+    description: Specification of study completion status, if no the reason should be specified
+    title: study completion status
+    examples:
+    - value: no;non-compliance
+    keywords:
+    - status
+    string_serialization: '{boolean};[adverse event|non-compliance|lost to follow up|other-specify]'
+    slot_uri: "MIXS:0000898"
+  subspecf_gen_lin:
+    annotations:
+      Expected_value: Genetic lineage below lowest rank of NCBI taxonomy, which is subspecies, e.g. serovar, biotype, ecotype, variety, cultivar
+    description: "Information about the genetic distinctness of the sequenced organism below the subspecies level, e.g., serovar, serotype, biotype, ecotype, or any relevant genetic typing schemes like Group I plasmid. Subspecies should not be recorded in this term, but in the NCBI taxonomy. Supply both the lineage name and the lineage rank separated by a colon, e.g., biovar:abc123"
+    title: subspecific genetic lineage
+    examples:
+    - value: "serovar:Newport"
+    in_subset:
+    - nucleic acid sequence source
+    keywords:
+    - lineage
+    string_serialization: "{rank name}:{text}"
+    slot_uri: "MIXS:0000020"
   sulfate:
     annotations:
       Preferred_unit: micromole per liter, milligram per liter, parts per million
@@ -2088,6 +4236,35 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  sym_life_cycle_type:
+    annotations:
+      Expected_value: type of life cycle of the symbiotic organism (host of the samples)
+    description: Type of life cycle of the symbiotic host species (the thing being sampled). Simple life cycles occur within a single host, complex ones within multiple different hosts over the course of their normal life cycle
+    title: symbiotic host organism life cycle type
+    examples:
+    - value: complex life cycle
+    keywords:
+    - host
+    - host.
+    - life
+    - organism
+    - symbiosis
+    - type
+    slot_uri: "MIXS:0001300"
+    range: SYM_LIFE_CYCLE_TYPE_ENUM
+    required: true
+  symbiont_host_role:
+    description: Role of the host in the life cycle of the symbiotic organism
+    title: host of the symbiont role
+    examples:
+    - value: intermediate
+    keywords:
+    - host
+    - host.
+    - symbiosis
+    slot_uri: "MIXS:0001303"
+    range: SYMBIONT_HOST_ROLE_ENUM
+    recommended: true
   tax_class:
     description: Method used for taxonomic classification, along with reference database used, classification rank, and thresholds used to classify new genomes
     title: taxonomic classification
@@ -2100,6 +4277,20 @@ slots:
     - taxon
     slot_uri: "MIXS:0000064"
     range: string
+  tax_ident:
+    description: The phylogenetic marker(s) used to assign an organism name to the SAG or MAG
+    title: taxonomic identity marker
+    examples:
+    - value: other
+      description: was other <colon> rpoB gene
+    in_subset:
+    - sequencing
+    keywords:
+    - identifier
+    - marker
+    - taxon
+    slot_uri: "MIXS:0000053"
+    range: TAX_IDENT_ENUM
   temp:
     annotations:
       Preferred_unit: degree Celsius
@@ -2125,6 +4316,62 @@ slots:
     - value: high tide
     slot_uri: "MIXS:0000750"
     range: TIDAL_STAGE_ENUM
+  tillage:
+    description: Note method(s) used for tilling
+    title: history/tillage
+    examples:
+    - value: chisel
+    keywords:
+    - history
+    slot_uri: "MIXS:0001081"
+    multivalued: true
+    range: TILLAGE_ENUM
+  time_last_toothbrush:
+    description: Specification of the time since last toothbrushing
+    title: time since last toothbrushing
+    comments:
+    - P2H45M does not match ^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$
+    - problematic ISO 8601 period validation
+    examples:
+    - value: PT2H45M
+    keywords:
+    - time
+    slot_uri: "MIXS:0000924"
+    range: string
+    pattern: "^P(?:(?:\\d+D|\\d+M(?:\\d+D)?|\\d+Y(?:\\d+M(?:\\d+D)?)?)(?:T(?:\\d+H(?:\\d+M(?:\\d+S)?)?|\\d+M(?:\\d+S)?|\\d+S))?|T(?:\\d+H(?:\\d+M(?:\\d+S)?)?|\\d+M(?:\\d+S)?|\\d+S)|\\d+W)$"
+    structured_pattern:
+      syntax: ^{duration}$
+      interpolated: true
+      partial_match: true
+  time_since_last_wash:
+    description: Specification of the time since last wash
+    title: time since last wash
+    examples:
+    - value: P1D
+    keywords:
+    - time
+    slot_uri: "MIXS:0000943"
+    range: string
+    pattern: "^P(?:(?:\\d+D|\\d+M(?:\\d+D)?|\\d+Y(?:\\d+M(?:\\d+D)?)?)(?:T(?:\\d+H(?:\\d+M(?:\\d+S)?)?|\\d+M(?:\\d+S)?|\\d+S))?|T(?:\\d+H(?:\\d+M(?:\\d+S)?)?|\\d+M(?:\\d+S)?|\\d+S)|\\d+W)$"
+    structured_pattern:
+      syntax: ^{duration}$
+      interpolated: true
+      partial_match: true
+  tiss_cult_growth_med:
+    description: Description of plant tissue culture growth media used
+    title: tissue culture growth media
+    examples:
+    - value: "https://link.springer.com/content/pdf/10.1007/BF02796489.pdf"
+    keywords:
+    - culture
+    - growth
+    slot_uri: "MIXS:0001070"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$|([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}|{text}$
+      interpolated: true
+      partial_match: true
   tot_carb:
     description: Total carbon content
     title: total carbon
@@ -2156,6 +4403,23 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  tot_nitro_cont_meth:
+    description: Reference or method used in determining the total nitrogen
+    title: total nitrogen content method
+    examples:
+    - value: "https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/0471142913.fab0102s00"
+    keywords:
+    - content
+    - method
+    - nitrogen
+    - total
+    slot_uri: "MIXS:0000338"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
+      interpolated: true
+      partial_match: true
   tot_nitro_content:
     description: Total nitrogen content of the sample
     title: total nitrogen content
@@ -2170,6 +4434,23 @@ slots:
     pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
     structured_pattern:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  tot_org_c_meth:
+    description: Reference or method used in determining total organic carbon
+    title: total organic carbon method
+    examples:
+    - value: "https://www.epa.gov/sites/production/files/2015-12/documents/9060a.pdf"
+    keywords:
+    - carbon
+    - method
+    - organic
+    - total
+    slot_uri: "MIXS:0000337"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
       interpolated: true
       partial_match: true
   tot_org_carb:
@@ -2190,6 +4471,45 @@ slots:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
       interpolated: true
       partial_match: true
+  travel_out_six_month:
+    annotations:
+      Expected_value: country name
+    description: Specification of the countries travelled in the last six months; can include multiple travels
+    title: travel outside the country in last six months
+    keywords:
+    - months
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0000268"
+    multivalued: true
+  trna_ext_software:
+    description: Tools used for tRNA identification
+    title: tRNA extraction software
+    examples:
+    - value: infernal;v2;default parameters
+    in_subset:
+    - sequencing
+    keywords:
+    - software
+    slot_uri: "MIXS:0000068"
+    range: string
+    pattern: ^([^\s-]{1,2}|[^\s-]+.+[^\s-]+);([^\s-]{1,2}|[^\s-]+.+[^\s-]+);([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
+    structured_pattern:
+      syntax: ^{software};{version};{parameters}$
+      interpolated: true
+      partial_match: true
+  trnas:
+    annotations:
+      Expected_value: value from 0-21
+    description: The total number of tRNAs identified from the SAG or MAG
+    title: number of standard tRNAs extracted
+    examples:
+    - value: '18'
+    in_subset:
+    - sequencing
+    keywords:
+    - number
+    string_serialization: '{integer}'
+    slot_uri: "MIXS:0000067"
   turbidity:
     description: Measure of the amount of cloudiness or haziness in water caused by individual particles
     title: turbidity
@@ -2200,6 +4520,99 @@ slots:
     pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
     structured_pattern:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  twin_sibling:
+    description: Specification of twin sibling presence
+    title: twin sibling presence
+    examples:
+    - value: 'yes'
+    keywords:
+    - presence
+    slot_uri: "MIXS:0000326"
+    range: boolean
+  type_of_symbiosis:
+    description: Type of biological interaction established between the symbiotic host organism being sampled and its respective host
+    title: type of symbiosis
+    examples:
+    - value: parasitic
+    keywords:
+    - symbiosis
+    - type
+    slot_uri: "MIXS:0001307"
+    range: TYPE_OF_SYMBIOSIS_ENUM
+    recommended: true
+  urine_collect_meth:
+    description: Specification of urine collection method
+    title: urine/collection method
+    examples:
+    - value: catheter
+    keywords:
+    - method
+    slot_uri: "MIXS:0000899"
+    range: URINE_COLLECT_METH_ENUM
+  urobiom_sex:
+    annotations:
+      Expected_value: sex of the symbiotic organism (host of the samples); enumeration
+    description: Physical sex of the host
+    title: host sex
+    keywords:
+    - host
+    - host.
+    slot_uri: "MIXS:0000862"
+    range: UROBIOM_SEX_ENUM
+  urogenit_tract_disor:
+    description: "History of urogenital tract disorders; can include multiple disorders. The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, urinary system disease (https://disease-ontology.org/?id=DOID:18)"
+    title: urine/urogenital tract disorder
+    keywords:
+    - disorder
+    slot_uri: "MIXS:0000278"
+    multivalued: true
+    range: string
+  vir_ident_software:
+    annotations:
+      Expected_value: software name, version and relevant parameters
+    description: Tool(s) used for the identification of UViG as a viral genome, software or protocol name including version number, parameters, and cutoffs used
+    title: viral identification software
+    examples:
+    - value: VirSorter; 1.0.4; Virome database, category 2
+    in_subset:
+    - sequencing
+    keywords:
+    - identifier
+    - software
+    string_serialization: '{software};{version};{parameters}'
+    slot_uri: "MIXS:0000081"
+  virus_enrich_appr:
+    description: List of approaches used to enrich the sample for viruses, if any
+    title: virus enrichment approach
+    examples:
+    - value: filtration
+      description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+    - value: FeCl Precipitation
+      description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+    - value: ultracentrifugation
+      description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+    - value: DNAse
+      description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+    in_subset:
+    - nucleic acid sequence source
+    keywords:
+    - enrichment
+    slot_uri: "MIXS:0000036"
+    range: VIRUS_ENRICH_APPR_ENUM
+  water_cont_soil_meth:
+    description: Reference or method used in determining the water content of soil
+    title: water content method
+    keywords:
+    - content
+    - method
+    - water
+    slot_uri: "MIXS:0000323"
+    range: string
+    pattern: "^^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$$"
+    structured_pattern:
+      syntax: ^{PMID}|{DOI}|{URL}$
       interpolated: true
       partial_match: true
   water_content:
@@ -2215,6 +4628,96 @@ slots:
     pattern: "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$"
     structured_pattern:
       syntax: ^{scientific_float}( *- *{scientific_float})? *{text}$
+      interpolated: true
+      partial_match: true
+  water_temp_regm:
+    annotations:
+      Preferred_unit: degree Celsius
+    description: Information about treatment involving an exposure to water with varying degree of temperature, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens
+    title: water temperature regimen
+    examples:
+    - value: "15 degree Celsius;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    - temperature
+    - water
+    slot_uri: "MIXS:0000590"
+    multivalued: true
+    range: string
+  watering_regm:
+    annotations:
+      Preferred_unit: milliliter, liter
+    description: Information about treatment involving an exposure to watering frequencies, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple regimens
+    title: watering regimen
+    examples:
+    - value: "1 liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M"
+    keywords:
+    - regimen
+    - water
+    slot_uri: "MIXS:0000591"
+    multivalued: true
+    range: string
+  weight_loss_3_month:
+    annotations:
+      Expected_value: weight loss specification;measurement value
+      Preferred_unit: kilogram, gram
+    description: Specification of weight loss in the last three months, if yes should be further specified to include amount of weight loss
+    title: weight loss in last three months
+    examples:
+    - value: yes;5 kilogram
+    keywords:
+    - months
+    - weight
+    string_serialization: '{boolean};{float} {unit}'
+    slot_uri: "MIXS:0000295"
+  wga_amp_appr:
+    description: Method used to amplify genomic DNA in preparation for sequencing
+    title: WGA amplification approach
+    examples:
+    - value: mda based
+    in_subset:
+    - sequencing
+    slot_uri: "MIXS:0000055"
+    range: WGA_AMP_APPR_ENUM
+  wga_amp_kit:
+    annotations:
+      Expected_value: kit name
+    description: Kit used to amplify genomic DNA in preparation for sequencing
+    title: WGA amplification kit
+    examples:
+    - value: qiagen repli-g
+    in_subset:
+    - sequencing
+    keywords:
+    - kit
+    string_serialization: '{text}'
+    slot_uri: "MIXS:0000006"
+  x16s_recover:
+    description: Can a 16S gene be recovered from the submitted SAG or MAG?
+    title: 16S recovered
+    examples:
+    - value: 'yes'
+    in_subset:
+    - sequencing
+    keywords:
+    - recover
+    slot_uri: "MIXS:0000065"
+    range: boolean
+  x16s_recover_software:
+    description: Tools used for 16S rRNA gene extraction
+    title: 16S recovery software
+    examples:
+    - value: rambl;v2;default parameters
+    in_subset:
+    - sequencing
+    keywords:
+    - recover
+    - software
+    slot_uri: "MIXS:0000066"
+    range: string
+    pattern: ^([^\s-]{1,2}|[^\s-]+.+[^\s-]+);([^\s-]{1,2}|[^\s-]+.+[^\s-]+);([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
+    structured_pattern:
+      syntax: ^{software};{version};{parameters}$
       interpolated: true
       partial_match: true
   collection_context_name:
@@ -3109,22 +5612,184 @@ slots:
     multivalued: true
     required: false
     recommended: false
-  mims_host_associated_ancient_data:
+  migsorg_hostassociated_ancient_data:
+    description: Data that comply with Ancient combined with MigsOrgHostAssociated
+    title: MigsOrgHostAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:migsorg_hostassociated_ancient_data"
+    multivalued: true
+    range: MigsOrgHostAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  migsorg_humanassociated_ancient_data:
+    description: Data that comply with Ancient combined with MigsOrgHumanAssociated
+    title: MigsOrgHumanAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:migsorg_humanassociated_ancient_data"
+    multivalued: true
+    range: MigsOrgHumanAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  miuvig_hostassociated_ancient_data:
+    description: Data that comply with Ancient combined with MiuvigHostAssociated
+    title: MiuvigHostAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:miuvig_hostassociated_ancient_data"
+    multivalued: true
+    range: MiuvigHostAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  miuvig_humanassociated_ancient_data:
+    description: Data that comply with Ancient combined with MiuvigHumanAssociated
+    title: MiuvigHumanAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:miuvig_humanassociated_ancient_data"
+    multivalued: true
+    range: MiuvigHumanAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  mimag_hostassociated_ancient_data:
+    description: Data that comply with Ancient combined with MimagHostAssociated
+    title: MimagHostAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mimag_hostassociated_ancient_data"
+    multivalued: true
+    range: MimagHostAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  mimag_humanassociated_ancient_data:
+    description: Data that comply with Ancient combined with MimagHumanAssociated
+    title: MimagHumanAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mimag_humanassociated_ancient_data"
+    multivalued: true
+    range: MimagHumanAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  mimag_humanoral_ancient_data:
+    description: Data that comply with Ancient combined with MimagHumanOral
+    title: MimagHumanOralAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mimag_humanoral_ancient_data"
+    multivalued: true
+    range: MimagHumanOralAncient
+    inlined: true
+    inlined_as_list: true
+  mimag_humangut_ancient_data:
+    description: Data that comply with Ancient combined with MimagHumanGut
+    title: MimagHumanGutAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mimag_humangut_ancient_data"
+    multivalued: true
+    range: MimagHumanGutAncient
+    inlined: true
+    inlined_as_list: true
+  mimag_humanskin_ancient_data:
+    description: Data that comply with Ancient combined with MimagHumanSkin
+    title: MimagHumanSkinAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mimag_humanskin_ancient_data"
+    multivalued: true
+    range: MimagHumanSkinAncient
+    inlined: true
+    inlined_as_list: true
+  mimag_sediment_ancient_data:
+    description: Data that comply with Ancient combined with MimagSediment
+    title: MimagSedimentAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mimag_sediment_ancient_data"
+    multivalued: true
+    range: MimagSedimentAncient
+    inlined: true
+    inlined_as_list: true
+  mimag_soil_ancient_data:
+    description: Data that comply with Ancient combined with MimagSoil
+    title: MimagSoilAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mimag_soil_ancient_data"
+    multivalued: true
+    range: MimagSoilAncient
+    inlined: true
+    inlined_as_list: true
+  mims_hostassociated_ancient_data:
     description: Data that comply with Ancient combined with MimsHostAssociated
-    title: MimsHostAssociatedAncient data
+    title: MimsHostAssociatedAncient Data
     domain: MixsCompliantData
     slot_uri: "MIXS:mims_hostassociated_ancient_data"
     multivalued: true
     range: MimsHostAssociatedAncient
     inlined: true
     inlined_as_list: true
+  mims_humanassociated_ancient_data:
+    description: Data that comply with Ancient combined with MimsHumanAssociated
+    title: MimsHumanAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_humanassociated_ancient_data"
+    multivalued: true
+    range: MimsHumanAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  mims_humanoral_ancient_data:
+    description: Data that comply with Ancient combined with MimsHumanOral
+    title: MimsHumanOralAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_humanoral_ancient_data"
+    multivalued: true
+    range: MimsHumanOralAncient
+    inlined: true
+    inlined_as_list: true
+  mims_humangut_ancient_data:
+    description: Data that comply with Ancient combined with MimsHumanGut
+    title: MimsHumanGutAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_humangut_ancient_data"
+    multivalued: true
+    range: MimsHumanGutAncient
+    inlined: true
+    inlined_as_list: true
+  mims_humanskin_ancient_data:
+    description: Data that comply with Ancient combined with MimsHumanSkin
+    title: MimsHumanSkinAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_humanskin_ancient_data"
+    multivalued: true
+    range: MimsHumanSkinAncient
+    inlined: true
+    inlined_as_list: true
   mims_sediment_ancient_data:
     description: Data that comply with Ancient combined with MimsSediment
-    title: MimsSedimentAncient data
+    title: MimsSedimentAncient Data
     domain: MixsCompliantData
     slot_uri: "MIXS:mims_sediment_ancient_data"
     multivalued: true
     range: MimsSedimentAncient
+    inlined: true
+    inlined_as_list: true
+  mims_soil_ancient_data:
+    description: Data that comply with Ancient combined with MimsSoil
+    title: MimsSoilAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_soil_ancient_data"
+    multivalued: true
+    range: MimsSoilAncient
+    inlined: true
+    inlined_as_list: true
+  mims_plantassociated_ancient_data:
+    description: Data that comply with Ancient combined with MimsPlantAssociated
+    title: MimsPlantAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_plantassociated_ancient_data"
+    multivalued: true
+    range: MimsPlantAssociatedAncient
+    inlined: true
+    inlined_as_list: true
+  mims_symbiontassociated_ancient_data:
+    description: Data that comply with Ancient combined with MimsSymbiontAssociated
+    title: MimsSymbiontAssociatedAncient Data
+    domain: MixsCompliantData
+    slot_uri: "MIXS:mims_symbiontassociated_ancient_data"
+    multivalued: true
+    range: MimsSymbiontAssociatedAncient
     inlined: true
     inlined_as_list: true
 classes:
@@ -3141,6 +5806,281 @@ classes:
       This checklist contains relevant aDNA MIxS combinations plus the ancient and
       radiocarbon extension
     is_a: dh_interface
+  MigsOrg:
+    description: "Minimal Information about a Genome Sequence: organelle"
+    title: MIGS org
+    aliases:
+    - migs_org
+    is_a: Checklist
+    mixin: true
+    slots:
+    - samp_name
+    - lib_screen
+    - ref_db
+    - nucl_acid_amp
+    - lib_size
+    - assembly_name
+    - temp
+    - compl_score
+    - nucl_acid_ext
+    - samp_size
+    - isol_growth_condt
+    - alt
+    - source_mat_id
+    - extrachrom_elements
+    - estimated_size
+    - samp_vol_we_dna_ext
+    - lib_reads_seqd
+    - samp_collect_device
+    - number_contig
+    - lib_layout
+    - assembly_qual
+    - ref_biomaterial
+    - project_name
+    - lib_vector
+    - adapters
+    - neg_cont_type
+    - assembly_software
+    - tax_ident
+    - annot
+    - pos_cont_type
+    - subspecf_gen_lin
+    - feat_pred
+    - env_local_scale
+    - compl_software
+    - samp_mat_process
+    - sim_search_meth
+    - depth
+    - samp_collect_method
+    - env_medium
+    - samp_taxon_id
+    - geo_loc_name
+    - collection_date
+    - seq_meth
+    - lat_lon
+    - elev
+    - env_broad_scale
+    - tax_class
+    - experimental_factor
+    - associated_resource
+    - sop
+    slot_usage:
+      adapters:
+        recommended: true
+      alt:
+        recommended: true
+      annot:
+        recommended: true
+      assembly_name:
+        recommended: true
+      assembly_qual:
+      assembly_software:
+        required: true
+      compl_score:
+      compl_software:
+      depth:
+        examples:
+        - value: 10 meter
+        recommended: true
+      elev:
+        recommended: true
+      estimated_size:
+      experimental_factor:
+      extrachrom_elements:
+        recommended: true
+      feat_pred:
+      isol_growth_condt:
+        required: true
+      lib_layout:
+      lib_reads_seqd:
+      lib_screen:
+      lib_size:
+      lib_vector:
+      nucl_acid_amp:
+        recommended: true
+      nucl_acid_ext:
+        recommended: true
+      number_contig:
+      ref_biomaterial:
+      ref_db:
+      samp_collect_device:
+        examples:
+        - value: "swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]"
+      samp_collect_method:
+        examples:
+        - value: swabbing
+      samp_mat_process:
+      samp_size:
+      samp_vol_we_dna_ext:
+      sim_search_meth:
+      sop:
+        recommended: true
+      source_mat_id:
+        recommended: true
+      subspecf_gen_lin:
+        recommended: true
+      tax_class:
+      tax_ident:
+        recommended: true
+      temp:
+        recommended: true
+    class_uri: "MIXS:0010006"
+  Mimag:
+    description: Minimum Information About a Metagenome-Assembled Genome
+    title: MIMAG
+    aliases:
+    - mimag
+    is_a: Checklist
+    mixin: true
+    slots:
+    - samp_name
+    - size_frac
+    - lib_screen
+    - ref_db
+    - nucl_acid_amp
+    - lib_size
+    - contam_screen_input
+    - mid
+    - assembly_name
+    - temp
+    - compl_score
+    - trnas
+    - mag_cov_software
+    - nucl_acid_ext
+    - samp_size
+    - alt
+    - bin_param
+    - bin_software
+    - source_mat_id
+    - samp_vol_we_dna_ext
+    - lib_reads_seqd
+    - rel_to_oxygen
+    - reassembly_bin
+    - decontam_software
+    - samp_collect_device
+    - number_contig
+    - trna_ext_software
+    - lib_layout
+    - contam_screen_param
+    - assembly_qual
+    - ref_biomaterial
+    - project_name
+    - lib_vector
+    - adapters
+    - neg_cont_type
+    - assembly_software
+    - tax_ident
+    - contam_score
+    - annot
+    - x16s_recover_software
+    - x16s_recover
+    - pos_cont_type
+    - feat_pred
+    - compl_software
+    - env_local_scale
+    - samp_mat_process
+    - sim_search_meth
+    - depth
+    - samp_collect_method
+    - compl_appr
+    - env_medium
+    - samp_taxon_id
+    - geo_loc_name
+    - collection_date
+    - seq_meth
+    - lat_lon
+    - elev
+    - env_broad_scale
+    - tax_class
+    - experimental_factor
+    - associated_resource
+    - sop
+    slot_usage:
+      adapters:
+        recommended: true
+      alt:
+        recommended: true
+      annot:
+      assembly_name:
+        recommended: true
+      assembly_qual:
+        required: true
+      assembly_software:
+        required: true
+      bin_param:
+        required: true
+      bin_software:
+        required: true
+      compl_appr:
+      compl_score:
+        required: true
+      compl_software:
+        required: true
+      contam_score:
+        required: true
+      contam_screen_input:
+      contam_screen_param:
+      decontam_software:
+      depth:
+        examples:
+        - value: 10 meter
+        recommended: true
+      elev:
+        recommended: true
+      experimental_factor:
+        recommended: true
+      feat_pred:
+      lib_layout:
+        recommended: true
+      lib_reads_seqd:
+        recommended: true
+      lib_screen:
+        recommended: true
+      lib_size:
+        recommended: true
+      lib_vector:
+        recommended: true
+      mag_cov_software:
+      mid:
+        recommended: true
+      nucl_acid_amp:
+        recommended: true
+      nucl_acid_ext:
+        recommended: true
+      number_contig:
+      reassembly_bin:
+      ref_biomaterial:
+      ref_db:
+      rel_to_oxygen:
+      samp_collect_device:
+        examples:
+        - value: "swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]"
+        recommended: true
+      samp_collect_method:
+        examples:
+        - value: swabbing
+        recommended: true
+      samp_mat_process:
+        recommended: true
+      samp_size:
+        recommended: true
+      samp_vol_we_dna_ext:
+      sim_search_meth:
+      size_frac:
+      sop:
+        recommended: true
+      source_mat_id:
+        recommended: true
+      tax_class:
+      tax_ident:
+        required: true
+      temp:
+        recommended: true
+      trna_ext_software:
+      trnas:
+      x16s_recover:
+      x16s_recover_software:
+    class_uri: "MIXS:0010011"
   Mims:
     description: Metagenome or Environmental
     title: MIMS
@@ -3261,6 +6201,216 @@ classes:
       temp:
         recommended: true
     class_uri: "MIXS:0010007"
+  Miuvig:
+    description: Minimum Information About an Uncultivated Virus Genome
+    title: Minimum Information About an Uncultivated Virus Genome
+    aliases:
+    - miuvig
+    is_a: Checklist
+    mixin: true
+    slots:
+    - samp_name
+    - size_frac
+    - lib_screen
+    - source_uvig
+    - ref_db
+    - nucl_acid_amp
+    - lib_size
+    - mid
+    - assembly_name
+    - temp
+    - compl_score
+    - trnas
+    - nucl_acid_ext
+    - samp_size
+    - alt
+    - estimated_size
+    - source_mat_id
+    - samp_vol_we_dna_ext
+    - pathogenicity
+    - lib_reads_seqd
+    - samp_collect_device
+    - number_contig
+    - biotic_relationship
+    - trna_ext_software
+    - lib_layout
+    - assembly_qual
+    - ref_biomaterial
+    - project_name
+    - lib_vector
+    - host_spec_range
+    - neg_cont_type
+    - virus_enrich_appr
+    - adapters
+    - assembly_software
+    - tax_ident
+    - annot
+    - pos_cont_type
+    - feat_pred
+    - compl_software
+    - env_local_scale
+    - samp_mat_process
+    - sim_search_meth
+    - host_disease_stat
+    - depth
+    - samp_collect_method
+    - compl_appr
+    - specific_host
+    - env_medium
+    - samp_taxon_id
+    - geo_loc_name
+    - collection_date
+    - seq_meth
+    - lat_lon
+    - elev
+    - env_broad_scale
+    - tax_class
+    - experimental_factor
+    - sort_tech
+    - sc_lysis_approach
+    - sc_lysis_method
+    - wga_amp_appr
+    - wga_amp_kit
+    - bin_param
+    - bin_software
+    - reassembly_bin
+    - mag_cov_software
+    - vir_ident_software
+    - pred_genome_type
+    - pred_genome_struc
+    - detec_type
+    - otu_class_appr
+    - otu_seq_comp_appr
+    - otu_db
+    - host_pred_appr
+    - host_pred_est_acc
+    - associated_resource
+    - sop
+    slot_usage:
+      adapters:
+        recommended: true
+      alt:
+        recommended: true
+      annot:
+      assembly_name:
+        recommended: true
+      assembly_qual:
+        required: true
+      assembly_software:
+        required: true
+      bin_param:
+        recommended: true
+      bin_software:
+        recommended: true
+      biotic_relationship:
+      compl_appr:
+        recommended: true
+      compl_score:
+        recommended: true
+      compl_software:
+      depth:
+        examples:
+        - value: 10 meter
+        recommended: true
+      detec_type:
+        required: true
+      elev:
+        recommended: true
+      estimated_size:
+      experimental_factor:
+        recommended: true
+      feat_pred:
+        recommended: true
+      host_disease_stat:
+        examples:
+        - value: "rabies [DOID:11260]"
+        recommended: true
+      host_pred_appr:
+        recommended: true
+      host_pred_est_acc:
+        recommended: true
+      host_spec_range:
+      lib_layout:
+        recommended: true
+      lib_reads_seqd:
+        recommended: true
+      lib_screen:
+        recommended: true
+      lib_size:
+        recommended: true
+      lib_vector:
+        recommended: true
+      mag_cov_software:
+      mid:
+        recommended: true
+      nucl_acid_amp:
+        recommended: true
+      nucl_acid_ext:
+        recommended: true
+      number_contig:
+        required: true
+      otu_class_appr:
+        recommended: true
+      otu_db:
+        recommended: true
+      otu_seq_comp_appr:
+        recommended: true
+      pathogenicity:
+      pred_genome_struc:
+        required: true
+      pred_genome_type:
+        required: true
+      reassembly_bin:
+        recommended: true
+      ref_biomaterial:
+      ref_db:
+        recommended: true
+      samp_collect_device:
+        examples:
+        - value: "swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]"
+        recommended: true
+      samp_collect_method:
+        examples:
+        - value: swabbing
+        recommended: true
+      samp_mat_process:
+        recommended: true
+      samp_size:
+        recommended: true
+      samp_vol_we_dna_ext:
+      sc_lysis_approach:
+        recommended: true
+      sc_lysis_method:
+        recommended: true
+      sim_search_meth:
+        recommended: true
+      size_frac:
+        recommended: true
+      sop:
+        recommended: true
+      sort_tech:
+        recommended: true
+      source_mat_id:
+        recommended: true
+      source_uvig:
+        required: true
+      specific_host:
+      tax_class:
+        recommended: true
+      tax_ident:
+      temp:
+        recommended: true
+      trna_ext_software:
+      trnas:
+      vir_ident_software:
+        required: true
+      virus_enrich_appr:
+        required: true
+      wga_amp_appr:
+        recommended: true
+      wga_amp_kit:
+        recommended: true
+    class_uri: "MIXS:0010012"
   HostAssociated:
     description: host-associated extension
     title: host-associated
@@ -3394,6 +6544,553 @@ classes:
       samp_vol_we_dna_ext:
       temp:
     class_uri: "MIXS:0016002"
+  HumanAssociated:
+    description: human-associated extension
+    title: human-associated
+    is_a: Extension
+    slots:
+    - samp_name
+    - project_name
+    - host_subject_id
+    - host_age
+    - host_sex
+    - host_disease_stat
+    - ihmc_medication_code
+    - chem_administration
+    - host_body_site
+    - host_body_product
+    - host_tot_mass
+    - host_height
+    - host_diet
+    - host_last_meal
+    - host_fam_rel
+    - host_genotype
+    - host_phenotype
+    - host_body_temp
+    - smoker
+    - host_hiv_stat
+    - drug_usage
+    - host_body_mass_index
+    - diet_last_six_month
+    - weight_loss_3_month
+    - ethnicity
+    - host_occupation
+    - pet_farm_animal
+    - travel_out_six_month
+    - twin_sibling
+    - medic_hist_perform
+    - study_complt_stat
+    - pulmonary_disord
+    - nose_throat_disord
+    - blood_blood_disord
+    - host_pulse
+    - gestation_state
+    - maternal_health_stat
+    - foetal_health_stat
+    - amniotic_fluid_color
+    - kidney_disord
+    - urogenit_tract_disor
+    - urine_collect_meth
+    - perturbation
+    - salinity
+    - oxy_stat_samp
+    - temp
+    - organism_count
+    - samp_vol_we_dna_ext
+    - samp_store_temp
+    - samp_store_dur
+    - host_symbiont
+    - samp_store_loc
+    - misc_param
+    slot_usage:
+      chem_administration:
+      host_age:
+        examples:
+        - value: 30 years
+      host_body_site:
+        examples:
+        - value: Lung parenchyma [fma27360]
+      host_body_temp:
+        examples:
+        - value: 36.5 degree Celsius
+      host_diet:
+        examples:
+        - value: high-fat
+      host_disease_stat:
+        examples:
+        - value: "measles [DOID:8622]"
+      host_fam_rel:
+        examples:
+        - value: mother;ID298
+      host_genotype:
+        examples:
+        - value: ST1
+      host_height:
+        examples:
+        - value: 1.75 meter
+      host_last_meal:
+        examples:
+        - value: french fries;P5H30M
+      host_phenotype:
+        examples:
+        - value: "Tinnitus [HP:0000360]"
+      host_subject_id:
+        examples:
+        - value: MPI123
+      host_symbiont:
+        examples:
+        - value: flukeworms
+      host_tot_mass:
+        examples:
+        - value: 65 kilogram
+      organism_count:
+        examples:
+        - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
+      oxy_stat_samp:
+      perturbation:
+      samp_store_dur:
+      samp_store_loc:
+      samp_vol_we_dna_ext:
+      temp:
+    class_uri: "MIXS:0016003"
+  HumanGut:
+    description: human-gut extension
+    title: human-gut
+    is_a: Extension
+    slots:
+    - samp_name
+    - project_name
+    - gastrointest_disord
+    - liver_disord
+    - special_diet
+    - host_subject_id
+    - host_age
+    - host_sex
+    - host_disease_stat
+    - ihmc_medication_code
+    - chem_administration
+    - host_body_site
+    - host_body_product
+    - host_tot_mass
+    - host_height
+    - host_diet
+    - host_last_meal
+    - host_fam_rel
+    - host_genotype
+    - host_phenotype
+    - host_body_temp
+    - host_body_mass_index
+    - ethnicity
+    - host_occupation
+    - medic_hist_perform
+    - host_pulse
+    - perturbation
+    - salinity
+    - oxy_stat_samp
+    - temp
+    - organism_count
+    - samp_store_temp
+    - samp_vol_we_dna_ext
+    - samp_store_dur
+    - host_symbiont
+    - samp_store_loc
+    - misc_param
+    slot_usage:
+      chem_administration:
+      host_age:
+        examples:
+        - value: 30 years
+      host_body_site:
+        examples:
+        - value: Wall of gut [fma45653]
+      host_body_temp:
+        examples:
+        - value: 36.5 degree Celsius
+      host_diet:
+        examples:
+        - value: high-fat
+      host_disease_stat:
+        examples:
+        - value: "measles [DOID:8622]"
+      host_fam_rel:
+        examples:
+        - value: mother;ID298
+      host_genotype:
+        examples:
+        - value: ST1
+      host_height:
+        examples:
+        - value: 1.75 meter
+      host_last_meal:
+        examples:
+        - value: french fries;P5H30M
+      host_phenotype:
+        examples:
+        - value: "Tinnitus [HP:0000360]"
+      host_subject_id:
+        examples:
+        - value: MPI123
+      host_symbiont:
+        examples:
+        - value: flukeworms
+      host_tot_mass:
+        examples:
+        - value: 65 kilogram
+      organism_count:
+        examples:
+        - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
+      oxy_stat_samp:
+      perturbation:
+      samp_store_dur:
+      samp_store_loc:
+      samp_vol_we_dna_ext:
+      temp:
+    class_uri: "MIXS:0016004"
+  HumanOral:
+    description: human-oral extension
+    title: human-oral
+    is_a: Extension
+    slots:
+    - samp_name
+    - project_name
+    - nose_mouth_teeth_throat_disord
+    - time_last_toothbrush
+    - host_subject_id
+    - host_age
+    - host_sex
+    - host_disease_stat
+    - ihmc_medication_code
+    - chem_administration
+    - host_body_site
+    - host_body_product
+    - host_tot_mass
+    - host_height
+    - host_diet
+    - host_last_meal
+    - host_fam_rel
+    - host_genotype
+    - host_phenotype
+    - host_body_temp
+    - host_body_mass_index
+    - ethnicity
+    - host_occupation
+    - medic_hist_perform
+    - host_pulse
+    - perturbation
+    - salinity
+    - oxy_stat_samp
+    - temp
+    - organism_count
+    - samp_vol_we_dna_ext
+    - samp_store_temp
+    - samp_store_dur
+    - host_symbiont
+    - samp_store_loc
+    - misc_param
+    slot_usage:
+      chem_administration:
+      host_age:
+        examples:
+        - value: 30 years
+      host_body_site:
+        examples:
+        - value: Epithelium of tongue [fma284658]
+      host_body_temp:
+        examples:
+        - value: 36.5 degree Celsius
+      host_diet:
+        examples:
+        - value: high-fat
+      host_disease_stat:
+        examples:
+        - value: "measles [DOID:8622]"
+      host_fam_rel:
+        examples:
+        - value: mother;ID298
+      host_genotype:
+        examples:
+        - value: ST1
+      host_height:
+        examples:
+        - value: 1.75 meter
+      host_last_meal:
+        examples:
+        - value: french fries;P5H30M
+      host_phenotype:
+        examples:
+        - value: "Tinnitus [HP:0000360]"
+      host_subject_id:
+        examples:
+        - value: MPI123
+      host_symbiont:
+        examples:
+        - value: flukeworms
+      host_tot_mass:
+        examples:
+        - value: 65 kilogram
+      organism_count:
+        examples:
+        - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
+      oxy_stat_samp:
+      perturbation:
+      samp_store_dur:
+      samp_store_loc:
+      samp_vol_we_dna_ext:
+      temp:
+    class_uri: "MIXS:0016005"
+  HumanSkin:
+    description: human-skin extension
+    title: human-skin
+    is_a: Extension
+    slots:
+    - samp_name
+    - project_name
+    - dermatology_disord
+    - time_since_last_wash
+    - dominant_hand
+    - host_subject_id
+    - host_age
+    - host_sex
+    - host_disease_stat
+    - ihmc_medication_code
+    - chem_administration
+    - host_body_site
+    - host_body_product
+    - host_tot_mass
+    - host_height
+    - host_diet
+    - host_last_meal
+    - host_fam_rel
+    - host_genotype
+    - host_phenotype
+    - host_body_temp
+    - host_body_mass_index
+    - ethnicity
+    - host_occupation
+    - medic_hist_perform
+    - host_pulse
+    - perturbation
+    - salinity
+    - oxy_stat_samp
+    - temp
+    - organism_count
+    - samp_vol_we_dna_ext
+    - samp_store_temp
+    - samp_store_dur
+    - samp_store_loc
+    - host_symbiont
+    - misc_param
+    slot_usage:
+      chem_administration:
+      host_age:
+        examples:
+        - value: 30 years
+      host_body_site:
+        examples:
+        - value: Skin of palm of left hand [fma38303]
+      host_body_temp:
+        examples:
+        - value: 36.5 degree Celsius
+      host_diet:
+        examples:
+        - value: high-fat
+      host_disease_stat:
+        examples:
+        - value: "measles [DOID:8622]"
+      host_fam_rel:
+        examples:
+        - value: mother;ID298
+      host_genotype:
+        examples:
+        - value: ST1
+      host_height:
+        examples:
+        - value: 1.75 meter
+      host_last_meal:
+        examples:
+        - value: french fries;P5H30M
+      host_phenotype:
+        examples:
+        - value: "Tinnitus [HP:0000360]"
+      host_subject_id:
+        examples:
+        - value: MPI123
+      host_symbiont:
+        examples:
+        - value: flukeworms
+      host_tot_mass:
+        examples:
+        - value: 65 kilogram
+      organism_count:
+        examples:
+        - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
+      oxy_stat_samp:
+      perturbation:
+      samp_store_dur:
+      samp_store_loc:
+      samp_vol_we_dna_ext:
+      temp:
+    class_uri: "MIXS:0016006"
+  PlantAssociated:
+    description: plant-associated extension
+    title: plant-associated
+    is_a: Extension
+    slots:
+    - samp_name
+    - project_name
+    - depth
+    - elev
+    - air_temp_regm
+    - ances_data
+    - antibiotic_regm
+    - biol_stat
+    - biotic_regm
+    - chem_administration
+    - chem_mutagen
+    - climate_environment
+    - cult_root_med
+    - fertilizer_regm
+    - fungicide_regm
+    - gaseous_environment
+    - genetic_mod
+    - gravity
+    - growth_facil
+    - growth_habit
+    - growth_hormone_regm
+    - herbicide_regm
+    - host_age
+    - host_common_name
+    - host_disease_stat
+    - host_dry_mass
+    - host_genotype
+    - host_height
+    - host_subspecf_genlin
+    - host_length
+    - host_life_stage
+    - host_phenotype
+    - host_taxid
+    - host_tot_mass
+    - host_wet_mass
+    - humidity_regm
+    - light_regm
+    - mechanical_damage
+    - mineral_nutr_regm
+    - misc_param
+    - non_min_nutr_regm
+    - organism_count
+    - oxy_stat_samp
+    - ph_regm
+    - perturbation
+    - pesticide_regm
+    - plant_growth_med
+    - plant_product
+    - plant_sex
+    - plant_struc
+    - radiation_regm
+    - rainfall_regm
+    - root_cond
+    - root_med_carbon
+    - root_med_macronutr
+    - root_med_micronutr
+    - root_med_suppl
+    - root_med_ph
+    - root_med_regl
+    - root_med_solid
+    - salt_regm
+    - samp_capt_status
+    - samp_dis_stage
+    - salinity
+    - samp_store_dur
+    - samp_store_loc
+    - samp_store_temp
+    - samp_vol_we_dna_ext
+    - season_environment
+    - standing_water_regm
+    - temp
+    - tiss_cult_growth_med
+    - water_temp_regm
+    - watering_regm
+    - host_symbiont
+    slot_usage:
+      biotic_regm:
+      chem_administration:
+      climate_environment:
+        string_serialization: '{text};{Rn/start_time/end_time/duration}'
+      depth:
+        examples:
+        - value: 10 meter
+        recommended: true
+      elev:
+        recommended: true
+      fungicide_regm:
+        string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+      gaseous_environment:
+        string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+      herbicide_regm:
+        string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+      host_age:
+        examples:
+        - value: 10 days
+      host_common_name:
+        examples:
+        - value: rice
+      host_disease_stat:
+        examples:
+        - value: downy mildew
+      host_genotype:
+        examples:
+        - value: Ts
+      host_height:
+        examples:
+        - value: 1 meter
+      host_length:
+      host_life_stage:
+        examples:
+        - value: adult
+      host_phenotype:
+        examples:
+        - value: "seed pod; green [PATO:0000320]"
+      host_symbiont:
+        examples:
+        - value: flukeworms
+      host_taxid:
+        examples:
+        - value: '4530'
+        string_serialization: '{NCBI taxid}'
+      host_tot_mass:
+        examples:
+        - value: 2500 gram
+      non_min_nutr_regm:
+        string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+      organism_count:
+        examples:
+        - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
+      oxy_stat_samp:
+      perturbation:
+      pesticide_regm:
+        string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+      ph_regm:
+        string_serialization: '{float};{Rn/start_time/end_time/duration}'
+      plant_growth_med:
+        examples:
+        - value: "hydroponic plant culture media [EO:0007067]"
+      plant_product:
+      plant_struc:
+      salt_regm:
+        string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
+      samp_store_dur:
+      samp_store_loc:
+      samp_vol_we_dna_ext:
+      season_environment:
+        string_serialization: '{text};{Rn/start_time/end_time/duration}'
+      standing_water_regm:
+        string_serialization: '{text};{Rn/start_time/end_time/duration}'
+      temp:
+      water_temp_regm:
+        string_serialization: '{float} {unit};{Rn/start_time/end_time/duration}'
+      watering_regm:
+        string_serialization: '{float} {unit};{Rn/start_time/end_time/duration}'
+    class_uri: "MIXS:0016010"
   Sediment:
     description: sediment extension
     title: sediment
@@ -3510,6 +7207,253 @@ classes:
       water_content:
         string_serialization: '{float} {unit}'
     class_uri: "MIXS:0016011"
+  Soil:
+    description: soil extension
+    title: soil
+    is_a: Extension
+    slots:
+    - samp_name
+    - project_name
+    - depth
+    - elev
+    - cur_land_use
+    - cur_vegetation
+    - cur_vegetation_meth
+    - previous_land_use
+    - prev_land_use_meth
+    - crop_rotation
+    - agrochem_addition
+    - tillage
+    - fire
+    - flooding
+    - extreme_event
+    - soil_horizon
+    - horizon_meth
+    - sieving
+    - water_content
+    - water_cont_soil_meth
+    - samp_vol_we_dna_ext
+    - pool_dna_extracts
+    - store_cond
+    - link_climate_info
+    - annual_temp
+    - season_temp
+    - annual_precpt
+    - season_precpt
+    - link_class_info
+    - fao_class
+    - local_class
+    - local_class_meth
+    - org_nitro
+    - temp
+    - soil_type
+    - soil_type_meth
+    - slope_gradient
+    - slope_aspect
+    - profile_position
+    - drainage_class
+    - soil_texture
+    - soil_texture_meth
+    - ph
+    - ph_meth
+    - org_matter
+    - tot_org_carb
+    - tot_org_c_meth
+    - tot_nitro_content
+    - tot_nitro_cont_meth
+    - microbial_biomass
+    - micro_biomass_meth
+    - link_addit_analys
+    - heavy_metals
+    - heavy_metals_meth
+    - al_sat
+    - al_sat_meth
+    - misc_param
+    slot_usage:
+      crop_rotation:
+        string_serialization: '{boolean};{Rn/start_time/end_time/duration}'
+      cur_vegetation:
+      cur_vegetation_meth:
+      depth:
+        examples:
+        - value: 10 meter
+        required: true
+      drainage_class:
+      elev:
+        required: true
+      extreme_event:
+      fao_class:
+      fire:
+      flooding:
+      heavy_metals_meth:
+        string_serialization: '{PMID}|{DOI}|{URL}'
+      horizon_meth:
+      local_class:
+      local_class_meth:
+      micro_biomass_meth:
+      microbial_biomass:
+      org_nitro:
+      ph:
+      ph_meth:
+      pool_dna_extracts:
+        string_serialization: '{boolean};{integer}'
+      prev_land_use_meth:
+      previous_land_use:
+      profile_position:
+      samp_vol_we_dna_ext:
+      season_precpt:
+      sieving:
+      slope_aspect:
+      slope_gradient:
+      soil_horizon:
+      soil_type:
+        string_serialization: |
+          {termLabel} [{termID}]
+      soil_type_meth:
+      store_cond:
+      temp:
+      tillage:
+      tot_nitro_cont_meth:
+      tot_nitro_content:
+      tot_org_c_meth:
+      tot_org_carb:
+      water_content:
+        string_serialization: '{float}'
+    class_uri: "MIXS:0016012"
+  SymbiontAssociated:
+    description: symbiont-associated extension
+    title: symbiont-associated
+    is_a: Extension
+    slots:
+    - samp_name
+    - project_name
+    - lat_lon
+    - geo_loc_name
+    - collection_date
+    - alt
+    - depth
+    - elev
+    - host_subject_id
+    - host_common_name
+    - host_taxid
+    - source_mat_id
+    - host_dependence
+    - type_of_symbiosis
+    - sym_life_cycle_type
+    - host_life_stage
+    - host_age
+    - urobiom_sex
+    - mode_transmission
+    - route_transmission
+    - host_body_habitat
+    - host_body_site
+    - host_body_product
+    - host_tot_mass
+    - host_height
+    - host_length
+    - host_growth_cond
+    - host_substrate
+    - host_fam_rel
+    - host_infra_spec_name
+    - host_infra_spec_rank
+    - host_genotype
+    - host_phenotype
+    - host_dry_mass
+    - host_color
+    - host_shape
+    - gravidity
+    - host_number
+    - host_symbiont
+    - host_specificity
+    - symbiont_host_role
+    - host_cellular_loc
+    - association_duration
+    - host_of_host_coinf
+    - host_of_host_name
+    - host_of_host_env_loc
+    - host_of_host_env_med
+    - host_of_host_taxid
+    - host_of_host_sub_id
+    - host_of_host_disease
+    - host_of_host_fam_rel
+    - host_of_host_infname
+    - host_of_host_infrank
+    - host_of_host_geno
+    - host_of_host_pheno
+    - host_of_host_gravid
+    - host_of_host_totmass
+    - chem_administration
+    - perturbation
+    - salinity
+    - oxy_stat_samp
+    - temp
+    - organism_count
+    - samp_vol_we_dna_ext
+    - samp_store_temp
+    - samp_store_dur
+    - samp_store_loc
+    - samp_store_sol
+    - misc_param
+    slot_usage:
+      alt:
+        recommended: true
+      chem_administration:
+      depth:
+        examples:
+        - value: 10 meter
+        recommended: true
+      elev:
+        recommended: true
+      gravidity:
+      host_age:
+      host_body_habitat:
+        examples:
+        - value: anterior end of a tapeworm
+      host_body_site:
+        examples:
+        - value: "scolex [UBERON:0015119]"
+      host_color:
+      host_common_name:
+        examples:
+        - value: trematode
+      host_fam_rel:
+        examples:
+        - value: clone;P15
+      host_genotype:
+      host_growth_cond:
+      host_height:
+      host_length:
+      host_life_stage:
+        examples:
+        - value: redia
+        required: true
+      host_phenotype:
+        examples:
+        - value: soldier
+      host_shape:
+      host_subject_id:
+        examples:
+        - value: P14
+      host_substrate:
+      host_symbiont:
+        examples:
+        - value: Paragordius varius
+      host_taxid:
+        examples:
+        - value: '395013'
+        string_serialization: '{integer}'
+      host_tot_mass:
+      organism_count:
+        examples:
+        - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
+      oxy_stat_samp:
+      perturbation:
+      samp_store_dur:
+      samp_store_loc:
+      samp_vol_we_dna_ext:
+      source_mat_id:
+      temp:
+    class_uri: "MIXS:0016023"
   Checklist:
     description: A collection of metadata terms (slots) to minimally describe the sampling and sequencing method of a specimen used to generate a nucleotide sequence.
   Extension:
@@ -3520,9 +7464,108 @@ classes:
     description: A collection of Data that comply with some combination of a MIxS checklist and environmental extension
     title: MIxS compliant data
     slots:
-    - mims_host_associated_ancient_data
+    - migsorg_hostassociated_ancient_data
+    - migsorg_humanassociated_ancient_data
+    - miuvig_hostassociated_ancient_data
+    - miuvig_humanassociated_ancient_data
+    - mimag_hostassociated_ancient_data
+    - mimag_humanassociated_ancient_data
+    - mimag_humanoral_ancient_data
+    - mimag_humangut_ancient_data
+    - mimag_humanskin_ancient_data
+    - mimag_sediment_ancient_data
+    - mimag_soil_ancient_data
+    - mims_hostassociated_ancient_data
+    - mims_humanassociated_ancient_data
+    - mims_humanoral_ancient_data
+    - mims_humangut_ancient_data
+    - mims_humanskin_ancient_data
     - mims_sediment_ancient_data
+    - mims_soil_ancient_data
+    - mims_plantassociated_ancient_data
+    - mims_symbiontassociated_ancient_data
     tree_root: true
+  MigsOrgHostAssociated:
+    description: MIxS data that complies with the MigsOrg checklist and the HostAssociated Extension
+    title: MigsOrg combined with HostAssociated
+    in_subset:
+    - combination_classes
+    is_a: HostAssociated
+    mixins:
+    - MigsOrg
+    class_uri: "MIXS:0010006_0016002"
+  MigsOrgHumanAssociated:
+    description: MIxS data that complies with the MigsOrg checklist and the HumanAssociated Extension
+    title: MigsOrg combined with HumanAssociated
+    in_subset:
+    - combination_classes
+    is_a: HumanAssociated
+    mixins:
+    - MigsOrg
+    class_uri: "MIXS:0010006_0016003"
+  MimagHostAssociated:
+    description: MIxS data that complies with the Mimag checklist and the HostAssociated Extension
+    title: Mimag combined with HostAssociated
+    in_subset:
+    - combination_classes
+    is_a: HostAssociated
+    mixins:
+    - Mimag
+    class_uri: "MIXS:0010011_0016002"
+  MimagHumanAssociated:
+    description: MIxS data that complies with the Mimag checklist and the HumanAssociated Extension
+    title: Mimag combined with HumanAssociated
+    in_subset:
+    - combination_classes
+    is_a: HumanAssociated
+    mixins:
+    - Mimag
+    class_uri: "MIXS:0010011_0016003"
+  MimagHumanGut:
+    description: MIxS data that complies with the Mimag checklist and the HumanGut Extension
+    title: Mimag combined with HumanGut
+    in_subset:
+    - combination_classes
+    is_a: HumanGut
+    mixins:
+    - Mimag
+    class_uri: "MIXS:0010011_0016004"
+  MimagHumanOral:
+    description: MIxS data that complies with the Mimag checklist and the HumanOral Extension
+    title: Mimag combined with HumanOral
+    in_subset:
+    - combination_classes
+    is_a: HumanOral
+    mixins:
+    - Mimag
+    class_uri: "MIXS:0010011_0016005"
+  MimagHumanSkin:
+    description: MIxS data that complies with the Mimag checklist and the HumanSkin Extension
+    title: Mimag combined with HumanSkin
+    in_subset:
+    - combination_classes
+    is_a: HumanSkin
+    mixins:
+    - Mimag
+    class_uri: "MIXS:0010011_0016006"
+  MimagSediment:
+    description: MIxS data that complies with the Mimag checklist and the Sediment Extension
+    title: Mimag combined with Sediment
+    in_subset:
+    - combination_classes
+    is_a: Sediment
+    mixins:
+    - Mimag
+    class_uri: "MIXS:0010011_0016011"
+  MimagSoil:
+    description: MIxS data that complies with the Mimag checklist and the Soil Extension
+    title: Mimag combined with Soil
+    in_subset:
+    - combination_classes
+    is_a: Soil
+    mixins:
+    - Mimag
+    class_uri: "MIXS:0010011_0016012"
   MimsHostAssociated:
     description: MIxS data that complies with the Mims checklist and the HostAssociated Extension
     title: Mims combined with HostAssociated
@@ -3532,6 +7575,51 @@ classes:
     mixins:
     - Mims
     class_uri: "MIXS:0010007_0016002"
+  MimsHumanAssociated:
+    description: MIxS data that complies with the Mims checklist and the HumanAssociated Extension
+    title: Mims combined with HumanAssociated
+    in_subset:
+    - combination_classes
+    is_a: HumanAssociated
+    mixins:
+    - Mims
+    class_uri: "MIXS:0010007_0016003"
+  MimsHumanGut:
+    description: MIxS data that complies with the Mims checklist and the HumanGut Extension
+    title: Mims combined with HumanGut
+    in_subset:
+    - combination_classes
+    is_a: HumanGut
+    mixins:
+    - Mims
+    class_uri: "MIXS:0010007_0016004"
+  MimsHumanOral:
+    description: MIxS data that complies with the Mims checklist and the HumanOral Extension
+    title: Mims combined with HumanOral
+    in_subset:
+    - combination_classes
+    is_a: HumanOral
+    mixins:
+    - Mims
+    class_uri: "MIXS:0010007_0016005"
+  MimsHumanSkin:
+    description: MIxS data that complies with the Mims checklist and the HumanSkin Extension
+    title: Mims combined with HumanSkin
+    in_subset:
+    - combination_classes
+    is_a: HumanSkin
+    mixins:
+    - Mims
+    class_uri: "MIXS:0010007_0016006"
+  MimsPlantAssociated:
+    description: MIxS data that complies with the Mims checklist and the PlantAssociated Extension
+    title: Mims combined with PlantAssociated
+    in_subset:
+    - combination_classes
+    is_a: PlantAssociated
+    mixins:
+    - Mims
+    class_uri: "MIXS:0010007_0016010"
   MimsSediment:
     description: MIxS data that complies with the Mims checklist and the Sediment Extension
     title: Mims combined with Sediment
@@ -3541,6 +7629,42 @@ classes:
     mixins:
     - Mims
     class_uri: "MIXS:0010007_0016011"
+  MimsSoil:
+    description: MIxS data that complies with the Mims checklist and the Soil Extension
+    title: Mims combined with Soil
+    in_subset:
+    - combination_classes
+    is_a: Soil
+    mixins:
+    - Mims
+    class_uri: "MIXS:0010007_0016012"
+  MimsSymbiontAssociated:
+    description: MIxS data that complies with the Mims checklist and the SymbiontAssociated Extension
+    title: Mims combined with SymbiontAssociated
+    in_subset:
+    - combination_classes
+    is_a: SymbiontAssociated
+    mixins:
+    - Mims
+    class_uri: "MIXS:0010007_0016023"
+  MiuvigHostAssociated:
+    description: MIxS data that complies with the Miuvig checklist and the HostAssociated Extension
+    title: Miuvig combined with HostAssociated
+    in_subset:
+    - combination_classes
+    is_a: HostAssociated
+    mixins:
+    - Miuvig
+    class_uri: "MIXS:0010012_0016002"
+  MiuvigHumanAssociated:
+    description: MIxS data that complies with the Miuvig checklist and the HumanAssociated Extension
+    title: Miuvig combined with HumanAssociated
+    in_subset:
+    - combination_classes
+    is_a: HumanAssociated
+    mixins:
+    - Miuvig
+    class_uri: "MIXS:0010012_0016003"
   Ancient:
     description: A collection of terms appropriate when collecting samples and sequencing samples  of data containing ancient DNA, i.e., degraded molecules not from living organisms.
     comments:
@@ -3622,24 +7746,186 @@ classes:
     class_uri: "MIXS:9999999"
     annotations:
       use_cases: RadiocarbonDating
+  MigsOrgHostAssociatedAncient:
+    description: MIxS Data that comply with the MigsOrg checklist, and HostAssociated and Ancient extensions.
+    title: MigsOrgHostAssociated combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MigsOrgHostAssociated
+    class_uri: "MIXS:10006_16002_9999903"
+  MigsOrgHumanAssociatedAncient:
+    description: MIxS Data that comply with the MigsOrg checklist, and HumanAssociated and Ancient extensions.
+    title: MigsOrgHumanAssociated combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MigsOrgHumanAssociated
+    class_uri: "MIXS:10006_16003_9999903"
+  MiuvigHostAssociatedAncient:
+    description: MIxS Data that comply with the Miuvig checklist, and HostAssociated and Ancient extensions.
+    title: MiuvigHostAssociated combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MiuvigHostAssociated
+    class_uri: "MIXS:10012_16002_9999903"
+  MiuvigHumanAssociatedAncient:
+    description: MIxS Data that comply with the Miuvig checklist, and HumanAssociated and Ancient extensions.
+    title: MiuvigHumanAssociated combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MiuvigHumanAssociated
+    class_uri: "MIXS:10012_16003_9999903"
+  MimagHostAssociatedAncient:
+    description: MIxS Data that comply with the Mimag checklist, and HostAssociated and Ancient extensions.
+    title: MimagHostAssociated combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimagHostAssociated
+    class_uri: "MIXS:10011_16002_9999903"
+  MimagHumanAssociatedAncient:
+    description: MIxS Data that comply with the Mimag checklist, and HumanAssociated and Ancient extensions.
+    title: MimagHumanAssociated combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimagHumanAssociated
+    class_uri: "MIXS:10011_16003_9999903"
+  MimagHumanOralAncient:
+    description: MIxS Data that comply with the Mimag checklist, and HumanOral and Ancient extensions.
+    title: MimagHumanOral combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimagHumanOral
+    class_uri: "MIXS:10011_16005_9999903"
+  MimagHumanGutAncient:
+    description: MIxS Data that comply with the Mimag checklist, and HumanGut and Ancient extensions.
+    title: MimagHumanGut combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimagHumanGut
+    class_uri: "MIXS:10011_16004_9999903"
+  MimagHumanSkinAncient:
+    description: MIxS Data that comply with the Mimag checklist, and HumanSkin and Ancient extensions.
+    title: MimagHumanSkin combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimagHumanSkin
+    class_uri: "MIXS:10011_16006_9999903"
+  MimagSedimentAncient:
+    description: MIxS Data that comply with the Mimag checklist, and Sediment and Ancient extensions.
+    title: MimagSediment combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimagSediment
+    class_uri: "MIXS:10011_16011_9999903"
+  MimagSoilAncient:
+    description: MIxS Data that comply with the Mimag checklist, and Soil and Ancient extensions.
+    title: MimagSoil combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimagSoil
+    class_uri: "MIXS:10011_16012_9999903"
   MimsHostAssociatedAncient:
-    description: MIxS Data that comply with the Mims checklist and Host Associated, Ancient
+    description: MIxS Data that comply with the Mims checklist, and HostAssociated and Ancient extensions.
     title: MimsHostAssociated combined with Ancient
     in_subset:
     - combination_classes
     is_a: Ancient
     mixins:
     - MimsHostAssociated
-    class_uri: "MIXS:0010007_0016002_9999903"
+    class_uri: "MIXS:10007_16002_9999903"
+  MimsHumanAssociatedAncient:
+    description: MIxS Data that comply with the Mims checklist, and HumanAssociated and Ancient extensions.
+    title: MimsHumanAssociated combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimsHumanAssociated
+    class_uri: "MIXS:10007_16003_9999903"
+  MimsHumanOralAncient:
+    description: MIxS Data that comply with the Mims checklist, and HumanOral and Ancient extensions.
+    title: MimsHumanOral combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimsHumanOral
+    class_uri: "MIXS:10007_16005_9999903"
+  MimsHumanGutAncient:
+    description: MIxS Data that comply with the Mims checklist, and HumanGut and Ancient extensions.
+    title: MimsHumanGut combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimsHumanGut
+    class_uri: "MIXS:10007_16004_9999903"
+  MimsHumanSkinAncient:
+    description: MIxS Data that comply with the Mims checklist, and HumanSkin and Ancient extensions.
+    title: MimsHumanSkin combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimsHumanSkin
+    class_uri: "MIXS:10007_16006_9999903"
   MimsSedimentAncient:
-    description: MIxS Data that comply with the Mims checklist and Sediment
+    description: MIxS Data that comply with the Mims checklist, and Sediment and Ancient extensions.
     title: MimsSediment combined with Ancient
     in_subset:
     - combination_classes
     is_a: Ancient
     mixins:
     - MimsSediment
-    class_uri: "MIXS:0010007_0016011_9999903"
+    class_uri: "MIXS:10007_16011_9999903"
+  MimsSoilAncient:
+    description: MIxS Data that comply with the Mims checklist, and Soil and Ancient extensions.
+    title: MimsSoil combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimsSoil
+    class_uri: "MIXS:10007_16012_9999903"
+  MimsPlantAssociatedAncient:
+    description: MIxS Data that comply with the Mims checklist, and PlantAssociated and Ancient extensions.
+    title: MimsPlantAssociated combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimsPlantAssociated
+    class_uri: "MIXS:10007_16010_9999903"
+  MimsSymbiontAssociatedAncient:
+    description: MIxS Data that comply with the Mims checklist, and SymbiontAssociated and Ancient extensions.
+    title: MimsSymbiontAssociated combined with Ancient
+    in_subset:
+    - combination_classes
+    is_a: Ancient
+    mixins:
+    - MimsSymbiontAssociated
+    class_uri: "MIXS:10007_16023_9999903"
 source_file: generated-schema/mixs_6_2_rc.yaml.notated.yaml
 settings:
   country: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)

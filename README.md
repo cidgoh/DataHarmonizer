@@ -22,12 +22,7 @@ The instructions for adding a **single extension** to this repo's DataHarmonizer
   - Make a directory `/web/templates/[schema name]/` for each extension
   - In each directory create `export.js` just containing `export default {};`
     - `echo "export default {};" > export.js`
-  - For each schema, save a `schema.yaml` file in the directory, e.g.
-
-    ```bash
-    wget https://github.com/MIxS-MInAS/extension-ancient/raw/refs/tags/v0.3.2/src/mixs/schema/ancient.yml
-    ```
-
+  - For each schema, save a `schema.yaml` file in the directory
   - Write a txt file called (`dh_class_text.txt`) which includes the text for an additional classed called [`dh_interface` class](https://github.com/cidgoh/DataHarmonizer?tab=readme-ov-file#making-templates)
   - Inject this class into the `schema.yaml` file with e.g. `sed -i '/^classes:/r dh_class_text.txt' schema.yml`
   - Generate the DataHarmonizer compatible JSON with `python ../../../script/linkml.py -i schema.yaml`
@@ -73,7 +68,8 @@ The instructions for adding a **full schema** to this repo's DataHarmonizer inst
 - Subset the mega schema to just those combinations relevant to MInAS (i.e., the ones in `minas-combinations.yml`)
 
   ```bash
-  lmtk subset --schema minas-total.yml --output minas.yml --classes Ancient,RadiocarbonDating,MimsHostAssociatedAncient,MimsSedimentAncient,MixsCompliantData
+  ## Update based on combinations from `minas-combinations.yml`
+  lmtk subset --schema minas-total.yml --output minas.yml --classes MixsCompliantData,Ancient,RadiocarbonDating,MigsOrgHostAssociatedAncient,MigsOrgHumanAssociatedAncient,MiuvigHostAssociatedAncient,MiuvigHumanAssociatedAncient,MimagHostAssociatedAncient,MimagHumanAssociatedAncient,MimagHumanOralAncientMimagHumanGutAncient,MimagHumanSkinAncient,MimagSedimentAncient,MimagSkinAncient,MimsHostAssociatedAncient,MimsHumanAssociatedAncient,MimsHumanOralAncient,MimsHumanGutAncient,MimsHumanSkinAncient,MimsSedimentAncient,MimsSoilAncient,MimsPlantAncient,MimsSymbiontAncient
   ```
 
 - TODO: CLEANUP COMMANDS
@@ -104,7 +100,7 @@ The instructions for adding a **full schema** to this repo's DataHarmonizer inst
   - Check you can see the new template under 'Template:` in the top bar
 - Generate the static files (within the local clone)
   - Run `yarn build:web` to generate a standalone file (Stored in `/web/dist`)
-- Remove the old docs directory at the root of the repository, the cp new static to replace it to allow rendering on GitHub pages
+- Back in the root of the repo, remove the old docs directory, the cp new static to replace it to allow rendering on GitHub pages
   - `rm -r docs/`
   - `cp -r web/dist/ docs/`
 
