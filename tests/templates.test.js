@@ -3,8 +3,8 @@ import {
   // accessTemplate,
   // buildTemplate,
   findBestLocaleMatch,
-} from '../lib/utils/templates';
-import { deepMerge, getNestedValue } from '../lib/utils/objects';
+} from '@/lib/utils/templates';
+import { deepMerge, getNestedValue } from '@/lib/utils/objects';
 
 /* Example usage
 template = await Template.create('canada_covid19')
