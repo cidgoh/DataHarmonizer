@@ -145,7 +145,7 @@ describe('dataObjectToArray', () => {
       f: 33,
     };
     const dataArray = dataObjectToArray(dataObject, fields);
-    expect(dataArray).toEqual(['', '33.333', '', '', 'a; b; c', '33', '', '']);
+    expect(dataArray).toEqual(['', '33.333', '', '', 'a;b;c', '33', '', '']);
   });
 });
 
