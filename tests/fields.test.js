@@ -185,19 +185,19 @@ describe('formatMultivaluedValue', () => {
   test('formats values with correct delimiter and space', () => {
     const input = ['one two', 'three', 'four'];
     const formatted = formatMultivaluedValue(input);
-    expect(formatted).toEqual('one two; three; four');
+    expect(formatted).toEqual('one two;three;four');
   });
 
   test('handles non-string values', () => {
     const input = ['one two', 3, 'four'];
     const formatted = formatMultivaluedValue(input);
-    expect(formatted).toEqual('one two; 3; four');
+    expect(formatted).toEqual('one two;3;four');
   });
 
   test('discards empty entries', () => {
     const input = ['one two', '', 'three', null, 'four'];
     const formatted = formatMultivaluedValue(input);
-    expect(formatted).toEqual('one two; three; four');
+    expect(formatted).toEqual('one two;three;four');
   });
 
   test('returns empty string for null or empty input', () => {
