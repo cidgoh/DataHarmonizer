@@ -133,7 +133,7 @@ describe('findBestLocaleMatch function', () => {
 });
 
 // Mocking the manifest data
-jest.mock('@/web/templates/manifest.json');
+jest.mock('../web/templates/manifest.json');
 
 describe('Template utilities', () => {
   // Reset all mocks after each test
