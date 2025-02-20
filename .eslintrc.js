@@ -6,6 +6,7 @@ module.exports = {
     'lib/rollup.config.js',
     '**/dist/**/*.js',
     '.venv',
+    'babel.config.js',
   ],
   env: {
     browser: true,
