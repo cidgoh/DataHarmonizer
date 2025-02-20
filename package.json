@@ -99,11 +99,6 @@
     "xlsx": "^0.18.5"
   },
   "jest": {
-    "transform": {
-      "\\.js$": [
-        "rollup-jest"
-      ]
-    },
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/$1",
       "schemas": "<rootDir>/web/schemas.js"
