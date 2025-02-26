@@ -243,6 +243,10 @@
     "en": "Menus",
     "fr": "Menus"
   },
+  "help-picklists": {
+    "en": "Controlled vocabulary picklists",
+    "fr": "Des listes de choix de vocabulaire contrôlé"
+  },
   "reference_guide_title": {
     "en": "Reference Guide for",
     "fr": "Guide de référence pour"
