@@ -494,6 +494,11 @@ def write_schema(schema):
 	for name, class_obj in schema_view.all_classes().items():
 		# Note classDef["@type"]: "ClassDefinition" is only in json output
 		# Presence of "slots" in class indicates field hierarchy
+		# Error trap is_a reference to non-existent class
+		if "is_a" in class_obj and class_obj['is_a'] and (not class_obj['is_a'] in schema['classes']):
+			print("Error: Class ", name, "has an is_a reference to a Class [", class_obj['is_a'], " ]which isn't defined.  This reference needs to be removed.");
+			sys.exit(0);
+
 		if schema_view.class_slots(name):
 			new_obj = schema_view.induced_class(name);
 			schema_view.add_class(new_obj);
@@ -571,10 +576,21 @@ def write_menu(menu_path, schema_folder, schema_view):
 
 	# Now cycle through each template:
 	for class_name, class_obj in class_menu.items():
+		display = 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface';
+		# Old DataHarmonizer <=1.9.1 included class_name in menu via "display"
+		# if it had an "is_a" attribute = "dh_interface".
+		# DH > 1.9.1 also displays if class is mentined in a "Container" class
+		# attribute [Class name 2].range = class_name
+		if display == False and 'Container' in schema_view.schema.classes:
+			container = schema_view.get_class('Container');
+			for container_name, container_obj in container['attributes'].items():
+				if container_obj['range'] == class_name:
+					display = True;
+					break;
 
 		menu[schema_name]['templates'][class_name] = {
 			"name": class_name,
-			"display": 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface'
+			"display": display
 		};
 
 		annotations = schema_view.annotation_dict(class_name);

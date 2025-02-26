@@ -36,11 +36,10 @@
 # Detecting OCA data types via regular expression Numeric, Text, 
 #
 # Numeric:
-# integer or decimal number, may begin with + or -	/^[-+]?\d*\.?\d+$/gm
-# integer		/^-?[0-9]+$/gm
+# integer or decimal number, may begin with + or -	/^[-+]?\d*\.?\d+$
+# integer		/^-?[0-9]+$
 # 
 # Textual:
-# Entries of any length with only capital letters		^[A-Z]*$
 # Capital or lower case letters only, at least 1 character, and 50 characters max		^[A-Za-z]{1,50}$
 # Capital or lower case letters only, 50 characters max		^[A-Za-z]{0,50}$
 # Short text, 50 characters max		^.{0,50}$
@@ -55,31 +54,6 @@
 # Latitude in formats S30°15'45.678" or N12°30.999"		^[NS]-?(?:[0-8]?\d|90)°(?:\d+(?:\.\d+)?)(?:'(\d+(?:\.\d+)?)")?$
 # Longitude in formats E30°15'45.678" or W90°00.000"		^[WE]-?(?:[0-8]?\d|90)°(?:\d+(?:\.\d+)?)(?:'(\d+(?:\.\d+)?)")?$
 #
-# Date
-#
-# ISO: YYYY-MM-DD: year month day	^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$
-# ISO: YYYYMMDD: year month day	^(\d{4})(0[1-9]|1[0-2])(0[1-9]|[1-2]\d|3[0-1])$
-# ISO: YYYY-MM: year month	^(\d{4})-(0[1-9]|1[0-2])$
-# ISO: YYYY-Www: year week (e.g. W01)	^(?:\d{4})-W(0[1-9]|[1-4][0-9]|5[0-3])$
-# ISO: YYYYWww: year week (e.g. W01)	^(?:\d{4})W(0[1-9]|[1-4][0-9]|5[0-3])$
-# ISO: YYYY-DDD: Ordinal date (day number from the year)	^(?:\d{4})-(00[1-9]|0[1-9][0-9]|[1-2][0-9]{2}|3[0-5][0-9]|36[0-6])$
-# ISO: YYYYDDD: Ordinal date (day number from the year)	^(?:\d{4})(00[1-9]|0[1-9][0-9]|[1-2][0-9]{2}|3[0-5][0-9]|36[0-6])$
-# ISO: YYYY: year	^(\d{4})$
-# ISO: MM: month	^(0[1-9]|1[0-2])$
-# ISO: DD: day	^(0[1-9]|[1-2][0-9]|3[01])$
-# ISO: YYYY-MM-DDTHH:MM:SSZ: Date and Time Combined (UTC)	^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])T([01]\d|2[0-3]):([0-5]\d):([0-5]\d)Z$
-# ISO: YYYY-MM-DDTHH:MM:SS±hh:mm: Date and Time Combined (with Timezone Offset)	^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])T([01]\d|2[0-3]):([0-5]\d):([0-5]\\d)([+-][01]\\d:[0-5]\d)$
-# ISO: PnYnMnDTnHnMnS :durations e.g. P3Y6M4DT12H30M5S	^P(?!$)((\d+Y)|(\d+.\d+Y)$)?((\d+M)|(\d+.\d+M)$)?((\d+W)|(\d+.\d+W)$)?((\d+D)|(\d+.\d+D)$)?(T(?=\d)((\d+H)|(\d+.\d+H)$)?((\d+M)|(\d+.\d+M)$)?(\d+(.\d+S)?)?)?$
-# ISO: HH:MM: hour, minutes in 24 hour notation	^([01]\d|2[0-3]):([0-5]\d)$
-# ISO: HH:MM:SS: hour, minutes, seconds in 24 hour notation	^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$
-# DD/MM/YYYY: day, month, year	^(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/\d{4}$
-# DD/MM/YY: day, month, year	^(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/\d{2}$
-# MM/DD/YYYY: month, day, year	^(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])/\d{4}$
-# DDMMYYYY: day, month, year	^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])\d{4}$
-# MMDDYYYY: month, day, year	^(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{4}$
-# YYYYMMDD: year, month, day	^(\d{4})(0[1-9]|1[0-2])(0[1-9]|[1-2]\d|3[0-1])$
-# HH:MM:SS: hour, minutes, seconds 12 hour notation AM/PM	^(0?[1-9]|1[0-2]):[0-5][0-9]:[0-5][0-9] ?[APMapm]{2}$
-# H:MM or HH:MM: hour, minutes AM/PM	^(0?[1-9]|1[0-2]):[0-5][0-9] ?[APMapm]{2}$
 
 
 import json
@@ -107,9 +81,9 @@ imports:
 prefixes:
   linkml: https://w3id.org/linkml/
 classes:
-  dh_interface:
-    name: dh_interface
-    description: A DataHarmonizer interface
+  Container: 
+    name: "Container"
+    tree_root: True
 slots: {}
 enums: {}
 types:
@@ -121,6 +95,165 @@ types:
       #x9 (tab), #xA (linefeed), and #xD (carriage return)."
     base: str
     uri: xsd:token
+
+  AllCaps:
+    name: AllCaps
+    description: Entries of any length with only capital letters
+    typeof: string
+    base: str
+    pattern: ^[A-Z]*$
+  AlphaText1-50:
+    name: AlphaText1-50
+    description: Capital or lower case letters only, at least 1 character, and 50 characters max
+    pattern: ^[A-Za-z]{1,50}$
+  AlphaText0-50:
+    name: AlphaText0-50
+    description: Capital or lower case letters only, 50 characters max
+    pattern: ^[A-Za-z]{0,50}$
+  FreeText0-50:
+    name: FreeText0-50
+    description: Short text, 50 characters max
+    pattern: ^.{0,50}$
+  FreeText0-250:
+    name: FreeText0-250
+    description: Short text, 250 characters max
+    pattern: ^.{0,250}$
+  FreeText0-800:
+    name: FreeText0-800
+    description: Long text, 800 characters max
+    pattern: ^.{0,800}$
+  FreeText0-4000:
+    name: FreeText0-4000
+    description: Long text, 4000 characters max
+    pattern: ^.{0,4000}$
+  CanadianPostalCode:
+    name: CanadianPostalCode
+    description: Canadian postal codes (A1A 1A1)
+    pattern: ^[A-Z][0-9][A-Z]\s[0-9][A-Z][0-9]$
+  ZipCode:
+    name: ZipCode
+    description: Zip code
+    pattern: ^\d{5,6}(?:[-\s]\d{4})?$
+  EmailAddress:
+    name: EmailAddress
+    description: Email address
+    pattern: ^[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+
+  URL:
+    name: URL
+    description: Secure (https) URL
+    pattern: ^https?\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}$
+  PhoneNumber:
+    name: PhoneNumber
+    description: Phone number with international and area code component.
+    pattern: ^\+?\(?\d{2,4}\)?[\d\s-]{3,}$
+  Latitude:
+    name: Latitude
+    description: Latitude in formats S30°15'45.678" or N12°30.999"
+    pattern: ^[NS]-?(?:[0-8]?\d|90)°(?:\d+(?:\.\d+)?)(?:'(\d+(?:\.\d+)?)")?$
+  Longitude:
+    name: Longitude
+    description: Longitude in formats E30°15'45.678" or W90°00.000"
+    pattern: ^[WE]-?(?:[0-8]?\d|90)°(?:\d+(?:\.\d+)?)(?:'(\d+(?:\.\d+)?)")?$
+
+  ISO_YYYY-MM-DD: 
+    name: ISO_YYYY-MM-DD
+    description: year month day
+    pattern: ^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$
+    typeof: string
+    base: str
+    uri: xsd:token
+  ISO_YYYYMMDD:
+    name: ISO_YYYYMMDD
+    pattern: ^(\d{4})(0[1-9]|1[0-2])(0[1-9]|[1-2]\d|3[0-1])$
+    typeof: string
+    base: str
+    uri: xsd:token
+  ISO_YYYY-MM:
+    name: ISO_YYYY-MM
+    description: year month 
+    pattern: ^(\d{4})-(0[1-9]|1[0-2])$
+  ISO_YYYY-Www:
+    name: ISO_YYYY-Www
+    description: year week (e.g. W01) 
+    pattern: ^(?:\d{4})-W(0[1-9]|[1-4][0-9]|5[0-3])$
+  ISO_YYYYWww:
+    name: ISO_YYYYWww
+    description: year week (e.g. W01)  
+    pattern: ^(?:\d{4})W(0[1-9]|[1-4][0-9]|5[0-3])$
+  ISO_YYYY-DDD:
+    name: ISO_YYYY-DDD
+    description: Ordinal date (day number from the year)
+    pattern: ^(?:\d{4})-(00[1-9]|0[1-9][0-9]|[1-2][0-9]{2}|3[0-5][0-9]|36[0-6])$
+  ISO_YYYYDDD:
+    name: ISO_YYYYDDD
+    description: Ordinal date (day number from the year)
+    pattern: ^(?:\d{4})(00[1-9]|0[1-9][0-9]|[1-2][0-9]{2}|3[0-5][0-9]|36[0-6])$
+  ISO_YYYY: 
+    name: ISO_YYYY
+    description: year
+    pattern: ^(\d{4})$
+  ISO_MM:
+    name: ISO_MM
+    description: month
+    pattern: ^(0[1-9]|1[0-2])$
+  ISO_DD:
+    name: ISO_DD
+    description: day
+    pattern: ^(0[1-9]|[1-2][0-9]|3[01])$
+  "ISO_YYYY-MM-DDTHH:MM:SSZ":
+    name: ISO_YYYY-MM-DDTHH:MM:SSZ
+    description: Date and Time Combined (UTC)
+    pattern: ^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])T([01]\d|2[0-3]):([0-5]\d):([0-5]\d)Z$
+  "ISO_YYYY-MM-DDTHH:MM:SS±hh:mm":
+    name: ISO_YYYY-MM-DDTHH:MM:SS±hh:mm
+    description: Date and Time Combined (with Timezone Offset)
+    pattern: ^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])T([01]\d|2[0-3]):([0-5]\d):([0-5]\\d)([+-][01]\\d:[0-5]\d)$
+  ISO_PnYnMnDTnHnMnS:
+    name: ISO_PnYnMnDTnHnMnS
+    description: durations e.g. P3Y6M4DT12H30M5S
+    pattern: ^P(?!$)((\d+Y)|(\d+.\d+Y)$)?((\d+M)|(\d+.\d+M)$)?((\d+W)|(\d+.\d+W)$)?((\d+D)|(\d+.\d+D)$)?(T(?=\d)((\d+H)|(\d+.\d+H)$)?((\d+M)|(\d+.\d+M)$)?(\d+(.\d+S)?)?)?$
+  "ISO_HH:MM":
+    name: ISO_HH:MM
+    description: hour, minutes in 24 hour notation
+    pattern: ^([01]\d|2[0-3]):([0-5]\d)$
+  "ISO_HH:MM:SS":
+    name: ISO_HH:MM:SS
+    description: hour, minutes, seconds in 24 hour notation
+    pattern: ^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$
+  DD/MM/YYYY:
+    name: DD/MM/YYYY
+    description: day, month, year
+    pattern: ^(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/\d{4}$
+  DD/MM/YY:
+    name: DD/MM/YY
+    description: day, month, year
+    pattern: ^(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/\d{2}$
+  MM/DD/YYYY:
+    name: MM/DD/YYYY
+    description: month, day, year
+    pattern: ^(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])/\d{4}$
+  DDMMYYYY:
+    name: DDMMYYYY
+    description: day, month, year
+    pattern: ^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])\d{4}$
+  MMDDYYYY:
+    name: MMDDYYYY
+    description: month, day, year
+    pattern: ^(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{4}$
+  YYYYMMDD:
+    name: YYYYMMDD
+    description: year, month, day
+    pattern: ^(\d{4})(0[1-9]|1[0-2])(0[1-9]|[1-2]\d|3[0-1])$
+  "HH:MM:SS":
+    name: HH:MM:SS
+    description: hour, minutes, seconds 12 hour notation AM/PM
+    pattern: ^(0?[1-9]|1[0-2]):[0-5][0-9]:[0-5][0-9] ?[APMapm]{2}$
+  "H:MM or HH:MM":
+    name: H:MM or HH:MM
+    description: hour, minutes AM/PM
+    pattern: ^(0?[1-9]|1[0-2]):[0-5][0-9] ?[APMapm]{2}$
+
+
 settings:
   Title_Case: '((?<=\b)[^a-z\W]\w*?|[\W])+'
   UPPER_CASE: '[A-Z\W\d_]*'
@@ -252,8 +385,17 @@ def writeSchemaCore():
 	    'name': SCHEMA["name"],
     	'title': SCHEMA["title"] or SCHEMA["name"],
     	'description': SCHEMA["description"],
-    	'is_a': 'dh_interface'
+			#	'is_a': 'dh_interface'
 	}
+
+	# Set up Container class to hold given schema class's data
+	SCHEMA["classes"]['Container']['attributes'] = {
+			'name': SCHEMA["name"] + 'Data',
+			'multivalued': True,
+			'range': SCHEMA["name"],
+			'inlined_as_list': True
+	}
+
 	# ISSUE: Each class may have (meta) title and description fields translated
 	# but we don't have a SCHEMA_CLASSES table to handle translations in 
 	# tabular_to_schema.py, so can't communicate them.
@@ -272,6 +414,7 @@ def writeSlots():
 
 	for slot_name in oca_attributes:
 		slot = slots[slot_name];
+		slot['slot_group'] = "General"; #Default; ideally not needed.
 		slot['class_name'] = SCHEMA["name"];
 		slot['name'] = slot_name;
 		slot['title'] = oca_labels[slot_name];
@@ -283,7 +426,8 @@ def writeSlots():
 		if slot_name in oca_entry_codes:
 			slots[slot_name]['range_2'] = slot_name;
 
-		# post-process range field:
+		# Conversion of range field from OCA to LinkML data types.
+    # See https://github.com/ClimateSmartAgCollab/JSON-Form-Generator/blob/main/src/JsonFormGenerator.js
 		match slot['range']: # case sensitive?
 			case "Text":
 				slot['range'] = "WhitespaceMinimizedString" # or "string"
@@ -296,12 +440,16 @@ def writeSlots():
 					slot['range'] = "integer";
 				else:
 					slot['range'] = "decimal";
+      case "DateTime":
+      case "Boolean":
 
+
+      case ""
 		# Need access to original oca language parameter, e.g. "eng"
 		if len(locale_mapping) > 1:
 			for locale in list(locale_mapping)[1:]:
 				oca_locale = locale_mapping[locale];
-				#slot['slot_group_'+locale]
+				slot['slot_group_'+locale] = "Generic";
 				slot['title_'+locale] = getLookup("label", oca_locale, slot_name)
 				slot['description_'+locale] = getLookup("information", oca_locale, slot_name)
 				#slot['comments_'+locale]
