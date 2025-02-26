@@ -223,6 +223,10 @@
     "en": "Column",
     "fr": "Colonne"
   },
+  "help-sidebar__slot_uri": {
+    "en": "Semantic ID",
+    "fr": "ID sémantique"
+  },
   "help-sidebar__description": {
     "en": "Description",
     "fr": "Description"
@@ -238,6 +242,10 @@
   "help-sidebar__menus": {
     "en": "Menus",
     "fr": "Menus"
+  },
+  "help-picklists": {
+    "en": "Controlled vocabulary picklists",
+    "fr": "Des listes de choix de vocabulaire contrôlé"
   },
   "reference_guide_title": {
     "en": "Reference Guide for",
