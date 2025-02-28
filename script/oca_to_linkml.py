@@ -39,21 +39,7 @@
 # integer or decimal number, may begin with + or -	/^[-+]?\d*\.?\d+$
 # integer		/^-?[0-9]+$
 # 
-# Textual:
-# Capital or lower case letters only, at least 1 character, and 50 characters max		^[A-Za-z]{1,50}$
-# Capital or lower case letters only, 50 characters max		^[A-Za-z]{0,50}$
-# Short text, 50 characters max		^.{0,50}$
-# Short text, 250 characters max		^.{0,250}$
-# long text, 800 characters max		^.{0,800}$
-# long text, 4000 characters max		^.{0,4000}$
-# Canadian postal codes (A1A 1A1)		^[A-Z][0-9][A-Z]\s[0-9][A-Z][0-9]$
-# Zip code		^\d{5,6}(?:[-\s]\d{4})?$
-# Email address		[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+
-# URL	https?\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}
-# Phone number		\+?\(?\d{2,4}\)?[\d\s-]{3,}
-# Latitude in formats S30°15'45.678" or N12°30.999"		^[NS]-?(?:[0-8]?\d|90)°(?:\d+(?:\.\d+)?)(?:'(\d+(?:\.\d+)?)")?$
-# Longitude in formats E30°15'45.678" or W90°00.000"		^[WE]-?(?:[0-8]?\d|90)°(?:\d+(?:\.\d+)?)(?:'(\d+(?:\.\d+)?)")?$
-#
+# See also: https://github.com/agrifooddatacanada/OCA_package_standard
 
 
 import json
@@ -270,6 +256,8 @@ SCHEMA_SLOTS = [
 	"range_2",
 	"identifier",
 	"multivalued",
+	"minimum_cardinality",
+	"maximum_cardinality",
 	"required",
 	"recommended",
 	"minimum_value",
@@ -278,7 +266,8 @@ SCHEMA_SLOTS = [
 	"structured_pattern",
 	"description",
 	"comments",
-	"examples"
+	"examples",
+  "annotations"
 ];
 
 SCHEMA_ENUMS = [
@@ -385,8 +374,11 @@ def writeSchemaCore():
 	    'name': SCHEMA["name"],
     	'title': SCHEMA["title"] or SCHEMA["name"],
     	'description': SCHEMA["description"],
-			#	'is_a': 'dh_interface'
 	}
+
+	# Associate classification keywords with this class (Rather than LinkML schema as a whole)
+	if len(oca_classification):
+		SCHEMA["classes"][SCHEMA["name"]]["keywords"] = oca_classification;
 
 	# Set up Container class to hold given schema class's data
 	SCHEMA["classes"]['Container']['attributes'] = {
@@ -409,7 +401,7 @@ def writeSlots():
 	# Ensure SCHEMA_SLOTS has language variation
 	addLocaleHeaders(SCHEMA_SLOTS, ["slot_group","title","description","comments","examples"]);
 
-	# start slots as an ordered dictionary {slot name:,...} of DH slot attributes.
+	# Start slots as an ordered dictionary {slot name:,...} of DH slot attributes.
 	slots = OrderedDict([i, OrderedDict([i,""] for i in SCHEMA_SLOTS) ] for i in oca_attributes)
 
 	for slot_name in oca_attributes:
@@ -418,33 +410,95 @@ def writeSlots():
 		slot['class_name'] = SCHEMA["name"];
 		slot['name'] = slot_name;
 		slot['title'] = oca_labels[slot_name];
-		slot['range'] = oca_attributes[slot_name]; # ISSUE: Numeric
+		slot['range'] = oca_attributes[slot_name]; # Yeilds Type
 		slot['pattern'] = oca_formats[slot_name];
 		slot['description'] = oca_informations[slot_name];
+
+		# Minnum and maximum number of values in array of a multivalued field.
+		# See https://oca.colossi.network/specification/#cardinality-overlay
+		if slot_name in oca_cardinality:  # Format: n, n-, n-m, -m
+			card = oca_cardinality[slot_name];
+			if '-' in card:
+				if '-' == card[0]:
+					slot['maximum_cardinality'] = int(card[1:]);
+					if (slot['maximum_cardinality'] > 1):
+						slot['multivalued'] = True;
+				elif '-' == card[-1]:
+					slot['minimum_cardinality'] = int(card[0:-1]);
+					slot['multivalued'] = True;
+				else:
+					(min, max) = card.split('-');
+					slot['minimum_cardinality'] = int(min);
+					slot['maximum_cardinality'] = int(max);
+					if (int(max) < int(min)):
+						warnings.append("Field " + slot_name + " has maximum_cardinality less than the minimum_cardinality.")
+					if int(max) > 1:
+						slot['multivalued'] = True;
+			else: # A single value so both min and max
+				slot['minimum_cardinality'] = slot['maximum_cardinality'] = int(card);
+				if int(card) > 1:
+					slot['multivalued'] = True;
+
+		# If slot range is "Array[some datatype]",
+		if slot['range'][0:5] == "Array":
+			slot['multivalued'] = True;
+			slot['range'] = re.search('\[(.+)\]', slot['range']).group(1);
 
 		# Range 2 gets any picklist for now.
 		if slot_name in oca_entry_codes:
 			slots[slot_name]['range_2'] = slot_name;
 
+		if slot_name in oca_conformance:
+			match oca_conformance[slot_name]:
+				case "M": # Mandatory
+					slot['required'] = True;
+				case "O": # Optional -> Recommended?!
+					slot['recommended'] = True;
+
+		# Flag that this field may have confidentiality compromising content.
+		# Field confidentiality https://kantarainitiative.org/download/blinding-identity-taxonomy-pdf/
+		# https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/22974595/Blinding+Identity+Taxonomy
+		# Currently the only use of slot.attributes:
+		if slot_name in oca_identifying_factors:
+			slot['annotations'] = 'identifying_factor:True';
+
 		# Conversion of range field from OCA to LinkML data types.
     # See https://github.com/ClimateSmartAgCollab/JSON-Form-Generator/blob/main/src/JsonFormGenerator.js
+    # See also: https://oca.colossi.network/specification/#attribute-type
+    # There's also a list of file types: https://github.com/agrifooddatacanada/format_options/blob/main/format/binary.md
+    # Data types: Text | Numeric | Reference (crypto hash) | Boolean | Binary | DateTime | Array[data type]
 		match slot['range']: # case sensitive?
+
 			case "Text":
+				# https://github.com/agrifooddatacanada/format_options/blob/main/format/text.md
 				slot['range'] = "WhitespaceMinimizedString" # or "string"
+
 			case "Numeric":
+        # https://github.com/agrifooddatacanada/format_options/blob/main/format/numeric.md
 				# ISSUE: if field is marked as an integer or decimal, then even
 				# if regular expression validates, a test against integer or 
 				# decimal format will INVALIDATE this slot.
-				# Sniff whether it is integer or decimal. FUTURE: allow negatives?
+				# Sniff whether it is integer or decimal.
 				if re.search("^-?\[0-9\]\{\d+\}$", slot['pattern']):
 					slot['range'] = "integer";
 				else:
 					slot['range'] = "decimal";
-      case "DateTime":
-      case "Boolean":
+
+			case "DateTime":
+				# There are many datatypes that might be matched via the OCA regex expression used to define them.
+				pass
+			case "Boolean":
+				pass
+
+    # Now convert any slot datatypes where pattern matches OCA-specific data type
+		for type_name in SCHEMA["types"]:
+			if "pattern" in SCHEMA["types"][type_name]:
+				if SCHEMA["types"][type_name]["pattern"] == slot['pattern']:
+					#print("PATTERN", type_name, )
+					slot['range'] = type_name;
+					slot['pattern'] = ''; # Redundant
 
 
-      case ""
 		# Need access to original oca language parameter, e.g. "eng"
 		if len(locale_mapping) > 1:
 			for locale in list(locale_mapping)[1:]:
@@ -452,10 +506,13 @@ def writeSlots():
 				slot['slot_group_'+locale] = "Generic";
 				slot['title_'+locale] = getLookup("label", oca_locale, slot_name)
 				slot['description_'+locale] = getLookup("information", oca_locale, slot_name)
-				#slot['comments_'+locale]
-				#slot['examples_'+locale]
+				#slot['comments_'+locale] # No OCA equivalent
+				#slot['examples_'+locale] # No OCA equivalent
 	
+
+
 	save_tsv("schema_slots.tsv", SCHEMA_SLOTS, slots);
+
 
 def writeEnums():
 	addLocaleHeaders(SCHEMA_ENUMS, ["title", "menu_1"]);
@@ -500,17 +557,29 @@ else:
 # ALSO, it is assumed that language variant objects all have the "default" 
 # and consistent primary language as first entry.
 
+# oca_attributes contains slot.name and slot.Type (datatype, e.g. Numeric, ...)
+oca_attributes = oca_obj["bundle"]["capture_base"]["attributes"];
+
+# Keywords about this schema (class's) subject categorization.
+oca_classification = oca_obj["bundle"]["capture_base"]["classification"];
+
+# Fields which likely have personal or institutional confidentiality content:
+oca_identifying_factors = oca_obj["bundle"]["capture_base"]["flagged_attributes"];
+
+############################# Overlays #################################
 oca_overlays = oca_obj["bundle"]["overlays"];
 
-# Contains {schema.name,.description,.language} in array 
-# Optional?
+# Contains {schema.name,.description,.language} in array.  Optional?
 oca_metas = oca_overlays["meta"][0];
-
-# oca_attributes contains slot.name and slot.datatype
-oca_attributes = oca_obj["bundle"]["capture_base"]["attributes"];
 
 # Contains slot.name and slot.pattern
 oca_formats = oca_overlays["format"]["attribute_formats"];
+
+# Minnum and maximum number of values in array of a multivalued field.
+if "cardinality" in oca_overlays:
+	oca_cardinality = oca_overlays["cardinality"]["attr_cardinality"];
+else:
+	oca_cardinality = {};
 
 # Contains {slot.title,.language} in array
 oca_labels = oca_overlays["label"][0]["attribute_labels"];
@@ -519,7 +588,8 @@ oca_labels = oca_overlays["label"][0]["attribute_labels"];
 # Optional?
 oca_informations = oca_overlays["information"][0]["attribute_information"];
 
-# Contains {"d": "M", "i": "M", "passed": "M"}  # "M" ?
+# A dictionary for each field indicating required/recommended status:  
+# M is mandatory and O is optional.
 oca_conformance = oca_overlays["conformance"]["attribute_conformance"];
 
 # Contains [enumeration name]:[code,...]

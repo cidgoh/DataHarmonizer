@@ -113,6 +113,20 @@ def set_examples (slot, example_string):
 
 		slot['examples'] = examples;
 
+# Parse annotation_string into slot.examples. Works for multilingual slot locale
+def set_annotations (slot, annotation_string):
+				
+	if annotation_string > '':
+		annotations = {};
+		for v in annotation_string.split(';'):
+			(key, value) = v.split(':');
+			value = value.strip();
+			if value.lower() == 'true':
+				value = bool(value);
+			annotations[key.strip()] = value;
+
+		slot['annotations'] = annotations;
+
 
 # A slot's or enum's exact_mappings array gets populated with all the 
 # EXPORT_XYZ column cell values.
@@ -249,17 +263,22 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					slot_description =				row.get('description','');
 					slot_comments =						row.get('comments','');
 					slot_examples = 					row.get('examples','');
+					slot_annotations = 					row.get('annotations','');
 					slot_uri =								row.get('slot_uri','');
-					slot_identifier =					row.get('identifier','');
-					slot_multivalued =				row.get('multivalued','');
-					slot_required =						row.get('required','');
-					slot_recommended =				row.get('recommended', '');
+
+					slot_identifier =					bool(row.get('identifier',''));
+					slot_multivalued =				bool(row.get('multivalued',''));
+					slot_required =						bool(row.get('required',''));
+					slot_recommended =				bool(row.get('recommended', ''));
+
 					slot_range =							row.get('range','');
 					slot_range_2 =						row.get('range_2','');
 					slot_pattern = 						row.get('pattern','');
 					slot_structured_pattern = row.get('structured_pattern','');
 					slot_minimum_value =			row.get('minimum_value','');
 					slot_maximum_value =			row.get('maximum_value','');
+					slot_minimum_cardinality =			row.get('minimum_cardinality','');
+					slot_maximum_cardinality =			row.get('maximum_cardinality','');
 
 					slot = {'name': slot_name};
 
@@ -269,12 +288,17 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					if slot_description > '':				slot['description'] = slot_description;
 					if slot_comments > '':					slot['comments'] = slot_comments;
 					if slot_uri > '':								slot['slot_uri'] = slot_uri;
-					if slot_identifier == 'TRUE':		slot['identifier'] = True;
+
+					if slot_identifier == True:		slot['identifier'] = True;
+					if slot_multivalued == True:	slot['multivalued'] = True;
+					if slot_required == True:			slot['required'] = True;
+					if slot_recommended == True:	slot['recommended'] = True;
+
+					if slot_minimum_cardinality > '':	slot['minimum_cardinality'] = int(slot_minimum_cardinality);
+					if slot_maximum_cardinality > '':	slot['maximum_cardinality'] = int(slot_maximum_cardinality);
+					
 					set_range(slot, slot_range, slot_range_2);
 					set_min_max(slot, slot_minimum_value, slot_maximum_value);
-					if slot_multivalued == 'TRUE':	slot['multivalued'] = True;
-					if slot_required == 'TRUE':			slot['required'] = True;
-					if slot_recommended == 'TRUE':	slot['recommended'] = True;
 					if slot_pattern > '':						slot['pattern'] = slot_pattern;		
 					if slot_structured_pattern > '':
 																					slot['structured_pattern'] = {
@@ -284,6 +308,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 																					}
 
 					set_examples(slot, slot_examples);
+					set_annotations(slot, slot_annotations);
 					set_mappings(slot, row, export_format);
 
 					# If slot has already been set up in schema['slots'] then compare 
