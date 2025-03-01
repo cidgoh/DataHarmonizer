@@ -2,7 +2,7 @@ id: https://example.com/Influenza
 name: Influenza
 description: Draft template for harmonizing human influenza virus genomic surveillance
   contextual data.
-version: 1.0.1
+version: 1.0.2
 imports:
 - linkml:types
 prefixes:
@@ -1716,8 +1716,8 @@ enums:
     name: UmbrellaBioprojectAccessionMenu
     title: umbrella bioproject accession menu
     permissible_values: {}
-  null value menu:
-    name: null value menu
+  NullValueMenu:
+    name: NullValueMenu
     title: null value menu
     permissible_values:
       Not Applicable:
@@ -1878,7 +1878,11 @@ enums:
   PresamplingActivityMenu:
     name: PresamplingActivityMenu
     title: presampling activity menu
-    permissible_values: {}
+    permissible_values:
+      Post-infection convalescence:
+        text: Post-infection convalescence
+      Vaccination:
+        text: Vaccination
   VaccineNameMenu:
     name: VaccineNameMenu
     title: vaccine name menu

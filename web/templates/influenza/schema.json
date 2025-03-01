@@ -2,7 +2,7 @@
   "name": "Influenza",
   "description": "Draft template for harmonizing human influenza virus genomic surveillance contextual data.",
   "id": "https://example.com/Influenza",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -301,8 +301,8 @@
       "title": "umbrella bioproject accession menu",
       "from_schema": "https://example.com/Influenza"
     },
-    "null value menu": {
-      "name": "null value menu",
+    "NullValueMenu": {
+      "name": "NullValueMenu",
       "title": "null value menu",
       "from_schema": "https://example.com/Influenza",
       "permissible_values": {
@@ -531,7 +531,15 @@
     "PresamplingActivityMenu": {
       "name": "PresamplingActivityMenu",
       "title": "presampling activity menu",
-      "from_schema": "https://example.com/Influenza"
+      "from_schema": "https://example.com/Influenza",
+      "permissible_values": {
+        "Post-infection convalescence": {
+          "text": "Post-infection convalescence"
+        },
+        "Vaccination": {
+          "text": "Vaccination"
+        }
+      }
     },
     "VaccineNameMenu": {
       "name": "VaccineNameMenu",

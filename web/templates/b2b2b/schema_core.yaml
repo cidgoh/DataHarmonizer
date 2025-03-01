@@ -1,0 +1,37 @@
+id: https://example.com/B2B2B
+name: B2B2B
+description: "B2B2B Schema which includes B2B2B template"
+version: 1.0.0
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/CanCOGeN_Covid-19
+  B2B2B:
+    name: B2B2B
+    title: B2B2B
+    description: "The B2B2B template is a One Health contextual data specification designed for gold standard benchmark datasets for microbial AMR analyses. The specification was developed as part of the JPIAMR’s Bench, Bedside, Business, and Beyond: innovative solutions for AMR diagnostics (B2B2B AMRDx) project, and represents a subset of Canada’s GRDI-AMR-One-Health vocabulary (see GRDI template). The specification provides standardized (ontology-based) fields and terms which are implemented via a spreadsheet collection template, supported by field and reference guides, as well as a new term request SOP."
+    is_a: dh_interface
+slots: {}
+enums: {}
+types:
+  WhitespaceMinimizedString:
+    name: 'WhitespaceMinimizedString'
+    typeof: string
+    description: A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: 'Provenance'
+    typeof: string
+    description: 'A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.'
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+  UPPER_CASE: "[A-Z\\W\\d_]*"
+  lower_case: "[a-z\\W\\d_]*"

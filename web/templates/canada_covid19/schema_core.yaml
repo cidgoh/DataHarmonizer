@@ -1,15 +1,41 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: CanCOGeN_Covid-19
 description: ""
-version: 2.4.1
+version: 3.0.0
 in_language: 
 - 'en'
 - 'fr'
 imports:
 - 'linkml:types'
 prefixes:
-  linkml: 'https://w3id.org/linkml/'
-  GENEPIO: 'http://purl.obolibrary.org/obo/GENEPIO_'
+  linkml: https://w3id.org/linkml/
+  BTO: http://purl.obolibrary.org/obo/BTO_
+  CIDO: http://purl.obolibrary.org/obo/CIDO_
+  CLO: http://purl.obolibrary.org/obo/CLO_
+  DOID: http://purl.obolibrary.org/obo/DOID_
+  ECTO: http://purl.obolibrary.org/obo/ECTO_
+  EFO: http://purl.obolibrary.org/obo/EFO_
+  ENVO: http://purl.obolibrary.org/obo/ENVO_
+  FOODON: http://purl.obolibrary.org/obo/FOODON_
+  GAZ: http://purl.obolibrary.org/obo/GAZ_
+  GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
+  GSSO: http://purl.obolibrary.org/obo/GSSO_
+  HP: http://purl.obolibrary.org/obo/HP_
+  IDO: http://purl.obolibrary.org/obo/IDO_
+  MP: http://purl.obolibrary.org/obo/MP_
+  MMO: http://purl.obolibrary.org/obo/MMO_
+  MONDO: http://purl.obolibrary.org/obo/MONDO_
+  MPATH: http://purl.obolibrary.org/obo/MPATH_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+  NBO: http://purl.obolibrary.org/obo/NBO_
+  OBI: http://purl.obolibrary.org/obo/OBI_
+  OMRSE: http://purl.obolibrary.org/obo/OMRSE_
+  PCO: http://purl.obolibrary.org/obo/PCO_
+  TRANS: http://purl.obolibrary.org/obo/TRANS_
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  UO: http://purl.obolibrary.org/obo/UO_
+  VO: http://purl.obolibrary.org/obo/VO_
 classes:
   dh_interface:
     name: dh_interface

@@ -1,7 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: CanCOGeN_Covid-19
 description: ''
-version: 2.4.1
+version: 3.0.0
 in_language:
 - en
 - fr
@@ -9,7 +9,33 @@ imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
+  BTO: http://purl.obolibrary.org/obo/BTO_
+  CIDO: http://purl.obolibrary.org/obo/CIDO_
+  CLO: http://purl.obolibrary.org/obo/CLO_
+  DOID: http://purl.obolibrary.org/obo/DOID_
+  ECTO: http://purl.obolibrary.org/obo/ECTO_
+  EFO: http://purl.obolibrary.org/obo/EFO_
+  ENVO: http://purl.obolibrary.org/obo/ENVO_
+  FOODON: http://purl.obolibrary.org/obo/FOODON_
+  GAZ: http://purl.obolibrary.org/obo/GAZ_
   GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
+  GSSO: http://purl.obolibrary.org/obo/GSSO_
+  HP: http://purl.obolibrary.org/obo/HP_
+  IDO: http://purl.obolibrary.org/obo/IDO_
+  MP: http://purl.obolibrary.org/obo/MP_
+  MMO: http://purl.obolibrary.org/obo/MMO_
+  MONDO: http://purl.obolibrary.org/obo/MONDO_
+  MPATH: http://purl.obolibrary.org/obo/MPATH_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+  NBO: http://purl.obolibrary.org/obo/NBO_
+  OBI: http://purl.obolibrary.org/obo/OBI_
+  OMRSE: http://purl.obolibrary.org/obo/OMRSE_
+  PCO: http://purl.obolibrary.org/obo/PCO_
+  TRANS: http://purl.obolibrary.org/obo/TRANS_
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  UO: http://purl.obolibrary.org/obo/UO_
+  VO: http://purl.obolibrary.org/obo/VO_
 classes:
   dh_interface:
     name: dh_interface
@@ -1687,7 +1713,7 @@ slots:
     comments: Select the vaccination status of the host from the pick list.
     slot_uri: GENEPIO:0001404
     any_of:
-    - range: host vaccination status menu
+    - range: HostVaccinationStatusMenu
     - range: NullValueMenu
     examples:
     - value: Fully Vaccinated
@@ -2339,7 +2365,9 @@ slots:
     comments: Provide the software name followed by the version e.g. Trimmomatic v.
       0.38, Porechop v. 0.2.3
     slot_uri: GENEPIO:0001458
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
     examples:
     - value: Porechop 0.2.3
@@ -2353,7 +2381,9 @@ slots:
     comments: Provide the name and version number of the software used to remove host
       reads.
     slot_uri: GENEPIO:0001459
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
     examples:
     - value: Nanostripper
@@ -2400,7 +2430,9 @@ slots:
     description: The name of software used to generate the consensus sequence.
     comments: Provide the name of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001463
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
     examples:
     - value: iVar
@@ -2415,7 +2447,9 @@ slots:
     description: The version of the software used to generate the consensus sequence.
     comments: Provide the version of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001469
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
     examples:
     - value: '1.3'
@@ -2591,7 +2625,9 @@ slots:
       can be provided in an SOP or protocol or pipeline/workflow. Provide the name
       and version number of the protocol, or a GitHub link to a pipeline or workflow.
     slot_uri: GENEPIO:0001489
-    range: WhitespaceMinimizedString
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
     required: true
     examples:
     - value: https://github.com/phac-nml/ncov2019-artic-nf
@@ -5924,8 +5960,8 @@ enums:
         text: Shared Hospital Laboratory
       St. John's Rehab at Sunnybrook Hospital:
         text: St. John's Rehab at Sunnybrook Hospital
-      "St. Joseph\u2019s Healthcare Hamilton":
-        text: "St. Joseph\u2019s Healthcare Hamilton"
+      St. Joseph's Healthcare Hamilton:
+        text: St. Joseph's Healthcare Hamilton
       Switch Health:
         text: Switch Health
       Sunnybrook Health Sciences Centre:

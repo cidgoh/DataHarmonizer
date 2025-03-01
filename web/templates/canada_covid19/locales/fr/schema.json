@@ -3,7 +3,7 @@
   "description": "",
   "in_language": "fr",
   "id": "https://example.com/CanCOGeN_Covid-19",
-  "version": "2.4.1",
+  "version": "3.0.0",
   "imports": [
     "linkml:types"
   ],
@@ -12,9 +12,113 @@
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
     },
+    "BTO": {
+      "prefix_prefix": "BTO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/BTO_"
+    },
+    "CIDO": {
+      "prefix_prefix": "CIDO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/CIDO_"
+    },
+    "CLO": {
+      "prefix_prefix": "CLO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/CLO_"
+    },
+    "DOID": {
+      "prefix_prefix": "DOID",
+      "prefix_reference": "http://purl.obolibrary.org/obo/DOID_"
+    },
+    "ECTO": {
+      "prefix_prefix": "ECTO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/ECTO_"
+    },
+    "EFO": {
+      "prefix_prefix": "EFO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/EFO_"
+    },
+    "ENVO": {
+      "prefix_prefix": "ENVO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/ENVO_"
+    },
+    "FOODON": {
+      "prefix_prefix": "FOODON",
+      "prefix_reference": "http://purl.obolibrary.org/obo/FOODON_"
+    },
+    "GAZ": {
+      "prefix_prefix": "GAZ",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GAZ_"
+    },
     "GENEPIO": {
       "prefix_prefix": "GENEPIO",
       "prefix_reference": "http://purl.obolibrary.org/obo/GENEPIO_"
+    },
+    "GSSO": {
+      "prefix_prefix": "GSSO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GSSO_"
+    },
+    "HP": {
+      "prefix_prefix": "HP",
+      "prefix_reference": "http://purl.obolibrary.org/obo/HP_"
+    },
+    "IDO": {
+      "prefix_prefix": "IDO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/IDO_"
+    },
+    "MP": {
+      "prefix_prefix": "MP",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MP_"
+    },
+    "MMO": {
+      "prefix_prefix": "MMO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MMO_"
+    },
+    "MONDO": {
+      "prefix_prefix": "MONDO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MONDO_"
+    },
+    "MPATH": {
+      "prefix_prefix": "MPATH",
+      "prefix_reference": "http://purl.obolibrary.org/obo/MPATH_"
+    },
+    "NCIT": {
+      "prefix_prefix": "NCIT",
+      "prefix_reference": "http://purl.obolibrary.org/obo/NCIT_"
+    },
+    "NCBITaxon": {
+      "prefix_prefix": "NCBITaxon",
+      "prefix_reference": "http://purl.obolibrary.org/obo/NCBITaxon_"
+    },
+    "NBO": {
+      "prefix_prefix": "NBO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/NBO_"
+    },
+    "OBI": {
+      "prefix_prefix": "OBI",
+      "prefix_reference": "http://purl.obolibrary.org/obo/OBI_"
+    },
+    "OMRSE": {
+      "prefix_prefix": "OMRSE",
+      "prefix_reference": "http://purl.obolibrary.org/obo/OMRSE_"
+    },
+    "PCO": {
+      "prefix_prefix": "PCO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/PCO_"
+    },
+    "TRANS": {
+      "prefix_prefix": "TRANS",
+      "prefix_reference": "http://purl.obolibrary.org/obo/TRANS_"
+    },
+    "UBERON": {
+      "prefix_prefix": "UBERON",
+      "prefix_reference": "http://purl.obolibrary.org/obo/UBERON_"
+    },
+    "UO": {
+      "prefix_prefix": "UO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/UO_"
+    },
+    "VO": {
+      "prefix_prefix": "VO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/VO_"
     }
   },
   "default_prefix": "https://example.com/CanCOGeN_Covid-19/",

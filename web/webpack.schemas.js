@@ -23,6 +23,16 @@ module.exports = {
           from: '**/*.pdf',
           to: '../templates/[path][name][ext]',
         },
+        {
+          context: 'templates',
+          from: '**/schema.yaml',
+          to: '../templates/[path][name][ext]',
+        },
+        {
+          context: 'templates',
+          from: '**/exampleInput/*.*',
+          to: '../templates/[path][name][ext]',
+        },
       ],
     }),
   ],

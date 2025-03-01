@@ -113,6 +113,29 @@ def set_examples (slot, example_string):
 
 		slot['examples'] = examples;
 
+# Parse annotation_string into slot.examples. Works for multilingual slot locale
+def set_attribute (slot, attribute, content):
+	print (content)	
+	if content > '':
+		annotations = {};
+		for v in content.split(';'):
+			if ':' in v:
+				(key, value) = v.split(':');
+				key = key.strip();
+				value = value.strip();
+				if value.lower() == 'true':
+					value = bool(value);
+				
+				if attribute == 'unit' and key != 'ucum_code':
+					# FUTURE: do unit conversion here
+					annotations['ucum_code'] = value;
+				else:
+					annotations[key] = value;
+			else:
+				if attribute == 'unit':
+					annotations['ucum_code'] = value;
+		slot[attribute] = annotations;
+
 
 # A slot's or enum's exact_mappings array gets populated with all the 
 # EXPORT_XYZ column cell values.
@@ -249,17 +272,23 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					slot_description =				row.get('description','');
 					slot_comments =						row.get('comments','');
 					slot_examples = 					row.get('examples','');
+					slot_annotations = 					row.get('annotations','');
 					slot_uri =								row.get('slot_uri','');
-					slot_identifier =					row.get('identifier','');
-					slot_multivalued =				row.get('multivalued','');
-					slot_required =						row.get('required','');
-					slot_recommended =				row.get('recommended', '');
+
+					slot_identifier =					bool(row.get('identifier',''));
+					slot_multivalued =				bool(row.get('multivalued',''));
+					slot_required =						bool(row.get('required',''));
+					slot_recommended =				bool(row.get('recommended', ''));
+
 					slot_range =							row.get('range','');
 					slot_range_2 =						row.get('range_2','');
+					slot_unit =						row.get('unit','');
 					slot_pattern = 						row.get('pattern','');
 					slot_structured_pattern = row.get('structured_pattern','');
 					slot_minimum_value =			row.get('minimum_value','');
 					slot_maximum_value =			row.get('maximum_value','');
+					slot_minimum_cardinality =			row.get('minimum_cardinality','');
+					slot_maximum_cardinality =			row.get('maximum_cardinality','');
 
 					slot = {'name': slot_name};
 
@@ -269,12 +298,19 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					if slot_description > '':				slot['description'] = slot_description;
 					if slot_comments > '':					slot['comments'] = slot_comments;
 					if slot_uri > '':								slot['slot_uri'] = slot_uri;
-					if slot_identifier == 'TRUE':		slot['identifier'] = True;
+
+					if slot_identifier == True:		slot['identifier'] = True;
+					if slot_multivalued == True:	slot['multivalued'] = True;
+					if slot_required == True:			slot['required'] = True;
+					if slot_recommended == True:	slot['recommended'] = True;
+
+					if slot_minimum_cardinality > '':	slot['minimum_cardinality'] = int(slot_minimum_cardinality);
+					if slot_maximum_cardinality > '':	slot['maximum_cardinality'] = int(slot_maximum_cardinality);
+
 					set_range(slot, slot_range, slot_range_2);
+					if slot_unit > '':							slot['unit'] = slot_unit;
+
 					set_min_max(slot, slot_minimum_value, slot_maximum_value);
-					if slot_multivalued == 'TRUE':	slot['multivalued'] = True;
-					if slot_required == 'TRUE':			slot['required'] = True;
-					if slot_recommended == 'TRUE':	slot['recommended'] = True;
 					if slot_pattern > '':						slot['pattern'] = slot_pattern;		
 					if slot_structured_pattern > '':
 																					slot['structured_pattern'] = {
@@ -283,7 +319,9 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 																						'interpolated': True
 																					}
 
+					set_attribute(slot, "unit", slot_unit);
 					set_examples(slot, slot_examples);
+					set_attribute(slot, "annotations", slot_annotations);
 					set_mappings(slot, row, export_format);
 
 					# If slot has already been set up in schema['slots'] then compare 
@@ -494,12 +532,23 @@ def write_schema(schema):
 	for name, class_obj in schema_view.all_classes().items():
 		# Note classDef["@type"]: "ClassDefinition" is only in json output
 		# Presence of "slots" in class indicates field hierarchy
+		# Error trap is_a reference to non-existent class
+		if "is_a" in class_obj and class_obj['is_a'] and (not class_obj['is_a'] in schema['classes']):
+			print("Error: Class ", name, "has an is_a reference to a Class [", class_obj['is_a'], " ]which isn't defined.  This reference needs to be removed.");
+			sys.exit(0);
+
 		if schema_view.class_slots(name):
 			new_obj = schema_view.induced_class(name);
 			schema_view.add_class(new_obj);
 
+	# SchemaView() is coercing "in_language" into a string when it is an array
+	# of i18n languages as per official LinkML spec.  We're bending the rules
+	# slightly.  Put it back into an array.
+	if 'in_language' in SCHEMA:
+		schema_view.schema['in_language'] = SCHEMA['in_language'];
+
 	# Output the amalgamated content:
-	JSONDumper().dump(schema_view.schema, w_filename_base + '.json')
+	JSONDumper().dump(schema_view.schema, w_filename_base + '.json');
 	
 	return schema_view;
 
@@ -530,18 +579,9 @@ def write_locales(locale_schemas):
 
 
 # ********* Adjust the menu to include this schema and its classes ******
-# Creating a JSON file structure which can be loaded directly into DH:
-#
-# {
-#   "MIxS": {
-#     "soil": {
-#       "name": 'soil', 
-#       "status": "published"
-#     },
-#     ... etc
-#   }
-# }
-def write_menu(menu_path, schema_folder, schema_spec):
+def write_menu(menu_path, schema_folder, schema_view):
+
+	schema_name = schema_view.schema['name'];
 
 	# Work with existing MENU menu.js, or start new one.
 	if os.path.isfile(menu_path):
@@ -550,27 +590,52 @@ def write_menu(menu_path, schema_folder, schema_spec):
 	else:
 	    menu = {};
 
-	# Overwrite this folder's menu content
-	menu[schema_folder] = {};
+	# Reset this folder's menu content
+	menu[schema_name] = {
+		"folder": schema_folder,
+		"id": schema_view.schema['id'],
+		"version": schema_view.schema['version'],
+		"templates":{}
+	};
+
+	print(schema_view.schema and schema_view.schema['in_language'])
+
+	if 'in_language' in schema_view.schema and schema_view.schema['in_language'] != None:
+		menu[schema_name]['locales'] = schema_view.schema['in_language'];
 
 	class_menu = {};
 
 	# Get all top level classes
-	for name, class_obj in schema_spec.all_classes().items():
+	for class_name, class_obj in schema_view.all_classes().items():
 
-    # Presence of "slots" in class indicates field hierarchy
-		if schema_spec.class_slots(name):
-			class_menu[name] = class_obj;
+    	# Presence of "slots" in class indicates field hierarchy
+		if schema_view.class_slots(class_name):
+			class_menu[class_name] = class_obj;
 
-	for name, class_obj in class_menu.items():
+	# Now cycle through each template:
+	for class_name, class_obj in class_menu.items():
+		display = 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface';
+		# Old DataHarmonizer <=1.9.1 included class_name in menu via "display"
+		# if it had an "is_a" attribute = "dh_interface".
+		# DH > 1.9.1 also displays if class is mentined in a "Container" class
+		# attribute [Class name 2].range = class_name
+		if display == False and 'Container' in schema_view.schema.classes:
+			container = schema_view.get_class('Container');
+			for container_name, container_obj in container['attributes'].items():
+				if container_obj['range'] == class_name:
+					display = True;
+					break;
 
-		menu[schema_folder][name] = {
-			"name": name,
-			"status": "published",
-			"display": 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface'
+		menu[schema_name]['templates'][class_name] = {
+			"name": class_name,
+			"display": display
 		};
 
-		print("Updated menu for", schema_folder+'/', name);
+		annotations = schema_view.annotation_dict(class_name);
+		if 'version' in annotations:
+			menu[schema_name]['templates'][class_name]['version'] = annotations['version'];
+
+		print("Updated menu for", schema_name+'/' + class_name);
 
 	# Update or create whole menu
 	with open(menu_path, "w") as output_handle:
