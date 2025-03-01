@@ -10,7 +10,7 @@
 # typically, in some DH web/templates/[schema folder]/, which reads by default
 # a file called oca_bundle.json
 #
-# > python3 ../../../script/oca_to_linkml.py [-i oca_bundle_file_name]
+# > python3 ../../../script/oca_to_linkml.py [-i [oca_bundle_file_name.json]]
 #
 # Output: 
 #
@@ -254,6 +254,7 @@ SCHEMA_SLOTS = [
 	"title",
 	"range",
 	"range_2",
+	"unit",
 	"identifier",
 	"multivalued",
 	"minimum_cardinality",
@@ -397,6 +398,8 @@ def writeSchemaCore():
 
 	return SCHEMA;
 
+
+################################ SLOT OUTPUT ################################
 def writeSlots():
 	# Ensure SCHEMA_SLOTS has language variation
 	addLocaleHeaders(SCHEMA_SLOTS, ["slot_group","title","description","comments","examples"]);
@@ -410,9 +413,11 @@ def writeSlots():
 		slot['class_name'] = SCHEMA["name"];
 		slot['name'] = slot_name;
 		slot['title'] = oca_labels[slot_name];
-		slot['range'] = oca_attributes[slot_name]; # Yeilds Type
-		slot['pattern'] = oca_formats[slot_name];
-		slot['description'] = oca_informations[slot_name];
+		slot['range'] = oca_attributes[slot_name]; # Type is a required field?
+		if slot_name in oca_formats:
+			slot['pattern'] = oca_formats[slot_name];
+		if slot_name in oca_informations:
+			slot['description'] = oca_informations[slot_name]; 
 
 		# Minnum and maximum number of values in array of a multivalued field.
 		# See https://oca.colossi.network/specification/#cardinality-overlay
@@ -490,6 +495,16 @@ def writeSlots():
 			case "Boolean":
 				pass
 
+		# OCA mentions a oca_overlays["unit"]["metric_system"] (usually = "SI"),
+		# So here is a place to do unit conversion to UCUM if possible.
+		# https://ucum.nlm.nih.gov/ucum-lhc/demo.html
+		if slot_name in oca_units:
+			# slot unit: / ucum_code: cm
+			if "metric_system" in oca_overlays["unit"]:
+				slot['unit'] = oca_overlays["unit"]["metric_system"] + ":" + oca_units[slot_name];
+			else:
+				slot['unit'] = oca_units[slot_name];
+
     # Now convert any slot datatypes where pattern matches OCA-specific data type
 		for type_name in SCHEMA["types"]:
 			if "pattern" in SCHEMA["types"][type_name]:
@@ -509,11 +524,10 @@ def writeSlots():
 				#slot['comments_'+locale] # No OCA equivalent
 				#slot['examples_'+locale] # No OCA equivalent
 	
-
-
 	save_tsv("schema_slots.tsv", SCHEMA_SLOTS, slots);
 
 
+################################ ENUM OUTPUT ################################
 def writeEnums():
 	addLocaleHeaders(SCHEMA_ENUMS, ["title", "menu_1"]);
 	enums = [];
@@ -545,8 +559,8 @@ options, args = init_parser();
 
 # Load OCA schema bundle specification
 if options.input_oca_file and os.path.isfile(options.input_oca_file):
-    with open(options.input_oca_file, "r") as f:
-        oca_obj = json.load(f);
+    with open(options.input_oca_file, "r") as file_handle:
+        oca_obj = json.load(file_handle);
 else:
 	os.exit("- [Input OCA bundle file is required]")
 
@@ -598,6 +612,12 @@ oca_entry_codes = oca_overlays["entry_code"]["attribute_entry_codes"];
 # Contains array of {enumeration.language,.attribute_entries} where 
 # attribute_entries is dictionary of [enumeration name]: {code, label}
 oca_entry_labels = oca_overlays["entry"][0]["attribute_entries"];
+
+# Also has   "metric_system": "SI",
+if "unit" in oca_overlays:
+	oca_units = oca_overlays["unit"]["attribute_units"];
+else:
+	oca_units = {}
 
 SCHEMA = writeSchemaCore();
 writeSlots();

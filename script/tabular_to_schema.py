@@ -114,18 +114,27 @@ def set_examples (slot, example_string):
 		slot['examples'] = examples;
 
 # Parse annotation_string into slot.examples. Works for multilingual slot locale
-def set_annotations (slot, annotation_string):
-				
-	if annotation_string > '':
+def set_attribute (slot, attribute, content):
+	print (content)	
+	if content > '':
 		annotations = {};
-		for v in annotation_string.split(';'):
-			(key, value) = v.split(':');
-			value = value.strip();
-			if value.lower() == 'true':
-				value = bool(value);
-			annotations[key.strip()] = value;
-
-		slot['annotations'] = annotations;
+		for v in content.split(';'):
+			if ':' in v:
+				(key, value) = v.split(':');
+				key = key.strip();
+				value = value.strip();
+				if value.lower() == 'true':
+					value = bool(value);
+				
+				if attribute == 'unit' and key != 'ucum_code':
+					# FUTURE: do unit conversion here
+					annotations['ucum_code'] = value;
+				else:
+					annotations[key] = value;
+			else:
+				if attribute == 'unit':
+					annotations['ucum_code'] = value;
+		slot[attribute] = annotations;
 
 
 # A slot's or enum's exact_mappings array gets populated with all the 
@@ -273,6 +282,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 
 					slot_range =							row.get('range','');
 					slot_range_2 =						row.get('range_2','');
+					slot_unit =						row.get('unit','');
 					slot_pattern = 						row.get('pattern','');
 					slot_structured_pattern = row.get('structured_pattern','');
 					slot_minimum_value =			row.get('minimum_value','');
@@ -296,8 +306,10 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 
 					if slot_minimum_cardinality > '':	slot['minimum_cardinality'] = int(slot_minimum_cardinality);
 					if slot_maximum_cardinality > '':	slot['maximum_cardinality'] = int(slot_maximum_cardinality);
-					
+
 					set_range(slot, slot_range, slot_range_2);
+					if slot_unit > '':							slot['unit'] = slot_unit;
+
 					set_min_max(slot, slot_minimum_value, slot_maximum_value);
 					if slot_pattern > '':						slot['pattern'] = slot_pattern;		
 					if slot_structured_pattern > '':
@@ -307,8 +319,9 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 																						'interpolated': True
 																					}
 
+					set_attribute(slot, "unit", slot_unit);
 					set_examples(slot, slot_examples);
-					set_annotations(slot, slot_annotations);
+					set_attribute(slot, "annotations", slot_annotations);
 					set_mappings(slot, row, export_format);
 
 					# If slot has already been set up in schema['slots'] then compare 
