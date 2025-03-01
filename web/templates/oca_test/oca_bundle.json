@@ -6,17 +6,17 @@
     "capture_base": {
       "d": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
       "type": "spec/capture_base/1.0",
-      "classification": "",
+      "classification": "this:123",
       "attributes": {
         "Age": "Numeric",
         "BreastWt": "Numeric",
         "Breed": "Text",
-        "Farm": "Text",
+        "Farm": "Array[Text]",
         "Glucose": "Numeric",
         "Lipase": "Numeric",
         "LiveWt": "Numeric"
       },
-      "flagged_attributes": []
+      "flagged_attributes": ["Farm"]
     },
     "overlays": {
       "character_encoding": {
@@ -39,12 +39,23 @@
         "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
         "attribute_formats": {
           "Age": "[0-9]{3}",
-          "BreastWt": "[A-Z0-9]{9}",
-          "Breed": "[A-Z]{15}",
-          "Farm": "[A-Z0-9]{9}",
-          "Glucose": "[A-Z0-9]{9}",
-          "Lipase": "[A-Z0-9]{9}",
-          "LiveWt": "[A-Z0-9]{9}"
+          "Breed": "[A-Z]{0,15}",
+          "Farm": "^[A-Za-z]{1,50}$"
+        }
+      },
+      "cardinality": {
+        "attr_cardinality": {
+          "Glucose": "1-4"
+        }
+      },
+      "unit": {
+        "metric_system": "SI",
+        "attribute_units": {
+          "Age": "d",
+          "BreastWt": "g",
+          "Glucose": "mmol/L",
+          "Lipase": "U/L",
+          "LiveWt": "g"
         }
       },
       "meta": [
@@ -138,9 +149,11 @@
         "type": "spec/overlays/conformance/1.0",
         "capture_base": "EL4q2aahA0RN-ftw97E_fmbVDVTyDbIaQR2B44HGsqFG",
         "attribute_conformance": {
-          "d": "M",
-          "i": "M",
-          "passed": "M"
+          "Age": "M",
+          "Farm": "M",
+          "Glucose": "M",
+          "Lipase": "O",
+          "LiveWt": "O"
         }
       },
       "entry_code": {
