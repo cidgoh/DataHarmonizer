@@ -9,12 +9,17 @@
               column specification. Mismatched column(s) are shown in orange.
             </div>
           </div>
-          <div class="row my-3 border" id="specify-headers-comparison-row">
-            <div class="col">
-              <div class="row" id="field-mapping-container">
-                <table id="field-mapping">
-                  <tr id="expected-headers-tr"></tr>
-                  <tr id="actual-headers-tr"></tr>
+          <div class="row my-2" id="specify-headers-comparison-row">
+            <div class="col px-0 py-1">
+              <div id="field-mapping-container" class="container-fluid">
+                <table id="field-mapping" class="table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="field-mapping-cell">Expected header</th>
+                      <th class="field-mapping-cell">Actual header</th>
+                    </tr>
+                  </thead>
+                  <tbody id="field-mapping-body"></tbody>
                 </table>
               </div>
             </div>
