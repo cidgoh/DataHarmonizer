@@ -232,7 +232,7 @@
     </div>
   </div>
 
-  <div class="btn-group" role="group" style="margin-right: 40px; display:none">
+  <div class="btn-group" role="group" style="margin-right: 40px"> <!-- ; display:none-->
     <div class="input-group-prepend">
       <div class="btn" id="translation_label" data-i18n="translation_label">
         Language
@@ -1031,10 +1031,12 @@
         <div class="modal-body">
           <div class="container-fluid">
             <div class="row">
-              <div class="col text-danger">
-                Please select a parent row with a valid primary key before
-                adding child rows.
+              <div class="col text-danger" ><!--data-i18n="template-cancel"-->
+                Before new records can be inserted here, you need to select a parent table (tab) record so that it is linked by the appropriate key field value(s) below.
               </div>
+            </div>
+            <div class="row">
+              <div class="col"><ul id="empty-parent-key-modal-info"></ul></div>
             </div>
             <div class="row mt-3">
               <div class="col d-flex justify-content-end">
