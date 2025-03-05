@@ -96,15 +96,17 @@ const main = async function () {
       new Footer(dhFooterRoot, context);
       return context;
     })
+    /* NOTE: Seems to be a testing leftover, to make visible for each DH its columns
     .then(async (context) => {
       return setTimeout(
         () =>
           Object.values(context.dhs).forEach((dh) =>
-            dh.showColumnsByNames(dh.field_filters)
+            dh.showColumnsByNames(dh.slot_names)
           ),
         400
       );
     });
+    */
 };
 
 document.addEventListener('DOMContentLoaded', main);
