@@ -6165,7 +6165,6 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001123",
-      "identifier": true,
       "domain_of": [
         "GRDISample",
         "AMRTest"
@@ -10819,6 +10818,7 @@
             "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
           ],
           "rank": 1,
+          "identifier": true,
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
@@ -16953,7 +16953,6 @@
           ],
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
-          "identifier": true,
           "alias": "sample_collector_sample_id",
           "owner": "AMRTest",
           "domain_of": [

@@ -208,6 +208,7 @@ classes:
       sample_collector_sample_id:
         rank: 1
         slot_group: Sample collection and processing
+        identifier: true
         any_of:
         - range: WhitespaceMinimizedString
         - range: NullValueMenu
@@ -881,7 +882,6 @@ slots:
       the original sample_ID is unknown or cannot be provided, leave blank or provide
       a null value.
     slot_uri: GENEPIO:0001123
-    identifier: true
     required: true
     examples:
     - value: ABCD123
