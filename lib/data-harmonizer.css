@@ -5,7 +5,7 @@
 }
 
 #specify-headers-comparison-row {
-  overflow-x: auto;
+  overflow-y: auto;
 }
 
 #specify-headers-err-msg {
@@ -13,9 +13,8 @@
 }
 
 #field-mapping-container {
-  overflow-x: scroll;
-  padding-bottom: 1rem;
-  scrollbar-width: 1rem;
+  height: 25vh;
+  width: 100%;
 }
 
 .handsontable.listbox th,
@@ -24,20 +23,9 @@
 }
 
 #field-mapping {
-  white-space: nowrap;
+  width: 100%;
 }
 
-#field-mapping col {
-  border-left: 2px solid black;
-}
-#field-mapping col:first-child {
-  background: #ff0;
-}
-#field-mapping col:nth-child(2n + 3) {
-  background: #ccc;
-}
-
-#field-mapping tr td,
-#field-mapping tr th {
-  padding: 3px;
+.field-mapping-cell {
+  width: 50%;
 }
