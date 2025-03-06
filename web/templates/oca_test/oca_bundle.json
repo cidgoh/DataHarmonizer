@@ -1,0 +1,183 @@
+
+{
+  "bundle": {
+    "v": "OCAB10JSON0010eb_",
+    "d": "EMY8Z5PAJSJ4RknrB4FVHhslCAa2kecE_UuooZXHgocZ",
+    "capture_base": {
+      "d": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+      "type": "spec/capture_base/1.0",
+      "classification": "this:123",
+      "attributes": {
+        "Age": "Numeric",
+        "BreastWt": "Numeric",
+        "Breed": "Text",
+        "Farm": "Array[Text]",
+        "Glucose": "Numeric",
+        "Lipase": "Numeric",
+        "LiveWt": "Numeric"
+      },
+      "flagged_attributes": ["Farm"]
+    },
+    "overlays": {
+      "character_encoding": {
+        "d": "EGVQ6Wfpz_kQx1YgF4VdQEsip-bO3yunh3ABb0O5r4Tp",
+        "type": "spec/overlays/character_encoding/1.0",
+        "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+        "attribute_character_encoding": {
+          "Age": "utf-8",
+          "BreastWt": "utf-8",
+          "Breed": "utf-8",
+          "Farm": "utf-8",
+          "Glucose": "utf-8",
+          "Lipase": "utf-8",
+          "LiveWt": "utf-8"
+        }
+      },
+      "format": {
+        "d": "EK_Tm8FZ98uo5VQoTsPJKl4eOQMxbNYOfgSvXiHewy4v",
+        "type": "spec/overlays/format/1.0",
+        "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+        "attribute_formats": {
+          "Age": "[0-9]{3}",
+          "Breed": "[A-Z]{0,15}",
+          "Farm": "^[A-Za-z]{1,50}$"
+        }
+      },
+      "cardinality": {
+        "attr_cardinality": {
+          "Glucose": "1-4"
+        }
+      },
+      "unit": {
+        "metric_system": "SI",
+        "attribute_units": {
+          "Age": "d",
+          "BreastWt": "g",
+          "Glucose": "mmol/L",
+          "Lipase": "U/L",
+          "LiveWt": "g"
+        }
+      },
+      "meta": [
+        {
+          "d": "EAVr-Ma48cmqvrnGZ4eoIOP03nMLt6NOsZcemcwN7Eht",
+          "language": "eng",
+          "type": "spec/overlays/meta/1.0",
+          "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+          "description": " Measurements of chicken gut health",
+          "name": "Chicken gut health"
+        },
+        {
+          "d": "EIoASPl_R8FHv6pophCRBIRF6YPme00Gk1dwc4f7Ovba",
+          "language": "fra",
+          "type": "spec/overlays/meta/1.0",
+          "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+          "description": "Mesures de la santée intestinale des poulets",
+          "name": "santée intestinale des poulets"
+        }
+      ],
+      "label": [
+        {
+          "d": "EHi1TwkHqdMRQoame69YSYAyiwZDvovaPqabqCbHdCSe",
+          "language": "eng",
+          "type": "spec/overlays/label/1.0",
+          "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+          "attribute_labels": {
+            "Age": "Bird Age",
+            "BreastWt": "Breast Weight",
+            "Breed": "Type of breed",
+            "Farm": "Farm Letter Indentifier",
+            "Glucose": "Glucose Concentration",
+            "Lipase": "Lipase Content",
+            "LiveWt": "Live Weight"
+          },
+          "attribute_categories": [],
+          "category_labels": {}
+        },
+        {
+          "d": "ENwvm1CyJAmN2UTyz3fbdgRn-ZJ9Jr8opFNZZ9IU-OED",
+          "language": "fra",
+          "type": "spec/overlays/label/1.0",
+          "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+          "attribute_labels": {
+            "Age": "Age de l'animal",
+            "BreastWt": "Poids de la poitrine",
+            "Breed": "type de race",
+            "Farm": "Lettre itenditifant la ferme",
+            "Glucose": "Concentration de glucose",
+            "Lipase": "Concentration de lipase",
+            "LiveWt": "Poids vif"
+          },
+          "attribute_categories": [],
+          "category_labels": {}
+        }
+      ],
+      "information": [
+        {
+          "d": "EEB3Vioix69xnM0wvCtgXgomIRp9IIs4vkGXa5sEDpuy",
+          "language": "eng",
+          "type": "spec/overlays/information/1.0",
+          "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+          "attribute_information": {
+            "Age": "age of bird in days",
+            "BreastWt": "Breast weight in grams",
+            "Breed": "information on the type of breed",
+            "Farm": "a letter given to the farm for identification",
+            "Glucose": "glucose content in mmol/L",
+            "Lipase": "lipase content in U/L",
+            "LiveWt": "weight in grams at 28 days"
+          }
+        },
+        {
+          "d": "EIrCPpZVeuFEt3z9fJr4nkCOhzk6HQHqH3ZktHf-u_xQ",
+          "language": "fra",
+          "type": "spec/overlays/information/1.0",
+          "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+          "attribute_information": {
+            "Age": "Age de l'animal compté en jours",
+            "BreastWt": "Poids de la poitrine en gramme",
+            "Breed": "informations sur le type de race",
+            "Farm": "Letter assignee a chaque ferme pour identification",
+            "Glucose": "Concentration de glucose en mmol/L",
+            "Lipase": "Concentration de glucose en U/L",
+            "LiveWt": "Poids vif à 28 jours en gramme"
+          }
+        }
+      ],
+      "conformance": {
+        "d": "EKzjcqJuiOKTVeSMRYNZsWnUsmnEiyv-8Uj1knydBfbU",
+        "type": "spec/overlays/conformance/1.0",
+        "capture_base": "EL4q2aahA0RN-ftw97E_fmbVDVTyDbIaQR2B44HGsqFG",
+        "attribute_conformance": {
+          "Age": "M",
+          "Farm": "M",
+          "Glucose": "M",
+          "Lipase": "O",
+          "LiveWt": "O"
+        }
+      },
+      "entry_code": {
+        "d": "EHZvulY_pJ3W9bfIjdzUuHDf04QQkyvN4Dub2NOMWo1G",
+        "type": "spec/overlays/entry_code/1.0",
+        "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+        "attribute_entry_codes": {
+          "Breed": ["B", "S"]
+        }
+      },
+      "entry": [
+        {
+          "d": "EKmiV3-xOJtNDXsXDNE6FpGKl3Yl_UglYpaQnQaseUBU",
+          "language": "eng",
+          "type": "spec/overlays/entry/1.0",
+          "capture_base": "EK2EbGdxi56FIUqT42NP2wl31eSCld97wJao9dhkDr9O",
+          "attribute_entries": {
+            "Breed": {
+              "B": "Brahma",
+              "S": "Silkie"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
