@@ -107,17 +107,6 @@ classes:
     - host_disease
     - microbiological_method
     - strain
-    - isolate_id
-    - alternative_isolate_id
-    - progeny_isolate_id
-    - irida_isolate_id
-    - irida_project_id
-    - isolated_by
-    - isolated_by_laboratory_name
-    - isolated_by_contact_name
-    - isolated_by_contact_email
-    - isolation_date
-    - isolate_received_date
     - organism
     - taxonomic_identification_process
     - taxonomic_identification_process_details
@@ -208,10 +197,15 @@ classes:
       sample_collector_sample_id:
         rank: 1
         slot_group: Sample collection and processing
+        range: WhitespaceMinimizedString
         identifier: true
-        any_of:
-        - range: WhitespaceMinimizedString
-        - range: NullValueMenu
+        description: The user-defined name for the sample.
+        comments: The sample_ID should represent the identifier assigned to the sample
+          at time of collection, for which all the descriptive information applies.
+          If the original sample_ID is unknown or cannot be provided, leave blank
+          or provide a null value.
+        examples:
+        - value: ABCD123
         exact_mappings:
         - BIOSAMPLE:sample_name
         - NCBI_BIOSAMPLE_Enterics:sample_name
@@ -474,309 +468,276 @@ classes:
       strain:
         rank: 87
         slot_group: Strain and isolation information
-      isolate_id:
+      organism:
         rank: 88
         slot_group: Strain and isolation information
-      alternative_isolate_id:
+      taxonomic_identification_process:
         rank: 89
         slot_group: Strain and isolation information
-      progeny_isolate_id:
+      taxonomic_identification_process_details:
         rank: 90
         slot_group: Strain and isolation information
-      irida_isolate_id:
+      serovar:
         rank: 91
         slot_group: Strain and isolation information
-      irida_project_id:
+      serotyping_method:
         rank: 92
         slot_group: Strain and isolation information
-      isolated_by:
+      phagetype:
         rank: 93
         slot_group: Strain and isolation information
-      isolated_by_laboratory_name:
-        rank: 94
-        slot_group: Strain and isolation information
-      isolated_by_contact_name:
-        rank: 95
-        slot_group: Strain and isolation information
-      isolated_by_contact_email:
-        rank: 96
-        slot_group: Strain and isolation information
-      isolation_date:
-        rank: 97
-        slot_group: Strain and isolation information
-      isolate_received_date:
-        rank: 98
-        slot_group: Strain and isolation information
-      organism:
-        rank: 99
-        slot_group: Strain and isolation information
-      taxonomic_identification_process:
-        rank: 100
-        slot_group: Strain and isolation information
-      taxonomic_identification_process_details:
-        rank: 101
-        slot_group: Strain and isolation information
-      serovar:
-        rank: 102
-        slot_group: Strain and isolation information
-      serotyping_method:
-        rank: 103
-        slot_group: Strain and isolation information
-      phagetype:
-        rank: 104
-        slot_group: Strain and isolation information
       library_id:
-        rank: 105
+        rank: 94
         slot_group: Sequence information
       sequenced_by:
-        rank: 106
+        rank: 95
         slot_group: Sequence information
       sequenced_by_laboratory_name:
-        rank: 107
+        rank: 96
         slot_group: Sequence information
       sequenced_by_contact_name:
-        rank: 108
+        rank: 97
         slot_group: Sequence information
       sequenced_by_contact_email:
-        rank: 109
+        rank: 98
         slot_group: Sequence information
       purpose_of_sequencing:
-        rank: 110
+        rank: 99
         slot_group: Sequence information
       sequencing_date:
-        rank: 111
+        rank: 100
         slot_group: Sequence information
       sequencing_project_name:
-        rank: 112
+        rank: 101
         slot_group: Sequence information
       sequencing_platform:
-        rank: 113
+        rank: 102
         slot_group: Sequence information
       sequencing_instrument:
-        rank: 114
+        rank: 103
         slot_group: Sequence information
       sequencing_assay_type:
-        rank: 115
+        rank: 104
         slot_group: Sequence information
       library_preparation_kit:
-        rank: 116
+        rank: 105
         slot_group: Sequence information
       dna_fragment_length:
-        rank: 117
+        rank: 106
         slot_group: Sequence information
       genomic_target_enrichment_method:
-        rank: 118
+        rank: 107
         slot_group: Sequence information
       genomic_target_enrichment_method_details:
-        rank: 119
+        rank: 108
         slot_group: Sequence information
       amplicon_pcr_primer_scheme:
-        rank: 120
+        rank: 109
         slot_group: Sequence information
       amplicon_size:
-        rank: 121
+        rank: 110
         slot_group: Sequence information
       sequencing_flow_cell_version:
-        rank: 122
+        rank: 111
         slot_group: Sequence information
       sequencing_protocol:
-        rank: 123
+        rank: 112
         slot_group: Sequence information
       r1_fastq_filename:
-        rank: 124
+        rank: 113
         slot_group: Sequence information
       r2_fastq_filename:
-        rank: 125
+        rank: 114
         slot_group: Sequence information
       fast5_filename:
-        rank: 126
+        rank: 115
         slot_group: Sequence information
       genome_sequence_filename:
-        rank: 127
+        rank: 116
         slot_group: Sequence information
       quality_control_method_name:
-        rank: 128
+        rank: 117
         slot_group: Bioinformatics and QC metrics
       quality_control_method_version:
-        rank: 129
+        rank: 118
         slot_group: Bioinformatics and QC metrics
       quality_control_determination:
-        rank: 130
+        rank: 119
         slot_group: Bioinformatics and QC metrics
       quality_control_issues:
-        rank: 131
+        rank: 120
         slot_group: Bioinformatics and QC metrics
       quality_control_details:
-        rank: 132
+        rank: 121
         slot_group: Bioinformatics and QC metrics
       raw_sequence_data_processing_method:
-        rank: 133
+        rank: 122
         slot_group: Bioinformatics and QC metrics
       dehosting_method:
-        rank: 134
+        rank: 123
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_software_name:
-        rank: 135
+        rank: 124
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_software_version:
-        rank: 136
+        rank: 125
         slot_group: Bioinformatics and QC metrics
       consensus_sequence_software_name:
-        rank: 137
+        rank: 126
         slot_group: Bioinformatics and QC metrics
       consensus_sequence_software_version:
-        rank: 138
+        rank: 127
         slot_group: Bioinformatics and QC metrics
       breadth_of_coverage_value:
-        rank: 139
+        rank: 128
         slot_group: Bioinformatics and QC metrics
       depth_of_coverage_value:
-        rank: 140
+        rank: 129
         slot_group: Bioinformatics and QC metrics
       depth_of_coverage_threshold:
-        rank: 141
+        rank: 130
         slot_group: Bioinformatics and QC metrics
       genome_completeness:
-        rank: 142
+        rank: 131
         slot_group: Bioinformatics and QC metrics
       number_of_base_pairs_sequenced:
-        rank: 143
+        rank: 132
         slot_group: Bioinformatics and QC metrics
       number_of_total_reads:
-        rank: 144
+        rank: 133
         slot_group: Bioinformatics and QC metrics
       number_of_unique_reads:
-        rank: 145
+        rank: 134
         slot_group: Bioinformatics and QC metrics
       minimum_posttrimming_read_length:
-        rank: 146
+        rank: 135
         slot_group: Bioinformatics and QC metrics
       number_of_contigs:
-        rank: 147
+        rank: 136
         slot_group: Bioinformatics and QC metrics
       percent_ns_across_total_genome_length:
-        rank: 148
+        rank: 137
         slot_group: Bioinformatics and QC metrics
       ns_per_100_kbp:
-        rank: 149
+        rank: 138
         slot_group: Bioinformatics and QC metrics
       n50:
-        rank: 150
+        rank: 139
         slot_group: Bioinformatics and QC metrics
       percent_read_contamination_:
-        rank: 151
+        rank: 140
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
-        rank: 152
+        rank: 141
         slot_group: Bioinformatics and QC metrics
       consensus_genome_length:
-        rank: 153
+        rank: 142
         slot_group: Bioinformatics and QC metrics
       reference_genome_accession:
-        rank: 154
+        rank: 143
         slot_group: Bioinformatics and QC metrics
       deduplication_method:
-        rank: 155
+        rank: 144
         slot_group: Bioinformatics and QC metrics
       bioinformatics_protocol:
-        rank: 156
+        rank: 145
         slot_group: Bioinformatics and QC metrics
       read_mapping_software_name:
-        rank: 157
+        rank: 146
         slot_group: Taxonomic identification information
       read_mapping_software_version:
-        rank: 158
+        rank: 147
         slot_group: Taxonomic identification information
       taxonomic_reference_database_name:
-        rank: 159
+        rank: 148
         slot_group: Taxonomic identification information
       taxonomic_reference_database_version:
-        rank: 160
+        rank: 149
         slot_group: Taxonomic identification information
       taxonomic_analysis_report_filename:
-        rank: 161
+        rank: 150
         slot_group: Taxonomic identification information
       taxonomic_analysis_date:
-        rank: 162
+        rank: 151
         slot_group: Taxonomic identification information
       read_mapping_criteria:
-        rank: 163
+        rank: 152
         slot_group: Taxonomic identification information
       sequence_submitted_by:
-        rank: 164
+        rank: 153
         slot_group: Public repository information
       sequence_submitted_by_contact_name:
-        rank: 165
+        rank: 154
         slot_group: Public repository information
       sequence_submitted_by_contact_email:
-        rank: 166
+        rank: 155
         slot_group: Public repository information
       publication_id:
-        rank: 167
+        rank: 156
         slot_group: Public repository information
       attribute_package:
-        rank: 168
+        rank: 157
         slot_group: Public repository information
       bioproject_accession:
-        rank: 169
+        rank: 158
         slot_group: Public repository information
       biosample_accession:
-        rank: 170
+        rank: 159
         slot_group: Public repository information
       sra_accession:
-        rank: 171
+        rank: 160
         slot_group: Public repository information
       genbank_accession:
-        rank: 172
+        rank: 161
         slot_group: Public repository information
       prevalence_metrics:
-        rank: 173
+        rank: 162
         slot_group: Risk assessment information
       prevalence_metrics_details:
-        rank: 174
+        rank: 163
         slot_group: Risk assessment information
       stage_of_production:
-        rank: 175
+        rank: 164
         slot_group: Risk assessment information
       experimental_intervention:
-        rank: 176
+        rank: 165
         slot_group: Risk assessment information
       experiment_intervention_details:
-        rank: 177
+        rank: 166
         slot_group: Risk assessment information
       amr_testing_by:
-        rank: 178
+        rank: 167
         slot_group: Antimicrobial resistance
       amr_testing_by_laboratory_name:
-        rank: 179
+        rank: 168
         slot_group: Antimicrobial resistance
       amr_testing_by_contact_name:
-        rank: 180
+        rank: 169
         slot_group: Antimicrobial resistance
       amr_testing_by_contact_email:
-        rank: 181
+        rank: 170
         slot_group: Antimicrobial resistance
       amr_testing_date:
-        rank: 182
+        rank: 171
         slot_group: Antimicrobial resistance
       authors:
-        rank: 183
+        rank: 172
         slot_group: Contributor acknowledgement
       dataharmonizer_provenance:
-        rank: 184
+        rank: 173
         slot_group: Contributor acknowledgement
-  AMRTest:
-    name: AMRTest
-    title: GRDI Sample
-    description: Antimicrobial test result
+  GRDIIsolate:
+    name: GRDIIsolate
+    title: GRDI Isolate
+    description: Sample isolate
     from_schema: https://example.com/GRDI
     unique_keys:
-      amrtest_id:
-        description: An AMR test is uniquely identified by the sample_collector_sample_id
-          slot and the tested antibiotic.
+      grdiisolate_id:
+        description: An isolate extracted from a sample, which AMR tests are done
+          on.
         unique_key_slots:
         - sample_collector_sample_id
-        - antimicrobial_drug
+        - isolate_id
     slot_usage:
       sample_collector_sample_id:
         annotations:
@@ -789,6 +750,85 @@ classes:
         rank: 1
         slot_group: Key
         range: GRDISample
+      isolate_id:
+        rank: 2
+        slot_group: Key
+        range: WhitespaceMinimizedString
+        identifier: true
+      alternative_isolate_id:
+        rank: 3
+        slot_group: Strain and isolation information
+      progeny_isolate_id:
+        rank: 4
+        slot_group: Strain and isolation information
+      irida_isolate_id:
+        rank: 5
+        slot_group: Strain and isolation information
+      irida_project_id:
+        rank: 6
+        slot_group: Strain and isolation information
+      isolated_by:
+        rank: 7
+        slot_group: Strain and isolation information
+      isolated_by_laboratory_name:
+        rank: 8
+        slot_group: Strain and isolation information
+      isolated_by_contact_name:
+        rank: 9
+        slot_group: Strain and isolation information
+      isolated_by_contact_email:
+        rank: 10
+        slot_group: Strain and isolation information
+      isolation_date:
+        rank: 11
+        slot_group: Strain and isolation information
+      isolate_received_date:
+        rank: 12
+        slot_group: Strain and isolation information
+    slots:
+    - sample_collector_sample_id
+    - isolate_id
+    - alternative_isolate_id
+    - progeny_isolate_id
+    - irida_isolate_id
+    - irida_project_id
+    - isolated_by
+    - isolated_by_laboratory_name
+    - isolated_by_contact_name
+    - isolated_by_contact_email
+    - isolation_date
+    - isolate_received_date
+  AMRTest:
+    name: AMRTest
+    title: GRDI Sample
+    description: Antimicrobial test result
+    from_schema: https://example.com/GRDI
+    unique_keys:
+      amrtest_id:
+        description: An AMR test is uniquely identified by the sample_collector_sample_id
+          slot and the tested antibiotic.
+        unique_key_slots:
+        - isolate_id
+        - antimicrobial_drug
+    slot_usage:
+      isolate_id:
+        annotations:
+          required:
+            tag: required
+            value: true
+          foreign_key:
+            tag: foreign_key
+            value: GRDIIsolate.isolate_id
+        rank: 1
+        slot_group: Key
+        range: GRDIIsolate
+        description: The user-defined name for the sample.
+        comments: The sample_ID should represent the identifier assigned to the sample
+          at time of collection, for which all the descriptive information applies.
+          If the original sample_ID is unknown or cannot be provided, leave blank
+          or provide a null value.
+        examples:
+        - value: ABCD123
         exact_mappings:
         - BIOSAMPLE:sample_name
         - NCBI_BIOSAMPLE_Enterics:%2Asample_name
@@ -839,7 +879,7 @@ classes:
         rank: 16
         slot_group: Antimicrobial resistance
     slots:
-    - sample_collector_sample_id
+    - isolate_id
     - antimicrobial_drug
     - resistance_phenotype
     - measurement
@@ -865,6 +905,12 @@ classes:
         multivalued: true
         range: GRDISample
         inlined_as_list: true
+      GRDIIsolates:
+        name: GRDIIsolates
+        from_schema: https://example.com/GRDI
+        multivalued: 'true'
+        range: GRDIIsolate
+        inlined_as_list: true
       AMRTests:
         name: AMRTests
         from_schema: https://example.com/GRDI
@@ -876,15 +922,8 @@ slots:
   sample_collector_sample_id:
     name: sample_collector_sample_id
     title: sample_collector_sample_ID
-    description: The user-defined name for the sample.
-    comments: The sample_ID should represent the identifier assigned to the sample
-      at time of collection, for which all the descriptive information applies. If
-      the original sample_ID is unknown or cannot be provided, leave blank or provide
-      a null value.
     slot_uri: GENEPIO:0001123
     required: true
-    examples:
-    - value: ABCD123
   alternative_sample_id:
     name: alternative_sample_id
     title: alternative_sample_ID
@@ -2088,163 +2127,6 @@ slots:
     - value: K12
     exact_mappings:
     - NCBI_BIOSAMPLE_Enterics:strain
-  isolate_id:
-    name: isolate_id
-    title: isolate_ID
-    description: The user-defined identifier for the isolate, as provided by the laboratory
-      that originally isolated the isolate.
-    comments: Provide the isolate_ID created by the lab that first isolated the isolate
-      (i.e. the original isolate ID). If the information is unknown or cannot be provided,
-      leave blank or provide a null value. If only an alternate isolate ID is known
-      (e.g. the ID from your lab, if your lab did not isolate the isolate from the
-      original sample), make asure to include it in the alternative_isolate_ID field.
-    slot_uri: GENEPIO:0100456
-    required: true
-    any_of:
-    - range: WhitespaceMinimizedString
-    - range: NullValueMenu
-    examples:
-    - value: SA20131043
-    exact_mappings:
-    - NCBI_BIOSAMPLE_Enterics:strain
-    - NCBI_ANTIBIOGRAM:sample_name/biosample_accession
-  alternative_isolate_id:
-    name: alternative_isolate_id
-    title: alternative_isolate_ID
-    description: An alternative isolate_ID assigned to the isolate by another organization.
-    comments: "Alternative isolate IDs should be provided in the in a prescribed format\
-      \ which consists of the ID followed by square brackets (no space in between\
-      \ the ID and bracket) containing the short form of ID provider\u2019s agency\
-      \ name i.e. ID[short organization code]. Agency short forms include the following:\n\
-      Public Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\n\
-      Agriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment\
-      \ and Climate Change Canada: ECCC\nHealth Canada: HC \nAn example of a properly\
-      \ formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple\
-      \ alternative isolate IDs can be provided, separated by semi-colons."
-    slot_uri: GENEPIO:0100457
-    recommended: true
-    range: WhitespaceMinimizedString
-    examples:
-    - value: GHIF3456[PHAC]
-    - value: QWICK222[CFIA]
-    exact_mappings:
-    - NCBI_BIOSAMPLE_Enterics:isolate_name_alias
-  progeny_isolate_id:
-    name: progeny_isolate_id
-    title: progeny_isolate_ID
-    description: The identifier assigned to a progenitor isolate derived from an isolate
-      that was directly obtained from a sample.
-    comments: If your sequence data pertains to progeny of an original isolate, provide
-      the progeny_isolate_ID.
-    slot_uri: GENEPIO:0100458
-    range: WhitespaceMinimizedString
-    examples:
-    - value: SUB_ON_1526
-  irida_isolate_id:
-    name: irida_isolate_id
-    title: IRIDA_isolate_ID
-    description: The identifier of the isolate in the IRIDA platform.
-    comments: Provide the "sample ID" used to track information linked to the isolate
-      in IRIDA. IRIDA sample IDs should be unqiue to avoid ID clash. This is very
-      important in large Projects, especially when samples are shared from different
-      organizations. Download the IRIDA sample ID and add it to the sample data in
-      your spreadsheet as part of good data management practices.
-    slot_uri: GENEPIO:0100459
-    required: true
-    any_of:
-    - range: WhitespaceMinimizedString
-    - range: NullValueMenu
-    examples:
-    - value: GRDI_LL_12345
-  irida_project_id:
-    name: irida_project_id
-    title: IRIDA_project_ID
-    description: The identifier of the Project in the iRIDA platform.
-    comments: Provide the IRIDA "project ID".
-    slot_uri: GENEPIO:0100460
-    required: true
-    any_of:
-    - range: WhitespaceMinimizedString
-    - range: NullValueMenu
-    examples:
-    - value: '666'
-  isolated_by:
-    name: isolated_by
-    title: isolated_by
-    description: The name of the agency, organization or institution with which the
-      individual who performed the isolation procedure is affiliated.
-    comments: Provide the name of the agency, organization or institution that isolated
-      the original isolate in full (avoid abbreviations). If the information is unknown
-      or cannot be provided, leave blank or provide a null value.
-    slot_uri: GENEPIO:0100461
-    range: IsolatedByMenu
-    examples:
-    - value: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
-  isolated_by_laboratory_name:
-    name: isolated_by_laboratory_name
-    title: isolated_by_laboratory_name
-    description: The specific laboratory affiliation of the individual who performed
-      the isolation procedure.
-    comments: Provide the name of the specific laboratory that that isolated the original
-      isolate (avoid abbreviations). If the information is unknown or cannot be provided,
-      leave blank or provide a null value.
-    slot_uri: GENEPIO:0100462
-    range: WhitespaceMinimizedString
-    examples:
-    - value: Topp Lab
-  isolated_by_contact_name:
-    name: isolated_by_contact_name
-    title: isolated_by_contact_name
-    description: The name or title of the contact responsible for follow-up regarding
-      the isolate.
-    comments: Provide the name of an individual or their job title. As personnel turnover
-      may render the contact's name obsolete, it is prefereable to provide a job title
-      for ensuring accuracy of information and institutional memory. If the information
-      is unknown or cannot be provided, leave blank or provide a null value.
-    slot_uri: GENEPIO:0100463
-    range: WhitespaceMinimizedString
-    examples:
-    - value: Enterics Lab Manager
-  isolated_by_contact_email:
-    name: isolated_by_contact_email
-    title: isolated_by_contact_email
-    description: The email address of the contact responsible for follow-up regarding
-      the isolate.
-    comments: Provide the email associated with the listed contact. As personnel turnover
-      may render an individual's email obsolete, it is more prefereable to provide
-      an address for a position or lab, to ensure accuracy of information and institutional
-      memory. If the information is unknown or cannot be provided, leave blank or
-      provide a null value.
-    slot_uri: GENEPIO:0100464
-    range: WhitespaceMinimizedString
-    examples:
-    - value: enterics@lab.ca
-  isolation_date:
-    name: isolation_date
-    title: isolation_date
-    description: The date on which the isolate was isolated from a sample.
-    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
-      or "YYYY".
-    slot_uri: GENEPIO:0100465
-    range: date
-    todos:
-    - <={today}
-    examples:
-    - value: '2020-10-30'
-    exact_mappings:
-    - NCBI_BIOSAMPLE_Enterics:cult_isol_date
-  isolate_received_date:
-    name: isolate_received_date
-    title: isolate_received_date
-    description: The date on which the isolate was received by the laboratory.
-    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
-      or "YYYY".
-    slot_uri: GENEPIO:0100466
-    range: WhitespaceMinimizedString
-    todos:
-    - <={today}
-    examples:
-    - value: '2020-11-15'
   organism:
     name: organism
     title: organism
@@ -3277,6 +3159,148 @@ slots:
     range: Provenance
     examples:
     - value: DataHarmonizer v1.4.3, GRDI v1.0.0
+  isolate_id:
+    name: isolate_id
+    title: isolate_ID
+    slot_uri: GENEPIO:0100456
+    required: true
+  alternative_isolate_id:
+    name: alternative_isolate_id
+    title: alternative_isolate_ID
+    description: An alternative isolate_ID assigned to the isolate by another organization.
+    comments: "Alternative isolate IDs should be provided in the in a prescribed format\
+      \ which consists of the ID followed by square brackets (no space in between\
+      \ the ID and bracket) containing the short form of ID provider\u2019s agency\
+      \ name i.e. ID[short organization code]. Agency short forms include the following:\n\
+      Public Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\n\
+      Agriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment\
+      \ and Climate Change Canada: ECCC\nHealth Canada: HC \nAn example of a properly\
+      \ formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple\
+      \ alternative isolate IDs can be provided, separated by semi-colons."
+    slot_uri: GENEPIO:0100457
+    recommended: true
+    range: WhitespaceMinimizedString
+    examples:
+    - value: GHIF3456[PHAC]
+    - value: QWICK222[CFIA]
+    exact_mappings:
+    - NCBI_BIOSAMPLE_Enterics:isolate_name_alias
+  progeny_isolate_id:
+    name: progeny_isolate_id
+    title: progeny_isolate_ID
+    description: The identifier assigned to a progenitor isolate derived from an isolate
+      that was directly obtained from a sample.
+    comments: If your sequence data pertains to progeny of an original isolate, provide
+      the progeny_isolate_ID.
+    slot_uri: GENEPIO:0100458
+    range: WhitespaceMinimizedString
+    examples:
+    - value: SUB_ON_1526
+  irida_isolate_id:
+    name: irida_isolate_id
+    title: IRIDA_isolate_ID
+    description: The identifier of the isolate in the IRIDA platform.
+    comments: Provide the "sample ID" used to track information linked to the isolate
+      in IRIDA. IRIDA sample IDs should be unqiue to avoid ID clash. This is very
+      important in large Projects, especially when samples are shared from different
+      organizations. Download the IRIDA sample ID and add it to the sample data in
+      your spreadsheet as part of good data management practices.
+    slot_uri: GENEPIO:0100459
+    required: true
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
+    examples:
+    - value: GRDI_LL_12345
+  irida_project_id:
+    name: irida_project_id
+    title: IRIDA_project_ID
+    description: The identifier of the Project in the iRIDA platform.
+    comments: Provide the IRIDA "project ID".
+    slot_uri: GENEPIO:0100460
+    required: true
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
+    examples:
+    - value: '666'
+  isolated_by:
+    name: isolated_by
+    title: isolated_by
+    description: The name of the agency, organization or institution with which the
+      individual who performed the isolation procedure is affiliated.
+    comments: Provide the name of the agency, organization or institution that isolated
+      the original isolate in full (avoid abbreviations). If the information is unknown
+      or cannot be provided, leave blank or provide a null value.
+    slot_uri: GENEPIO:0100461
+    range: IsolatedByMenu
+    examples:
+    - value: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
+  isolated_by_laboratory_name:
+    name: isolated_by_laboratory_name
+    title: isolated_by_laboratory_name
+    description: The specific laboratory affiliation of the individual who performed
+      the isolation procedure.
+    comments: Provide the name of the specific laboratory that that isolated the original
+      isolate (avoid abbreviations). If the information is unknown or cannot be provided,
+      leave blank or provide a null value.
+    slot_uri: GENEPIO:0100462
+    range: WhitespaceMinimizedString
+    examples:
+    - value: Topp Lab
+  isolated_by_contact_name:
+    name: isolated_by_contact_name
+    title: isolated_by_contact_name
+    description: The name or title of the contact responsible for follow-up regarding
+      the isolate.
+    comments: Provide the name of an individual or their job title. As personnel turnover
+      may render the contact's name obsolete, it is prefereable to provide a job title
+      for ensuring accuracy of information and institutional memory. If the information
+      is unknown or cannot be provided, leave blank or provide a null value.
+    slot_uri: GENEPIO:0100463
+    range: WhitespaceMinimizedString
+    examples:
+    - value: Enterics Lab Manager
+  isolated_by_contact_email:
+    name: isolated_by_contact_email
+    title: isolated_by_contact_email
+    description: The email address of the contact responsible for follow-up regarding
+      the isolate.
+    comments: Provide the email associated with the listed contact. As personnel turnover
+      may render an individual's email obsolete, it is more prefereable to provide
+      an address for a position or lab, to ensure accuracy of information and institutional
+      memory. If the information is unknown or cannot be provided, leave blank or
+      provide a null value.
+    slot_uri: GENEPIO:0100464
+    range: WhitespaceMinimizedString
+    examples:
+    - value: enterics@lab.ca
+  isolation_date:
+    name: isolation_date
+    title: isolation_date
+    description: The date on which the isolate was isolated from a sample.
+    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
+      or "YYYY".
+    slot_uri: GENEPIO:0100465
+    range: date
+    todos:
+    - <={today}
+    examples:
+    - value: '2020-10-30'
+    exact_mappings:
+    - NCBI_BIOSAMPLE_Enterics:cult_isol_date
+  isolate_received_date:
+    name: isolate_received_date
+    title: isolate_received_date
+    description: The date on which the isolate was received by the laboratory.
+    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
+      or "YYYY".
+    slot_uri: GENEPIO:0100466
+    range: WhitespaceMinimizedString
+    todos:
+    - <={today}
+    examples:
+    - value: '2020-11-15'
   antimicrobial_drug:
     name: antimicrobial_drug
     title: antimicrobial_drug

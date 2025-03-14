@@ -18,17 +18,17 @@ classes:
         description: A GRDI Sample is uniquely identified by the sample_collector_sample_id slot.
         unique_key_slots:
           - sample_collector_sample_id
-  AMRTest: 
-    name: "AMRTest"
-    title: "GRDI Sample"
-    description: "Antimicrobial test result"
+  GRDIIsolate: 
+    name: "GRDIIsolate"
+    title: "GRDI Isolate"
+    description: "Sample isolate"
     from_schema: "https://example.com/GRDI"
     unique_keys:
-      amrtest_id:
-        description: An AMR test is uniquely identified by the sample_collector_sample_id slot and the tested antibiotic.
+      grdiisolate_id:
+        description: An isolate extracted from a sample, which AMR tests are done on.
         unique_key_slots:
           - sample_collector_sample_id
-          - antimicrobial_drug
+          - isolate_id
     slot_usage:
       sample_collector_sample_id:
         annotations:
@@ -38,6 +38,26 @@ classes:
           foreign_key:
             tag: foreign_key
             value: GRDISample.sample_collector_sample_id
+  AMRTest: 
+    name: "AMRTest"
+    title: "GRDI Sample"
+    description: "Antimicrobial test result"
+    from_schema: "https://example.com/GRDI"
+    unique_keys:
+      amrtest_id:
+        description: An AMR test is uniquely identified by the sample_collector_sample_id slot and the tested antibiotic.
+        unique_key_slots:
+          - isolate_id
+          - antimicrobial_drug
+    slot_usage:
+      isolate_id:
+        annotations:
+          required:
+            tag: required
+            value: True
+          foreign_key:
+            tag: foreign_key
+            value: GRDIIsolate.isolate_id
   Container: 
     name: "Container"
     from_schema: "https://example.com/GRDI"
@@ -48,12 +68,19 @@ classes:
         multivalued: True
         range: "GRDISample"
         inlined_as_list: True
+      GRDIIsolates: 
+        name: "GRDIIsolates"
+        from_schema: "https://example.com/GRDI"
+        multivalued: "true"
+        range: "GRDIIsolate"
+        inlined_as_list: True
       AMRTests: 
         name: "AMRTests"
         from_schema: "https://example.com/GRDI"
         multivalued: "true"
         range: "AMRTest"
         inlined_as_list: True
+
     tree_root: True
 slots: {}
 enums: {}
