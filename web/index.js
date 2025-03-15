@@ -30,7 +30,7 @@ export function createDataHarmonizerContainer(dhId, isActive) {
   return dhSubroot;
 }
 
-export function createDataHarmonizerTab(dhId, entity, isActive) {
+export function createDataHarmonizerTab(dhId, title, isActive) {
   const dhTab = document.createElement('li');
   dhTab.className = 'nav-item';
   dhTab.setAttribute('role', 'presentation');
@@ -39,7 +39,7 @@ export function createDataHarmonizerTab(dhId, entity, isActive) {
   dhTabLink.className = 'nav-link' + (isActive ? ' active' : '');
   dhTabLink.id = `tab-${dhId}`;
   dhTabLink.href = `#${dhId}`;
-  dhTabLink.textContent = entity;
+  dhTabLink.textContent = title;
   dhTabLink.dataset.toggle = 'tab';
   dhTabLink.setAttribute('data-bs-toggle', 'tab'); // Bootstrap specific data attribute for tabs
   dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
@@ -54,11 +54,11 @@ export function createDataHarmonizerTab(dhId, entity, isActive) {
 // loading screen
 $(dhRoot).append(`
     <div class="w-100 h-100 position-fixed fixed-top" id="loading-screen">
-    <div class="d-flex h-100 align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Please wait...</span>
-        </div>
-    </div>
+      <div class="d-flex h-100 align-items-center justify-content-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Please wait...</span>
+          </div>
+      </div>
     </div>
 `);
 
@@ -66,8 +66,9 @@ $(dhRoot).append(`
 const main = async function () {
   const context = new AppContext();
   context
-    .reload(context.appConfig.template_path, { locale: 'en' })
+    .reload(context.appConfig.template_path) //, 'en'
     .then(async (context) => {
+
       // FUTURE: possibly connect to locale of browser!
       // Takes `lang` as argument (unused)
       initI18n((/* lang */) => {
@@ -78,7 +79,6 @@ const main = async function () {
         $('#getting-started-carousel-container').html(
           getGettingStartedMarkup()
         );
-        Object.values(context.dhs).forEach((dh) => dh.render());
       });
 
       new Toolbar(dhToolbarRoot, context, {
@@ -96,17 +96,6 @@ const main = async function () {
       new Footer(dhFooterRoot, context);
       return context;
     })
-    /* NOTE: Seems to be a testing leftover, to make visible for each DH its columns
-    .then(async (context) => {
-      return setTimeout(
-        () =>
-          Object.values(context.dhs).forEach((dh) =>
-            dh.showColumnsByNames(dh.slot_names)
-          ),
-        400
-      );
-    });
-    */
 };
 
 document.addEventListener('DOMContentLoaded', main);
