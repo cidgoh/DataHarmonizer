@@ -9,8 +9,11 @@
 #
 # > linkml.py -i source/mixs.yaml
 # > linkml.py -i https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model.yaml
+# > linkml.py -i source/mixs.yaml -m
 #
-
+# @param -i [linkML schema.yaml file] which is converted to schema.json
+# @param -m adds the given schema templates to the DataHarmonizer menu.js
+#
 # from linkml_runtime.dumpers.json_dumper import JSONDumper
 import copy
 
