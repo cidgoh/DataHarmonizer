@@ -36,7 +36,7 @@ export default {
         ["raw_sequence_data_processing_method", []],
       ]);
       const outputMatrix = [[...exportHeaders.keys()]];
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRAGenomeTrakr');
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
@@ -83,7 +83,7 @@ export default {
         ["fasta_file", []],
       ]);
       const outputMatrix = [[...exportHeaders.keys()]];
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRA');
       for (const inputRow of dh.getTrimmedData(dh.hot)) {

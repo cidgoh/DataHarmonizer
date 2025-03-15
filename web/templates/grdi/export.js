@@ -75,7 +75,7 @@ export default {
 //      ['description',[]],
       ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'BIOSAMPLE');
@@ -372,7 +372,7 @@ export default {
         ]),
       };
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_BIOSAMPLE_Enterics');
@@ -561,7 +561,7 @@ export default {
       ];
       const longHeadersArr = Array.from(ExportHeaders.keys()).slice(2);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_ANTIBIOGRAM');
