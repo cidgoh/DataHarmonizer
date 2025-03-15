@@ -800,7 +800,7 @@ classes:
     - isolate_received_date
   AMRTest:
     name: AMRTest
-    title: GRDI Sample
+    title: AMR Test
     description: Antimicrobial test result
     from_schema: https://example.com/GRDI
     unique_keys:

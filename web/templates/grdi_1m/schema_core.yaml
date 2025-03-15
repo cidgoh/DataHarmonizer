@@ -40,7 +40,7 @@ classes:
             value: GRDISample.sample_collector_sample_id
   AMRTest: 
     name: "AMRTest"
-    title: "GRDI Sample"
+    title: "AMR Test"
     description: "Antimicrobial test result"
     from_schema: "https://example.com/GRDI"
     unique_keys:

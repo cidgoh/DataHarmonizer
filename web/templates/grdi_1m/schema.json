@@ -16834,7 +16834,7 @@
     "AMRTest": {
       "name": "AMRTest",
       "description": "Antimicrobial test result",
-      "title": "GRDI Sample",
+      "title": "AMR Test",
       "from_schema": "https://example.com/GRDI",
       "slot_usage": {
         "isolate_id": {
