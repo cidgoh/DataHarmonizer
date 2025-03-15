@@ -40,10 +40,10 @@ The default template loaded is the "CanCOGeN Covid-19" template. To change the s
 
 A second way to access templates directly, rather than by the hard-coded menu system, is to specify the DataHarmonizer template subfolder via a "template" URL parameter. This enables development and use of customized templates, or new ones, that DH doesn't have programmed in menu.  
 
-For example,
-http://genepio.org/DataHarmonizer/main.html?template=gisaid accesses the /template/gsiaid/ subfolder's template directly.  
+For example, when running
+http://genepio.org/DataHarmonizer/main.html?template=gisaid/GISAID accesses the /template/gisaid/ subfolder's template directly.  
 
-See more on the Wiki [DataHarmonizer templates](https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki/DataHarmonizer-Templates) page.
+See more on the Wiki [DataHarmonizer templates](https://github.com/cidgoh/DataHarmonizer/wiki/DataHarmonizer-Templates) page.
 
 ## Usage
 
