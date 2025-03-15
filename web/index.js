@@ -30,7 +30,7 @@ export function createDataHarmonizerContainer(dhId, isActive) {
   return dhSubroot;
 }
 
-export function createDataHarmonizerTab(dhId, title, isActive) {
+export function createDataHarmonizerTab(dhId, tab_title, isActive) {
   const dhTab = document.createElement('li');
   dhTab.className = 'nav-item';
   dhTab.setAttribute('role', 'presentation');
@@ -39,7 +39,7 @@ export function createDataHarmonizerTab(dhId, title, isActive) {
   dhTabLink.className = 'nav-link' + (isActive ? ' active' : '');
   dhTabLink.id = `tab-${dhId}`;
   dhTabLink.href = `#${dhId}`;
-  dhTabLink.textContent = title;
+  dhTabLink.textContent = tab_title;
   dhTabLink.dataset.toggle = 'tab';
   dhTabLink.setAttribute('data-bs-toggle', 'tab'); // Bootstrap specific data attribute for tabs
   dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
@@ -66,7 +66,7 @@ $(dhRoot).append(`
 const main = async function () {
   const context = new AppContext();
   context
-    .reload(context.appConfig.template_path) //, 'en'
+    .reload(context.appConfig.template_path)
     .then(async (context) => {
 
       // FUTURE: possibly connect to locale of browser!
