@@ -1,0 +1,3799 @@
+{
+  "name": "mifc",
+  "description": "A minimum information standard checklist formalizing the description of food composition data and related metadata.",
+  "title": "mifc",
+  "see_also": [
+    "https://kaiiam.github.io/mifc"
+  ],
+  "id": "https://w3id.org/kaiiam/mifc",
+  "license": "MIT",
+  "prefixes": {
+    "mifc": {
+      "prefix_prefix": "mifc",
+      "prefix_reference": "https://w3id.org/kaiiam/mifc/"
+    },
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "biolink": {
+      "prefix_prefix": "biolink",
+      "prefix_reference": "https://w3id.org/biolink/"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    },
+    "PATO": {
+      "prefix_prefix": "PATO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/PATO_"
+    },
+    "OBI": {
+      "prefix_prefix": "OBI",
+      "prefix_reference": "http://purl.obolibrary.org/obo/OBI_"
+    },
+    "skos": {
+      "prefix_prefix": "skos",
+      "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
+    },
+    "rdfs": {
+      "prefix_prefix": "rdfs",
+      "prefix_reference": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "rdf": {
+      "prefix_prefix": "rdf",
+      "prefix_reference": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    },
+    "example": {
+      "prefix_prefix": "example",
+      "prefix_reference": "https://example.org/"
+    },
+    "FDC": {
+      "prefix_prefix": "FDC",
+      "prefix_reference": "https://fdc.nal.usda.gov/"
+    },
+    "PTFI": {
+      "prefix_prefix": "PTFI",
+      "prefix_reference": "https://foodperiodictable.org/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    }
+  },
+  "default_prefix": "mifc",
+  "default_range": "string",
+  "subsets": {
+    "RecommendedSubset": {
+      "name": "RecommendedSubset",
+      "description": "A subset of the MIFC slots that are required and recommended for use use in a Food Composition Table/Database.",
+      "title": "recommended subset",
+      "from_schema": "https://w3id.org/kaiiam/mifc"
+    }
+  },
+  "types": {
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:time",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "CompoundAnalyticalMeasurementMethod": {
+      "name": "CompoundAnalyticalMeasurementMethod",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "permissible_values": {
+        "AAS": {
+          "text": "AAS",
+          "description": "Atomic absorption spectroscopy"
+        },
+        "AES": {
+          "text": "AES",
+          "description": "Atomic emission spectroscopy"
+        },
+        "Colorimetric": {
+          "text": "Colorimetric",
+          "description": "Colorimetric analysis"
+        },
+        "Combustion": {
+          "text": "Combustion"
+        },
+        "Enzymatic-colorimetric": {
+          "text": "Enzymatic-colorimetric"
+        },
+        "Enzymatic-gravimetric": {
+          "text": "Enzymatic-gravimetric"
+        },
+        "Enzymatic-spectrometric": {
+          "text": "Enzymatic-spectrometric"
+        },
+        "Extraction": {
+          "text": "Extraction"
+        },
+        "Fluorometric": {
+          "text": "Fluorometric"
+        },
+        "GC": {
+          "text": "GC",
+          "description": "Gas chromatography"
+        },
+        "GLC": {
+          "text": "GLC",
+          "description": "Gas-liquid chromatography"
+        },
+        "Gravimetric": {
+          "text": "Gravimetric"
+        },
+        "HPAEC-PAD": {
+          "text": "HPAEC-PAD",
+          "description": "High-performance anion-exchange chromatography with pulsed amperometric detection"
+        },
+        "HPLC": {
+          "text": "HPLC",
+          "description": "High-performance liquid chromatography",
+          "meaning": "OBI:0002116"
+        },
+        "HPLC-MS/MS": {
+          "text": "HPLC-MS/MS",
+          "description": "High-performance liquid chromatography with tandem mass spectrometry"
+        },
+        "HPLC-UV": {
+          "text": "HPLC-UV",
+          "description": "High-performance liquid chromatography with ultra-violet spectroscopy"
+        },
+        "ICP": {
+          "text": "ICP",
+          "description": "Inductively coupled plasma"
+        },
+        "ICP-MS": {
+          "text": "ICP-MS",
+          "description": "Inductively coupled plasma mass spectrometry"
+        },
+        "ID-GC-MS": {
+          "text": "ID-GC-MS",
+          "description": "Isotope dilution gas chromatography mass spectrometry"
+        },
+        "Kjeldahl": {
+          "text": "Kjeldahl",
+          "description": "Kjeldahl digestion"
+        },
+        "Nephelometric": {
+          "text": "Nephelometric"
+        },
+        "LC": {
+          "text": "LC",
+          "description": "Liquid chromatography"
+        },
+        "LC-FLD": {
+          "text": "LC-FLD",
+          "description": "Liquid chromatography with fluorescence detection"
+        },
+        "LC-ESI-IDMS": {
+          "text": "LC-ESI-IDMS",
+          "description": "Liquid chromatography with electrospray ionization-isotope dilution mass spectrometry"
+        },
+        "Microbiological": {
+          "text": "Microbiological",
+          "description": "Microbiological assay"
+        },
+        "Microfluorometric": {
+          "text": "Microfluorometric"
+        },
+        "Polarimetric": {
+          "text": "Polarimetric"
+        }
+      }
+    },
+    "FoodPreservationState": {
+      "name": "FoodPreservationState",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "permissible_values": {
+        "air-dried": {
+          "text": "air-dried"
+        },
+        "artificially dried": {
+          "text": "artificially dried"
+        },
+        "brined": {
+          "text": "brined"
+        },
+        "candied": {
+          "text": "candied"
+        },
+        "canned": {
+          "text": "canned"
+        },
+        "cured": {
+          "text": "cured"
+        },
+        "dried": {
+          "text": "dried"
+        },
+        "fermented": {
+          "text": "fermented"
+        },
+        "freeze-dried": {
+          "text": "freeze-dried"
+        },
+        "fresh": {
+          "text": "fresh"
+        },
+        "heat treated": {
+          "text": "heat treated"
+        },
+        "irradiated": {
+          "text": "irradiated"
+        },
+        "jellied": {
+          "text": "jellied"
+        },
+        "kippered": {
+          "text": "kippered"
+        },
+        "naturally dried": {
+          "text": "naturally dried"
+        },
+        "pasteurized": {
+          "text": "pasteurized"
+        },
+        "pickled": {
+          "text": "pickled"
+        },
+        "raw": {
+          "text": "raw"
+        },
+        "shelf stable": {
+          "text": "shelf stable"
+        },
+        "sun-dried": {
+          "text": "sun-dried"
+        },
+        "ultraviolet light exposed": {
+          "text": "ultraviolet light exposed"
+        }
+      }
+    },
+    "FoodStorageTemperatureState": {
+      "name": "FoodStorageTemperatureState",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "permissible_values": {
+        "chilled": {
+          "text": "chilled"
+        },
+        "foodsafe chilled": {
+          "text": "foodsafe chilled"
+        },
+        "frozen": {
+          "text": "frozen"
+        },
+        "refrigerated": {
+          "text": "refrigerated"
+        }
+      }
+    },
+    "FoodRipenessState": {
+      "name": "FoodRipenessState",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "permissible_values": {
+        "ripe": {
+          "text": "ripe"
+        },
+        "overripe": {
+          "text": "overripe"
+        },
+        "unripe": {
+          "text": "unripe"
+        },
+        "slightly ripe": {
+          "text": "slightly ripe"
+        }
+      }
+    },
+    "FoodAcquisitionLocationType": {
+      "name": "FoodAcquisitionLocationType",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "permissible_values": {
+        "field": {
+          "text": "field"
+        },
+        "fresh market": {
+          "text": "fresh market"
+        },
+        "small grocery": {
+          "text": "small grocery"
+        },
+        "supermarket": {
+          "text": "supermarket"
+        },
+        "biobank": {
+          "text": "biobank"
+        },
+        "unknown": {
+          "text": "unknown"
+        },
+        "other": {
+          "text": "other"
+        }
+      }
+    },
+    "FoodCookingMethod": {
+      "name": "FoodCookingMethod",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "permissible_values": {
+        "baked": {
+          "text": "baked"
+        },
+        "blanched": {
+          "text": "blanched"
+        },
+        "boiled": {
+          "text": "boiled"
+        },
+        "braised": {
+          "text": "braised"
+        },
+        "broiled": {
+          "text": "broiled"
+        },
+        "cooked": {
+          "text": "cooked"
+        },
+        "dry-heat cooked": {
+          "text": "dry-heat cooked"
+        },
+        "dry-roasted": {
+          "text": "dry-roasted"
+        },
+        "fried": {
+          "text": "fried"
+        },
+        "grilled": {
+          "text": "grilled"
+        },
+        "heated": {
+          "text": "heated"
+        },
+        "microwaved": {
+          "text": "microwaved"
+        },
+        "moist-heat cooked": {
+          "text": "moist-heat cooked"
+        },
+        "oil-roasted": {
+          "text": "oil-roasted"
+        },
+        "pan-broiled": {
+          "text": "pan-broiled"
+        },
+        "pan-browned": {
+          "text": "pan-browned"
+        },
+        "pan-fried": {
+          "text": "pan-fried"
+        },
+        "parboiled": {
+          "text": "parboiled"
+        },
+        "partially fried": {
+          "text": "partially fried"
+        },
+        "poached": {
+          "text": "poached"
+        },
+        "precooked": {
+          "text": "precooked"
+        },
+        "refried": {
+          "text": "refried"
+        },
+        "roasted": {
+          "text": "roasted"
+        },
+        "sauteed": {
+          "text": "sauteed"
+        },
+        "simmered": {
+          "text": "simmered"
+        },
+        "slow-roasted": {
+          "text": "slow-roasted"
+        },
+        "smoked": {
+          "text": "smoked"
+        },
+        "spit-roasted": {
+          "text": "spit-roasted"
+        },
+        "steamed": {
+          "text": "steamed"
+        },
+        "stewed": {
+          "text": "stewed"
+        },
+        "stir-fried": {
+          "text": "stir-fried"
+        },
+        "toasted": {
+          "text": "toasted"
+        },
+        "uncooked": {
+          "text": "uncooked"
+        },
+        "unheated": {
+          "text": "unheated"
+        }
+      }
+    },
+    "SkosMatchType": {
+      "name": "SkosMatchType",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "permissible_values": {
+        "skos:exactMatch": {
+          "text": "skos:exactMatch",
+          "description": "Mappings assessed to indicate a high degree of confidence that the concepts expressed in the subject and object terms can be used interchangeably.",
+          "meaning": "skos:exactMatch",
+          "comments": [
+            "From the sssom_schema: The subject and the object can, with a high degree of confidence, be used interchangeably across a wide range of information retrieval applications.",
+            "In SKOS this is described as following the transitive property."
+          ]
+        },
+        "skos:closeMatch": {
+          "text": "skos:closeMatch",
+          "description": "Mappings between the subject and object terms that convey a high degree of similarity, but are not exactly the same or interchangeable.",
+          "meaning": "skos:closeMatch",
+          "comments": [
+            "From the sssom_schema: The subject and the object are sufficiently similar that they can be used interchangeably in some information retrieval applications."
+          ]
+        },
+        "skos:broadMatch": {
+          "text": "skos:broadMatch",
+          "description": "Mappings between a subject and object terms, where the object term is above the subject within a concept hierarchy.",
+          "meaning": "skos:broadMatch",
+          "comments": [
+            "From the SKOS primer: A triple skos:broader (and skos:broadMatch) asserts that, the object of the triple, is a broader concept than , the subject of the triple."
+          ]
+        },
+        "skos:narrowMatch": {
+          "text": "skos:narrowMatch",
+          "description": "Mappings between a subject and object terms, where the object term that is below the subject within a concept hierarchy.",
+          "meaning": "skos:narrowMatch",
+          "comments": [
+            "From the SKOS primer: A triple skos:narrower (and skos:narrowMatch) asserts that, the object of the triple, is a narrower concept than , the subject of the triple."
+          ]
+        },
+        "skos:relatedMatch": {
+          "text": "skos:relatedMatch",
+          "description": "Mappings between subject and object terms that might have some association but are not clearly not referring to the the same or similar concepts.",
+          "meaning": "skos:relatedMatch",
+          "comments": [
+            "From the sssom_schema: The subject and the object are associated in some unspecified way."
+          ]
+        }
+      }
+    },
+    "CountryCode": {
+      "name": "CountryCode",
+      "comments": [
+        "Source https://www.nationsonline.org/oneworld/country_code_list.htm"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "permissible_values": {
+        "AFG": {
+          "text": "AFG",
+          "description": "Afghanistan"
+        },
+        "ALA": {
+          "text": "ALA",
+          "description": "Aland Islands"
+        },
+        "ALB": {
+          "text": "ALB",
+          "description": "Albania"
+        },
+        "DZA": {
+          "text": "DZA",
+          "description": "Algeria"
+        },
+        "ASM": {
+          "text": "ASM",
+          "description": "American Samoa"
+        },
+        "AND": {
+          "text": "AND",
+          "description": "Andorra"
+        },
+        "AGO": {
+          "text": "AGO",
+          "description": "Angola"
+        },
+        "AIA": {
+          "text": "AIA",
+          "description": "Anguilla"
+        },
+        "ATA": {
+          "text": "ATA",
+          "description": "Antarctica"
+        },
+        "ATG": {
+          "text": "ATG",
+          "description": "Antigua and Barbuda"
+        },
+        "ARG": {
+          "text": "ARG",
+          "description": "Argentina"
+        },
+        "ARM": {
+          "text": "ARM",
+          "description": "Armenia"
+        },
+        "ABW": {
+          "text": "ABW",
+          "description": "Aruba"
+        },
+        "AUS": {
+          "text": "AUS",
+          "description": "Australia"
+        },
+        "AUT": {
+          "text": "AUT",
+          "description": "Austria"
+        },
+        "AZE": {
+          "text": "AZE",
+          "description": "Azerbaijan"
+        },
+        "BHS": {
+          "text": "BHS",
+          "description": "Bahamas"
+        },
+        "BHR": {
+          "text": "BHR",
+          "description": "Bahrain"
+        },
+        "BGD": {
+          "text": "BGD",
+          "description": "Bangladesh"
+        },
+        "BRB": {
+          "text": "BRB",
+          "description": "Barbados"
+        },
+        "BLR": {
+          "text": "BLR",
+          "description": "Belarus"
+        },
+        "BEL": {
+          "text": "BEL",
+          "description": "Belgium"
+        },
+        "BLZ": {
+          "text": "BLZ",
+          "description": "Belize"
+        },
+        "BEN": {
+          "text": "BEN",
+          "description": "Benin"
+        },
+        "BMU": {
+          "text": "BMU",
+          "description": "Bermuda"
+        },
+        "BTN": {
+          "text": "BTN",
+          "description": "Bhutan"
+        },
+        "BOL": {
+          "text": "BOL",
+          "description": "Bolivia"
+        },
+        "BIH": {
+          "text": "BIH",
+          "description": "Bosnia and Herzegovina"
+        },
+        "BWA": {
+          "text": "BWA",
+          "description": "Botswana"
+        },
+        "BVT": {
+          "text": "BVT",
+          "description": "Bouvet Island"
+        },
+        "BRA": {
+          "text": "BRA",
+          "description": "Brazil"
+        },
+        "VGB": {
+          "text": "VGB",
+          "description": "British Virgin Islands"
+        },
+        "IOT": {
+          "text": "IOT",
+          "description": "British Indian Ocean Territory"
+        },
+        "BRN": {
+          "text": "BRN",
+          "description": "Brunei Darussalam"
+        },
+        "BGR": {
+          "text": "BGR",
+          "description": "Bulgaria"
+        },
+        "BFA": {
+          "text": "BFA",
+          "description": "Burkina Faso"
+        },
+        "BDI": {
+          "text": "BDI",
+          "description": "Burundi"
+        },
+        "KHM": {
+          "text": "KHM",
+          "description": "Cambodia"
+        },
+        "CMR": {
+          "text": "CMR",
+          "description": "Cameroon"
+        },
+        "CAN": {
+          "text": "CAN",
+          "description": "Canada"
+        },
+        "CPV": {
+          "text": "CPV",
+          "description": "Cape Verde"
+        },
+        "CYM": {
+          "text": "CYM",
+          "description": "Cayman Islands"
+        },
+        "CAF": {
+          "text": "CAF",
+          "description": "Central African Republic"
+        },
+        "TCD": {
+          "text": "TCD",
+          "description": "Chad"
+        },
+        "CHL": {
+          "text": "CHL",
+          "description": "Chile"
+        },
+        "CHN": {
+          "text": "CHN",
+          "description": "China"
+        },
+        "HKG": {
+          "text": "HKG",
+          "description": "Hong Kong, SAR China"
+        },
+        "MAC": {
+          "text": "MAC",
+          "description": "Macao, SAR China"
+        },
+        "CXR": {
+          "text": "CXR",
+          "description": "Christmas Island"
+        },
+        "CCK": {
+          "text": "CCK",
+          "description": "Cocos (Keeling) Islands"
+        },
+        "COL": {
+          "text": "COL",
+          "description": "Colombia"
+        },
+        "COM": {
+          "text": "COM",
+          "description": "Comoros"
+        },
+        "COG": {
+          "text": "COG",
+          "description": "Congo (Brazzaville)"
+        },
+        "COD": {
+          "text": "COD",
+          "description": "Congo, (Kinshasa)"
+        },
+        "COK": {
+          "text": "COK",
+          "description": "Cook Islands"
+        },
+        "CRI": {
+          "text": "CRI",
+          "description": "Costa Rica"
+        },
+        "CIV": {
+          "text": "CIV",
+          "description": "Côte d'Ivoire"
+        },
+        "HRV": {
+          "text": "HRV",
+          "description": "Croatia"
+        },
+        "CUB": {
+          "text": "CUB",
+          "description": "Cuba"
+        },
+        "CYP": {
+          "text": "CYP",
+          "description": "Cyprus"
+        },
+        "CZE": {
+          "text": "CZE",
+          "description": "Czech Republic"
+        },
+        "DNK": {
+          "text": "DNK",
+          "description": "Denmark"
+        },
+        "DJI": {
+          "text": "DJI",
+          "description": "Djibouti"
+        },
+        "DMA": {
+          "text": "DMA",
+          "description": "Dominica"
+        },
+        "DOM": {
+          "text": "DOM",
+          "description": "Dominican Republic"
+        },
+        "ECU": {
+          "text": "ECU",
+          "description": "Ecuador"
+        },
+        "EGY": {
+          "text": "EGY",
+          "description": "Egypt"
+        },
+        "SLV": {
+          "text": "SLV",
+          "description": "El Salvador"
+        },
+        "GNQ": {
+          "text": "GNQ",
+          "description": "Equatorial Guinea"
+        },
+        "ERI": {
+          "text": "ERI",
+          "description": "Eritrea"
+        },
+        "EST": {
+          "text": "EST",
+          "description": "Estonia"
+        },
+        "ETH": {
+          "text": "ETH",
+          "description": "Ethiopia"
+        },
+        "FLK": {
+          "text": "FLK",
+          "description": "Falkland Islands (Malvinas)"
+        },
+        "FRO": {
+          "text": "FRO",
+          "description": "Faroe Islands"
+        },
+        "FJI": {
+          "text": "FJI",
+          "description": "Fiji"
+        },
+        "FIN": {
+          "text": "FIN",
+          "description": "Finland"
+        },
+        "FRA": {
+          "text": "FRA",
+          "description": "France"
+        },
+        "GUF": {
+          "text": "GUF",
+          "description": "French Guiana"
+        },
+        "PYF": {
+          "text": "PYF",
+          "description": "French Polynesia"
+        },
+        "ATF": {
+          "text": "ATF",
+          "description": "French Southern Territories"
+        },
+        "GAB": {
+          "text": "GAB",
+          "description": "Gabon"
+        },
+        "GMB": {
+          "text": "GMB",
+          "description": "Gambia"
+        },
+        "GEO": {
+          "text": "GEO",
+          "description": "Georgia"
+        },
+        "DEU": {
+          "text": "DEU",
+          "description": "Germany"
+        },
+        "GHA": {
+          "text": "GHA",
+          "description": "Ghana"
+        },
+        "GIB": {
+          "text": "GIB",
+          "description": "Gibraltar"
+        },
+        "GRC": {
+          "text": "GRC",
+          "description": "Greece"
+        },
+        "GRL": {
+          "text": "GRL",
+          "description": "Greenland"
+        },
+        "GRD": {
+          "text": "GRD",
+          "description": "Grenada"
+        },
+        "GLP": {
+          "text": "GLP",
+          "description": "Guadeloupe"
+        },
+        "GUM": {
+          "text": "GUM",
+          "description": "Guam"
+        },
+        "GTM": {
+          "text": "GTM",
+          "description": "Guatemala"
+        },
+        "GGY": {
+          "text": "GGY",
+          "description": "Guernsey"
+        },
+        "GIN": {
+          "text": "GIN",
+          "description": "Guinea"
+        },
+        "GNB": {
+          "text": "GNB",
+          "description": "Guinea-Bissau"
+        },
+        "GUY": {
+          "text": "GUY",
+          "description": "Guyana"
+        },
+        "HTI": {
+          "text": "HTI",
+          "description": "Haiti"
+        },
+        "HMD": {
+          "text": "HMD",
+          "description": "Heard and Mcdonald Islands"
+        },
+        "VAT": {
+          "text": "VAT",
+          "description": "Holy See (Vatican City State)"
+        },
+        "HND": {
+          "text": "HND",
+          "description": "Honduras"
+        },
+        "HUN": {
+          "text": "HUN",
+          "description": "Hungary"
+        },
+        "ISL": {
+          "text": "ISL",
+          "description": "Iceland"
+        },
+        "IND": {
+          "text": "IND",
+          "description": "India"
+        },
+        "IDN": {
+          "text": "IDN",
+          "description": "Indonesia"
+        },
+        "IRN": {
+          "text": "IRN",
+          "description": "Iran, Islamic Republic of"
+        },
+        "IRQ": {
+          "text": "IRQ",
+          "description": "Iraq"
+        },
+        "IRL": {
+          "text": "IRL",
+          "description": "Ireland"
+        },
+        "IMN": {
+          "text": "IMN",
+          "description": "Isle of Man"
+        },
+        "ISR": {
+          "text": "ISR",
+          "description": "Israel"
+        },
+        "ITA": {
+          "text": "ITA",
+          "description": "Italy"
+        },
+        "JAM": {
+          "text": "JAM",
+          "description": "Jamaica"
+        },
+        "JPN": {
+          "text": "JPN",
+          "description": "Japan"
+        },
+        "JEY": {
+          "text": "JEY",
+          "description": "Jersey"
+        },
+        "JOR": {
+          "text": "JOR",
+          "description": "Jordan"
+        },
+        "KAZ": {
+          "text": "KAZ",
+          "description": "Kazakhstan"
+        },
+        "KEN": {
+          "text": "KEN",
+          "description": "Kenya"
+        },
+        "KIR": {
+          "text": "KIR",
+          "description": "Kiribati"
+        },
+        "PRK": {
+          "text": "PRK",
+          "description": "Korea (North)"
+        },
+        "KOR": {
+          "text": "KOR",
+          "description": "Korea (South)"
+        },
+        "KWT": {
+          "text": "KWT",
+          "description": "Kuwait"
+        },
+        "KGZ": {
+          "text": "KGZ",
+          "description": "Kyrgyzstan"
+        },
+        "LAO": {
+          "text": "LAO",
+          "description": "Lao PDR"
+        },
+        "LVA": {
+          "text": "LVA",
+          "description": "Latvia"
+        },
+        "LBN": {
+          "text": "LBN",
+          "description": "Lebanon"
+        },
+        "LSO": {
+          "text": "LSO",
+          "description": "Lesotho"
+        },
+        "LBR": {
+          "text": "LBR",
+          "description": "Liberia"
+        },
+        "LBY": {
+          "text": "LBY",
+          "description": "Libya"
+        },
+        "LIE": {
+          "text": "LIE",
+          "description": "Liechtenstein"
+        },
+        "LTU": {
+          "text": "LTU",
+          "description": "Lithuania"
+        },
+        "LUX": {
+          "text": "LUX",
+          "description": "Luxembourg"
+        },
+        "MKD": {
+          "text": "MKD",
+          "description": "Macedonia, Republic of"
+        },
+        "MDG": {
+          "text": "MDG",
+          "description": "Madagascar"
+        },
+        "MWI": {
+          "text": "MWI",
+          "description": "Malawi"
+        },
+        "MYS": {
+          "text": "MYS",
+          "description": "Malaysia"
+        },
+        "MDV": {
+          "text": "MDV",
+          "description": "Maldives"
+        },
+        "MLI": {
+          "text": "MLI",
+          "description": "Mali"
+        },
+        "MLT": {
+          "text": "MLT",
+          "description": "Malta"
+        },
+        "MHL": {
+          "text": "MHL",
+          "description": "Marshall Islands"
+        },
+        "MTQ": {
+          "text": "MTQ",
+          "description": "Martinique"
+        },
+        "MRT": {
+          "text": "MRT",
+          "description": "Mauritania"
+        },
+        "MUS": {
+          "text": "MUS",
+          "description": "Mauritius"
+        },
+        "MYT": {
+          "text": "MYT",
+          "description": "Mayotte"
+        },
+        "MEX": {
+          "text": "MEX",
+          "description": "Mexico"
+        },
+        "FSM": {
+          "text": "FSM",
+          "description": "Micronesia, Federated States of"
+        },
+        "MDA": {
+          "text": "MDA",
+          "description": "Moldova"
+        },
+        "MCO": {
+          "text": "MCO",
+          "description": "Monaco"
+        },
+        "MNG": {
+          "text": "MNG",
+          "description": "Mongolia"
+        },
+        "MNE": {
+          "text": "MNE",
+          "description": "Montenegro"
+        },
+        "MSR": {
+          "text": "MSR",
+          "description": "Montserrat"
+        },
+        "MAR": {
+          "text": "MAR",
+          "description": "Morocco"
+        },
+        "MOZ": {
+          "text": "MOZ",
+          "description": "Mozambique"
+        },
+        "MMR": {
+          "text": "MMR",
+          "description": "Myanmar"
+        },
+        "NAM": {
+          "text": "NAM",
+          "description": "Namibia"
+        },
+        "NRU": {
+          "text": "NRU",
+          "description": "Nauru"
+        },
+        "NPL": {
+          "text": "NPL",
+          "description": "Nepal"
+        },
+        "NLD": {
+          "text": "NLD",
+          "description": "Netherlands"
+        },
+        "ANT": {
+          "text": "ANT",
+          "description": "Netherlands Antilles"
+        },
+        "NCL": {
+          "text": "NCL",
+          "description": "New Caledonia"
+        },
+        "NZL": {
+          "text": "NZL",
+          "description": "New Zealand"
+        },
+        "NIC": {
+          "text": "NIC",
+          "description": "Nicaragua"
+        },
+        "NER": {
+          "text": "NER",
+          "description": "Niger"
+        },
+        "NGA": {
+          "text": "NGA",
+          "description": "Nigeria"
+        },
+        "NIU": {
+          "text": "NIU",
+          "description": "Niue"
+        },
+        "NFK": {
+          "text": "NFK",
+          "description": "Norfolk Island"
+        },
+        "MNP": {
+          "text": "MNP",
+          "description": "Northern Mariana Islands"
+        },
+        "NOR": {
+          "text": "NOR",
+          "description": "Norway"
+        },
+        "OMN": {
+          "text": "OMN",
+          "description": "Oman"
+        },
+        "PAK": {
+          "text": "PAK",
+          "description": "Pakistan"
+        },
+        "PLW": {
+          "text": "PLW",
+          "description": "Palau"
+        },
+        "PSE": {
+          "text": "PSE",
+          "description": "Palestinian Territory"
+        },
+        "PAN": {
+          "text": "PAN",
+          "description": "Panama"
+        },
+        "PNG": {
+          "text": "PNG",
+          "description": "Papua New Guinea"
+        },
+        "PRY": {
+          "text": "PRY",
+          "description": "Paraguay"
+        },
+        "PER": {
+          "text": "PER",
+          "description": "Peru"
+        },
+        "PHL": {
+          "text": "PHL",
+          "description": "Philippines"
+        },
+        "PCN": {
+          "text": "PCN",
+          "description": "Pitcairn"
+        },
+        "POL": {
+          "text": "POL",
+          "description": "Poland"
+        },
+        "PRT": {
+          "text": "PRT",
+          "description": "Portugal"
+        },
+        "PRI": {
+          "text": "PRI",
+          "description": "Puerto Rico"
+        },
+        "QAT": {
+          "text": "QAT",
+          "description": "Qatar"
+        },
+        "REU": {
+          "text": "REU",
+          "description": "Réunion"
+        },
+        "ROU": {
+          "text": "ROU",
+          "description": "Romania"
+        },
+        "RUS": {
+          "text": "RUS",
+          "description": "Russian Federation"
+        },
+        "RWA": {
+          "text": "RWA",
+          "description": "Rwanda"
+        },
+        "BLM": {
+          "text": "BLM",
+          "description": "Saint-Barthélemy"
+        },
+        "SHN": {
+          "text": "SHN",
+          "description": "Saint Helena"
+        },
+        "KNA": {
+          "text": "KNA",
+          "description": "Saint Kitts and Nevis"
+        },
+        "LCA": {
+          "text": "LCA",
+          "description": "Saint Lucia"
+        },
+        "MAF": {
+          "text": "MAF",
+          "description": "Saint-Martin (French part)"
+        },
+        "SPM": {
+          "text": "SPM",
+          "description": "Saint Pierre and Miquelon"
+        },
+        "VCT": {
+          "text": "VCT",
+          "description": "Saint Vincent and Grenadines"
+        },
+        "WSM": {
+          "text": "WSM",
+          "description": "Samoa"
+        },
+        "SMR": {
+          "text": "SMR",
+          "description": "San Marino"
+        },
+        "STP": {
+          "text": "STP",
+          "description": "Sao Tome and Principe"
+        },
+        "SAU": {
+          "text": "SAU",
+          "description": "Saudi Arabia"
+        },
+        "SEN": {
+          "text": "SEN",
+          "description": "Senegal"
+        },
+        "SRB": {
+          "text": "SRB",
+          "description": "Serbia"
+        },
+        "SYC": {
+          "text": "SYC",
+          "description": "Seychelles"
+        },
+        "SLE": {
+          "text": "SLE",
+          "description": "Sierra Leone"
+        },
+        "SGP": {
+          "text": "SGP",
+          "description": "Singapore"
+        },
+        "SVK": {
+          "text": "SVK",
+          "description": "Slovakia"
+        },
+        "SVN": {
+          "text": "SVN",
+          "description": "Slovenia"
+        },
+        "SLB": {
+          "text": "SLB",
+          "description": "Solomon Islands"
+        },
+        "SOM": {
+          "text": "SOM",
+          "description": "Somalia"
+        },
+        "ZAF": {
+          "text": "ZAF",
+          "description": "South Africa"
+        },
+        "SGS": {
+          "text": "SGS",
+          "description": "South Georgia and the South Sandwich Islands"
+        },
+        "SSD": {
+          "text": "SSD",
+          "description": "South Sudan"
+        },
+        "ESP": {
+          "text": "ESP",
+          "description": "Spain"
+        },
+        "LKA": {
+          "text": "LKA",
+          "description": "Sri Lanka"
+        },
+        "SDN": {
+          "text": "SDN",
+          "description": "Sudan"
+        },
+        "SUR": {
+          "text": "SUR",
+          "description": "Suriname"
+        },
+        "SJM": {
+          "text": "SJM",
+          "description": "Svalbard and Jan Mayen Islands"
+        },
+        "SWZ": {
+          "text": "SWZ",
+          "description": "Swaziland"
+        },
+        "SWE": {
+          "text": "SWE",
+          "description": "Sweden"
+        },
+        "CHE": {
+          "text": "CHE",
+          "description": "Switzerland"
+        },
+        "SYR": {
+          "text": "SYR",
+          "description": "Syrian Arab Republic (Syria)"
+        },
+        "TWN": {
+          "text": "TWN",
+          "description": "Taiwan, Republic of China"
+        },
+        "TJK": {
+          "text": "TJK",
+          "description": "Tajikistan"
+        },
+        "TZA": {
+          "text": "TZA",
+          "description": "Tanzania, United Republic of"
+        },
+        "THA": {
+          "text": "THA",
+          "description": "Thailand"
+        },
+        "TLS": {
+          "text": "TLS",
+          "description": "Timor-Leste"
+        },
+        "TGO": {
+          "text": "TGO",
+          "description": "Togo"
+        },
+        "TKL": {
+          "text": "TKL",
+          "description": "Tokelau"
+        },
+        "TON": {
+          "text": "TON",
+          "description": "Tonga"
+        },
+        "TTO": {
+          "text": "TTO",
+          "description": "Trinidad and Tobago"
+        },
+        "TUN": {
+          "text": "TUN",
+          "description": "Tunisia"
+        },
+        "TUR": {
+          "text": "TUR",
+          "description": "Turkey"
+        },
+        "TKM": {
+          "text": "TKM",
+          "description": "Turkmenistan"
+        },
+        "TCA": {
+          "text": "TCA",
+          "description": "Turks and Caicos Islands"
+        },
+        "TUV": {
+          "text": "TUV",
+          "description": "Tuvalu"
+        },
+        "UGA": {
+          "text": "UGA",
+          "description": "Uganda"
+        },
+        "UKR": {
+          "text": "UKR",
+          "description": "Ukraine"
+        },
+        "ARE": {
+          "text": "ARE",
+          "description": "United Arab Emirates"
+        },
+        "GBR": {
+          "text": "GBR",
+          "description": "United Kingdom"
+        },
+        "USA": {
+          "text": "USA",
+          "description": "United States of America"
+        },
+        "UMI": {
+          "text": "UMI",
+          "description": "US Minor Outlying Islands"
+        },
+        "URY": {
+          "text": "URY",
+          "description": "Uruguay"
+        },
+        "UZB": {
+          "text": "UZB",
+          "description": "Uzbekistan"
+        },
+        "VUT": {
+          "text": "VUT",
+          "description": "Vanuatu"
+        },
+        "VEN": {
+          "text": "VEN",
+          "description": "Venezuela (Bolivarian Republic)"
+        },
+        "VNM": {
+          "text": "VNM",
+          "description": "Viet Nam"
+        },
+        "VIR": {
+          "text": "VIR",
+          "description": "Virgin Islands, US"
+        },
+        "WLF": {
+          "text": "WLF",
+          "description": "Wallis and Futuna Islands"
+        },
+        "ESH": {
+          "text": "ESH",
+          "description": "Western Sahara"
+        },
+        "YEM": {
+          "text": "YEM",
+          "description": "Yemen"
+        },
+        "ZMB": {
+          "text": "ZMB",
+          "description": "Zambia"
+        },
+        "ZWE": {
+          "text": "ZWE",
+          "description": "Zimbabwe"
+        }
+      }
+    }
+  },
+  "slots": {
+    "food_sample_id": {
+      "name": "food_sample_id",
+      "description": "A string denoting the primary identifier for a sample of the class Food. Note that food_sample_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
+      "comments": [
+        "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
+      ],
+      "examples": [
+        {
+          "value": "168566"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "string",
+      "required": true
+    },
+    "food_description_label": {
+      "name": "food_description_label",
+      "description": "A string clearly and unambiguous describing the sampled primary food material, in accordance with globally accepted guidelines for the description of foods.",
+      "comments": [
+        "For reference see book by Greenfield and Southgate 'Food Composition Data: Production Management and Use' ISBN-10 9251049491 and cited literature"
+      ],
+      "examples": [
+        {
+          "value": "Yam, raw"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "required": true
+    },
+    "food_primary_type": {
+      "name": "food_primary_type",
+      "description": "A controlled vocabulary term representing the primary food material which was sampled.",
+      "comments": [
+        "The food_primary_type could be sourced from one of various food vocabularies such as USDA's FDC vocabulary, FoodEx2, LanguaL, or FoodOn."
+      ],
+      "examples": [
+        {
+          "value": "FOODON:03311865"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "FDC:NDB_number"
+      ],
+      "slot_uri": "schema:name",
+      "domain_of": [
+        "Food"
+      ],
+      "recommended": true
+    },
+    "food_description_match_type": {
+      "name": "food_description_match_type",
+      "description": "A controlled vocabulary term representing the type of mapping between the food_description_label and food_primary_type_label.",
+      "comments": [
+        "Note that the subject is the food_description_label and the object is food_primary_type_label",
+        "See https://github.com/mapping-commons/sssom/blob/master/src/sssom_schema/schema/sssom_schema.yaml"
+      ],
+      "examples": [
+        {
+          "value": "skos:exactMatch",
+          "description": "Mappings assessed to indicate a high degree of confidence that the concepts expressed in the subject and object terms can be used interchangeably. In SKOS this is described as following the transitive property."
+        },
+        {
+          "value": "skos:closeMatch",
+          "description": "Mappings between the subject and object terms that convey a high degree of similarity, but are not exactly the same or interchangeable."
+        },
+        {
+          "value": "skos:broadMatch",
+          "description": "Mappings between a subject and object terms, where the object term is above the subject within a concept hierarchy."
+        },
+        {
+          "value": "skos:narrowMatch",
+          "description": "Mappings between a subject and object terms, where the object term that is below the subject within a concept hierarchy."
+        },
+        {
+          "value": "skos:relatedMatch",
+          "description": "Mappings between subject and object terms that might have some association but are not clearly not referring to the the same or similar concepts."
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "SkosMatchType",
+      "recommended": true
+    },
+    "food_primary_type_label": {
+      "name": "food_primary_type_label",
+      "description": "A string denoting the label of a controlled vocabulary term representing the primary food material which was sampled.",
+      "comments": [
+        "This field is to be used only for the string labels of from controlled vocabulary terms which are mapped to the food_description_label."
+      ],
+      "examples": [
+        {
+          "value": "piece of chicken (raw)"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "close_mappings": [
+        "PTFI:Specimen_Food_Product_Name"
+      ],
+      "domain_of": [
+        "Food"
+      ],
+      "recommended": true
+    },
+    "food_primary_type_scientific_name": {
+      "name": "food_primary_type_scientific_name",
+      "description": "A string denoting the scientific name, (in binomial nomenclature) of an organism that a food material is primarily composed of.",
+      "comments": [
+        "This slot should only be used in cases where food materials are single ingredient foods or have a limited number of additives e.g. \"salted Nori seaweed\" or \"filleted anchovies canned in oil\"."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_primary_type_icncp_group_name": {
+      "name": "food_primary_type_icncp_group_name",
+      "description": "A string denoting the Group (or cultivar-group) formal taxon category of the primary food material as specified by the International Code of Nomenclature for Cultivated Plants (ICNCP).",
+      "comments": [
+        "This slot requires discussion as it alternatively be included as part of the food_primary_type_scientific_name slot."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_primary_type_icncp_cultivar_name": {
+      "name": "food_primary_type_icncp_cultivar_name",
+      "description": "A string denoting the cultivar name of the primary food material as specified by the International Code of Nomenclature for Cultivated Plants (ICNCP).",
+      "comments": [
+        "The ICNCP only applies to algae, fungi, and plant species. If present this slot should be used in addition to the food_primary_type_icncp_group_name slot."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_primary_type_animal_breed_name": {
+      "name": "food_primary_type_animal_breed_name",
+      "description": "A string denoting the breed name of the primary food material.",
+      "comments": [
+        "This slot should only be used in cases where food material is an animal with a recognizable breed name that is managed by a national breed registry, breed association, or similar organization. E.g., \"Wagyu\" for the Wagu cattle breed."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_primary_type_ncbi_taxon_id": {
+      "name": "food_primary_type_ncbi_taxon_id",
+      "description": "A curie from the ontology representation of the NCBI organismal taxonomy (NCBITaxon) describing the taxonomic identifier of the primary food material.",
+      "comments": [
+        "To do specify an NCBITaxon curie as the range for the slot."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_upc_code": {
+      "name": "food_upc_code",
+      "description": "An string denoting a Universal Product Code (UPC) barcode of a food sample.",
+      "examples": [
+        {
+          "value": "40822011143"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "string"
+    },
+    "food_preservation_state": {
+      "name": "food_preservation_state",
+      "description": "An enumerated set of controlled vocabulary terms representing the preservation state(s) of a food sample (e.g., \"raw\").",
+      "examples": [
+        {
+          "value": "raw"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "FoodPreservationState",
+      "recommended": true
+    },
+    "food_storage_temperature_state": {
+      "name": "food_storage_temperature_state",
+      "description": "An enumerated set of controlled vocabulary terms representing the qualitative temperature state at which a food sample was stored prior to acquisition (e.g., \"Refrigerated\").",
+      "examples": [
+        {
+          "value": "frozen"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "FoodStorageTemperatureState",
+      "recommended": true
+    },
+    "food_ripeness_state": {
+      "name": "food_ripeness_state",
+      "description": "An enumerated set of controlled vocabulary terms representing the qualitative freshness state of a food sample when prepared for analysis.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "FoodRipenessState"
+    },
+    "food_cooking_method": {
+      "name": "food_cooking_method",
+      "description": "An enumerated set of controlled vocabulary terms representing the any cooking method(s) applied to a food sample prior to analysis (e.g., \"baked\").",
+      "examples": [
+        {
+          "value": "['boiled|steamed']"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "FoodCookingMethod",
+      "recommended": true,
+      "multivalued": true
+    },
+    "food_origin_country": {
+      "name": "food_origin_country",
+      "description": "A string denoting the country code from which a food sample originates.",
+      "examples": [
+        {
+          "value": "AFG"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "CountryCode"
+    },
+    "food_acquisition_city": {
+      "name": "food_acquisition_city",
+      "description": "A string denoting the city in which a food sample was acquired.",
+      "examples": [
+        {
+          "value": "Tucson"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "close_mappings": [
+        "PTFI:Collection_Location"
+      ],
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_acquisition_country": {
+      "name": "food_acquisition_country",
+      "description": "A string denoting the country code from which a food sample was acquired.",
+      "examples": [
+        {
+          "value": "AFG"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "CountryCode",
+      "recommended": true
+    },
+    "food_acquisition_country_subdivision": {
+      "name": "food_acquisition_country_subdivision",
+      "description": "A string denoting the country subdivision from which a food sample was acquired (e.g., state or province).",
+      "examples": [
+        {
+          "value": "PA"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_acquisition_date": {
+      "name": "food_acquisition_date",
+      "description": "A date value representing the date a food sample was acquired.",
+      "examples": [
+        {
+          "value": "2023-03-08"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "PTFI:Collection_Date"
+      ],
+      "domain_of": [
+        "Food"
+      ],
+      "range": "date",
+      "recommended": true
+    },
+    "food_acquisition_location_type": {
+      "name": "food_acquisition_location_type",
+      "description": "A string describing the type of location from which a food sample was acquired (e.g., a supermarket).",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "PTFI:Collection_Type"
+      ],
+      "domain_of": [
+        "Food"
+      ],
+      "range": "FoodAcquisitionLocationType",
+      "recommended": true
+    },
+    "food_acquisition_location_name": {
+      "name": "food_acquisition_location_name",
+      "description": "A string describing the name of the location from which a food sample was acquired (e.g., \"Safeway\").",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_acquisition_latitude": {
+      "name": "food_acquisition_latitude",
+      "description": "A float representing the latitude of the place from which the food sample was acquired.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "PTFI:Collection_Latitude"
+      ],
+      "domain_of": [
+        "Food"
+      ],
+      "range": "float"
+    },
+    "food_acquisition_longitude": {
+      "name": "food_acquisition_longitude",
+      "description": "A float representing the longitude of the place from which the food sample was acquired.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "PTFI:Collection_Longitude"
+      ],
+      "domain_of": [
+        "Food"
+      ],
+      "range": "float"
+    },
+    "food_acquisition_agent_name": {
+      "name": "food_acquisition_agent_name",
+      "description": "A string denoting the name of the agent (person, device or other type of service) that acquired the food sample.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "PTFI:Collector_Name"
+      ],
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_acquisition_organization": {
+      "name": "food_acquisition_organization",
+      "description": "A string denoting the name of the organization responsible for acquired the food sample.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "exact_mappings": [
+        "PTFI:Collector_Organization"
+      ],
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_distributor_city": {
+      "name": "food_distributor_city",
+      "description": "A string denoting the city of a distributor organization from which a food sample was acquired.",
+      "examples": [
+        {
+          "value": "Veracruz"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_distributor_country": {
+      "name": "food_distributor_country",
+      "description": "A string denoting the country code of a distributor organization from which a food sample was acquired.",
+      "examples": [
+        {
+          "value": "AFG"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "CountryCode"
+    },
+    "food_distributor_country_subdivision": {
+      "name": "food_distributor_country_subdivision",
+      "description": "A string denoting the country subdivision of a distributor organization from which a food sample was acquired, (e.g., state or province).",
+      "comments": [
+        "To be determined if state codes should be specified over full names of states/provinces for countries globally."
+      ],
+      "examples": [
+        {
+          "value": "Ohio"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_expiration_date": {
+      "name": "food_expiration_date",
+      "description": "A date value representing the food expiration data as shown on the labeling information of the food sample.",
+      "examples": [
+        {
+          "value": "2023-03-08"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "date"
+    },
+    "food_sell_by_date": {
+      "name": "food_sell_by_date",
+      "description": "A date value representing a date that indicates to stores how long to display a food product for sale for inventory management purposes.",
+      "comments": [
+        "Definition sourced from https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/food-product-dating."
+      ],
+      "examples": [
+        {
+          "value": "2023-03-08"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ],
+      "range": "date"
+    },
+    "food_category_label": {
+      "name": "food_category_label",
+      "description": "A string or controlled vocabulary denoting the label of the food group or category of the primary food material.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_additional_types": {
+      "name": "food_additional_types",
+      "description": "A list of controlled vocabulary denoting the label(s) of additional food types, not including the food_primary_type that are in a food sample.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_brand_name": {
+      "name": "food_brand_name",
+      "description": "A string denoting a name identifying a product, service, or organization selling and or distributing the primary food material.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_lot_number": {
+      "name": "food_lot_number",
+      "description": "A string denoting the identifying lot number number assigned by a manufacturer to a particular quantity, (or lot) of the sampled primary food material.",
+      "comments": [
+        "A lot number can also be referred to as lot code."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_label_weight": {
+      "name": "food_label_weight",
+      "description": "A float denoting the mass, (or weight on earth) as specified on the product label of a sampled primary food material.",
+      "comments": [
+        "This field should be used in along with food_acquisition_label_weight_unit to express the units the food_label_weight was measured."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "food_label_weight_unit": {
+      "name": "food_label_weight_unit",
+      "description": "A unit code representing the unit of measurement in which a food_label_weight is measured.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food"
+      ]
+    },
+    "component_sample_id": {
+      "name": "component_sample_id",
+      "description": "A string denoting the primary identifier for a sample of the class Component.",
+      "comments": [
+        "Note that component_sample_id does not need be unique in a given dataset and should be used to relate Food and Component records via food_sample_id from the Food class."
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "required": true
+    },
+    "component_type": {
+      "name": "component_type",
+      "description": "A controlled vocabulary term representing the type of component of nutritional interest analyzed from a food sample.",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "recommended": true
+    },
+    "component_type_label": {
+      "name": "component_type_label",
+      "description": "A string denoting the label of a controlled vocabulary term representing an analyzed component_type from a food sample.",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "recommended": true
+    },
+    "component_recorded_value": {
+      "name": "component_recorded_value",
+      "description": "A float representing a recorded value of a component of nutritional interest measured from a laboratory sample derived from a food sample.",
+      "examples": [
+        {
+          "value": "0.52"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "float",
+      "required": true
+    },
+    "component_measurement_unit": {
+      "name": "component_measurement_unit",
+      "description": "A unit code representing the unit of measurement in which a component_recorded_value is measured.",
+      "comments": [
+        "TODO find a way to constrain these with valid UCUM codes perhaps enum or recommended LINKML units docs."
+      ],
+      "examples": [
+        {
+          "value": "g/(100.g)"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "required": true
+    },
+    "component_data_points_number": {
+      "name": "component_data_points_number",
+      "description": "An integer representing the number of individual samples that comprise a component sample. 1 if an individual sample >1 if an aggregation of samples.",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "integer",
+      "required": true
+    },
+    "component_record_date": {
+      "name": "component_record_date",
+      "description": "A date value representing recorded date pertaining to an analyzed sample.",
+      "comments": [
+        "Allows for ambiguity of date record relative to component_analysis_date. Use this if a date for a record is know but it is unclear if it is specifically the date of analysis."
+      ],
+      "examples": [
+        {
+          "value": "2023-03-08"
+        }
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "date"
+    },
+    "component_analysis_organization": {
+      "name": "component_analysis_organization",
+      "description": "One or more string value(s) representing the name(s) of any organization(s) involved in the analysis of a component of nutritional interest from a food sample.",
+      "examples": [
+        {
+          "value": "USDA"
+        },
+        {
+          "value": "Unknown manufacturer"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "recommended": true,
+      "multivalued": true
+    },
+    "component_analysis_date": {
+      "name": "component_analysis_date",
+      "description": "A date value representing the date in which a component of nutritional interest was analyzed.",
+      "comments": [
+        "Use this field if the exact date of analysis is known if there is date ambiguity use component_record_date."
+      ],
+      "examples": [
+        {
+          "value": "2023-03-08"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "date",
+      "recommended": true
+    },
+    "component_comment": {
+      "name": "component_comment",
+      "description": "A comment relating to an analyzed component of nutritional interest.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ]
+    },
+    "component_derivation_type": {
+      "name": "component_derivation_type",
+      "description": "A controlled vocabulary term denoting how a component of nutritional interest was generated, (e.g., Analytical or Calculated).",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "recommended": true
+    },
+    "component_limit_of_quantitation": {
+      "name": "component_limit_of_quantitation",
+      "description": "A string representing the lowest analyte concentration likely to be reliably distinguished from the Limit of Blank (LoB) and at which detection is feasible during the analysis of a component of nutritional interest.",
+      "comments": [
+        "LoB, (used in the description) is the highest apparent analyte concentration expected to be found when replicates of a blank sample containing no analyte are tested. Description reference from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2556583/."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "string"
+    },
+    "compound_sample_aggregation_minimum_value": {
+      "name": "compound_sample_aggregation_minimum_value",
+      "description": "A float representing the minimum measured compound value of an aggregation of compound samples.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "float"
+    },
+    "compound_sample_aggregation_maximum_value": {
+      "name": "compound_sample_aggregation_maximum_value",
+      "description": "A float representing the maximum measured compound value of an aggregation of compound samples.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "float"
+    },
+    "compound_sample_aggregation_median_value": {
+      "name": "compound_sample_aggregation_median_value",
+      "description": "A float representing the median measured compound value of an aggregation of compound samples.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "float"
+    },
+    "compound_sample_aggregation_standard_deviation": {
+      "name": "compound_sample_aggregation_standard_deviation",
+      "description": "A float representing the standard deviation of a measured compound value of an aggregation of compound samples.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "float"
+    },
+    "compound_analytical_measurement_protocol_doi": {
+      "name": "compound_analytical_measurement_protocol_doi",
+      "description": "A string denoting a digital object identifier link to a measurement protocol used to conduct an analytical analysis on a sample.",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "recommended": true
+    },
+    "compound_analytical_measurement_method": {
+      "name": "compound_analytical_measurement_method",
+      "description": "A controlled vocabulary term denoting the method used to conduct an analytical analysis on a sample.",
+      "examples": [
+        {
+          "value": "HPLC"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ],
+      "range": "CompoundAnalyticalMeasurementMethod",
+      "recommended": true
+    },
+    "compound_analytical_laboratory_name": {
+      "name": "compound_analytical_laboratory_name",
+      "description": "A string denoting the name of a laboratory that conducted the analytical analysis of a component of nutritional interest.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ]
+    },
+    "component_quality_control_remeasurement": {
+      "name": "component_quality_control_remeasurement",
+      "description": "A boolean value denoting TRUE if a component_recorded_value was measured more than once for internal laboratory quality control purposes.",
+      "comments": [
+        "This could be alternatively be modeled with an integer rather than a boolean."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Component"
+      ]
+    },
+    "provenance_dataset_label": {
+      "name": "provenance_dataset_label",
+      "description": "A string corresponding to the labeled name of dataset (e.g., \"Standard Reference (SR) Legacy\").",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Provenance"
+      ],
+      "recommended": true
+    },
+    "provenance_mifc_version_tag": {
+      "name": "provenance_mifc_version_tag",
+      "description": "A string corresponding to a named MIFC release number (e.g., \"v1.0.1\").",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Provenance"
+      ],
+      "recommended": true
+    },
+    "provenance_contributor_orcid": {
+      "name": "provenance_contributor_orcid",
+      "description": "A string corresponding to a \"|\" delimited list of ORCIDs of people who contributed to a MIFC formatted dataset. See https://orcid.org/.",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Provenance"
+      ],
+      "recommended": true
+    },
+    "provenance_organization_name": {
+      "name": "provenance_organization_name",
+      "description": "A string corresponding to a \"|\" delimited list of organizations who created or help to create to a MIFC formatted dataset. E.g., \"USDA\".",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Provenance"
+      ],
+      "recommended": true
+    },
+    "food_laboratory_sample_id": {
+      "name": "food_laboratory_sample_id",
+      "description": "A string denoting an identifier of a laboratory sample which was prepared from a food sample.",
+      "comments": [
+        "Only use this attribute if a separate ID is assigned to laboratory samples derived from food samples. Otherwise just use the food_sample_id."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food",
+        "Component"
+      ]
+    },
+    "food_laboratory_sample_aliquot_id": {
+      "name": "food_laboratory_sample_aliquot_id",
+      "description": "A string denoting an identifier of a unique aliquot of a food laboratory sample which was prepared from a food sample.",
+      "comments": [
+        "Only use this attribute if identifiers are assigned to aliquots/sub-samples of food laboratory samples denoted by their food_laboratory_sample_id."
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food",
+        "Component"
+      ]
+    },
+    "food_laboratory_sample_batch_id": {
+      "name": "food_laboratory_sample_batch_id",
+      "description": "A string denoting an identifier of a batch of laboratory samples analysed together.",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "Food",
+        "Component"
+      ]
+    }
+  },
+  "classes": {
+    "NamedThing": {
+      "name": "NamedThing",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "close_mappings": [
+        "schema:Thing"
+      ],
+      "abstract": true
+    },
+    "Food": {
+      "name": "Food",
+      "id_prefixes": [
+        "mifc"
+      ],
+      "description": "Metadata about foods analyzed for components of nutritional interest.",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "is_a": "NamedThing",
+      "attributes": {
+        "food_sample_id": {
+          "name": "food_sample_id",
+          "description": "A string denoting the primary identifier for a sample of the class Food. Note that food_sample_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
+          "comments": [
+            "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
+          ],
+          "examples": [
+            {
+              "value": "168566"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_sample_id",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string",
+          "required": true
+        },
+        "food_description_label": {
+          "name": "food_description_label",
+          "description": "A string clearly and unambiguous describing the sampled primary food material, in accordance with globally accepted guidelines for the description of foods.",
+          "comments": [
+            "For reference see book by Greenfield and Southgate 'Food Composition Data: Production Management and Use' ISBN-10 9251049491 and cited literature"
+          ],
+          "examples": [
+            {
+              "value": "Yam, raw"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_description_label",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string",
+          "required": true
+        },
+        "food_primary_type": {
+          "name": "food_primary_type",
+          "description": "A controlled vocabulary term representing the primary food material which was sampled.",
+          "comments": [
+            "The food_primary_type could be sourced from one of various food vocabularies such as USDA's FDC vocabulary, FoodEx2, LanguaL, or FoodOn."
+          ],
+          "examples": [
+            {
+              "value": "FOODON:03311865"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "exact_mappings": [
+            "FDC:NDB_number"
+          ],
+          "slot_uri": "schema:name",
+          "alias": "food_primary_type",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "food_primary_type_label": {
+          "name": "food_primary_type_label",
+          "description": "A string denoting the label of a controlled vocabulary term representing the primary food material which was sampled.",
+          "comments": [
+            "This field is to be used only for the string labels of from controlled vocabulary terms which are mapped to the food_description_label."
+          ],
+          "examples": [
+            {
+              "value": "piece of chicken (raw)"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "close_mappings": [
+            "PTFI:Specimen_Food_Product_Name"
+          ],
+          "alias": "food_primary_type_label",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "food_primary_type_scientific_name": {
+          "name": "food_primary_type_scientific_name",
+          "description": "A string denoting the scientific name, (in binomial nomenclature) of an organism that a food material is primarily composed of.",
+          "comments": [
+            "This slot should only be used in cases where food materials are single ingredient foods or have a limited number of additives e.g. \"salted Nori seaweed\" or \"filleted anchovies canned in oil\"."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_primary_type_scientific_name",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_primary_type_icncp_group_name": {
+          "name": "food_primary_type_icncp_group_name",
+          "description": "A string denoting the Group (or cultivar-group) formal taxon category of the primary food material as specified by the International Code of Nomenclature for Cultivated Plants (ICNCP).",
+          "comments": [
+            "This slot requires discussion as it alternatively be included as part of the food_primary_type_scientific_name slot."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_primary_type_icncp_group_name",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_primary_type_icncp_cultivar_name": {
+          "name": "food_primary_type_icncp_cultivar_name",
+          "description": "A string denoting the cultivar name of the primary food material as specified by the International Code of Nomenclature for Cultivated Plants (ICNCP).",
+          "comments": [
+            "The ICNCP only applies to algae, fungi, and plant species. If present this slot should be used in addition to the food_primary_type_icncp_group_name slot."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_primary_type_icncp_cultivar_name",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_primary_type_animal_breed_name": {
+          "name": "food_primary_type_animal_breed_name",
+          "description": "A string denoting the breed name of the primary food material.",
+          "comments": [
+            "This slot should only be used in cases where food material is an animal with a recognizable breed name that is managed by a national breed registry, breed association, or similar organization. E.g., \"Wagyu\" for the Wagu cattle breed."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_primary_type_animal_breed_name",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_primary_type_ncbi_taxon_id": {
+          "name": "food_primary_type_ncbi_taxon_id",
+          "description": "A curie from the ontology representation of the NCBI organismal taxonomy (NCBITaxon) describing the taxonomic identifier of the primary food material.",
+          "comments": [
+            "To do specify an NCBITaxon curie as the range for the slot."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_primary_type_ncbi_taxon_id",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_description_match_type": {
+          "name": "food_description_match_type",
+          "description": "A controlled vocabulary term representing the type of mapping between the food_description_label and food_primary_type_label.",
+          "comments": [
+            "Note that the subject is the food_description_label and the object is food_primary_type_label",
+            "See https://github.com/mapping-commons/sssom/blob/master/src/sssom_schema/schema/sssom_schema.yaml"
+          ],
+          "examples": [
+            {
+              "value": "skos:exactMatch",
+              "description": "Mappings assessed to indicate a high degree of confidence that the concepts expressed in the subject and object terms can be used interchangeably. In SKOS this is described as following the transitive property."
+            },
+            {
+              "value": "skos:closeMatch",
+              "description": "Mappings between the subject and object terms that convey a high degree of similarity, but are not exactly the same or interchangeable."
+            },
+            {
+              "value": "skos:broadMatch",
+              "description": "Mappings between a subject and object terms, where the object term is above the subject within a concept hierarchy."
+            },
+            {
+              "value": "skos:narrowMatch",
+              "description": "Mappings between a subject and object terms, where the object term that is below the subject within a concept hierarchy."
+            },
+            {
+              "value": "skos:relatedMatch",
+              "description": "Mappings between subject and object terms that might have some association but are not clearly not referring to the the same or similar concepts."
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_description_match_type",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "SkosMatchType",
+          "recommended": true
+        },
+        "food_upc_code": {
+          "name": "food_upc_code",
+          "description": "An string denoting a Universal Product Code (UPC) barcode of a food sample.",
+          "examples": [
+            {
+              "value": "40822011143"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_upc_code",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_preservation_state": {
+          "name": "food_preservation_state",
+          "description": "An enumerated set of controlled vocabulary terms representing the preservation state(s) of a food sample (e.g., \"raw\").",
+          "examples": [
+            {
+              "value": "raw"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_preservation_state",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "FoodPreservationState",
+          "recommended": true
+        },
+        "food_storage_temperature_state": {
+          "name": "food_storage_temperature_state",
+          "description": "An enumerated set of controlled vocabulary terms representing the qualitative temperature state at which a food sample was stored prior to acquisition (e.g., \"Refrigerated\").",
+          "examples": [
+            {
+              "value": "frozen"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_storage_temperature_state",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "FoodStorageTemperatureState",
+          "recommended": true
+        },
+        "food_ripeness_state": {
+          "name": "food_ripeness_state",
+          "description": "An enumerated set of controlled vocabulary terms representing the qualitative freshness state of a food sample when prepared for analysis.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_ripeness_state",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "FoodRipenessState"
+        },
+        "food_cooking_method": {
+          "name": "food_cooking_method",
+          "description": "An enumerated set of controlled vocabulary terms representing the any cooking method(s) applied to a food sample prior to analysis (e.g., \"baked\").",
+          "examples": [
+            {
+              "value": "['boiled|steamed']"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_cooking_method",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "FoodCookingMethod",
+          "recommended": true,
+          "multivalued": true
+        },
+        "food_origin_country": {
+          "name": "food_origin_country",
+          "description": "A string denoting the country code from which a food sample originates.",
+          "examples": [
+            {
+              "value": "AFG"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_origin_country",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "CountryCode"
+        },
+        "food_acquisition_city": {
+          "name": "food_acquisition_city",
+          "description": "A string denoting the city in which a food sample was acquired.",
+          "examples": [
+            {
+              "value": "Tucson"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "close_mappings": [
+            "PTFI:Collection_Location"
+          ],
+          "alias": "food_acquisition_city",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_acquisition_country": {
+          "name": "food_acquisition_country",
+          "description": "A string denoting the country code from which a food sample was acquired.",
+          "examples": [
+            {
+              "value": "AFG"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_acquisition_country",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "CountryCode",
+          "recommended": true
+        },
+        "food_acquisition_country_subdivision": {
+          "name": "food_acquisition_country_subdivision",
+          "description": "A string denoting the country subdivision from which a food sample was acquired (e.g., state or province).",
+          "examples": [
+            {
+              "value": "PA"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_acquisition_country_subdivision",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_acquisition_date": {
+          "name": "food_acquisition_date",
+          "description": "A date value representing the date a food sample was acquired.",
+          "examples": [
+            {
+              "value": "2023-03-08"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "exact_mappings": [
+            "PTFI:Collection_Date"
+          ],
+          "alias": "food_acquisition_date",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "date",
+          "recommended": true
+        },
+        "food_acquisition_location_type": {
+          "name": "food_acquisition_location_type",
+          "description": "A string describing the type of location from which a food sample was acquired (e.g., a supermarket).",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "exact_mappings": [
+            "PTFI:Collection_Type"
+          ],
+          "alias": "food_acquisition_location_type",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "FoodAcquisitionLocationType",
+          "recommended": true
+        },
+        "food_acquisition_location_name": {
+          "name": "food_acquisition_location_name",
+          "description": "A string describing the name of the location from which a food sample was acquired (e.g., \"Safeway\").",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_acquisition_location_name",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_acquisition_latitude": {
+          "name": "food_acquisition_latitude",
+          "description": "A float representing the latitude of the place from which the food sample was acquired.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "exact_mappings": [
+            "PTFI:Collection_Latitude"
+          ],
+          "alias": "food_acquisition_latitude",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "float"
+        },
+        "food_acquisition_longitude": {
+          "name": "food_acquisition_longitude",
+          "description": "A float representing the longitude of the place from which the food sample was acquired.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "exact_mappings": [
+            "PTFI:Collection_Longitude"
+          ],
+          "alias": "food_acquisition_longitude",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "float"
+        },
+        "food_acquisition_agent_name": {
+          "name": "food_acquisition_agent_name",
+          "description": "A string denoting the name of the agent (person, device or other type of service) that acquired the food sample.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "exact_mappings": [
+            "PTFI:Collector_Name"
+          ],
+          "alias": "food_acquisition_agent_name",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_acquisition_organization": {
+          "name": "food_acquisition_organization",
+          "description": "A string denoting the name of the organization responsible for acquired the food sample.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "exact_mappings": [
+            "PTFI:Collector_Organization"
+          ],
+          "alias": "food_acquisition_organization",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_distributor_city": {
+          "name": "food_distributor_city",
+          "description": "A string denoting the city of a distributor organization from which a food sample was acquired.",
+          "examples": [
+            {
+              "value": "Veracruz"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_distributor_city",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_distributor_country": {
+          "name": "food_distributor_country",
+          "description": "A string denoting the country code of a distributor organization from which a food sample was acquired.",
+          "examples": [
+            {
+              "value": "AFG"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_distributor_country",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "CountryCode"
+        },
+        "food_distributor_country_subdivision": {
+          "name": "food_distributor_country_subdivision",
+          "description": "A string denoting the country subdivision of a distributor organization from which a food sample was acquired, (e.g., state or province).",
+          "comments": [
+            "To be determined if state codes should be specified over full names of states/provinces for countries globally."
+          ],
+          "examples": [
+            {
+              "value": "Ohio"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_distributor_country_subdivision",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_expiration_date": {
+          "name": "food_expiration_date",
+          "description": "A date value representing the food expiration data as shown on the labeling information of the food sample.",
+          "examples": [
+            {
+              "value": "2023-03-08"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_expiration_date",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "date"
+        },
+        "food_sell_by_date": {
+          "name": "food_sell_by_date",
+          "description": "A date value representing a date that indicates to stores how long to display a food product for sale for inventory management purposes.",
+          "comments": [
+            "Definition sourced from https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/food-product-dating."
+          ],
+          "examples": [
+            {
+              "value": "2023-03-08"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_sell_by_date",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "date"
+        },
+        "food_category_label": {
+          "name": "food_category_label",
+          "description": "A string or controlled vocabulary denoting the label of the food group or category of the primary food material.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_category_label",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_additional_types": {
+          "name": "food_additional_types",
+          "description": "A list of controlled vocabulary denoting the label(s) of additional food types, not including the food_primary_type that are in a food sample.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_additional_types",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_laboratory_sample_id": {
+          "name": "food_laboratory_sample_id",
+          "description": "A string denoting an identifier of a laboratory sample which was prepared from a food sample.",
+          "comments": [
+            "Only use this attribute if a separate ID is assigned to laboratory samples derived from food samples. Otherwise just use the food_sample_id."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_laboratory_sample_id",
+          "owner": "Food",
+          "domain_of": [
+            "Food",
+            "Component"
+          ],
+          "range": "string"
+        },
+        "food_laboratory_sample_aliquot_id": {
+          "name": "food_laboratory_sample_aliquot_id",
+          "description": "A string denoting an identifier of a unique aliquot of a food laboratory sample which was prepared from a food sample.",
+          "comments": [
+            "Only use this attribute if identifiers are assigned to aliquots/sub-samples of food laboratory samples denoted by their food_laboratory_sample_id."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_laboratory_sample_aliquot_id",
+          "owner": "Food",
+          "domain_of": [
+            "Food",
+            "Component"
+          ],
+          "range": "string"
+        },
+        "food_laboratory_sample_batch_id": {
+          "name": "food_laboratory_sample_batch_id",
+          "description": "A string denoting an identifier of a batch of laboratory samples analysed together.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_laboratory_sample_batch_id",
+          "owner": "Food",
+          "domain_of": [
+            "Food",
+            "Component"
+          ],
+          "range": "string"
+        },
+        "food_brand_name": {
+          "name": "food_brand_name",
+          "description": "A string denoting a name identifying a product, service, or organization selling and or distributing the primary food material.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_brand_name",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_lot_number": {
+          "name": "food_lot_number",
+          "description": "A string denoting the identifying lot number number assigned by a manufacturer to a particular quantity, (or lot) of the sampled primary food material.",
+          "comments": [
+            "A lot number can also be referred to as lot code."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_lot_number",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_label_weight": {
+          "name": "food_label_weight",
+          "description": "A float denoting the mass, (or weight on earth) as specified on the product label of a sampled primary food material.",
+          "comments": [
+            "This field should be used in along with food_acquisition_label_weight_unit to express the units the food_label_weight was measured."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_label_weight",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        },
+        "food_label_weight_unit": {
+          "name": "food_label_weight_unit",
+          "description": "A unit code representing the unit of measurement in which a food_label_weight is measured.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_label_weight_unit",
+          "owner": "Food",
+          "domain_of": [
+            "Food"
+          ],
+          "range": "string"
+        }
+      },
+      "class_uri": "schema:Food"
+    },
+    "Component": {
+      "name": "Component",
+      "description": "Metadata about components of nutritional interest measured from foods.",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "is_a": "NamedThing",
+      "attributes": {
+        "component_sample_id": {
+          "name": "component_sample_id",
+          "description": "A string denoting the primary identifier for a sample of the class Component.",
+          "comments": [
+            "Note that component_sample_id does not need be unique in a given dataset and should be used to relate Food and Component records via food_sample_id from the Food class."
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_sample_id",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string",
+          "required": true
+        },
+        "component_type": {
+          "name": "component_type",
+          "description": "A controlled vocabulary term representing the type of component of nutritional interest analyzed from a food sample.",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_type",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "component_type_label": {
+          "name": "component_type_label",
+          "description": "A string denoting the label of a controlled vocabulary term representing an analyzed component_type from a food sample.",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_type_label",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "component_recorded_value": {
+          "name": "component_recorded_value",
+          "description": "A float representing a recorded value of a component of nutritional interest measured from a laboratory sample derived from a food sample.",
+          "examples": [
+            {
+              "value": "0.52"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_recorded_value",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "float",
+          "required": true
+        },
+        "component_measurement_unit": {
+          "name": "component_measurement_unit",
+          "description": "A unit code representing the unit of measurement in which a component_recorded_value is measured.",
+          "comments": [
+            "TODO find a way to constrain these with valid UCUM codes perhaps enum or recommended LINKML units docs."
+          ],
+          "examples": [
+            {
+              "value": "g/(100.g)"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_measurement_unit",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string",
+          "required": true
+        },
+        "component_data_points_number": {
+          "name": "component_data_points_number",
+          "description": "An integer representing the number of individual samples that comprise a component sample. 1 if an individual sample >1 if an aggregation of samples.",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_data_points_number",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "integer",
+          "required": true
+        },
+        "component_record_date": {
+          "name": "component_record_date",
+          "description": "A date value representing recorded date pertaining to an analyzed sample.",
+          "comments": [
+            "Allows for ambiguity of date record relative to component_analysis_date. Use this if a date for a record is know but it is unclear if it is specifically the date of analysis."
+          ],
+          "examples": [
+            {
+              "value": "2023-03-08"
+            }
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_record_date",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "date"
+        },
+        "component_analysis_date": {
+          "name": "component_analysis_date",
+          "description": "A date value representing the date in which a component of nutritional interest was analyzed.",
+          "comments": [
+            "Use this field if the exact date of analysis is known if there is date ambiguity use component_record_date."
+          ],
+          "examples": [
+            {
+              "value": "2023-03-08"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_analysis_date",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "date",
+          "recommended": true
+        },
+        "component_analysis_organization": {
+          "name": "component_analysis_organization",
+          "description": "One or more string value(s) representing the name(s) of any organization(s) involved in the analysis of a component of nutritional interest from a food sample.",
+          "examples": [
+            {
+              "value": "USDA"
+            },
+            {
+              "value": "Unknown manufacturer"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_analysis_organization",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string",
+          "recommended": true,
+          "multivalued": true
+        },
+        "component_comment": {
+          "name": "component_comment",
+          "description": "A comment relating to an analyzed component of nutritional interest.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_comment",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string"
+        },
+        "component_derivation_type": {
+          "name": "component_derivation_type",
+          "description": "A controlled vocabulary term denoting how a component of nutritional interest was generated, (e.g., Analytical or Calculated).",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_derivation_type",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "component_limit_of_quantitation": {
+          "name": "component_limit_of_quantitation",
+          "description": "A string representing the lowest analyte concentration likely to be reliably distinguished from the Limit of Blank (LoB) and at which detection is feasible during the analysis of a component of nutritional interest.",
+          "comments": [
+            "LoB, (used in the description) is the highest apparent analyte concentration expected to be found when replicates of a blank sample containing no analyte are tested. Description reference from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2556583/."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_limit_of_quantitation",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string"
+        },
+        "compound_sample_aggregation_minimum_value": {
+          "name": "compound_sample_aggregation_minimum_value",
+          "description": "A float representing the minimum measured compound value of an aggregation of compound samples.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "compound_sample_aggregation_minimum_value",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "float"
+        },
+        "compound_sample_aggregation_maximum_value": {
+          "name": "compound_sample_aggregation_maximum_value",
+          "description": "A float representing the maximum measured compound value of an aggregation of compound samples.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "compound_sample_aggregation_maximum_value",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "float"
+        },
+        "compound_sample_aggregation_median_value": {
+          "name": "compound_sample_aggregation_median_value",
+          "description": "A float representing the median measured compound value of an aggregation of compound samples.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "compound_sample_aggregation_median_value",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "float"
+        },
+        "compound_sample_aggregation_standard_deviation": {
+          "name": "compound_sample_aggregation_standard_deviation",
+          "description": "A float representing the standard deviation of a measured compound value of an aggregation of compound samples.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "compound_sample_aggregation_standard_deviation",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "float"
+        },
+        "compound_analytical_measurement_protocol_doi": {
+          "name": "compound_analytical_measurement_protocol_doi",
+          "description": "A string denoting a digital object identifier link to a measurement protocol used to conduct an analytical analysis on a sample.",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "compound_analytical_measurement_protocol_doi",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "compound_analytical_measurement_method": {
+          "name": "compound_analytical_measurement_method",
+          "description": "A controlled vocabulary term denoting the method used to conduct an analytical analysis on a sample.",
+          "examples": [
+            {
+              "value": "HPLC"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "compound_analytical_measurement_method",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "CompoundAnalyticalMeasurementMethod",
+          "recommended": true
+        },
+        "compound_analytical_laboratory_name": {
+          "name": "compound_analytical_laboratory_name",
+          "description": "A string denoting the name of a laboratory that conducted the analytical analysis of a component of nutritional interest.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "compound_analytical_laboratory_name",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string"
+        },
+        "component_quality_control_remeasurement": {
+          "name": "component_quality_control_remeasurement",
+          "description": "A boolean value denoting TRUE if a component_recorded_value was measured more than once for internal laboratory quality control purposes.",
+          "comments": [
+            "This could be alternatively be modeled with an integer rather than a boolean."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "component_quality_control_remeasurement",
+          "owner": "Component",
+          "domain_of": [
+            "Component"
+          ],
+          "range": "string"
+        },
+        "food_laboratory_sample_id": {
+          "name": "food_laboratory_sample_id",
+          "description": "A string denoting an identifier of a laboratory sample which was prepared from a food sample.",
+          "comments": [
+            "Only use this attribute if a separate ID is assigned to laboratory samples derived from food samples. Otherwise just use the food_sample_id."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_laboratory_sample_id",
+          "owner": "Component",
+          "domain_of": [
+            "Food",
+            "Component"
+          ],
+          "range": "string"
+        },
+        "food_laboratory_sample_aliquot_id": {
+          "name": "food_laboratory_sample_aliquot_id",
+          "description": "A string denoting an identifier of a unique aliquot of a food laboratory sample which was prepared from a food sample.",
+          "comments": [
+            "Only use this attribute if identifiers are assigned to aliquots/sub-samples of food laboratory samples denoted by their food_laboratory_sample_id."
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_laboratory_sample_aliquot_id",
+          "owner": "Component",
+          "domain_of": [
+            "Food",
+            "Component"
+          ],
+          "range": "string"
+        },
+        "food_laboratory_sample_batch_id": {
+          "name": "food_laboratory_sample_batch_id",
+          "description": "A string denoting an identifier of a batch of laboratory samples analysed together.",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_laboratory_sample_batch_id",
+          "owner": "Component",
+          "domain_of": [
+            "Food",
+            "Component"
+          ],
+          "range": "string"
+        }
+      },
+      "class_uri": "schema:Component"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "Supplemental data about the provenance of a Food and Component dataset collection standardized using MIFC.",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "is_a": "NamedThing",
+      "attributes": {
+        "provenance_dataset_label": {
+          "name": "provenance_dataset_label",
+          "description": "A string corresponding to the labeled name of dataset (e.g., \"Standard Reference (SR) Legacy\").",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "provenance_dataset_label",
+          "owner": "Provenance",
+          "domain_of": [
+            "Provenance"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "provenance_mifc_version_tag": {
+          "name": "provenance_mifc_version_tag",
+          "description": "A string corresponding to a named MIFC release number (e.g., \"v1.0.1\").",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "provenance_mifc_version_tag",
+          "owner": "Provenance",
+          "domain_of": [
+            "Provenance"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "provenance_contributor_orcid": {
+          "name": "provenance_contributor_orcid",
+          "description": "A string corresponding to a \"|\" delimited list of ORCIDs of people who contributed to a MIFC formatted dataset. See https://orcid.org/.",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "provenance_contributor_orcid",
+          "owner": "Provenance",
+          "domain_of": [
+            "Provenance"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "provenance_organization_name": {
+          "name": "provenance_organization_name",
+          "description": "A string corresponding to a \"|\" delimited list of organizations who created or help to create to a MIFC formatted dataset. E.g., \"USDA\".",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "provenance_organization_name",
+          "owner": "Provenance",
+          "domain_of": [
+            "Provenance"
+          ],
+          "range": "string",
+          "recommended": true
+        }
+      },
+      "class_uri": "schema:Provenance"
+    },
+    "Container": {
+      "name": "Container",
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "attributes": {
+        "foods": {
+          "name": "foods",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "foods",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Food",
+          "multivalued": true,
+          "inlined_as_list": true
+        },
+        "components": {
+          "name": "components",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "components",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Component",
+          "multivalued": true,
+          "inlined_as_list": true
+        },
+        "provenances": {
+          "name": "provenances",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "provenances",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "Provenance",
+          "multivalued": true,
+          "inlined_as_list": true
+        }
+      },
+      "tree_root": true
+    }
+  },
+  "@type": "SchemaDefinition"
+}
