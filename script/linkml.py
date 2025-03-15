@@ -1,11 +1,12 @@
 # linkml.py
-# Combines json version of given root LinkML file and its imports into one
-# single javascript-readable file in folder where command is run from.  Run
-# this in a given DataHarmonizer templates/[template X] folder.
+# Converts schema.yaml LinkML file (and its imports) into one single 
+# DataHarmonizer avascript-readable schema.json file in folder where command
+# is run from.  Run this in a given DataHarmonizer templates/[template X] 
+# folder to convert directly from LinkML yaml to DataHarmonizer json.
 #
 # Created by: Damion Dooley
 #
-# Input examples, from template/MIxS/ folder:
+# Input examples:
 #
 # > linkml.py -i source/mixs.yaml
 # > linkml.py -i https://raw.githubusercontent.com/biolink/biolink-model/master/biolink-model.yaml
@@ -13,8 +14,7 @@
 #
 # @param -i [linkML schema.yaml file] which is converted to schema.json
 # @param -m adds the given schema templates to the DataHarmonizer menu.js
-#
-# from linkml_runtime.dumpers.json_dumper import JSONDumper
+
 import copy
 
 import yaml
