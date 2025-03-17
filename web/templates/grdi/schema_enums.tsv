@@ -1055,6 +1055,7 @@ collection_method menu	CollectionMethodMenu		Aspiration [HP:0002835]
 			Scooping [GENEPIO:0100932]							
 			Sediment collection [GENEPIO:0100933]							
 			Soil coring [GENEPIO:0100934]							
+			Surgical removal [XCO:0000026]							
 			Weep fluid collection (pouring) [GENEPIO:0101003]							
 										
 sample_volume_measurement_unit menu	SampleVolumeMeasurementUnitMenu		microliter (uL) [UO:0000101]							

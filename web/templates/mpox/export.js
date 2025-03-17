@@ -72,7 +72,7 @@ export default {
         ['description',[]],
       ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'BIOSAMPLE');
@@ -179,7 +179,7 @@ export default {
         'pox_subm_sample_id',
         'pox_authors'];
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(ExportHeaders, sourceFields, 'GISAID');
 
@@ -396,7 +396,7 @@ export default {
         ['consensus genome length', []],
       ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       const sourceFieldTitleMap = dh.getFieldTitleMap(sourceFields);
 

@@ -30,7 +30,7 @@ export function createDataHarmonizerContainer(dhId, isActive) {
   return dhSubroot;
 }
 
-export function createDataHarmonizerTab(dhId, entity, isActive) {
+export function createDataHarmonizerTab(dhId, tab_title, isActive) {
   const dhTab = document.createElement('li');
   dhTab.className = 'nav-item';
   dhTab.setAttribute('role', 'presentation');
@@ -39,7 +39,7 @@ export function createDataHarmonizerTab(dhId, entity, isActive) {
   dhTabLink.className = 'nav-link' + (isActive ? ' active' : '');
   dhTabLink.id = `tab-${dhId}`;
   dhTabLink.href = `#${dhId}`;
-  dhTabLink.textContent = entity;
+  dhTabLink.textContent = tab_title;
   dhTabLink.dataset.toggle = 'tab';
   dhTabLink.setAttribute('data-bs-toggle', 'tab'); // Bootstrap specific data attribute for tabs
   dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
@@ -54,56 +54,43 @@ export function createDataHarmonizerTab(dhId, entity, isActive) {
 // loading screen
 $(dhRoot).append(`
     <div class="w-100 h-100 position-fixed fixed-top" id="loading-screen">
-    <div class="d-flex h-100 align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Please wait...</span>
-        </div>
-    </div>
+      <div class="d-flex h-100 align-items-center justify-content-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Please wait...</span>
+          </div>
+      </div>
     </div>
 `);
 
 // Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
   const context = new AppContext();
-  context
-    .reload(context.appConfig.template_path, { locale: 'en' })
-    .then(async (context) => {
-      // // internationalize
-      // // TODO: connect to locale of browser!
-      // // Takes `lang` as argument (unused)
-      initI18n((/* lang */) => {
-        $(document).localize();
+  context.reload(context.appConfig.template_path).then(async (context) => {
+    // FUTURE: possibly connect to locale of browser!
+    // Takes `lang` as argument (unused)
+    initI18n((/* lang */) => {
+      $(document).localize();
 
-        // HACK: manual content refereshes
-        // usually because the HTML is custom generated/not from a template, or has inset translation code
-        $('#getting-started-carousel-container').html(
-          getGettingStartedMarkup()
-        );
-        Object.values(context.dhs).forEach((dh) => dh.render());
-      });
-
-      new Toolbar(dhToolbarRoot, context, {
-        templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-        releasesURL:
-          'https://github.com/cidgoh/pathogen-genomics-package/releases',
-        getLanguages: context.getLocaleData.bind(context),
-        getExportFormats: context.getExportFormats.bind(context),
-        getSchema: async (schema) =>
-          Template.create(schema).then((result) => result.current.schema),
-      });
-
-      new Footer(dhFooterRoot, context);
-      return context;
-    })
-    .then(async (context) => {
-      return setTimeout(
-        () =>
-          Object.values(context.dhs).forEach((dh) =>
-            dh.showColumnsByNames(dh.field_filters)
-          ),
-        400
-      );
+      // HACK: manual content refereshes
+      // usually because the HTML is custom generated/not from a template, or has inset translation code
+      $('#getting-started-carousel-container').html(getGettingStartedMarkup());
     });
+
+    new Toolbar(dhToolbarRoot, context, {
+      templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+      releasesURL:
+        'https://github.com/cidgoh/pathogen-genomics-package/releases',
+      getLanguages: context.getLocaleData.bind(context),
+      // getExportFormats() is an dictionary object of exports available for a given schema
+      // The Toolbar constructor will set this to _defaultGetExportFormats() if none given;
+      // getExportFormats: context.getExportFormats.bind(context),
+      getSchema: async (schema) =>
+        Template.create(schema).then((result) => result.current.schema),
+    });
+
+    new Footer(dhFooterRoot, context);
+    return context;
+  });
 };
 
 document.addEventListener('DOMContentLoaded', main);

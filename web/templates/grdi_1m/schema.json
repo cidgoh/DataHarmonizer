@@ -2,7 +2,7 @@
   "name": "GRDI",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "12.2.3",
+  "version": "14.5.5",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -302,22 +302,34 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Not Applicable [GENEPIO:0001619]": {
-          "text": "Not Applicable [GENEPIO:0001619]"
+          "text": "Not Applicable [GENEPIO:0001619]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Not%20applicable"
+          ]
         },
         "Missing [GENEPIO:0001618]": {
           "text": "Missing [GENEPIO:0001618]",
           "exact_mappings": [
-            "NCBI_ANTIBIOGRAM:missing"
+            "NCBI_ANTIBIOGRAM:Missing"
           ]
         },
         "Not Collected [GENEPIO:0001620]": {
-          "text": "Not Collected [GENEPIO:0001620]"
+          "text": "Not Collected [GENEPIO:0001620]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Not%20collected"
+          ]
         },
         "Not Provided [GENEPIO:0001668]": {
-          "text": "Not Provided [GENEPIO:0001668]"
+          "text": "Not Provided [GENEPIO:0001668]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Not%20provided"
+          ]
         },
         "Restricted Access [GENEPIO:0001810]": {
-          "text": "Restricted Access [GENEPIO:0001810]"
+          "text": "Restricted Access [GENEPIO:0001810]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Restricted%20access"
+          ]
         }
       }
     },
@@ -326,23 +338,35 @@
       "title": "sample_collected_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
-        "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]": {
-          "text": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]"
-        },
-        "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]": {
-          "text": "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]"
-        },
         "Agriculture and Agri-Food Canada (AAFC) [GENEPIO:0100553]": {
           "text": "Agriculture and Agri-Food Canada (AAFC) [GENEPIO:0100553]"
         },
-        "Health Canada (HC) [GENEPIO:0100554]": {
-          "text": "Health Canada (HC) [GENEPIO:0100554]"
+        "BCCDC Public Health Laboratory [GENEPIO:0102053]": {
+          "text": "BCCDC Public Health Laboratory [GENEPIO:0102053]"
+        },
+        "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]": {
+          "text": "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]"
         },
         "Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]": {
           "text": "Environment and Climate Change Canada (ECCC) [GENEPIO:0100555]"
         },
         "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]": {
           "text": "Fisheries and Oceans Canada (DFO) [GENEPIO:0100556]"
+        },
+        "Health Canada (HC) [GENEPIO:0100554]": {
+          "text": "Health Canada (HC) [GENEPIO:0100554]"
+        },
+        "Laboratoire de santé publique du Québec (LSPQ) [GENEPIO:0102056]": {
+          "text": "Laboratoire de santé publique du Québec (LSPQ) [GENEPIO:0102056]"
+        },
+        "Manitoba Cadham Provincial Laboratory [GENEPIO:0102054]": {
+          "text": "Manitoba Cadham Provincial Laboratory [GENEPIO:0102054]"
+        },
+        "New Brunswick - Vitalité Health Network [GENEPIO:0102055]": {
+          "text": "New Brunswick - Vitalité Health Network [GENEPIO:0102055]"
+        },
+        "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]": {
+          "text": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]"
         },
         "University of Manitoba (UM) [GENEPIO:0004434]": {
           "text": "University of Manitoba (UM) [GENEPIO:0004434]"
@@ -419,8 +443,8 @@
         "Fertilizer pre-treatment [GENEPIO:0100543]": {
           "text": "Fertilizer pre-treatment [GENEPIO:0100543]"
         },
-        "Genetic mutation [GENEPIO:0100544[": {
-          "text": "Genetic mutation [GENEPIO:0100544["
+        "Genetic mutation [GENEPIO:0100544]": {
+          "text": "Genetic mutation [GENEPIO:0100544]"
         },
         "Logistic slaughter [GENEPIO:0100545]": {
           "text": "Logistic slaughter [GENEPIO:0100545]"
@@ -2173,16 +2197,16 @@
           "text": "Surface runoff [ENVO:03501408]",
           "is_a": "Contaminated water [ENVO:00002186]"
         },
-        "Poultry plucking water [AGRO_00000693]": {
-          "text": "Poultry plucking water [AGRO_00000693]",
+        "Poultry plucking water [AGRO:00000693]": {
+          "text": "Poultry plucking water [AGRO:00000693]",
           "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Wastewater [ENVO:00002001]": {
           "text": "Wastewater [ENVO:00002001]",
           "is_a": "Contaminated water [ENVO:00002186]"
         },
-        "Weep fluid [AGRO_00000692]": {
-          "text": "Weep fluid [AGRO_00000692]",
+        "Weep fluid [AGRO:00000692]": {
+          "text": "Weep fluid [AGRO:00000692]",
           "is_a": "Contaminated water [ENVO:00002186]"
         },
         "Crate [ENVO:03501372]": {
@@ -2214,8 +2238,8 @@
           "text": "Animal manure [AGRO:00000079]",
           "is_a": "Manure [ENVO:00003031]"
         },
-        "Pig manure [AGRO:00000080]": {
-          "text": "Pig manure [AGRO:00000080]",
+        "Pig manure [ENVO:00003860]": {
+          "text": "Pig manure [ENVO:00003860]",
           "is_a": "Animal manure [AGRO:00000079]"
         },
         "Manure digester equipment [ENVO:03501424]": {
@@ -3062,8 +3086,8 @@
           "text": "Chicken thigh (with skin) [FOODON:00003330]",
           "is_a": "Chicken thigh  [FOODON:02020219]"
         },
-        "Chicken thigh (with skin, with bone) [FOODON_00003363]": {
-          "text": "Chicken thigh (with skin, with bone) [FOODON_00003363]",
+        "Chicken thigh (with skin, with bone) [FOODON:00003363]": {
+          "text": "Chicken thigh (with skin, with bone) [FOODON:00003363]",
           "is_a": "Chicken thigh  [FOODON:02020219]"
         },
         "Chicken wing [FOODON:00002674]": {
@@ -3942,8 +3966,8 @@
         "Phlebotomy [NCIT:C28221]": {
           "text": "Phlebotomy [NCIT:C28221]"
         },
-        "Rinsing for specimen collection [GENEPIO_0002116]": {
-          "text": "Rinsing for specimen collection [GENEPIO_0002116]"
+        "Rinsing for specimen collection [GENEPIO:0002116]": {
+          "text": "Rinsing for specimen collection [GENEPIO:0002116]"
         },
         "Scooping [GENEPIO:0100932]": {
           "text": "Scooping [GENEPIO:0100932]"
@@ -3953,6 +3977,9 @@
         },
         "Soil coring [GENEPIO:0100934]": {
           "text": "Soil coring [GENEPIO:0100934]"
+        },
+        "Surgical removal [XCO:0000026]": {
+          "text": "Surgical removal [XCO:0000026]"
         },
         "Weep fluid collection (pouring) [GENEPIO:0101003]": {
           "text": "Weep fluid collection (pouring) [GENEPIO:0101003]"
@@ -4475,16 +4502,16 @@
         "Fish [FOODON:03411222]": {
           "text": "Fish [FOODON:03411222]"
         },
-        "Fish egg [FOODON_00004319]": {
-          "text": "Fish egg [FOODON_00004319]",
+        "Fish egg [FOODON:00004319]": {
+          "text": "Fish egg [FOODON:00004319]",
           "is_a": "Fish [FOODON:03411222]"
         },
-        "Fry (fish) [FOODON_00004318]": {
-          "text": "Fry (fish) [FOODON_00004318]",
+        "Fry (fish) [FOODON:00004318]": {
+          "text": "Fry (fish) [FOODON:00004318]",
           "is_a": "Fish [FOODON:03411222]"
         },
-        "Juvenile fish [FOODON_00004317]": {
-          "text": "Juvenile fish [FOODON_00004317]",
+        "Juvenile fish [FOODON:00004317]": {
+          "text": "Juvenile fish [FOODON:00004317]",
           "is_a": "Fish [FOODON:03411222]"
         }
       }
@@ -4845,8 +4872,8 @@
         "Photobacterium [NCBITaxon:657]": {
           "text": "Photobacterium [NCBITaxon:657]"
         },
-        "Photobacterium indicum[NCBITaxon:81447]": {
-          "text": "Photobacterium indicum[NCBITaxon:81447]",
+        "Photobacterium indicum [NCBITaxon:81447]": {
+          "text": "Photobacterium indicum [NCBITaxon:81447]",
           "is_a": "Photobacterium [NCBITaxon:657]"
         },
         "Photobacterium sp. [NCBITaxon:660]": {
@@ -5577,27 +5604,48 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Antibiotic resistance not defined [GENEPIO:0002040]": {
-          "text": "Antibiotic resistance not defined [GENEPIO:0002040]"
+          "text": "Antibiotic resistance not defined [GENEPIO:0002040]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:not%20defined"
+          ]
         },
         "Intermediate antimicrobial phenotype [ARO:3004300]": {
           "text": "Intermediate antimicrobial phenotype [ARO:3004300]",
-          "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]"
+          "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:intermediate"
+          ]
         },
         "Indeterminate antimicrobial phenotype [GENEPIO:0100585]": {
           "text": "Indeterminate antimicrobial phenotype [GENEPIO:0100585]",
-          "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]"
+          "is_a": "Antibiotic resistance not defined [GENEPIO:0002040]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:indeterminate"
+          ]
         },
         "Nonsusceptible antimicrobial phenotype [ARO:3004303]": {
-          "text": "Nonsusceptible antimicrobial phenotype [ARO:3004303]"
+          "text": "Nonsusceptible antimicrobial phenotype [ARO:3004303]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:nonsusceptible"
+          ]
         },
         "Resistant antimicrobial phenotype [ARO:3004301]": {
-          "text": "Resistant antimicrobial phenotype [ARO:3004301]"
+          "text": "Resistant antimicrobial phenotype [ARO:3004301]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:resistant"
+          ]
         },
         "Susceptible antimicrobial phenotype [ARO:3004302]": {
-          "text": "Susceptible antimicrobial phenotype [ARO:3004302]"
+          "text": "Susceptible antimicrobial phenotype [ARO:3004302]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:susceptible"
+          ]
         },
         "Susceptible dose dependent antimicrobial phenotype [ARO:3004304]": {
-          "text": "Susceptible dose dependent antimicrobial phenotype [ARO:3004304]"
+          "text": "Susceptible dose dependent antimicrobial phenotype [ARO:3004304]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:susceptible-dose%20dependent"
+          ]
         }
       }
     },
@@ -5607,10 +5655,16 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "milligram per litre (mg/L) [UO:0000273]": {
-          "text": "milligram per litre (mg/L) [UO:0000273]"
+          "text": "milligram per litre (mg/L) [UO:0000273]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:mg/L"
+          ]
         },
         "millimetre (mm) [UO:0000016]": {
-          "text": "millimetre (mm) [UO:0000016]"
+          "text": "millimetre (mm) [UO:0000016]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:mm"
+          ]
         },
         "microgram per millilitre (ug/mL) [UO:0000274]": {
           "text": "microgram per millilitre (ug/mL) [UO:0000274]"
@@ -5623,19 +5677,34 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "less than (<) [GENEPIO:0001002]": {
-          "text": "less than (<) [GENEPIO:0001002]"
+          "text": "less than (<) [GENEPIO:0001002]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3C"
+          ]
         },
         "less than or equal to (<=) [GENEPIO:0001003]": {
-          "text": "less than or equal to (<=) [GENEPIO:0001003]"
+          "text": "less than or equal to (<=) [GENEPIO:0001003]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3C%3D"
+          ]
         },
         "equal to (==) [GENEPIO:0001004]": {
-          "text": "equal to (==) [GENEPIO:0001004]"
+          "text": "equal to (==) [GENEPIO:0001004]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3D%3D"
+          ]
         },
         "greater than (>) [GENEPIO:0001006]": {
-          "text": "greater than (>) [GENEPIO:0001006]"
+          "text": "greater than (>) [GENEPIO:0001006]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3E"
+          ]
         },
         "greater than or equal to (>=) [GENEPIO:0001005]": {
-          "text": "greater than or equal to (>=) [GENEPIO:0001005]"
+          "text": "greater than or equal to (>=) [GENEPIO:0001005]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:%3E%3D"
+          ]
         }
       }
     },
@@ -5652,10 +5721,7 @@
         },
         "Antimicrobial gradient (E-test) [NCIT:85596]": {
           "text": "Antimicrobial gradient (E-test) [NCIT:85596]",
-          "is_a": "Agar diffusion [NCIT:85595]",
-          "exact_mappings": [
-            "NCBI_ANTIBIOGRAM:disk%20diffusion"
-          ]
+          "is_a": "Agar diffusion [NCIT:85595]"
         },
         "Agar dilution [ARO:3004411]": {
           "text": "Agar dilution [ARO:3004411]",
@@ -5664,7 +5730,10 @@
           ]
         },
         "Broth dilution [ARO:3004397]": {
-          "text": "Broth dilution [ARO:3004397]"
+          "text": "Broth dilution [ARO:3004397]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:broth%20dilution"
+          ]
         }
       }
     },
@@ -5674,7 +5743,10 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "BIOMIC Microbiology System [ARO:3007569]": {
-          "text": "BIOMIC Microbiology System [ARO:3007569]"
+          "text": "BIOMIC Microbiology System [ARO:3007569]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:BIOMIC"
+          ]
         },
         "Microscan [ARO:3004400]": {
           "text": "Microscan [ARO:3004400]",
@@ -5720,7 +5792,10 @@
           ]
         },
         "Omron [ARO:3004408]": {
-          "text": "Omron [ARO:3004408]"
+          "text": "Omron [ARO:3004408]",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:Omron"
+          ]
         },
         "Siemens [ARO:3004407]": {
           "text": "Siemens [ARO:3004407]",
@@ -5803,133 +5878,274 @@
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "amikacin": {
-          "text": "amikacin"
+          "text": "amikacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:amikacin"
+          ]
         },
         "amoxicillin-clavulanic_acid": {
-          "text": "amoxicillin-clavulanic_acid"
+          "text": "amoxicillin-clavulanic_acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:amoxicillin-clavulanic%20acid"
+          ]
         },
         "ampicillin": {
-          "text": "ampicillin"
+          "text": "ampicillin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ampicillin"
+          ]
         },
         "azithromycin": {
-          "text": "azithromycin"
+          "text": "azithromycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:azithromycin"
+          ]
         },
         "cefazolin": {
-          "text": "cefazolin"
+          "text": "cefazolin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefazolin"
+          ]
         },
         "cefepime": {
-          "text": "cefepime"
+          "text": "cefepime",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefepime"
+          ]
         },
         "cefotaxime": {
-          "text": "cefotaxime"
+          "text": "cefotaxime",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefotaxime"
+          ]
         },
         "cefotaxime-clavulanic_acid": {
-          "text": "cefotaxime-clavulanic_acid"
+          "text": "cefotaxime-clavulanic_acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefotaxime-clavulanic%20acid"
+          ]
         },
         "cefoxitin": {
-          "text": "cefoxitin"
+          "text": "cefoxitin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefoxitin"
+          ]
         },
         "cefpodoxime": {
-          "text": "cefpodoxime"
+          "text": "cefpodoxime",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cefpodoxime"
+          ]
         },
         "ceftazidime": {
-          "text": "ceftazidime"
+          "text": "ceftazidime",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ceftazidime"
+          ]
         },
         "ceftazidime-clavulanic_acid": {
-          "text": "ceftazidime-clavulanic_acid"
+          "text": "ceftazidime-clavulanic_acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ceftazidime-clavulanic%20acid"
+          ]
         },
         "ceftiofur": {
-          "text": "ceftiofur"
+          "text": "ceftiofur",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ceftiofur"
+          ]
         },
         "ceftriaxone": {
-          "text": "ceftriaxone"
+          "text": "ceftriaxone",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ceftriaxone"
+          ]
         },
         "cephalothin": {
-          "text": "cephalothin"
+          "text": "cephalothin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:cephalothin"
+          ]
         },
         "chloramphenicol": {
-          "text": "chloramphenicol"
+          "text": "chloramphenicol",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:chloramphenicol"
+          ]
         },
         "ciprofloxacin": {
-          "text": "ciprofloxacin"
+          "text": "ciprofloxacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:ciprofloxacin"
+          ]
         },
         "clindamycin": {
-          "text": "clindamycin"
+          "text": "clindamycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:clindamycin"
+          ]
         },
         "doxycycline": {
-          "text": "doxycycline"
+          "text": "doxycycline",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:doxycycline"
+          ]
         },
         "enrofloxacin": {
-          "text": "enrofloxacin"
+          "text": "enrofloxacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:enrofloxacin"
+          ]
         },
         "erythromycin": {
-          "text": "erythromycin"
+          "text": "erythromycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:erythromycin"
+          ]
         },
         "florfenicol": {
-          "text": "florfenicol"
+          "text": "florfenicol",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:florfenicol"
+          ]
         },
         "gentamicin": {
-          "text": "gentamicin"
+          "text": "gentamicin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:gentamicin"
+          ]
         },
         "imipenem": {
-          "text": "imipenem"
+          "text": "imipenem",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:imipenem"
+          ]
         },
         "kanamycin": {
-          "text": "kanamycin"
+          "text": "kanamycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:kanamycin"
+          ]
         },
         "levofloxacin": {
-          "text": "levofloxacin"
+          "text": "levofloxacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:levofloxacin"
+          ]
         },
         "linezolid": {
-          "text": "linezolid"
+          "text": "linezolid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:linezolid"
+          ]
         },
         "meropenem": {
-          "text": "meropenem"
+          "text": "meropenem",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:meropenem"
+          ]
         },
         "nalidixic_acid": {
-          "text": "nalidixic_acid"
+          "text": "nalidixic_acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:nalidixic%20acid"
+          ]
+        },
+        "neomycin": {
+          "text": "neomycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:neomycin"
+          ]
         },
         "nitrofurantoin": {
-          "text": "nitrofurantoin"
+          "text": "nitrofurantoin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:nitrofurantoin"
+          ]
         },
         "norfloxacin": {
-          "text": "norfloxacin"
+          "text": "norfloxacin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:norfloxacin"
+          ]
         },
         "oxolinic-acid": {
-          "text": "oxolinic-acid"
+          "text": "oxolinic-acid",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:oxolinic-acid"
+          ]
         },
         "oxytetracycline": {
-          "text": "oxytetracycline"
+          "text": "oxytetracycline",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:oxytetracycline"
+          ]
+        },
+        "penicillin": {
+          "text": "penicillin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:penicillin"
+          ]
         },
         "piperacillin": {
-          "text": "piperacillin"
+          "text": "piperacillin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:piperacillin"
+          ]
         },
         "piperacillin-tazobactam": {
-          "text": "piperacillin-tazobactam"
+          "text": "piperacillin-tazobactam",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:piperacillin-tazobactam"
+          ]
         },
         "polymyxin-b": {
-          "text": "polymyxin-b"
+          "text": "polymyxin-b",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:polymyxin-b"
+          ]
         },
         "quinupristin-dalfopristin": {
-          "text": "quinupristin-dalfopristin"
+          "text": "quinupristin-dalfopristin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:quinupristin-dalfopristin"
+          ]
         },
         "streptomycin": {
-          "text": "streptomycin"
+          "text": "streptomycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:streptomycin"
+          ]
         },
         "sulfisoxazole": {
-          "text": "sulfisoxazole"
+          "text": "sulfisoxazole",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:sulfisoxazole"
+          ]
         },
         "telithromycin": {
-          "text": "telithromycin"
+          "text": "telithromycin",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:telithromycin"
+          ]
         },
         "tetracycline": {
-          "text": "tetracycline"
+          "text": "tetracycline",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:tetracycline"
+          ]
         },
         "tigecycline": {
-          "text": "tigecycline"
+          "text": "tigecycline",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:tigecycline"
+          ]
         },
         "trimethoprim-sulfamethoxazole": {
-          "text": "trimethoprim-sulfamethoxazole"
+          "text": "trimethoprim-sulfamethoxazole",
+          "exact_mappings": [
+            "NCBI_ANTIBIOGRAM:trimethoprim-sulfamethoxazole"
+          ]
         }
       }
     }
@@ -5937,22 +6153,12 @@
   "slots": {
     "sample_collector_sample_id": {
       "name": "sample_collector_sample_id",
-      "description": "The user-defined name for the sample.",
       "title": "sample_collector_sample_ID",
-      "comments": [
-        "The sample_ID should represent the identifier assigned to the sample at time of collection, for which all the descriptive information applies. If the original sample_ID is unknown or cannot be provided, leave blank or provide a null value."
-      ],
-      "examples": [
-        {
-          "value": "ABCD123"
-        }
-      ],
       "from_schema": "https://example.com/GRDI",
       "slot_uri": "GENEPIO:0001123",
-      "identifier": true,
       "domain_of": [
         "GRDISample",
-        "AMRTest"
+        "GRDIIsolate"
       ],
       "required": true
     },
@@ -6142,7 +6348,7 @@
       "description": "The reason that the sample was collected.",
       "title": "purpose_of_sampling",
       "comments": [
-        "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field."
+        "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field."
       ],
       "examples": [
         {
@@ -6524,6 +6730,9 @@
       "name": "sample_collection_date",
       "description": "The date on which the sample was collected.",
       "title": "sample_collection_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
       ],
@@ -6541,7 +6750,7 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Date",
+      "range": "date",
       "required": true
     },
     "sample_collection_date_precision": {
@@ -6575,6 +6784,10 @@
       "name": "sample_collection_end_date",
       "description": "The date on which sample collection ended for a continuous sample.",
       "title": "sample_collection_end_date",
+      "todos": [
+        ">={sample_collection_date}",
+        "<={today}"
+      ],
       "comments": [
         "Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD"
       ],
@@ -6591,7 +6804,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "Date"
+          "range": "date"
         },
         {
           "range": "NullValueMenu"
@@ -6602,6 +6815,10 @@
       "name": "sample_processing_date",
       "description": "The date on which the sample was processed.",
       "title": "sample_processing_date",
+      "todos": [
+        ">={sample_collection_date}",
+        "<={today}"
+      ],
       "comments": [
         "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
       ],
@@ -6617,7 +6834,7 @@
       ],
       "any_of": [
         {
-          "range": "Date"
+          "range": "date"
         },
         {
           "range": "NullValueMenu"
@@ -6644,7 +6861,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "Time"
+          "range": "time"
         },
         {
           "range": "NullValueMenu"
@@ -6671,7 +6888,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "Time"
+          "range": "time"
         },
         {
           "range": "NullValueMenu"
@@ -6762,6 +6979,10 @@
       "name": "sample_received_date",
       "description": "The date on which the sample was received.",
       "title": "sample_received_date",
+      "todos": [
+        ">={sample_collection_date}",
+        "<={today}"
+      ],
       "comments": [
         "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
       ],
@@ -6775,7 +6996,7 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "original_sample_description": {
       "name": "original_sample_description",
@@ -7260,6 +7481,9 @@
       "name": "food_quality_date",
       "description": "A date recommended for the use of a product while at peak quality, this date is not a reflection of safety unless used on infant formula.",
       "title": "food_quality_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "This date is typically labeled on a food product as \"best if used by\", best by\", \"use by\", or \"freeze by\" e.g. 5/24/2020. If the date is known, leave blank or provide a null value."
       ],
@@ -7276,12 +7500,15 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "food_packaging_date": {
       "name": "food_packaging_date",
       "description": "A food product's packaging date as marked by a food manufacturer or retailer.",
       "title": "food_packaging_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "The packaging date should not be confused with, nor replaced by a Best Before date or other food quality date. If the date is known, leave blank or provide a null value."
       ],
@@ -7295,7 +7522,7 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "collection_device": {
       "name": "collection_device",
@@ -8113,253 +8340,6 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "isolate_id": {
-      "name": "isolate_id",
-      "description": "The user-defined identifier for the isolate, as provided by the laboratory that originally isolated the isolate.",
-      "title": "isolate_ID",
-      "comments": [
-        "Provide the isolate_ID created by the lab that first isolated the isolate (i.e. the original isolate ID). If the information is unknown or cannot be provided, leave blank or provide a null value. If only an alternate isolate ID is known (e.g. the ID from your lab, if your lab did not isolate the isolate from the original sample), make asure to include it in the alternative_isolate_ID field."
-      ],
-      "examples": [
-        {
-          "value": "SA20131043"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "exact_mappings": [
-        "NCBI_BIOSAMPLE_Enterics:strain",
-        "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
-      ],
-      "slot_uri": "GENEPIO:0100456",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "required": true,
-      "any_of": [
-        {
-          "range": "WhitespaceMinimizedString"
-        },
-        {
-          "range": "NullValueMenu"
-        }
-      ]
-    },
-    "alternative_isolate_id": {
-      "name": "alternative_isolate_id",
-      "description": "An alternative isolate_ID assigned to the isolate by another organization.",
-      "title": "alternative_isolate_ID",
-      "comments": [
-        "Alternative isolate IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nAn example of a properly formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple alternative isolate IDs can be provided, separated by semi-colons."
-      ],
-      "examples": [
-        {
-          "value": "GHIF3456[PHAC]"
-        },
-        {
-          "value": "QWICK222[CFIA]"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "exact_mappings": [
-        "NCBI_BIOSAMPLE_Enterics:isolate_name_alias"
-      ],
-      "slot_uri": "GENEPIO:0100457",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "recommended": true
-    },
-    "progeny_isolate_id": {
-      "name": "progeny_isolate_id",
-      "description": "The identifier assigned to a progenitor isolate derived from an isolate that was directly obtained from a sample.",
-      "title": "progeny_isolate_ID",
-      "comments": [
-        "If your sequence data pertains to progeny of an original isolate, provide the progeny_isolate_ID."
-      ],
-      "examples": [
-        {
-          "value": "SUB_ON_1526"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100458",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "irida_isolate_id": {
-      "name": "irida_isolate_id",
-      "description": "The identifier of the isolate in the IRIDA platform.",
-      "title": "IRIDA_isolate_ID",
-      "comments": [
-        "Provide the \"sample ID\" used to track information linked to the isolate in IRIDA. IRIDA sample IDs should be unqiue to avoid ID clash. This is very important in large Projects, especially when samples are shared from different organizations. Download the IRIDA sample ID and add it to the sample data in your spreadsheet as part of good data management practices."
-      ],
-      "examples": [
-        {
-          "value": "GRDI_LL_12345"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100459",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "required": true,
-      "any_of": [
-        {
-          "range": "WhitespaceMinimizedString"
-        },
-        {
-          "range": "NullValueMenu"
-        }
-      ]
-    },
-    "irida_project_id": {
-      "name": "irida_project_id",
-      "description": "The identifier of the Project in the iRIDA platform.",
-      "title": "IRIDA_project_ID",
-      "comments": [
-        "Provide the IRIDA \"project ID\"."
-      ],
-      "examples": [
-        {
-          "value": "666"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100460",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "required": true,
-      "any_of": [
-        {
-          "range": "WhitespaceMinimizedString"
-        },
-        {
-          "range": "NullValueMenu"
-        }
-      ]
-    },
-    "isolated_by": {
-      "name": "isolated_by",
-      "description": "The name of the agency, organization or institution with which the individual who performed the isolation procedure is affiliated.",
-      "title": "isolated_by",
-      "comments": [
-        "Provide the name of the agency, organization or institution that isolated the original isolate in full (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value."
-      ],
-      "examples": [
-        {
-          "value": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100461",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "range": "IsolatedByMenu"
-    },
-    "isolated_by_laboratory_name": {
-      "name": "isolated_by_laboratory_name",
-      "description": "The specific laboratory affiliation of the individual who performed the isolation procedure.",
-      "title": "isolated_by_laboratory_name",
-      "comments": [
-        "Provide the name of the specific laboratory that that isolated the original isolate (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value."
-      ],
-      "examples": [
-        {
-          "value": "Topp Lab"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100462",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "isolated_by_contact_name": {
-      "name": "isolated_by_contact_name",
-      "description": "The name or title of the contact responsible for follow-up regarding the isolate.",
-      "title": "isolated_by_contact_name",
-      "comments": [
-        "Provide the name of an individual or their job title. As personnel turnover may render the contact's name obsolete, it is prefereable to provide a job title for ensuring accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
-      ],
-      "examples": [
-        {
-          "value": "Enterics Lab Manager"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100463",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "isolated_by_contact_email": {
-      "name": "isolated_by_contact_email",
-      "description": "The email address of the contact responsible for follow-up regarding the isolate.",
-      "title": "isolated_by_contact_email",
-      "comments": [
-        "Provide the email associated with the listed contact. As personnel turnover may render an individual's email obsolete, it is more prefereable to provide an address for a position or lab, to ensure accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
-      ],
-      "examples": [
-        {
-          "value": "enterics@lab.ca"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100464",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "isolation_date": {
-      "name": "isolation_date",
-      "description": "The date on which the isolate was isolated from a sample.",
-      "title": "isolation_date",
-      "comments": [
-        "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
-      ],
-      "examples": [
-        {
-          "value": "2020-10-30"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "exact_mappings": [
-        "NCBI_BIOSAMPLE_Enterics:cult_isol_date"
-      ],
-      "slot_uri": "GENEPIO:0100465",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "range": "Date"
-    },
-    "isolate_received_date": {
-      "name": "isolate_received_date",
-      "description": "The date on which the isolate was received by the laboratory.",
-      "title": "isolate_received_date",
-      "comments": [
-        "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
-      ],
-      "examples": [
-        {
-          "value": "2020-11-15"
-        }
-      ],
-      "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100466",
-      "domain_of": [
-        "GRDISample"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
     "organism": {
       "name": "organism",
       "description": "Taxonomic name of the organism.",
@@ -8654,6 +8634,37 @@
         }
       ]
     },
+    "sequencing_date": {
+      "name": "sequencing_date",
+      "description": "The date the sample was sequenced.",
+      "title": "sequencing_date",
+      "todos": [
+        ">={sample_collection_date}",
+        "<={today}"
+      ],
+      "comments": [
+        "ISO 8601 standard \"YYYY-MM-DD\"."
+      ],
+      "examples": [
+        {
+          "value": "2020-06-22"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0001447",
+      "domain_of": [
+        "GRDISample"
+      ],
+      "required": true,
+      "any_of": [
+        {
+          "range": "date"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
+    },
     "sequencing_project_name": {
       "name": "sequencing_project_name",
       "description": "The name of the project/initiative/program for which sequencing was performed.",
@@ -8766,7 +8777,7 @@
     "dna_fragment_length": {
       "name": "dna_fragment_length",
       "description": "The length of the DNA fragment generated by mechanical shearing or enzymatic digestion for the purposes of library preparation.",
-      "title": "DNA fragment length",
+      "title": "DNA_fragment_length",
       "comments": [
         "Provide the fragment length in base pairs (do not include the units)."
       ],
@@ -8780,12 +8791,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "genomic_target_enrichment_method": {
       "name": "genomic_target_enrichment_method",
       "description": "The molecular technique used to selectively capture and amplify specific regions of interest from a genome.",
-      "title": "genomic target enrichment method",
+      "title": "genomic_target_enrichment_method",
       "comments": [
         "Provide the name of the enrichment method"
       ],
@@ -8804,7 +8815,7 @@
     "genomic_target_enrichment_method_details": {
       "name": "genomic_target_enrichment_method_details",
       "description": "Details that provide additional context to the molecular technique used to selectively capture and amplify specific regions of interest from a genome.",
-      "title": "genomic target enrichment method details",
+      "title": "genomic_target_enrichment_method_details",
       "comments": [
         "Provide details that are applicable to the method you used. Note: If bait-capture methods were used for enrichment, provide the panel name and version number (or a URL providing that information)."
       ],
@@ -8823,7 +8834,7 @@
     "amplicon_pcr_primer_scheme": {
       "name": "amplicon_pcr_primer_scheme",
       "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
-      "title": "amplicon pcr primer scheme",
+      "title": "amplicon_pcr_primer_scheme",
       "comments": [
         "Provide the name and version of the primer scheme used to generate the amplicons for sequencing."
       ],
@@ -8842,7 +8853,7 @@
     "amplicon_size": {
       "name": "amplicon_size",
       "description": "The length of the amplicon generated by PCR amplification.",
-      "title": "amplicon size",
+      "title": "amplicon_size",
       "comments": [
         "Provide the amplicon size expressed in base pairs."
       ],
@@ -8856,12 +8867,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "sequencing_flow_cell_version": {
       "name": "sequencing_flow_cell_version",
       "description": "The version number of the flow cell used for generating sequence data.",
-      "title": "sequencing flow cell version",
+      "title": "sequencing_flow_cell_version",
       "comments": [
         "Flow cells can vary in terms of design, chemistry, capacity, etc. The version of the flow cell used to generate sequence data can affect sequence quantity and quality. Record the version of the flow cell used to generate sequence data. Do not include \"version\" or \"v\" in the version number."
       ],
@@ -8956,7 +8967,7 @@
     "genome_sequence_filename": {
       "name": "genome_sequence_filename",
       "description": "The user-defined filename of the FASTA file.",
-      "title": "genome sequence filename",
+      "title": "genome_sequence_filename",
       "comments": [
         "Provide the FASTA filename."
       ],
@@ -8975,7 +8986,7 @@
     "quality_control_method_name": {
       "name": "quality_control_method_name",
       "description": "The name of the method used to assess whether a sequence passed a predetermined quality control threshold.",
-      "title": "quality control method name",
+      "title": "quality_control_method_name",
       "comments": [
         "Providing the name of the method used for quality control is very important for interpreting the rest of the QC information. Method names can be provided as the name of a pipeline or a link to a GitHub repository. Multiple methods should be listed and separated by a semi-colon. Do not include QC tags in other fields if no method name is provided."
       ],
@@ -8994,7 +9005,7 @@
     "quality_control_method_version": {
       "name": "quality_control_method_version",
       "description": "The version number of the method used to assess whether a sequence passed a predetermined quality control threshold.",
-      "title": "quality control method version",
+      "title": "quality_control_method_version",
       "comments": [
         "Methods updates can make big differences to their outputs. Provide the version of the method used for quality control. The version can be expressed using whatever convention the developer implements (e.g. date, semantic versioning). If multiple methods were used, record the version numbers in the same order as the method names. Separate the version numbers using a semi-colon."
       ],
@@ -9013,7 +9024,7 @@
     "quality_control_determination": {
       "name": "quality_control_determination",
       "description": "The determination of a quality control assessment.",
-      "title": "quality control determination",
+      "title": "quality_control_determination",
       "comments": [
         "Select a value from the pick list provided. If a desired value is missing, submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the New Term Request form."
       ],
@@ -9040,7 +9051,7 @@
     "quality_control_issues": {
       "name": "quality_control_issues",
       "description": "The reason contributing to, or causing, a low quality determination in a quality control assessment.",
-      "title": "quality control issues",
+      "title": "quality_control_issues",
       "comments": [
         "Select a value from the pick list provided. If a desired value is missing, submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the New Term Request form."
       ],
@@ -9067,7 +9078,7 @@
     "quality_control_details": {
       "name": "quality_control_details",
       "description": "The details surrounding a low quality determination in a quality control assessment.",
-      "title": "quality control details",
+      "title": "quality_control_details",
       "comments": [
         "Provide notes or details regarding QC results using free text."
       ],
@@ -9086,7 +9097,7 @@
     "raw_sequence_data_processing_method": {
       "name": "raw_sequence_data_processing_method",
       "description": "The method used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
-      "title": "raw sequence data processing method",
+      "title": "raw_sequence_data_processing_method",
       "comments": [
         "Raw data processing can have a significant impact on data quality and how it can be used. Provide the names and version numbers of software used for trimming adaptors, quality filtering, etc (e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3), or a link to a GitHub protocol."
       ],
@@ -9113,7 +9124,7 @@
     "dehosting_method": {
       "name": "dehosting_method",
       "description": "The method used to remove host reads from the pathogen sequence.",
-      "title": "dehosting method",
+      "title": "dehosting_method",
       "comments": [
         "Provide the name and version number of the software used to remove host reads."
       ],
@@ -9140,7 +9151,7 @@
     "sequence_assembly_software_name": {
       "name": "sequence_assembly_software_name",
       "description": "The name of the software used to assemble a sequence.",
-      "title": "sequence assembly software name",
+      "title": "sequence_assembly_software_name",
       "comments": [
         "Provide the name of the software used to assemble the sequence."
       ],
@@ -9166,7 +9177,7 @@
     "sequence_assembly_software_version": {
       "name": "sequence_assembly_software_version",
       "description": "The version of the software used to assemble a sequence.",
-      "title": "sequence assembly software version",
+      "title": "sequence_assembly_software_version",
       "comments": [
         "Provide the version of the software used to assemble the sequence."
       ],
@@ -9192,7 +9203,7 @@
     "consensus_sequence_software_name": {
       "name": "consensus_sequence_software_name",
       "description": "The name of the software used to generate the consensus sequence.",
-      "title": "consensus sequence software name",
+      "title": "consensus_sequence_software_name",
       "comments": [
         "Provide the name of the software used to generate the consensus sequence."
       ],
@@ -9218,7 +9229,7 @@
     "consensus_sequence_software_version": {
       "name": "consensus_sequence_software_version",
       "description": "The version of the software used to generate the consensus sequence.",
-      "title": "consensus sequence software version",
+      "title": "consensus_sequence_software_version",
       "comments": [
         "Provide the version of the software used to generate the consensus sequence."
       ],
@@ -9244,7 +9255,7 @@
     "breadth_of_coverage_value": {
       "name": "breadth_of_coverage_value",
       "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
-      "title": "breadth of coverage value",
+      "title": "breadth_of_coverage_value",
       "comments": [
         "Provide value as a percent."
       ],
@@ -9263,7 +9274,7 @@
     "depth_of_coverage_value": {
       "name": "depth_of_coverage_value",
       "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
-      "title": "depth of coverage value",
+      "title": "depth_of_coverage_value",
       "comments": [
         "Provide value as a fold of coverage."
       ],
@@ -9282,7 +9293,7 @@
     "depth_of_coverage_threshold": {
       "name": "depth_of_coverage_threshold",
       "description": "The threshold used as a cut-off for the depth of coverage.",
-      "title": "depth of coverage threshold",
+      "title": "depth_of_coverage_threshold",
       "comments": [
         "Provide the threshold fold coverage."
       ],
@@ -9301,7 +9312,7 @@
     "genome_completeness": {
       "name": "genome_completeness",
       "description": "The percentage of expected genes identified in the genome being sequenced. Missing genes indicate missing genomic regions (incompleteness) in the data.",
-      "title": "genome completeness",
+      "title": "genome_completeness",
       "comments": [
         "Provide the genome completeness as a percent (no need to include units)."
       ],
@@ -9320,7 +9331,7 @@
     "number_of_base_pairs_sequenced": {
       "name": "number_of_base_pairs_sequenced",
       "description": "The number of total base pairs generated by the sequencing process.",
-      "title": "number of base pairs sequenced",
+      "title": "number_of_base_pairs_sequenced",
       "comments": [
         "Provide a numerical value (no need to include units)."
       ],
@@ -9334,12 +9345,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "number_of_total_reads": {
       "name": "number_of_total_reads",
       "description": "The total number of non-unique reads generated by the sequencing process.",
-      "title": "number of total reads",
+      "title": "number_of_total_reads",
       "comments": [
         "Provide a numerical value (no need to include units)."
       ],
@@ -9353,12 +9364,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "number_of_unique_reads": {
       "name": "number_of_unique_reads",
       "description": "The number of unique reads generated by the sequencing process.",
-      "title": "number of unique reads",
+      "title": "number_of_unique_reads",
       "comments": [
         "Provide a numerical value (no need to include units)."
       ],
@@ -9372,12 +9383,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "minimum_posttrimming_read_length": {
       "name": "minimum_posttrimming_read_length",
       "description": "The threshold used as a cut-off for the minimum length of a read after trimming.",
-      "title": "minimum post-trimming read length",
+      "title": "minimum_post-trimming_read_length",
       "comments": [
         "Provide a numerical value (no need to include units)."
       ],
@@ -9391,12 +9402,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "number_of_contigs": {
       "name": "number_of_contigs",
       "description": "The number of contigs (contiguous sequences) in a sequence assembly.",
-      "title": "number of contigs",
+      "title": "number_of_contigs",
       "comments": [
         "Provide a numerical value."
       ],
@@ -9410,12 +9421,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "percent_ns_across_total_genome_length": {
       "name": "percent_ns_across_total_genome_length",
       "description": "The percentage of the assembly that consists of ambiguous bases (Ns).",
-      "title": "percent Ns across total genome length",
+      "title": "percent_Ns_across_total_genome_length",
       "comments": [
         "Provide a numerical value (no need to include units)."
       ],
@@ -9429,12 +9440,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "ns_per_100_kbp": {
       "name": "ns_per_100_kbp",
       "description": "The number of ambiguous bases (Ns) normalized per 100 kilobasepairs (kbp).",
-      "title": "Ns per 100 kbp",
+      "title": "Ns_per_100_kbp",
       "comments": [
         "Provide a numerical value (no need to include units)."
       ],
@@ -9448,7 +9459,7 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "n50": {
       "name": "n50",
@@ -9467,12 +9478,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "percent_read_contamination_": {
       "name": "percent_read_contamination_",
       "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
-      "title": "percent read contamination",
+      "title": "percent_read_contamination",
       "comments": [
         "Provide the percent contamination value (no need to include units)."
       ],
@@ -9486,12 +9497,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "sequence_assembly_length": {
       "name": "sequence_assembly_length",
       "description": "The length of the genome generated by assembling reads using a scaffold or by reference-based mapping.",
-      "title": "sequence assembly length",
+      "title": "sequence_assembly_length",
       "comments": [
         "Provide a numerical value (no need to include units)."
       ],
@@ -9505,12 +9516,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "consensus_genome_length": {
       "name": "consensus_genome_length",
       "description": "The length of the genome defined by the most common nucleotides at each position.",
-      "title": "consensus genome length",
+      "title": "consensus_genome_length",
       "comments": [
         "Provide a numerical value (no need to include units)."
       ],
@@ -9524,12 +9535,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Integer"
+      "range": "integer"
     },
     "reference_genome_accession": {
       "name": "reference_genome_accession",
       "description": "A persistent, unique identifier of a genome database entry.",
-      "title": "reference genome accession",
+      "title": "reference_genome_accession",
       "comments": [
         "Provide the accession number of the reference genome."
       ],
@@ -9548,7 +9559,7 @@
     "deduplication_method": {
       "name": "deduplication_method",
       "description": "The method used to remove duplicated reads in a sequence read dataset.",
-      "title": "deduplication method",
+      "title": "deduplication_method",
       "comments": [
         "Provide the deduplication software name followed by the version, or a link to a tool or method."
       ],
@@ -9567,7 +9578,7 @@
     "bioinformatics_protocol": {
       "name": "bioinformatics_protocol",
       "description": "A description of the overall bioinformatics strategy used.",
-      "title": "bioinformatics protocol",
+      "title": "bioinformatics_protocol",
       "comments": [
         "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can. This information can be provided in an SOP or protocol or pipeline/workflow. Provide the name and version number of the protocol, or a GitHub link to a pipeline or workflow."
       ],
@@ -9586,7 +9597,7 @@
     "read_mapping_software_name": {
       "name": "read_mapping_software_name",
       "description": "The name of the software used to map sequence reads to a reference genome or set of reference genes.",
-      "title": "read mapping software name",
+      "title": "read_mapping_software_name",
       "comments": [
         "Provide the name of the read mapping software."
       ],
@@ -9605,7 +9616,7 @@
     "read_mapping_software_version": {
       "name": "read_mapping_software_version",
       "description": "The version of the software used to map sequence reads to a reference genome or set of reference genes.",
-      "title": "read mapping software version",
+      "title": "read_mapping_software_version",
       "comments": [
         "Provide the version number of the read mapping software."
       ],
@@ -9624,7 +9635,7 @@
     "taxonomic_reference_database_name": {
       "name": "taxonomic_reference_database_name",
       "description": "The name of the taxonomic reference database used to identify the organism.",
-      "title": "taxonomic reference database name",
+      "title": "taxonomic_reference_database_name",
       "comments": [
         "Provide the name of the taxonomic reference database."
       ],
@@ -9643,7 +9654,7 @@
     "taxonomic_reference_database_version": {
       "name": "taxonomic_reference_database_version",
       "description": "The version of the taxonomic reference database used to identify the organism.",
-      "title": "taxonomic reference database version",
+      "title": "taxonomic_reference_database_version",
       "comments": [
         "Provide the version number of the taxonomic reference database."
       ],
@@ -9662,7 +9673,7 @@
     "taxonomic_analysis_report_filename": {
       "name": "taxonomic_analysis_report_filename",
       "description": "The filename of the report containing the results of a taxonomic analysis.",
-      "title": "taxonomic analysis report filename",
+      "title": "taxonomic_analysis_report_filename",
       "comments": [
         "Provide the filename of the report containing the results of the taxonomic analysis."
       ],
@@ -9681,7 +9692,10 @@
     "taxonomic_analysis_date": {
       "name": "taxonomic_analysis_date",
       "description": "The date a taxonomic analysis was performed.",
-      "title": "taxonomic analysis date",
+      "title": "taxonomic_analysis_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
       ],
@@ -9695,12 +9709,12 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "read_mapping_criteria": {
       "name": "read_mapping_criteria",
       "description": "A description of the criteria used to map reads to a reference sequence.",
-      "title": "read mapping criteria",
+      "title": "read_mapping_criteria",
       "comments": [
         "Provide a description of the read mapping criteria."
       ],
@@ -9968,7 +9982,7 @@
       "recommended": true,
       "any_of": [
         {
-          "range": "StageOfProductionMenu"
+          "range": "WhitespaceMinimizedString"
         },
         {
           "range": "NullValueMenu"
@@ -10130,6 +10144,9 @@
       "name": "amr_testing_date",
       "description": "The date the antimicrobial resistance testing was performed.",
       "title": "AMR_testing_date",
+      "todos": [
+        "<={today}"
+      ],
       "comments": [
         "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
       ],
@@ -10143,7 +10160,7 @@
       "domain_of": [
         "GRDISample"
       ],
-      "range": "Date"
+      "range": "date"
     },
     "authors": {
       "name": "authors",
@@ -10183,6 +10200,239 @@
         "GRDISample"
       ],
       "range": "Provenance"
+    },
+    "isolate_id": {
+      "name": "isolate_id",
+      "title": "isolate_ID",
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100456",
+      "domain_of": [
+        "GRDIIsolate",
+        "AMRTest"
+      ],
+      "required": true
+    },
+    "alternative_isolate_id": {
+      "name": "alternative_isolate_id",
+      "description": "An alternative isolate_ID assigned to the isolate by another organization.",
+      "title": "alternative_isolate_ID",
+      "comments": [
+        "Alternative isolate IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nAn example of a properly formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple alternative isolate IDs can be provided, separated by semi-colons."
+      ],
+      "examples": [
+        {
+          "value": "GHIF3456[PHAC]"
+        },
+        {
+          "value": "QWICK222[CFIA]"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "NCBI_BIOSAMPLE_Enterics:isolate_name_alias"
+      ],
+      "slot_uri": "GENEPIO:0100457",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "progeny_isolate_id": {
+      "name": "progeny_isolate_id",
+      "description": "The identifier assigned to a progenitor isolate derived from an isolate that was directly obtained from a sample.",
+      "title": "progeny_isolate_ID",
+      "comments": [
+        "If your sequence data pertains to progeny of an original isolate, provide the progeny_isolate_ID."
+      ],
+      "examples": [
+        {
+          "value": "SUB_ON_1526"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100458",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "irida_isolate_id": {
+      "name": "irida_isolate_id",
+      "description": "The identifier of the isolate in the IRIDA platform.",
+      "title": "IRIDA_isolate_ID",
+      "comments": [
+        "Provide the \"sample ID\" used to track information linked to the isolate in IRIDA. IRIDA sample IDs should be unqiue to avoid ID clash. This is very important in large Projects, especially when samples are shared from different organizations. Download the IRIDA sample ID and add it to the sample data in your spreadsheet as part of good data management practices."
+      ],
+      "examples": [
+        {
+          "value": "GRDI_LL_12345"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100459",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "required": true,
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
+    },
+    "irida_project_id": {
+      "name": "irida_project_id",
+      "description": "The identifier of the Project in the iRIDA platform.",
+      "title": "IRIDA_project_ID",
+      "comments": [
+        "Provide the IRIDA \"project ID\"."
+      ],
+      "examples": [
+        {
+          "value": "666"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100460",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "required": true,
+      "any_of": [
+        {
+          "range": "WhitespaceMinimizedString"
+        },
+        {
+          "range": "NullValueMenu"
+        }
+      ]
+    },
+    "isolated_by": {
+      "name": "isolated_by",
+      "description": "The name of the agency, organization or institution with which the individual who performed the isolation procedure is affiliated.",
+      "title": "isolated_by",
+      "comments": [
+        "Provide the name of the agency, organization or institution that isolated the original isolate in full (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value."
+      ],
+      "examples": [
+        {
+          "value": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100461",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "range": "IsolatedByMenu"
+    },
+    "isolated_by_laboratory_name": {
+      "name": "isolated_by_laboratory_name",
+      "description": "The specific laboratory affiliation of the individual who performed the isolation procedure.",
+      "title": "isolated_by_laboratory_name",
+      "comments": [
+        "Provide the name of the specific laboratory that that isolated the original isolate (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value."
+      ],
+      "examples": [
+        {
+          "value": "Topp Lab"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100462",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "isolated_by_contact_name": {
+      "name": "isolated_by_contact_name",
+      "description": "The name or title of the contact responsible for follow-up regarding the isolate.",
+      "title": "isolated_by_contact_name",
+      "comments": [
+        "Provide the name of an individual or their job title. As personnel turnover may render the contact's name obsolete, it is prefereable to provide a job title for ensuring accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
+      ],
+      "examples": [
+        {
+          "value": "Enterics Lab Manager"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100463",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "isolated_by_contact_email": {
+      "name": "isolated_by_contact_email",
+      "description": "The email address of the contact responsible for follow-up regarding the isolate.",
+      "title": "isolated_by_contact_email",
+      "comments": [
+        "Provide the email associated with the listed contact. As personnel turnover may render an individual's email obsolete, it is more prefereable to provide an address for a position or lab, to ensure accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
+      ],
+      "examples": [
+        {
+          "value": "enterics@lab.ca"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100464",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "isolation_date": {
+      "name": "isolation_date",
+      "description": "The date on which the isolate was isolated from a sample.",
+      "title": "isolation_date",
+      "todos": [
+        "<={today}"
+      ],
+      "comments": [
+        "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
+      ],
+      "examples": [
+        {
+          "value": "2020-10-30"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "NCBI_BIOSAMPLE_Enterics:cult_isol_date"
+      ],
+      "slot_uri": "GENEPIO:0100465",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "range": "date"
+    },
+    "isolate_received_date": {
+      "name": "isolate_received_date",
+      "description": "The date on which the isolate was received by the laboratory.",
+      "title": "isolate_received_date",
+      "todos": [
+        "<={today}"
+      ],
+      "comments": [
+        "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
+      ],
+      "examples": [
+        {
+          "value": "2020-11-15"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100466",
+      "domain_of": [
+        "GRDIIsolate"
+      ],
+      "range": "WhitespaceMinimizedString"
     },
     "antimicrobial_drug": {
       "name": "antimicrobial_drug",
@@ -10533,21 +10783,24 @@
       "slot_usage": {
         "sample_collector_sample_id": {
           "name": "sample_collector_sample_id",
+          "description": "The user-defined name for the sample.",
+          "comments": [
+            "The sample_ID should represent the identifier assigned to the sample at time of collection, for which all the descriptive information applies. If the original sample_ID is unknown or cannot be provided, leave blank or provide a null value."
+          ],
+          "examples": [
+            {
+              "value": "ABCD123"
+            }
+          ],
           "exact_mappings": [
             "BIOSAMPLE:sample_name",
             "NCBI_BIOSAMPLE_Enterics:sample_name",
             "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
           ],
           "rank": 1,
+          "identifier": true,
           "slot_group": "Sample collection and processing",
-          "any_of": [
-            {
-              "range": "WhitespaceMinimizedString"
-            },
-            {
-              "range": "NullValueMenu"
-            }
-          ]
+          "range": "WhitespaceMinimizedString"
         },
         "alternative_sample_id": {
           "name": "alternative_sample_id",
@@ -10979,484 +11232,434 @@
           "rank": 87,
           "slot_group": "Strain and isolation information"
         },
-        "isolate_id": {
-          "name": "isolate_id",
-          "rank": 88,
-          "slot_group": "Strain and isolation information"
-        },
-        "alternative_isolate_id": {
-          "name": "alternative_isolate_id",
-          "rank": 89,
-          "slot_group": "Strain and isolation information"
-        },
-        "progeny_isolate_id": {
-          "name": "progeny_isolate_id",
-          "rank": 90,
-          "slot_group": "Strain and isolation information"
-        },
-        "irida_isolate_id": {
-          "name": "irida_isolate_id",
-          "rank": 91,
-          "slot_group": "Strain and isolation information"
-        },
-        "irida_project_id": {
-          "name": "irida_project_id",
-          "rank": 92,
-          "slot_group": "Strain and isolation information"
-        },
-        "isolated_by": {
-          "name": "isolated_by",
-          "rank": 93,
-          "slot_group": "Strain and isolation information"
-        },
-        "isolated_by_laboratory_name": {
-          "name": "isolated_by_laboratory_name",
-          "rank": 94,
-          "slot_group": "Strain and isolation information"
-        },
-        "isolated_by_contact_name": {
-          "name": "isolated_by_contact_name",
-          "rank": 95,
-          "slot_group": "Strain and isolation information"
-        },
-        "isolated_by_contact_email": {
-          "name": "isolated_by_contact_email",
-          "rank": 96,
-          "slot_group": "Strain and isolation information"
-        },
-        "isolation_date": {
-          "name": "isolation_date",
-          "rank": 97,
-          "slot_group": "Strain and isolation information"
-        },
-        "isolate_received_date": {
-          "name": "isolate_received_date",
-          "rank": 98,
-          "slot_group": "Strain and isolation information"
-        },
         "organism": {
           "name": "organism",
-          "rank": 99,
+          "rank": 88,
           "slot_group": "Strain and isolation information"
         },
         "taxonomic_identification_process": {
           "name": "taxonomic_identification_process",
-          "rank": 100,
+          "rank": 89,
           "slot_group": "Strain and isolation information"
         },
         "taxonomic_identification_process_details": {
           "name": "taxonomic_identification_process_details",
-          "rank": 101,
+          "rank": 90,
           "slot_group": "Strain and isolation information"
         },
         "serovar": {
           "name": "serovar",
-          "rank": 102,
+          "rank": 91,
           "slot_group": "Strain and isolation information"
         },
         "serotyping_method": {
           "name": "serotyping_method",
-          "rank": 103,
+          "rank": 92,
           "slot_group": "Strain and isolation information"
         },
         "phagetype": {
           "name": "phagetype",
-          "rank": 104,
+          "rank": 93,
           "slot_group": "Strain and isolation information"
         },
         "library_id": {
           "name": "library_id",
-          "rank": 105,
+          "rank": 94,
           "slot_group": "Sequence information"
         },
         "sequenced_by": {
           "name": "sequenced_by",
-          "rank": 106,
+          "rank": 95,
           "slot_group": "Sequence information"
         },
         "sequenced_by_laboratory_name": {
           "name": "sequenced_by_laboratory_name",
-          "rank": 107,
+          "rank": 96,
           "slot_group": "Sequence information"
         },
         "sequenced_by_contact_name": {
           "name": "sequenced_by_contact_name",
-          "rank": 108,
+          "rank": 97,
           "slot_group": "Sequence information"
         },
         "sequenced_by_contact_email": {
           "name": "sequenced_by_contact_email",
-          "rank": 109,
+          "rank": 98,
           "slot_group": "Sequence information"
         },
         "purpose_of_sequencing": {
           "name": "purpose_of_sequencing",
-          "rank": 110,
+          "rank": 99,
+          "slot_group": "Sequence information"
+        },
+        "sequencing_date": {
+          "name": "sequencing_date",
+          "rank": 100,
           "slot_group": "Sequence information"
         },
         "sequencing_project_name": {
           "name": "sequencing_project_name",
-          "rank": 111,
+          "rank": 101,
           "slot_group": "Sequence information"
         },
         "sequencing_platform": {
           "name": "sequencing_platform",
-          "rank": 112,
+          "rank": 102,
           "slot_group": "Sequence information"
         },
         "sequencing_instrument": {
           "name": "sequencing_instrument",
-          "rank": 113,
+          "rank": 103,
           "slot_group": "Sequence information"
         },
         "sequencing_assay_type": {
           "name": "sequencing_assay_type",
-          "rank": 114,
+          "rank": 104,
           "slot_group": "Sequence information"
         },
         "library_preparation_kit": {
           "name": "library_preparation_kit",
-          "rank": 115,
+          "rank": 105,
           "slot_group": "Sequence information"
         },
         "dna_fragment_length": {
           "name": "dna_fragment_length",
-          "rank": 116,
+          "rank": 106,
           "slot_group": "Sequence information"
         },
         "genomic_target_enrichment_method": {
           "name": "genomic_target_enrichment_method",
-          "rank": 117,
+          "rank": 107,
           "slot_group": "Sequence information"
         },
         "genomic_target_enrichment_method_details": {
           "name": "genomic_target_enrichment_method_details",
-          "rank": 118,
+          "rank": 108,
           "slot_group": "Sequence information"
         },
         "amplicon_pcr_primer_scheme": {
           "name": "amplicon_pcr_primer_scheme",
-          "rank": 119,
+          "rank": 109,
           "slot_group": "Sequence information"
         },
         "amplicon_size": {
           "name": "amplicon_size",
-          "rank": 120,
+          "rank": 110,
           "slot_group": "Sequence information"
         },
         "sequencing_flow_cell_version": {
           "name": "sequencing_flow_cell_version",
-          "rank": 121,
+          "rank": 111,
           "slot_group": "Sequence information"
         },
         "sequencing_protocol": {
           "name": "sequencing_protocol",
-          "rank": 122,
+          "rank": 112,
           "slot_group": "Sequence information"
         },
         "r1_fastq_filename": {
           "name": "r1_fastq_filename",
-          "rank": 123,
+          "rank": 113,
           "slot_group": "Sequence information"
         },
         "r2_fastq_filename": {
           "name": "r2_fastq_filename",
-          "rank": 124,
+          "rank": 114,
           "slot_group": "Sequence information"
         },
         "fast5_filename": {
           "name": "fast5_filename",
-          "rank": 125,
+          "rank": 115,
           "slot_group": "Sequence information"
         },
         "genome_sequence_filename": {
           "name": "genome_sequence_filename",
-          "rank": 126,
+          "rank": 116,
           "slot_group": "Sequence information"
         },
         "quality_control_method_name": {
           "name": "quality_control_method_name",
-          "rank": 127,
+          "rank": 117,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality_control_method_version": {
           "name": "quality_control_method_version",
-          "rank": 128,
+          "rank": 118,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality_control_determination": {
           "name": "quality_control_determination",
-          "rank": 129,
+          "rank": 119,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality_control_issues": {
           "name": "quality_control_issues",
-          "rank": 130,
+          "rank": 120,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "quality_control_details": {
           "name": "quality_control_details",
-          "rank": 131,
+          "rank": 121,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "raw_sequence_data_processing_method": {
           "name": "raw_sequence_data_processing_method",
-          "rank": 132,
+          "rank": 122,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "dehosting_method": {
           "name": "dehosting_method",
-          "rank": 133,
+          "rank": 123,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "sequence_assembly_software_name": {
           "name": "sequence_assembly_software_name",
-          "rank": 134,
+          "rank": 124,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "sequence_assembly_software_version": {
           "name": "sequence_assembly_software_version",
-          "rank": 135,
+          "rank": 125,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus_sequence_software_name": {
           "name": "consensus_sequence_software_name",
-          "rank": 136,
+          "rank": 126,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus_sequence_software_version": {
           "name": "consensus_sequence_software_version",
-          "rank": 137,
+          "rank": 127,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "breadth_of_coverage_value": {
           "name": "breadth_of_coverage_value",
-          "rank": 138,
+          "rank": 128,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth_of_coverage_value": {
           "name": "depth_of_coverage_value",
-          "rank": 139,
+          "rank": 129,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "depth_of_coverage_threshold": {
           "name": "depth_of_coverage_threshold",
-          "rank": 140,
+          "rank": 130,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "genome_completeness": {
           "name": "genome_completeness",
-          "rank": 141,
+          "rank": 131,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_base_pairs_sequenced": {
           "name": "number_of_base_pairs_sequenced",
-          "rank": 142,
+          "rank": 132,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_total_reads": {
           "name": "number_of_total_reads",
-          "rank": 143,
+          "rank": 133,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_unique_reads": {
           "name": "number_of_unique_reads",
-          "rank": 144,
+          "rank": 134,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "minimum_posttrimming_read_length": {
           "name": "minimum_posttrimming_read_length",
-          "rank": 145,
+          "rank": 135,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "number_of_contigs": {
           "name": "number_of_contigs",
-          "rank": 146,
+          "rank": 136,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "percent_ns_across_total_genome_length": {
           "name": "percent_ns_across_total_genome_length",
-          "rank": 147,
+          "rank": 137,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "ns_per_100_kbp": {
           "name": "ns_per_100_kbp",
-          "rank": 148,
+          "rank": 138,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "n50": {
           "name": "n50",
-          "rank": 149,
+          "rank": 139,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "percent_read_contamination_": {
           "name": "percent_read_contamination_",
-          "rank": 150,
+          "rank": 140,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "sequence_assembly_length": {
           "name": "sequence_assembly_length",
-          "rank": 151,
+          "rank": 141,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "consensus_genome_length": {
           "name": "consensus_genome_length",
-          "rank": 152,
+          "rank": 142,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "reference_genome_accession": {
           "name": "reference_genome_accession",
-          "rank": 153,
+          "rank": 143,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "deduplication_method": {
           "name": "deduplication_method",
-          "rank": 154,
+          "rank": 144,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "bioinformatics_protocol": {
           "name": "bioinformatics_protocol",
-          "rank": 155,
+          "rank": 145,
           "slot_group": "Bioinformatics and QC metrics"
         },
         "read_mapping_software_name": {
           "name": "read_mapping_software_name",
-          "rank": 156,
+          "rank": 146,
           "slot_group": "Taxonomic identification information"
         },
         "read_mapping_software_version": {
           "name": "read_mapping_software_version",
-          "rank": 157,
+          "rank": 147,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_reference_database_name": {
           "name": "taxonomic_reference_database_name",
-          "rank": 158,
+          "rank": 148,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_reference_database_version": {
           "name": "taxonomic_reference_database_version",
-          "rank": 159,
+          "rank": 149,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_analysis_report_filename": {
           "name": "taxonomic_analysis_report_filename",
-          "rank": 160,
+          "rank": 150,
           "slot_group": "Taxonomic identification information"
         },
         "taxonomic_analysis_date": {
           "name": "taxonomic_analysis_date",
-          "rank": 161,
+          "rank": 151,
           "slot_group": "Taxonomic identification information"
         },
         "read_mapping_criteria": {
           "name": "read_mapping_criteria",
-          "rank": 162,
+          "rank": 152,
           "slot_group": "Taxonomic identification information"
         },
         "sequence_submitted_by": {
           "name": "sequence_submitted_by",
-          "rank": 163,
+          "rank": 153,
           "slot_group": "Public repository information"
         },
         "sequence_submitted_by_contact_name": {
           "name": "sequence_submitted_by_contact_name",
-          "rank": 164,
+          "rank": 154,
           "slot_group": "Public repository information"
         },
         "sequence_submitted_by_contact_email": {
           "name": "sequence_submitted_by_contact_email",
-          "rank": 165,
+          "rank": 155,
           "slot_group": "Public repository information"
         },
         "publication_id": {
           "name": "publication_id",
-          "rank": 166,
+          "rank": 156,
           "slot_group": "Public repository information"
         },
         "attribute_package": {
           "name": "attribute_package",
-          "rank": 167,
+          "rank": 157,
           "slot_group": "Public repository information"
         },
         "bioproject_accession": {
           "name": "bioproject_accession",
-          "rank": 168,
+          "rank": 158,
           "slot_group": "Public repository information"
         },
         "biosample_accession": {
           "name": "biosample_accession",
-          "rank": 169,
+          "rank": 159,
           "slot_group": "Public repository information"
         },
         "sra_accession": {
           "name": "sra_accession",
-          "rank": 170,
+          "rank": 160,
           "slot_group": "Public repository information"
         },
         "genbank_accession": {
           "name": "genbank_accession",
-          "rank": 171,
+          "rank": 161,
           "slot_group": "Public repository information"
         },
         "prevalence_metrics": {
           "name": "prevalence_metrics",
-          "rank": 172,
+          "rank": 162,
           "slot_group": "Risk assessment information"
         },
         "prevalence_metrics_details": {
           "name": "prevalence_metrics_details",
-          "rank": 173,
+          "rank": 163,
           "slot_group": "Risk assessment information"
         },
         "stage_of_production": {
           "name": "stage_of_production",
-          "rank": 174,
+          "rank": 164,
           "slot_group": "Risk assessment information"
         },
         "experimental_intervention": {
           "name": "experimental_intervention",
-          "rank": 175,
+          "rank": 165,
           "slot_group": "Risk assessment information"
         },
         "experiment_intervention_details": {
           "name": "experiment_intervention_details",
-          "rank": 176,
+          "rank": 166,
           "slot_group": "Risk assessment information"
         },
         "amr_testing_by": {
           "name": "amr_testing_by",
-          "rank": 177,
+          "rank": 167,
           "slot_group": "Antimicrobial resistance"
         },
         "amr_testing_by_laboratory_name": {
           "name": "amr_testing_by_laboratory_name",
-          "rank": 178,
+          "rank": 168,
           "slot_group": "Antimicrobial resistance"
         },
         "amr_testing_by_contact_name": {
           "name": "amr_testing_by_contact_name",
-          "rank": 179,
+          "rank": 169,
           "slot_group": "Antimicrobial resistance"
         },
         "amr_testing_by_contact_email": {
           "name": "amr_testing_by_contact_email",
-          "rank": 180,
+          "rank": 170,
           "slot_group": "Antimicrobial resistance"
         },
         "amr_testing_date": {
           "name": "amr_testing_date",
-          "rank": 181,
+          "rank": 171,
           "slot_group": "Antimicrobial resistance"
         },
         "authors": {
           "name": "authors",
-          "rank": 182,
+          "rank": 172,
           "slot_group": "Contributor acknowledgement"
         },
         "dataharmonizer_provenance": {
           "name": "dataharmonizer_provenance",
-          "rank": 183,
+          "rank": 173,
           "slot_group": "Contributor acknowledgement"
         }
       },
@@ -11486,18 +11689,11 @@
           "owner": "GRDISample",
           "domain_of": [
             "GRDISample",
-            "AMRTest"
+            "GRDIIsolate"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true,
-          "any_of": [
-            {
-              "range": "WhitespaceMinimizedString"
-            },
-            {
-              "range": "NullValueMenu"
-            }
-          ]
+          "range": "WhitespaceMinimizedString",
+          "required": true
         },
         "alternative_sample_id": {
           "name": "alternative_sample_id",
@@ -11717,7 +11913,7 @@
           "description": "The reason that the sample was collected.",
           "title": "purpose_of_sampling",
           "comments": [
-            "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field."
+            "The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for diagnostic testing. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the \"purpose of sequencing\" field."
           ],
           "examples": [
             {
@@ -12163,6 +12359,9 @@
           "name": "sample_collection_date",
           "description": "The date on which the sample was collected.",
           "title": "sample_collection_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
           ],
@@ -12184,7 +12383,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Date",
+          "range": "date",
           "required": true
         },
         "sample_collection_date_precision": {
@@ -12222,6 +12421,10 @@
           "name": "sample_collection_end_date",
           "description": "The date on which sample collection ended for a continuous sample.",
           "title": "sample_collection_end_date",
+          "todos": [
+            ">={sample_collection_date}",
+            "<={today}"
+          ],
           "comments": [
             "Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD"
           ],
@@ -12242,7 +12445,7 @@
           "recommended": true,
           "any_of": [
             {
-              "range": "Date"
+              "range": "date"
             },
             {
               "range": "NullValueMenu"
@@ -12253,6 +12456,10 @@
           "name": "sample_processing_date",
           "description": "The date on which the sample was processed.",
           "title": "sample_processing_date",
+          "todos": [
+            ">={sample_collection_date}",
+            "<={today}"
+          ],
           "comments": [
             "Provide the sample processed date in ISO 8601 format, i.e. \"YYYY-MM-DD\". The sample may be collected and processed (e.g. filtered, extraction) on the same day, or on different dates."
           ],
@@ -12272,7 +12479,7 @@
           "slot_group": "Sample collection and processing",
           "any_of": [
             {
-              "range": "Date"
+              "range": "date"
             },
             {
               "range": "NullValueMenu"
@@ -12303,7 +12510,7 @@
           "recommended": true,
           "any_of": [
             {
-              "range": "Time"
+              "range": "time"
             },
             {
               "range": "NullValueMenu"
@@ -12334,7 +12541,7 @@
           "recommended": true,
           "any_of": [
             {
-              "range": "Time"
+              "range": "time"
             },
             {
               "range": "NullValueMenu"
@@ -12437,6 +12644,10 @@
           "name": "sample_received_date",
           "description": "The date on which the sample was received.",
           "title": "sample_received_date",
+          "todos": [
+            ">={sample_collection_date}",
+            "<={today}"
+          ],
           "comments": [
             "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
           ],
@@ -12454,7 +12665,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Date"
+          "range": "date"
         },
         "original_sample_description": {
           "name": "original_sample_description",
@@ -12999,6 +13210,9 @@
           "name": "food_quality_date",
           "description": "A date recommended for the use of a product while at peak quality, this date is not a reflection of safety unless used on infant formula.",
           "title": "food_quality_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "This date is typically labeled on a food product as \"best if used by\", best by\", \"use by\", or \"freeze by\" e.g. 5/24/2020. If the date is known, leave blank or provide a null value."
           ],
@@ -13019,12 +13233,15 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Date"
+          "range": "date"
         },
         "food_packaging_date": {
           "name": "food_packaging_date",
           "description": "A food product's packaging date as marked by a food manufacturer or retailer.",
           "title": "food_packaging_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "The packaging date should not be confused with, nor replaced by a Best Before date or other food quality date. If the date is known, leave blank or provide a null value."
           ],
@@ -13042,7 +13259,7 @@
             "GRDISample"
           ],
           "slot_group": "Sample collection and processing",
-          "range": "Date"
+          "range": "date"
         },
         "collection_device": {
           "name": "collection_device",
@@ -14000,297 +14217,6 @@
           "slot_group": "Strain and isolation information",
           "range": "WhitespaceMinimizedString"
         },
-        "isolate_id": {
-          "name": "isolate_id",
-          "description": "The user-defined identifier for the isolate, as provided by the laboratory that originally isolated the isolate.",
-          "title": "isolate_ID",
-          "comments": [
-            "Provide the isolate_ID created by the lab that first isolated the isolate (i.e. the original isolate ID). If the information is unknown or cannot be provided, leave blank or provide a null value. If only an alternate isolate ID is known (e.g. the ID from your lab, if your lab did not isolate the isolate from the original sample), make asure to include it in the alternative_isolate_ID field."
-          ],
-          "examples": [
-            {
-              "value": "SA20131043"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "exact_mappings": [
-            "NCBI_BIOSAMPLE_Enterics:strain",
-            "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
-          ],
-          "rank": 88,
-          "slot_uri": "GENEPIO:0100456",
-          "alias": "isolate_id",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "required": true,
-          "any_of": [
-            {
-              "range": "WhitespaceMinimizedString"
-            },
-            {
-              "range": "NullValueMenu"
-            }
-          ]
-        },
-        "alternative_isolate_id": {
-          "name": "alternative_isolate_id",
-          "description": "An alternative isolate_ID assigned to the isolate by another organization.",
-          "title": "alternative_isolate_ID",
-          "comments": [
-            "Alternative isolate IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nAn example of a properly formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple alternative isolate IDs can be provided, separated by semi-colons."
-          ],
-          "examples": [
-            {
-              "value": "GHIF3456[PHAC]"
-            },
-            {
-              "value": "QWICK222[CFIA]"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "exact_mappings": [
-            "NCBI_BIOSAMPLE_Enterics:isolate_name_alias"
-          ],
-          "rank": 89,
-          "slot_uri": "GENEPIO:0100457",
-          "alias": "alternative_isolate_id",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString",
-          "recommended": true
-        },
-        "progeny_isolate_id": {
-          "name": "progeny_isolate_id",
-          "description": "The identifier assigned to a progenitor isolate derived from an isolate that was directly obtained from a sample.",
-          "title": "progeny_isolate_ID",
-          "comments": [
-            "If your sequence data pertains to progeny of an original isolate, provide the progeny_isolate_ID."
-          ],
-          "examples": [
-            {
-              "value": "SUB_ON_1526"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "rank": 90,
-          "slot_uri": "GENEPIO:0100458",
-          "alias": "progeny_isolate_id",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString"
-        },
-        "irida_isolate_id": {
-          "name": "irida_isolate_id",
-          "description": "The identifier of the isolate in the IRIDA platform.",
-          "title": "IRIDA_isolate_ID",
-          "comments": [
-            "Provide the \"sample ID\" used to track information linked to the isolate in IRIDA. IRIDA sample IDs should be unqiue to avoid ID clash. This is very important in large Projects, especially when samples are shared from different organizations. Download the IRIDA sample ID and add it to the sample data in your spreadsheet as part of good data management practices."
-          ],
-          "examples": [
-            {
-              "value": "GRDI_LL_12345"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "rank": 91,
-          "slot_uri": "GENEPIO:0100459",
-          "alias": "irida_isolate_id",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "required": true,
-          "any_of": [
-            {
-              "range": "WhitespaceMinimizedString"
-            },
-            {
-              "range": "NullValueMenu"
-            }
-          ]
-        },
-        "irida_project_id": {
-          "name": "irida_project_id",
-          "description": "The identifier of the Project in the iRIDA platform.",
-          "title": "IRIDA_project_ID",
-          "comments": [
-            "Provide the IRIDA \"project ID\"."
-          ],
-          "examples": [
-            {
-              "value": "666"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "rank": 92,
-          "slot_uri": "GENEPIO:0100460",
-          "alias": "irida_project_id",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "required": true,
-          "any_of": [
-            {
-              "range": "WhitespaceMinimizedString"
-            },
-            {
-              "range": "NullValueMenu"
-            }
-          ]
-        },
-        "isolated_by": {
-          "name": "isolated_by",
-          "description": "The name of the agency, organization or institution with which the individual who performed the isolation procedure is affiliated.",
-          "title": "isolated_by",
-          "comments": [
-            "Provide the name of the agency, organization or institution that isolated the original isolate in full (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value."
-          ],
-          "examples": [
-            {
-              "value": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "rank": 93,
-          "slot_uri": "GENEPIO:0100461",
-          "alias": "isolated_by",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "range": "IsolatedByMenu"
-        },
-        "isolated_by_laboratory_name": {
-          "name": "isolated_by_laboratory_name",
-          "description": "The specific laboratory affiliation of the individual who performed the isolation procedure.",
-          "title": "isolated_by_laboratory_name",
-          "comments": [
-            "Provide the name of the specific laboratory that that isolated the original isolate (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value."
-          ],
-          "examples": [
-            {
-              "value": "Topp Lab"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "rank": 94,
-          "slot_uri": "GENEPIO:0100462",
-          "alias": "isolated_by_laboratory_name",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString"
-        },
-        "isolated_by_contact_name": {
-          "name": "isolated_by_contact_name",
-          "description": "The name or title of the contact responsible for follow-up regarding the isolate.",
-          "title": "isolated_by_contact_name",
-          "comments": [
-            "Provide the name of an individual or their job title. As personnel turnover may render the contact's name obsolete, it is prefereable to provide a job title for ensuring accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
-          ],
-          "examples": [
-            {
-              "value": "Enterics Lab Manager"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "rank": 95,
-          "slot_uri": "GENEPIO:0100463",
-          "alias": "isolated_by_contact_name",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString"
-        },
-        "isolated_by_contact_email": {
-          "name": "isolated_by_contact_email",
-          "description": "The email address of the contact responsible for follow-up regarding the isolate.",
-          "title": "isolated_by_contact_email",
-          "comments": [
-            "Provide the email associated with the listed contact. As personnel turnover may render an individual's email obsolete, it is more prefereable to provide an address for a position or lab, to ensure accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
-          ],
-          "examples": [
-            {
-              "value": "enterics@lab.ca"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "rank": 96,
-          "slot_uri": "GENEPIO:0100464",
-          "alias": "isolated_by_contact_email",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString"
-        },
-        "isolation_date": {
-          "name": "isolation_date",
-          "description": "The date on which the isolate was isolated from a sample.",
-          "title": "isolation_date",
-          "comments": [
-            "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
-          ],
-          "examples": [
-            {
-              "value": "2020-10-30"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "exact_mappings": [
-            "NCBI_BIOSAMPLE_Enterics:cult_isol_date"
-          ],
-          "rank": 97,
-          "slot_uri": "GENEPIO:0100465",
-          "alias": "isolation_date",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "range": "Date"
-        },
-        "isolate_received_date": {
-          "name": "isolate_received_date",
-          "description": "The date on which the isolate was received by the laboratory.",
-          "title": "isolate_received_date",
-          "comments": [
-            "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
-          ],
-          "examples": [
-            {
-              "value": "2020-11-15"
-            }
-          ],
-          "from_schema": "https://example.com/GRDI",
-          "rank": 98,
-          "slot_uri": "GENEPIO:0100466",
-          "alias": "isolate_received_date",
-          "owner": "GRDISample",
-          "domain_of": [
-            "GRDISample"
-          ],
-          "slot_group": "Strain and isolation information",
-          "range": "WhitespaceMinimizedString"
-        },
         "organism": {
           "name": "organism",
           "description": "Taxonomic name of the organism.",
@@ -14308,7 +14234,7 @@
             "BIOSAMPLE:organism",
             "NCBI_BIOSAMPLE_Enterics:organism"
           ],
-          "rank": 99,
+          "rank": 88,
           "slot_uri": "GENEPIO:0001191",
           "alias": "organism",
           "owner": "GRDISample",
@@ -14340,7 +14266,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 100,
+          "rank": 89,
           "slot_uri": "GENEPIO:0100583",
           "alias": "taxonomic_identification_process",
           "owner": "GRDISample",
@@ -14371,7 +14297,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 101,
+          "rank": 90,
           "slot_uri": "GENEPIO:0100584",
           "alias": "taxonomic_identification_process_details",
           "owner": "GRDISample",
@@ -14397,7 +14323,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_Enterics:serovar"
           ],
-          "rank": 102,
+          "rank": 91,
           "slot_uri": "GENEPIO:0100467",
           "alias": "serovar",
           "owner": "GRDISample",
@@ -14421,7 +14347,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 103,
+          "rank": 92,
           "slot_uri": "GENEPIO:0100468",
           "alias": "serotyping_method",
           "owner": "GRDISample",
@@ -14445,7 +14371,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 104,
+          "rank": 93,
           "slot_uri": "GENEPIO:0100469",
           "alias": "phagetype",
           "owner": "GRDISample",
@@ -14468,7 +14394,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 105,
+          "rank": 94,
           "slot_uri": "GENEPIO:0001448",
           "alias": "library_id",
           "owner": "GRDISample",
@@ -14495,7 +14421,7 @@
             "BIOSAMPLE:sequenced_by",
             "NCBI_BIOSAMPLE_Enterics:sequenced_by"
           ],
-          "rank": 106,
+          "rank": 95,
           "slot_uri": "GENEPIO:0100416",
           "alias": "sequenced_by",
           "owner": "GRDISample",
@@ -14526,7 +14452,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 107,
+          "rank": 96,
           "slot_uri": "GENEPIO:0100470",
           "alias": "sequenced_by_laboratory_name",
           "owner": "GRDISample",
@@ -14549,7 +14475,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 108,
+          "rank": 97,
           "slot_uri": "GENEPIO:0100471",
           "alias": "sequenced_by_contact_name",
           "owner": "GRDISample",
@@ -14580,7 +14506,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 109,
+          "rank": 98,
           "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
           "owner": "GRDISample",
@@ -14614,7 +14540,7 @@
           "exact_mappings": [
             "BIOSAMPLE:purpose_of_sequencing"
           ],
-          "rank": 110,
+          "rank": 99,
           "slot_uri": "GENEPIO:0001445",
           "alias": "purpose_of_sequencing",
           "owner": "GRDISample",
@@ -14627,6 +14553,41 @@
           "any_of": [
             {
               "range": "PurposeOfSequencingMenu"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
+        },
+        "sequencing_date": {
+          "name": "sequencing_date",
+          "description": "The date the sample was sequenced.",
+          "title": "sequencing_date",
+          "todos": [
+            ">={sample_collection_date}",
+            "<={today}"
+          ],
+          "comments": [
+            "ISO 8601 standard \"YYYY-MM-DD\"."
+          ],
+          "examples": [
+            {
+              "value": "2020-06-22"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 100,
+          "slot_uri": "GENEPIO:0001447",
+          "alias": "sequencing_date",
+          "owner": "GRDISample",
+          "domain_of": [
+            "GRDISample"
+          ],
+          "slot_group": "Sequence information",
+          "required": true,
+          "any_of": [
+            {
+              "range": "date"
             },
             {
               "range": "NullValueMenu"
@@ -14646,7 +14607,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 111,
+          "rank": 101,
           "slot_uri": "GENEPIO:0100472",
           "alias": "sequencing_project_name",
           "owner": "GRDISample",
@@ -14669,7 +14630,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 112,
+          "rank": 102,
           "slot_uri": "GENEPIO:0100473",
           "alias": "sequencing_platform",
           "owner": "GRDISample",
@@ -14699,7 +14660,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 113,
+          "rank": 103,
           "slot_uri": "GENEPIO:0001452",
           "alias": "sequencing_instrument",
           "owner": "GRDISample",
@@ -14729,7 +14690,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 114,
+          "rank": 104,
           "slot_uri": "GENEPIO:0100997",
           "alias": "sequencing_assay_type",
           "owner": "GRDISample",
@@ -14752,7 +14713,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 115,
+          "rank": 105,
           "slot_uri": "GENEPIO:0001450",
           "alias": "library_preparation_kit",
           "owner": "GRDISample",
@@ -14765,7 +14726,7 @@
         "dna_fragment_length": {
           "name": "dna_fragment_length",
           "description": "The length of the DNA fragment generated by mechanical shearing or enzymatic digestion for the purposes of library preparation.",
-          "title": "DNA fragment length",
+          "title": "DNA_fragment_length",
           "comments": [
             "Provide the fragment length in base pairs (do not include the units)."
           ],
@@ -14775,7 +14736,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 116,
+          "rank": 106,
           "slot_uri": "GENEPIO:0100843",
           "alias": "dna_fragment_length",
           "owner": "GRDISample",
@@ -14783,12 +14744,12 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Integer"
+          "range": "integer"
         },
         "genomic_target_enrichment_method": {
           "name": "genomic_target_enrichment_method",
           "description": "The molecular technique used to selectively capture and amplify specific regions of interest from a genome.",
-          "title": "genomic target enrichment method",
+          "title": "genomic_target_enrichment_method",
           "comments": [
             "Provide the name of the enrichment method"
           ],
@@ -14798,7 +14759,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 117,
+          "rank": 107,
           "slot_uri": "GENEPIO:0100966",
           "alias": "genomic_target_enrichment_method",
           "owner": "GRDISample",
@@ -14811,7 +14772,7 @@
         "genomic_target_enrichment_method_details": {
           "name": "genomic_target_enrichment_method_details",
           "description": "Details that provide additional context to the molecular technique used to selectively capture and amplify specific regions of interest from a genome.",
-          "title": "genomic target enrichment method details",
+          "title": "genomic_target_enrichment_method_details",
           "comments": [
             "Provide details that are applicable to the method you used. Note: If bait-capture methods were used for enrichment, provide the panel name and version number (or a URL providing that information)."
           ],
@@ -14821,7 +14782,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 118,
+          "rank": 108,
           "slot_uri": "GENEPIO:0100967",
           "alias": "genomic_target_enrichment_method_details",
           "owner": "GRDISample",
@@ -14834,7 +14795,7 @@
         "amplicon_pcr_primer_scheme": {
           "name": "amplicon_pcr_primer_scheme",
           "description": "The specifications of the primers (primer sequences, binding positions, fragment size generated etc) used to generate the amplicons to be sequenced.",
-          "title": "amplicon pcr primer scheme",
+          "title": "amplicon_pcr_primer_scheme",
           "comments": [
             "Provide the name and version of the primer scheme used to generate the amplicons for sequencing."
           ],
@@ -14844,7 +14805,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 119,
+          "rank": 109,
           "slot_uri": "GENEPIO:0001456",
           "alias": "amplicon_pcr_primer_scheme",
           "owner": "GRDISample",
@@ -14857,7 +14818,7 @@
         "amplicon_size": {
           "name": "amplicon_size",
           "description": "The length of the amplicon generated by PCR amplification.",
-          "title": "amplicon size",
+          "title": "amplicon_size",
           "comments": [
             "Provide the amplicon size expressed in base pairs."
           ],
@@ -14867,7 +14828,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 120,
+          "rank": 110,
           "slot_uri": "GENEPIO:0001449",
           "alias": "amplicon_size",
           "owner": "GRDISample",
@@ -14875,12 +14836,12 @@
             "GRDISample"
           ],
           "slot_group": "Sequence information",
-          "range": "Integer"
+          "range": "integer"
         },
         "sequencing_flow_cell_version": {
           "name": "sequencing_flow_cell_version",
           "description": "The version number of the flow cell used for generating sequence data.",
-          "title": "sequencing flow cell version",
+          "title": "sequencing_flow_cell_version",
           "comments": [
             "Flow cells can vary in terms of design, chemistry, capacity, etc. The version of the flow cell used to generate sequence data can affect sequence quantity and quality. Record the version of the flow cell used to generate sequence data. Do not include \"version\" or \"v\" in the version number."
           ],
@@ -14890,7 +14851,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 121,
+          "rank": 111,
           "slot_uri": "GENEPIO:0101102",
           "alias": "sequencing_flow_cell_version",
           "owner": "GRDISample",
@@ -14913,7 +14874,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 122,
+          "rank": 112,
           "slot_uri": "GENEPIO:0001454",
           "alias": "sequencing_protocol",
           "owner": "GRDISample",
@@ -14936,7 +14897,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 123,
+          "rank": 113,
           "slot_uri": "GENEPIO:0001476",
           "alias": "r1_fastq_filename",
           "owner": "GRDISample",
@@ -14959,7 +14920,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 124,
+          "rank": 114,
           "slot_uri": "GENEPIO:0001477",
           "alias": "r2_fastq_filename",
           "owner": "GRDISample",
@@ -14982,7 +14943,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 125,
+          "rank": 115,
           "slot_uri": "GENEPIO:0001480",
           "alias": "fast5_filename",
           "owner": "GRDISample",
@@ -14995,7 +14956,7 @@
         "genome_sequence_filename": {
           "name": "genome_sequence_filename",
           "description": "The user-defined filename of the FASTA file.",
-          "title": "genome sequence filename",
+          "title": "genome_sequence_filename",
           "comments": [
             "Provide the FASTA filename."
           ],
@@ -15005,7 +14966,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 126,
+          "rank": 116,
           "slot_uri": "GENEPIO:0101715",
           "alias": "genome_sequence_filename",
           "owner": "GRDISample",
@@ -15018,7 +14979,7 @@
         "quality_control_method_name": {
           "name": "quality_control_method_name",
           "description": "The name of the method used to assess whether a sequence passed a predetermined quality control threshold.",
-          "title": "quality control method name",
+          "title": "quality_control_method_name",
           "comments": [
             "Providing the name of the method used for quality control is very important for interpreting the rest of the QC information. Method names can be provided as the name of a pipeline or a link to a GitHub repository. Multiple methods should be listed and separated by a semi-colon. Do not include QC tags in other fields if no method name is provided."
           ],
@@ -15028,7 +14989,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 127,
+          "rank": 117,
           "slot_uri": "GENEPIO:0100557",
           "alias": "quality_control_method_name",
           "owner": "GRDISample",
@@ -15041,7 +15002,7 @@
         "quality_control_method_version": {
           "name": "quality_control_method_version",
           "description": "The version number of the method used to assess whether a sequence passed a predetermined quality control threshold.",
-          "title": "quality control method version",
+          "title": "quality_control_method_version",
           "comments": [
             "Methods updates can make big differences to their outputs. Provide the version of the method used for quality control. The version can be expressed using whatever convention the developer implements (e.g. date, semantic versioning). If multiple methods were used, record the version numbers in the same order as the method names. Separate the version numbers using a semi-colon."
           ],
@@ -15051,7 +15012,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 128,
+          "rank": 118,
           "slot_uri": "GENEPIO:0100558",
           "alias": "quality_control_method_version",
           "owner": "GRDISample",
@@ -15064,7 +15025,7 @@
         "quality_control_determination": {
           "name": "quality_control_determination",
           "description": "The determination of a quality control assessment.",
-          "title": "quality control determination",
+          "title": "quality_control_determination",
           "comments": [
             "Select a value from the pick list provided. If a desired value is missing, submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the New Term Request form."
           ],
@@ -15074,7 +15035,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 129,
+          "rank": 119,
           "slot_uri": "GENEPIO:0100559",
           "alias": "quality_control_determination",
           "owner": "GRDISample",
@@ -15095,7 +15056,7 @@
         "quality_control_issues": {
           "name": "quality_control_issues",
           "description": "The reason contributing to, or causing, a low quality determination in a quality control assessment.",
-          "title": "quality control issues",
+          "title": "quality_control_issues",
           "comments": [
             "Select a value from the pick list provided. If a desired value is missing, submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the New Term Request form."
           ],
@@ -15105,7 +15066,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 130,
+          "rank": 120,
           "slot_uri": "GENEPIO:0100560",
           "alias": "quality_control_issues",
           "owner": "GRDISample",
@@ -15126,7 +15087,7 @@
         "quality_control_details": {
           "name": "quality_control_details",
           "description": "The details surrounding a low quality determination in a quality control assessment.",
-          "title": "quality control details",
+          "title": "quality_control_details",
           "comments": [
             "Provide notes or details regarding QC results using free text."
           ],
@@ -15136,7 +15097,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 131,
+          "rank": 121,
           "slot_uri": "GENEPIO:0100561",
           "alias": "quality_control_details",
           "owner": "GRDISample",
@@ -15149,7 +15110,7 @@
         "raw_sequence_data_processing_method": {
           "name": "raw_sequence_data_processing_method",
           "description": "The method used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
-          "title": "raw sequence data processing method",
+          "title": "raw_sequence_data_processing_method",
           "comments": [
             "Raw data processing can have a significant impact on data quality and how it can be used. Provide the names and version numbers of software used for trimming adaptors, quality filtering, etc (e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3), or a link to a GitHub protocol."
           ],
@@ -15159,7 +15120,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 132,
+          "rank": 122,
           "slot_uri": "GENEPIO:0001458",
           "alias": "raw_sequence_data_processing_method",
           "owner": "GRDISample",
@@ -15180,7 +15141,7 @@
         "dehosting_method": {
           "name": "dehosting_method",
           "description": "The method used to remove host reads from the pathogen sequence.",
-          "title": "dehosting method",
+          "title": "dehosting_method",
           "comments": [
             "Provide the name and version number of the software used to remove host reads."
           ],
@@ -15190,7 +15151,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 133,
+          "rank": 123,
           "slot_uri": "GENEPIO:0001459",
           "alias": "dehosting_method",
           "owner": "GRDISample",
@@ -15211,7 +15172,7 @@
         "sequence_assembly_software_name": {
           "name": "sequence_assembly_software_name",
           "description": "The name of the software used to assemble a sequence.",
-          "title": "sequence assembly software name",
+          "title": "sequence_assembly_software_name",
           "comments": [
             "Provide the name of the software used to assemble the sequence."
           ],
@@ -15221,7 +15182,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 134,
+          "rank": 124,
           "slot_uri": "GENEPIO:0100825",
           "alias": "sequence_assembly_software_name",
           "owner": "GRDISample",
@@ -15241,7 +15202,7 @@
         "sequence_assembly_software_version": {
           "name": "sequence_assembly_software_version",
           "description": "The version of the software used to assemble a sequence.",
-          "title": "sequence assembly software version",
+          "title": "sequence_assembly_software_version",
           "comments": [
             "Provide the version of the software used to assemble the sequence."
           ],
@@ -15251,7 +15212,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 135,
+          "rank": 125,
           "slot_uri": "GENEPIO:0100826",
           "alias": "sequence_assembly_software_version",
           "owner": "GRDISample",
@@ -15271,7 +15232,7 @@
         "consensus_sequence_software_name": {
           "name": "consensus_sequence_software_name",
           "description": "The name of the software used to generate the consensus sequence.",
-          "title": "consensus sequence software name",
+          "title": "consensus_sequence_software_name",
           "comments": [
             "Provide the name of the software used to generate the consensus sequence."
           ],
@@ -15281,7 +15242,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 136,
+          "rank": 126,
           "slot_uri": "GENEPIO:0001463",
           "alias": "consensus_sequence_software_name",
           "owner": "GRDISample",
@@ -15301,7 +15262,7 @@
         "consensus_sequence_software_version": {
           "name": "consensus_sequence_software_version",
           "description": "The version of the software used to generate the consensus sequence.",
-          "title": "consensus sequence software version",
+          "title": "consensus_sequence_software_version",
           "comments": [
             "Provide the version of the software used to generate the consensus sequence."
           ],
@@ -15311,7 +15272,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 137,
+          "rank": 127,
           "slot_uri": "GENEPIO:0001469",
           "alias": "consensus_sequence_software_version",
           "owner": "GRDISample",
@@ -15331,7 +15292,7 @@
         "breadth_of_coverage_value": {
           "name": "breadth_of_coverage_value",
           "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
-          "title": "breadth of coverage value",
+          "title": "breadth_of_coverage_value",
           "comments": [
             "Provide value as a percent."
           ],
@@ -15341,7 +15302,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 138,
+          "rank": 128,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
           "owner": "GRDISample",
@@ -15354,7 +15315,7 @@
         "depth_of_coverage_value": {
           "name": "depth_of_coverage_value",
           "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
-          "title": "depth of coverage value",
+          "title": "depth_of_coverage_value",
           "comments": [
             "Provide value as a fold of coverage."
           ],
@@ -15364,7 +15325,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 139,
+          "rank": 129,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
           "owner": "GRDISample",
@@ -15377,7 +15338,7 @@
         "depth_of_coverage_threshold": {
           "name": "depth_of_coverage_threshold",
           "description": "The threshold used as a cut-off for the depth of coverage.",
-          "title": "depth of coverage threshold",
+          "title": "depth_of_coverage_threshold",
           "comments": [
             "Provide the threshold fold coverage."
           ],
@@ -15387,7 +15348,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 140,
+          "rank": 130,
           "slot_uri": "GENEPIO:0001475",
           "alias": "depth_of_coverage_threshold",
           "owner": "GRDISample",
@@ -15400,7 +15361,7 @@
         "genome_completeness": {
           "name": "genome_completeness",
           "description": "The percentage of expected genes identified in the genome being sequenced. Missing genes indicate missing genomic regions (incompleteness) in the data.",
-          "title": "genome completeness",
+          "title": "genome_completeness",
           "comments": [
             "Provide the genome completeness as a percent (no need to include units)."
           ],
@@ -15410,7 +15371,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 141,
+          "rank": 131,
           "slot_uri": "GENEPIO:0100844",
           "alias": "genome_completeness",
           "owner": "GRDISample",
@@ -15423,7 +15384,7 @@
         "number_of_base_pairs_sequenced": {
           "name": "number_of_base_pairs_sequenced",
           "description": "The number of total base pairs generated by the sequencing process.",
-          "title": "number of base pairs sequenced",
+          "title": "number_of_base_pairs_sequenced",
           "comments": [
             "Provide a numerical value (no need to include units)."
           ],
@@ -15433,7 +15394,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 142,
+          "rank": 132,
           "slot_uri": "GENEPIO:0001482",
           "alias": "number_of_base_pairs_sequenced",
           "owner": "GRDISample",
@@ -15441,12 +15402,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "number_of_total_reads": {
           "name": "number_of_total_reads",
           "description": "The total number of non-unique reads generated by the sequencing process.",
-          "title": "number of total reads",
+          "title": "number_of_total_reads",
           "comments": [
             "Provide a numerical value (no need to include units)."
           ],
@@ -15456,7 +15417,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 143,
+          "rank": 133,
           "slot_uri": "GENEPIO:0100827",
           "alias": "number_of_total_reads",
           "owner": "GRDISample",
@@ -15464,12 +15425,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "number_of_unique_reads": {
           "name": "number_of_unique_reads",
           "description": "The number of unique reads generated by the sequencing process.",
-          "title": "number of unique reads",
+          "title": "number_of_unique_reads",
           "comments": [
             "Provide a numerical value (no need to include units)."
           ],
@@ -15479,7 +15440,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 144,
+          "rank": 134,
           "slot_uri": "GENEPIO:0100828",
           "alias": "number_of_unique_reads",
           "owner": "GRDISample",
@@ -15487,12 +15448,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "minimum_posttrimming_read_length": {
           "name": "minimum_posttrimming_read_length",
           "description": "The threshold used as a cut-off for the minimum length of a read after trimming.",
-          "title": "minimum post-trimming read length",
+          "title": "minimum_post-trimming_read_length",
           "comments": [
             "Provide a numerical value (no need to include units)."
           ],
@@ -15502,7 +15463,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 145,
+          "rank": 135,
           "slot_uri": "GENEPIO:0100829",
           "alias": "minimum_posttrimming_read_length",
           "owner": "GRDISample",
@@ -15510,12 +15471,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "number_of_contigs": {
           "name": "number_of_contigs",
           "description": "The number of contigs (contiguous sequences) in a sequence assembly.",
-          "title": "number of contigs",
+          "title": "number_of_contigs",
           "comments": [
             "Provide a numerical value."
           ],
@@ -15525,7 +15486,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 146,
+          "rank": 136,
           "slot_uri": "GENEPIO:0100937",
           "alias": "number_of_contigs",
           "owner": "GRDISample",
@@ -15533,12 +15494,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "percent_ns_across_total_genome_length": {
           "name": "percent_ns_across_total_genome_length",
           "description": "The percentage of the assembly that consists of ambiguous bases (Ns).",
-          "title": "percent Ns across total genome length",
+          "title": "percent_Ns_across_total_genome_length",
           "comments": [
             "Provide a numerical value (no need to include units)."
           ],
@@ -15548,7 +15509,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 147,
+          "rank": 137,
           "slot_uri": "GENEPIO:0100830",
           "alias": "percent_ns_across_total_genome_length",
           "owner": "GRDISample",
@@ -15556,12 +15517,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "ns_per_100_kbp": {
           "name": "ns_per_100_kbp",
           "description": "The number of ambiguous bases (Ns) normalized per 100 kilobasepairs (kbp).",
-          "title": "Ns per 100 kbp",
+          "title": "Ns_per_100_kbp",
           "comments": [
             "Provide a numerical value (no need to include units)."
           ],
@@ -15571,7 +15532,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 148,
+          "rank": 138,
           "slot_uri": "GENEPIO:0001484",
           "alias": "ns_per_100_kbp",
           "owner": "GRDISample",
@@ -15579,7 +15540,7 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "n50": {
           "name": "n50",
@@ -15594,7 +15555,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 149,
+          "rank": 139,
           "slot_uri": "GENEPIO:0100938",
           "alias": "n50",
           "owner": "GRDISample",
@@ -15602,12 +15563,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "percent_read_contamination_": {
           "name": "percent_read_contamination_",
           "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
-          "title": "percent read contamination",
+          "title": "percent_read_contamination",
           "comments": [
             "Provide the percent contamination value (no need to include units)."
           ],
@@ -15617,7 +15578,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 150,
+          "rank": 140,
           "slot_uri": "GENEPIO:0100845",
           "alias": "percent_read_contamination_",
           "owner": "GRDISample",
@@ -15625,12 +15586,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "sequence_assembly_length": {
           "name": "sequence_assembly_length",
           "description": "The length of the genome generated by assembling reads using a scaffold or by reference-based mapping.",
-          "title": "sequence assembly length",
+          "title": "sequence_assembly_length",
           "comments": [
             "Provide a numerical value (no need to include units)."
           ],
@@ -15640,7 +15601,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 151,
+          "rank": 141,
           "slot_uri": "GENEPIO:0100846",
           "alias": "sequence_assembly_length",
           "owner": "GRDISample",
@@ -15648,12 +15609,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "consensus_genome_length": {
           "name": "consensus_genome_length",
           "description": "The length of the genome defined by the most common nucleotides at each position.",
-          "title": "consensus genome length",
+          "title": "consensus_genome_length",
           "comments": [
             "Provide a numerical value (no need to include units)."
           ],
@@ -15663,7 +15624,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 152,
+          "rank": 142,
           "slot_uri": "GENEPIO:0001483",
           "alias": "consensus_genome_length",
           "owner": "GRDISample",
@@ -15671,12 +15632,12 @@
             "GRDISample"
           ],
           "slot_group": "Bioinformatics and QC metrics",
-          "range": "Integer"
+          "range": "integer"
         },
         "reference_genome_accession": {
           "name": "reference_genome_accession",
           "description": "A persistent, unique identifier of a genome database entry.",
-          "title": "reference genome accession",
+          "title": "reference_genome_accession",
           "comments": [
             "Provide the accession number of the reference genome."
           ],
@@ -15686,7 +15647,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 153,
+          "rank": 143,
           "slot_uri": "GENEPIO:0001485",
           "alias": "reference_genome_accession",
           "owner": "GRDISample",
@@ -15699,7 +15660,7 @@
         "deduplication_method": {
           "name": "deduplication_method",
           "description": "The method used to remove duplicated reads in a sequence read dataset.",
-          "title": "deduplication method",
+          "title": "deduplication_method",
           "comments": [
             "Provide the deduplication software name followed by the version, or a link to a tool or method."
           ],
@@ -15709,7 +15670,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 154,
+          "rank": 144,
           "slot_uri": "GENEPIO:0100831",
           "alias": "deduplication_method",
           "owner": "GRDISample",
@@ -15722,7 +15683,7 @@
         "bioinformatics_protocol": {
           "name": "bioinformatics_protocol",
           "description": "A description of the overall bioinformatics strategy used.",
-          "title": "bioinformatics protocol",
+          "title": "bioinformatics_protocol",
           "comments": [
             "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can. This information can be provided in an SOP or protocol or pipeline/workflow. Provide the name and version number of the protocol, or a GitHub link to a pipeline or workflow."
           ],
@@ -15732,7 +15693,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 155,
+          "rank": 145,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
           "owner": "GRDISample",
@@ -15745,7 +15706,7 @@
         "read_mapping_software_name": {
           "name": "read_mapping_software_name",
           "description": "The name of the software used to map sequence reads to a reference genome or set of reference genes.",
-          "title": "read mapping software name",
+          "title": "read_mapping_software_name",
           "comments": [
             "Provide the name of the read mapping software."
           ],
@@ -15755,7 +15716,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 156,
+          "rank": 146,
           "slot_uri": "GENEPIO:0100832",
           "alias": "read_mapping_software_name",
           "owner": "GRDISample",
@@ -15768,7 +15729,7 @@
         "read_mapping_software_version": {
           "name": "read_mapping_software_version",
           "description": "The version of the software used to map sequence reads to a reference genome or set of reference genes.",
-          "title": "read mapping software version",
+          "title": "read_mapping_software_version",
           "comments": [
             "Provide the version number of the read mapping software."
           ],
@@ -15778,7 +15739,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 157,
+          "rank": 147,
           "slot_uri": "GENEPIO:0100833",
           "alias": "read_mapping_software_version",
           "owner": "GRDISample",
@@ -15791,7 +15752,7 @@
         "taxonomic_reference_database_name": {
           "name": "taxonomic_reference_database_name",
           "description": "The name of the taxonomic reference database used to identify the organism.",
-          "title": "taxonomic reference database name",
+          "title": "taxonomic_reference_database_name",
           "comments": [
             "Provide the name of the taxonomic reference database."
           ],
@@ -15801,7 +15762,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 158,
+          "rank": 148,
           "slot_uri": "GENEPIO:0100834",
           "alias": "taxonomic_reference_database_name",
           "owner": "GRDISample",
@@ -15814,7 +15775,7 @@
         "taxonomic_reference_database_version": {
           "name": "taxonomic_reference_database_version",
           "description": "The version of the taxonomic reference database used to identify the organism.",
-          "title": "taxonomic reference database version",
+          "title": "taxonomic_reference_database_version",
           "comments": [
             "Provide the version number of the taxonomic reference database."
           ],
@@ -15824,7 +15785,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 159,
+          "rank": 149,
           "slot_uri": "GENEPIO:0100835",
           "alias": "taxonomic_reference_database_version",
           "owner": "GRDISample",
@@ -15837,7 +15798,7 @@
         "taxonomic_analysis_report_filename": {
           "name": "taxonomic_analysis_report_filename",
           "description": "The filename of the report containing the results of a taxonomic analysis.",
-          "title": "taxonomic analysis report filename",
+          "title": "taxonomic_analysis_report_filename",
           "comments": [
             "Provide the filename of the report containing the results of the taxonomic analysis."
           ],
@@ -15847,7 +15808,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 160,
+          "rank": 150,
           "slot_uri": "GENEPIO:0101074",
           "alias": "taxonomic_analysis_report_filename",
           "owner": "GRDISample",
@@ -15860,7 +15821,10 @@
         "taxonomic_analysis_date": {
           "name": "taxonomic_analysis_date",
           "description": "The date a taxonomic analysis was performed.",
-          "title": "taxonomic analysis date",
+          "title": "taxonomic_analysis_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Providing the date that an analyis was performed can help provide context for tool and reference database versions. Provide the date that the taxonomic analysis was performed in ISO 8601 format, i.e. \"YYYY-MM-DD\"."
           ],
@@ -15870,7 +15834,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 161,
+          "rank": 151,
           "slot_uri": "GENEPIO:0101075",
           "alias": "taxonomic_analysis_date",
           "owner": "GRDISample",
@@ -15878,12 +15842,12 @@
             "GRDISample"
           ],
           "slot_group": "Taxonomic identification information",
-          "range": "Date"
+          "range": "date"
         },
         "read_mapping_criteria": {
           "name": "read_mapping_criteria",
           "description": "A description of the criteria used to map reads to a reference sequence.",
-          "title": "read mapping criteria",
+          "title": "read_mapping_criteria",
           "comments": [
             "Provide a description of the read mapping criteria."
           ],
@@ -15893,7 +15857,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 162,
+          "rank": 152,
           "slot_uri": "GENEPIO:0100836",
           "alias": "read_mapping_criteria",
           "owner": "GRDISample",
@@ -15916,7 +15880,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 163,
+          "rank": 153,
           "slot_uri": "GENEPIO:0001159",
           "alias": "sequence_submitted_by",
           "owner": "GRDISample",
@@ -15946,7 +15910,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 164,
+          "rank": 154,
           "slot_uri": "GENEPIO:0100474",
           "alias": "sequence_submitted_by_contact_name",
           "owner": "GRDISample",
@@ -15969,7 +15933,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 165,
+          "rank": 155,
           "slot_uri": "GENEPIO:0001165",
           "alias": "sequence_submitted_by_contact_email",
           "owner": "GRDISample",
@@ -15992,7 +15956,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 166,
+          "rank": 156,
           "slot_uri": "GENEPIO:0100475",
           "alias": "publication_id",
           "owner": "GRDISample",
@@ -16015,7 +15979,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 167,
+          "rank": 157,
           "slot_uri": "GENEPIO:0100476",
           "alias": "attribute_package",
           "owner": "GRDISample",
@@ -16049,7 +16013,7 @@
             "BIOSAMPLE:bioproject_accession",
             "NCBI_BIOSAMPLE_Enterics:bioproject_accession"
           ],
-          "rank": 168,
+          "rank": 158,
           "slot_uri": "GENEPIO:0001136",
           "alias": "bioproject_accession",
           "owner": "GRDISample",
@@ -16075,7 +16039,7 @@
           "exact_mappings": [
             "ENA_ANTIBIOGRAM:bioSample_ID"
           ],
-          "rank": 169,
+          "rank": 159,
           "slot_uri": "GENEPIO:0001139",
           "alias": "biosample_accession",
           "owner": "GRDISample",
@@ -16098,7 +16062,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 170,
+          "rank": 160,
           "slot_uri": "GENEPIO:0001142",
           "alias": "sra_accession",
           "owner": "GRDISample",
@@ -16121,7 +16085,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 171,
+          "rank": 161,
           "slot_uri": "GENEPIO:0001145",
           "alias": "genbank_accession",
           "owner": "GRDISample",
@@ -16144,7 +16108,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 172,
+          "rank": 162,
           "slot_uri": "GENEPIO:0100480",
           "alias": "prevalence_metrics",
           "owner": "GRDISample",
@@ -16168,7 +16132,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 173,
+          "rank": 163,
           "slot_uri": "GENEPIO:0100481",
           "alias": "prevalence_metrics_details",
           "owner": "GRDISample",
@@ -16192,7 +16156,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 174,
+          "rank": 164,
           "slot_uri": "GENEPIO:0100482",
           "alias": "stage_of_production",
           "owner": "GRDISample",
@@ -16203,7 +16167,7 @@
           "recommended": true,
           "any_of": [
             {
-              "range": "StageOfProductionMenu"
+              "range": "WhitespaceMinimizedString"
             },
             {
               "range": "NullValueMenu"
@@ -16226,7 +16190,7 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_Enterics:upstream_intervention"
           ],
-          "rank": 175,
+          "rank": 165,
           "slot_uri": "GENEPIO:0100483",
           "alias": "experimental_intervention",
           "owner": "GRDISample",
@@ -16258,7 +16222,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 176,
+          "rank": 166,
           "slot_uri": "GENEPIO:0100484",
           "alias": "experiment_intervention_details",
           "owner": "GRDISample",
@@ -16282,7 +16246,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 177,
+          "rank": 167,
           "slot_uri": "GENEPIO:0100511",
           "alias": "amr_testing_by",
           "owner": "GRDISample",
@@ -16313,7 +16277,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 178,
+          "rank": 168,
           "slot_uri": "GENEPIO:0100512",
           "alias": "amr_testing_by_laboratory_name",
           "owner": "GRDISample",
@@ -16336,7 +16300,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 179,
+          "rank": 169,
           "slot_uri": "GENEPIO:0100513",
           "alias": "amr_testing_by_contact_name",
           "owner": "GRDISample",
@@ -16367,7 +16331,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 180,
+          "rank": 170,
           "slot_uri": "GENEPIO:0100514",
           "alias": "amr_testing_by_contact_email",
           "owner": "GRDISample",
@@ -16389,6 +16353,9 @@
           "name": "amr_testing_date",
           "description": "The date the antimicrobial resistance testing was performed.",
           "title": "AMR_testing_date",
+          "todos": [
+            "<={today}"
+          ],
           "comments": [
             "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
           ],
@@ -16398,7 +16365,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 181,
+          "rank": 171,
           "slot_uri": "GENEPIO:0100515",
           "alias": "amr_testing_date",
           "owner": "GRDISample",
@@ -16406,7 +16373,7 @@
             "GRDISample"
           ],
           "slot_group": "Antimicrobial resistance",
-          "range": "Date"
+          "range": "date"
         },
         "authors": {
           "name": "authors",
@@ -16421,7 +16388,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 182,
+          "rank": 172,
           "slot_uri": "GENEPIO:0001517",
           "alias": "authors",
           "owner": "GRDISample",
@@ -16445,7 +16412,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 183,
+          "rank": 173,
           "slot_uri": "GENEPIO:0001518",
           "alias": "dataharmonizer_provenance",
           "owner": "GRDISample",
@@ -16466,10 +16433,10 @@
         }
       }
     },
-    "AMRTest": {
-      "name": "AMRTest",
-      "description": "Antimicrobial test result",
-      "title": "GRDI Sample",
+    "GRDIIsolate": {
+      "name": "GRDIIsolate",
+      "description": "Sample isolate",
+      "title": "GRDI Isolate",
       "from_schema": "https://example.com/GRDI",
       "slot_usage": {
         "sample_collector_sample_id": {
@@ -16484,6 +16451,413 @@
               "value": "GRDISample.sample_collector_sample_id"
             }
           },
+          "rank": 1,
+          "slot_group": "Key",
+          "range": "GRDISample"
+        },
+        "isolate_id": {
+          "name": "isolate_id",
+          "rank": 2,
+          "identifier": true,
+          "slot_group": "Key",
+          "range": "WhitespaceMinimizedString"
+        },
+        "alternative_isolate_id": {
+          "name": "alternative_isolate_id",
+          "rank": 3,
+          "slot_group": "Strain and isolation information"
+        },
+        "progeny_isolate_id": {
+          "name": "progeny_isolate_id",
+          "rank": 4,
+          "slot_group": "Strain and isolation information"
+        },
+        "irida_isolate_id": {
+          "name": "irida_isolate_id",
+          "rank": 5,
+          "slot_group": "Strain and isolation information"
+        },
+        "irida_project_id": {
+          "name": "irida_project_id",
+          "rank": 6,
+          "slot_group": "Strain and isolation information"
+        },
+        "isolated_by": {
+          "name": "isolated_by",
+          "rank": 7,
+          "slot_group": "Strain and isolation information"
+        },
+        "isolated_by_laboratory_name": {
+          "name": "isolated_by_laboratory_name",
+          "rank": 8,
+          "slot_group": "Strain and isolation information"
+        },
+        "isolated_by_contact_name": {
+          "name": "isolated_by_contact_name",
+          "rank": 9,
+          "slot_group": "Strain and isolation information"
+        },
+        "isolated_by_contact_email": {
+          "name": "isolated_by_contact_email",
+          "rank": 10,
+          "slot_group": "Strain and isolation information"
+        },
+        "isolation_date": {
+          "name": "isolation_date",
+          "rank": 11,
+          "slot_group": "Strain and isolation information"
+        },
+        "isolate_received_date": {
+          "name": "isolate_received_date",
+          "rank": 12,
+          "slot_group": "Strain and isolation information"
+        }
+      },
+      "attributes": {
+        "sample_collector_sample_id": {
+          "name": "sample_collector_sample_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "GRDISample.sample_collector_sample_id"
+            }
+          },
+          "title": "sample_collector_sample_ID",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 1,
+          "slot_uri": "GENEPIO:0001123",
+          "alias": "sample_collector_sample_id",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDISample",
+            "GRDIIsolate"
+          ],
+          "slot_group": "Key",
+          "range": "GRDISample",
+          "required": true
+        },
+        "isolate_id": {
+          "name": "isolate_id",
+          "title": "isolate_ID",
+          "from_schema": "https://example.com/GRDI",
+          "rank": 2,
+          "slot_uri": "GENEPIO:0100456",
+          "identifier": true,
+          "alias": "isolate_id",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate",
+            "AMRTest"
+          ],
+          "slot_group": "Key",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "alternative_isolate_id": {
+          "name": "alternative_isolate_id",
+          "description": "An alternative isolate_ID assigned to the isolate by another organization.",
+          "title": "alternative_isolate_ID",
+          "comments": [
+            "Alternative isolate IDs should be provided in the in a prescribed format which consists of the ID followed by square brackets (no space in between the ID and bracket) containing the short form of ID provider’s agency name i.e. ID[short organization code]. Agency short forms include the following:\nPublic Health Agency of Canada: PHAC\nCanadian Food Inspection Agency: CFIA\nAgriculture and Agri-Food Canada: AAFC\nFisheries and Oceans Canada: DFO\nEnvironment and Climate Change Canada: ECCC\nHealth Canada: HC \nAn example of a properly formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple alternative isolate IDs can be provided, separated by semi-colons."
+          ],
+          "examples": [
+            {
+              "value": "GHIF3456[PHAC]"
+            },
+            {
+              "value": "QWICK222[CFIA]"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_BIOSAMPLE_Enterics:isolate_name_alias"
+          ],
+          "rank": 3,
+          "slot_uri": "GENEPIO:0100457",
+          "alias": "alternative_isolate_id",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "progeny_isolate_id": {
+          "name": "progeny_isolate_id",
+          "description": "The identifier assigned to a progenitor isolate derived from an isolate that was directly obtained from a sample.",
+          "title": "progeny_isolate_ID",
+          "comments": [
+            "If your sequence data pertains to progeny of an original isolate, provide the progeny_isolate_ID."
+          ],
+          "examples": [
+            {
+              "value": "SUB_ON_1526"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 4,
+          "slot_uri": "GENEPIO:0100458",
+          "alias": "progeny_isolate_id",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "range": "WhitespaceMinimizedString"
+        },
+        "irida_isolate_id": {
+          "name": "irida_isolate_id",
+          "description": "The identifier of the isolate in the IRIDA platform.",
+          "title": "IRIDA_isolate_ID",
+          "comments": [
+            "Provide the \"sample ID\" used to track information linked to the isolate in IRIDA. IRIDA sample IDs should be unqiue to avoid ID clash. This is very important in large Projects, especially when samples are shared from different organizations. Download the IRIDA sample ID and add it to the sample data in your spreadsheet as part of good data management practices."
+          ],
+          "examples": [
+            {
+              "value": "GRDI_LL_12345"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 5,
+          "slot_uri": "GENEPIO:0100459",
+          "alias": "irida_isolate_id",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
+        },
+        "irida_project_id": {
+          "name": "irida_project_id",
+          "description": "The identifier of the Project in the iRIDA platform.",
+          "title": "IRIDA_project_ID",
+          "comments": [
+            "Provide the IRIDA \"project ID\"."
+          ],
+          "examples": [
+            {
+              "value": "666"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 6,
+          "slot_uri": "GENEPIO:0100460",
+          "alias": "irida_project_id",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "required": true,
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "NullValueMenu"
+            }
+          ]
+        },
+        "isolated_by": {
+          "name": "isolated_by",
+          "description": "The name of the agency, organization or institution with which the individual who performed the isolation procedure is affiliated.",
+          "title": "isolated_by",
+          "comments": [
+            "Provide the name of the agency, organization or institution that isolated the original isolate in full (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value."
+          ],
+          "examples": [
+            {
+              "value": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 7,
+          "slot_uri": "GENEPIO:0100461",
+          "alias": "isolated_by",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "range": "IsolatedByMenu"
+        },
+        "isolated_by_laboratory_name": {
+          "name": "isolated_by_laboratory_name",
+          "description": "The specific laboratory affiliation of the individual who performed the isolation procedure.",
+          "title": "isolated_by_laboratory_name",
+          "comments": [
+            "Provide the name of the specific laboratory that that isolated the original isolate (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value."
+          ],
+          "examples": [
+            {
+              "value": "Topp Lab"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 8,
+          "slot_uri": "GENEPIO:0100462",
+          "alias": "isolated_by_laboratory_name",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "range": "WhitespaceMinimizedString"
+        },
+        "isolated_by_contact_name": {
+          "name": "isolated_by_contact_name",
+          "description": "The name or title of the contact responsible for follow-up regarding the isolate.",
+          "title": "isolated_by_contact_name",
+          "comments": [
+            "Provide the name of an individual or their job title. As personnel turnover may render the contact's name obsolete, it is prefereable to provide a job title for ensuring accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
+          ],
+          "examples": [
+            {
+              "value": "Enterics Lab Manager"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 9,
+          "slot_uri": "GENEPIO:0100463",
+          "alias": "isolated_by_contact_name",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "range": "WhitespaceMinimizedString"
+        },
+        "isolated_by_contact_email": {
+          "name": "isolated_by_contact_email",
+          "description": "The email address of the contact responsible for follow-up regarding the isolate.",
+          "title": "isolated_by_contact_email",
+          "comments": [
+            "Provide the email associated with the listed contact. As personnel turnover may render an individual's email obsolete, it is more prefereable to provide an address for a position or lab, to ensure accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
+          ],
+          "examples": [
+            {
+              "value": "enterics@lab.ca"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 10,
+          "slot_uri": "GENEPIO:0100464",
+          "alias": "isolated_by_contact_email",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "range": "WhitespaceMinimizedString"
+        },
+        "isolation_date": {
+          "name": "isolation_date",
+          "description": "The date on which the isolate was isolated from a sample.",
+          "title": "isolation_date",
+          "todos": [
+            "<={today}"
+          ],
+          "comments": [
+            "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
+          ],
+          "examples": [
+            {
+              "value": "2020-10-30"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_BIOSAMPLE_Enterics:cult_isol_date"
+          ],
+          "rank": 11,
+          "slot_uri": "GENEPIO:0100465",
+          "alias": "isolation_date",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "range": "date"
+        },
+        "isolate_received_date": {
+          "name": "isolate_received_date",
+          "description": "The date on which the isolate was received by the laboratory.",
+          "title": "isolate_received_date",
+          "todos": [
+            "<={today}"
+          ],
+          "comments": [
+            "Provide the date according to the ISO 8601 standard \"YYYY-MM-DD\", \"YYYY-MM\" or \"YYYY\"."
+          ],
+          "examples": [
+            {
+              "value": "2020-11-15"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 12,
+          "slot_uri": "GENEPIO:0100466",
+          "alias": "isolate_received_date",
+          "owner": "GRDIIsolate",
+          "domain_of": [
+            "GRDIIsolate"
+          ],
+          "slot_group": "Strain and isolation information",
+          "range": "WhitespaceMinimizedString"
+        }
+      },
+      "unique_keys": {
+        "grdiisolate_id": {
+          "unique_key_name": "grdiisolate_id",
+          "unique_key_slots": [
+            "sample_collector_sample_id",
+            "isolate_id"
+          ],
+          "description": "An isolate extracted from a sample, which AMR tests are done on."
+        }
+      }
+    },
+    "AMRTest": {
+      "name": "AMRTest",
+      "description": "Antimicrobial test result",
+      "title": "AMR Test",
+      "from_schema": "https://example.com/GRDI",
+      "slot_usage": {
+        "isolate_id": {
+          "name": "isolate_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "GRDIIsolate.isolate_id"
+            }
+          },
+          "description": "The user-defined name for the sample.",
+          "comments": [
+            "The sample_ID should represent the identifier assigned to the sample at time of collection, for which all the descriptive information applies. If the original sample_ID is unknown or cannot be provided, leave blank or provide a null value."
+          ],
+          "examples": [
+            {
+              "value": "ABCD123"
+            }
+          ],
           "exact_mappings": [
             "BIOSAMPLE:sample_name",
             "NCBI_BIOSAMPLE_Enterics:%2Asample_name",
@@ -16491,7 +16865,7 @@
           ],
           "rank": 1,
           "slot_group": "Key",
-          "range": "GRDISample"
+          "range": "GRDIIsolate"
         },
         "antimicrobial_drug": {
           "name": "antimicrobial_drug",
@@ -16570,8 +16944,8 @@
         }
       },
       "attributes": {
-        "sample_collector_sample_id": {
-          "name": "sample_collector_sample_id",
+        "isolate_id": {
+          "name": "isolate_id",
           "annotations": {
             "required": {
               "tag": "required",
@@ -16579,11 +16953,11 @@
             },
             "foreign_key": {
               "tag": "foreign_key",
-              "value": "GRDISample.sample_collector_sample_id"
+              "value": "GRDIIsolate.isolate_id"
             }
           },
           "description": "The user-defined name for the sample.",
-          "title": "sample_collector_sample_ID",
+          "title": "isolate_ID",
           "comments": [
             "The sample_ID should represent the identifier assigned to the sample at time of collection, for which all the descriptive information applies. If the original sample_ID is unknown or cannot be provided, leave blank or provide a null value."
           ],
@@ -16599,16 +16973,15 @@
             "NCBI_ANTIBIOGRAM:%2Asample_name"
           ],
           "rank": 1,
-          "slot_uri": "GENEPIO:0001123",
-          "identifier": true,
-          "alias": "sample_collector_sample_id",
+          "slot_uri": "GENEPIO:0100456",
+          "alias": "isolate_id",
           "owner": "AMRTest",
           "domain_of": [
-            "GRDISample",
+            "GRDIIsolate",
             "AMRTest"
           ],
           "slot_group": "Key",
-          "range": "GRDISample",
+          "range": "GRDIIsolate",
           "required": true
         },
         "antimicrobial_drug": {
@@ -17015,7 +17388,7 @@
         "amrtest_id": {
           "unique_key_name": "amrtest_id",
           "unique_key_slots": [
-            "sample_collector_sample_id",
+            "isolate_id",
             "antimicrobial_drug"
           ],
           "description": "An AMR test is uniquely identified by the sample_collector_sample_id slot and the tested antibiotic."
@@ -17035,6 +17408,18 @@
             "Container"
           ],
           "range": "GRDISample",
+          "multivalued": true,
+          "inlined_as_list": true
+        },
+        "GRDIIsolates": {
+          "name": "GRDIIsolates",
+          "from_schema": "https://example.com/GRDI",
+          "alias": "GRDIIsolates",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "GRDIIsolate",
           "multivalued": true,
           "inlined_as_list": true
         },

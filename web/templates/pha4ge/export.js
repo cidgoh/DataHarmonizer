@@ -98,7 +98,7 @@ export default {
         ['Restricted Access [GENEPIO:0001810]', null],
       ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_BIOSAMPLE');
@@ -210,7 +210,7 @@ export default {
         ['sequence_submitter_contact_email', []],
       ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_SRA');
@@ -255,7 +255,7 @@ export default {
         ['filename', []],
       ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_Genbank');
@@ -300,7 +300,7 @@ export default {
         ['BioProject', []],
       ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(
@@ -414,7 +414,7 @@ export default {
         'covv_authors',
       ];
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       dh.getHeaderMap(ExportHeaders, sourceFields, 'GISAID');
 

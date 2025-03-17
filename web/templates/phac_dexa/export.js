@@ -108,7 +108,7 @@ export default {
         'sequenced_by_contact_name',
       ];
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       const sourceFieldTitleMap = dh.getFieldTitleMap(sourceFields);
 
