@@ -78,7 +78,7 @@ export default {
         ['DataHarmonizer provenance', []],
     ]);
 
-      const sourceFields = dh.getFields(dh.table);
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
       // Fills in the above mapping (or just set manually above)
       dh.getHeaderMap(ExportHeaders, sourceFields, 'TEST');
 

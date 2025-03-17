@@ -3285,10 +3285,8 @@ slots:
       a null value.
     slot_uri: GENEPIO:0001123
     identifier: true
-    any_of:
-    - range: WhitespaceMinimizedString
-    - range: NullValueMenu
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: ABCD123
     exact_mappings:
@@ -3311,8 +3309,8 @@ slots:
       \ separated by semi-colons. If the information is unknown or cannot be provided,\
       \ leave blank or provide a null value.\""
     slot_uri: GENEPIO:0100427
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: ABCD1234[PHAC]
     - value: 12345rev[CFIA]
@@ -3325,10 +3323,10 @@ slots:
       the sample in full (avoid abbreviations). If the information is unknown or cannot
       be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0001153
+    required: true
     any_of:
     - range: SampleCollectedByMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
     exact_mappings:
@@ -3366,8 +3364,8 @@ slots:
       information is unknown or cannot be provided, leave blank or provide a null
       value.
     slot_uri: GENEPIO:0100430
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: National Microbiological Baseline Study in Broiler Chicken
   sample_plan_id:
@@ -3378,8 +3376,8 @@ slots:
       If the information is unknown or cannot be provided, leave blank or provide
       a null value.
     slot_uri: GENEPIO:0100431
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: 2001_M205
   sample_collector_contact_name:
@@ -3407,10 +3405,10 @@ slots:
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0001156
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: johnnyblogs@lab.ca
   purpose_of_sampling:
@@ -3424,10 +3422,10 @@ slots:
       why it was selected for sequencing, which should be indicated in the "purpose
       of sequencing" field.
     slot_uri: GENEPIO:0001198
+    required: true
     any_of:
     - range: PurposeOfSamplingMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Surveillance [GENEPIO:0100004]
     exact_mappings:
@@ -3537,10 +3535,10 @@ slots:
       the controlled vocabulary provided in the template pick list.  If the information
       is unknown or cannot be provided, provide a null value.
     slot_uri: GENEPIO:0001181
+    required: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Canada [GAZ:00002560]
     exact_mappings:
@@ -3554,10 +3552,10 @@ slots:
     comments: Provide the name of the province/state/region where the sample was collected.  If
       the information is unknown or cannot be provided, provide a null value.
     slot_uri: GENEPIO:0001185
+    required: true
     any_of:
     - range: GeoLocNameStateProvinceRegionMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: British Columbia [GAZ:00002562]
     exact_mappings:
@@ -3646,10 +3644,10 @@ slots:
     comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0001174
+    required: true
     range: date
     todos:
     - <={today}
-    required: true
     examples:
     - value: '2020-10-30'
     exact_mappings:
@@ -3664,10 +3662,10 @@ slots:
       date" will be truncated to the precision specified upon export; "day" for "YYYY-MM-DD",
       "month" for "YYYY-MM", or "year" for "YYYY".
     slot_uri: GENEPIO:0001177
+    required: true
     any_of:
     - range: SampleCollectionDatePrecisionMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: day [UO:0000033]
   sample_collection_end_date:
@@ -3677,13 +3675,13 @@ slots:
     comments: Provide the date that sample collection ended in ISO 8601 format i.e.
       YYYY-MM-DD
     slot_uri: GENEPIO:0101071
+    recommended: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - '>={sample_collection_date}'
     - <={today}
-    recommended: true
     examples:
     - value: '2020-03-18'
   sample_processing_date:
@@ -3708,10 +3706,10 @@ slots:
     description: The time at which sample collection began.
     comments: Provide this time in ISO 8601 24hr format, in your local time.
     slot_uri: GENEPIO:0101072
+    recommended: true
     any_of:
     - range: time
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: 17:15 PST
   sample_collection_end_time:
@@ -3720,10 +3718,10 @@ slots:
     description: The time at which sample collection ended.
     comments: Provide this time in ISO 8601 24hr format, in your local time.
     slot_uri: GENEPIO:0101073
+    recommended: true
     any_of:
     - range: time
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: 19:15 PST
   sample_collection_time_of_day:
@@ -3745,10 +3743,10 @@ slots:
     description: The amount of time over which the sample was collected.
     comments: Provide the numerical value of time.
     slot_uri: GENEPIO:0100766
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: '1900-01-03'
   sample_collection_time_duration_unit:
@@ -3757,10 +3755,10 @@ slots:
     description: The units of the time duration measurement of sample collection.
     comments: Provide the units from the pick list.
     slot_uri: GENEPIO:0100767
+    recommended: true
     any_of:
     - range: SampleCollectionDurationUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Hour
   sample_received_date:
@@ -3796,11 +3794,11 @@ slots:
       environmental site from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     slot_uri: GENEPIO:0001232
+    multivalued: true
+    recommended: true
     any_of:
     - range: EnvironmentalSiteMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Poultry hatchery [ENVO:01001874]
     exact_mappings:
@@ -3817,11 +3815,11 @@ slots:
       environmental material from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     slot_uri: GENEPIO:0001223
+    multivalued: true
+    recommended: true
     any_of:
     - range: EnvironmentalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Soil [ENVO:00001998]
     - value: Water [CHEBI:15377]
@@ -3854,11 +3852,11 @@ slots:
       term can be sourced from this look-up service: https://www.ebi.ac.uk/ols/ontologies/genepio.
       If not applicable, leave blank.'
     slot_uri: GENEPIO:0100443
+    multivalued: true
+    recommended: true
     any_of:
     - range: AnimalOrPlantPopulationMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Turkey [NCBITaxon:9103]
   anatomical_material:
@@ -3870,11 +3868,11 @@ slots:
       select the standardized term and ontology ID for the anatomical material from
       the picklist provided. Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001211
+    multivalued: true
+    recommended: true
     any_of:
     - range: AnatomicalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Tissue [UBERON:0000479]
     - value: Blood [UBERON:0000178]
@@ -3893,11 +3891,11 @@ slots:
       ontology ID for the body product from the picklist provided. Multiple values
       can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001216
+    multivalued: true
+    recommended: true
     any_of:
     - range: BodyProductMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Feces [UBERON:0001988]
     - value: Urine [UBERON:0001088]
@@ -3914,11 +3912,11 @@ slots:
       select the standardized term and ontology ID for the anatomical material from
       the picklist provided. Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001214
+    multivalued: true
+    recommended: true
     any_of:
     - range: AnatomicalPartMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Snout [UBERON:0006333]
     exact_mappings:
@@ -3933,11 +3931,11 @@ slots:
     comments: This field captures more granular spatial information on a host anatomical
       part e.g. dorso-lateral region vs back. Select a term from the picklist.
     slot_uri: GENEPIO:0100700
+    multivalued: true
+    recommended: true
     any_of:
     - range: AnatomicalRegionMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Dorso-lateral region [BSPO:0000080]
   food_product:
@@ -3948,11 +3946,11 @@ slots:
       term and ontology ID for the anatomical material from the picklist provided.
       Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0100444
+    multivalued: true
+    recommended: true
     any_of:
     - range: FoodProductMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Feather meal [FOODON:00003927]
     - value: Bone meal [ENVO:02000054]
@@ -3972,11 +3970,11 @@ slots:
       (e.g. raw, ready-to-eat), any known information about its containment (e.g.
       canned), and any information about a label claim (e.g. organic, fat-free).
     slot_uri: GENEPIO:0100445
+    multivalued: true
+    recommended: true
     any_of:
     - range: FoodProductPropertiesMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Food (chopped) [FOODON:00002777]
     - value: Ready-to-eat (RTE) [FOODON:03316636]
@@ -3992,10 +3990,10 @@ slots:
     comments: Provide any characteristic of the food product, as described on the
       label only.
     slot_uri: FOODON:03602001
+    multivalued: true
     any_of:
     - range: LabelClaimMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Antibiotic free [FOODON:03601063]
     exact_mappings:
@@ -4007,11 +4005,11 @@ slots:
     comments: Provide the common name of the animal. If not applicable, leave blank.
       Multiple entries can be provided, separated by a comma.
     slot_uri: GENEPIO:0100446
+    multivalued: true
+    recommended: true
     any_of:
     - range: AnimalSourceOfFoodMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Chicken [NCBITaxon:9031]
     exact_mappings:
@@ -4037,11 +4035,11 @@ slots:
     description: The type of packaging used to contain a food product.
     comments: If known, provide information regarding how the food product was packaged.
     slot_uri: GENEPIO:0100447
+    multivalued: true
+    recommended: true
     any_of:
     - range: FoodPackagingMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Plastic tray or pan [FOODON:03490126]
     exact_mappings:
@@ -4086,10 +4084,10 @@ slots:
       term and ontology ID for the anatomical material from the picklist provided.
       Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001234
+    recommended: true
     any_of:
     - range: CollectionDeviceMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Drag swab [OBI:0002822]
     exact_mappings:
@@ -4105,10 +4103,10 @@ slots:
       anatomical material from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     slot_uri: GENEPIO:0001241
+    recommended: true
     any_of:
     - range: CollectionMethodMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Rinsing for specimen collection [GENEPIO_0002116]
     exact_mappings:
@@ -4212,10 +4210,10 @@ slots:
       Additional data types may require special permission to access. Contact the
       data provider for more information.
     slot_uri: GENEPIO:0100690
+    multivalued: true
     any_of:
     - range: AvailableDataTypesMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Total coliform count [GENEPIO:0100729]
   available_data_type_details:
@@ -4318,10 +4316,10 @@ slots:
       dryness, sunshine, wind, rain, etc.
     comments: Provide the weather conditions at the time of sample collection.
     slot_uri: GENEPIO:0100779
+    multivalued: true
     any_of:
     - range: SamplingWeatherConditionsMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Rain [ENVO:01001564]
   presampling_weather_conditions:
@@ -4378,10 +4376,10 @@ slots:
       name must be provided (although both can be included, if known).  If known,
       provide the common name.
     slot_uri: GENEPIO:0001386
+    recommended: true
     any_of:
     - range: HostCommonNameMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Cow [NCBITaxon:9913]
     - value: Chicken [NCBITaxon:9913], Human [NCBITaxon:9606]
@@ -4395,10 +4393,10 @@ slots:
       name must be provided (although both can be included, if known).  If known,
       select the scientific name from the picklist provided.
     slot_uri: GENEPIO:0001387
+    recommended: true
     any_of:
     - range: HostScientificNameMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Bos taurus [NCBITaxon:9913]
     - value: Homo sapiens [NCBITaxon:9103]
@@ -4482,8 +4480,8 @@ slots:
       ID of the method is also acceptable if the ID can be linked to the laboratory
       that created the procedure.
     slot_uri: GENEPIO:0100454
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: MFHPB-30
   strain:
@@ -4509,10 +4507,8 @@ slots:
       (e.g. the ID from your lab, if your lab did not isolate the isolate from the
       original sample), make asure to include it in the alternative_isolate_ID field.
     slot_uri: GENEPIO:0100456
-    any_of:
-    - range: WhitespaceMinimizedString
-    - range: NullValueMenu
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: SA20131043
     exact_mappings:
@@ -4532,8 +4528,8 @@ slots:
       \ formatted alternative_isolate_identifier would be e.g. XYZ4567[CFIA]\nMultiple\
       \ alternative isolate IDs can be provided, separated by semi-colons."
     slot_uri: GENEPIO:0100457
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: GHIF3456[PHAC]
     - value: QWICK222[CFIA]
@@ -4560,10 +4556,10 @@ slots:
       organizations. Download the IRIDA sample ID and add it to the sample data in
       your spreadsheet as part of good data management practices.
     slot_uri: GENEPIO:0100459
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: GRDI_LL_12345
   irida_project_id:
@@ -4572,10 +4568,10 @@ slots:
     description: The identifier of the Project in the iRIDA platform.
     comments: Provide the IRIDA "project ID".
     slot_uri: GENEPIO:0100460
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '666'
   isolated_by:
@@ -4667,11 +4663,11 @@ slots:
       organism names that you are confident are present. Also include the taxonomic
       mapping software and reference database(s) used.'
     slot_uri: GENEPIO:0001191
+    multivalued: true
+    required: true
     any_of:
     - range: OrganismMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Salmonella enterica subsp. enterica [NCBITaxon:59201]
     exact_mappings:
@@ -4686,10 +4682,10 @@ slots:
       of the organism by selecting a value from the pick list. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100583
+    recommended: true
     any_of:
     - range: TaxonomicIdentificationProcessMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: PCR assay [OBI:0002740]
   taxonomic_identification_process_details:
@@ -4710,8 +4706,8 @@ slots:
     comments: Only include this information if it has been determined by traditional
       serological methods or a validated in silico prediction tool e.g. SISTR.
     slot_uri: GENEPIO:0100467
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Heidelberg
     exact_mappings:
@@ -4724,8 +4720,8 @@ slots:
       \ \u201CTraditional serotyping\u201D. If the serovar was determined via in silico\
       \ methods, provide the name and version number of the software."
     slot_uri: GENEPIO:0100468
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: SISTR 1.0.1
   phagetype:
@@ -4757,10 +4753,10 @@ slots:
       the sequencing in full (avoid abbreviations). If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100416
+    required: true
     any_of:
     - range: SequencedByMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
     exact_mappings:
@@ -4789,10 +4785,10 @@ slots:
       the information is unknown or cannot be provided, leave blank or provide a null
       value.
     slot_uri: GENEPIO:0100471
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Enterics Lab Manager
   sequenced_by_contact_email:
@@ -4806,10 +4802,10 @@ slots:
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100422
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: enterics@lab.ca
   purpose_of_sequencing:
@@ -4821,11 +4817,11 @@ slots:
       experiment, Environmental testing. If the information is unknown or cannot be
       provided, leave blank or provide a null value.'
     slot_uri: GENEPIO:0001445
+    multivalued: true
+    required: true
     any_of:
     - range: PurposeOfSequencingMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Research [GENEPIO:0100003]
     exact_mappings:
@@ -4836,13 +4832,13 @@ slots:
     description: The date the sample was sequenced.
     comments: ISO 8601 standard "YYYY-MM-DD".
     slot_uri: GENEPIO:0001447
+    required: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - '>={sample_collection_date}'
     - <={today}
-    required: true
     examples:
     - value: '2020-06-22'
   sequencing_project_name:
@@ -5053,10 +5049,10 @@ slots:
       submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the
       New Term Request form.
     slot_uri: GENEPIO:0100559
+    multivalued: true
     any_of:
     - range: QualityControlDeterminationMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: sequence failed quality control
   quality_control_issues:
@@ -5068,10 +5064,10 @@ slots:
       submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the
       New Term Request form.
     slot_uri: GENEPIO:0100560
+    multivalued: true
     any_of:
     - range: QualityControlIssuesMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: low average genome coverage
   quality_control_details:
@@ -5094,10 +5090,10 @@ slots:
       trimming adaptors, quality filtering, etc (e.g. Trimmomatic v. 0.38, Porechop
       v. 0.2.3), or a link to a GitHub protocol.
     slot_uri: GENEPIO:0001458
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Porechop 0.2.3
   dehosting_method:
@@ -5107,10 +5103,10 @@ slots:
     comments: Provide the name and version number of the software used to remove host
       reads.
     slot_uri: GENEPIO:0001459
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Nanostripper
   sequence_assembly_software_name:
@@ -5274,7 +5270,7 @@ slots:
     - value: '150'
   percent_read_contamination_:
     name: percent_read_contamination_
-    title: percent_read_contamination_
+    title: percent_read_contamination
     description: The percent of the total number of reads identified as contamination
       (not belonging to the target organism) in a sequence dataset.
     comments: Provide the percent contamination value (no need to include units).
@@ -5533,8 +5529,8 @@ slots:
       organism". You do not need to provide the actual values, just indicate that
       the information is available.
     slot_uri: GENEPIO:0100480
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Number of total samples collected, Number of positive samples
   prevalence_metrics_details:
@@ -5545,8 +5541,8 @@ slots:
     comments: If there are details pertaining to samples or organism counts in the
       sample plan that might be informative, provide details using free text.
     slot_uri: GENEPIO:0100481
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Hazard organism counts (i.e. Salmonella) do not distinguish between serovars.
   stage_of_production:
@@ -5555,10 +5551,10 @@ slots:
     description: The stage of food production.
     comments: Provide the stage of food production as free text.
     slot_uri: GENEPIO:0100482
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Abattoir [ENVO:01000925]
   experimental_intervention:
@@ -5570,11 +5566,11 @@ slots:
       in studied. If there was an intervention specified in the sample plan, select
       the intervention category from the pick list provided.
     slot_uri: GENEPIO:0100483
+    multivalued: true
+    recommended: true
     any_of:
     - range: ExperimentalInterventionMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Vaccination [NCIT:C15346]
     exact_mappings:
@@ -5587,8 +5583,8 @@ slots:
     comments: If an experimental intervention was applied in the survey, provide details
       in this field as free text.
     slot_uri: GENEPIO:0100484
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: 2% cranberry solution mixed in feed
   amr_testing_by:
@@ -5600,10 +5596,10 @@ slots:
       the AMR testing, in full (avoid abbreviations). If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100511
+    required: true
     any_of:
     - range: AmrTestingByMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]
   amr_testing_by_laboratory_name:
@@ -5629,10 +5625,10 @@ slots:
       information is unknown or cannot be provided, leave blank or provide a null
       value.
     slot_uri: GENEPIO:0100513
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Enterics Lab Manager
   amr_testing_by_contact_email:
@@ -5646,10 +5642,10 @@ slots:
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100514
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: johnnyblogs@lab.ca
   amr_testing_date:
@@ -5670,10 +5666,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -5684,10 +5680,10 @@ slots:
     description: The measured value of amikacin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -5698,10 +5694,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -5712,10 +5708,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -5773,10 +5769,10 @@ slots:
     title: amikacin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -5837,10 +5833,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -5851,10 +5847,10 @@ slots:
     description: The measured value of amoxicillin-clavulanic acid resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -5865,10 +5861,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -5879,10 +5875,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -5940,10 +5936,10 @@ slots:
     title: amoxicillin-clavulanic_acid_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -6004,10 +6000,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -6018,10 +6014,10 @@ slots:
     description: The measured value of ampicillin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -6032,10 +6028,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -6046,10 +6042,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -6107,10 +6103,10 @@ slots:
     title: ampicillin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -6171,10 +6167,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -6185,10 +6181,10 @@ slots:
     description: The measured value of azithromycin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -6199,10 +6195,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -6213,10 +6209,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -6274,10 +6270,10 @@ slots:
     title: azithromycin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -6338,10 +6334,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -6352,10 +6348,10 @@ slots:
     description: The measured value of cefazolin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -6366,10 +6362,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -6380,10 +6376,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -6441,10 +6437,10 @@ slots:
     title: cefazolin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -6505,10 +6501,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -6519,10 +6515,10 @@ slots:
     description: The measured value of cefepime resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -6533,10 +6529,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -6547,10 +6543,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -6608,10 +6604,10 @@ slots:
     title: cefepime_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -6672,10 +6668,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -6686,10 +6682,10 @@ slots:
     description: The measured value of cefotaxime resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -6700,10 +6696,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -6714,10 +6710,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -6775,10 +6771,10 @@ slots:
     title: cefotaxime_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -6839,10 +6835,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -6853,10 +6849,10 @@ slots:
     description: The measured value of cefotaxime-clavulanic acid resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -6867,10 +6863,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -6881,10 +6877,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -6942,10 +6938,10 @@ slots:
     title: cefotaxime-clavulanic_acid_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -7006,10 +7002,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -7020,10 +7016,10 @@ slots:
     description: The measured value of cefoxitin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -7034,10 +7030,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -7048,10 +7044,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -7109,10 +7105,10 @@ slots:
     title: cefoxitin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -7173,10 +7169,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -7187,10 +7183,10 @@ slots:
     description: The measured value of cefpodoxime resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -7201,10 +7197,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -7215,10 +7211,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -7276,10 +7272,10 @@ slots:
     title: cefpodoxime_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -7340,10 +7336,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -7354,10 +7350,10 @@ slots:
     description: The measured value of ceftazidime resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -7368,10 +7364,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -7382,10 +7378,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -7443,10 +7439,10 @@ slots:
     title: ceftazidime_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -7507,10 +7503,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -7521,10 +7517,10 @@ slots:
     description: The measured value of ceftazidime-clavulanic acid resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -7535,10 +7531,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -7549,10 +7545,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -7610,10 +7606,10 @@ slots:
     title: ceftazidime-clavulanic_acid_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -7674,10 +7670,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -7688,10 +7684,10 @@ slots:
     description: The measured value of ceftiofur resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -7702,10 +7698,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -7716,10 +7712,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -7777,10 +7773,10 @@ slots:
     title: ceftiofur_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -7841,10 +7837,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -7855,10 +7851,10 @@ slots:
     description: The measured value of ceftriaxone resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -7869,10 +7865,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -7883,10 +7879,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -7944,10 +7940,10 @@ slots:
     title: ceftriaxone_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -8008,10 +8004,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -8022,10 +8018,10 @@ slots:
     description: The measured value of cephalothin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -8036,10 +8032,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -8050,10 +8046,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -8111,10 +8107,10 @@ slots:
     title: cephalothin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -8175,10 +8171,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -8189,10 +8185,10 @@ slots:
     description: The measured value of chloramphenicol resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -8203,10 +8199,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -8217,10 +8213,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -8278,10 +8274,10 @@ slots:
     title: chloramphenicol_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -8342,10 +8338,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -8356,10 +8352,10 @@ slots:
     description: The measured value of ciprofloxacin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -8370,10 +8366,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -8384,10 +8380,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -8445,10 +8441,10 @@ slots:
     title: ciprofloxacin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -8509,10 +8505,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -8523,10 +8519,10 @@ slots:
     description: The measured value of clindamycin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -8537,10 +8533,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -8551,10 +8547,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -8612,10 +8608,10 @@ slots:
     title: clindamycin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -8676,10 +8672,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -8690,10 +8686,10 @@ slots:
     description: The measured value of doxycycline resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -8704,10 +8700,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -8718,10 +8714,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -8779,10 +8775,10 @@ slots:
     title: doxycycline_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -8843,10 +8839,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -8857,10 +8853,10 @@ slots:
     description: The measured value of enrofloxacin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -8871,10 +8867,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -8885,10 +8881,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -8946,10 +8942,10 @@ slots:
     title: enrofloxacin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -9010,10 +9006,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -9024,10 +9020,10 @@ slots:
     description: The measured value of erythromycin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -9038,10 +9034,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -9052,10 +9048,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -9113,10 +9109,10 @@ slots:
     title: erythromycin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -9177,10 +9173,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -9191,10 +9187,10 @@ slots:
     description: The measured value of florfenicol resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -9205,10 +9201,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -9219,10 +9215,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -9280,10 +9276,10 @@ slots:
     title: florfenicol_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -9344,10 +9340,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -9358,10 +9354,10 @@ slots:
     description: The measured value of gentamicin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -9372,10 +9368,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -9386,10 +9382,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -9447,10 +9443,10 @@ slots:
     title: gentamicin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -9511,10 +9507,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -9525,10 +9521,10 @@ slots:
     description: The measured value of imipenem resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -9539,10 +9535,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -9553,10 +9549,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -9614,10 +9610,10 @@ slots:
     title: imipenem_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -9678,10 +9674,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -9692,10 +9688,10 @@ slots:
     description: The measured value of kanamycin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -9706,10 +9702,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -9720,10 +9716,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -9781,10 +9777,10 @@ slots:
     title: kanamycin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -9845,10 +9841,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -9859,10 +9855,10 @@ slots:
     description: The measured value of levofloxacin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -9873,10 +9869,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -9887,10 +9883,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -9948,10 +9944,10 @@ slots:
     title: levofloxacin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -10012,10 +10008,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -10026,10 +10022,10 @@ slots:
     description: The measured value of linezolid resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -10040,10 +10036,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -10054,10 +10050,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -10115,10 +10111,10 @@ slots:
     title: linezolid_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -10179,10 +10175,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -10193,10 +10189,10 @@ slots:
     description: The measured value of meropenem resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -10207,10 +10203,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -10221,10 +10217,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -10282,10 +10278,10 @@ slots:
     title: meropenem_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -10346,10 +10342,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -10360,10 +10356,10 @@ slots:
     description: The measured value of nalidixic-acid resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -10374,10 +10370,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -10388,10 +10384,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -10449,10 +10445,10 @@ slots:
     title: nalidixic_acid_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -10513,10 +10509,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
   neomycin_measurement:
@@ -10525,10 +10521,10 @@ slots:
     description: The measured value of neomycin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
   neomycin_measurement_units:
@@ -10537,10 +10533,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
   neomycin_measurement_sign:
@@ -10549,10 +10545,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
   neomycin_laboratory_typing_method:
@@ -10602,10 +10598,10 @@ slots:
     title: neomycin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
   neomycin_testing_standard_version:
@@ -10664,10 +10660,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -10678,10 +10674,10 @@ slots:
     description: The measured value of nitrofurantoin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -10692,10 +10688,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -10706,10 +10702,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -10767,10 +10763,10 @@ slots:
     title: nitrofurantoin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -10831,10 +10827,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -10845,10 +10841,10 @@ slots:
     description: The measured value of norfloxacin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -10859,10 +10855,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -10873,10 +10869,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -10934,10 +10930,10 @@ slots:
     title: norfloxacin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -10998,10 +10994,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -11012,10 +11008,10 @@ slots:
     description: The measured value of oxolinic-acid resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -11026,10 +11022,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -11040,10 +11036,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -11101,10 +11097,10 @@ slots:
     title: oxolinic-acid_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -11165,10 +11161,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -11179,10 +11175,10 @@ slots:
     description: The measured value of oxytetracycline resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -11193,10 +11189,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -11207,10 +11203,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -11268,10 +11264,10 @@ slots:
     title: oxytetracycline_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -11332,10 +11328,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
   penicillin_measurement:
@@ -11344,10 +11340,10 @@ slots:
     description: The measured value of penicillin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
   penicillin_measurement_units:
@@ -11356,10 +11352,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
   penicillin_measurement_sign:
@@ -11368,10 +11364,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
   penicillin_laboratory_typing_method:
@@ -11421,10 +11417,10 @@ slots:
     title: penicillin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
   penicillin_testing_standard_version:
@@ -11483,10 +11479,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -11497,10 +11493,10 @@ slots:
     description: The measured value of piperacillin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -11511,10 +11507,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -11525,10 +11521,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -11586,10 +11582,10 @@ slots:
     title: piperacillin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -11650,10 +11646,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -11664,10 +11660,10 @@ slots:
     description: The measured value of piperacillin-tazobactam resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -11678,10 +11674,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -11692,10 +11688,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -11753,10 +11749,10 @@ slots:
     title: piperacillin-tazobactam_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -11817,10 +11813,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -11831,10 +11827,10 @@ slots:
     description: The measured value of polymyxin B resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -11845,10 +11841,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -11859,10 +11855,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -11920,10 +11916,10 @@ slots:
     title: polymyxin-b_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -11984,10 +11980,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -11998,10 +11994,10 @@ slots:
     description: The measured value of quinupristin-dalfopristin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -12012,10 +12008,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -12026,10 +12022,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -12087,10 +12083,10 @@ slots:
     title: quinupristin-dalfopristin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -12151,10 +12147,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -12165,10 +12161,10 @@ slots:
     description: The measured value of streptomycin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -12179,10 +12175,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -12193,10 +12189,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -12254,10 +12250,10 @@ slots:
     title: streptomycin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -12318,10 +12314,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -12332,10 +12328,10 @@ slots:
     description: The measured value of sulfisoxazole resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -12346,10 +12342,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -12360,10 +12356,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -12421,10 +12417,10 @@ slots:
     title: sulfisoxazole_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -12485,10 +12481,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -12499,10 +12495,10 @@ slots:
     description: The measured value of telithromycin resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -12513,10 +12509,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -12527,10 +12523,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -12588,10 +12584,10 @@ slots:
     title: telithromycin_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -12652,10 +12648,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -12666,10 +12662,10 @@ slots:
     description: The measured value of tetracycline resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -12680,10 +12676,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -12694,10 +12690,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -12755,10 +12751,10 @@ slots:
     title: tetracycline_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -12819,10 +12815,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -12833,10 +12829,10 @@ slots:
     description: The measured value of tigecycline resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -12847,10 +12843,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -12861,10 +12857,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -12922,10 +12918,10 @@ slots:
     title: tigecycline_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -12986,10 +12982,10 @@ slots:
     description: The antimicrobial resistance phenotype, as determined by the antibiotic
       susceptibility measurement and testing standard for this antibiotic
     comments: Select a phenotype from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialPhenotypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
     exact_mappings:
@@ -13000,10 +12996,10 @@ slots:
     description: The measured value of trimethoprim-sulfamethoxazole resistance.
     comments: This field should only contain a number (either an integer or a number
       with decimals).
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '4'
     exact_mappings:
@@ -13014,10 +13010,10 @@ slots:
     description: The units of the antimicrobial resistance measurement.
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementUnitsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
     exact_mappings:
@@ -13028,10 +13024,10 @@ slots:
     description: The qualifier associated with the antimicrobial resistance measurement
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
+    required: true
     any_of:
     - range: AntimicrobialMeasurementSignMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
     exact_mappings:
@@ -13089,10 +13085,10 @@ slots:
     title: trimethoprim-sulfamethoxazole_testing_standard
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
+    recommended: true
     any_of:
     - range: AntimicrobialTestingStandardMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
     exact_mappings:
@@ -13155,8 +13151,8 @@ slots:
     comments: Include the first and last names of all individuals that should be attributed,
       separated by a comma.
     slot_uri: GENEPIO:0001517
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Tejinder Singh, Fei Hu, Joe Blogs
   dataharmonizer_provenance:
@@ -15770,6 +15766,8 @@ enums:
         text: Sediment collection [GENEPIO:0100933]
       Soil coring [GENEPIO:0100934]:
         text: Soil coring [GENEPIO:0100934]
+      Surgical removal [XCO:0000026]:
+        text: Surgical removal [XCO:0000026]
       Weep fluid collection (pouring) [GENEPIO:0101003]:
         text: Weep fluid collection (pouring) [GENEPIO:0101003]
   SampleVolumeMeasurementUnitMenu:

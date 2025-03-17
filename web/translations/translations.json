@@ -253,8 +253,8 @@
   },
   "reference_guide_msg_pattern_regex": {
     "en": "Regular expression validator:",
-    "fr": "Motif en tant qu'expression régulière:" 
-  }, 
+    "fr": "Motif en tant qu'expression régulière:"
+  },
   "reference_guide_msg_pattern_hint": {
     "en": "Pattern hint:",
     "fr": "Indice du motif :"

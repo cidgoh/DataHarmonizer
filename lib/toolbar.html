@@ -144,8 +144,6 @@
           data-target="#fill-modal"
           >Fill column...</span
         >
-
-        <span class="dropdown-item disabled" id="version-dropdown-item"></span>
       </div>
     </div>
     <button
@@ -211,6 +209,7 @@
         data-i18n="help_contact"
         >Contact Us</span
       >
+      <span class="dropdown-item disabled" id="version-dropdown-item"></span>
     </div>
   </div>
 
@@ -232,19 +231,8 @@
     </div>
   </div>
 
-  <!-- TODO: replace with translation menu -->
-  <!-- <div class="btn-group" role="group" style="margin-right: 40px">
-    <div class="input-group-prepend">
-      <div class="btn" id="language_label" data-i18n="language_label">
-        Language
-      </div>
-    </div>
-    <div class="input-group-append">
-      <select class="form-control" id="select-language-localization"></select>
-    </div>
-  </div> -->
-
-  <div class="btn-group" role="group" style="margin-right: 40px; display:none">
+  <div class="btn-group" role="group" style="margin-right: 40px">
+    <!-- ; display:none-->
     <div class="input-group-prepend">
       <div class="btn" id="translation_label" data-i18n="translation_label">
         Language
@@ -464,6 +452,7 @@
       </div>
     </div>
   </div>
+
   <div class="modal fade" id="save-as-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -479,7 +468,8 @@
                     type="text"
                     class="form-control"
                     id="base-name-save-as-input"
-                    placeholder="file name"
+                    placeholder="file name (required)"
+                    required="required"
                   />
                   <div class="input-group-append">
                     <select class="form-control" id="file-ext-save-as-select">
@@ -578,6 +568,7 @@
       </div>
     </div>
   </div>
+
   <div class="modal fade" id="export-to-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -593,7 +584,8 @@
                     type="text"
                     class="form-control"
                     id="base-name-export-to-input"
-                    placeholder="file name"
+                    placeholder="file name (required)"
+                    required="required"
                   />
                   <div class="input-group-append">
                     <div class="input-group-text" id="export_file_suffix">
@@ -636,6 +628,7 @@
       </div>
     </div>
   </div>
+
   <div class="modal fade" id="open-error-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -661,6 +654,7 @@
       </div>
     </div>
   </div>
+
   <div
     class="modal fade"
     id="upload-template-error-modal"
@@ -691,6 +685,7 @@
       </div>
     </div>
   </div>
+
   <div class="modal fade" id="jump-to-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -855,6 +850,217 @@
       </div>
     </div>
   </div>
+
+  <!-- Duplicate Primary Key Warning -->
+  <div
+    class="modal fade"
+    id="duplicate-primary-key-modal"
+    tabindex="-1"
+    role="dialog"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col text-danger">
+                This primary key value already exists. The previous value will
+                be retained.
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  data-i18n="template-ok"
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Key Change Warning -->
+  <div
+    class="modal fade"
+    id="primary-key-change-modal"
+    tabindex="-1"
+    role="dialog"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col text-danger">
+                Changing a primary key will affect related records. Do you want
+                to proceed?
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-2 col-sm-6"></div>
+              <div class="col d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  data-i18n="template-cancel"
+                >
+                  Cancel
+                </button>
+              </div>
+              <div class="col d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="pk-change-confirm-btn"
+                  data-dismiss="modal"
+                  data-i18n="template-continue"
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Key Delete Warning -->
+  <div
+    class="modal fade"
+    id="primary-key-delete-modal"
+    tabindex="-1"
+    role="dialog"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col text-danger">
+                Deleting this primary key will also remove related foreign key
+                entries. Continue?
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-2 col-sm-6"></div>
+              <div class="col d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  data-i18n="template-cancel"
+                >
+                  Cancel
+                </button>
+              </div>
+              <div class="col d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="pk-delete-confirm-btn"
+                  data-dismiss="modal"
+                  data-i18n="template-continue"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Undo Changes Warning -->
+  <div class="modal fade" id="undo-changes-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col text-danger">
+                Are you sure you want to undo all changes to primary keys?
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-2 col-sm-6"></div>
+              <div class="col d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  data-i18n="template-cancel"
+                >
+                  Cancel
+                </button>
+              </div>
+              <div class="col d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="undo-confirm-btn"
+                  data-dismiss="modal"
+                  data-i18n="template-continue"
+                >
+                  Undo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty Parent Key Warning -->
+  <div
+    class="modal fade"
+    id="empty-parent-key-modal"
+    tabindex="-1"
+    role="dialog"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col text-danger">
+                <!--data-i18n="template-cancel"-->
+                Before new records can be inserted here, you need to select a
+                parent table (tab) record so that it is linked by the
+                appropriate key field value(s) below.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col"><ul id="empty-parent-key-modal-info"></ul></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  data-i18n="template-ok"
+                >
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="missing-template-modal" role="dialog" style="display: none">
     <div class="modal-dialog" role="document">
       <div class="modal-content" style="z-index: 2000">

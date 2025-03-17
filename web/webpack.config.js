@@ -41,7 +41,8 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './index.html',
       }),
-      new CopyPlugin({ // Covers all schema.json including locales
+      new CopyPlugin({
+        // Covers all schema.json including locales
         patterns: [
           {
             context: 'templates',

@@ -172,5 +172,51 @@
         "display": true
       }
     }
+  },
+  "DH_LinkML": {
+    "folder": "schema_editor",
+    "id": "https://example.com/DH_LinkML",
+    "version": "1.0.0",
+    "templates": {
+      "Schema": {
+        "name": "Schema",
+        "display": true
+      },
+      "Prefix": {
+        "name": "Prefix",
+        "display": true
+      },
+      "Slot": {
+        "name": "Slot",
+        "display": true
+      },
+      "Enum": {
+        "name": "Enum",
+        "display": true
+      },
+      "PermissibleValue": {
+        "name": "PermissibleValue",
+        "display": true
+      },
+      "Class": {
+        "name": "Class",
+        "display": true
+      },
+      "SlotUsage": {
+        "name": "SlotUsage",
+        "display": true
+      },
+      "UniqueKey": {
+        "name": "UniqueKey",
+        "display": true
+      },
+      "Container": {
+        "name": "Container",
+        "display": false
+      }
+    },
+    "locales": [
+      "en"
+    ]
   }
 }
