@@ -3978,6 +3978,9 @@
         "Soil coring [GENEPIO:0100934]": {
           "text": "Soil coring [GENEPIO:0100934]"
         },
+        "Surgical removal [XCO:0000026]": {
+          "text": "Surgical removal [XCO:0000026]"
+        },
         "Weep fluid collection (pouring) [GENEPIO:0101003]": {
           "text": "Weep fluid collection (pouring) [GENEPIO:0101003]"
         }
@@ -6171,15 +6174,8 @@
       "domain_of": [
         "GRDI"
       ],
-      "required": true,
-      "any_of": [
-        {
-          "range": "WhitespaceMinimizedString"
-        },
-        {
-          "range": "NullValueMenu"
-        }
-      ]
+      "range": "WhitespaceMinimizedString",
+      "required": true
     },
     "alternative_sample_id": {
       "name": "alternative_sample_id",
@@ -8380,15 +8376,8 @@
       "domain_of": [
         "GRDI"
       ],
-      "required": true,
-      "any_of": [
-        {
-          "range": "WhitespaceMinimizedString"
-        },
-        {
-          "range": "NullValueMenu"
-        }
-      ]
+      "range": "WhitespaceMinimizedString",
+      "required": true
     },
     "alternative_isolate_id": {
       "name": "alternative_isolate_id",
@@ -9755,7 +9744,7 @@
     "percent_read_contamination_": {
       "name": "percent_read_contamination_",
       "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
-      "title": "percent_read_contamination_",
+      "title": "percent_read_contamination",
       "comments": [
         "Provide the percent contamination value (no need to include units)."
       ],
@@ -29702,15 +29691,8 @@
             "GRDI"
           ],
           "slot_group": "Sample collection and processing",
-          "required": true,
-          "any_of": [
-            {
-              "range": "WhitespaceMinimizedString"
-            },
-            {
-              "range": "NullValueMenu"
-            }
-          ]
+          "range": "WhitespaceMinimizedString",
+          "required": true
         },
         "alternative_sample_id": {
           "name": "alternative_sample_id",
@@ -32259,15 +32241,8 @@
             "GRDI"
           ],
           "slot_group": "Strain and isolation information",
-          "required": true,
-          "any_of": [
-            {
-              "range": "WhitespaceMinimizedString"
-            },
-            {
-              "range": "NullValueMenu"
-            }
-          ]
+          "range": "WhitespaceMinimizedString",
+          "required": true
         },
         "alternative_isolate_id": {
           "name": "alternative_isolate_id",
@@ -33882,7 +33857,7 @@
         "percent_read_contamination_": {
           "name": "percent_read_contamination_",
           "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
-          "title": "percent_read_contamination_",
+          "title": "percent_read_contamination",
           "comments": [
             "Provide the percent contamination value (no need to include units)."
           ],
