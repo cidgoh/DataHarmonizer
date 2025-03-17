@@ -65,37 +65,32 @@ $(dhRoot).append(`
 // Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
   const context = new AppContext();
-  context
-    .reload(context.appConfig.template_path)
-    .then(async (context) => {
+  context.reload(context.appConfig.template_path).then(async (context) => {
+    // FUTURE: possibly connect to locale of browser!
+    // Takes `lang` as argument (unused)
+    initI18n((/* lang */) => {
+      $(document).localize();
 
-      // FUTURE: possibly connect to locale of browser!
-      // Takes `lang` as argument (unused)
-      initI18n((/* lang */) => {
-        $(document).localize();
+      // HACK: manual content refereshes
+      // usually because the HTML is custom generated/not from a template, or has inset translation code
+      $('#getting-started-carousel-container').html(getGettingStartedMarkup());
+    });
 
-        // HACK: manual content refereshes
-        // usually because the HTML is custom generated/not from a template, or has inset translation code
-        $('#getting-started-carousel-container').html(
-          getGettingStartedMarkup()
-        );
-      });
+    new Toolbar(dhToolbarRoot, context, {
+      templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+      releasesURL:
+        'https://github.com/cidgoh/pathogen-genomics-package/releases',
+      getLanguages: context.getLocaleData.bind(context),
+      // getExportFormats() is an dictionary object of exports available for a given schema
+      // The Toolbar constructor will set this to _defaultGetExportFormats() if none given;
+      // getExportFormats: context.getExportFormats.bind(context),
+      getSchema: async (schema) =>
+        Template.create(schema).then((result) => result.current.schema),
+    });
 
-      new Toolbar(dhToolbarRoot, context, {
-        templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
-        releasesURL:
-          'https://github.com/cidgoh/pathogen-genomics-package/releases',
-        getLanguages: context.getLocaleData.bind(context),
-        // getExportFormats() is an dictionary object of exports available for a given schema
-        // The Toolbar constructor will set this to _defaultGetExportFormats() if none given; 
-        // getExportFormats: context.getExportFormats.bind(context),
-        getSchema: async (schema) =>
-          Template.create(schema).then((result) => result.current.schema),
-      });
-
-      new Footer(dhFooterRoot, context);
-      return context;
-    })
+    new Footer(dhFooterRoot, context);
+    return context;
+  });
 };
 
 document.addEventListener('DOMContentLoaded', main);
