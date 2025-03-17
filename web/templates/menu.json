@@ -37,25 +37,13 @@
     }
   },
   "GRDI": {
-    "folder": "grdi_1m",
+    "folder": "grdi",
     "id": "https://example.com/GRDI",
     "version": "14.5.5",
     "templates": {
-      "GRDISample": {
-        "name": "GRDISample",
+      "GRDI": {
+        "name": "GRDI",
         "display": true
-      },
-      "GRDIIsolate": {
-        "name": "GRDIIsolate",
-        "display": false
-      },
-      "AMRTest": {
-        "name": "AMRTest",
-        "display": false
-      },
-      "Container": {
-        "name": "Container",
-        "display": false
       }
     }
   },
