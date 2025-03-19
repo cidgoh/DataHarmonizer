@@ -1720,6 +1720,77 @@
     }
   },
   "slots": {
+    "mifc_id": {
+      "name": "mifc_id",
+      "description": "A string denoting the primary identifier for a MIFC schema conformant database. Note that mifc_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
+      "comments": [
+        "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
+      ],
+      "examples": [
+        {
+          "value": "168566"
+        }
+      ],
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "identifier": true,
+      "domain_of": [
+        "MIFCResource",
+        "Component"
+      ],
+      "range": "string",
+      "required": true
+    },
+    "resource_dataset_label": {
+      "name": "resource_dataset_label",
+      "description": "A string corresponding to the labeled name of dataset (e.g., \"Standard Reference (SR) Legacy\").",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "MIFCResource"
+      ],
+      "recommended": true
+    },
+    "resource_mifc_version_tag": {
+      "name": "resource_mifc_version_tag",
+      "description": "A string corresponding to a named MIFC release number (e.g., \"v1.0.1\").",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "MIFCResource"
+      ],
+      "recommended": true
+    },
+    "resource_contributor_orcid": {
+      "name": "resource_contributor_orcid",
+      "description": "A string corresponding to a \"|\" delimited list of ORCIDs of people who contributed to a MIFC formatted dataset. See https://orcid.org/.",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "MIFCResource"
+      ],
+      "recommended": true
+    },
+    "resource_organization_name": {
+      "name": "resource_organization_name",
+      "description": "A string corresponding to a \"|\" delimited list of organizations who created or help to create to a MIFC formatted dataset. E.g., \"USDA\".",
+      "in_subset": [
+        "RecommendedSubset"
+      ],
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "domain_of": [
+        "MIFCResource"
+      ],
+      "recommended": true
+    },
     "food_sample_id": {
       "name": "food_sample_id",
       "description": "A string denoting the primary identifier for a sample of the class Food. Note that food_sample_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
@@ -1736,7 +1807,8 @@
       ],
       "from_schema": "https://w3id.org/kaiiam/mifc",
       "domain_of": [
-        "Food"
+        "Food",
+        "Component"
       ],
       "range": "string",
       "required": true
@@ -2526,54 +2598,6 @@
         "Component"
       ]
     },
-    "provenance_dataset_label": {
-      "name": "provenance_dataset_label",
-      "description": "A string corresponding to the labeled name of dataset (e.g., \"Standard Reference (SR) Legacy\").",
-      "in_subset": [
-        "RecommendedSubset"
-      ],
-      "from_schema": "https://w3id.org/kaiiam/mifc",
-      "domain_of": [
-        "Provenance"
-      ],
-      "recommended": true
-    },
-    "provenance_mifc_version_tag": {
-      "name": "provenance_mifc_version_tag",
-      "description": "A string corresponding to a named MIFC release number (e.g., \"v1.0.1\").",
-      "in_subset": [
-        "RecommendedSubset"
-      ],
-      "from_schema": "https://w3id.org/kaiiam/mifc",
-      "domain_of": [
-        "Provenance"
-      ],
-      "recommended": true
-    },
-    "provenance_contributor_orcid": {
-      "name": "provenance_contributor_orcid",
-      "description": "A string corresponding to a \"|\" delimited list of ORCIDs of people who contributed to a MIFC formatted dataset. See https://orcid.org/.",
-      "in_subset": [
-        "RecommendedSubset"
-      ],
-      "from_schema": "https://w3id.org/kaiiam/mifc",
-      "domain_of": [
-        "Provenance"
-      ],
-      "recommended": true
-    },
-    "provenance_organization_name": {
-      "name": "provenance_organization_name",
-      "description": "A string corresponding to a \"|\" delimited list of organizations who created or help to create to a MIFC formatted dataset. E.g., \"USDA\".",
-      "in_subset": [
-        "RecommendedSubset"
-      ],
-      "from_schema": "https://w3id.org/kaiiam/mifc",
-      "domain_of": [
-        "Provenance"
-      ],
-      "recommended": true
-    },
     "food_laboratory_sample_id": {
       "name": "food_laboratory_sample_id",
       "description": "A string denoting an identifier of a laboratory sample which was prepared from a food sample.",
@@ -2609,13 +2633,111 @@
     }
   },
   "classes": {
-    "NamedThing": {
-      "name": "NamedThing",
-      "from_schema": "https://w3id.org/kaiiam/mifc",
-      "close_mappings": [
-        "schema:Thing"
+    "MIFCResource": {
+      "name": "MIFCResource",
+      "description": "Supplemental data about the resource of a Food and Component dataset collection standardized using MIFC.",
+      "title": "MIFC Resource",
+      "in_subset": [
+        "RecommendedSubset"
       ],
-      "abstract": true
+      "from_schema": "https://w3id.org/kaiiam/mifc",
+      "attributes": {
+        "mifc_id": {
+          "name": "mifc_id",
+          "description": "A string denoting the primary identifier for a MIFC schema conformant database. Note that mifc_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
+          "comments": [
+            "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
+          ],
+          "examples": [
+            {
+              "value": "168566"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "identifier": true,
+          "alias": "mifc_id",
+          "owner": "MIFCResource",
+          "domain_of": [
+            "MIFCResource",
+            "Component"
+          ],
+          "range": "string",
+          "required": true
+        },
+        "resource_dataset_label": {
+          "name": "resource_dataset_label",
+          "description": "A string corresponding to the labeled name of dataset (e.g., \"Standard Reference (SR) Legacy\").",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "resource_dataset_label",
+          "owner": "MIFCResource",
+          "domain_of": [
+            "MIFCResource"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "resource_mifc_version_tag": {
+          "name": "resource_mifc_version_tag",
+          "description": "A string corresponding to a named MIFC release number (e.g., \"v1.0.1\").",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "resource_mifc_version_tag",
+          "owner": "MIFCResource",
+          "domain_of": [
+            "MIFCResource"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "resource_contributor_orcid": {
+          "name": "resource_contributor_orcid",
+          "description": "A string corresponding to a \"|\" delimited list of ORCIDs of people who contributed to a MIFC formatted dataset. See https://orcid.org/.",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "resource_contributor_orcid",
+          "owner": "MIFCResource",
+          "domain_of": [
+            "MIFCResource"
+          ],
+          "range": "string",
+          "recommended": true
+        },
+        "resource_organization_name": {
+          "name": "resource_organization_name",
+          "description": "A string corresponding to a \"|\" delimited list of organizations who created or help to create to a MIFC formatted dataset. E.g., \"USDA\".",
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "resource_organization_name",
+          "owner": "MIFCResource",
+          "domain_of": [
+            "MIFCResource"
+          ],
+          "range": "string",
+          "recommended": true
+        }
+      },
+      "class_uri": "schema:MIFCResource",
+      "unique_keys": {
+        "mifc_resource_key": {
+          "unique_key_name": "mifc_resource_key",
+          "unique_key_slots": [
+            "sample_collector_sample_id"
+          ],
+          "description": "An MIFC Resource is uniquely identified by the sample_collector_sample_id slot."
+        }
+      }
     },
     "Food": {
       "name": "Food",
@@ -2627,10 +2749,34 @@
         "RecommendedSubset"
       ],
       "from_schema": "https://w3id.org/kaiiam/mifc",
-      "is_a": "NamedThing",
+      "slot_usage": {
+        "food_sample_id": {
+          "name": "food_sample_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "MIFCResource.mifc_id"
+            }
+          }
+        }
+      },
       "attributes": {
         "food_sample_id": {
           "name": "food_sample_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "MIFCResource.mifc_id"
+            }
+          },
           "description": "A string denoting the primary identifier for a sample of the class Food. Note that food_sample_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
           "comments": [
             "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
@@ -2647,7 +2793,8 @@
           "alias": "food_sample_id",
           "owner": "Food",
           "domain_of": [
-            "Food"
+            "Food",
+            "Component"
           ],
           "range": "string",
           "required": true
@@ -3307,7 +3454,17 @@
           "range": "string"
         }
       },
-      "class_uri": "schema:Food"
+      "class_uri": "schema:Food",
+      "unique_keys": {
+        "mifc_food_key": {
+          "unique_key_name": "mifc_food_key",
+          "unique_key_slots": [
+            "mifc_id",
+            "food_sample_id"
+          ],
+          "description": "An MIFC Resource is uniquely identified by the sample_collector_sample_id slot."
+        }
+      }
     },
     "Component": {
       "name": "Component",
@@ -3316,8 +3473,81 @@
         "RecommendedSubset"
       ],
       "from_schema": "https://w3id.org/kaiiam/mifc",
-      "is_a": "NamedThing",
+      "slot_usage": {
+        "food_sample_id": {
+          "name": "food_sample_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Food.food_sample_id"
+            }
+          }
+        }
+      },
       "attributes": {
+        "mifc_id": {
+          "name": "mifc_id",
+          "description": "A string denoting the primary identifier for a MIFC schema conformant database. Note that mifc_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
+          "comments": [
+            "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
+          ],
+          "examples": [
+            {
+              "value": "168566"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "identifier": true,
+          "alias": "mifc_id",
+          "owner": "Component",
+          "domain_of": [
+            "MIFCResource",
+            "Component"
+          ],
+          "range": "string",
+          "required": true
+        },
+        "food_sample_id": {
+          "name": "food_sample_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Food.food_sample_id"
+            }
+          },
+          "description": "A string denoting the primary identifier for a sample of the class Food. Note that food_sample_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
+          "comments": [
+            "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
+          ],
+          "examples": [
+            {
+              "value": "168566"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "food_sample_id",
+          "owner": "Component",
+          "domain_of": [
+            "Food",
+            "Component"
+          ],
+          "range": "string",
+          "required": true
+        },
         "component_sample_id": {
           "name": "component_sample_id",
           "description": "A string denoting the primary identifier for a sample of the class Component.",
@@ -3677,84 +3907,34 @@
           "range": "string"
         }
       },
-      "class_uri": "schema:Component"
-    },
-    "Provenance": {
-      "name": "Provenance",
-      "description": "Supplemental data about the provenance of a Food and Component dataset collection standardized using MIFC.",
-      "in_subset": [
-        "RecommendedSubset"
-      ],
-      "from_schema": "https://w3id.org/kaiiam/mifc",
-      "is_a": "NamedThing",
-      "attributes": {
-        "provenance_dataset_label": {
-          "name": "provenance_dataset_label",
-          "description": "A string corresponding to the labeled name of dataset (e.g., \"Standard Reference (SR) Legacy\").",
-          "in_subset": [
-            "RecommendedSubset"
+      "class_uri": "schema:Component",
+      "unique_keys": {
+        "mifc_component_key": {
+          "unique_key_name": "mifc_component_key",
+          "unique_key_slots": [
+            "food_sample_id",
+            "component_sample_id"
           ],
-          "from_schema": "https://w3id.org/kaiiam/mifc",
-          "alias": "provenance_dataset_label",
-          "owner": "Provenance",
-          "domain_of": [
-            "Provenance"
-          ],
-          "range": "string",
-          "recommended": true
-        },
-        "provenance_mifc_version_tag": {
-          "name": "provenance_mifc_version_tag",
-          "description": "A string corresponding to a named MIFC release number (e.g., \"v1.0.1\").",
-          "in_subset": [
-            "RecommendedSubset"
-          ],
-          "from_schema": "https://w3id.org/kaiiam/mifc",
-          "alias": "provenance_mifc_version_tag",
-          "owner": "Provenance",
-          "domain_of": [
-            "Provenance"
-          ],
-          "range": "string",
-          "recommended": true
-        },
-        "provenance_contributor_orcid": {
-          "name": "provenance_contributor_orcid",
-          "description": "A string corresponding to a \"|\" delimited list of ORCIDs of people who contributed to a MIFC formatted dataset. See https://orcid.org/.",
-          "in_subset": [
-            "RecommendedSubset"
-          ],
-          "from_schema": "https://w3id.org/kaiiam/mifc",
-          "alias": "provenance_contributor_orcid",
-          "owner": "Provenance",
-          "domain_of": [
-            "Provenance"
-          ],
-          "range": "string",
-          "recommended": true
-        },
-        "provenance_organization_name": {
-          "name": "provenance_organization_name",
-          "description": "A string corresponding to a \"|\" delimited list of organizations who created or help to create to a MIFC formatted dataset. E.g., \"USDA\".",
-          "in_subset": [
-            "RecommendedSubset"
-          ],
-          "from_schema": "https://w3id.org/kaiiam/mifc",
-          "alias": "provenance_organization_name",
-          "owner": "Provenance",
-          "domain_of": [
-            "Provenance"
-          ],
-          "range": "string",
-          "recommended": true
+          "description": "An MIFC Resource is uniquely identified by the sample_collector_sample_id slot."
         }
-      },
-      "class_uri": "schema:Provenance"
+      }
     },
     "Container": {
       "name": "Container",
       "from_schema": "https://w3id.org/kaiiam/mifc",
       "attributes": {
+        "resources": {
+          "name": "resources",
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "resources",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "MIFCResource",
+          "multivalued": true,
+          "inlined_as_list": true
+        },
         "foods": {
           "name": "foods",
           "from_schema": "https://w3id.org/kaiiam/mifc",
@@ -3776,18 +3956,6 @@
             "Container"
           ],
           "range": "Component",
-          "multivalued": true,
-          "inlined_as_list": true
-        },
-        "provenances": {
-          "name": "provenances",
-          "from_schema": "https://w3id.org/kaiiam/mifc",
-          "alias": "provenances",
-          "owner": "Container",
-          "domain_of": [
-            "Container"
-          ],
-          "range": "Provenance",
           "multivalued": true,
           "inlined_as_list": true
         }

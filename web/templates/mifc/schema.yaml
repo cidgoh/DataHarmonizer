@@ -37,15 +37,36 @@ classes:
   ## --
   ## Parent class for Foods and Components
   ## --
-  NamedThing:
-    abstract: true     ## should not be instantiated directly
-    close_mappings:
-      - schema:Thing
+##  NamedThing:
+##    abstract: true     ## should not be instantiated directly
+##    close_mappings:
+##      - schema:Thing
+
+  MIFCResource:
+    title: MIFC Resource
+    description: >-
+      Supplemental data about the resource of a Food and Component dataset collection standardized using MIFC.
+##    is_a: NamedThing
+    class_uri: schema:MIFCResource
+    in_subset:
+      - RecommendedSubset
+    slots: ## Slots specific to MIFCResource
+      - mifc_id
+      - resource_dataset_label
+      - resource_mifc_version_tag
+      - resource_contributor_orcid
+      - resource_organization_name
+    unique_keys:
+      mifc_resource_key:
+        description: An MIFC Resource is uniquely identified by the sample_collector_sample_id
+          slot.
+        unique_key_slots:
+        - sample_collector_sample_id
 
   Food:
     description: >-
       Metadata about foods analyzed for components of nutritional interest.
-    is_a: NamedThing  ## inheritance
+##    is_a: NamedThing  ## inheritance
     class_uri: schema:Food
     in_subset:
       - RecommendedSubset
@@ -92,15 +113,33 @@ classes:
       - food_label_weight_unit
     id_prefixes:
       - mifc
+    unique_keys:
+      mifc_food_key:
+        description: An MIFC Resource is uniquely identified by the sample_collector_sample_id
+          slot.
+        unique_key_slots:
+        - mifc_id
+        - food_sample_id
+    slot_usage:
+      food_sample_id:
+        annotations:
+          required:
+            tag: required
+            value: True
+          foreign_key:
+            tag: foreign_key
+            value: MIFCResource.mifc_id
 
   Component:
     description: >-
       Metadata about components of nutritional interest measured from foods.
-    is_a: NamedThing
+##    is_a: NamedThing
     class_uri: schema:Component
     in_subset:
       - RecommendedSubset
     slots: ## Slots specific to components of nutritional interest
+      - mifc_id
+      - food_sample_id
       - component_sample_id
       - component_type
       - component_type_label
@@ -124,23 +163,39 @@ classes:
       - food_laboratory_sample_id
       - food_laboratory_sample_aliquot_id
       - food_laboratory_sample_batch_id
-
-  Provenance:
-    description: >-
-      Supplemental data about the provenance of a Food and Component dataset collection standardized using MIFC.
-    is_a: NamedThing
-    class_uri: schema:Provenance
-    in_subset:
-      - RecommendedSubset
-    slots: ## Slots specific to Provenance
-      - provenance_dataset_label
-      - provenance_mifc_version_tag
-      - provenance_contributor_orcid
-      - provenance_organization_name
+    unique_keys:
+      mifc_component_key:
+        description: An MIFC Resource is uniquely identified by the sample_collector_sample_id
+          slot.
+        unique_key_slots:
+#        - mifc_id
+        - food_sample_id
+        - component_sample_id      
+    slot_usage:
+#      mifc_id
+#        annotations:
+#          required:
+#            tag: required
+#            value: True
+#          foreign_key:
+#            tag: foreign_key
+#            value: MIFCResource.mifc_id
+      food_sample_id:
+        annotations:
+          required:
+            tag: required
+            value: True
+          foreign_key:
+            tag: foreign_key
+            value: Food.food_sample_id
 
   Container:
     tree_root: true
     attributes:
+      resources:
+        multivalued: true
+        inlined_as_list: true
+        range: MIFCResource
       foods:
         multivalued: true
         inlined_as_list: true
@@ -149,13 +204,45 @@ classes:
         multivalued: true
         inlined_as_list: true
         range: Component
-      provenances:
-        multivalued: true
-        inlined_as_list: true
-        range: Provenance
 
 slots:
+
+
+  # MIFCResource slots
+  mifc_id:
+    description: A string denoting the primary identifier for a MIFC schema conformant database. Note that mifc_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.
+    required: true
+    range: string
+    identifier: true # Forces mifc_id keys to be unique in context of given class
+    comments:
+      - "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
+    in_subset:
+      - RecommendedSubset
+    examples:
+      - value: 168566
+  resource_dataset_label:
+    description: A string corresponding to the labeled name of dataset (e.g., "Standard Reference (SR) Legacy").
+    recommended: true #Might want to make this field required
+    in_subset:
+      - RecommendedSubset
+  resource_mifc_version_tag:
+    description: A string corresponding to a named MIFC release number (e.g., "v1.0.1").
+    recommended: true #Might want to make this field required
+    in_subset:
+      - RecommendedSubset
+  resource_contributor_orcid:
+    description: A string corresponding to a "|" delimited list of ORCIDs of people who contributed to a MIFC formatted dataset. See https://orcid.org/.
+    recommended: true
+    in_subset:
+      - RecommendedSubset
+  resource_organization_name:
+    description: A string corresponding to a "|" delimited list of organizations who created or help to create to a MIFC formatted dataset. E.g., "USDA".
+    recommended: true
+    in_subset:
+      - RecommendedSubset
+
   # Food slots
+
   food_sample_id:
     description: A string denoting the primary identifier for a sample of the class Food. Note that food_sample_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.
     required: true
@@ -476,27 +563,6 @@ slots:
     #range: boolean
   #    is_a: boolean_slot
 
-  # Provenance slots
-  provenance_dataset_label:
-    description: A string corresponding to the labeled name of dataset (e.g., "Standard Reference (SR) Legacy").
-    recommended: true #Might want to make this field required
-    in_subset:
-      - RecommendedSubset
-  provenance_mifc_version_tag:
-    description: A string corresponding to a named MIFC release number (e.g., "v1.0.1").
-    recommended: true #Might want to make this field required
-    in_subset:
-      - RecommendedSubset
-  provenance_contributor_orcid:
-    description: A string corresponding to a "|" delimited list of ORCIDs of people who contributed to a MIFC formatted dataset. See https://orcid.org/.
-    recommended: true
-    in_subset:
-      - RecommendedSubset
-  provenance_organization_name:
-    description: A string corresponding to a "|" delimited list of organizations who created or help to create to a MIFC formatted dataset. E.g., "USDA".
-    recommended: true
-    in_subset:
-      - RecommendedSubset
 
   # Slots common to both Food and Component classes
   food_laboratory_sample_id:
