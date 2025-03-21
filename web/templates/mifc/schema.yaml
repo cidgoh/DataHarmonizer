@@ -62,6 +62,9 @@ classes:
           slot.
         unique_key_slots:
         - sample_collector_sample_id
+    slot_usage:
+      mifc_id:
+        identifier: true
 
   Food:
     description: >-
@@ -71,6 +74,7 @@ classes:
     in_subset:
       - RecommendedSubset
     slots: ## Slots specific to foods
+      - mifc_id
       - food_sample_id
       - food_description_label
       - food_primary_type
@@ -121,7 +125,7 @@ classes:
         - mifc_id
         - food_sample_id
     slot_usage:
-      food_sample_id:
+      mifc_id:
         annotations:
           required:
             tag: required
@@ -165,21 +169,21 @@ classes:
       - food_laboratory_sample_batch_id
     unique_keys:
       mifc_component_key:
-        description: An MIFC Resource is uniquely identified by the sample_collector_sample_id
+        description: A food component is uniquely identified by a combination of mifc, food sample and component sample ids.
           slot.
         unique_key_slots:
-#        - mifc_id
+        - mifc_id
         - food_sample_id
         - component_sample_id      
     slot_usage:
-#      mifc_id
-#        annotations:
-#          required:
-#            tag: required
-#            value: True
-#          foreign_key:
-#            tag: foreign_key
-#            value: MIFCResource.mifc_id
+      mifc_id:
+        annotations:
+          required:
+            tag: required
+            value: True
+          foreign_key:
+            tag: foreign_key
+            value: MIFCResource.mifc_id
       food_sample_id:
         annotations:
           required:
@@ -213,7 +217,7 @@ slots:
     description: A string denoting the primary identifier for a MIFC schema conformant database. Note that mifc_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.
     required: true
     range: string
-    identifier: true # Forces mifc_id keys to be unique in context of given class
+    #identifier: false # Forces mifc_id keys to be unique in context of given class
     comments:
       - "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
     in_subset:

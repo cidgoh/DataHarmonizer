@@ -1735,9 +1735,9 @@
         "RecommendedSubset"
       ],
       "from_schema": "https://w3id.org/kaiiam/mifc",
-      "identifier": true,
       "domain_of": [
         "MIFCResource",
+        "Food",
         "Component"
       ],
       "range": "string",
@@ -2641,6 +2641,12 @@
         "RecommendedSubset"
       ],
       "from_schema": "https://w3id.org/kaiiam/mifc",
+      "slot_usage": {
+        "mifc_id": {
+          "name": "mifc_id",
+          "identifier": true
+        }
+      },
       "attributes": {
         "mifc_id": {
           "name": "mifc_id",
@@ -2662,6 +2668,7 @@
           "owner": "MIFCResource",
           "domain_of": [
             "MIFCResource",
+            "Food",
             "Component"
           ],
           "range": "string",
@@ -2750,8 +2757,8 @@
       ],
       "from_schema": "https://w3id.org/kaiiam/mifc",
       "slot_usage": {
-        "food_sample_id": {
-          "name": "food_sample_id",
+        "mifc_id": {
+          "name": "mifc_id",
           "annotations": {
             "required": {
               "tag": "required",
@@ -2765,8 +2772,8 @@
         }
       },
       "attributes": {
-        "food_sample_id": {
-          "name": "food_sample_id",
+        "mifc_id": {
+          "name": "mifc_id",
           "annotations": {
             "required": {
               "tag": "required",
@@ -2777,6 +2784,31 @@
               "value": "MIFCResource.mifc_id"
             }
           },
+          "description": "A string denoting the primary identifier for a MIFC schema conformant database. Note that mifc_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
+          "comments": [
+            "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
+          ],
+          "examples": [
+            {
+              "value": "168566"
+            }
+          ],
+          "in_subset": [
+            "RecommendedSubset"
+          ],
+          "from_schema": "https://w3id.org/kaiiam/mifc",
+          "alias": "mifc_id",
+          "owner": "Food",
+          "domain_of": [
+            "MIFCResource",
+            "Food",
+            "Component"
+          ],
+          "range": "string",
+          "required": true
+        },
+        "food_sample_id": {
+          "name": "food_sample_id",
           "description": "A string denoting the primary identifier for a sample of the class Food. Note that food_sample_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
           "comments": [
             "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
@@ -3474,6 +3506,19 @@
       ],
       "from_schema": "https://w3id.org/kaiiam/mifc",
       "slot_usage": {
+        "mifc_id": {
+          "name": "mifc_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "MIFCResource.mifc_id"
+            }
+          }
+        },
         "food_sample_id": {
           "name": "food_sample_id",
           "annotations": {
@@ -3491,6 +3536,16 @@
       "attributes": {
         "mifc_id": {
           "name": "mifc_id",
+          "annotations": {
+            "required": {
+              "tag": "required",
+              "value": true
+            },
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "MIFCResource.mifc_id"
+            }
+          },
           "description": "A string denoting the primary identifier for a MIFC schema conformant database. Note that mifc_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.",
           "comments": [
             "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
@@ -3504,11 +3559,11 @@
             "RecommendedSubset"
           ],
           "from_schema": "https://w3id.org/kaiiam/mifc",
-          "identifier": true,
           "alias": "mifc_id",
           "owner": "Component",
           "domain_of": [
             "MIFCResource",
+            "Food",
             "Component"
           ],
           "range": "string",
@@ -3912,10 +3967,11 @@
         "mifc_component_key": {
           "unique_key_name": "mifc_component_key",
           "unique_key_slots": [
+            "mifc_id",
             "food_sample_id",
             "component_sample_id"
           ],
-          "description": "An MIFC Resource is uniquely identified by the sample_collector_sample_id slot."
+          "description": "A food component is uniquely identified by a combination of mifc, food sample and component sample ids. slot."
         }
       }
     },
