@@ -14,16 +14,18 @@
 #
 # > python ../../../script/tabular_to_schema.py -m
 # 
-# Note, to do command line validation of schema against a data file, type:
+# Note, to do command line validation of schema against a json data file, type:
 #
-# linkml-validate --schema schema.yaml --target-class "CanCOGeN Covid-19" test_good.csv
+# linkml-validate --schema schema.yaml --target-class "CanCOGeN Covid-19" test_good.json
 #
-# To prepare tsv or csv files for above validation, first line of a
-# DataHarmonizer-generated data file with its section headers must be removed,
-# and if 2nd line has spaces in its column/slot names, these must be replaced
-# by underscores.  Sed can be used to do this:
+# Validating against tabular .tsv or .csv (and can do .json or .xls/xlsx too):
 #
-# > sed '1d;2 s/ /_/g' exampleInput/validTestData_2-1-2.tsv > test_good.tsv
+# dh-validate.py --schema schema.yaml --target-class "CanCOGeN Covid-19" some_data_file.csv
+#
+# If an error occurs when processing schema.yaml into schema.json, to debug, 
+# one can test if schema.yaml is valid with:
+#
+# > linkml lint --validate-only schema.yaml
 #
 # FUTURE: design will be revised to have SLOTS managed as a separate
 # list from Class reuse of them, where curators will explicitly show
@@ -296,7 +298,9 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 
 					if slot_title > '':							slot['title'] = slot_title;
 					if slot_description > '':				slot['description'] = slot_description;
-					if slot_comments > '':					slot['comments'] = slot_comments;
+					if slot_comments > '':					slot['comments'] = [slot_comments];
+
+
 					if slot_uri > '':								slot['slot_uri'] = slot_uri;
 
 					if slot_identifier == True:		slot['identifier'] = True;
@@ -391,7 +395,10 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 							for field in variant_fields:
 								text = row.get(field + '_' + lcode, schema['slots'][slot_name].get(field, '' ));
 								if text:
-									variant_slot[field] = text;
+									if field == 'comments':
+										variant_slot[field] = [text];
+									else:
+										variant_slot[field] = text;
 									if field == 'slot_group': variant_slot_group = text;
 
 							set_examples(variant_slot, row.get('examples' + '_' + lcode, ''));
@@ -416,7 +423,12 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 	with open(enum_path) as tsvfile:
 		reader = csv.DictReader(tsvfile, dialect='excel-tab');
 
+		if not 'enums' in schema or schema['enums'] == None:
+			# print("Note: schema_core.yaml had empty or missing enums list.")
+			schema['enums'] = {};
+
 		enumerations = schema['enums'];
+
 		name = ''; # running name for chunks of enumeration rows
 		choice_path = [];
 		enum = {};
@@ -508,6 +520,26 @@ def write_schema(schema):
 
 	with open(w_filename_base + '.yaml', 'w') as output_handle:
 		yaml.dump(schema, output_handle, sort_keys=False)
+
+	# Trap some errors that come up in created schema.yaml before SchemaView()
+	# is attempted
+
+	key_errors = False;
+	for class_name in schema['classes']:
+		a_class = schema['classes'][class_name];
+		if 'unique_keys' in a_class:
+			for unique_key in a_class['unique_keys']:
+				if 'unique_key_slots' in a_class['unique_keys'][unique_key]:
+					for slot_name in a_class['unique_keys'][unique_key]['unique_key_slots']:
+						if not slot_name in schema['slots']:
+							print("Error: Class", class_name, "has unique key", unique_key, "with slot", slot_name, "but this slot doesn't exist in schema.slots.");
+							key_errors = True;
+				else:
+					print("Error: Class ", class_name, "has unique key", unique_key, " but it is missing a unique_key_slots list");
+					key_errors = True;
+	if key_errors:
+		sys.exit(0);
+
 
 	#with open("temp.yaml", 'w') as output_handle:
 		#yaml.dump(schema, output_handle, sort_keys=False)
