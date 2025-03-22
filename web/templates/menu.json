@@ -196,31 +196,31 @@
       },
       "Prefix": {
         "name": "Prefix",
-        "display": true
+        "display": false
       },
       "Slot": {
         "name": "Slot",
-        "display": true
+        "display": false
       },
       "Enum": {
         "name": "Enum",
-        "display": true
+        "display": false
       },
       "PermissibleValue": {
         "name": "PermissibleValue",
-        "display": true
+        "display": false
       },
       "Class": {
         "name": "Class",
-        "display": true
+        "display": false
       },
       "SlotUsage": {
         "name": "SlotUsage",
-        "display": true
+        "display": false
       },
       "UniqueKey": {
         "name": "UniqueKey",
-        "display": true
+        "display": false
       },
       "Container": {
         "name": "Container",
