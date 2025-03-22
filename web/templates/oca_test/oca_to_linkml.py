@@ -614,6 +614,7 @@ oca_entry_codes = oca_overlays["entry_code"]["attribute_entry_codes"];
 oca_entry_labels = oca_overlays["entry"][0]["attribute_entries"];
 
 # Also has   "metric_system": "SI",
+# FUTURE: automatically incorporate unit menu: https://github.com/agrifooddatacanada/UCUM_agri-food_units/blob/main/UCUM_ADC_current.csv 
 if "unit" in oca_overlays:
 	oca_units = oca_overlays["unit"]["attribute_units"];
 else:
