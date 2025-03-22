@@ -22,7 +22,6 @@
 # Options:
 #  -s, --schema FILE               Schema file to validate data against
 #  -C, --target-class TEXT 
-#  -S, --index-slot TEXT    top level slot. Required for CSV dumping/loading
 #  -V, --version                   Show the version and exit.
 #
 # > cd web/templates/[template folder]/
