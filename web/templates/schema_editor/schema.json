@@ -448,6 +448,20 @@
       ],
       "required": true
     },
+    "enum_id": {
+      "name": "enum_id",
+      "annotations": {
+        "foreign_key": {
+          "tag": "foreign_key",
+          "value": "Enum.name"
+        }
+      },
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "PermissibleValue"
+      ],
+      "required": true
+    },
     "name": {
       "name": "name",
       "title": "Name",
@@ -837,17 +851,6 @@
         "Enum"
       ],
       "range": "uri"
-    },
-    "enum_id": {
-      "name": "enum_id",
-      "description": "The coding name of the menu (enumeration) that this choice is contained in.",
-      "title": "Enum",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "PermissibleValue"
-      ],
-      "range": "Enum",
-      "required": true
     },
     "text": {
       "name": "text",
@@ -2673,8 +2676,11 @@
         },
         "enum_id": {
           "name": "enum_id",
+          "description": "The coding name of the menu (enumeration) that this choice is contained in.",
+          "title": "Enum",
           "rank": 2,
-          "slot_group": "key"
+          "slot_group": "key",
+          "range": "Enum"
         },
         "name": {
           "name": "name",
@@ -2731,6 +2737,12 @@
         },
         "enum_id": {
           "name": "enum_id",
+          "annotations": {
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Enum.name"
+            }
+          },
           "description": "The coding name of the menu (enumeration) that this choice is contained in.",
           "title": "Enum",
           "from_schema": "https://example.com/DH_LinkML",
@@ -2817,7 +2829,7 @@
           "unique_key_name": "permissiblevalue_key",
           "unique_key_slots": [
             "schema_id",
-            "name"
+            "enum_id"
           ],
           "description": "An enumeration is uniquely identified by the schema it appears in as well as its name."
         }

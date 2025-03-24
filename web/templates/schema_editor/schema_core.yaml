@@ -93,7 +93,7 @@ classes:
         description: An enumeration is uniquely identified by the schema it appears in as well as its name.
         unique_key_slots:
         - schema_id
-        - name
+        - enum_id
 
   Container:
       tree_root: true
@@ -164,6 +164,17 @@ slots:
       foreign_key:
         tag: foreign_key
         value: Slot.name
+
+  enum_id:
+    name: enum_id
+    title: Enumeration
+    description: The enumeration name that this table is linked to.
+    required: true
+    range: WhitespaceMinimizedString
+    annotations:
+      foreign_key:
+        tag: foreign_key
+        value: Enum.name
 
 enums: 
 types:

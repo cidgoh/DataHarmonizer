@@ -501,7 +501,7 @@ classes:
           in as well as its name.
         unique_key_slots:
         - schema_id
-        - name
+        - enum_id
     slots:
     - schema_id
     - enum_id
@@ -521,6 +521,10 @@ classes:
       enum_id:
         rank: 2
         slot_group: key
+        title: Enum
+        range: Enum
+        description: The coding name of the menu (enumeration) that this choice is
+          contained in.
       name:
         rank: 3
         slot_group: key
@@ -595,6 +599,13 @@ slots:
       foreign_key:
         tag: foreign_key
         value: Slot.name
+  enum_id:
+    name: enum_id
+    required: true
+    annotations:
+      foreign_key:
+        tag: foreign_key
+        value: Enum.name
   name:
     name: name
     title: Name
@@ -792,13 +803,6 @@ slots:
     title: Enum URI
     description: A URI for identifying this enumeration's semantic type.
     range: uri
-  enum_id:
-    name: enum_id
-    title: Enum
-    description: The coding name of the menu (enumeration) that this choice is contained
-      in.
-    required: true
-    range: Enum
   text:
     name: text
     title: Text
