@@ -60,3 +60,11 @@ body {
 .add-rows-input {
   max-width: 100px;
 }
+
+/* TRYING TO MAKE BOOTSTRAP Disabled tabs MORE PRONOUNCED */ 
+li.nav-item.disabled {
+  background-color: #eee !important;
+  opacity: 0.7;
+  cursor: not-allowed !important;
+}
+
