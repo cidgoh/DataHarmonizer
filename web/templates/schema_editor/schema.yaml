@@ -91,7 +91,6 @@ classes:
         slot_group: key
         title: Schema
         range: Schema
-        identifier: true
         description: The coding name of the schema this prefix is listed in.
       prefix:
         rank: 2
@@ -126,7 +125,6 @@ classes:
         slot_group: key
         title: Schema
         range: Schema
-        identifier: true
         description: The coding name of the schema this class is contained in.
       name:
         rank: 2
@@ -186,7 +184,6 @@ classes:
         slot_group: key
         title: Schema
         range: Schema
-        identifier: true
         description: The coding name of the schema this slot usage's class is contained
           in.
       class_id:
@@ -249,7 +246,6 @@ classes:
         slot_group: key
         title: Schema
         range: Schema
-        identifier: true
         description: The coding name of the schema that this slot is contained in.
         comments:
         - A schema has a list of slots it defines, but a schema can also import other
@@ -378,7 +374,6 @@ classes:
         slot_group: key
         title: Schema
         range: Schema
-        identifier: true
         description: The coding name of the schema this slot usage's class is contained
           in.
       class_id:
@@ -470,7 +465,6 @@ classes:
         slot_group: key
         title: Schema
         range: Schema
-        identifier: true
         description: The coding name of the schema this enumeration is contained in.
       name:
         rank: 2
@@ -515,7 +509,6 @@ classes:
         slot_group: key
         title: Schema
         range: Schema
-        identifier: true
         description: The coding name of the schema this menu choice's menu (enumeration)
           is contained in.
       enum_id:
@@ -621,6 +614,8 @@ slots:
     identifier: true
     required: true
     range: uri
+    examples:
+    - value: https://example.com/GRDI
   description:
     name: description
     title: Description

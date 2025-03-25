@@ -484,6 +484,11 @@
       "comments": [
         "Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development."
       ],
+      "examples": [
+        {
+          "value": "https://example.com/GRDI"
+        }
+      ],
       "from_schema": "https://example.com/DH_LinkML",
       "identifier": true,
       "domain_of": [
@@ -970,6 +975,11 @@
           "comments": [
             "Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development."
           ],
+          "examples": [
+            {
+              "value": "https://example.com/GRDI"
+            }
+          ],
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 2,
           "identifier": true,
@@ -1083,7 +1093,6 @@
           "description": "The coding name of the schema this prefix is listed in.",
           "title": "Schema",
           "rank": 1,
-          "identifier": true,
           "slot_group": "key",
           "range": "Schema"
         },
@@ -1111,7 +1120,6 @@
           "title": "Schema",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
-          "identifier": true,
           "alias": "schema_id",
           "owner": "Prefix",
           "domain_of": [
@@ -1180,7 +1188,6 @@
           "description": "The coding name of the schema this class is contained in.",
           "title": "Schema",
           "rank": 1,
-          "identifier": true,
           "slot_group": "key",
           "range": "Schema"
         },
@@ -1247,7 +1254,6 @@
           "title": "Schema",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
-          "identifier": true,
           "alias": "schema_id",
           "owner": "Class",
           "domain_of": [
@@ -1414,7 +1420,6 @@
           "description": "The coding name of the schema this slot usage's class is contained in.",
           "title": "Schema",
           "rank": 1,
-          "identifier": true,
           "slot_group": "key",
           "range": "Schema"
         },
@@ -1463,7 +1468,6 @@
           "title": "Schema",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
-          "identifier": true,
           "alias": "schema_id",
           "owner": "UniqueKey",
           "domain_of": [
@@ -1599,7 +1603,6 @@
             "A schema has a list of slots it defines, but a schema can also import other schemas' slots."
           ],
           "rank": 1,
-          "identifier": true,
           "slot_group": "key",
           "range": "Schema"
         },
@@ -1733,7 +1736,6 @@
           ],
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
-          "identifier": true,
           "alias": "schema_id",
           "owner": "Slot",
           "domain_of": [
@@ -2071,7 +2073,6 @@
           "description": "The coding name of the schema this slot usage's class is contained in.",
           "title": "Schema",
           "rank": 1,
-          "identifier": true,
           "slot_group": "key",
           "range": "Schema"
         },
@@ -2190,7 +2191,6 @@
           "title": "Schema",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
-          "identifier": true,
           "alias": "schema_id",
           "owner": "SlotUsage",
           "domain_of": [
@@ -2512,7 +2512,6 @@
           "description": "The coding name of the schema this enumeration is contained in.",
           "title": "Schema",
           "rank": 1,
-          "identifier": true,
           "slot_group": "key",
           "range": "Schema"
         },
@@ -2558,7 +2557,6 @@
           "title": "Schema",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
-          "identifier": true,
           "alias": "schema_id",
           "owner": "Enum",
           "domain_of": [
@@ -2670,7 +2668,6 @@
           "description": "The coding name of the schema this menu choice's menu (enumeration) is contained in.",
           "title": "Schema",
           "rank": 1,
-          "identifier": true,
           "slot_group": "key",
           "range": "Schema"
         },
@@ -2719,7 +2716,6 @@
           "title": "Schema",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
-          "identifier": true,
           "alias": "schema_id",
           "owner": "PermissibleValue",
           "domain_of": [
