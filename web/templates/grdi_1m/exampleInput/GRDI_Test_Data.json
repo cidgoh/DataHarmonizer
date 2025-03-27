@@ -5,7 +5,7 @@
     "Container": {
         "GRDISamples": [
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "sample_collector_sample_id": "Sample 1",
                 "sample_collected_by": "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]",
                 "sample_plan_name": "XXB_123",
                 "purpose_of_sampling": "Surveillance [GENEPIO:0100004]",
@@ -29,10 +29,6 @@
                 ],
                 "microbiological_method": "QKSNDID12345",
                 "strain": "ABC123",
-                "isolate_ID": "ABC123",
-                "alternative_isolate_ID": "XY1234567",
-                "isolated_by": "Canada Food Inspection Agency",
-                "isolate_received_date": "2018-12-07",
                 "organism": "Salmonella enterica subsp. enterica [NCBITaxon:59201]",
                 "serovar": "Heidelberg",
                 "serotyping_method": "BTT-1234 ",
@@ -49,7 +45,7 @@
                 "DataHarmonizer provenance": "DataHarmonizer v1.4.10, GRDI v7.7.5"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "sample_collector_sample_id": "Sample 2",
                 "sample_collected_by": "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]",
                 "sample_plan_name": "XXB_123",
                 "purpose_of_sampling": "Surveillance [GENEPIO:0100004]",
@@ -79,10 +75,6 @@
                 ],
                 "microbiological_method": "QKSNDID12345 (XXX1)",
                 "strain": "EG-MB-RR-555",
-                "isolate_ID": "EG-MB-RR-555",
-                "alternative_isolate_ID": "27-12349876 | 1234556678",
-                "isolated_by": "Canada Food Inspection Agency",
-                "isolate_received_date": "2019-02-21",
                 "organism": "Campylobacter jejuni [NCBITaxon:197]",
                 "sequenced_by": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]",
                 "sequenced_by_contact_name": "Eduardo Taboada- PHAC-NML",
@@ -96,7 +88,7 @@
                 "DataHarmonizer provenance": "DataHarmonizer v1.4.10, GRDI v7.7.5"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "sample_collector_sample_id": "Sample 3",
                 "sample_collected_by": "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]",
                 "sample_plan_name": "XXB_123",
                 "purpose_of_sampling": "Surveillance [GENEPIO:0100004]",
@@ -120,10 +112,6 @@
                 ],
                 "microbiological_method": "QKSNDID12345 (XXX1)",
                 "strain": "EG-MB-RR-556",
-                "isolate_ID": "EG-MB-RR-556",
-                "alternative_isolate_ID": "27-5757575 | 23456789",
-                "isolated_by": "Canada Food Inspection Agency",
-                "isolate_received_date": "2020-12-11",
                 "organism": "Campylobacter jejuni [NCBITaxon:197]",
                 "sequenced_by": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]",
                 "sequenced_by_contact_name": "Eduardo Taboada- PHAC-NML",
@@ -137,7 +125,7 @@
                 "DataHarmonizer provenance": "DataHarmonizer v1.4.10, GRDI v7.7.5"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "sample_collector_sample_id": "Sample 4",
                 "sample_collected_by": "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]",
                 "sample_plan_name": "XXB_123",
                 "purpose_of_sampling": "Surveillance [GENEPIO:0100004]",
@@ -167,10 +155,6 @@
                 ],
                 "microbiological_method": "QKSNDID12345 (XXX1)",
                 "strain": "EG-MB-RR-557",
-                "isolate_ID": "EG-MB-RR-557",
-                "alternative_isolate_ID": "27-5868678 | BAA-33333",
-                "isolated_by": "Canada Food Inspection Agency",
-                "isolate_received_date": "2021-02-24",
                 "organism": "Campylobacter jejuni [NCBITaxon:197]",
                 "sequenced_by": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]",
                 "sequenced_by_contact_name": "Eduardo Taboada- PHAC-NML",
@@ -184,7 +168,7 @@
                 "DataHarmonizer provenance": "DataHarmonizer v1.4.10, GRDI v7.7.5"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "sample_collector_sample_id": "Sample 5",
                 "sample_collected_by": "Canadian Food Inspection Agency (CFIA) [GENEPIO:0100552]",
                 "sample_plan_name": "XXB_123",
                 "purpose_of_sampling": "Surveillance [GENEPIO:0100004]",
@@ -211,10 +195,6 @@
                 "host (scientific name)": "Gallus gallus [NCBITaxon:9031]",
                 "microbiological_method": "QKSNDID12345 (XXX1)",
                 "strain": "EG-MB-RR-558",
-                "isolate_ID": "EG-MB-RR-558",
-                "alternative_isolate_ID": "27-1234-98766-3",
-                "isolated_by": "Canada Food Inspection Agency",
-                "isolate_received_date": "2022-02-28",
                 "organism": "Campylobacter jejuni [NCBITaxon:197]",
                 "sequenced_by": "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]",
                 "sequenced_by_contact_name": "Eduardo Taboada- PHAC-NML",
@@ -228,12 +208,49 @@
                 "DataHarmonizer provenance": "DataHarmonizer v1.4.10, GRDI v7.7.5"
             },
             {
-                "sample_collector_sample_ID": "Sample 6"
+                "sample_collector_sample_id": "Sample 6"
+            }
+        ],
+        "GRDIIsolates": [
+            {
+                "sample_collector_sample_id": "Sample 1",
+                "isolate_id": "ABC123",
+                "alternative_isolate_id": "XY1234567",
+                "isolated_by": "Canada Food Inspection Agency",
+                "isolate_received_date": "2018-12-07"
+            },
+            {
+                "sample_collector_sample_id": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
+                "alternative_isolate_id": "27-12349876 | 1234556678",
+                "isolated_by": "Canada Food Inspection Agency",
+                "isolate_received_date": "2019-02-21"
+            },
+            {
+                "sample_collector_sample_id": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
+                "alternative_isolate_id": "27-5757575 | 23456789",
+                "isolated_by": "Canada Food Inspection Agency",
+                "isolate_received_date": "2020-12-11"
+            },
+            {
+                "sample_collector_sample_id": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
+                "alternative_isolate_id": "27-5868678 | BAA-33333",
+                "isolated_by": "Canada Food Inspection Agency",
+                "isolate_received_date": "2021-02-24"
+            },
+            {
+                "sample_collector_sample_id": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
+                "alternative_isolate_id": "27-1234-98766-3",
+                "isolated_by": "Canada Food Inspection Agency",
+                "isolate_received_date": "2022-02-28"
             }
         ],
         "AMRTests": [
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "amoxicillin-clavulanic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
@@ -249,7 +266,7 @@
                 "resistant_breakpoint": "32"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "ampicillin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
@@ -265,7 +282,7 @@
                 "resistant_breakpoint": "32"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "azithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "8",
@@ -279,7 +296,7 @@
                 "resistant_breakpoint": "32"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "cefoxitin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "2",
@@ -294,7 +311,7 @@
                 "resistant_breakpoint": "32"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "ceftiofur",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
@@ -310,7 +327,7 @@
                 "resistant_breakpoint": "8"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "ceftriaxone",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
@@ -326,7 +343,7 @@
                 "resistant_breakpoint": "4"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "chloramphenicol",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "8",
@@ -342,7 +359,7 @@
                 "resistant_breakpoint": "32"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "ciprofloxacin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.015",
@@ -358,7 +375,7 @@
                 "resistant_breakpoint": "1"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "gentamicin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
@@ -374,7 +391,7 @@
                 "resistant_breakpoint": "16"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "kanamycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "8",
@@ -390,7 +407,7 @@
                 "resistant_breakpoint": "64"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "nalidixic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
@@ -406,7 +423,7 @@
                 "resistant_breakpoint": "32"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "streptomycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "32",
@@ -420,7 +437,7 @@
                 "resistant_breakpoint": "64"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "sulfisoxazole",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "32",
@@ -436,7 +453,7 @@
                 "resistant_breakpoint": "512"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "tetracycline",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
@@ -452,7 +469,7 @@
                 "resistant_breakpoint": "16"
             },
             {
-                "sample_collector_sample_ID": "Sample 1",
+                "isolate_id": "ABC123",
                 "antimicrobial_resistance_test_drug": "trimethoprim-sulfamethoxazole",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
@@ -468,7 +485,7 @@
                 "resistant_breakpoint": "4"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
                 "antimicrobial_resistance_test_drug": "azithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.03",
@@ -483,7 +500,7 @@
                 "resistant_breakpoint": "8"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
                 "antimicrobial_resistance_test_drug": "ciprofloxacin_resistance_phenotype",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
@@ -495,7 +512,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
                 "antimicrobial_resistance_test_drug": "clindamycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
@@ -507,7 +524,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
                 "antimicrobial_resistance_test_drug": "erythromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
@@ -519,7 +536,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
                 "antimicrobial_resistance_test_drug": "florfenicol",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
@@ -531,7 +548,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
                 "antimicrobial_resistance_test_drug": "gentamicin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
@@ -543,7 +560,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
                 "antimicrobial_resistance_test_drug": "nalidixic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
@@ -555,7 +572,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
                 "antimicrobial_resistance_test_drug": "telithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
@@ -567,7 +584,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 2",
+                "isolate_id": "EG-MB-RR-555",
                 "antimicrobial_resistance_test_drug": "tetracycline",
                 "resistance_phenotype": "Resistant antimicrobial phenotype [ARO:3004301]",
                 "measurement": "64",
@@ -579,7 +596,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "azithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
@@ -594,7 +611,7 @@
                 "resistant_breakpoint": "8"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "ciprofloxacin_resistance_phenotype",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
@@ -606,7 +623,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "erythromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
@@ -618,7 +635,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "clindamycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
@@ -630,7 +647,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "erythromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
@@ -642,7 +659,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "florfenicol",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "2",
@@ -654,7 +671,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "gentamicin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
@@ -666,7 +683,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "nalidixic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
@@ -678,7 +695,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "telithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "2",
@@ -690,7 +707,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 3",
+                "isolate_id": "EG-MB-RR-556",
                 "antimicrobial_resistance_test_drug": "tetracycline",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
@@ -702,7 +719,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
                 "antimicrobial_resistance_test_drug": "azithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.06",
@@ -717,7 +734,7 @@
                 "resistant_breakpoint": "8"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
                 "antimicrobial_resistance_test_drug": "ciprofloxacin_resistance_phenotype",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
@@ -729,7 +746,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
                 "antimicrobial_resistance_test_drug": "clindamycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.06",
@@ -741,7 +758,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
                 "antimicrobial_resistance_test_drug": "erythromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
@@ -753,7 +770,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
                 "antimicrobial_resistance_test_drug": "florfenicol",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
@@ -765,7 +782,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
                 "antimicrobial_resistance_test_drug": "gentamicin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
@@ -777,7 +794,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
                 "antimicrobial_resistance_test_drug": "nalidixic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
@@ -789,7 +806,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
                 "antimicrobial_resistance_test_drug": "telithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
@@ -801,7 +818,7 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 4",
+                "isolate_id": "EG-MB-RR-557",
                 "antimicrobial_resistance_test_drug": "tetracycline",
                 "resistance_phenotype": "Resistant antimicrobial phenotype [ARO:3004301]",
                 "measurement": "64",
@@ -813,175 +830,175 @@
                 "vendor_name": "Trek [ARO:3004409]"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "amikacin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "amoxicillin-clavulanic_acid"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "ampicillin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "azithromycin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "cefazolin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "cefepime"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "cefotaxime"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "cefotaxime-clavulanic_acid"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "cefoxitin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "cefpodoxime"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "ceftazidime"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "ceftazidime-clavulanic_acid"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "ceftiofur"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "ceftriaxone"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "cephalothin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "chloramphenicol"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "ciprofloxacin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "clindamycin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "doxycycline"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "enrofloxacin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "erythromycin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "florfenicol"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "gentamicin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "imipenem"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "kanamycin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "levofloxacin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "linezolid"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "meropenem"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "nalidixic_acid"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "nitrofurantoin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "norfloxacin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "oxolinic-acid"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "oxytetracycline"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "piperacillin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "piperacillin-tazobactam"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "polymyxin-b"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "quinupristin-dalfopristin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "streptomycin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "sulfisoxazole"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "telithromycin"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "tetracycline"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "tigecycline"
             },
             {
-                "sample_collector_sample_ID": "Sample 5",
+                "isolate_id": "EG-MB-RR-558",
                 "antimicrobial_resistance_test_drug": "trimethoprim-sulfamethoxazole"
             }
         ]
