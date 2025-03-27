@@ -41,10 +41,10 @@ export function createDataHarmonizerTab(dhId, tab_title, isActive) {
   dhTabLink.href = `#${dhId}`;
   dhTabLink.textContent = tab_title;
   dhTabLink.dataset.toggle = 'tab';
-  dhTabLink.setAttribute('data-bs-toggle', 'tab'); // Bootstrap specific data attribute for tabs
+  //dhTabLink.setAttribute('data-bs-toggle', 'tab'); // Bootstrap specific data attribute for tabs
   dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
-  dhTabLink.setAttribute('role', 'tab');
-  dhTabLink.setAttribute('aria-controls', dhId);
+  //dhTabLink.setAttribute('role', 'tab');
+  //dhTabLink.setAttribute('aria-controls', dhId);
 
   dhTab.appendChild(dhTabLink);
   dhNavTabs.appendChild(dhTab);
