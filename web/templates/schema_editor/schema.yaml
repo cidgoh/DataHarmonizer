@@ -22,7 +22,7 @@ classes:
         description: A slot is uniquely identified by the schema it appears in as
           well as its name
         unique_key_slots:
-        - id
+        - name
     slots:
     - name
     - id
