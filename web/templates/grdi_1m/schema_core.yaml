@@ -14,7 +14,7 @@ classes:
     description: "Specification for GRDI virus biosample data gathering"
     from_schema: "https://example.com/GRDI"
     unique_keys:
-      grdisample_id:
+      grdisample_key:
         description: A GRDI Sample is uniquely identified by the sample_collector_sample_id slot.
         unique_key_slots:
           - sample_collector_sample_id
@@ -24,7 +24,7 @@ classes:
     description: "Sample isolate"
     from_schema: "https://example.com/GRDI"
     unique_keys:
-      grdiisolate_id:
+      grdiisolate_key:
         description: An isolate extracted from a sample, which AMR tests are done on.
         unique_key_slots:
           - sample_collector_sample_id
@@ -44,7 +44,7 @@ classes:
     description: "Antimicrobial test result"
     from_schema: "https://example.com/GRDI"
     unique_keys:
-      amrtest_id:
+      amrtest_key:
         description: An AMR test is uniquely identified by the sample_collector_sample_id slot and the tested antibiotic.
         unique_key_slots:
           - isolate_id

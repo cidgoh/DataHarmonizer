@@ -16424,8 +16424,8 @@
         }
       },
       "unique_keys": {
-        "grdisample_id": {
-          "unique_key_name": "grdisample_id",
+        "grdisample_key": {
+          "unique_key_name": "grdisample_key",
           "unique_key_slots": [
             "sample_collector_sample_id"
           ],
@@ -16821,8 +16821,8 @@
         }
       },
       "unique_keys": {
-        "grdiisolate_id": {
-          "unique_key_name": "grdiisolate_id",
+        "grdiisolate_key": {
+          "unique_key_name": "grdiisolate_key",
           "unique_key_slots": [
             "sample_collector_sample_id",
             "isolate_id"
@@ -17385,8 +17385,8 @@
         }
       },
       "unique_keys": {
-        "amrtest_id": {
-          "unique_key_name": "amrtest_id",
+        "amrtest_key": {
+          "unique_key_name": "amrtest_key",
           "unique_key_slots": [
             "isolate_id",
             "antimicrobial_drug"
