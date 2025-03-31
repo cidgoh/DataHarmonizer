@@ -231,13 +231,13 @@
       "en"
     ]
   },
-  "mifc": {
+  "MIFC": {
     "folder": "mifc",
     "id": "https://w3id.org/kaiiam/mifc",
     "version": null,
     "templates": {
-      "MIFCResource": {
-        "name": "MIFCResource",
+      "Resource": {
+        "name": "Resource",
         "display": true
       },
       "Food": {
