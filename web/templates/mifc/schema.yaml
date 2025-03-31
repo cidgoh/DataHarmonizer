@@ -1,7 +1,7 @@
 ---
 id: https://w3id.org/kaiiam/mifc
-name: mifc
-title: mifc
+name: MIFC
+title: MIFC
 description: |-
   A minimum information standard checklist formalizing the description of food composition data and related metadata.
 license: MIT
@@ -42,15 +42,15 @@ classes:
 ##    close_mappings:
 ##      - schema:Thing
 
-  MIFCResource:
+  Resource:
     title: MIFC Resource
     description: >-
       Supplemental data about the resource of a Food and Component dataset collection standardized using MIFC.
 ##    is_a: NamedThing
-    class_uri: schema:MIFCResource
+    class_uri: schema:Resource
     in_subset:
       - RecommendedSubset
-    slots: ## Slots specific to MIFCResource
+    slots: ## Slots specific to Resource
       - mifc_id
       - resource_dataset_label
       - resource_mifc_version_tag
@@ -58,10 +58,10 @@ classes:
       - resource_organization_name
     unique_keys:
       mifc_resource_key:
-        description: An MIFC Resource is uniquely identified by the sample_collector_sample_id
+        description: An MIFC Resource is uniquely identified by the mifc_id
           slot.
         unique_key_slots:
-        - sample_collector_sample_id
+        - mifc_id
     slot_usage:
       mifc_id:
         identifier: true
@@ -119,26 +119,22 @@ classes:
       - mifc
     unique_keys:
       mifc_food_key:
-        description: An MIFC Resource is uniquely identified by the sample_collector_sample_id
-          slot.
+        description: An MIFC food sample is uniquely identified by the combination of mifc_id and food_sample_id ids.
         unique_key_slots:
         - mifc_id
         - food_sample_id
     slot_usage:
       mifc_id:
         annotations:
-          required:
-            tag: required
-            value: True
           foreign_key:
             tag: foreign_key
-            value: MIFCResource.mifc_id
+            value: Resource.mifc_id
 
   Component:
     description: >-
       Metadata about components of nutritional interest measured from foods.
-##    is_a: NamedThing
     class_uri: schema:Component
+##    is_a: NamedThing
     in_subset:
       - RecommendedSubset
     slots: ## Slots specific to components of nutritional interest
@@ -170,7 +166,6 @@ classes:
     unique_keys:
       mifc_component_key:
         description: A food component is uniquely identified by a combination of mifc, food sample and component sample ids.
-          slot.
         unique_key_slots:
         - mifc_id
         - food_sample_id
@@ -178,17 +173,11 @@ classes:
     slot_usage:
       mifc_id:
         annotations:
-          required:
-            tag: required
-            value: True
           foreign_key:
             tag: foreign_key
-            value: MIFCResource.mifc_id
+            value: Resource.mifc_id
       food_sample_id:
         annotations:
-          required:
-            tag: required
-            value: True
           foreign_key:
             tag: foreign_key
             value: Food.food_sample_id
@@ -199,7 +188,7 @@ classes:
       resources:
         multivalued: true
         inlined_as_list: true
-        range: MIFCResource
+        range: Resource
       foods:
         multivalued: true
         inlined_as_list: true
@@ -212,14 +201,11 @@ classes:
 slots:
 
 
-  # MIFCResource slots
+  # Resource slots
   mifc_id:
     description: A string denoting the primary identifier for a MIFC schema conformant database. Note that mifc_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.
     required: true
     range: string
-    #identifier: false # Forces mifc_id keys to be unique in context of given class
-    comments:
-      - "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
     in_subset:
       - RecommendedSubset
     examples:
@@ -251,7 +237,6 @@ slots:
     description: A string denoting the primary identifier for a sample of the class Food. Note that food_sample_id should be unique in a given dataset and should be used to relate Food and Component records via component_sample_id from the Component class.
     required: true
     range: string
-    #identifier: true # Forces food_sample_id keys to be unique
     comments:
       - "Instead of `identifier: true` perhaps we can use unique_keys https://linkml.io/linkml/schemas/constraints.html"
     in_subset:
