@@ -94,6 +94,7 @@ classes:
         unique_key_slots:
         - schema_id
         - enum_id
+        - name
 
   Container:
       tree_root: true

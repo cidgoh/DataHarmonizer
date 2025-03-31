@@ -891,7 +891,7 @@
           "name": "name",
           "description": "The coding name of a LinkML schema.",
           "comments": [
-            "This is a **CamelCase** formatted name in the LinkML standard naming convention.\n\nA schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations).\n\nA schema can also import other schemas and their slots, classes, etc."
+            "This is a **CamelCase** formatted name in the LinkML standard naming convention.\nA schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations).\nA schema can also import other schemas and their slots, classes, etc."
           ],
           "examples": [
             {
@@ -944,7 +944,7 @@
           "description": "The coding name of a LinkML schema.",
           "title": "Name",
           "comments": [
-            "This is a **CamelCase** formatted name in the LinkML standard naming convention.\n\nA schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations).\n\nA schema can also import other schemas and their slots, classes, etc."
+            "This is a **CamelCase** formatted name in the LinkML standard naming convention.\nA schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations).\nA schema can also import other schemas and their slots, classes, etc."
           ],
           "examples": [
             {
@@ -1204,7 +1204,7 @@
           ],
           "rank": 2,
           "slot_group": "key",
-          "pattern": "^([A-Z][a-z0-9]+)+$"
+          "pattern": "^([A-Z]+[a-z0-9]*)+$"
         },
         "title": {
           "name": "title",
@@ -1296,7 +1296,7 @@
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
           "required": true,
-          "pattern": "^([A-Z][a-z0-9]+)+$"
+          "pattern": "^([A-Z]+[a-z0-9]*)+$"
         },
         "title": {
           "name": "title",
@@ -1435,7 +1435,7 @@
           "description": "A class contained in given schema.",
           "rank": 3,
           "slot_group": "key",
-          "pattern": "^[a-z]([a-z0-9_]+)+$"
+          "pattern": "^[a-z]+[a-z0-9_]*$"
         },
         "unique_key_slots": {
           "name": "unique_key_slots",
@@ -1524,7 +1524,7 @@
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
           "required": true,
-          "pattern": "^[a-z]([a-z0-9_]+)+$"
+          "pattern": "^[a-z]+[a-z0-9_]*$"
         },
         "unique_key_slots": {
           "name": "unique_key_slots",
@@ -1606,26 +1606,26 @@
           "slot_group": "key",
           "range": "Schema"
         },
-        "slot_group": {
-          "name": "slot_group",
-          "description": "The name of a grouping to place slot within during presentation.",
-          "rank": 2,
-          "slot_group": "attributes"
-        },
-        "slot_uri": {
-          "name": "slot_uri",
-          "rank": 3,
-          "slot_group": "attributes"
-        },
         "name": {
           "name": "name",
           "description": "The coding name of this schema slot.",
           "comments": [
-            "This is a lowercase **snake_case** formatted name in the LinkML standard naming convention.\n\nA slot can be used in one or more classes (templates). A slot may appear as a visible single-field datatype column in a spreadsheet (template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
+            "This is a lowercase **snake_case** formatted name in the LinkML standard naming convention.\nA slot can be used in one or more classes (templates). A slot may appear as a visible single-field datatype column in a spreadsheet (template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
           ],
-          "rank": 4,
+          "rank": 2,
           "slot_group": "key",
-          "pattern": "^[a-z]([a-z0-9_]+)+$"
+          "pattern": "^[a-z]+[a-z0-9_]*$"
+        },
+        "slot_group": {
+          "name": "slot_group",
+          "description": "The name of a grouping to place slot within during presentation.",
+          "rank": 3,
+          "slot_group": "attributes"
+        },
+        "slot_uri": {
+          "name": "slot_uri",
+          "rank": 4,
+          "slot_group": "attributes"
         },
         "title": {
           "name": "title",
@@ -1751,12 +1751,36 @@
           "range": "Schema",
           "required": true
         },
+        "name": {
+          "name": "name",
+          "description": "The coding name of this schema slot.",
+          "title": "Name",
+          "comments": [
+            "This is a lowercase **snake_case** formatted name in the LinkML standard naming convention.\nA slot can be used in one or more classes (templates). A slot may appear as a visible single-field datatype column in a spreadsheet (template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "alias": "name",
+          "owner": "Slot",
+          "domain_of": [
+            "Schema",
+            "Class",
+            "UniqueKey",
+            "Slot",
+            "Enum",
+            "PermissibleValue"
+          ],
+          "slot_group": "key",
+          "range": "WhitespaceMinimizedString",
+          "required": true,
+          "pattern": "^[a-z]+[a-z0-9_]*$"
+        },
         "slot_group": {
           "name": "slot_group",
           "description": "The name of a grouping to place slot within during presentation.",
           "title": "Slot Group",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 2,
+          "rank": 3,
           "alias": "slot_group",
           "owner": "Slot",
           "domain_of": [
@@ -1771,7 +1795,7 @@
           "description": "A URI for identifying this slot's semantic type.",
           "title": "Slot URI",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 3,
+          "rank": 4,
           "alias": "slot_uri",
           "owner": "Slot",
           "domain_of": [
@@ -1779,30 +1803,6 @@
           ],
           "slot_group": "attributes",
           "range": "uri"
-        },
-        "name": {
-          "name": "name",
-          "description": "The coding name of this schema slot.",
-          "title": "Name",
-          "comments": [
-            "This is a lowercase **snake_case** formatted name in the LinkML standard naming convention.\n\nA slot can be used in one or more classes (templates). A slot may appear as a visible single-field datatype column in a spreadsheet (template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
-          ],
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 4,
-          "alias": "name",
-          "owner": "Slot",
-          "domain_of": [
-            "Schema",
-            "Class",
-            "UniqueKey",
-            "Slot",
-            "Enum",
-            "PermissibleValue"
-          ],
-          "slot_group": "key",
-          "range": "WhitespaceMinimizedString",
-          "required": true,
-          "pattern": "^[a-z]([a-z0-9_]+)+$"
         },
         "title": {
           "name": "title",
@@ -2522,7 +2522,8 @@
             "See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/"
           ],
           "rank": 2,
-          "slot_group": "key"
+          "slot_group": "key",
+          "pattern": "^([A-Z]+[a-z0-9]*)+$"
         },
         "title": {
           "name": "title",
@@ -2593,7 +2594,8 @@
           ],
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
-          "required": true
+          "required": true,
+          "pattern": "^([A-Z]+[a-z0-9]*)+$"
         },
         "title": {
           "name": "title",
@@ -2825,7 +2827,8 @@
           "unique_key_name": "permissiblevalue_key",
           "unique_key_slots": [
             "schema_id",
-            "enum_id"
+            "enum_id",
+            "name"
           ],
           "description": "An enumeration is uniquely identified by the schema it appears in as well as its name."
         }

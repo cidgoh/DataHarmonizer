@@ -34,20 +34,18 @@ classes:
       name:
         rank: 1
         slot_group: key
+        pattern: ^([A-Z][a-z0-9]+)+$
         description: The coding name of a LinkML schema.
         comments:
         - 'This is a **CamelCase** formatted name in the LinkML standard naming convention.
-
 
           A schema contains classes for describing one or more DataHarmonizer templates,
           fields/columns, and picklists (which are themselves LinkML classes, slots,
           and enumerations).
 
-
           A schema can also import other schemas and their slots, classes, etc.'
         examples:
         - value: Wastewater
-        pattern: ^([A-Z][a-z0-9]+)+$
       id:
         rank: 2
         slot_group: key
@@ -129,6 +127,7 @@ classes:
       name:
         rank: 2
         slot_group: key
+        pattern: ^([A-Z]+[a-z0-9]*)+$
         description: A class contained in given schema.
         comments:
         - Each class can be displayed in DataHarmonizer in a spreadsheet tab. A class
@@ -136,7 +135,6 @@ classes:
           subordinate 1-many class linked to a parent class by a primary key field.
         examples:
         - value: WastewaterAMR|WastewaterPathogenAgnostic
-        pattern: ^([A-Z][a-z0-9]+)+$
       title:
         rank: 3
         slot_group: attributes
@@ -194,7 +192,7 @@ classes:
       name:
         rank: 3
         slot_group: key
-        pattern: ^[a-z]([a-z0-9_]+)+$
+        pattern: ^[a-z]+[a-z0-9_]*$
         description: A class contained in given schema.
       unique_key_slots:
         rank: 4
@@ -222,9 +220,9 @@ classes:
         - name
     slots:
     - schema_id
+    - name
     - slot_group
     - slot_uri
-    - name
     - title
     - range
     - required
@@ -250,28 +248,27 @@ classes:
         comments:
         - A schema has a list of slots it defines, but a schema can also import other
           schemas' slots.
-      slot_group:
-        rank: 2
-        slot_group: attributes
-        description: The name of a grouping to place slot within during presentation.
-      slot_uri:
-        rank: 3
-        slot_group: attributes
       name:
-        rank: 4
+        rank: 2
         slot_group: key
-        pattern: ^[a-z]([a-z0-9_]+)+$
+        pattern: ^[a-z]+[a-z0-9_]*$
         description: The coding name of this schema slot.
         comments:
         - 'This is a lowercase **snake_case** formatted name in the LinkML standard
           naming convention.
-
 
           A slot can be used in one or more classes (templates). A slot may appear
           as a visible single-field datatype column in a spreadsheet (template) tab,
           and can define (in its range attribute) a basic number, date, string, picklist
           (categorical or ordinal), or other custom datatype.  A slot may also have
           a range pointing to more complex classes.'
+      slot_group:
+        rank: 3
+        slot_group: attributes
+        description: The name of a grouping to place slot within during presentation.
+      slot_uri:
+        rank: 4
+        slot_group: attributes
       title:
         rank: 5
         slot_group: attributes
@@ -469,6 +466,7 @@ classes:
       name:
         rank: 2
         slot_group: key
+        pattern: ^([A-Z]+[a-z0-9]*)+$
         description: The coding name of this LinkML schema enumeration.
         comments:
         - See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/
@@ -496,6 +494,7 @@ classes:
         unique_key_slots:
         - schema_id
         - enum_id
+        - name
     slots:
     - schema_id
     - enum_id
