@@ -70,3 +70,47 @@ li.nav-item.disabled {
   cursor: not-allowed !important;
 }
 
+
+/* Tooltip container */
+.tooltipy {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltipy .tooltipytext {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -100px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipy:hover .tooltipytext {
+  visibility: visible;
+}
+
+/* optional little arrow at top. See https://www.w3schools.com/css/css_tooltip.asp */
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+
