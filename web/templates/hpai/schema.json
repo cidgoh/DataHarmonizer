@@ -24418,6 +24418,14 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         }
+      },
+      "unique_keys": {
+        "hpai_key": {
+          "unique_key_name": "hpai_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
+          ]
+        }
       }
     },
     "HPAIFood": {
@@ -29195,6 +29203,14 @@
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
           "recommended": true
+        }
+      },
+      "unique_keys": {
+        "hpaifood_key": {
+          "unique_key_name": "hpaifood_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
+          ]
         }
       }
     },
@@ -36705,6 +36721,14 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         }
+      },
+      "unique_keys": {
+        "hpaiww_key": {
+          "unique_key_name": "hpaiww_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
+          ]
+        }
       }
     },
     "HPAIEnviro": {
@@ -44214,6 +44238,14 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         }
+      },
+      "unique_keys": {
+        "hpaienviro_key": {
+          "unique_key_name": "hpaienviro_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
+          ]
+        }
       }
     },
     "HPAIHost": {
@@ -49980,6 +50012,14 @@
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
           "recommended": true
+        }
+      },
+      "unique_keys": {
+        "hpaihost_key": {
+          "unique_key_name": "hpaihost_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
+          ]
         }
       }
     }

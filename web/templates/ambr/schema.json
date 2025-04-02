@@ -6040,6 +6040,15 @@
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
         }
+      },
+      "unique_keys": {
+        "ambr_key": {
+          "unique_key_name": "ambr_key",
+          "unique_key_slots": [
+            "isolate_id",
+            "specimen_collector_sample_id"
+          ]
+        }
       }
     }
   },

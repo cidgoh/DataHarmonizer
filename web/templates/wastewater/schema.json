@@ -18292,6 +18292,14 @@
             }
           ]
         }
+      },
+      "unique_keys": {
+        "wastewater_sars_key": {
+          "unique_key_name": "wastewater_sars_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
+          ]
+        }
       }
     },
     "WastewaterAMR": {
@@ -25614,6 +25622,14 @@
             {
               "range": "NullValueMenu"
             }
+          ]
+        }
+      },
+      "unique_keys": {
+        "wastewater_amr_key": {
+          "unique_key_name": "wastewater_amr_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
           ]
         }
       }
@@ -33511,6 +33527,14 @@
             {
               "range": "NullValueMenu"
             }
+          ]
+        }
+      },
+      "unique_keys": {
+        "wastewater_agnostic_key": {
+          "unique_key_name": "wastewater_agnostic_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
           ]
         }
       }

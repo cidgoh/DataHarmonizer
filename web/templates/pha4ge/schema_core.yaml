@@ -17,6 +17,10 @@ classes:
     description: Public Health Alliance for Genomic Epidemiology biosample specification
     is_a: dh_interface
     see_also: templates/pha4ge/SOP.pdf
+    unique_keys:
+      pha4ge_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
 slots: {}
 enums: {}
 types:

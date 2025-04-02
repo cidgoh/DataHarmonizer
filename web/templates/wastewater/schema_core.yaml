@@ -18,18 +18,30 @@ classes:
     is_a: dh_interface
     annotations:
       version: 4.2.2
+    unique_keys:
+      wastewater_sars_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
   'WastewaterAMR':
     name: 'WastewaterAMR'
     description: Specification for Wastewater AMR biosample data gathering
     is_a: dh_interface
     annotations:
       version: 4.2.2
+    unique_keys:
+      wastewater_amr_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
   'WastewaterPathogenAgnostic':
     name: 'WastewaterPathogenAgnostic'
     description: Specification for Wastewater Pathogen Agnostic biosample data gathering
     is_a: dh_interface
     annotations:
       version: 4.2.2
+    unique_keys:
+      wastewater_agnostic_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
 slots: {}
 enums: {}
 types:

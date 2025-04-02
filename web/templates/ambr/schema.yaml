@@ -20,6 +20,11 @@ classes:
       The AMBR DataHarmonizer template was designed to standardize contextual data
       associated with the isolate repository from this work.
     is_a: dh_interface
+    unique_keys:
+      ambr_key:
+        unique_key_slots:
+        - isolate_id
+        - specimen_collector_sample_id
     slots:
     - isolate_id
     - alternative_isolate_id
@@ -280,35 +285,38 @@ slots:
     title: isolate ID
     description: The user-defined identifier for the isolate, as provided by the laboratory
       that originally isolated the isolate.
-    comments: Provide the identifier created by the lab for the organism after isolation.
+    comments:
+    - Provide the identifier created by the lab for the organism after isolation.
       This value maps to the "Strain ID#" in the Alberta Microbiota Repository (AMBR)
       Master file.
     slot_uri: GENEPIO:0100456
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: SA01
   alternative_isolate_id:
     name: alternative_isolate_id
     title: alternative isolate ID
     description: An alternative isolate ID assigned to the isolate by another organization.
-    comments: Provide the identifier that represents the site code, source and/or
-      patient identifier, media type, strain identifier, colony number, growth condition
-      and dilution factor as a single code. This value corresponds maps to the "Label
+    comments:
+    - Provide the identifier that represents the site code, source and/or patient
+      identifier, media type, strain identifier, colony number, growth condition and
+      dilution factor as a single code. This value corresponds maps to the "Label
       ID" in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100457
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: '3411301'
   specimen_collector_sample_id:
     name: specimen_collector_sample_id
     title: specimen collector sample ID
     description: The user-defined name for the sample.
-    comments: Provide the sample ID provided by the original sample collector. This
-      value is different from the "isolate_ID" as it represents the original material
-      sampled rather than the organism that was isolated from the sampled material.
-      This identifier may or may not be available.
+    comments:
+    - Provide the sample ID provided by the original sample collector. This value
+      is different from the "isolate_ID" as it represents the original material sampled
+      rather than the organism that was isolated from the sampled material. This identifier
+      may or may not be available.
     slot_uri: GENEPIO:0001123
     identifier: true
     range: WhitespaceMinimizedString
@@ -318,16 +326,17 @@ slots:
     name: sample_collected_by
     title: sample collected by
     description: The name of the agency that collected the original sample.
-    comments: The name of the institution of the original sample collector should
-      be written out in full, (no abbreviations, with minor exceptions) and be consistent
-      across multiple submissions e.g. University of Calgary, Alberta Health Services.
-      The sample collector specified is at the discretion of the data provider (i.e.
-      may be hospital, provincial public health lab, or other).
+    comments:
+    - The name of the institution of the original sample collector should be written
+      out in full, (no abbreviations, with minor exceptions) and be consistent across
+      multiple submissions e.g. University of Calgary, Alberta Health Services. The
+      sample collector specified is at the discretion of the data provider (i.e. may
+      be hospital, provincial public health lab, or other).
     slot_uri: GENEPIO:0001153
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: University of Calgary
   sample_collection_project_name:
@@ -335,11 +344,12 @@ slots:
     title: sample collection project name
     description: The name of the project/initiative/program for which the sample was
       collected.
-    comments: Provide the name of the project and/or the project ID here. If the information
+    comments:
+    - Provide the name of the project and/or the project ID here. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100429
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Children's Hospital biofilm study (A3-701-01)
   sample_collector_contact_email:
@@ -347,7 +357,8 @@ slots:
     title: sample collector contact email
     description: The email address of the contact responsible for follow-up regarding
       the sample.
-    comments: The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca,
+    comments:
+    - The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca,
       or RespLab@lab.ca
     slot_uri: GENEPIO:0001156
     range: WhitespaceMinimizedString
@@ -358,8 +369,9 @@ slots:
     name: sample_collector_contact_address
     title: sample collector contact address
     description: The mailing address of the agency submitting the sample.
-    comments: 'The mailing address should be in the format: Street number and name,
-      City, Province/Territory, Postal Code, Country'
+    comments:
+    - 'The mailing address should be in the format: Street number and name, City,
+      Province/Territory, Postal Code, Country'
     slot_uri: GENEPIO:0001158
     range: WhitespaceMinimizedString
     examples:
@@ -368,22 +380,24 @@ slots:
     name: sample_collection_date
     title: sample collection date
     description: The date on which the sample was collected.
-    comments: The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
+    comments:
+    - The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0001174
+    recommended: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - '>=2019-10-01'
     - <={today}
-    recommended: true
     examples:
     - value: '2020-03-16'
   sample_received_date:
     name: sample_received_date
     title: sample received date
     description: The date on which the sample was received.
-    comments: The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
+    comments:
+    - The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0001179
     any_of:
     - range: date
@@ -397,31 +411,34 @@ slots:
     name: geo_loc_name_country
     title: geo_loc_name (country)
     description: The country where the sample was collected.
-    comments: Provide the country name from the controlled vocabulary provided.
+    comments:
+    - Provide the country name from the controlled vocabulary provided.
     slot_uri: GENEPIO:0001181
+    recommended: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Canada
   geo_loc_name_state_province_territory:
     name: geo_loc_name_state_province_territory
     title: geo_loc_name (state/province/territory)
     description: The province/territory where the sample was collected.
-    comments: Provide the province/territory name from the controlled vocabulary provided.
+    comments:
+    - Provide the province/territory name from the controlled vocabulary provided.
     slot_uri: GENEPIO:0001185
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Saskatchewan
   geo_loc_name_city:
     name: geo_loc_name_city
     title: geo_loc_name (city)
     description: The city where the sample was collected.
-    comments: 'Provide the city name. Use this look-up service to identify the standardized
+    comments:
+    - 'Provide the city name. Use this look-up service to identify the standardized
       term: https://www.ebi.ac.uk/ols/ontologies/gaz'
     slot_uri: GENEPIO:0001189
     range: WhitespaceMinimizedString
@@ -432,8 +449,9 @@ slots:
     title: geo_loc_name (site)
     description: The name of a specific geographical location e.g. Credit River (rather
       than river).
-    comments: Provide the name of the specific geographical site using a specific
-      noun (a word that names a certain place, thing).
+    comments:
+    - Provide the name of the specific geographical site using a specific noun (a
+      word that names a certain place, thing).
     slot_uri: GENEPIO:0100436
     range: GeoLocNameSiteMenu
     examples:
@@ -442,32 +460,34 @@ slots:
     name: organism
     title: organism
     description: Taxonomic name of the organism.
-    comments: Provide the confirmed taxonomic name of the species. This value maps
-      to the "Recommended identification" in the Alberta Microbiota Repository (AMBR)
-      Master file.
+    comments:
+    - Provide the confirmed taxonomic name of the species. This value maps to the
+      "Recommended identification" in the Alberta Microbiota Repository (AMBR) Master
+      file.
     slot_uri: GENEPIO:0001191
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Staphylococcus aureus
   purpose_of_sampling:
     name: purpose_of_sampling
     title: purpose of sampling
     description: The reason that the sample was collected.
-    comments: The reason a sample was collected may provide information about potential
-      biases in sampling strategy. Provide the purpose of sampling from the picklist
-      in the template. The reason why a sample was originally collected may differ
-      from the reason why it was selected for sequencing, which should be indicated
-      in the "purpose of sequencing" field. Motivation for sampling may be available
-      in the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
-      Master file.
+    comments:
+    - The reason a sample was collected may provide information about potential biases
+      in sampling strategy. Provide the purpose of sampling from the picklist in the
+      template. The reason why a sample was originally collected may differ from the
+      reason why it was selected for sequencing, which should be indicated in the
+      "purpose of sequencing" field. Motivation for sampling may be available in the
+      "Source of Isolation" field in the Alberta Microbiota Repository (AMBR) Master
+      file.
     slot_uri: GENEPIO:0001198
+    recommended: true
     any_of:
     - range: PurposeOfSamplingMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Targeted surveillance
   purpose_of_sampling_details:
@@ -475,24 +495,26 @@ slots:
     title: purpose of sampling details
     description: The description of why the sample was collected, providing specific
       details.
-    comments: Provide an expanded description of why the sample was collected using
-      free text. The description may include the importance of the sample for a particular
-      investigation/surveillance activity/research question. Information for populating
-      this field may be available in the "Source of Isolation" field in the Alberta
-      Microbiota Repository (AMBR) Master file.
+    comments:
+    - Provide an expanded description of why the sample was collected using free text.
+      The description may include the importance of the sample for a particular investigation/surveillance
+      activity/research question. Information for populating this field may be available
+      in the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
+      Master file.
     slot_uri: GENEPIO:0001200
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: ProvLab/IPC routine monitoring
   original_sample_description:
     name: original_sample_description
     title: original sample description
     description: The original sample description provided by the sample collector.
-    comments: Provide the sample description provided by the original sample collector
-      or the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
+    comments:
+    - Provide the sample description provided by the original sample collector or
+      the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
       Master file. The original description is useful as it may provide further details,
       or can be used to clarify higher level classifications.
     slot_uri: GENEPIO:0100439
@@ -505,35 +527,36 @@ slots:
     title: anatomical material
     description: A substance obtained from an anatomical part of an organism e.g.
       tissue, blood.
-    comments: Provide a descriptor if an anatomical material was sampled. Use the
-      picklist provided in the template. If a desired term is missing from the picklist,
-      contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose
-      a null value. Information for populating this field may be available in the
-      "Source of Isolation" field in the Alberta Microbiota Repository (AMBR) Master
-      file.
+    comments:
+    - Provide a descriptor if an anatomical material was sampled. Use the picklist
+      provided in the template. If a desired term is missing from the picklist, contact
+      emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
+      value. Information for populating this field may be available in the "Source
+      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001211
+    multivalued: true
+    required: true
     any_of:
     - range: AnatomicalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Wound tissue (injury)
   anatomical_part:
     name: anatomical_part
     title: anatomical part
     description: An anatomical part of an organism e.g. oropharynx.
-    comments: Provide a descriptor if an anatomical part was sampled. Use the picklist
-      provided in the template. If a desired term is missing from the picklist, contact
-      emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
-      value. Information for populating this field may be available in the "Source
-      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
+    comments:
+    - Provide a descriptor if an anatomical part was sampled. Use the picklist provided
+      in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca.
+      If not applicable, do not leave blank. Choose a null value. Information for
+      populating this field may be available in the "Source of Isolation" field in
+      the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001214
+    multivalued: true
+    required: true
     any_of:
     - range: AnatomicalPartMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Nasal cavity
   body_product:
@@ -541,17 +564,18 @@ slots:
     title: body product
     description: A substance excreted/secreted from an organism e.g. feces, urine,
       sweat.
-    comments: Provide a descriptor if a body product was sampled. Use the picklist
-      provided in the template.  If a desired term is missing from the picklist, contact
-      emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
-      value. Information for populating this field may be available in the "Source
-      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
+    comments:
+    - Provide a descriptor if a body product was sampled. Use the picklist provided
+      in the template.  If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca.
+      If not applicable, do not leave blank. Choose a null value. Information for
+      populating this field may be available in the "Source of Isolation" field in
+      the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001216
+    multivalued: true
+    required: true
     any_of:
     - range: BodyProductMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Feces
   environmental_material:
@@ -559,18 +583,18 @@ slots:
     title: environmental material
     description: A substance obtained from the natural or man-made environment e.g.
       soil, water, sewage.
-    comments: Provide a descriptor if an environmental material was sampled. Use the
-      picklist provided in the template.  If a desired term is missing from the picklist,
-      contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose
-      a null value. Information for populating this field may be available in the
-      "Source of Isolation" field in the Alberta Microbiota Repository (AMBR) Master
-      file.
+    comments:
+    - Provide a descriptor if an environmental material was sampled. Use the picklist
+      provided in the template.  If a desired term is missing from the picklist, contact
+      emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
+      value. Information for populating this field may be available in the "Source
+      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001223
+    multivalued: true
+    required: true
     any_of:
     - range: EnvironmentalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Bandage
   environmental_site:
@@ -578,61 +602,63 @@ slots:
     title: environmental site
     description: An environmental location may describe a site in the natural or built
       environment e.g. contact surface, metal can, hospital, wet market, bat cave.
-    comments: Provide a descriptor if an environmental site was sampled. Use the picklist
+    comments:
+    - Provide a descriptor if an environmental site was sampled. Use the picklist
       provided in the template.  If a desired term is missing from the picklist, contact
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value. Information for populating this field may be available in the "Source
       of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001232
+    multivalued: true
+    required: true
     any_of:
     - range: EnvironmentalSiteMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Hospital
   collection_device:
     name: collection_device
     title: collection device
     description: The instrument or container used to collect the sample e.g. swab.
-    comments: Provide a descriptor if a device was used for sampling. Use the picklist
-      provided in the template. If a desired term is missing from the picklist, contact
-      emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
-      value. Information for populating this field may be available in the "Source
-      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
+    comments:
+    - Provide a descriptor if a device was used for sampling. Use the picklist provided
+      in the template. If a desired term is missing from the picklist, contact emma_griffiths@sfu.ca.
+      If not applicable, do not leave blank. Choose a null value. Information for
+      populating this field may be available in the "Source of Isolation" field in
+      the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001234
+    multivalued: true
+    required: true
     any_of:
     - range: CollectionDeviceMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Swab
   collection_method:
     name: collection_method
     title: collection method
     description: The process used to collect the sample e.g. phlebotomy, necropsy.
-    comments: Provide a descriptor if a collection method was used for sampling. Use
-      the picklist provided in the template.  If a desired term is missing from the
-      picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank.
-      Choose a null value. Information for populating this field may be available
-      in the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
-      Master file.
+    comments:
+    - Provide a descriptor if a collection method was used for sampling. Use the picklist
+      provided in the template.  If a desired term is missing from the picklist, contact
+      emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
+      value. Information for populating this field may be available in the "Source
+      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001241
+    multivalued: true
+    required: true
     any_of:
     - range: CollectionMethodMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Biopsy
   collection_protocol:
     name: collection_protocol
     title: collection protocol
     description: The name and version of a particular protocol used for sampling.
-    comments: Free text. Information for populating this field may be available in
-      the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
-      Master file.
+    comments:
+    - Free text. Information for populating this field may be available in the "Source
+      of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001243
     range: WhitespaceMinimizedString
     examples:
@@ -642,21 +668,22 @@ slots:
     title: specimen processing
     description: Any processing applied to the sample during or after receiving the
       sample.
-    comments: If multiple PCR products were generated from the isolate using different
-      primer sets, indicate that the sequence records represents the same isolate
-      by selecting "Biological replicate" in the "specimen processing" field. Every
-      different sequence experiment should have its own record (i.e. if different
-      amplicons have the same sequence but were generated using different primer sets,
-      these should be stored as separate entries/lines in the spreadsheet). Information
-      about replicates may be available in the "Top-hit taxon (taxa)" or "Trimmed
-      Ribosomal Sequence" fields if there are multiple values for the same "Strain
-      ID#" in the Alberta Microbiota Repository (AMBR) Master file.
+    comments:
+    - If multiple PCR products were generated from the isolate using different primer
+      sets, indicate that the sequence records represents the same isolate by selecting
+      "Biological replicate" in the "specimen processing" field. Every different sequence
+      experiment should have its own record (i.e. if different amplicons have the
+      same sequence but were generated using different primer sets, these should be
+      stored as separate entries/lines in the spreadsheet). Information about replicates
+      may be available in the "Top-hit taxon (taxa)" or "Trimmed Ribosomal Sequence"
+      fields if there are multiple values for the same "Strain ID#" in the Alberta
+      Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001253
+    multivalued: true
+    recommended: true
     any_of:
     - range: SpecimenProcessingMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Biological replicate
   specimen_processing_details:
@@ -664,11 +691,11 @@ slots:
     title: specimen processing details
     description: Detailed information regarding the processing applied to a sample
       during or after receiving the sample.
-    comments: Provide a free text description of any processing details applied to
-      a sample. Information about replicates may be available in the "Top-hit taxon
-      (taxa)" or "Trimmed Ribosomal Sequence" fields if there are multiple values
-      for the same "Strain ID#" in the Alberta Microbiota Repository (AMBR) Master
-      file.
+    comments:
+    - Provide a free text description of any processing details applied to a sample.
+      Information about replicates may be available in the "Top-hit taxon (taxa)"
+      or "Trimmed Ribosomal Sequence" fields if there are multiple values for the
+      same "Strain ID#" in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100311
     range: WhitespaceMinimizedString
     examples:
@@ -678,13 +705,14 @@ slots:
     name: strain
     title: strain
     description: The strain identifier.
-    comments: Provide the strain of the isolate. This value maps to the "Strain" in
-      the Alberta Microbiota Repository (AMBR) Master file.
+    comments:
+    - Provide the strain of the isolate. This value maps to the "Strain" in the Alberta
+      Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100455
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: CL10
   taxonomic_identification_method:
@@ -692,16 +720,16 @@ slots:
     title: taxonomic identification method
     description: The type of planned process by which an organismal entity is associated
       with a taxon or taxa.
-    comments: Provide the type of method used to determine the taxonomic identity
-      of the organism by selecting a value from the pick list. For the AMBR Project,
-      the "16S ribosomal gene sequencing assay" value will be the most appropriate.
-      If the information is unknown or cannot be provided, leave blank or provide
-      a null value.
+    comments:
+    - Provide the type of method used to determine the taxonomic identity of the organism
+      by selecting a value from the pick list. For the AMBR Project, the "16S ribosomal
+      gene sequencing assay" value will be the most appropriate. If the information
+      is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100583
+    required: true
     any_of:
     - range: TaxonomicIdentificationMethodMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: 16S ribosomal gene sequencing assay
   taxonomic_identification_method_details:
@@ -709,18 +737,19 @@ slots:
     title: taxonomic identification method details
     description: The details of the process used to determine the taxonomic identification
       of an organism.
-    comments: Provide the criteria used for 16S sequencing taxonomic determination
-      by selection a value from the pick list. These criteria are specific to the
-      AMBR project and so do not correspond with standardized criteria in any ontology.
-      The pick list is strictly for providing consistency in records rather than implementing
+    comments:
+    - Provide the criteria used for 16S sequencing taxonomic determination by selection
+      a value from the pick list. These criteria are specific to the AMBR project
+      and so do not correspond with standardized criteria in any ontology. The pick
+      list is strictly for providing consistency in records rather than implementing
       community data standards.  If another method was used for the taxonomic determination,
       leave blank. This value maps to the information stored in the "ID Category*"
       field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100584
+    required: true
     any_of:
     - range: TaxonomicIdentificationMethodDetailsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: 'Species-level ID: >99.3% identity and unambiguous match to one type
         (T) sequence in a curated database'
@@ -730,14 +759,15 @@ slots:
     description: An environmental datum specifying the temperature at which an organism
       or organisms were incubated for the purposes of growth on or in a particular
       medium.
-    comments: Provide the temperature at which the isolate was isolated. This value
-      maps to the information stored in the "Incubation temperature" field in the
-      Alberta Microbiota Repository (AMBR) Master file.
+    comments:
+    - Provide the temperature at which the isolate was isolated. This value maps to
+      the information stored in the "Incubation temperature" field in the Alberta
+      Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100617
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '37'
   incubation_temperature_unit:
@@ -746,14 +776,15 @@ slots:
     description: An environmental datum specifying the temperature unit at which an
       organism or organisms were incubated for the purposes of growth on or in a particular
       medium.
-    comments: Select the temperature unit from the pick list. This value maps to the
-      information stored in the "Incubation temperature" field in the Alberta Microbiota
-      Repository (AMBR) Master file.
+    comments:
+    - Select the temperature unit from the pick list. This value maps to the information
+      stored in the "Incubation temperature" field in the Alberta Microbiota Repository
+      (AMBR) Master file.
     slot_uri: GENEPIO:0100618
+    required: true
     any_of:
     - range: IncubationTemperatureUnitMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Degree Celsius
   isolation_medium:
@@ -762,14 +793,15 @@ slots:
     description: An isolation medium is a culture medium which has the disposition
       to encourage growth of particular bacteria to the exclusion of others in the
       same growth environment.
-    comments: Select the isolation medium from the pick list. This value maps to the
-      information stored in the "Incubation media" field in the Alberta Microbiota
-      Repository (AMBR) Master file.
+    comments:
+    - Select the isolation medium from the pick list. This value maps to the information
+      stored in the "Incubation media" field in the Alberta Microbiota Repository
+      (AMBR) Master file.
     slot_uri: GENEPIO:0002107
+    required: true
     any_of:
     - range: IsolationMediumMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Brain heart infusion (BHI)
   isolate_storage_location:
@@ -777,13 +809,14 @@ slots:
     title: isolate storage location
     description: An isolate datum specifying the location of where an isolate is stored
       e.g. in a particular freezer, on a particular shelf
-    comments: Enter the freezer storage location of the isolate as the "freezer number-shelf
+    comments:
+    - Enter the freezer storage location of the isolate as the "freezer number-shelf
       number-box number-unit number" e.g. FR1-R3-B1-S01. This value maps to the information
       stored in the "Spot code" in the Alberta Microbiota Repository (AMBR) Master
       file.
     slot_uri: GENEPIO:0100619
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: FR1-R3-B1-S01
   cellular_respiration_type:
@@ -791,45 +824,48 @@ slots:
     title: cellular respiration type
     description: An isolate datum specifying the type of cellular respiration process
       used by the organism.
-    comments: Select the respiration type from the pick list. This value maps to the
-      information stored in the "Aerobic/Anaerobic" field in the Alberta Microbiota
-      Repository (AMBR) Master file.
+    comments:
+    - Select the respiration type from the pick list. This value maps to the information
+      stored in the "Aerobic/Anaerobic" field in the Alberta Microbiota Repository
+      (AMBR) Master file.
     slot_uri: GENEPIO:0100620
+    required: true
     any_of:
     - range: CellularRespirationTypeMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Aerobic respiration
   host_common_name:
     name: host_common_name
     title: host (common name)
     description: The commonly used name of the host.
-    comments: "Common name is required if there was a host. Both common anime and\
-      \ scientific name can be provided, if known. Use terms from the pick lists in\
-      \ the template. Hosts can be animals (including humans) and plants. Examples\
-      \ of common names are \u201CHuman\u201D and \u201CCanola plant\u201D. Examples\
-      \ of scientific names are \u201CHomo sapiens\u201D and \u201CEquus caballus\u201D\
-      . If the sample was environmental, select \"Not Applicable\". Information for\
-      \ populating this field may be available in the \"Source of Isolation\" field\
-      \ in the Alberta Microbiota Repository (AMBR) Master file."
+    comments:
+    - "Common name is required if there was a host. Both common anime and scientific\
+      \ name can be provided, if known. Use terms from the pick lists in the template.\
+      \ Hosts can be animals (including humans) and plants. Examples of common names\
+      \ are \u201CHuman\u201D and \u201CCanola plant\u201D. Examples of scientific\
+      \ names are \u201CHomo sapiens\u201D and \u201CEquus caballus\u201D. If the\
+      \ sample was environmental, select \"Not Applicable\". Information for populating\
+      \ this field may be available in the \"Source of Isolation\" field in the Alberta\
+      \ Microbiota Repository (AMBR) Master file."
     slot_uri: GENEPIO:0001386
+    required: true
     any_of:
     - range: HostCommonNameMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Human
   host_scientific_name:
     name: host_scientific_name
     title: host (scientific name)
     description: The taxonomic, or scientific name of the host.
-    comments: Common name or scientific name are required if there was a host. Both
-      can be provided, if known. Use terms from the pick lists in the template. Hosts
-      can be animals (including humans) and plants. Common name e.g. Human, Canola
-      plant. If the sample was environmental, select "Not Applicable". Information
-      for populating this field may be available in the "Source of Isolation" field
-      in the Alberta Microbiota Repository (AMBR) Master file.
+    comments:
+    - Common name or scientific name are required if there was a host. Both can be
+      provided, if known. Use terms from the pick lists in the template. Hosts can
+      be animals (including humans) and plants. Common name e.g. Human, Canola plant.
+      If the sample was environmental, select "Not Applicable". Information for populating
+      this field may be available in the "Source of Isolation" field in the Alberta
+      Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001387
     any_of:
     - range: HostScientificNameMenu
@@ -840,10 +876,11 @@ slots:
     name: host_disease
     title: host disease
     description: The name of the disease experienced by the host.
-    comments: If the sample was obtained from a host with a known disease, provide
-      the name of the disease by seleting a value from the picklist. Information for
-      populating this field may be available in the "Source of Isolation" field in
-      the Alberta Microbiota Repository (AMBR) Master file.
+    comments:
+    - If the sample was obtained from a host with a known disease, provide the name
+      of the disease by seleting a value from the picklist. Information for populating
+      this field may be available in the "Source of Isolation" field in the Alberta
+      Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001391
     any_of:
     - range: HostDiseaseMenu
@@ -855,10 +892,11 @@ slots:
     title: sequenced by
     description: The name of the agency, organization or institution responsible for
       sequencing the isolate's genome.
-    comments: Provide the name of the organization that performed the sequencing in
-      full (avoid abbreviations). If the information is unknown or cannot be provided,
-      leave blank or provide a null value. For the AMBR Project, the value is most
-      likely the "University of Calgary".
+    comments:
+    - Provide the name of the organization that performed the sequencing in full (avoid
+      abbreviations). If the information is unknown or cannot be provided, leave blank
+      or provide a null value. For the AMBR Project, the value is most likely the
+      "University of Calgary".
     slot_uri: GENEPIO:0100416
     any_of:
     - range: SequencedByMenu
@@ -870,10 +908,11 @@ slots:
     title: sequenced by laboratory name
     description: The specific laboratory affiliation of the responsible for sequencing
       the isolate's genome.
-    comments: Provide the name of the specific laboratory that that performed the
-      sequencing in full (avoid abbreviations). If the information is unknown or cannot
-      be provided, leave blank or provide a null value. For the AMBR Project, the
-      value is most likely the "Harrison Lab".
+    comments:
+    - Provide the name of the specific laboratory that that performed the sequencing
+      in full (avoid abbreviations). If the information is unknown or cannot be provided,
+      leave blank or provide a null value. For the AMBR Project, the value is most
+      likely the "Harrison Lab".
     slot_uri: GENEPIO:0100470
     range: WhitespaceMinimizedString
     examples:
@@ -883,7 +922,8 @@ slots:
     title: sequenced by contact name
     description: The name or title of the contact responsible for follow-up regarding
       the sequence.
-    comments: Provide the name of an individual or their job title. As personnel turnover
+    comments:
+    - Provide the name of an individual or their job title. As personnel turnover
       may render the contact's name obsolete, it is more prefereable to provide a
       job title for ensuring accuracy of information and institutional memory. If
       the information is unknown or cannot be provided, leave blank or provide a null
@@ -897,7 +937,8 @@ slots:
     title: sequenced by contact email
     description: The email address of the contact responsible for follow-up regarding
       the sequence.
-    comments: Provide the email associated with the listed contact. As personnel turnover
+    comments:
+    - Provide the email associated with the listed contact. As personnel turnover
       may render an individual's email obsolete, it is more prefereable to provide
       an address for a position or lab, to ensure accuracy of information and institutional
       memory. If the information is unknown or cannot be provided, leave blank or
@@ -910,11 +951,12 @@ slots:
     name: purpose_of_sequencing
     title: purpose of sequencing
     description: The reason that the sample was sequenced.
-    comments: The reason why a sample was originally collected may differ from the
-      reason why it was selected for sequencing. The reason a sample was sequenced
-      may provide information about potential biases in sequencing strategy. Provide
-      the purpose of sequencing from the picklist in the template. The reason for
-      sample collection should be indicated in the "purpose of sampling" field.
+    comments:
+    - The reason why a sample was originally collected may differ from the reason
+      why it was selected for sequencing. The reason a sample was sequenced may provide
+      information about potential biases in sequencing strategy. Provide the purpose
+      of sequencing from the picklist in the template. The reason for sample collection
+      should be indicated in the "purpose of sampling" field.
     slot_uri: GENEPIO:0001445
     any_of:
     - range: PurposeOfSequencingMenu
@@ -926,9 +968,10 @@ slots:
     title: purpose of sequencing details
     description: The description of why the sample was sequenced providing specific
       details.
-    comments: Provide an expanded description of why the sample was sequenced using
-      free text. This information can provide details about why the sample source
-      might contain antibiotic potentiators.
+    comments:
+    - Provide an expanded description of why the sample was sequenced using free text.
+      This information can provide details about why the sample source might contain
+      antibiotic potentiators.
     slot_uri: GENEPIO:0001446
     any_of:
     - range: WhitespaceMinimizedString
@@ -939,7 +982,8 @@ slots:
     name: sequencing_date
     title: sequencing date
     description: The date the sample was sequenced.
-    comments: The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
+    comments:
+    - The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0001447
     any_of:
     - range: date
@@ -953,8 +997,9 @@ slots:
     name: library_id
     title: library ID
     description: The user-specified identifier for the library prepared for sequencing.
-    comments: 'Provide the name of the run. This value maps to information in the
-      "Sequencing Batch #" field Alberta Microbiota Repository (AMBR) Master file.'
+    comments:
+    - 'Provide the name of the run. This value maps to information in the "Sequencing
+      Batch #" field Alberta Microbiota Repository (AMBR) Master file.'
     slot_uri: GENEPIO:0001448
     range: WhitespaceMinimizedString
     examples:
@@ -963,23 +1008,25 @@ slots:
     name: sequencing_instrument
     title: sequencing instrument
     description: The model of the sequencing instrument used.
-    comments: Select a sequencing instrument from the picklist provided in the template.
+    comments:
+    - Select a sequencing instrument from the picklist provided in the template.
     slot_uri: GENEPIO:0001452
+    multivalued: true
+    required: true
     any_of:
     - range: SequencingInstrumentMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Oxford Nanopore MinION
   sequencing_protocol_name:
     name: sequencing_protocol_name
     title: sequencing protocol name
     description: The name and version number of the sequencing protocol used.
-    comments: Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION
+    comments:
+    - Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION
     slot_uri: GENEPIO:0001453
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann
   amplicon_pcr_primer_list:
@@ -987,16 +1034,16 @@ slots:
     title: amplicon pcr primer list
     description: An information content entity specifying a list of primers used for
       amplicon sequencing.
-    comments: Select the primers used to generate the ribosomal 16S or 23S amplicon
-      for sequencing from the pick list. This value maps to the information in the
-      "Primers Used for sequencing" field Alberta Microbiota Repository (AMBR) Master
-      file.
+    comments:
+    - Select the primers used to generate the ribosomal 16S or 23S amplicon for sequencing
+      from the pick list. This value maps to the information in the "Primers Used
+      for sequencing" field Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100623
+    multivalued: true
+    required: true
     any_of:
     - range: AmpliconPcrPrimerListMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: 27F
     - value: 1492R
@@ -1004,7 +1051,8 @@ slots:
     name: input_file_name
     title: input file name
     description: The name of the file containing the sequence data to be analysed.
-    comments: Enter the file name of the target gene sequence to be analyzed.
+    comments:
+    - Enter the file name of the target gene sequence to be analyzed.
     slot_uri: OBI:0002874
     range: WhitespaceMinimizedString
     examples:
@@ -1014,21 +1062,23 @@ slots:
     title: reference accession
     description: An identifier that specifies an individual sequence record in a public
       sequence repository.
-    comments: Enter the EZBioCloud gene accession that most closely matches the sequence
-      being analyzed. This value maps to the information in the "Accession No(s)."
-      field in the Alberta Microbiota Repository (AMBR) Master file.
+    comments:
+    - Enter the EZBioCloud gene accession that most closely matches the sequence being
+      analyzed. This value maps to the information in the "Accession No(s)." field
+      in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: OBI:0002885
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: FR821777
   bioinformatics_protocol:
     name: bioinformatics_protocol
     title: bioinformatics protocol
     description: A description of the overall bioinformatics strategy used.
-    comments: Provide the name of the protocol used to perform the species identification
+    comments:
+    - Provide the name of the protocol used to perform the species identification
       (i.e. the name of the protocol to perform the EZBioCloud search).
     slot_uri: GENEPIO:0001489
     range: WhitespaceMinimizedString
@@ -1038,13 +1088,14 @@ slots:
     name: reference_database_name
     title: reference database name
     description: An identifier of a biological or bioinformatics database.
-    comments: Select the reference database name from the pick list. For the AMBR
-      Project, the reference database will be EZBioCloud.
+    comments:
+    - Select the reference database name from the pick list. For the AMBR Project,
+      the reference database will be EZBioCloud.
     slot_uri: OBI:0002883
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: EZBioCloud
   reference_database_version:
@@ -1052,15 +1103,16 @@ slots:
     title: reference database version
     description: The version of the database containing the reference sequences used
       for analysis.
-    comments: Enter the sequence search date as the version of EZBioCloud used. Record
-      the date in ISO 8601 format i.e. YYYY_MM_DD. This value maps to the information
+    comments:
+    - Enter the sequence search date as the version of EZBioCloud used. Record the
+      date in ISO 8601 format i.e. YYYY_MM_DD. This value maps to the information
       in the "Search date" field in the Alberta Microbiota Repository (AMBR) Master
       file.
     slot_uri: OBI:0002884
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '2021-05-23'
   coverage_percentage:
@@ -1068,14 +1120,15 @@ slots:
     title: coverage (percentage)
     description: The percentage of the reference sequence covered by the sequence
       of interest.
-    comments: Enter the completeness value. Do not include any symbols e.g. %. This
-      value maps to "Completeness (%)" in the Alberta Microbiota Repository (AMBR)
-      Master file.
+    comments:
+    - Enter the completeness value. Do not include any symbols e.g. %. This value
+      maps to "Completeness (%)" in the Alberta Microbiota Repository (AMBR) Master
+      file.
     slot_uri: OBI:0002880
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '98.2'
   sequence_identity_percentage:
@@ -1083,14 +1136,14 @@ slots:
     title: sequence identity percentage
     description: Sequence identity is the number (%) of matches (identical characters)
       in positions from an alignment of two molecular sequences.
-    comments: Enter the identity value. Do not include any symbols e.g. %. This value
-      maps to "Similarity (%)" in the Alberta Microbiota Repository (AMBR) Master
-      file.
+    comments:
+    - Enter the identity value. Do not include any symbols e.g. %. This value maps
+      to "Similarity (%)" in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: OBI:0002882
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '99'
   sequence_identity_variance_ratio:
@@ -1098,8 +1151,9 @@ slots:
     title: sequence identity (variance ratio)
     description: The ratio of the reference sequence not covered by the sequence of
       interest.
-    comments: Enter the number of different positions in the target sequence compared
-      to the reference sequence length, expressed as a ratio. This value maps to "Variation
+    comments:
+    - Enter the number of different positions in the target sequence compared to the
+      reference sequence length, expressed as a ratio. This value maps to "Variation
       ratio" in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100624
     any_of:
@@ -1112,14 +1166,15 @@ slots:
     title: top-hit taxon determination
     description: The taxon derived from the top hit in search results produced from
       a sequence similarity comparison.
-    comments: Enter the EZBioCloud taxon best-hit. This value maps to the information
-      in the "Top-hit taxon (taxa)" field in the Alberta Microbiota Repository (AMBR)
-      Master file.
+    comments:
+    - Enter the EZBioCloud taxon best-hit. This value maps to the information in the
+      "Top-hit taxon (taxa)" field in the Alberta Microbiota Repository (AMBR) Master
+      file.
     slot_uri: GENEPIO:0100625
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Staphylococcus argenteus
   tophit_strain_determination:
@@ -1127,14 +1182,15 @@ slots:
     title: top-hit strain determination
     description: The strain designation derived from the top hit in search results
       produced from a sequence similarity comparison.
-    comments: Enter the EZBioCloud strain best-hit. This value maps to the information
-      in the "Top-hit strain(s)" field in the Alberta Microbiota Repository (AMBR)
-      Master file.
+    comments:
+    - Enter the EZBioCloud strain best-hit. This value maps to the information in
+      the "Top-hit strain(s)" field in the Alberta Microbiota Repository (AMBR) Master
+      file.
     slot_uri: GENEPIO:0100648
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: MSHR1132(T)
   trimmed_ribosomal_gene_sequence:
@@ -1142,23 +1198,25 @@ slots:
     title: trimmed ribosomal gene sequence
     description: The results of a data transformation of sequence data in which (e.g.,
       low quality) read bases are removed to produce a trimmed ribosomal RNA sequence.
-    comments: Enter the sequence of the trimmed ribosomal gene sequence. This value
-      maps to the sequence in the "Trimmed Ribosomal Sequence" field in the Alberta
-      Microbiota Repository (AMBR) Master file.
+    comments:
+    - Enter the sequence of the trimmed ribosomal gene sequence. This value maps to
+      the sequence in the "Trimmed Ribosomal Sequence" field in the Alberta Microbiota
+      Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100626
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: TGCAAGTCGAGCGAACGGACGAGAAGCTTGCTTCTCTGATGTTAGCGGCGGACGSGTGAGTAACACGTGGATAACCTACCTATAAGACTGGGATAACTTCGGGAAACCGGAGCTAATACCGGATAATATTTTGAACCGCATGGTTCAAAAGTGAAAGACGGTCTTGCTGTCACTTATAGATGGATCCGCGCTGCATTAGCTAGTTGGTAAGGTAACGGCTTACCAAGGCAACGATGCATAGCCGACCTGAGAGGGTGATCGGCCACACTGGAACTGAGACACGGTCCAGACTCCTACGGGAGGCAGCAGTAGGGAATCTTCCGCAATGGGCGAAAGCCTGACGGAGCAACGCCGCGTGAGTGATGAAGGTCTTCGGATCGTAAAACTCTGTTATTAGGGAAGAACATATGTGTAAGTAACTGTGCACATCTTGACGGTACCTAATCAGAAAGCCACGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTATCCGGAATTATTGGGCGTAAAGCGCGCGTAGGCGGTTTTTTAAGTCTGATGTGAAAGCCCACGGCTCAACCGTGGAGGGTCATTGGAAACTGGAAAACTTGAGTGCAGAAGAGGAAAGTGGAATTCCATGTGTAGCGGTGAAATGCGCAGAGATATGGAGGAACACCAGTGGCGAAGGCGACTTTCTGGTCTGTAACTGACGCTGATGTGCGAAAGCGTGGGGATCAAACAGGATTAGATACCCTGGTAGTCCACGCCGTAAACGATGAGTGCTAAGTGTTAGGGGGTTTCCGCCCCTTAGTGCTGCAGCTAACGCATTAAGCACTCCGCCTGGGGAGTACGACCGCAAGGTTGAAACTCAAAGGAATTGACGGGGACCCGCACAAGCGGTGGAGCATGTGGTTTAATTCGAAGCAACGCGAAGAACCTTACCAAATCTTGACATCCTTTGACAACTCTAGAGATAGAGCCTTCCCCTTCGGGGGACAAAGTGACAGGTGGTGCATGGTTGTCGTCAGCTCGTGTCGTGAGATGTTGGGTTAAGTCCCGCAACGAGCGCAACCCTTAAGCTTAGTTGCCATCATTAAGTTGGGCACTCTAAGTTGACTGCCGGTGACAAACCGGAGGAAGGTGGGGATGACGTCAAATCATCATGCCCCTTATGATTTGGGCTACACACGTGCTACAATGGACAATACAAAGGGCAGCGAAACCGCGAGGTCAAGCAAATCCCATAAAGTTGTTCTCAGTTCGGATTGTAGTCTGCAACTCGACTACATGAAGCTGGAATCGCTAGTAATCGTAGATCAGCATGCTACGGTGAATACGTTCCCGGGTCTTGTACACACCGCCCGTCACACCACGAGAGTTTGTAACACCCGAAGCCGGTGGAGTAACCTTTTAGGAGCTAGCCGTCGAAG
   bioinformatics_analysis_details:
     name: bioinformatics_analysis_details
     title: bioinformatics analysis details
     description: Any notes regarding the bioinformatics analysis.
-    comments: Enter any notes regarding the analysis as free text. This value maps
-      to the "Comment" field in the information in the Alberta Microbiota Repository
-      (AMBR) Master file.
+    comments:
+    - Enter any notes regarding the analysis as free text. This value maps to the
+      "Comment" field in the information in the Alberta Microbiota Repository (AMBR)
+      Master file.
     slot_uri: GENEPIO:0100627
     range: WhitespaceMinimizedString
     examples:
@@ -1168,18 +1226,20 @@ slots:
     title: authors
     description: Names of individuals contributing to the processes of sample collection,
       sequence generation, analysis, and data submission.
-    comments: Include the first and last names of all individuals that should be attributed,
+    comments:
+    - Include the first and last names of all individuals that should be attributed,
       separated by a comma.
     slot_uri: GENEPIO:0001517
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Rahgavi Poopalaraj, Shirin Afroj, Joe Harrison
   dataharmonizer_provenance:
     name: dataharmonizer_provenance
     title: DataHarmonizer provenance
     description: The DataHarmonizer software and template version provenance.
-    comments: The current software and template version information will be automatically
+    comments:
+    - The current software and template version information will be automatically
       generated in this field after the user utilizes the "validate" function. This
       information will be generated regardless as to whether the row is valid of not.
     slot_uri: GENEPIO:0001518

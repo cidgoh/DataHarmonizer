@@ -17,6 +17,10 @@ classes:
     title: 'Pathogen Agnostic'
     description: 
     is_a: dh_interface
+    unique_keys:
+      pathogen_agnostic_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
 slots: {}
 enums: {}
 types:

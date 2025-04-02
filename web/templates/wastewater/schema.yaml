@@ -18,6 +18,10 @@ classes:
     is_a: dh_interface
     annotations:
       version: 4.2.2
+    unique_keys:
+      wastewater_sars_key:
+        unique_key_slots:
+        - specimen_collector_sample_id
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id
@@ -316,9 +320,10 @@ classes:
       organism:
         rank: 28
         slot_group: Sample collection and processing
-        comments: Provide the official nomenclature for the organism present in the
-          sample. For SARS-CoV-2, use "Severe acute respiratory syndrome coronavirus
-          2" provided in the picklist.
+        comments:
+        - Provide the official nomenclature for the organism present in the sample.
+          For SARS-CoV-2, use "Severe acute respiratory syndrome coronavirus 2" provided
+          in the picklist.
         examples:
         - value: Severe acute respiratory syndrome coronavirus 2
         any_of:
@@ -823,7 +828,8 @@ classes:
       gene_symbol_1:
         rank: 194
         slot_group: Pathogen diagnostic testing
-        comments: Select a gene name value from the pick list provided.
+        comments:
+        - Select a gene name value from the pick list provided.
         examples:
         - value: E gene (orf4)
         any_of:
@@ -850,7 +856,8 @@ classes:
       gene_symbol_2:
         rank: 201
         slot_group: Pathogen diagnostic testing
-        comments: Select a gene name value from the pick list provided.
+        comments:
+        - Select a gene name value from the pick list provided.
         examples:
         - value: E gene (orf4)
         any_of:
@@ -877,7 +884,8 @@ classes:
       gene_symbol_3:
         rank: 208
         slot_group: Pathogen diagnostic testing
-        comments: Select a gene name value from the pick list provided.
+        comments:
+        - Select a gene name value from the pick list provided.
         examples:
         - value: E gene (orf4)
         any_of:
@@ -901,6 +909,10 @@ classes:
     is_a: dh_interface
     annotations:
       version: 4.2.2
+    unique_keys:
+      wastewater_amr_key:
+        unique_key_slots:
+        - specimen_collector_sample_id
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id
@@ -1204,10 +1216,11 @@ classes:
         rank: 29
         slot_group: Sample collection and processing
         recommended: true
-        comments: 'Provide the official nomenclature for the organism(s) present in
-          the sample if AMR profiles are assigned to organisms. Multiple organisms
-          can be entered, separated by semicolons. Avoid abbreviations. Search for
-          taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
+        comments:
+        - 'Provide the official nomenclature for the organism(s) present in the sample
+          if AMR profiles are assigned to organisms. Multiple organisms can be entered,
+          separated by semicolons. Avoid abbreviations. Search for taxonomic names
+          here: ncbi.nlm.nih.gov/taxonomy.'
         examples:
         - value: Vibrio cholerae
         any_of:
@@ -1713,9 +1726,9 @@ classes:
       gene_symbol_1:
         rank: 195
         slot_group: Pathogen diagnostic testing
-        comments: 'Provide the full name of the gene used in the test. Standardized
-          gene names can be found in the Gene Ontology using this look-up service:
-          https://bit.ly/2Sq1LbI'
+        comments:
+        - 'Provide the full name of the gene used in the test. Standardized gene names
+          can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
         examples:
         - value: gyrase A
         any_of:
@@ -1742,9 +1755,9 @@ classes:
       gene_symbol_2:
         rank: 202
         slot_group: Pathogen diagnostic testing
-        comments: 'Provide the full name of the gene used in the test. Standardized
-          gene names can be found in the Gene Ontology using this look-up service:
-          https://bit.ly/2Sq1LbI'
+        comments:
+        - 'Provide the full name of the gene used in the test. Standardized gene names
+          can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
         examples:
         - value: gyrase A
         any_of:
@@ -1771,9 +1784,9 @@ classes:
       gene_symbol_3:
         rank: 209
         slot_group: Pathogen diagnostic testing
-        comments: 'Provide the full name of the gene used in the test. Standardized
-          gene names can be found in the Gene Ontology using this look-up service:
-          https://bit.ly/2Sq1LbI'
+        comments:
+        - 'Provide the full name of the gene used in the test. Standardized gene names
+          can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
         examples:
         - value: gyrase A
         any_of:
@@ -1797,6 +1810,10 @@ classes:
     is_a: dh_interface
     annotations:
       version: 4.2.2
+    unique_keys:
+      wastewater_agnostic_key:
+        unique_key_slots:
+        - specimen_collector_sample_id
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id
@@ -2118,9 +2135,10 @@ classes:
       organism:
         rank: 29
         slot_group: Sample collection and processing
-        comments: 'Provide the official nomenclature for the organism(s) present in
-          the sample. Multiple organisms can be entered, separated by semicolons.
-          Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
+        comments:
+        - 'Provide the official nomenclature for the organism(s) present in the sample.
+          Multiple organisms can be entered, separated by semicolons. Avoid abbreviations.
+          Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
         examples:
         - value: Vibrio cholerae
         any_of:
@@ -2684,9 +2702,9 @@ classes:
       gene_symbol_1:
         rank: 214
         slot_group: Pathogen diagnostic testing
-        comments: 'Provide the full name of the gene used in the test. Standardized
-          gene names can be found in the Gene Ontology using this look-up service:
-          https://bit.ly/2Sq1LbI'
+        comments:
+        - 'Provide the full name of the gene used in the test. Standardized gene names
+          can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
         examples:
         - value: gyrase A
         any_of:
@@ -2713,9 +2731,9 @@ classes:
       gene_symbol_2:
         rank: 221
         slot_group: Pathogen diagnostic testing
-        comments: 'Provide the full name of the gene used in the test. Standardized
-          gene names can be found in the Gene Ontology using this look-up service:
-          https://bit.ly/2Sq1LbI'
+        comments:
+        - 'Provide the full name of the gene used in the test. Standardized gene names
+          can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
         examples:
         - value: gyrase A
         any_of:
@@ -2742,9 +2760,9 @@ classes:
       gene_symbol_3:
         rank: 228
         slot_group: Pathogen diagnostic testing
-        comments: 'Provide the full name of the gene used in the test. Standardized
-          gene names can be found in the Gene Ontology using this look-up service:
-          https://bit.ly/2Sq1LbI'
+        comments:
+        - 'Provide the full name of the gene used in the test. Standardized gene names
+          can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
         examples:
         - value: gyrase A
         any_of:
@@ -2767,16 +2785,16 @@ slots:
     name: specimen_collector_sample_id
     title: specimen collector sample ID
     description: The user-defined name for the sample.
-    comments: Store the collector sample ID. If this number is considered identifiable
-      information, provide an alternative ID. Be sure to store the key that maps between
-      the original and alternative IDs for traceability and follow up if necessary.
-      Every collector sample ID from a single submitter must be unique. It can have
-      any format, but we suggest that you make it concise, unique and consistent within
-      your lab.
+    comments:
+    - Store the collector sample ID. If this number is considered identifiable information,
+      provide an alternative ID. Be sure to store the key that maps between the original
+      and alternative IDs for traceability and follow up if necessary. Every collector
+      sample ID from a single submitter must be unique. It can have any format, but
+      we suggest that you make it concise, unique and consistent within your lab.
     slot_uri: GENEPIO:0001123
     identifier: true
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: ASDFG123
     exact_mappings:
@@ -2788,7 +2806,8 @@ slots:
     title: specimen collector subsample ID
     description: The user-defined identifier assigned to a portion of the original
       sample.
-    comments: Store the ID for the subsample/aliquot.
+    comments:
+    - Store the ID for the subsample/aliquot.
     slot_uri: GENEPIO:0100752
     range: WhitespaceMinimizedString
     examples:
@@ -2800,8 +2819,9 @@ slots:
     title: pooled sample ID
     description: The user-defined identifier assigned to a combined (pooled) set of
       samples.
-    comments: If the sample being analyzed is the result of pooling individual samples,
-      rename the pooled sample with a new identifier. Store the pooled sample ID.
+    comments:
+    - If the sample being analyzed is the result of pooling individual samples, rename
+      the pooled sample with a new identifier. Store the pooled sample ID.
     slot_uri: GENEPIO:0100996
     range: WhitespaceMinimizedString
     examples:
@@ -2811,7 +2831,8 @@ slots:
     title: metagenome-assembled genome (MAG) ID
     description: The user-defined identifier assigned to a genome reconstructed from
       metagenomic data.
-    comments: Store the MAG ID.
+    comments:
+    - Store the MAG ID.
     slot_uri: GENEPIO:0100753
     range: WhitespaceMinimizedString
     examples:
@@ -2820,8 +2841,9 @@ slots:
     name: specimen_collector_project_id
     title: specimen collector project ID
     description: The user-defined project name assigned to a sequencing project.
-    comments: If the sample was collected or analyzed under the umbrella of a specific
-      project, include the name of that project here.
+    comments:
+    - If the sample was collected or analyzed under the umbrella of a specific project,
+      include the name of that project here.
     slot_uri: GENEPIO:0100918
     range: WhitespaceMinimizedString
     exact_mappings:
@@ -2831,12 +2853,12 @@ slots:
     title: BioProject accession
     description: The INSDC (i.e., ENA, NCBI, or DDBJ) accession number of the BioProject(s)
       to which the BioSample belongs.
-    comments: Store the BioProject accession number. BioProjects are an organizing
-      tool that links together raw sequence data, assemblies, and their associated
-      metadata. Each province will be assigned a different bioproject accession number
-      by the National Microbiology Lab. A valid NCBI BioProject accession has prefix
-      PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing
-      project.
+    comments:
+    - Store the BioProject accession number. BioProjects are an organizing tool that
+      links together raw sequence data, assemblies, and their associated metadata.
+      Each province will be assigned a different bioproject accession number by the
+      National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN
+      e.g., PRJNA12345, and is created once at the beginning of a new sequencing project.
     slot_uri: GENEPIO:0001136
     range: WhitespaceMinimizedString
     structured_pattern:
@@ -2852,11 +2874,12 @@ slots:
     title: BioSample accession
     description: The identifier assigned to a BioSample in INSDC (i.e., ENA, NCBI,
       or DDBJ) archives.
-    comments: Store the accession returned from the BioSample submission. NCBI BioSamples
+    comments:
+    - Store the accession returned from the BioSample submission. NCBI BioSamples
       will have the prefix SAMN, ENA have the prefix SAMEA, DDBJ have SAMD
     slot_uri: GENEPIO:0001139
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
@@ -2868,7 +2891,8 @@ slots:
     title: INSDC sequence read accession
     description: The identifier assigned to a sequence in one of the International
       Nucleotide Sequence Database Collaboration (INSDC) repositories.
-    comments: Store the accession assigned to the submitted sequence. European Nucleotide
+    comments:
+    - Store the accession assigned to the submitted sequence. European Nucleotide
       Archive (ENA) sequence accessions start with ERR, NCBI-SRA accessions start
       with SRR,  DNA Data Bank of Japan (DDBJ) accessions start with DRR and Genome
       Sequence Archive (GSA) accessions start with CRR.
@@ -2884,8 +2908,9 @@ slots:
     name: enterobase_accession
     title: Enterobase accession
     description: The identifier assigned to a sequence in Enterobase archives.
-    comments: Store the barcode assigned to the submitted sequence. Enterobase barcodes
-      start with different 3 letter codes depending on the organism.
+    comments:
+    - Store the barcode assigned to the submitted sequence. Enterobase barcodes start
+      with different 3 letter codes depending on the organism.
     slot_uri: GENEPIO:0100759
     range: WhitespaceMinimizedString
     structured_pattern:
@@ -2900,8 +2925,9 @@ slots:
     description: The versioned identifier assigned to an assembly or consensus sequence
       in  one of the International Nucleotide Sequence Database Collaboration (INSDC)
       repositories.
-    comments: Store the versioned accession assigned to the submitted sequence e.g.
-      the GenBank accession version.
+    comments:
+    - Store the versioned accession assigned to the submitted sequence e.g. the GenBank
+      accession version.
     slot_uri: GENEPIO:0101204
     range: WhitespaceMinimizedString
     structured_pattern:
@@ -2915,8 +2941,9 @@ slots:
     title: GISAID accession
     description: The identifier assigned to a sequence in GISAID (the Global Initiative
       on Sharing All Influenza Data) archives.
-    comments: Store the accession assigned to the submitted sequence. GISAID accessions
-      start with EPI.
+    comments:
+    - Store the accession assigned to the submitted sequence. GISAID accessions start
+      with EPI.
     slot_uri: GENEPIO:0001147
     range: WhitespaceMinimizedString
     structured_pattern:
@@ -2929,7 +2956,8 @@ slots:
     name: gisaid_virus_name
     title: GISAID virus name
     description: The user-defined GISAID virus name assigned to the sequence.
-    comments: GISAID virus names should be in the format "hCoV-19/Country/Identifier/year".
+    comments:
+    - GISAID virus names should be in the format "hCoV-19/Country/Identifier/year".
     slot_uri: GENEPIO:0100282
     range: WhitespaceMinimizedString
     examples:
@@ -2939,14 +2967,15 @@ slots:
     title: sampling site ID
     description: The user-defined identifier assigned to a specific location from
       which samples are taken.
-    comments: Store the ID for the site from which a sample was taken. The "site"
-      is user defined (e.g. it may be a building and its environs, a specific entity
-      within an environment). Please use the same site ID for all samples from a given
-      site, regardless of when these samples were taken. Any important changes in
-      site location, should be represented with a new site ID.
+    comments:
+    - Store the ID for the site from which a sample was taken. The "site" is user
+      defined (e.g. it may be a building and its environs, a specific entity within
+      an environment). Please use the same site ID for all samples from a given site,
+      regardless of when these samples were taken. Any important changes in site location,
+      should be represented with a new site ID.
     slot_uri: GENEPIO:0100760
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Site 12A
     exact_mappings:
@@ -2956,12 +2985,13 @@ slots:
     title: sampling event ID
     description: The user-defined identifier assigned to a specific event during which
       one or more samples are taken, from one or more sites.
-    comments: Store the ID for the event during which a sample or samples were taken.
-      For example, an event could be one person taking samples from multiple sites,
-      or multiple people taking samples from one site.
+    comments:
+    - Store the ID for the event during which a sample or samples were taken. For
+      example, an event could be one person taking samples from multiple sites, or
+      multiple people taking samples from one site.
     slot_uri: GENEPIO:0100761
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Event 120522.1
   sample_collection_data_steward_name:
@@ -2969,7 +2999,8 @@ slots:
     title: sample collection data steward name
     description: The name of the individual responsible for the data governance, (meta)data
       usage and distribution of the sample.
-    comments: Provide the name of the sample collection data steward.
+    comments:
+    - Provide the name of the sample collection data steward.
     slot_uri: GENEPIO:0100762
     range: WhitespaceMinimizedString
     examples:
@@ -2978,9 +3009,10 @@ slots:
     name: sample_collected_by_laboratory_name
     title: sample collected by laboratory name
     description: The specific laboratory affiliation of the sample collector.
-    comments: Provide the name of the specific laboratory that collected the sample
-      (avoid abbreviations). If the information is unknown or cannot be provided,
-      leave blank or provide a null value.
+    comments:
+    - Provide the name of the specific laboratory that collected the sample (avoid
+      abbreviations). If the information is unknown or cannot be provided, leave blank
+      or provide a null value.
     slot_uri: GENEPIO:0100428
     range: WhitespaceMinimizedString
     examples:
@@ -2989,13 +3021,14 @@ slots:
     name: sample_collected_by
     title: sample collected by
     description: The name of the organization with which the sample collector is affiliated.
-    comments: The name of the agency should be written out in full, (with minor exceptions)
+    comments:
+    - The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions.
     slot_uri: GENEPIO:0001153
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Public Health Agency of Canada
     exact_mappings:
@@ -3005,7 +3038,8 @@ slots:
     title: sample collector contact name
     description: The name or job title of the contact responsible for follow-up regarding
       the sample.
-    comments: Provide the name of an individual or their job title. As personnel turnover
+    comments:
+    - Provide the name of an individual or their job title. As personnel turnover
       may render the contact's name obsolete, it is more preferable to provide a job
       title for ensuring accuracy of information and institutional memory. If the
       information is unknown or cannot be provided, leave blank or provide a null
@@ -3019,7 +3053,8 @@ slots:
     title: sample collector contact email
     description: The email address of the contact responsible for follow-up regarding
       the sample.
-    comments: The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca,
+    comments:
+    - The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca,
       or RespLab@lab.ca
     slot_uri: GENEPIO:0001156
     range: WhitespaceMinimizedString
@@ -3030,33 +3065,36 @@ slots:
     name: geo_loc_name_country
     title: geo loc name (country)
     description: The country of origin of the sample.
-    comments: If known, select a value from the pick list.
+    comments:
+    - If known, select a value from the pick list.
     slot_uri: GENEPIO:0001181
+    required: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Canada
   geo_loc_name_state_province_territory:
     name: geo_loc_name_state_province_territory
     title: geo loc name (state/province/territory)
     description: The state/province/territory of origin of the sample.
-    comments: 'Provide the state/province/territory name from the GAZ geography ontology.
+    comments:
+    - 'Provide the state/province/territory name from the GAZ geography ontology.
       Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/ga'
     slot_uri: GENEPIO:0001185
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Western Cape
   geo_loc_name_county_region:
     name: geo_loc_name_county_region
     title: geo loc name (county/region)
     description: The county/region of origin of the sample.
-    comments: 'Provide the county/region name from the GAZ geography ontology. Search
-      for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz'
+    comments:
+    - 'Provide the county/region name from the GAZ geography ontology. Search for
+      geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz'
     slot_uri: GENEPIO:0100280
     range: WhitespaceMinimizedString
     examples:
@@ -3065,7 +3103,8 @@ slots:
     name: geo_loc_name_city
     title: geo loc name (city)
     description: The city of origin of the sample.
-    comments: 'Provide the city name from the GAZ geography ontology. Search for geography
+    comments:
+    - 'Provide the city name from the GAZ geography ontology. Search for geography
       terms here: https://www.ebi.ac.uk/ols/ontologies/gaz'
     slot_uri: GENEPIO:0001189
     range: WhitespaceMinimizedString
@@ -3076,8 +3115,9 @@ slots:
     title: geo loc name (site)
     description: The name of a specific geographical location e.g. Credit River (rather
       than river).
-    comments: Provide the name of the specific geographical site using a specific
-      noun (a word that names a certain place, thing).
+    comments:
+    - Provide the name of the specific geographical site using a specific noun (a
+      word that names a certain place, thing).
     slot_uri: GENEPIO:0100436
     range: WhitespaceMinimizedString
     examples:
@@ -3086,10 +3126,10 @@ slots:
     name: geo_loc_latitude
     title: geo loc latitude
     description: The latitude coordinates of the geographical location of sample collection.
-    comments: Provide latitude coordinates if available. Do not use the centre of
-      the city/region/province/state/country or the location of your agency as a proxy,
-      as this implicates a real location and is misleading. Specify as degrees latitude
-      in format "d[d.dddd] N|S".
+    comments:
+    - Provide latitude coordinates if available. Do not use the centre of the city/region/province/state/country
+      or the location of your agency as a proxy, as this implicates a real location
+      and is misleading. Specify as degrees latitude in format "d[d.dddd] N|S".
     slot_uri: GENEPIO:0100309
     range: WhitespaceMinimizedString
     examples:
@@ -3099,10 +3139,10 @@ slots:
     title: geo loc longitude
     description: The longitude coordinates of the geographical location of sample
       collection.
-    comments: Provide longitude coordinates if available. Do not use the centre of
-      the city/region/province/state/country or the location of your agency as a proxy,
-      as this implicates a real location and is misleading. Specify as degrees longitude
-      in format "d[dd.dddd] W|E".
+    comments:
+    - Provide longitude coordinates if available. Do not use the centre of the city/region/province/state/country
+      or the location of your agency as a proxy, as this implicates a real location
+      and is misleading. Specify as degrees longitude in format "d[dd.dddd] W|E".
     slot_uri: GENEPIO:0100310
     range: WhitespaceMinimizedString
     examples:
@@ -3112,8 +3152,9 @@ slots:
     title: watershed shapefile availability
     description: The availability status of a shapefile descriping the catchment contributing
       to a watershed.
-    comments: Select a value from the picklist to describe whether or not a watershed
-      shapefile would be available upon request.
+    comments:
+    - Select a value from the picklist to describe whether or not a watershed shapefile
+      would be available upon request.
     slot_uri: GENEPIO:0100919
     any_of:
     - range: WatershedShapefileAvailabilityMenu
@@ -3124,8 +3165,9 @@ slots:
     name: watershed_shapefile_filename
     title: watershed shapefile filename
     description: The name of the watershed shapefile.
-    comments: Provide the shapefile filename corresponding to the watershed from which
-      the sample was taken. If there are multiple files associated with the watershed,
+    comments:
+    - Provide the shapefile filename corresponding to the watershed from which the
+      sample was taken. If there are multiple files associated with the watershed,
       provide all names separated by commas.
     slot_uri: GENEPIO:0100920
     range: WhitespaceMinimizedString
@@ -3143,18 +3185,19 @@ slots:
     name: purpose_of_sampling
     title: purpose of sampling
     description: The reason that the sample was collected.
-    comments: The reason a sample was collected may provide information about potential
-      biases in sampling strategy. Provide the purpose of sampling from the picklist
-      in the template. Most likely, the sample was collected for Public health surveillance.
+    comments:
+    - The reason a sample was collected may provide information about potential biases
+      in sampling strategy. Provide the purpose of sampling from the picklist in the
+      template. Most likely, the sample was collected for Public health surveillance.
       The reason why a sample was originally collected may differ from the reason
       why it was selected for sequencing, which should be indicated in the "purpose
       of sequencing" field.
     slot_uri: GENEPIO:0001198
+    multivalued: true
+    required: true
     any_of:
     - range: PurposeOfSamplingMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Public health surveillance
     exact_mappings:
@@ -3163,13 +3206,13 @@ slots:
     name: scale_of_sampling
     title: scale of sampling
     description: The range of locations or entities sampled expressed in general terms.
-    comments: Provide the scale of wastewater sampling by selecting a value from the
-      picklist.
+    comments:
+    - Provide the scale of wastewater sampling by selecting a value from the picklist.
     slot_uri: GENEPIO:0100877
+    recommended: true
     any_of:
     - range: ScaleOfSamplingMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Community-level surveillance
     exact_mappings:
@@ -3178,7 +3221,8 @@ slots:
     name: sample_received_date
     title: sample received date
     description: The date on which the sample was received.
-    comments: Provide the sample received date in ISO 8601 format, i.e. "YYYY-MM-DD".
+    comments:
+    - Provide the sample received date in ISO 8601 format, i.e. "YYYY-MM-DD".
     slot_uri: GENEPIO:0001179
     any_of:
     - range: date
@@ -3192,42 +3236,44 @@ slots:
     title: sample collection start date
     description: The date on which the sample was collected, or sampling began for
       a continuous sample.
-    comments: If your sample is a continuous sample please use this field to capture
-      your start date. Sample collection date is critical for surveillance and many
-      types of analyses. Required granularity includes year, month and day. The date
-      should be provided in ISO 8601 standard format "YYYY-MM-DD".
+    comments:
+    - If your sample is a continuous sample please use this field to capture your
+      start date. Sample collection date is critical for surveillance and many types
+      of analyses. Required granularity includes year, month and day. The date should
+      be provided in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0001174
+    required: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - <={today}
-    required: true
     examples:
     - value: '2020-03-16'
   sample_collection_end_date:
     name: sample_collection_end_date
     title: sample collection end date
     description: The date on which sample collection ended for a continuous sample.
-    comments: Provide the date that sample collection ended in ISO 8601 format i.e.
-      YYYY-MM-DD
+    comments:
+    - Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD
     slot_uri: GENEPIO:0101071
+    recommended: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - '>={sample_collection_start_date}'
     - <={today}
-    recommended: true
     examples:
     - value: '2020-03-18'
   sample_processing_date:
     name: sample_processing_date
     title: sample processing date
     description: The date on which the sample was processed.
-    comments: Provide the sample processed date in ISO 8601 format, i.e. "YYYY-MM-DD".
-      The sample may be collected and processed (e.g. filtered, extraction) on the
-      same day, or on different dates.
+    comments:
+    - Provide the sample processed date in ISO 8601 format, i.e. "YYYY-MM-DD". The
+      sample may be collected and processed (e.g. filtered, extraction) on the same
+      day, or on different dates.
     slot_uri: GENEPIO:0100763
     any_of:
     - range: date
@@ -3240,32 +3286,35 @@ slots:
     name: sample_collection_start_time
     title: sample collection start time
     description: The time at which sample collection began.
-    comments: Provide this time in ISO 8601 24hr format, in your local time.
+    comments:
+    - Provide this time in ISO 8601 24hr format, in your local time.
     slot_uri: GENEPIO:0101072
+    recommended: true
     any_of:
     - range: time
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: 17:15 PST
   sample_collection_end_time:
     name: sample_collection_end_time
     title: sample collection end time
     description: The time at which sample collection ended.
-    comments: Provide this time in ISO 8601 24hr format, in your local time.
+    comments:
+    - Provide this time in ISO 8601 24hr format, in your local time.
     slot_uri: GENEPIO:0101073
+    recommended: true
     any_of:
     - range: time
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: 19:15 PST
   sample_collection_time_of_day:
     name: sample_collection_time_of_day
     title: sample collection time of day
     description: The descriptive time of day during which the sample was collected.
-    comments: If known, select a value from the pick list. The time of sample processing
-      matters especially for grab samples, as fecal concentration in wastewater fluctuates
+    comments:
+    - If known, select a value from the pick list. The time of sample processing matters
+      especially for grab samples, as fecal concentration in wastewater fluctuates
       over the course of the day.
     slot_uri: GENEPIO:0100765
     any_of:
@@ -3277,12 +3326,13 @@ slots:
     name: sample_collection_time_duration_value
     title: sample collection time duration value
     description: The amount of time over which the sample was collected.
-    comments: Provide the numerical value of time.
+    comments:
+    - Provide the numerical value of time.
     slot_uri: GENEPIO:0100766
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: '4'
     exact_mappings:
@@ -3291,12 +3341,13 @@ slots:
     name: sample_collection_time_duration_unit
     title: sample collection time duration unit
     description: The units of the time duration measurement of sample collection.
-    comments: Provide the units from the pick list.
+    comments:
+    - Provide the units from the pick list.
     slot_uri: GENEPIO:0100767
+    recommended: true
     any_of:
     - range: SampleCollectionDurationUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Hour
     exact_mappings:
@@ -3306,15 +3357,16 @@ slots:
     title: presampling activity
     description: The activities or variables upstream of sample collection that may
       affect the sample.
-    comments: If there was an activity that would affect the sample prior to collection
-      (this is different than sample processing), provide the activities by selecting
-      one or more values from the template pick list. If the information is unknown
-      or cannot be provided, leave blank or provide a null value.
+    comments:
+    - If there was an activity that would affect the sample prior to collection (this
+      is different than sample processing), provide the activities by selecting one
+      or more values from the template pick list. If the information is unknown or
+      cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100433
+    multivalued: true
     any_of:
     - range: PresamplingActivityMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Agricultural activity
   presampling_activity_details:
@@ -3322,7 +3374,8 @@ slots:
     title: presampling activity details
     description: The details of the activities or variables that affected the sample
       collected.
-    comments: Briefly describe the presampling activities using free text.
+    comments:
+    - Briefly describe the presampling activities using free text.
     slot_uri: GENEPIO:0100434
     any_of:
     - range: WhitespaceMinimizedString
@@ -3333,7 +3386,8 @@ slots:
     name: sample_volume_measurement_value
     title: sample volume measurement value
     description: The numerical value of the volume measurement of the sample collected.
-    comments: Provide the numerical value of volume.
+    comments:
+    - Provide the numerical value of volume.
     slot_uri: GENEPIO:0100768
     range: WhitespaceMinimizedString
     examples:
@@ -3344,7 +3398,8 @@ slots:
     name: sample_volume_measurement_unit
     title: sample volume measurement unit
     description: The units of the volume measurement of the sample collected.
-    comments: Provide the units from the pick list.
+    comments:
+    - Provide the units from the pick list.
     slot_uri: GENEPIO:0100769
     any_of:
     - range: SampleVolumeMeasurementUnitMenu
@@ -3357,9 +3412,10 @@ slots:
     name: sample_storage_method
     title: sample storage method
     description: The process used to store the sample.
-    comments: Provide details of how the sample was stored from time of collection
-      until time of processing. If there were issues with the cold chain storage,
-      note those here.
+    comments:
+    - Provide details of how the sample was stored from time of collection until time
+      of processing. If there were issues with the cold chain storage, note those
+      here.
     slot_uri: GENEPIO:0100448
     range: WhitespaceMinimizedString
     examples:
@@ -3371,8 +3427,9 @@ slots:
     name: sample_storage_medium
     title: sample storage medium
     description: The medium in which a sample is stored.
-    comments: Provide the name of the transport medium or storage medium used for
-      this sample. If none was used, leave blank or write "None".
+    comments:
+    - Provide the name of the transport medium or storage medium used for this sample.
+      If none was used, leave blank or write "None".
     slot_uri: GENEPIO:0100449
     range: WhitespaceMinimizedString
     examples:
@@ -3382,7 +3439,8 @@ slots:
     title: sample storage duration value
     description: The numerical value of the time measurement during which a sample
       is in storage.
-    comments: Provide the numerical value of time.
+    comments:
+    - Provide the numerical value of time.
     slot_uri: GENEPIO:0101014
     range: WhitespaceMinimizedString
     examples:
@@ -3391,7 +3449,8 @@ slots:
     name: sample_storage_duration_unit
     title: sample storage duration unit
     description: The units of a measured sample storage duration.
-    comments: Provide the units from the pick list.
+    comments:
+    - Provide the units from the pick list.
     slot_uri: GENEPIO:0101015
     any_of:
     - range: SampleStorageDurationUnitMenu
@@ -3403,12 +3462,13 @@ slots:
     title: specimen processing
     description: Any processing applied to the sample during or after receiving the
       sample.
-    comments: Select processes from the picklist that were applied to this sample.
+    comments:
+    - Select processes from the picklist that were applied to this sample.
     slot_uri: GENEPIO:0001253
+    multivalued: true
     any_of:
     - range: SpecimenProcessingMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Centrifugation
     exact_mappings:
@@ -3418,7 +3478,8 @@ slots:
     title: specimen processing details
     description: The details of the processing applied to the sample during or after
       receiving the sample.
-    comments: Briefly describe the processes applied to the sample.
+    comments:
+    - Briefly describe the processes applied to the sample.
     slot_uri: GENEPIO:0100311
     range: WhitespaceMinimizedString
     examples:
@@ -3431,8 +3492,9 @@ slots:
     title: experimental protocol name
     description: The name of the overarching experimental methodology that was used
       to process the biomaterial.
-    comments: Provide the name of the methodology used in your study. If available,
-      provide a url link to the protocol.
+    comments:
+    - Provide the name of the methodology used in your study. If available, provide
+      a url link to the protocol.
     slot_uri: GENEPIO:0101029
     range: WhitespaceMinimizedString
     exact_mappings:
@@ -3440,7 +3502,8 @@ slots:
   experimental_protocol_url:
     name: experimental_protocol_url
     title: experimental protocol url
-    comments: Provide a url link to the protocol.
+    comments:
+    - Provide a url link to the protocol.
     range: WhitespaceMinimizedString
     exact_mappings:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_processing_protocol
@@ -3449,14 +3512,15 @@ slots:
     title: environmental site
     description: An environmental location may describe a site in the natural or built
       environment e.g. contact surface, metal can, hospital, wet market, bat cave.
-    comments: Provide a descriptor of the environmental site sampled. Use the picklist
-      provided in the template. If not applicable, choose a null value.
+    comments:
+    - Provide a descriptor of the environmental site sampled. Use the picklist provided
+      in the template. If not applicable, choose a null value.
     slot_uri: GENEPIO:0001232
+    multivalued: true
+    recommended: true
     any_of:
     - range: EnvironmentalSiteMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Meat processing plant
     exact_mappings:
@@ -3466,12 +3530,12 @@ slots:
     title: proximal environmental site
     description: An environmental location in the natural or built environment, that
       is proximal to a sampling location and which can impact a sample.
-    comments: Provide a descriptor of the environmental site close to the sampling
-      site. Use the picklist provided in the template. If not applicable, choose a
-      null value.
+    comments:
+    - Provide a descriptor of the environmental site close to the sampling site. Use
+      the picklist provided in the template. If not applicable, choose a null value.
     slot_uri: GENEPIO:0101205
-    range: EnvironmentalSiteMenu
     multivalued: true
+    range: EnvironmentalSiteMenu
     examples:
     - value: Farm
   environmental_material:
@@ -3479,14 +3543,15 @@ slots:
     title: environmental material
     description: A substance obtained from the natural or man-made environment e.g.
       soil, water, sewage.
-    comments: Provide a descriptor of the environmental material sampled. Use the
-      picklist provided in the template. If not applicable, choose a null value.
+    comments:
+    - Provide a descriptor of the environmental material sampled. Use the picklist
+      provided in the template. If not applicable, choose a null value.
     slot_uri: GENEPIO:0001223
+    multivalued: true
+    recommended: true
     any_of:
     - range: EnvironmentalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Raw wastewater
     exact_mappings:
@@ -3496,14 +3561,15 @@ slots:
     title: environmental material properties
     description: The properties, characteristics and qualities of a substance obtained
       from the natural or man-made environment.
-    comments: Provide the environmental material properties by selecting descriptors
-      from the pick list.
+    comments:
+    - Provide the environmental material properties by selecting descriptors from
+      the pick list.
     slot_uri: GENEPIO:0100770
+    multivalued: true
+    recommended: true
     any_of:
     - range: EnvironmentalMaterialPropertiesMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Stagnant
   wastewater_system_type:
@@ -3511,38 +3577,41 @@ slots:
     title: wastewater system type
     description: The type or classification of a wastewater system e.g. sanitary sewer,
       combined sewer, latrine
-    comments: Provide the classification of the wastewater system by selecting from
-      the provided pick list.
+    comments:
+    - Provide the classification of the wastewater system by selecting from the provided
+      pick list.
     slot_uri: GENEPIO:0100771
+    recommended: true
     any_of:
     - range: WastewaterSystemTypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Sanitary sewer
   experimental_specimen_role_type:
     name: experimental_specimen_role_type
     title: experimental specimen role type
     description: The type of role that the sample represents in the experiment.
-    comments: Samples can play different types of roles in experiments. A sample under
-      study in one experiment may act as a control or be a replicate of another sample
-      in another experiment. This field is used to distinguish samples under study
-      from controls, replicates, etc.  If the sample acted as an experimental control
-      or a replicate, select a role type from the picklist. If the sample was not
-      a control, leave blank or select "Not Applicable".
+    comments:
+    - Samples can play different types of roles in experiments. A sample under study
+      in one experiment may act as a control or be a replicate of another sample in
+      another experiment. This field is used to distinguish samples under study from
+      controls, replicates, etc.  If the sample acted as an experimental control or
+      a replicate, select a role type from the picklist. If the sample was not a control,
+      leave blank or select "Not Applicable".
     slot_uri: GENEPIO:0100921
+    multivalued: true
     any_of:
     - range: ExperimentalSpecimenRoleTypeMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Positive experimental control
   experimental_control_details:
     name: experimental_control_details
     title: experimental control details
     description: The details regarding the experimental control contained in the sample.
-    comments: Provide details regarding the nature of the reference strain used as
-      a control, or what is was used to monitor.
+    comments:
+    - Provide details regarding the nature of the reference strain used as a control,
+      or what is was used to monitor.
     slot_uri: GENEPIO:0100922
     range: WhitespaceMinimizedString
     examples:
@@ -3552,27 +3621,29 @@ slots:
     title: collection device
     description: The instrument or container used to collect the sample e.g. grab
       sampler.
-    comments: Provide a descriptor of the device used for sampling. Use the picklist
-      provided in the template. If not applicable, choose a null value.
+    comments:
+    - Provide a descriptor of the device used for sampling. Use the picklist provided
+      in the template. If not applicable, choose a null value.
     slot_uri: GENEPIO:0001234
+    multivalued: true
     any_of:
     - range: CollectionDeviceMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Automatic flow-proportional sampler
   collection_method:
     name: collection_method
     title: collection method
     description: The process used to collect the sample.
-    comments: Provide a descriptor of the collection method used for sampling. Use
-      the picklist provided in the template. If not applicable, choose a null value.
+    comments:
+    - Provide a descriptor of the collection method used for sampling. Use the picklist
+      provided in the template. If not applicable, choose a null value.
     slot_uri: GENEPIO:0001241
+    multivalued: true
+    recommended: true
     any_of:
     - range: CollectionMethodMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Automatic composite sampling
     exact_mappings:
@@ -3581,7 +3652,8 @@ slots:
     name: nucleic_acid_extraction_method
     title: nucleic acid extraction method
     description: The process used to extract genomic material from a sample.
-    comments: Briefly describe the extraction method used.
+    comments:
+    - Briefly describe the extraction method used.
     slot_uri: GENEPIO:0100939
     range: WhitespaceMinimizedString
     examples:
@@ -3593,7 +3665,8 @@ slots:
     name: nucleic_acid_extraction_kit
     title: nucleic acid extraction kit
     description: The kit used to extract genomic material from a sample
-    comments: Provide the name of the genomic extraction kit used.
+    comments:
+    - Provide the name of the genomic extraction kit used.
     slot_uri: GENEPIO:0100772
     range: WhitespaceMinimizedString
     examples:
@@ -3603,12 +3676,13 @@ slots:
     title: endogenous control details
     description: The description of the endogenous controls included when extracting
       a sample.
-    comments: Provide the names of endogenous controls that were used as a reference
-      during extraction. If relevant, include titers of these controls, as well as
-      whether any controls were expected but not identified in the sample.
+    comments:
+    - Provide the names of endogenous controls that were used as a reference during
+      extraction. If relevant, include titers of these controls, as well as whether
+      any controls were expected but not identified in the sample.
     slot_uri: GENEPIO:0100923
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     exact_mappings:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_endog_control_1
   extraction_recovery_efficiency_measurement_value:
@@ -3617,15 +3691,17 @@ slots:
     description: The recovery efficiency of an extraction, calculated as the amount
       of a synthetic or endogenous compound identified in the sample relative to the
       amount expected.
-    comments: Provide value as a percent.
+    comments:
+    - Provide value as a percent.
     slot_uri: GENEPIO:0100924
     range: WhitespaceMinimizedString
   extraction_recovery_efficiency_measurement_method:
     name: extraction_recovery_efficiency_measurement_method
     title: extraction recovery efficiency measurement method
     description: The method by which recovery efficiency of an extraction was calculated.
-    comments: Provide a brief description of how extraction recovery efficiency was
-      measured or estimated.
+    comments:
+    - Provide a brief description of how extraction recovery efficiency was measured
+      or estimated.
     slot_uri: GENEPIO:0100925
     range: WhitespaceMinimizedString
   microbiological_method:
@@ -3633,20 +3709,22 @@ slots:
     title: microbiological method
     description: The laboratory method used to grow, prepare, and/or isolate the microbial
       isolate.
-    comments: Provide the name and version number of the microbiological method. The
-      ID of the method is also acceptable if the ID can be linked to the laboratory
-      that created the procedure.
+    comments:
+    - Provide the name and version number of the microbiological method. The ID of
+      the method is also acceptable if the ID can be linked to the laboratory that
+      created the procedure.
     slot_uri: GENEPIO:0100454
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: MFHPB-30
   strain:
     name: strain
     title: strain
     description: The strain identifier.
-    comments: If the isolate represents or is derived from, a lab reference strain
-      or strain from a type culture collection, provide the strain identifier.
+    comments:
+    - If the isolate represents or is derived from, a lab reference strain or strain
+      from a type culture collection, provide the strain identifier.
     slot_uri: GENEPIO:0100455
     range: WhitespaceMinimizedString
     examples:
@@ -3656,32 +3734,34 @@ slots:
     title: isolate ID
     description: The user-defined identifier for the isolate, as provided by the laboratory
       that originally isolated the isolate.
-    comments: Provide the isolate_ID created by the lab that first isolated the isolate
-      (i.e. the original isolate ID). If the information is unknown or cannot be provided,
+    comments:
+    - Provide the isolate_ID created by the lab that first isolated the isolate (i.e.
+      the original isolate ID). If the information is unknown or cannot be provided,
       leave blank or provide a null value. If only an alternate isolate ID is known
       (e.g. the ID from your lab, if your lab did not isolate the isolate from the
       original sample), make asure to include it in the alternative_isolate_ID field.
     slot_uri: GENEPIO:0100456
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: SA20131043
   alternative_isolate_id:
     name: alternative_isolate_id
     title: alternative isolate ID
     description: An alternative isolate_ID assigned to the isolate by another organization.
-    comments: "Alternative isolate IDs should be provided in the in a prescribed format\
-      \ which consists of the ID followed by square brackets (no space in between\
-      \ the ID and bracket) containing the short form of ID provider\u2019s agency\
-      \ name i.e. ID[short organization code]. An example of a properly formatted\
-      \ alternative_isolate_identifier would be e.g. XYZ4567[CFIA]. Multiple alternative\
-      \ isolate IDs can be provided, separated by semi-colons."
+    comments:
+    - "Alternative isolate IDs should be provided in the in a prescribed format which\
+      \ consists of the ID followed by square brackets (no space in between the ID\
+      \ and bracket) containing the short form of ID provider\u2019s agency name i.e.\
+      \ ID[short organization code]. An example of a properly formatted alternative_isolate_identifier\
+      \ would be e.g. XYZ4567[CFIA]. Multiple alternative isolate IDs can be provided,\
+      \ separated by semi-colons."
     slot_uri: GENEPIO:0100457
-    range: WhitespaceMinimizedString
     multivalued: true
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: GHIF3456[PHAC]
     - value: QWICK222[CFIA]
@@ -3690,8 +3770,9 @@ slots:
     title: progeny isolate ID
     description: The identifier assigned to a progenitor isolate derived from an isolate
       that was directly obtained from a sample.
-    comments: If your sequence data pertains to progeny of an original isolate, provide
-      the progeny_isolate_ID.
+    comments:
+    - If your sequence data pertains to progeny of an original isolate, provide the
+      progeny_isolate_ID.
     slot_uri: GENEPIO:0100458
     range: WhitespaceMinimizedString
     examples:
@@ -3701,8 +3782,9 @@ slots:
     title: isolated by
     description: The name of the agency, organization or institution with which the
       individual who performed the isolation procedure is affiliated.
-    comments: Provide the name of the agency, organization or institution that isolated
-      the original isolate in full (avoid abbreviations). If the information is unknown
+    comments:
+    - Provide the name of the agency, organization or institution that isolated the
+      original isolate in full (avoid abbreviations). If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100461
     range: WhitespaceMinimizedString
@@ -3713,7 +3795,8 @@ slots:
     title: isolated by laboratory name
     description: The specific laboratory affiliation of the individual who performed
       the isolation procedure.
-    comments: Provide the name of the specific laboratory that that isolated the original
+    comments:
+    - Provide the name of the specific laboratory that that isolated the original
       isolate (avoid abbreviations). If the information is unknown or cannot be provided,
       leave blank or provide a null value.
     slot_uri: GENEPIO:0100462
@@ -3725,7 +3808,8 @@ slots:
     title: isolated by contact name
     description: The name or title of the contact responsible for follow-up regarding
       the isolate.
-    comments: Provide the name of an individual or their job title. As personnel turnover
+    comments:
+    - Provide the name of an individual or their job title. As personnel turnover
       may render the contact's name obsolete, it is prefereable to provide a job title
       for ensuring accuracy of information and institutional memory. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
@@ -3738,7 +3822,8 @@ slots:
     title: isolated by contact email
     description: The email address of the contact responsible for follow-up regarding
       the isolate.
-    comments: Provide the email associated with the listed contact. As personnel turnover
+    comments:
+    - Provide the email associated with the listed contact. As personnel turnover
       may render an individual's email obsolete, it is more prefereable to provide
       an address for a position or lab, to ensure accuracy of information and institutional
       memory. If the information is unknown or cannot be provided, leave blank or
@@ -3751,7 +3836,8 @@ slots:
     name: isolation_date
     title: isolation date
     description: The date on which the isolate was isolated from a sample.
-    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
+    comments:
+    - Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0100465
     range: date
@@ -3763,7 +3849,8 @@ slots:
     name: isolate_received_date
     title: isolate received date
     description: The date on which the isolate was received by the laboratory.
-    comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
+    comments:
+    - Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0100466
     range: WhitespaceMinimizedString
@@ -3775,30 +3862,33 @@ slots:
     name: serovar
     title: serovar
     description: The serovar of the organism.
-    comments: Only include this information if it has been determined by traditional
-      serological methods or a validated in silico prediction tool e.g. SISTR.
+    comments:
+    - Only include this information if it has been determined by traditional serological
+      methods or a validated in silico prediction tool e.g. SISTR.
     slot_uri: GENEPIO:0100467
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Heidelberg
   serotyping_method:
     name: serotyping_method
     title: serotyping method
     description: The method used to determine the serovar.
-    comments: "If the serovar was determined via traditional serotyping methods, put\
-      \ \u201CTraditional serotyping\u201D. If the serovar was determined via in silico\
-      \ methods, provide the name and version number of the software."
+    comments:
+    - "If the serovar was determined via traditional serotyping methods, put \u201C\
+      Traditional serotyping\u201D. If the serovar was determined via in silico methods,\
+      \ provide the name and version number of the software."
     slot_uri: GENEPIO:0100468
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: SISTR 1.0.1
   phagetype:
     name: phagetype
     title: phagetype
     description: The phagetype of the organism.
-    comments: "Provide if known. If unknown, put \u201Cmissing\u201D."
+    comments:
+    - "Provide if known. If unknown, put \u201Cmissing\u201D."
     slot_uri: GENEPIO:0100469
     range: WhitespaceMinimizedString
     examples:
@@ -3808,13 +3898,14 @@ slots:
     title: water catchment area human population measurement value
     description: The numerical value of the human population measurement that contributes
       to the composition of water in a catchment area.
-    comments: Where known, provide the numerical value of population size, i.e. the
-      number of people.
+    comments:
+    - Where known, provide the numerical value of population size, i.e. the number
+      of people.
     slot_uri: GENEPIO:0100773
+    recommended: true
     any_of:
     - range: integer
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: 10,500
     exact_mappings:
@@ -3824,8 +3915,9 @@ slots:
     title: water catchment area human population range
     description: The human population range of the water catchment that contributes
       effluent to a wastewater site.
-    comments: Where catchment population is not well known, provide an estimation
-      of population size by selecting a value from the picklist.
+    comments:
+    - Where catchment population is not well known, provide an estimation of population
+      size by selecting a value from the picklist.
     slot_uri: GENEPIO:0100774
     any_of:
     - range: WaterCatchmentAreaHumanPopulationRangeMenu
@@ -3837,8 +3929,9 @@ slots:
     title: water catchment area human population measurement method
     description: The method by which a water catchment 's human population size was
       measured or estimated
-    comments: Provide a brief description of how catchment population size was measured
-      or estimated.
+    comments:
+    - Provide a brief description of how catchment population size was measured or
+      estimated.
     slot_uri: GENEPIO:0100775
     range: WhitespaceMinimizedString
     examples:
@@ -3850,8 +3943,8 @@ slots:
     title: water catchment area human population density value
     description: The numerical value describing the number of humans per geographical
       area in a water catchment.
-    comments: Provide the numerical value of the population density in the catchement
-      area.
+    comments:
+    - Provide the numerical value of the population density in the catchement area.
     slot_uri: GENEPIO:0100776
     range: WhitespaceMinimizedString
     examples:
@@ -3861,7 +3954,8 @@ slots:
     title: water catchment area human population density unit
     description: The unit describing the number of humans per geographical area in
       a water catchment.
-    comments: Provide the unit of the population density in the catchement area.
+    comments:
+    - Provide the unit of the population density in the catchement area.
     slot_uri: GENEPIO:0100777
     any_of:
     - range: WaterCatchmentAreaHumanPopulationDensityUnitMenu
@@ -3872,7 +3966,8 @@ slots:
     name: populated_area_type
     title: populated area type
     description: A type of area that is populated by humans to different degrees.
-    comments: Provide the populated area type from the pick list.
+    comments:
+    - Provide the populated area type from the pick list.
     slot_uri: GENEPIO:0100778
     any_of:
     - range: PopulatedAreaTypeMenu
@@ -3884,37 +3979,40 @@ slots:
     title: sampling weather conditions
     description: The state of the atmosphere at a place and time as regards heat,
       dryness, sunshine, wind, rain, etc.
-    comments: Provide the weather conditions at the time of sample collection.
+    comments:
+    - Provide the weather conditions at the time of sample collection.
     slot_uri: GENEPIO:0100779
+    multivalued: true
     any_of:
     - range: SamplingWeatherConditionsMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Rain
   presampling_weather_conditions:
     name: presampling_weather_conditions
     title: presampling weather conditions
     description: Weather conditions prior to collection that may affect the sample.
-    comments: Provide the weather conditions prior to sample collection.
+    comments:
+    - Provide the weather conditions prior to sample collection.
     slot_uri: GENEPIO:0100780
+    multivalued: true
     any_of:
     - range: PresamplingWeatherConditionsMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Drizzle
   precipitation_measurement_value:
     name: precipitation_measurement_value
     title: precipitation measurement value
     description: The amount of water which has fallen during a precipitation process.
-    comments: Provide the quantity of precipitation in the area leading up to the
-      time of sample collection.
+    comments:
+    - Provide the quantity of precipitation in the area leading up to the time of
+      sample collection.
     slot_uri: GENEPIO:0100911
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: '12'
   precipitation_measurement_unit:
@@ -3922,13 +4020,13 @@ slots:
     title: precipitation measurement unit
     description: The units of measurement for the amount of water which has fallen
       during a precipitation process.
-    comments: Provide the units of precipitation by selecting a value from the pick
-      list.
+    comments:
+    - Provide the units of precipitation by selecting a value from the pick list.
     slot_uri: GENEPIO:0100912
+    recommended: true
     any_of:
     - range: PrecipitationMeasurementUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: inch
   precipitation_measurement_method:
@@ -3936,7 +4034,8 @@ slots:
     title: precipitation measurement method
     description: The process used to measure the amount of water which has fallen
       during a precipitation process.
-    comments: Provide the name of the procedure or method used to measure precipitation.
+    comments:
+    - Provide the name of the procedure or method used to measure precipitation.
     slot_uri: GENEPIO:0100913
     range: WhitespaceMinimizedString
     examples:
@@ -3945,7 +4044,8 @@ slots:
     name: ambient_temperature_measurement_value
     title: ambient temperature measurement value
     description: The numerical value of a measurement of the ambient temperature.
-    comments: Provide the numerical value of the measured temperature.
+    comments:
+    - Provide the numerical value of the measured temperature.
     slot_uri: GENEPIO:0100935
     range: WhitespaceMinimizedString
     examples:
@@ -3954,7 +4054,8 @@ slots:
     name: ambient_temperature_measurement_unit
     title: ambient temperature measurement unit
     description: The units of a measurement of the ambient temperature.
-    comments: Provide the units of the measured temperature.
+    comments:
+    - Provide the units of the measured temperature.
     slot_uri: GENEPIO:0100936
     any_of:
     - range: AmbientTemperatureMeasurementUnitMenu
@@ -3966,7 +4067,8 @@ slots:
     title: pH measurement value
     description: The measured pH value indicating the acidity or basicity(alkalinity)
       of an aqueous solution.
-    comments: Provide the numerical value of the measured pH.
+    comments:
+    - Provide the numerical value of the measured pH.
     slot_uri: GENEPIO:0001736
     range: WhitespaceMinimizedString
     examples:
@@ -3977,7 +4079,8 @@ slots:
     name: ph_measurement_method
     title: pH measurement method
     description: The process used to measure pH value.
-    comments: Provide the name of the procedure or technology used to measure pH.
+    comments:
+    - Provide the name of the procedure or technology used to measure pH.
     slot_uri: GENEPIO:0100781
     range: WhitespaceMinimizedString
     examples:
@@ -3987,7 +4090,8 @@ slots:
     title: total daily flow rate measurement value
     description: The numerical value of a measured fluid flow rate over the course
       of a day.
-    comments: Provide the numerical value of the measured flow rate.
+    comments:
+    - Provide the numerical value of the measured flow rate.
     slot_uri: GENEPIO:0100905
     range: WhitespaceMinimizedString
     examples:
@@ -3998,8 +4102,9 @@ slots:
     name: total_daily_flow_rate_measurement_unit
     title: total daily flow rate measurement unit
     description: The units of a measured fluid flow rate over the course of a day.
-    comments: Provide the units of the measured flow rate by selecting a value from
-      the pick list.
+    comments:
+    - Provide the units of the measured flow rate by selecting a value from the pick
+      list.
     slot_uri: GENEPIO:0100906
     any_of:
     - range: TotalDailyFlowRateMeasurementUnitMenu
@@ -4012,8 +4117,8 @@ slots:
     name: total_daily_flow_rate_measurement_method
     title: total daily flow rate measurement method
     description: The process used to measure total daily fluid flow rate.
-    comments: Provide the name of the procedure or technology used to measure flow
-      rate.
+    comments:
+    - Provide the name of the procedure or technology used to measure flow rate.
     slot_uri: GENEPIO:0100907
     range: WhitespaceMinimizedString
     examples:
@@ -4022,7 +4127,8 @@ slots:
     name: instantaneous_flow_rate_measurement_value
     title: instantaneous flow rate measurement value
     description: The numerical value of a measured instantaneous fluid flow rate.
-    comments: Provide the numerical value of the measured flow rate.
+    comments:
+    - Provide the numerical value of the measured flow rate.
     slot_uri: GENEPIO:0100908
     range: WhitespaceMinimizedString
     examples:
@@ -4031,8 +4137,9 @@ slots:
     name: instantaneous_flow_rate_measurement_unit
     title: instantaneous flow rate measurement unit
     description: The units of a measured instantaneous fluid flow rate.
-    comments: Provide the units of the measured flow rate by selecting a value from
-      the pick list.
+    comments:
+    - Provide the units of the measured flow rate by selecting a value from the pick
+      list.
     slot_uri: GENEPIO:0100909
     any_of:
     - range: InstantaneousFlowRateMeasurementUnitMenu
@@ -4043,8 +4150,8 @@ slots:
     name: instantaneous_flow_rate_measurement_method
     title: instantaneous flow rate measurement method
     description: The process used to measure instantaneous fluid flow rate.
-    comments: Provide the name of the procedure or technology used to measure flow
-      rate.
+    comments:
+    - Provide the name of the procedure or technology used to measure flow rate.
     slot_uri: GENEPIO:0100910
     range: WhitespaceMinimizedString
     examples:
@@ -4053,30 +4160,33 @@ slots:
     name: turbidity_measurement_value
     title: turbidity measurement value
     description: The numerical value of a measurement of turbidity.
-    comments: Provide the numerical value of the measured turbidity.
+    comments:
+    - Provide the numerical value of the measured turbidity.
     slot_uri: GENEPIO:0100783
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: '0.02'
   turbidity_measurement_unit:
     name: turbidity_measurement_unit
     title: turbidity measurement unit
     description: The units of a measurement of turbidity.
-    comments: Provide the units of the measured turbidity by selecting a value from
-      the pick list.
+    comments:
+    - Provide the units of the measured turbidity by selecting a value from the pick
+      list.
     slot_uri: GENEPIO:0100914
+    recommended: true
     any_of:
     - range: TurbidityMeasurementUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: nephelometric turbidity unit (NTU)
   turbidity_measurement_method:
     name: turbidity_measurement_method
     title: turbidity measurement method
     description: The process used to measure turbidity.
-    comments: Provide the name of the procedure or technology used to measure turbidity.
+    comments:
+    - Provide the name of the procedure or technology used to measure turbidity.
     slot_uri: GENEPIO:0101013
     range: WhitespaceMinimizedString
     examples:
@@ -4085,7 +4195,8 @@ slots:
     name: dissolved_oxygen_measurement_value
     title: dissolved oxygen measurement value
     description: The numerical value of a measurement of dissolved oxygen.
-    comments: Provide the numerical value of the measured dissolved oxygen.
+    comments:
+    - Provide the numerical value of the measured dissolved oxygen.
     slot_uri: GENEPIO:0000035
     range: WhitespaceMinimizedString
     examples:
@@ -4094,8 +4205,9 @@ slots:
     name: dissolved_oxygen_measurement_unit
     title: dissolved oxygen measurement unit
     description: The units of a measurement of dissolved oxygen.
-    comments: Provide the units of the measured dissolved oxygen by selecting a value
-      from the pick list.
+    comments:
+    - Provide the units of the measured dissolved oxygen by selecting a value from
+      the pick list.
     slot_uri: GENEPIO:0100784
     any_of:
     - range: DissolvedOxygenMeasurementUnitMenu
@@ -4106,8 +4218,8 @@ slots:
     name: dissolved_oxygen_measurement_method
     title: dissolved oxygen measurement method
     description: The method used to measure dissolved oxygen.
-    comments: Provide the name of the procedure or technology used to measure dissolved
-      oxygen.
+    comments:
+    - Provide the name of the procedure or technology used to measure dissolved oxygen.
     slot_uri: GENEPIO:0100785
     range: WhitespaceMinimizedString
     examples:
@@ -4117,7 +4229,8 @@ slots:
     title: oxygen reduction potential (ORP) measurement value
     description: The numerical value of a measurement of oxygen reduction potential
       (ORP).
-    comments: Provide the numerical value of the measured oxygen reduction potential.
+    comments:
+    - Provide the numerical value of the measured oxygen reduction potential.
     slot_uri: FIX:0000278
     range: WhitespaceMinimizedString
     examples:
@@ -4126,8 +4239,9 @@ slots:
     name: oxygen_reduction_potential_orp_measurement_unit
     title: oxygen reduction potential (ORP) measurement unit
     description: The units of a measurement of oxygen reduction potential (ORP).
-    comments: Provide the units of the measured oxygen reduction potential by selecting
-      a value from the pick list.
+    comments:
+    - Provide the units of the measured oxygen reduction potential by selecting a
+      value from the pick list.
     slot_uri: GENEPIO:0100786
     any_of:
     - range: OxygenReductionPotentialOrpMeasurementUnitMenu
@@ -4138,8 +4252,9 @@ slots:
     name: oxygen_reduction_potential_orp_measurement_method
     title: oxygen reduction potential (ORP) measurement method
     description: The method used to measure oxygen reduction potential (ORP).
-    comments: Provide the name of the procedure or technology used to measure oxygen
-      reduction potential.
+    comments:
+    - Provide the name of the procedure or technology used to measure oxygen reduction
+      potential.
     slot_uri: GENEPIO:0100787
     range: WhitespaceMinimizedString
     examples:
@@ -4148,7 +4263,8 @@ slots:
     name: chemical_oxygen_demand_cod_measurement_value
     title: chemical oxygen demand (COD) measurement value
     description: The measured value from a chemical oxygen demand (COD) test.
-    comments: Provide the numerical value of the COD test result.
+    comments:
+    - Provide the numerical value of the COD test result.
     slot_uri: GENEPIO:0100788
     range: WhitespaceMinimizedString
     examples:
@@ -4158,7 +4274,8 @@ slots:
     title: chemical oxygen demand (COD) measurement unit
     description: The units associated with a value from a chemical oxygen demand (COD)
       test.
-    comments: Provide the units of the COD test result.
+    comments:
+    - Provide the units of the COD test result.
     slot_uri: GENEPIO:0100789
     any_of:
     - range: ChemicalOxygenDemandCodMeasurementUnitMenu
@@ -4169,7 +4286,8 @@ slots:
     name: chemical_oxygen_demand_cod_measurement_method
     title: chemical oxygen demand (COD) measurement method
     description: The method used to measure chemical oxygen demand (COD).
-    comments: Provide the name of the procedure or technology used to measure COD.
+    comments:
+    - Provide the name of the procedure or technology used to measure COD.
     slot_uri: GENEPIO:0100790
     range: WhitespaceMinimizedString
     examples:
@@ -4179,7 +4297,8 @@ slots:
     title: carbonaceous biochemical oxygen demand (CBOD) measurement value
     description: The numerical value of a measurement of carbonaceous biochemical
       oxygen demand (CBOD).
-    comments: Provide the numerical value of the measured CBOD.
+    comments:
+    - Provide the numerical value of the measured CBOD.
     slot_uri: GENEPIO:0100791
     range: WhitespaceMinimizedString
     examples:
@@ -4189,8 +4308,8 @@ slots:
     title: carbonaceous biochemical oxygen demand (CBOD) measurement unit
     description: The units of a measurement of carbonaceous biochemical oxygen demand
       (CBOD).
-    comments: Provide the units of the measured CBOD by selecting a value from the
-      pick list.
+    comments:
+    - Provide the units of the measured CBOD by selecting a value from the pick list.
     slot_uri: GENEPIO:0100792
     any_of:
     - range: CarbonaceousBiochemicalOxygenDemandCbodMeasurementUnitMenu
@@ -4202,7 +4321,8 @@ slots:
     title: carbonaceous biochemical oxygen demand (CBOD) measurement method
     description: The method used to measure carbonaceous biochemical oxygen demand
       (CBOD).
-    comments: Provide the name of the procedure or technology used to measure CBOD.
+    comments:
+    - Provide the name of the procedure or technology used to measure CBOD.
     slot_uri: GENEPIO:0100793
     range: WhitespaceMinimizedString
     examples:
@@ -4211,7 +4331,8 @@ slots:
     name: total_suspended_solids_tss_measurement_value
     title: total suspended solids (TSS) measurement value
     description: The numerical value from a total suspended solids (TSS) test.
-    comments: Provide the numerical value of the measured TSS.
+    comments:
+    - Provide the numerical value of the measured TSS.
     slot_uri: GENEPIO:0100794
     range: WhitespaceMinimizedString
     examples:
@@ -4223,7 +4344,8 @@ slots:
     title: total suspended solids (TSS) measurement unit
     description: The units associated with a value from a total suspended solids (TSS)
       test.
-    comments: Provide the units of the measured TSS.
+    comments:
+    - Provide the units of the measured TSS.
     slot_uri: GENEPIO:0100795
     any_of:
     - range: TotalSuspendedSolidsTssMeasurementUnitMenu
@@ -4236,7 +4358,8 @@ slots:
     name: total_suspended_solids_tss_measurement_method
     title: total suspended solids (TSS) measurement method
     description: The method used to measure total suspended solids (TSS).
-    comments: Provide the name of the procedure or technology used to measure TSS.
+    comments:
+    - Provide the name of the procedure or technology used to measure TSS.
     slot_uri: GENEPIO:0100796
     range: WhitespaceMinimizedString
     examples:
@@ -4246,7 +4369,8 @@ slots:
     name: total_dissolved_solids_tds_measurement_value
     title: total dissolved solids (TDS) measurement value
     description: The numerical value from a total dissolved solids (TDS) test.
-    comments: Provide the numerical value of the measured TDS.
+    comments:
+    - Provide the numerical value of the measured TDS.
     slot_uri: GENEPIO:0100797
     range: WhitespaceMinimizedString
     examples:
@@ -4256,7 +4380,8 @@ slots:
     title: total dissolved solids (TDS) measurement unit
     description: The units associated with a value from a total dissolved solids (TDS)
       test.
-    comments: Provide the units of the measured TDS.
+    comments:
+    - Provide the units of the measured TDS.
     slot_uri: GENEPIO:0100798
     any_of:
     - range: TotalDissolvedSolidsTdsMeasurementUnitMenu
@@ -4267,7 +4392,8 @@ slots:
     name: total_dissolved_solids_tds_measurement_method
     title: total dissolved solids (TDS) measurement method
     description: The method used to measure total dissolved solids (TDS).
-    comments: Provide the name of the procedure or technology used to measure TDS.
+    comments:
+    - Provide the name of the procedure or technology used to measure TDS.
     slot_uri: GENEPIO:0100799
     range: WhitespaceMinimizedString
     examples:
@@ -4276,7 +4402,8 @@ slots:
     name: total_solids_ts_measurement_value
     title: total solids (TS) measurement value
     description: The numerical value from a total solids (TS) test.
-    comments: Provide the numerical value of the measured TS.
+    comments:
+    - Provide the numerical value of the measured TS.
     slot_uri: GENEPIO:0100800
     range: WhitespaceMinimizedString
     examples:
@@ -4285,7 +4412,8 @@ slots:
     name: total_solids_ts_measurement_unit
     title: total solids (TS) measurement unit
     description: The units associated with a value from a total solids (TS) test.
-    comments: Provide the units of the measured TS.
+    comments:
+    - Provide the units of the measured TS.
     slot_uri: GENEPIO:0100801
     any_of:
     - range: TotalSolidsTsMeasurementUnitMenu
@@ -4296,7 +4424,8 @@ slots:
     name: total_solids_ts_measurement_method
     title: total solids (TS) measurement method
     description: The method used to measure total solids (TS).
-    comments: Provide the name of the procedure or technology used to measure TS.
+    comments:
+    - Provide the name of the procedure or technology used to measure TS.
     slot_uri: GENEPIO:0100802
     range: WhitespaceMinimizedString
     examples:
@@ -4305,7 +4434,8 @@ slots:
     name: alkalinity_measurement_value
     title: alkalinity measurement value
     description: The numerical value of a measurement of alkalinity.
-    comments: Provide the numerical value of the measured alkalinity.
+    comments:
+    - Provide the numerical value of the measured alkalinity.
     slot_uri: GENEPIO:0100878
     range: WhitespaceMinimizedString
     examples:
@@ -4314,7 +4444,8 @@ slots:
     name: alkalinity_measurement_unit
     title: alkalinity measurement unit
     description: The units of a measurement of alkalinity.
-    comments: Provide the units of the measured alkalinity.
+    comments:
+    - Provide the units of the measured alkalinity.
     slot_uri: GENEPIO:0100879
     any_of:
     - range: AlkalinityMeasurementUnitMenu
@@ -4325,7 +4456,8 @@ slots:
     name: alkalinity_measurement_method
     title: alkalinity measurement method
     description: The process used to measure alkalinity.
-    comments: Provide the name of the procedure or technology used to measure alkalinity.
+    comments:
+    - Provide the name of the procedure or technology used to measure alkalinity.
     slot_uri: GENEPIO:0100880
     range: WhitespaceMinimizedString
     examples:
@@ -4334,7 +4466,8 @@ slots:
     name: conductivity_measurement_value
     title: conductivity measurement value
     description: The numerical value of a measurement of conductivity.
-    comments: Provide the numerical value of the measured conductivity.
+    comments:
+    - Provide the numerical value of the measured conductivity.
     slot_uri: GENEPIO:0100916
     range: WhitespaceMinimizedString
     examples:
@@ -4343,7 +4476,8 @@ slots:
     name: conductivity_measurement_unit
     title: conductivity measurement unit
     description: The units of a measurement of conductivity.
-    comments: Provide the units of the measured conductivity.
+    comments:
+    - Provide the units of the measured conductivity.
     slot_uri: GENEPIO:0100803
     any_of:
     - range: ConductivityMeasurementUnitMenu
@@ -4354,7 +4488,8 @@ slots:
     name: conductivity_measurement_method
     title: conductivity measurement method
     description: The method used to measure conductivity.
-    comments: Provide the name of the procedure or technology used to measure conductivity.
+    comments:
+    - Provide the name of the procedure or technology used to measure conductivity.
     slot_uri: GENEPIO:0100804
     range: WhitespaceMinimizedString
     examples:
@@ -4363,7 +4498,8 @@ slots:
     name: salinity_measurement_value
     title: salinity measurement value
     description: The numerical value of a measurement of salinity.
-    comments: Provide the numerical value of the measured salinity.
+    comments:
+    - Provide the numerical value of the measured salinity.
     slot_uri: GENEPIO:0100805
     range: WhitespaceMinimizedString
     examples:
@@ -4374,7 +4510,8 @@ slots:
     name: salinity_measurement_unit
     title: salinity measurement unit
     description: The units of a measurement of salinity.
-    comments: Provide the units of the measured salinity.
+    comments:
+    - Provide the units of the measured salinity.
     slot_uri: GENEPIO:0100806
     any_of:
     - range: SalinityMeasurementUnitMenu
@@ -4387,7 +4524,8 @@ slots:
     name: salinity_measurement_method
     title: salinity measurement method
     description: The method used to measure salinity.
-    comments: Provide the name of the procedure or technology used to measure salinity.
+    comments:
+    - Provide the name of the procedure or technology used to measure salinity.
     slot_uri: GENEPIO:0100807
     range: WhitespaceMinimizedString
     examples:
@@ -4396,7 +4534,8 @@ slots:
     name: total_nitrogen_tn_measurement_value
     title: total nitrogen (TN) measurement value
     description: The numerical value of a measurement of total nitrogen (TN).
-    comments: Provide the numerical value of the measured TN.
+    comments:
+    - Provide the numerical value of the measured TN.
     slot_uri: GENEPIO:0100808
     range: WhitespaceMinimizedString
     examples:
@@ -4405,7 +4544,8 @@ slots:
     name: total_nitrogen_tn_measurement_unit
     title: total nitrogen (TN) measurement unit
     description: The units of a measurement of total nitrogen (TN).
-    comments: Provide the units of the measured TN.
+    comments:
+    - Provide the units of the measured TN.
     slot_uri: GENEPIO:0100809
     any_of:
     - range: TotalNitrogenTnMeasurementUnitMenu
@@ -4416,7 +4556,8 @@ slots:
     name: total_nitrogen_tn_measurement_method
     title: total nitrogen (TN) measurement method
     description: The method used to measure total nitrogen (TN).
-    comments: Provide the name of the procedure or technology used to measure TN.
+    comments:
+    - Provide the name of the procedure or technology used to measure TN.
     slot_uri: GENEPIO:0100810
     range: WhitespaceMinimizedString
     examples:
@@ -4425,7 +4566,8 @@ slots:
     name: total_phosphorus_tp_measurement_value
     title: total phosphorus (TP) measurement value
     description: The numerical value of a measurement of total phosphorus (TP).
-    comments: Provide the numerical value of the measured TP.
+    comments:
+    - Provide the numerical value of the measured TP.
     slot_uri: GENEPIO:0100811
     range: WhitespaceMinimizedString
     examples:
@@ -4434,7 +4576,8 @@ slots:
     name: total_phosphorus_tp_measurement_unit
     title: total phosphorus (TP) measurement unit
     description: The units of a measurement of total phosphorus (TP).
-    comments: Provide the units of the measured TP.
+    comments:
+    - Provide the units of the measured TP.
     slot_uri: GENEPIO:0100812
     any_of:
     - range: TotalPhosphorpusTpMeasurementUnitMenu
@@ -4445,7 +4588,8 @@ slots:
     name: total_phosphorus_tp_measurement_method
     title: total phosphorus (TP) measurement method
     description: The method used to measure total phosphorus (TP).
-    comments: Provide the name of the procedure or technology used to measure TP.
+    comments:
+    - Provide the name of the procedure or technology used to measure TP.
     slot_uri: GENEPIO:0100813
     range: WhitespaceMinimizedString
     examples:
@@ -4455,43 +4599,45 @@ slots:
     title: fecal contamination indicator
     description: A gene, virus, bacteria, or substance used to measure the sanitary
       quality of water in regards to fecal contamination.
-    comments: If a fecal contamination indicator was measured, select it from the
-      picklist.
+    comments:
+    - If a fecal contamination indicator was measured, select it from the picklist.
     slot_uri: GENEPIO:0100814
+    recommended: true
     any_of:
     - range: FecalContaminationIndicatorMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: crAssphage
   fecal_contamination_value:
     name: fecal_contamination_value
     title: fecal contamination value
     description: The numerical value of a measurement of fecal contamination.
-    comments: Provide the numerical value of the measured fecal contamination.
+    comments:
+    - Provide the numerical value of the measured fecal contamination.
     slot_uri: GENEPIO:0100815
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: '10'
   fecal_contamination_unit:
     name: fecal_contamination_unit
     title: fecal contamination unit
     description: The units of a measurement of fecal contamination.
-    comments: Provide the units of the measured fecal contamination.
+    comments:
+    - Provide the units of the measured fecal contamination.
     slot_uri: GENEPIO:0100816
+    recommended: true
     any_of:
     - range: FecalContaminationUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: cycle threshold (Ct) / quantification cycle (Cq)
   fecal_contamination_method:
     name: fecal_contamination_method
     title: fecal contamination method
     description: The method used to measure fecal contamination.
-    comments: Provide the name of the procedure or technology used to measure fecal
-      contamination.
+    comments:
+    - Provide the name of the procedure or technology used to measure fecal contamination.
     slot_uri: GENEPIO:0100817
     range: WhitespaceMinimizedString
     examples:
@@ -4501,7 +4647,8 @@ slots:
     title: fecal coliform count value
     description: The numerical value of a measurement of fecal coliforms within a
       sample.
-    comments: Provide the numerical value of the measured fecal coliforms.
+    comments:
+    - Provide the numerical value of the measured fecal coliforms.
     slot_uri: GENEPIO:0100818
     range: WhitespaceMinimizedString
     examples:
@@ -4510,7 +4657,8 @@ slots:
     name: fecal_coliform_count_unit
     title: fecal coliform count unit
     description: The units of a measurement of fecal coliforms.
-    comments: Provide the units of the measured fecal coliforms.
+    comments:
+    - Provide the units of the measured fecal coliforms.
     slot_uri: GENEPIO:0100819
     any_of:
     - range: FecalColiformCountUnitMenu
@@ -4521,8 +4669,8 @@ slots:
     name: fecal_coliform_count_method
     title: fecal coliform count method
     description: The method used to measure fecal coliforms.
-    comments: Provide the name of the procedure or technology used to measure fecal
-      coliforms.
+    comments:
+    - Provide the name of the procedure or technology used to measure fecal coliforms.
     slot_uri: GENEPIO:0100820
     range: WhitespaceMinimizedString
     examples:
@@ -4532,8 +4680,8 @@ slots:
     title: urinary contamination indicator
     description: A gene, virus, bacteria, or substance used to measure the sanitary
       quality of water in regards to urinary contamination.
-    comments: If a urinary contamination indicator was measured, select it from the
-      picklist.
+    comments:
+    - If a urinary contamination indicator was measured, select it from the picklist.
     slot_uri: GENEPIO:0100837
     any_of:
     - range: UrinaryContaminationIndicatorMenu
@@ -4544,7 +4692,8 @@ slots:
     name: urinary_contamination_value
     title: urinary contamination value
     description: The numerical value of a measurement of urinary contamination.
-    comments: Provide the numerical value of the measured urinary contamination.
+    comments:
+    - Provide the numerical value of the measured urinary contamination.
     slot_uri: GENEPIO:0100838
     range: WhitespaceMinimizedString
     examples:
@@ -4553,7 +4702,8 @@ slots:
     name: urinary_contamination_unit
     title: urinary contamination unit
     description: The units of a measurement of urinary contamination.
-    comments: Provide the units of the measured urinary contamination.
+    comments:
+    - Provide the units of the measured urinary contamination.
     slot_uri: GENEPIO:0100839
     any_of:
     - range: UrinaryContaminationUnitMenu
@@ -4564,8 +4714,8 @@ slots:
     name: urinary_contamination_method
     title: urinary contamination method
     description: The method used to measure urinary contamination.
-    comments: Provide the name of the procedure or technology used to measure urinary
-      contamination.
+    comments:
+    - Provide the name of the procedure or technology used to measure urinary contamination.
     slot_uri: GENEPIO:0100840
     range: WhitespaceMinimizedString
     examples:
@@ -4575,7 +4725,8 @@ slots:
     title: sample temperature value (at collection)
     description: The numerical value of a measurement of temperature of a sample at
       collection.
-    comments: Provide the numerical value of the measured temperature.
+    comments:
+    - Provide the numerical value of the measured temperature.
     slot_uri: GENEPIO:0100821
     range: WhitespaceMinimizedString
     examples:
@@ -4587,7 +4738,8 @@ slots:
     title: sample temperature unit (at collection)
     description: The units of a measurement of temperature of a sample at the time
       of collection.
-    comments: Provide the units of the measured temperature.
+    comments:
+    - Provide the units of the measured temperature.
     slot_uri: GENEPIO:0100822
     any_of:
     - range: SampleTemperatureUnitAtCollectionMenu
@@ -4601,7 +4753,8 @@ slots:
     title: sample temperature value (when received)
     description: The numerical value of a measurement of temperature of a sample upon
       receipt.
-    comments: Provide the numerical value of the measured temperature.
+    comments:
+    - Provide the numerical value of the measured temperature.
     slot_uri: GENEPIO:0100823
     range: WhitespaceMinimizedString
     examples:
@@ -4611,7 +4764,8 @@ slots:
     title: sample temperature unit (when received)
     description: The units of a measurement of temperature of a sample at the time
       upon receipt.
-    comments: Provide the units of the measured temperature.
+    comments:
+    - Provide the units of the measured temperature.
     slot_uri: GENEPIO:0100824
     any_of:
     - range: SampleTemperatureUnitWhenReceivedMenu
@@ -4622,17 +4776,18 @@ slots:
     name: purpose_of_sequencing
     title: purpose of sequencing
     description: The reason that the sample was sequenced.
-    comments: The reason why a sample was originally collected may differ from the
-      reason why it was selected for sequencing. The reason a sample was sequenced
-      may provide information about potential biases in sequencing strategy. Provide
-      the purpose of sequencing from the picklist in the template. The reason for
-      sample collection should be indicated in the "purpose of sampling" field.
+    comments:
+    - The reason why a sample was originally collected may differ from the reason
+      why it was selected for sequencing. The reason a sample was sequenced may provide
+      information about potential biases in sequencing strategy. Provide the purpose
+      of sequencing from the picklist in the template. The reason for sample collection
+      should be indicated in the "purpose of sampling" field.
     slot_uri: GENEPIO:0001445
+    multivalued: true
+    required: true
     any_of:
     - range: PurposeOfSequencingMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Travel-associated surveillance
     exact_mappings:
@@ -4642,13 +4797,14 @@ slots:
     title: purpose of sequencing details
     description: The description of why the sample was sequenced providing specific
       details.
-    comments: 'Provide an expanded description of why the sample was sequenced using
-      free text. The description may include the importance of the sequences for a
-      particular public health investigation/surveillance activity/research question.
-      Suggested standardized descriptions include: Assessing public health control
-      measures, Determining early introductions and spread, Investigating airline-related
-      exposures, Investigating remote regions, Investigating health care workers,
-      Investigating schools/universities.'
+    comments:
+    - 'Provide an expanded description of why the sample was sequenced using free
+      text. The description may include the importance of the sequences for a particular
+      public health investigation/surveillance activity/research question. Suggested
+      standardized descriptions include: Assessing public health control measures,
+      Determining early introductions and spread, Investigating airline-related exposures,
+      Investigating remote regions, Investigating health care workers, Investigating
+      schools/universities.'
     slot_uri: GENEPIO:0001446
     range: WhitespaceMinimizedString
     examples:
@@ -4658,14 +4814,15 @@ slots:
     title: sequenced by
     description: The name of the agency, organization or institution responsible for
       sequencing the isolate's genome.
-    comments: Provide the name of the agency, organization or institution that performed
-      the sequencing in full (avoid abbreviations). If the information is unknown
-      or cannot be provided, leave blank or provide a null value.
+    comments:
+    - Provide the name of the agency, organization or institution that performed the
+      sequencing in full (avoid abbreviations). If the information is unknown or cannot
+      be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100416
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
     exact_mappings:
@@ -4675,9 +4832,10 @@ slots:
     title: sequenced by laboratory name
     description: The specific laboratory affiliation of the responsible for sequencing
       the isolate's genome.
-    comments: Provide the name of the specific laboratory that that performed the
-      sequencing in full (avoid abbreviations). If the information is unknown or cannot
-      be provided, leave blank or provide a null value.
+    comments:
+    - Provide the name of the specific laboratory that that performed the sequencing
+      in full (avoid abbreviations). If the information is unknown or cannot be provided,
+      leave blank or provide a null value.
     slot_uri: GENEPIO:0100470
     range: WhitespaceMinimizedString
     examples:
@@ -4687,16 +4845,17 @@ slots:
     title: sequenced by contact name
     description: The name or title of the contact responsible for follow-up regarding
       the sequence.
-    comments: Provide the name of an individual or their job title. As personnel turnover
+    comments:
+    - Provide the name of an individual or their job title. As personnel turnover
       may render the contact's name obsolete, it is more prefereable to provide a
       job title for ensuring accuracy of information and institutional memory. If
       the information is unknown or cannot be provided, leave blank or provide a null
       value.
     slot_uri: GENEPIO:0100471
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Joe Bloggs, Enterics Lab Manager
   sequenced_by_contact_email:
@@ -4704,31 +4863,33 @@ slots:
     title: sequenced by contact email
     description: The email address of the contact responsible for follow-up regarding
       the sequence.
-    comments: Provide the email associated with the listed contact. As personnel turnover
+    comments:
+    - Provide the email associated with the listed contact. As personnel turnover
       may render an individual's email obsolete, it is more prefereable to provide
       an address for a position or lab, to ensure accuracy of information and institutional
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100471
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: enterics@lab.ca
   sequence_submitted_by:
     name: sequence_submitted_by
     title: sequence submitted by
     description: The name of the agency that submitted the sequence to a database.
-    comments: The name of the agency should be written out in full, (with minor exceptions)
+    comments:
+    - The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions. For Canadian institutions submitting
       specimens rather than sequencing data, please put the "National Microbiology
       Laboratory (NML)".
     slot_uri: GENEPIO:0001159
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Public Health Ontario (PHO)
     exact_mappings:
@@ -4738,12 +4899,13 @@ slots:
     title: sequence submitter contact email
     description: The email address of the contact responsible for follow-up regarding
       the sequence.
-    comments: The email address can represent a specific individual or laboratory.
+    comments:
+    - The email address can represent a specific individual or laboratory.
     slot_uri: GENEPIO:0001165
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     pattern: ^\S+@\S+\.\S+$
     examples:
     - value: RespLab@lab.ca
@@ -4754,7 +4916,8 @@ slots:
     name: sequencing_date
     title: sequencing date
     description: The date the sample was sequenced.
-    comments: ISO 8601 standard "YYYY-MM-DD".
+    comments:
+    - ISO 8601 standard "YYYY-MM-DD".
     slot_uri: GENEPIO:0001447
     range: date
     todos:
@@ -4766,8 +4929,9 @@ slots:
     name: library_id
     title: library ID
     description: The user-specified identifier for the library prepared for sequencing.
-    comments: The library name should be unique, and can be an autogenerated ID from
-      your LIMS, or modification of the isolate ID.
+    comments:
+    - The library name should be unique, and can be an autogenerated ID from your
+      LIMS, or modification of the isolate ID.
     slot_uri: GENEPIO:0001448
     range: WhitespaceMinimizedString
     examples:
@@ -4779,14 +4943,15 @@ slots:
     name: sequencing_platform
     title: sequencing platform
     description: The platform technology used to perform the sequencing.
-    comments: Provide the name of the company that created the sequencing instrument
-      by selecting a value from the template pick list. If the information is unknown
-      or cannot be provided, leave blank or provide a null value.
+    comments:
+    - Provide the name of the company that created the sequencing instrument by selecting
+      a value from the template pick list. If the information is unknown or cannot
+      be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100473
+    multivalued: true
     any_of:
     - range: SequencingPlatformMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Illumina [GENEPIO:0001923]
     exact_mappings:
@@ -4796,15 +4961,16 @@ slots:
     name: sequencing_instrument
     title: sequencing instrument
     description: The model of the sequencing instrument used.
-    comments: Provide the model sequencing instrument by selecting a value from the
-      template pick list. If the information is unknown or cannot be provided, leave
-      blank or provide a null value.
+    comments:
+    - Provide the model sequencing instrument by selecting a value from the template
+      pick list. If the information is unknown or cannot be provided, leave blank
+      or provide a null value.
     slot_uri: GENEPIO:0001452
+    multivalued: true
+    required: true
     any_of:
     - range: SequencingInstrumentMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Illumina HiSeq 2500 [GENEPIO:0100117]
     exact_mappings:
@@ -4815,13 +4981,14 @@ slots:
     title: sequencing assay type
     description: The overarching sequencing methodology that was used to determine
       the sequence of a biomaterial.
-    comments: Provide the name of the DNA or RNA sequencing technology used in your
-      study. If unsure refer to the protocol documentation, or provide a null value.
+    comments:
+    - Provide the name of the DNA or RNA sequencing technology used in your study.
+      If unsure refer to the protocol documentation, or provide a null value.
     slot_uri: GENEPIO:0100997
+    recommended: true
     any_of:
     - range: SequencingAssayTypeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: whole genome sequencing assay
     exact_mappings:
@@ -4834,7 +5001,8 @@ slots:
     title: library preparation kit
     description: The name of the DNA library preparation kit used to generate the
       library being sequenced.
-    comments: Provide the name of the library preparation kit used.
+    comments:
+    - Provide the name of the library preparation kit used.
     slot_uri: GENEPIO:0001450
     range: WhitespaceMinimizedString
     examples:
@@ -4845,11 +5013,12 @@ slots:
     name: sequencing_protocol
     title: sequencing protocol
     description: The protocol or method used for sequencing.
-    comments: Provide the name and version of the procedure or protocol used for sequencing.
+    comments:
+    - Provide the name and version of the procedure or protocol used for sequencing.
       You can also provide a link to a protocol online.
     slot_uri: GENEPIO:0001454
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: https://www.protocols.io/view/ncov-2019-sequencing-protocol-bbmuik6w?version_warning=no
     exact_mappings:
@@ -4860,7 +5029,8 @@ slots:
     title: DNA fragment length
     description: The length of the DNA fragment generated by mechanical shearing or
       enzymatic digestion for the purposes of library preparation.
-    comments: Provide the fragment length in base pairs (do not include the units).
+    comments:
+    - Provide the fragment length in base pairs (do not include the units).
     slot_uri: GENEPIO:0100843
     range: WhitespaceMinimizedString
     examples:
@@ -4870,13 +5040,14 @@ slots:
     title: genomic target enrichment method
     description: The molecular technique used to selectively capture and amplify specific
       regions of interest from a genome.
-    comments: Provide the name of the enrichment method
+    comments:
+    - Provide the name of the enrichment method
     slot_uri: GENEPIO:0100966
+    multivalued: true
+    recommended: true
     any_of:
     - range: GenomicTargetEnrichmentMethodMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: hybrid selection method
     exact_mappings:
@@ -4890,7 +5061,8 @@ slots:
     description: Details that provide additional context to the molecular technique
       used to selectively capture and amplify specific regions of interest from a
       genome.
-    comments: Provide details that are applicable to the method you used.
+    comments:
+    - Provide details that are applicable to the method you used.
     slot_uri: GENEPIO:0100967
     range: WhitespaceMinimizedString
     examples:
@@ -4901,13 +5073,14 @@ slots:
     title: amplicon pcr primer scheme
     description: The specifications of the primers (primer sequences, binding positions,
       fragment size generated etc) used to generate the amplicons to be sequenced.
-    comments: Provide the name and version of the primer scheme used to generate the
-      amplicons for sequencing.
+    comments:
+    - Provide the name and version of the primer scheme used to generate the amplicons
+      for sequencing.
     slot_uri: GENEPIO:0001456
+    recommended: true
     any_of:
     - range: AmpliconPcrPrimerSchemeMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: artic v1
     exact_mappings:
@@ -4920,8 +5093,8 @@ slots:
       binding positions, and fragment sizes. This URL should direct users to a source
       that provides the necessary details to reproduce or understand the primer scheme
       used in the dataset.
-    comments: Provide the url of the primer scheme used to generate the amplicons
-      for sequencing.
+    comments:
+    - Provide the url of the primer scheme used to generate the amplicons for sequencing.
     range: WhitespaceMinimizedString
     examples:
     - value: https://github.com/artic-network/primer-schemes/tree/master/nCoV-2019/V1
@@ -4929,7 +5102,8 @@ slots:
     name: amplicon_size
     title: amplicon size
     description: The length of the amplicon generated by PCR amplification.
-    comments: Provide the amplicon size expressed in base pairs.
+    comments:
+    - Provide the amplicon size expressed in base pairs.
     slot_uri: GENEPIO:0001449
     range: integer
     examples:
@@ -4941,7 +5115,8 @@ slots:
     title: quality control method name
     description: The name of the method used to assess whether a sequence passed a
       predetermined quality control threshold.
-    comments: Providing the name of the method used for quality control is very important
+    comments:
+    - Providing the name of the method used for quality control is very important
       for interpreting the rest of the QC information. Method names can be provided
       as the name of a pipeline or a link to a GitHub repository. Multiple methods
       should be listed and separated by a semi-colon. Do not include QC tags in other
@@ -4957,11 +5132,12 @@ slots:
     title: quality control method version
     description: The version number of the method used to assess whether a sequence
       passed a predetermined quality control threshold.
-    comments: Methods updates can make big differences to their outputs. Provide the
-      version of the method used for quality control. The version can be expressed
-      using whatever convention the developer implements (e.g. date, semantic versioning).
-      If multiple methods were used, record the version numbers in the same order
-      as the method names. Separate the version numbers using a semi-colon.
+    comments:
+    - Methods updates can make big differences to their outputs. Provide the version
+      of the method used for quality control. The version can be expressed using whatever
+      convention the developer implements (e.g. date, semantic versioning). If multiple
+      methods were used, record the version numbers in the same order as the method
+      names. Separate the version numbers using a semi-colon.
     slot_uri: GENEPIO:0100558
     range: WhitespaceMinimizedString
     examples:
@@ -4972,14 +5148,15 @@ slots:
     name: quality_control_determination
     title: quality control determination
     description: The determination of a quality control assessment.
-    comments: Select a value from the pick list provided. If a desired value is missing,
-      submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the
-      New Term Request form.
+    comments:
+    - Select a value from the pick list provided. If a desired value is missing, submit
+      a new term request to the PHA4GE QC Tag GitHub issuetracker using the New Term
+      Request form.
     slot_uri: GENEPIO:0100559
+    multivalued: true
     any_of:
     - range: QualityControlDeterminationMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: sequence failed quality control
     exact_mappings:
@@ -4989,14 +5166,15 @@ slots:
     title: quality control issues
     description: The reason contributing to, or causing, a low quality determination
       in a quality control assessment.
-    comments: Select a value from the pick list provided. If a desired value is missing,
-      submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the
-      New Term Request form.
+    comments:
+    - Select a value from the pick list provided. If a desired value is missing, submit
+      a new term request to the PHA4GE QC Tag GitHub issuetracker using the New Term
+      Request form.
     slot_uri: GENEPIO:0100560
+    multivalued: true
     any_of:
     - range: QualityControlIssuesMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: low average genome coverage
     exact_mappings:
@@ -5006,7 +5184,8 @@ slots:
     title: quality control details
     description: The details surrounding a low quality determination in a quality
       control assessment.
-    comments: Provide notes or details regarding QC results using free text.
+    comments:
+    - Provide notes or details regarding QC results using free text.
     slot_uri: GENEPIO:0100561
     range: WhitespaceMinimizedString
     examples:
@@ -5018,13 +5197,14 @@ slots:
     title: raw sequence data processing method
     description: The method used for raw data processing such as removing barcodes,
       adapter trimming, filtering etc.
-    comments: Provide the software name followed by the version or a link to the github
-      protocol e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3
+    comments:
+    - Provide the software name followed by the version or a link to the github protocol
+      e.g. Trimmomatic v. 0.38, Porechop v. 0.2.3
     slot_uri: GENEPIO:0001458
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Porechop 0.2.3
     exact_mappings:
@@ -5033,13 +5213,13 @@ slots:
     name: dehosting_method
     title: dehosting method
     description: The method used to remove host reads from the pathogen sequence.
-    comments: Provide the name and version number of the software used to remove host
-      reads.
+    comments:
+    - Provide the name and version number of the software used to remove host reads.
     slot_uri: GENEPIO:0001459
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Nanostripper
     exact_mappings:
@@ -5048,9 +5228,10 @@ slots:
     name: genome_sequence_file_name
     title: genome sequence file name
     description: The name of the consensus sequence file.
-    comments: Provide the name and version number, with the file extension, of the
-      processed genome sequence file e.g. a consensus sequence FASTA file or a genome
-      assembly file.
+    comments:
+    - Provide the name and version number, with the file extension, of the processed
+      genome sequence file e.g. a consensus sequence FASTA file or a genome assembly
+      file.
     slot_uri: GENEPIO:0101715
     any_of:
     - range: WhitespaceMinimizedString
@@ -5063,7 +5244,8 @@ slots:
     name: genome_sequence_file_path
     title: genome sequence file path
     description: The filepath of the consensus sequence file.
-    comments: Provide the filepath of the genome sequence FASTA file.
+    comments:
+    - Provide the filepath of the genome sequence FASTA file.
     slot_uri: GENEPIO:0101716
     any_of:
     - range: WhitespaceMinimizedString
@@ -5074,7 +5256,8 @@ slots:
     name: sequence_assembly_software_name
     title: sequence assembly software name
     description: The name of the software used to assemble a sequence.
-    comments: Provide the name of the software used to assemble the sequence.
+    comments:
+    - Provide the name of the software used to assemble the sequence.
     slot_uri: GENEPIO:0100825
     any_of:
     - range: WhitespaceMinimizedString
@@ -5085,7 +5268,8 @@ slots:
     name: sequence_assembly_software_version
     title: sequence assembly software version
     description: The version of the software used to assemble a sequence.
-    comments: Provide the version of the software used to assemble the sequence.
+    comments:
+    - Provide the version of the software used to assemble the sequence.
     slot_uri: GENEPIO:0100826
     any_of:
     - range: WhitespaceMinimizedString
@@ -5096,7 +5280,8 @@ slots:
     name: consensus_sequence_software_name
     title: consensus sequence software name
     description: The name of the software used to generate the consensus sequence.
-    comments: Provide the name of the software used to generate the consensus sequence.
+    comments:
+    - Provide the name of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001463
     any_of:
     - range: WhitespaceMinimizedString
@@ -5107,7 +5292,8 @@ slots:
     name: consensus_sequence_software_version
     title: consensus sequence software version
     description: The version of the software used to generate the consensus sequence.
-    comments: Provide the version of the software used to generate the consensus sequence.
+    comments:
+    - Provide the version of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001469
     any_of:
     - range: WhitespaceMinimizedString
@@ -5119,7 +5305,8 @@ slots:
     title: breadth of coverage value
     description: The percentage of the reference genome covered by the sequenced data,
       to a prescribed depth.
-    comments: Provide value as a percent.
+    comments:
+    - Provide value as a percent.
     slot_uri: GENEPIO:0001472
     range: WhitespaceMinimizedString
     examples:
@@ -5129,7 +5316,8 @@ slots:
     title: depth of coverage value
     description: The average number of reads representing a given nucleotide in the
       reconstructed sequence.
-    comments: Provide value as a fold of coverage.
+    comments:
+    - Provide value as a fold of coverage.
     slot_uri: GENEPIO:0001474
     range: WhitespaceMinimizedString
     examples:
@@ -5138,7 +5326,8 @@ slots:
     name: depth_of_coverage_threshold
     title: depth of coverage threshold
     description: The threshold used as a cut-off for the depth of coverage.
-    comments: Provide the threshold fold coverage.
+    comments:
+    - Provide the threshold fold coverage.
     slot_uri: GENEPIO:0001475
     range: WhitespaceMinimizedString
     examples:
@@ -5148,7 +5337,8 @@ slots:
     title: genome completeness
     description: The percentage of expected genes identified in the genome being sequenced.
       Missing genes indicate missing genomic regions (incompleteness) in the data.
-    comments: Provide the genome completeness as a percent (no need to include units).
+    comments:
+    - Provide the genome completeness as a percent (no need to include units).
     slot_uri: GENEPIO:0100844
     range: WhitespaceMinimizedString
     examples:
@@ -5157,7 +5347,8 @@ slots:
     name: number_of_base_pairs_sequenced
     title: number of base pairs sequenced
     description: The number of total base pairs generated by the sequencing process.
-    comments: Provide a numerical value (no need to include units).
+    comments:
+    - Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001482
     range: integer
     examples:
@@ -5167,7 +5358,8 @@ slots:
     title: number of total reads
     description: The total number of non-unique reads generated by the sequencing
       process.
-    comments: Provide a numerical value (no need to include units).
+    comments:
+    - Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100827
     range: integer
     examples:
@@ -5176,7 +5368,8 @@ slots:
     name: number_of_unique_reads
     title: number of unique reads
     description: The number of unique reads generated by the sequencing process.
-    comments: Provide a numerical value (no need to include units).
+    comments:
+    - Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100828
     range: integer
     examples:
@@ -5186,7 +5379,8 @@ slots:
     title: minimum post-trimming read length
     description: The threshold used as a cut-off for the minimum length of a read
       after trimming.
-    comments: Provide a numerical value (no need to include units).
+    comments:
+    - Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100829
     range: integer
     examples:
@@ -5195,7 +5389,8 @@ slots:
     name: number_of_contigs
     title: number of contigs
     description: The number of contigs (contiguous sequences) in a sequence assembly.
-    comments: Provide a numerical value.
+    comments:
+    - Provide a numerical value.
     slot_uri: GENEPIO:0100937
     range: integer
     examples:
@@ -5204,7 +5399,8 @@ slots:
     name: percent_ns_across_total_genome_length
     title: percent Ns across total genome length
     description: The percentage of the assembly that consists of ambiguous bases (Ns).
-    comments: Provide a numerical value (no need to include units).
+    comments:
+    - Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100830
     range: integer
     examples:
@@ -5214,7 +5410,8 @@ slots:
     title: Ns per 100 kbp
     description: The number of ambiguous bases (Ns) normalized per 100 kilobasepairs
       (kbp).
-    comments: Provide a numerical value (no need to include units).
+    comments:
+    - Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001484
     range: integer
     examples:
@@ -5224,7 +5421,8 @@ slots:
     title: N50
     description: The length of the shortest read that, together with other reads,
       represents at least 50% of the nucleotides in a set of sequences.
-    comments: Provide the N50 value in Mb.
+    comments:
+    - Provide the N50 value in Mb.
     slot_uri: GENEPIO:0100938
     range: integer
     examples:
@@ -5234,7 +5432,8 @@ slots:
     title: percent read contamination
     description: The percent of the total number of reads identified as contamination
       (not belonging to the target organism) in a sequence dataset.
-    comments: Provide the percent contamination value (no need to include units).
+    comments:
+    - Provide the percent contamination value (no need to include units).
     slot_uri: GENEPIO:0100845
     range: integer
     examples:
@@ -5244,7 +5443,8 @@ slots:
     title: sequence assembly length
     description: The length of the genome generated by assembling reads using a scaffold
       or by reference-based mapping.
-    comments: Provide a numerical value (no need to include units).
+    comments:
+    - Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100846
     range: integer
     examples:
@@ -5254,7 +5454,8 @@ slots:
     title: consensus genome length
     description: The length of the genome defined by the most common nucleotides at
       each position.
-    comments: Provide a numerical value (no need to include units).
+    comments:
+    - Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001483
     range: integer
     examples:
@@ -5263,7 +5464,8 @@ slots:
     name: reference_genome_accession
     title: reference genome accession
     description: A persistent, unique identifier of a genome database entry.
-    comments: Provide the accession number of the reference genome.
+    comments:
+    - Provide the accession number of the reference genome.
     slot_uri: GENEPIO:0001485
     range: WhitespaceMinimizedString
     examples:
@@ -5275,8 +5477,9 @@ slots:
     name: deduplication_method
     title: deduplication method
     description: The method used to remove duplicated reads in a sequence read dataset.
-    comments: Provide the deduplication software name followed by the version, or
-      a link to a tool or method.
+    comments:
+    - Provide the deduplication software name followed by the version, or a link to
+      a tool or method.
     slot_uri: GENEPIO:0100831
     range: WhitespaceMinimizedString
     examples:
@@ -5285,10 +5488,11 @@ slots:
     name: bioinformatics_protocol
     title: bioinformatics protocol
     description: A description of the overall bioinformatics strategy used.
-    comments: Further details regarding the methods used to process raw data, and/or
-      generate assemblies, and/or generate consensus sequences can. This information
-      can be provided in an SOP or protocol or pipeline/workflow. Provide the name
-      and version number of the protocol, or a GitHub link to a pipeline or workflow.
+    comments:
+    - Further details regarding the methods used to process raw data, and/or generate
+      assemblies, and/or generate consensus sequences can. This information can be
+      provided in an SOP or protocol or pipeline/workflow. Provide the name and version
+      number of the protocol, or a GitHub link to a pipeline or workflow.
     slot_uri: GENEPIO:0001489
     range: WhitespaceMinimizedString
     examples:
@@ -5298,7 +5502,8 @@ slots:
     title: read mapping software name
     description: The name of the software used to map sequence reads to a reference
       genome or set of reference genes.
-    comments: Provide the name of the read mapping software.
+    comments:
+    - Provide the name of the read mapping software.
     slot_uri: GENEPIO:0100832
     range: WhitespaceMinimizedString
     examples:
@@ -5308,7 +5513,8 @@ slots:
     title: read mapping software version
     description: The version of the software used to map sequence reads to a reference
       genome or set of reference genes.
-    comments: Provide the version number of the read mapping software.
+    comments:
+    - Provide the version number of the read mapping software.
     slot_uri: GENEPIO:0100833
     range: WhitespaceMinimizedString
     examples:
@@ -5318,10 +5524,11 @@ slots:
     title: taxonomic reference database name
     description: The name of the taxonomic reference database used to identify the
       organism.
-    comments: Provide the name of the taxonomic reference database.
+    comments:
+    - Provide the name of the taxonomic reference database.
     slot_uri: GENEPIO:0100834
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: NCBITaxon
   taxonomic_reference_database_version:
@@ -5329,10 +5536,11 @@ slots:
     title: taxonomic reference database version
     description: The version of the taxonomic reference database used to identify
       the organism.
-    comments: Provide the version number of the taxonomic reference database.
+    comments:
+    - Provide the version number of the taxonomic reference database.
     slot_uri: GENEPIO:0100835
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: '1.3'
   taxonomic_analysis_report_filename:
@@ -5340,8 +5548,8 @@ slots:
     title: taxonomic analysis report filename
     description: The filename of the report containing the results of a taxonomic
       analysis.
-    comments: Provide the filename of the report containing the results of the taxonomic
-      analysis.
+    comments:
+    - Provide the filename of the report containing the results of the taxonomic analysis.
     slot_uri: GENEPIO:0101074
     range: WhitespaceMinimizedString
     examples:
@@ -5350,9 +5558,10 @@ slots:
     name: taxonomic_analysis_date
     title: taxonomic analysis date
     description: The date a taxonomic analysis was performed.
-    comments: Providing the date that an analyis was performed can help provide context
-      for tool and reference database versions. Provide the date that the taxonomic
-      analysis was performed in ISO 8601 format, i.e. "YYYY-MM-DD".
+    comments:
+    - Providing the date that an analyis was performed can help provide context for
+      tool and reference database versions. Provide the date that the taxonomic analysis
+      was performed in ISO 8601 format, i.e. "YYYY-MM-DD".
     slot_uri: GENEPIO:0101075
     range: date
     todos:
@@ -5363,7 +5572,8 @@ slots:
     name: read_mapping_criteria
     title: read mapping criteria
     description: A description of the criteria used to map reads to a reference sequence.
-    comments: Provide a description of the read mapping criteria.
+    comments:
+    - Provide a description of the read mapping criteria.
     slot_uri: GENEPIO:0100836
     range: WhitespaceMinimizedString
     examples:
@@ -5373,10 +5583,11 @@ slots:
     title: AMR analysis software name
     description: The name of the software used to perform an in silico antimicrobial
       resistance determinant identification/analysis.
-    comments: Provide the name of the software used for AMR analysis.
+    comments:
+    - Provide the name of the software used for AMR analysis.
     slot_uri: GENEPIO:0101076
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Resistance Gene Identifier
   amr_analysis_software_version:
@@ -5384,10 +5595,11 @@ slots:
     title: AMR analysis software version
     description: The version number of the software used to perform an in silico antimicrobial
       resistance determinant idenrtification/analysis.
-    comments: Provide the version number of the software used for AMR analysis.
+    comments:
+    - Provide the version number of the software used for AMR analysis.
     slot_uri: GENEPIO:0101077
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: 6.0.3
   amr_reference_database_name:
@@ -5395,10 +5607,11 @@ slots:
     title: AMR reference database name
     description: Thr name of the reference database used to perform an in silico antimicrobial
       resistance determinant identification/analysis.
-    comments: Provide the name of the reference database used for AMR analysis.
+    comments:
+    - Provide the name of the reference database used for AMR analysis.
     slot_uri: GENEPIO:0101078
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Comprehensive Antibiotic Resistance Database (CARD)
   amr_reference_database_version:
@@ -5406,10 +5619,11 @@ slots:
     title: AMR reference database version
     description: The version number of the reference database used to perform an in
       silico antimicrobial resistance determinant identification/analysis.
-    comments: Provide the version number of the reference database used for AMR analysis.
+    comments:
+    - Provide the version number of the reference database used for AMR analysis.
     slot_uri: GENEPIO:0101079
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: 3.2.9
   amr_analysis_report_filename:
@@ -5417,20 +5631,21 @@ slots:
     title: AMR analysis report filename
     description: The filename of the report containing the results of an in silico
       antimicrobial resistance analysis.
-    comments: Provide the filename of the report containing the results of the AMR
-      analysis.
+    comments:
+    - Provide the filename of the report containing the results of the AMR analysis.
     slot_uri: GENEPIO:0101080
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: WWAMR_report_Feb1_2024.doc
   amr_analysis_date:
     name: amr_analysis_date
     title: AMR analysis date
     description: The date the antimicrobial resistance analysis was performed.
-    comments: Providing the date that an analyis was performed can help provide context
-      for tool and reference database versions. Provide the date that the analysis
-      was performed in ISO 8601 format, i.e. "YYYY-MM-DD".
+    comments:
+    - Providing the date that an analyis was performed can help provide context for
+      tool and reference database versions. Provide the date that the analysis was
+      performed in ISO 8601 format, i.e. "YYYY-MM-DD".
     slot_uri: GENEPIO:0102069
     range: date
     todos:
@@ -5441,7 +5656,8 @@ slots:
     name: lineage_clade_name
     title: lineage/clade name
     description: The name of the lineage or clade.
-    comments: Provide the Pangolin or Nextstrain lineage/clade name. Multiple lineages/clades
+    comments:
+    - Provide the Pangolin or Nextstrain lineage/clade name. Multiple lineages/clades
       can be provided, separated by a semicolon.
     slot_uri: GENEPIO:0001500
     range: WhitespaceMinimizedString
@@ -5451,7 +5667,8 @@ slots:
     name: lineage_clade_analysis_software_name
     title: lineage/clade analysis software name
     description: The name of the software used to determine the lineage/clade.
-    comments: Provide the name of the software used to determine the lineage/clade.
+    comments:
+    - Provide the name of the software used to determine the lineage/clade.
     slot_uri: GENEPIO:0001501
     range: WhitespaceMinimizedString
     examples:
@@ -5460,7 +5677,8 @@ slots:
     name: lineage_clade_analysis_software_version
     title: lineage/clade analysis software version
     description: The version of the software used to determine the lineage/clade.
-    comments: Provide the version of the software used ot determine the lineage/clade.
+    comments:
+    - Provide the version of the software used ot determine the lineage/clade.
     slot_uri: GENEPIO:0001502
     range: WhitespaceMinimizedString
     examples:
@@ -5470,7 +5688,8 @@ slots:
     title: lineage/clade analysis report filename
     description: The filename of the report containing the results of a lineage/clade
       analysis.
-    comments: Provide the filename of the report containing the results of the lineage/clade
+    comments:
+    - Provide the filename of the report containing the results of the lineage/clade
       analysis.
     slot_uri: GENEPIO:0101081
     range: WhitespaceMinimizedString
@@ -5480,9 +5699,10 @@ slots:
     name: lineage_clade_analysis_date
     title: lineage/clade analysis date
     description: The date of the lineage/clade analysis was performed.
-    comments: Providing the date that an analyis was performed can help provide context
-      for tool and reference database versions. Provide the date that the analysis
-      was performed in ISO 8601 format, i.e. "YYYY-MM-DD".
+    comments:
+    - Providing the date that an analyis was performed can help provide context for
+      tool and reference database versions. Provide the date that the analysis was
+      performed in ISO 8601 format, i.e. "YYYY-MM-DD".
     slot_uri: GENEPIO:0102070
     range: date
     todos:
@@ -5494,12 +5714,12 @@ slots:
     title: target taxonomic name 1
     description: The scientific name of the organism or taxon that is the focus of
       the study, assay, or diagnostic test.
-    comments: 'The target taxonomic name refers to the specific species, genus, or
-      other taxonomic classification that the assay or diagnostic test is designed
-      to identify, detect, or characterize. This may include the full binomial name
-      (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level
-      identification is not applicable.  Avoid abbreviations. Search for taxonomic
-      names here: ncbi.nlm.nih.gov/taxonomy.'
+    comments:
+    - 'The target taxonomic name refers to the specific species, genus, or other taxonomic
+      classification that the assay or diagnostic test is designed to identify, detect,
+      or characterize. This may include the full binomial name (Genus species) or
+      a higher taxonomic rank (e.g., genus, family) when species-level identification
+      is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
     slot_uri: GENEPIO:0102049
     range: WhitespaceMinimizedString
     exact_mappings:
@@ -5508,8 +5728,9 @@ slots:
     name: assay_target_name_1
     title: assay target name 1
     description: The name of the assay target used in the diagnostic RT-PCR test.
-    comments: The specific genomic region, sequence, or variant targeted by the assay
-      in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions,
+    comments:
+    - The specific genomic region, sequence, or variant targeted by the assay in a
+      diagnostic RT-PCR test. This may include parts of a gene, non-coding regions,
       or other genetic elements that serve as a marker for detecting the presence
       of a pathogen or other relevant entities.
     slot_uri: GENEPIO:0102052
@@ -5520,8 +5741,8 @@ slots:
     name: assay_target_details_1
     title: assay target details 1
     description: Describe any details of the assay target.
-    comments: Provide details that are applicable to the assay used for the diagnostic
-      test.
+    comments:
+    - Provide details that are applicable to the assay used for the diagnostic test.
     slot_uri: GENEPIO:0102045
     range: WhitespaceMinimizedString
   gene_symbol_1:
@@ -5533,8 +5754,9 @@ slots:
     name: diagnostic_target_presence_1
     title: diagnostic target presence 1
     description: The binary value of the result from a diagnostic test.
-    comments: Select a value from the pick list provided, to describe whether a target
-      was determined to be present or absent within a sample.
+    comments:
+    - Select a value from the pick list provided, to describe whether a target was
+      determined to be present or absent within a sample.
     slot_uri: GENEPIO:0100962
     any_of:
     - range: DiagnosticTargetPresenceMenu
@@ -5547,8 +5769,8 @@ slots:
     name: diagnostic_measurement_value_1
     title: diagnostic measurement value 1
     description: The value of the result from a diagnostic test.
-    comments: Provide the numerical result of a diagnostic test (no need to include
-      units).
+    comments:
+    - Provide the numerical result of a diagnostic test (no need to include units).
     slot_uri: GENEPIO:0100963
     range: WhitespaceMinimizedString
     examples:
@@ -5559,8 +5781,9 @@ slots:
     name: diagnostic_measurement_unit_1
     title: diagnostic measurement unit 1
     description: The unit of the result from a diagnostic test.
-    comments: Select a value from the pick list provided, to describe the units of
-      the given diagnostic test.
+    comments:
+    - Select a value from the pick list provided, to describe the units of the given
+      diagnostic test.
     slot_uri: GENEPIO:0100964
     any_of:
     - range: DiagnosticMeasurementUnitMenu
@@ -5573,8 +5796,9 @@ slots:
     name: diagnostic_measurement_method_1
     title: diagnostic measurement method 1
     description: The method by which a diagnostic result was determined.
-    comments: Select a value from the pick list provided to describe the method used
-      for a given diagnostic test.
+    comments:
+    - Select a value from the pick list provided to describe the method used for a
+      given diagnostic test.
     slot_uri: GENEPIO:0100965
     any_of:
     - range: DiagnosticMeasurementMethodMenu
@@ -5587,8 +5811,9 @@ slots:
     name: assay_target_name_2
     title: assay target name 2
     description: The name of the assay target used in the diagnostic RT-PCR test.
-    comments: The specific genomic region, sequence, or variant targeted by the assay
-      in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions,
+    comments:
+    - The specific genomic region, sequence, or variant targeted by the assay in a
+      diagnostic RT-PCR test. This may include parts of a gene, non-coding regions,
       or other genetic elements that serve as a marker for detecting the presence
       of a pathogen or other relevant entities.
     slot_uri: GENEPIO:0102038
@@ -5597,8 +5822,8 @@ slots:
     name: assay_target_details_2
     title: assay target details 2
     description: Describe any details of the assay target.
-    comments: Provide details that are applicable to the assay used for the diagnostic
-      test.
+    comments:
+    - Provide details that are applicable to the assay used for the diagnostic test.
     slot_uri: GENEPIO:0102046
     range: WhitespaceMinimizedString
   gene_symbol_2:
@@ -5612,8 +5837,9 @@ slots:
     name: diagnostic_target_presence_2
     title: diagnostic target presence 2
     description: The binary value of the result from a diagnostic test.
-    comments: Select a value from the pick list provided, to describe whether a target
-      was determined to be present or absent within a sample.
+    comments:
+    - Select a value from the pick list provided, to describe whether a target was
+      determined to be present or absent within a sample.
     any_of:
     - range: DiagnosticTargetPresenceMenu
     - range: NullValueMenu
@@ -5625,8 +5851,8 @@ slots:
     name: diagnostic_measurement_value_2
     title: diagnostic measurement value 2
     description: The value of the result from a diagnostic test.
-    comments: Provide the numerical result of a diagnostic test (no need to include
-      units).
+    comments:
+    - Provide the numerical result of a diagnostic test (no need to include units).
     range: WhitespaceMinimizedString
     examples:
     - value: '1000'
@@ -5636,8 +5862,9 @@ slots:
     name: diagnostic_measurement_unit_2
     title: diagnostic measurement unit 2
     description: The unit of the result from a diagnostic test.
-    comments: Select a value from the pick list provided, to describe the units of
-      the given diagnostic test.
+    comments:
+    - Select a value from the pick list provided, to describe the units of the given
+      diagnostic test.
     any_of:
     - range: DiagnosticMeasurementUnitMenu
     - range: NullValueMenu
@@ -5649,8 +5876,9 @@ slots:
     name: diagnostic_measurement_method_2
     title: diagnostic measurement method 2
     description: The method by which a diagnostic result was determined.
-    comments: Select a value from the pick list provided to describe the method used
-      for a given diagnostic test.
+    comments:
+    - Select a value from the pick list provided to describe the method used for a
+      given diagnostic test.
     any_of:
     - range: DiagnosticMeasurementMethodMenu
     - range: NullValueMenu
@@ -5660,8 +5888,9 @@ slots:
     name: assay_target_name_3
     title: assay target name 3
     description: The name of the assay target used in the diagnostic RT-PCR test.
-    comments: The specific genomic region, sequence, or variant targeted by the assay
-      in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions,
+    comments:
+    - The specific genomic region, sequence, or variant targeted by the assay in a
+      diagnostic RT-PCR test. This may include parts of a gene, non-coding regions,
       or other genetic elements that serve as a marker for detecting the presence
       of a pathogen or other relevant entities.
     slot_uri: GENEPIO:0102039
@@ -5670,8 +5899,8 @@ slots:
     name: assay_target_details_3
     title: assay target details 3
     description: Describe any details of the assay target.
-    comments: Provide details that are applicable to the assay used for the diagnostic
-      test.
+    comments:
+    - Provide details that are applicable to the assay used for the diagnostic test.
     slot_uri: GENEPIO:0102047
     range: WhitespaceMinimizedString
   gene_symbol_3:
@@ -5683,8 +5912,9 @@ slots:
     name: diagnostic_target_presence_3
     title: diagnostic target presence 3
     description: The binary value of the result from a diagnostic test.
-    comments: Select a value from the pick list provided, to describe whether a target
-      was determined to be present or absent within a sample.
+    comments:
+    - Select a value from the pick list provided, to describe whether a target was
+      determined to be present or absent within a sample.
     any_of:
     - range: DiagnosticTargetPresenceMenu
     - range: NullValueMenu
@@ -5694,8 +5924,8 @@ slots:
     name: diagnostic_measurement_value_3
     title: diagnostic measurement value 3
     description: The value of the result from a diagnostic test.
-    comments: Provide the numerical result of a diagnostic test (no need to include
-      units).
+    comments:
+    - Provide the numerical result of a diagnostic test (no need to include units).
     range: WhitespaceMinimizedString
     examples:
     - value: '1000'
@@ -5703,8 +5933,9 @@ slots:
     name: diagnostic_measurement_unit_3
     title: diagnostic measurement unit 3
     description: The unit of the result from a diagnostic test.
-    comments: Select a value from the pick list provided, to describe the units of
-      the given diagnostic test.
+    comments:
+    - Select a value from the pick list provided, to describe the units of the given
+      diagnostic test.
     any_of:
     - range: DiagnosticMeasurementUnitMenu
     - range: NullValueMenu
@@ -5714,8 +5945,9 @@ slots:
     name: diagnostic_measurement_method_3
     title: diagnostic measurement method 3
     description: The method by which a diagnostic result was determined.
-    comments: Select a value from the pick list provided to describe the method used
-      for a given diagnostic test.
+    comments:
+    - Select a value from the pick list provided to describe the method used for a
+      given diagnostic test.
     any_of:
     - range: DiagnosticMeasurementMethodMenu
     - range: NullValueMenu

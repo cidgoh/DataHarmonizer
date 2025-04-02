@@ -13258,6 +13258,14 @@
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
         }
+      },
+      "unique_keys": {
+        "pha4ge_key": {
+          "unique_key_name": "pha4ge_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
+          ]
+        }
       }
     }
   },

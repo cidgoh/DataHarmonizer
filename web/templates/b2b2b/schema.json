@@ -11880,6 +11880,14 @@
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
         }
+      },
+      "unique_keys": {
+        "b2b2b_key": {
+          "unique_key_name": "b2b2b_key",
+          "unique_key_slots": [
+            "sample_collector_sample_ID"
+          ]
+        }
       }
     }
   },

@@ -17,6 +17,10 @@ classes:
     title: PHAC Dexa
     description: Specification for PHAC Dexa clinical virus biosample data gathering
     is_a: dh_interface
+    unique_keys:
+      phac_dexa_key:
+        unique_key_slots:
+        - specimen_id
     slots:
     - specimen_id
     - isolate_id
@@ -641,15 +645,15 @@ slots:
   isolate_id:
     name: isolate_id
     title: ISOLATE_ID
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     exact_mappings:
     - GRDI:isolate_ID
   sample_id:
     name: sample_id
     title: SAMPLE_ID
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     exact_mappings:
     - GRDI:sample_collector_sample_ID
   sentinel_site:

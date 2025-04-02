@@ -8751,6 +8751,14 @@
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
         }
+      },
+      "unique_keys": {
+        "mpox_key": {
+          "unique_key_name": "mpox_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
+          ]
+        }
       }
     }
   },

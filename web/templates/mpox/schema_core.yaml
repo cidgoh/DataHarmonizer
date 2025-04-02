@@ -19,6 +19,10 @@ classes:
     see_also: templates/mpox/SOP_Mpox.pdf
     annotations:
       version: 7.5.5
+    unique_keys:
+      mpox_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
   "MpoxInternational":
     name: "MpoxInternational"
     description: International specification for Mpox clinical virus biosample data gathering
@@ -26,6 +30,10 @@ classes:
     see_also: templates/mpox/SOP_Mpox_international.pdf
     annotations:
       version: 8.5.5
+    unique_keys:
+      mpox_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
 slots: {}
 enums: {}
 types:

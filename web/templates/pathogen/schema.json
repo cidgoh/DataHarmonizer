@@ -6661,6 +6661,14 @@
           "slot_group": "Contributor acknowledgement",
           "range": "Provenance"
         }
+      },
+      "unique_keys": {
+        "pathogen_agnostic_key": {
+          "unique_key_name": "pathogen_agnostic_key",
+          "unique_key_slots": [
+            "specimen_collector_sample_id"
+          ]
+        }
       }
     }
   },

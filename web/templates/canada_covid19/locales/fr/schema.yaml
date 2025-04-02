@@ -46,6 +46,10 @@ classes:
       gathering
     is_a: dh_interface
     see_also: templates/canada_covid19/SOP.pdf
+    unique_keys:
+      mpox_key:
+        unique_key_slots:
+        - specimen_collector_sample_id
     slots:
     - specimen_collector_sample_id
     - third_party_lab_service_provider_name
@@ -626,8 +630,9 @@ slots:
     title: "ID du collecteur d\u2019\xE9chantillons"
     description: "Nom d\xE9fini par l\u2019utilisateur pour l\u2019\xE9chantillon"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Conservez l\u2019ID de l\u2019\xE9chantillon du collecteur. Si ce num\xE9\
-      ro est consid\xE9r\xE9 comme une information identifiable, fournissez un autre\
+    comments:
+    - "Conservez l\u2019ID de l\u2019\xE9chantillon du collecteur. Si ce num\xE9ro\
+      \ est consid\xE9r\xE9 comme une information identifiable, fournissez un autre\
       \ identifiant. Assurez-vous de conserver la cl\xE9 qui correspond aux identifiants\
       \ d\u2019origine et alternatifs aux fins de tra\xE7abilit\xE9 et de suivi, au\
       \ besoin. Chaque ID d\u2019\xE9chantillon de collecteur provenant d\u2019un\
@@ -642,8 +647,8 @@ slots:
     description: "Nom de la soci\xE9t\xE9 ou du laboratoire tiers qui fournit les\
       \ services"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Indiquez le nom complet et non abr\xE9g\xE9 de l\u2019entreprise ou\
-      \ du laboratoire."
+    comments:
+    - "Indiquez le nom complet et non abr\xE9g\xE9 de l\u2019entreprise ou du laboratoire."
     examples:
     - value: Switch Health
   third_party_lab_sample_id:
@@ -652,8 +657,9 @@ slots:
     description: "Identifiant attribu\xE9 \xE0 un \xE9chantillon par un prestataire\
       \ de services tiers"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Conservez l\u2019identifiant de l\u2019\xE9chantillon fourni par le\
-      \ prestataire de services tiers."
+    comments:
+    - "Conservez l\u2019identifiant de l\u2019\xE9chantillon fourni par le prestataire\
+      \ de services tiers."
     examples:
     - value: SHK123456
   case_id:
@@ -662,9 +668,10 @@ slots:
     description: "Identifiant utilis\xE9 pour d\xE9signer un cas de maladie d\xE9\
       tect\xE9 sur le plan \xE9pid\xE9miologique"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Fournissez l\u2019identifiant du cas, lequel facilite grandement le\
-      \ lien entre les donn\xE9es de laboratoire et les donn\xE9es \xE9pid\xE9miologiques.\
-      \ Il peut \xEAtre consid\xE9r\xE9 comme une information identifiable. Consultez\
+    comments:
+    - "Fournissez l\u2019identifiant du cas, lequel facilite grandement le lien entre\
+      \ les donn\xE9es de laboratoire et les donn\xE9es \xE9pid\xE9miologiques. Il\
+      \ peut \xEAtre consid\xE9r\xE9 comme une information identifiable. Consultez\
       \ l\u2019intendant des donn\xE9es avant de le transmettre."
     examples:
     - value: ABCD1234
@@ -674,7 +681,8 @@ slots:
     description: "Identifiant principal d\u2019un \xE9chantillon associ\xE9 pr\xE9\
       c\xE9demment soumis au d\xE9p\xF4t"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Conservez l\u2019identifiant primaire de l\u2019\xE9chantillon correspondant\
+    comments:
+    - "Conservez l\u2019identifiant primaire de l\u2019\xE9chantillon correspondant\
       \ pr\xE9c\xE9demment soumis au Laboratoire national de microbiologie afin que\
       \ les \xE9chantillons puissent \xEAtre li\xE9s et suivis dans le syst\xE8me."
     examples:
@@ -684,11 +692,12 @@ slots:
     title: "Nom de l\u2019\xE9chantillon IRIDA"
     description: "Identifiant attribu\xE9 \xE0 un isolat s\xE9quenc\xE9 dans IRIDA"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Enregistrez le nom de l\u2019\xE9chantillon IRIDA, lequel sera cr\xE9\
-      \xE9 par la personne saisissant les donn\xE9es dans la plateforme connexe. Les\
-      \ \xE9chantillons IRIDA peuvent \xEAtre li\xE9s \xE0 des m\xE9tadonn\xE9es et\
-      \ \xE0 des donn\xE9es de s\xE9quence, ou simplement \xE0 des m\xE9tadonn\xE9\
-      es. Il est recommand\xE9 que le nom de l\u2019\xE9chantillon IRIDA soit identique\
+    comments:
+    - "Enregistrez le nom de l\u2019\xE9chantillon IRIDA, lequel sera cr\xE9\xE9 par\
+      \ la personne saisissant les donn\xE9es dans la plateforme connexe. Les \xE9\
+      chantillons IRIDA peuvent \xEAtre li\xE9s \xE0 des m\xE9tadonn\xE9es et \xE0\
+      \ des donn\xE9es de s\xE9quence, ou simplement \xE0 des m\xE9tadonn\xE9es. Il\
+      \ est recommand\xE9 que le nom de l\u2019\xE9chantillon IRIDA soit identique\
       \ ou contienne l\u2019ID de l\u2019\xE9chantillon du collecteur pour assurer\
       \ une meilleure tra\xE7abilit\xE9. Il est \xE9galement recommand\xE9 que le\
       \ nom de l\u2019\xE9chantillon IRIDA refl\xE8te l\u2019acc\xE8s \xE0 GISAID.\
@@ -704,11 +713,12 @@ slots:
     description: "Num\xE9ro d\u2019acc\xE8s \xE0 INSDC attribu\xE9 au bioprojet cadre\
       \ pour l\u2019effort canadien de s\xE9quen\xE7age du SRAS-CoV-2"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Enregistrez le num\xE9ro d\u2019acc\xE8s au bioprojet cadre en le s\xE9\
-      lectionnant \xE0 partir de la liste d\xE9roulante du mod\xE8le. Ce num\xE9ro\
-      \ sera identique pour tous les soumissionnaires du RCanG\xE9CO. Diff\xE9rentes\
-      \ provinces auront leurs propres bioprojets, mais ces derniers seront li\xE9\
-      s sous un seul bioprojet cadre."
+    comments:
+    - "Enregistrez le num\xE9ro d\u2019acc\xE8s au bioprojet cadre en le s\xE9lectionnant\
+      \ \xE0 partir de la liste d\xE9roulante du mod\xE8le. Ce num\xE9ro sera identique\
+      \ pour tous les soumissionnaires du RCanG\xE9CO. Diff\xE9rentes provinces auront\
+      \ leurs propres bioprojets, mais ces derniers seront li\xE9s sous un seul bioprojet\
+      \ cadre."
     examples:
     - value: PRJNA623807
   bioproject_accession:
@@ -717,13 +727,14 @@ slots:
     description: "Num\xE9ro d\u2019acc\xE8s \xE0 INSDC du bioprojet auquel appartient\
       \ un \xE9chantillon biologique"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Enregistrez le num\xE9ro d\u2019acc\xE8s au bioprojet. Les bioprojets\
-      \ sont un outil d\u2019organisation qui relie les donn\xE9es de s\xE9quence\
-      \ brutes, les assemblages et leurs m\xE9tadonn\xE9es associ\xE9es. Chaque province\
-      \ se verra attribuer un num\xE9ro d\u2019acc\xE8s diff\xE9rent au bioprojet\
-      \ par le Laboratoire national de microbiologie. Un num\xE9ro d\u2019acc\xE8\
-      s valide au bioprojet du NCBI contient le pr\xE9fixe PRJN (p.\_ex., PRJNA12345);\
-      \ il est cr\xE9\xE9 une fois au d\xE9but d\u2019un nouveau projet de s\xE9quen\xE7\
+    comments:
+    - "Enregistrez le num\xE9ro d\u2019acc\xE8s au bioprojet. Les bioprojets sont\
+      \ un outil d\u2019organisation qui relie les donn\xE9es de s\xE9quence brutes,\
+      \ les assemblages et leurs m\xE9tadonn\xE9es associ\xE9es. Chaque province se\
+      \ verra attribuer un num\xE9ro d\u2019acc\xE8s diff\xE9rent au bioprojet par\
+      \ le Laboratoire national de microbiologie. Un num\xE9ro d\u2019acc\xE8s valide\
+      \ au bioprojet du NCBI contient le pr\xE9fixe PRJN (p.\_ex., PRJNA12345); il\
+      \ est cr\xE9\xE9 une fois au d\xE9but d\u2019un nouveau projet de s\xE9quen\xE7\
       age."
     examples:
     - value: PRJNA608651
@@ -733,9 +744,10 @@ slots:
     description: "Identifiant attribu\xE9 \xE0 un \xE9chantillon biologique dans les\
       \ archives INSDC"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Conservez le num\xE9ro d\u2019acc\xE8s renvoy\xE9 avec la soumission\
-      \ d\u2019un \xE9chantillon biologique. Les \xE9chantillons biologiques de NCBI\
-      \ seront assortis du SAMN."
+    comments:
+    - "Conservez le num\xE9ro d\u2019acc\xE8s renvoy\xE9 avec la soumission d\u2019\
+      un \xE9chantillon biologique. Les \xE9chantillons biologiques de NCBI seront\
+      \ assortis du SAMN."
     examples:
     - value: SAMN14180202
   sra_accession:
@@ -745,8 +757,9 @@ slots:
       es de s\xE9quences brutes de lecture, les m\xE9tadonn\xE9es m\xE9thodologiques\
       \ et les mesures de contr\xF4le de la qualit\xE9 soumises \xE0 INSDC"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Conservez le num\xE9ro d\u2019acc\xE8s attribu\xE9 au \xAB cycle \xBB\
-      \ soumis. Les acc\xE8s NCBI-SRA commencent par SRR."
+    comments:
+    - "Conservez le num\xE9ro d\u2019acc\xE8s attribu\xE9 au \xAB cycle \xBB soumis.\
+      \ Les acc\xE8s NCBI-SRA commencent par SRR."
     examples:
     - value: SRR11177792
   genbank_accession:
@@ -755,8 +768,9 @@ slots:
     description: "Identifiant GenBank attribu\xE9 \xE0 la s\xE9quence dans les archives\
       \ INSDC"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Conservez le num\xE9ro d\u2019acc\xE8s renvoy\xE9 avec la soumission\
-      \ de GenBank (assemblage du g\xE9nome viral)."
+    comments:
+    - "Conservez le num\xE9ro d\u2019acc\xE8s renvoy\xE9 avec la soumission de GenBank\
+      \ (assemblage du g\xE9nome viral)."
     examples:
     - value: MN908947.3
   gisaid_accession:
@@ -765,8 +779,9 @@ slots:
     description: "Num\xE9ro d\u2019acc\xE8s \xE0 la GISAID attribu\xE9 \xE0 la s\xE9\
       quence"
     slot_group: "Identificateurs de base de donn\xE9es"
-    comments: "Conservez le num\xE9ro d\u2019acc\xE8s renvoy\xE9 avec la soumission\
-      \ de la GISAID."
+    comments:
+    - "Conservez le num\xE9ro d\u2019acc\xE8s renvoy\xE9 avec la soumission de la\
+      \ GISAID."
     examples:
     - value: EPI_ISL_436489
   sample_collected_by:
@@ -775,10 +790,11 @@ slots:
     description: "Nom de l\u2019organisme ayant pr\xE9lev\xE9 l\u2019\xE9chantillon\
       \ original"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Le nom du collecteur d\u2019\xE9chantillons doit \xEAtre \xE9crit au\
-      \ long (\xE0 quelques exceptions pr\xE8s) et \xEAtre coh\xE9rent dans plusieurs\
-      \ soumissions, par exemple Agence de la sant\xE9 publique du Canada, Sant\xE9\
-      \ publique Ontario, Centre de contr\xF4le des maladies de la Colombie-Britannique."
+    comments:
+    - "Le nom du collecteur d\u2019\xE9chantillons doit \xEAtre \xE9crit au long (\xE0\
+      \ quelques exceptions pr\xE8s) et \xEAtre coh\xE9rent dans plusieurs soumissions,\
+      \ par exemple Agence de la sant\xE9 publique du Canada, Sant\xE9 publique Ontario,\
+      \ Centre de contr\xF4le des maladies de la Colombie-Britannique."
     examples:
     - value: "Centre de contr\xF4le des maladies de la Colombie-Britannique"
   sample_collector_contact_email:
@@ -787,7 +803,8 @@ slots:
     description: "Adresse courriel de la personne-ressource responsable du suivi concernant\
       \ l\u2019\xE9chantillon"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "L\u2019adresse courriel peut repr\xE9senter une personne ou un laboratoire\
+    comments:
+    - "L\u2019adresse courriel peut repr\xE9senter une personne ou un laboratoire\
       \ sp\xE9cifique (p.\_ex., johnnyblogs@lab.ca, or RespLab@lab.ca)."
     examples:
     - value: RespLab@lab.ca
@@ -796,8 +813,9 @@ slots:
     title: "Adresse du collecteur d\u2019\xE9chantillons"
     description: "Adresse postale de l\u2019organisme soumettant l\u2019\xE9chantillon"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Le format de l\u2019adresse postale doit \xEAtre le suivant\_: Num\xE9\
-      ro et nom de la rue, ville, province/territoire, code postal et pays."
+    comments:
+    - "Le format de l\u2019adresse postale doit \xEAtre le suivant\_: Num\xE9ro et\
+      \ nom de la rue, ville, province/territoire, code postal et pays."
     examples:
     - value: "655, rue\_Lab, Vancouver (Colombie-Britannique)  V5N\_2A2 Canada"
   sequence_submitted_by:
@@ -805,11 +823,11 @@ slots:
     title: "S\xE9quence soumise par"
     description: "Nom de l\u2019organisme ayant g\xE9n\xE9r\xE9 la s\xE9quence"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Le nom de l\u2019agence doit \xEAtre \xE9crit au long (\xE0 quelques\
-      \ exceptions pr\xE8s) et \xEAtre coh\xE9rent dans plusieurs soumissions. Si\
-      \ vous soumettez des \xE9chantillons plut\xF4t que des donn\xE9es de s\xE9quen\xE7\
-      age, veuillez inscrire \xAB\_Laboratoire national de microbiologie (LNM)\_\xBB\
-      ."
+    comments:
+    - "Le nom de l\u2019agence doit \xEAtre \xE9crit au long (\xE0 quelques exceptions\
+      \ pr\xE8s) et \xEAtre coh\xE9rent dans plusieurs soumissions. Si vous soumettez\
+      \ des \xE9chantillons plut\xF4t que des donn\xE9es de s\xE9quen\xE7age, veuillez\
+      \ inscrire \xAB\_Laboratoire national de microbiologie (LNM)\_\xBB."
     examples:
     - value: "Sant\xE9 publique Ontario (SPO)"
   sequence_submitter_contact_email:
@@ -818,7 +836,8 @@ slots:
     description: "Adresse courriel de la personne-ressource responsable du suivi concernant\
       \ l\u2019\xE9chantillon"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "L\u2019adresse courriel peut repr\xE9senter une personne ou un laboratoire\
+    comments:
+    - "L\u2019adresse courriel peut repr\xE9senter une personne ou un laboratoire\
       \ sp\xE9cifique (p.\_ex., johnnyblogs@lab.ca, or RespLab@lab.ca)."
     examples:
     - value: RespLab@lab.ca
@@ -827,8 +846,9 @@ slots:
     title: "Adresse du soumissionnaire de s\xE9quence"
     description: "Adresse postale de l\u2019organisme soumettant l\u2019\xE9chantillon"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Le format de l\u2019adresse postale doit \xEAtre le suivant\_: Num\xE9\
-      ro et nom de la rue, ville, province/territoire, code postal et pays."
+    comments:
+    - "Le format de l\u2019adresse postale doit \xEAtre le suivant\_: Num\xE9ro et\
+      \ nom de la rue, ville, province/territoire, code postal et pays."
     examples:
     - value: "123, rue\_Sunnybrooke, Toronto (Ontario)  M4P\_1L6 Canada"
   sample_collection_date:
@@ -836,14 +856,14 @@ slots:
     title: "Date de pr\xE9l\xE8vement de l\u2019\xE9chantillon"
     description: "Date \xE0 laquelle l\u2019\xE9chantillon a \xE9t\xE9 pr\xE9lev\xE9"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "La date de pr\xE9l\xE8vement des \xE9chantillons est essentielle pour\
-      \ la surveillance et de nombreux types d\u2019analyses. La granularit\xE9 requise\
-      \ comprend l\u2019ann\xE9e, le mois et le jour. Si cette date est consid\xE9\
-      r\xE9e comme un renseignement identifiable, il est acceptable d\u2019y ajouter\
-      \ une \xAB\_gigue\_\xBB en ajoutant ou en soustrayant un jour civil. La \xAB\
-      \_date de r\xE9ception\_\xBB peut \xE9galement servir de date de rechange. La\
-      \ date doit \xEAtre fournie selon le format standard ISO\_8601\_: \xAB\_AAAA-MM-JJ\_\
-      \xBB."
+    comments:
+    - "La date de pr\xE9l\xE8vement des \xE9chantillons est essentielle pour la surveillance\
+      \ et de nombreux types d\u2019analyses. La granularit\xE9 requise comprend l\u2019\
+      ann\xE9e, le mois et le jour. Si cette date est consid\xE9r\xE9e comme un renseignement\
+      \ identifiable, il est acceptable d\u2019y ajouter une \xAB\_gigue\_\xBB en\
+      \ ajoutant ou en soustrayant un jour civil. La \xAB\_date de r\xE9ception\_\xBB\
+      \ peut \xE9galement servir de date de rechange. La date doit \xEAtre fournie\
+      \ selon le format standard ISO\_8601\_: \xAB\_AAAA-MM-JJ\_\xBB."
     examples:
     - value: '2020-03-16'
   sample_collection_date_precision:
@@ -852,13 +872,13 @@ slots:
     description: "Pr\xE9cision avec laquelle la \xAB\_date de pr\xE9l\xE8vement de\
       \ l\u2019\xE9chantillon\_\xBB a \xE9t\xE9 fournie"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez la pr\xE9cision de la granularit\xE9 au \xAB\_jour\_\xBB\
-      , au \xAB\_mois\_\xBB ou \xE0 \xAB\_l\u2019ann\xE9e\_\xBB pour la date fournie\
-      \ dans le champ \xAB\_Date de pr\xE9l\xE8vement de l\u2019\xE9chantillon\_\xBB\
-      . Cette date sera tronqu\xE9e selon la pr\xE9cision sp\xE9cifi\xE9e lors de\
-      \ l\u2019exportation\_: \xAB\_jour\_\xBB pour \xAB\_AAAA-MM-JJ\_\xBB, \xAB\_\
-      mois\_\xBB pour \xAB\_AAAA-MM\_\xBB ou \xAB\_ann\xE9e\_\xBB pour \xAB\_AAAA\_\
-      \xBB."
+    comments:
+    - "Fournissez la pr\xE9cision de la granularit\xE9 au \xAB\_jour\_\xBB, au \xAB\
+      \_mois\_\xBB ou \xE0 \xAB\_l\u2019ann\xE9e\_\xBB pour la date fournie dans le\
+      \ champ \xAB\_Date de pr\xE9l\xE8vement de l\u2019\xE9chantillon\_\xBB. Cette\
+      \ date sera tronqu\xE9e selon la pr\xE9cision sp\xE9cifi\xE9e lors de l\u2019\
+      exportation\_: \xAB\_jour\_\xBB pour \xAB\_AAAA-MM-JJ\_\xBB, \xAB\_mois\_\xBB\
+      \ pour \xAB\_AAAA-MM\_\xBB ou \xAB\_ann\xE9e\_\xBB pour \xAB\_AAAA\_\xBB."
     examples:
     - value: "ann\xE9e"
   sample_received_date:
@@ -866,8 +886,9 @@ slots:
     title: "Date de r\xE9ception de l\u2019\xE9chantillon"
     description: "Date \xE0 laquelle l\u2019\xE9chantillon a \xE9t\xE9 re\xE7u"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "La date doit \xEAtre fournie selon le format standard ISO\_8601\_:\
-      \ \xAB\_AAAA-MM-JJ\_\xBB."
+    comments:
+    - "La date doit \xEAtre fournie selon le format standard ISO\_8601\_: \xAB\_AAAA-MM-JJ\_\
+      \xBB."
     examples:
     - value: '2020-03-20'
   geo_loc_name_country:
@@ -875,8 +896,8 @@ slots:
     title: "nom_lieu_g\xE9o (pays)"
     description: "Pays d\u2019origine de l\u2019\xE9chantillon"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez le nom du pays \xE0 partir du vocabulaire contr\xF4l\xE9\
-      \ fourni."
+    comments:
+    - "Fournissez le nom du pays \xE0 partir du vocabulaire contr\xF4l\xE9 fourni."
     examples:
     - value: Canada
   geo_loc_name_state_province_territory:
@@ -885,7 +906,8 @@ slots:
     description: "Province ou territoire o\xF9 l\u2019\xE9chantillon a \xE9t\xE9 pr\xE9\
       lev\xE9"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez le nom de la province ou du territoire \xE0 partir du vocabulaire\
+    comments:
+    - "Fournissez le nom de la province ou du territoire \xE0 partir du vocabulaire\
       \ contr\xF4l\xE9 fourni."
     examples:
     - value: Saskatchewan
@@ -894,8 +916,9 @@ slots:
     title: "nom_g\xE9o_loc (ville)"
     description: "Ville o\xF9 l\u2019\xE9chantillon a \xE9t\xE9 pr\xE9lev\xE9"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez le nom de la ville. Utilisez ce service de recherche pour\
-      \ trouver le terme normalis\xE9\_: https://www.ebi.ac.uk/ols/ontologies/gaz."
+    comments:
+    - "Fournissez le nom de la ville. Utilisez ce service de recherche pour trouver\
+      \ le terme normalis\xE9\_: https://www.ebi.ac.uk/ols/ontologies/gaz."
     examples:
     - value: Medicine Hat
   organism:
@@ -903,8 +926,9 @@ slots:
     title: Organisme
     description: "Nom taxonomique de l\u2019organisme"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Utilisez \xAB\_coronavirus du syndrome respiratoire aigu s\xE9v\xE8\
-      re\_2\_\xBB. Cette valeur est fournie dans le mod\xE8le."
+    comments:
+    - "Utilisez \xAB\_coronavirus du syndrome respiratoire aigu s\xE9v\xE8re\_2\_\xBB\
+      . Cette valeur est fournie dans le mod\xE8le."
     examples:
     - value: "Coronavirus du syndrome respiratoire aigu s\xE9v\xE8re\_2"
   isolate:
@@ -912,8 +936,9 @@ slots:
     title: Isolat
     description: "Identifiant de l\u2019isolat sp\xE9cifique"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez le nom du virus de la GISAID, qui doit \xEAtre \xE9crit\
-      \ dans le format \xAB\_hCov-19/CANADA/code ISO provincial \xE0 2\_chiffres-xxxxx/ann\xE9\
+    comments:
+    - "Fournissez le nom du virus de la GISAID, qui doit \xEAtre \xE9crit dans le\
+      \ format \xAB\_hCov-19/CANADA/code ISO provincial \xE0 2\_chiffres-xxxxx/ann\xE9\
       e\_\xBB."
     examples:
     - value: hCov-19/CANADA/BC-prov_rona_99/2020
@@ -922,15 +947,16 @@ slots:
     title: "Objectif de l\u2019\xE9chantillonnage"
     description: "Motif de pr\xE9l\xE8vement de l\u2019\xE9chantillon"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "La raison pour laquelle un \xE9chantillon a \xE9t\xE9 pr\xE9lev\xE9\
-      \ peut fournir des renseignements sur les biais potentiels de la strat\xE9gie\
-      \ d\u2019\xE9chantillonnage. Choisissez l\u2019objectif de l\u2019\xE9chantillonnage\
-      \ \xE0 partir de la liste d\xE9roulante du mod\xE8le. Il est tr\xE8s probable\
-      \ que l\u2019\xE9chantillon ait \xE9t\xE9 pr\xE9lev\xE9 en vue d\u2019un test\
-      \ diagnostique. La raison pour laquelle un \xE9chantillon a \xE9t\xE9 pr\xE9\
-      lev\xE9 \xE0 l\u2019origine peut diff\xE9rer de la raison pour laquelle il a\
-      \ \xE9t\xE9 s\xE9lectionn\xE9 aux fins de s\xE9quen\xE7age, ce qui doit \xEA\
-      tre indiqu\xE9 dans le champ \xAB\_Objectif du s\xE9quen\xE7age\_\xBB."
+    comments:
+    - "La raison pour laquelle un \xE9chantillon a \xE9t\xE9 pr\xE9lev\xE9 peut fournir\
+      \ des renseignements sur les biais potentiels de la strat\xE9gie d\u2019\xE9\
+      chantillonnage. Choisissez l\u2019objectif de l\u2019\xE9chantillonnage \xE0\
+      \ partir de la liste d\xE9roulante du mod\xE8le. Il est tr\xE8s probable que\
+      \ l\u2019\xE9chantillon ait \xE9t\xE9 pr\xE9lev\xE9 en vue d\u2019un test diagnostique.\
+      \ La raison pour laquelle un \xE9chantillon a \xE9t\xE9 pr\xE9lev\xE9 \xE0 l\u2019\
+      origine peut diff\xE9rer de la raison pour laquelle il a \xE9t\xE9 s\xE9lectionn\xE9\
+      \ aux fins de s\xE9quen\xE7age, ce qui doit \xEAtre indiqu\xE9 dans le champ\
+      \ \xAB\_Objectif du s\xE9quen\xE7age\_\xBB."
     examples:
     - value: Tests diagnostiques
   purpose_of_sampling_details:
@@ -939,12 +965,13 @@ slots:
     description: "D\xE9tails pr\xE9cis concernant le motif de pr\xE9l\xE8vement de\
       \ l\u2019\xE9chantillon"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez une description d\xE9taill\xE9e de la raison pour laquelle\
-      \ l\u2019\xE9chantillon a \xE9t\xE9 pr\xE9lev\xE9 en utilisant du texte libre.\
-      \ La description peut inclure l\u2019importance de l\u2019\xE9chantillon pour\
-      \ une enqu\xEAte, une activit\xE9 de surveillance ou une question de recherche\
-      \ particuli\xE8re dans le domaine de la sant\xE9 publique. Si les d\xE9tails\
-      \ ne sont pas disponibles, fournissez une valeur nulle."
+    comments:
+    - "Fournissez une description d\xE9taill\xE9e de la raison pour laquelle l\u2019\
+      \xE9chantillon a \xE9t\xE9 pr\xE9lev\xE9 en utilisant du texte libre. La description\
+      \ peut inclure l\u2019importance de l\u2019\xE9chantillon pour une enqu\xEA\
+      te, une activit\xE9 de surveillance ou une question de recherche particuli\xE8\
+      re dans le domaine de la sant\xE9 publique. Si les d\xE9tails ne sont pas disponibles,\
+      \ fournissez une valeur nulle."
     examples:
     - value: "L\u2019\xE9chantillon a \xE9t\xE9 pr\xE9lev\xE9 pour \xE9tudier la pr\xE9\
         valence des variants associ\xE9s \xE0 la transmission du vison \xE0 l\u2019\
@@ -955,10 +982,11 @@ slots:
     description: "Type d\u2019\xE9chantillon soumis au Laboratoire national de microbiologie\
       \ (LNM) aux fins d\u2019analyse"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Ces renseignements sont requis pour le t\xE9l\xE9chargement \xE0 l\u2019\
-      aide du syst\xE8me LaSER du RCRSP. Choisissez le type d\u2019\xE9chantillon\
-      \ \xE0 partir de la liste de s\xE9lection fournie. Si les donn\xE9es de s\xE9\
-      quences sont soumises plut\xF4t qu\u2019un \xE9chantillon aux fins d\u2019analyse,\
+    comments:
+    - "Ces renseignements sont requis pour le t\xE9l\xE9chargement \xE0 l\u2019aide\
+      \ du syst\xE8me LaSER du RCRSP. Choisissez le type d\u2019\xE9chantillon \xE0\
+      \ partir de la liste de s\xE9lection fournie. Si les donn\xE9es de s\xE9quences\
+      \ sont soumises plut\xF4t qu\u2019un \xE9chantillon aux fins d\u2019analyse,\
       \ s\xE9lectionnez \xAB\_Sans objet\_\xBB."
     examples:
     - value: "\xC9couvillon"
@@ -968,7 +996,8 @@ slots:
     description: "Relation entre l\u2019\xE9chantillon actuel et celui pr\xE9c\xE9\
       demment soumis au d\xE9p\xF4t"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez l\u2019\xE9tiquette qui d\xE9crit comment l\u2019\xE9chantillon\
+    comments:
+    - "Fournissez l\u2019\xE9tiquette qui d\xE9crit comment l\u2019\xE9chantillon\
       \ pr\xE9c\xE9dent est li\xE9 \xE0 l\u2019\xE9chantillon actuel soumis \xE0 partir\
       \ de la liste de s\xE9lection fournie afin que les \xE9chantillons puissent\
       \ \xEAtre li\xE9s et suivis dans le syst\xE8me."
@@ -980,11 +1009,12 @@ slots:
     description: "Substance obtenue \xE0 partir d\u2019une partie anatomique d\u2019\
       un organisme (p.\_ex., tissu, sang)"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez un descripteur si une mati\xE8re anatomique a \xE9t\xE9\
-      \ \xE9chantillonn\xE9e. Utilisez la liste de s\xE9lection fournie dans le mod\xE8\
-      le. Si un terme souhait\xE9 ne figure pas dans la liste de s\xE9lection, veuillez\
-      \ envoyer un courriel \xE0 l\u2019adresse emma_griffiths@sfu.ca. Si ce n\u2019\
-      est pas le cas, ne laissez pas le champ vide. Choisissez une valeur nulle."
+    comments:
+    - "Fournissez un descripteur si une mati\xE8re anatomique a \xE9t\xE9 \xE9chantillonn\xE9\
+      e. Utilisez la liste de s\xE9lection fournie dans le mod\xE8le. Si un terme\
+      \ souhait\xE9 ne figure pas dans la liste de s\xE9lection, veuillez envoyer\
+      \ un courriel \xE0 l\u2019adresse emma_griffiths@sfu.ca. Si ce n\u2019est pas\
+      \ le cas, ne laissez pas le champ vide. Choisissez une valeur nulle."
     examples:
     - value: Sang
   anatomical_part:
@@ -992,11 +1022,12 @@ slots:
     title: Partie anatomique
     description: "Partie anatomique d\u2019un organisme (p.\_ex., oropharynx)"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez un descripteur si une partie anatomique a \xE9t\xE9 \xE9\
-      chantillonn\xE9e. Utilisez la liste de s\xE9lection fournie dans le mod\xE8\
-      le. Si un terme souhait\xE9 ne figure pas dans la liste de s\xE9lection, veuillez\
-      \ envoyer un courriel \xE0 l\u2019adresse emma_griffiths@sfu.ca. Si ce n\u2019\
-      est pas le cas, ne laissez pas le champ vide. Choisissez une valeur nulle."
+    comments:
+    - "Fournissez un descripteur si une partie anatomique a \xE9t\xE9 \xE9chantillonn\xE9\
+      e. Utilisez la liste de s\xE9lection fournie dans le mod\xE8le. Si un terme\
+      \ souhait\xE9 ne figure pas dans la liste de s\xE9lection, veuillez envoyer\
+      \ un courriel \xE0 l\u2019adresse emma_griffiths@sfu.ca. Si ce n\u2019est pas\
+      \ le cas, ne laissez pas le champ vide. Choisissez une valeur nulle."
     examples:
     - value: Nasopharynx (NP)
   body_product:
@@ -1005,7 +1036,8 @@ slots:
     description: "Substance excr\xE9t\xE9e ou s\xE9cr\xE9t\xE9e par un organisme (p.\_\
       ex., selles, urine, sueur)"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez un descripteur si un produit corporel a \xE9t\xE9 \xE9chantillonn\xE9\
+    comments:
+    - "Fournissez un descripteur si un produit corporel a \xE9t\xE9 \xE9chantillonn\xE9\
       . Utilisez la liste de s\xE9lection fournie dans le mod\xE8le. Si un terme souhait\xE9\
       \ ne figure pas dans la liste de s\xE9lection, veuillez envoyer un courriel\
       \ \xE0 l\u2019adresse emma_griffiths@sfu.ca. Si ce n\u2019est pas le cas, ne\
@@ -1018,12 +1050,12 @@ slots:
     description: "Substance obtenue \xE0 partir de l\u2019environnement naturel ou\
       \ artificiel (p.\_ex., sol, eau, eaux us\xE9es)"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez un descripteur si une mati\xE8re environnementale a \xE9\
-      t\xE9 \xE9chantillonn\xE9e. Utilisez la liste de s\xE9lection fournie dans le\
-      \ mod\xE8le. Si un terme souhait\xE9 ne figure pas dans la liste de s\xE9lection,\
-      \ veuillez envoyer un courriel \xE0 l\u2019adresse emma_griffiths@sfu.ca. Si\
-      \ ce n\u2019est pas le cas, ne laissez pas le champ vide. Choisissez une valeur\
-      \ nulle."
+    comments:
+    - "Fournissez un descripteur si une mati\xE8re environnementale a \xE9t\xE9 \xE9\
+      chantillonn\xE9e. Utilisez la liste de s\xE9lection fournie dans le mod\xE8\
+      le. Si un terme souhait\xE9 ne figure pas dans la liste de s\xE9lection, veuillez\
+      \ envoyer un courriel \xE0 l\u2019adresse emma_griffiths@sfu.ca. Si ce n\u2019\
+      est pas le cas, ne laissez pas le champ vide. Choisissez une valeur nulle."
     examples:
     - value: Masque
   environmental_site:
@@ -1033,11 +1065,12 @@ slots:
       environnement naturel ou artificiel (p.\_ex., surface de contact, bo\xEEte m\xE9\
       tallique, h\xF4pital, march\xE9 traditionnel de produits frais, grotte de chauves-souris)"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez un descripteur si un site environnemental a \xE9t\xE9 \xE9\
-      chantillonn\xE9. Utilisez la liste de s\xE9lection fournie dans le mod\xE8le.\
-      \ Si un terme souhait\xE9 ne figure pas dans la liste de s\xE9lection, veuillez\
-      \ envoyer un courriel \xE0 l\u2019adresse emma_griffiths@sfu.ca. Si ce n\u2019\
-      est pas le cas, ne laissez pas le champ vide. Choisissez une valeur nulle."
+    comments:
+    - "Fournissez un descripteur si un site environnemental a \xE9t\xE9 \xE9chantillonn\xE9\
+      . Utilisez la liste de s\xE9lection fournie dans le mod\xE8le. Si un terme souhait\xE9\
+      \ ne figure pas dans la liste de s\xE9lection, veuillez envoyer un courriel\
+      \ \xE0 l\u2019adresse emma_griffiths@sfu.ca. Si ce n\u2019est pas le cas, ne\
+      \ laissez pas le champ vide. Choisissez une valeur nulle."
     examples:
     - value: Installation de production
   collection_device:
@@ -1046,12 +1079,13 @@ slots:
     description: "Instrument ou contenant utilis\xE9 pour pr\xE9lever l\u2019\xE9\
       chantillon (p.\_ex., \xE9couvillon)"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez un descripteur si un dispositif de pr\xE9l\xE8vement a \xE9\
-      t\xE9 utilis\xE9 pour l\u2019\xE9chantillonnage. Utilisez la liste de s\xE9\
-      lection fournie dans le mod\xE8le. Si un terme souhait\xE9 ne figure pas dans\
-      \ la liste de s\xE9lection, veuillez envoyer un courriel \xE0 l\u2019adresse\
-      \ emma_griffiths@sfu.ca. Si ce n\u2019est pas le cas, ne laissez pas le champ\
-      \ vide. Choisissez une valeur nulle."
+    comments:
+    - "Fournissez un descripteur si un dispositif de pr\xE9l\xE8vement a \xE9t\xE9\
+      \ utilis\xE9 pour l\u2019\xE9chantillonnage. Utilisez la liste de s\xE9lection\
+      \ fournie dans le mod\xE8le. Si un terme souhait\xE9 ne figure pas dans la liste\
+      \ de s\xE9lection, veuillez envoyer un courriel \xE0 l\u2019adresse emma_griffiths@sfu.ca.\
+      \ Si ce n\u2019est pas le cas, ne laissez pas le champ vide. Choisissez une\
+      \ valeur nulle."
     examples:
     - value: "\xC9couvillon"
   collection_method:
@@ -1060,12 +1094,13 @@ slots:
     description: "Processus utilis\xE9 pour pr\xE9lever l\u2019\xE9chantillon (p.\_\
       ex., phl\xE9botomie, autopsie)"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez un descripteur si une m\xE9thode de pr\xE9l\xE8vement a\
-      \ \xE9t\xE9 utilis\xE9e pour l\u2019\xE9chantillonnage. Utilisez la liste de\
-      \ s\xE9lection fournie dans le mod\xE8le. Si un terme souhait\xE9 ne figure\
-      \ pas dans la liste de s\xE9lection, veuillez envoyer un courriel \xE0 l\u2019\
-      adresse emma_griffiths@sfu.ca. Si ce n\u2019est pas le cas, ne laissez pas le\
-      \ champ vide. Choisissez une valeur nulle."
+    comments:
+    - "Fournissez un descripteur si une m\xE9thode de pr\xE9l\xE8vement a \xE9t\xE9\
+      \ utilis\xE9e pour l\u2019\xE9chantillonnage. Utilisez la liste de s\xE9lection\
+      \ fournie dans le mod\xE8le. Si un terme souhait\xE9 ne figure pas dans la liste\
+      \ de s\xE9lection, veuillez envoyer un courriel \xE0 l\u2019adresse emma_griffiths@sfu.ca.\
+      \ Si ce n\u2019est pas le cas, ne laissez pas le champ vide. Choisissez une\
+      \ valeur nulle."
     examples:
     - value: "Lavage bronchoalv\xE9olaire (LBA)"
   collection_protocol:
@@ -1074,7 +1109,8 @@ slots:
     description: "Nom et version d\u2019un protocole particulier utilis\xE9 pour l\u2019\
       \xE9chantillonnage"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: Texte libre.
+    comments:
+    - Texte libre.
     examples:
     - value: "CBRonaProtocole\xC9chantillonnage v.\_1.2"
   specimen_processing:
@@ -1083,9 +1119,10 @@ slots:
     description: "Tout traitement appliqu\xE9 \xE0 l\u2019\xE9chantillon pendant ou\
       \ apr\xE8s sa r\xE9ception"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Essentiel pour l\u2019interpr\xE9tation des donn\xE9es. S\xE9lectionnez\
-      \ tous les processus applicables dans la liste de s\xE9lection. Si le virus\
-      \ a \xE9t\xE9 transmis, ajoutez les renseignements dans les champs \xAB Laboratoire\
+    comments:
+    - "Essentiel pour l\u2019interpr\xE9tation des donn\xE9es. S\xE9lectionnez tous\
+      \ les processus applicables dans la liste de s\xE9lection. Si le virus a \xE9\
+      t\xE9 transmis, ajoutez les renseignements dans les champs \xAB Laboratoire\
       \ h\xF4te \xBB, \xAB Nombre de transmissions \xBB et \xAB M\xE9thode de transmission\
       \ \xBB. Si aucun des processus de la liste de s\xE9lection ne s\u2019applique,\
       \ inscrivez \xAB\_Sans objet\_\xBB."
@@ -1097,8 +1134,9 @@ slots:
     description: "Renseignements d\xE9taill\xE9s concernant le traitement appliqu\xE9\
       \ \xE0 un \xE9chantillon pendant ou apr\xE8s sa r\xE9ception"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez une description en texte libre de tous les d\xE9tails du\
-      \ traitement appliqu\xE9s \xE0 un \xE9chantillon."
+    comments:
+    - "Fournissez une description en texte libre de tous les d\xE9tails du traitement\
+      \ appliqu\xE9s \xE0 un \xE9chantillon."
     examples:
     - value: "25 \xE9couvillons ont \xE9t\xE9 regroup\xE9s et pr\xE9par\xE9s en tant\
         \ qu\u2019\xE9chantillon unique lors de la pr\xE9paration de la biblioth\xE8\
@@ -1110,10 +1148,11 @@ slots:
       \ l\u2019organisme source ou le mat\xE9riel \xE0 partir duquel l\u2019\xE9chantillon\
       \ a \xE9t\xE9 obtenu"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Type de lign\xE9e cellulaire utilis\xE9e pour la propagation. Choisissez\
-      \ le nom de cette lign\xE9e \xE0 partir de la liste de s\xE9lection dans le\
-      \ mod\xE8le. Si le virus n\u2019a pas \xE9t\xE9 transmis, indiquez \xAB\_Sans\
-      \ objet\_\xBB."
+    comments:
+    - "Type de lign\xE9e cellulaire utilis\xE9e pour la propagation. Choisissez le\
+      \ nom de cette lign\xE9e \xE0 partir de la liste de s\xE9lection dans le mod\xE8\
+      le. Si le virus n\u2019a pas \xE9t\xE9 transmis, indiquez \xAB\_Sans objet\_\
+      \xBB."
     examples:
     - value: "Lign\xE9e cellulaire Vero E6"
   passage_number:
@@ -1121,8 +1160,9 @@ slots:
     title: Nombre de transmission
     description: Nombre de transmissions
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Indiquez le nombre de transmissions connues. Si le virus n\u2019a pas\
-      \ \xE9t\xE9 transmis, indiquez \xAB\_Sans objet\_\xBB."
+    comments:
+    - "Indiquez le nombre de transmissions connues. Si le virus n\u2019a pas \xE9\
+      t\xE9 transmis, indiquez \xAB\_Sans objet\_\xBB."
     examples:
     - value: '3'
   passage_method:
@@ -1130,8 +1170,9 @@ slots:
     title: "M\xE9thode de transmission"
     description: "Description de la fa\xE7on dont l\u2019organisme a \xE9t\xE9 transmis"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Texte libre. Fournissez une br\xE8ve description (<10\_mots). Si le\
-      \ virus n\u2019a pas \xE9t\xE9 transmis, indiquez \xAB\_Sans objet\_\xBB."
+    comments:
+    - "Texte libre. Fournissez une br\xE8ve description (<10\_mots). Si le virus n\u2019\
+      a pas \xE9t\xE9 transmis, indiquez \xAB\_Sans objet\_\xBB."
     examples:
     - value: "0,25\_% de trypsine + 0,02\_% d\u2019EDTA"
   biomaterial_extracted:
@@ -1140,8 +1181,9 @@ slots:
     description: "Biomat\xE9riau extrait d\u2019\xE9chantillons aux fins de s\xE9\
       quen\xE7age"
     slot_group: "Collecte et traitement des \xE9chantillons"
-    comments: "Fournissez le biomat\xE9riau extrait \xE0 partir de la liste de s\xE9\
-      lection dans le mod\xE8le."
+    comments:
+    - "Fournissez le biomat\xE9riau extrait \xE0 partir de la liste de s\xE9lection\
+      \ dans le mod\xE8le."
     examples:
     - value: ARN (total)
   host_common_name:
@@ -1149,11 +1191,12 @@ slots:
     title: "H\xF4te (nom commun)"
     description: "Nom couramment utilis\xE9 pour l\u2019h\xF4te"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "Le nom commun ou scientifique est requis s\u2019il y avait un h\xF4\
-      te. Les deux peuvent \xEAtre fournis s\u2019ils sont connus. Utilisez les termes\
-      \ figurant dans les listes de s\xE9lection du mod\xE8le. Des exemples de noms\
-      \ communs sont \xAB\_humain\_\xBB et \xAB\_chauve-souris\_\xBB. Si l\u2019\xE9\
-      chantillon \xE9tait environnemental, inscrivez \xAB Sans objet \xBB."
+    comments:
+    - "Le nom commun ou scientifique est requis s\u2019il y avait un h\xF4te. Les\
+      \ deux peuvent \xEAtre fournis s\u2019ils sont connus. Utilisez les termes figurant\
+      \ dans les listes de s\xE9lection du mod\xE8le. Des exemples de noms communs\
+      \ sont \xAB\_humain\_\xBB et \xAB\_chauve-souris\_\xBB. Si l\u2019\xE9chantillon\
+      \ \xE9tait environnemental, inscrivez \xAB Sans objet \xBB."
     examples:
     - value: Humain
   host_scientific_name:
@@ -1161,9 +1204,10 @@ slots:
     title: "H\xF4te (nom scientifique)"
     description: "Nom taxonomique ou scientifique de l\u2019h\xF4te"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "Le nom commun ou scientifique est requis s\u2019il y avait un h\xF4\
-      te. Les deux peuvent \xEAtre fournis s\u2019ils sont connus. Utilisez les termes\
-      \ figurant dans les listes de s\xE9lection du mod\xE8le. Un exemple de nom scientifique\
+    comments:
+    - "Le nom commun ou scientifique est requis s\u2019il y avait un h\xF4te. Les\
+      \ deux peuvent \xEAtre fournis s\u2019ils sont connus. Utilisez les termes figurant\
+      \ dans les listes de s\xE9lection du mod\xE8le. Un exemple de nom scientifique\
       \ est \xAB\_homo sapiens\_\xBB. Si l\u2019\xE9chantillon \xE9tait environnemental,\
       \ inscrivez \xAB Sans objet \xBB."
     examples:
@@ -1174,8 +1218,9 @@ slots:
     description: "\xC9tat de sant\xE9 de l\u2019h\xF4te au moment du pr\xE9l\xE8vement\
       \ d\u2019\xE9chantillons"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "Si vous le connaissez, s\xE9lectionnez un descripteur \xE0 partir de\
-      \ la liste de s\xE9lection fournie dans le mod\xE8le."
+    comments:
+    - "Si vous le connaissez, s\xE9lectionnez un descripteur \xE0 partir de la liste\
+      \ de s\xE9lection fournie dans le mod\xE8le."
     examples:
     - value: Symptomatique
   host_health_status_details:
@@ -1184,8 +1229,9 @@ slots:
     description: "Plus de d\xE9tails concernant l\u2019\xE9tat de sant\xE9 ou de maladie\
       \ de l\u2019h\xF4te au moment du pr\xE9l\xE8vement"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "Si vous le connaissez, s\xE9lectionnez un descripteur \xE0 partir de\
-      \ la liste de s\xE9lection fournie dans le mod\xE8le."
+    comments:
+    - "Si vous le connaissez, s\xE9lectionnez un descripteur \xE0 partir de la liste\
+      \ de s\xE9lection fournie dans le mod\xE8le."
     examples:
     - value: "Hospitalis\xE9 (USI)"
   host_health_outcome:
@@ -1193,8 +1239,9 @@ slots:
     title: "R\xE9sultats sanitaires de l\u2019h\xF4te"
     description: "R\xE9sultats de la maladie chez l\u2019h\xF4te"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "Si vous le connaissez, s\xE9lectionnez un descripteur \xE0 partir de\
-      \ la liste de s\xE9lection fournie dans le mod\xE8le."
+    comments:
+    - "Si vous le connaissez, s\xE9lectionnez un descripteur \xE0 partir de la liste\
+      \ de s\xE9lection fournie dans le mod\xE8le."
     examples:
     - value: "R\xE9tabli"
   host_disease:
@@ -1202,8 +1249,9 @@ slots:
     title: "Maladie de l\u2019h\xF4te"
     description: "Nom de la maladie v\xE9cue par l\u2019h\xF4te"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "S\xE9lectionnez \xAB\_COVID-19\_\xBB \xE0 partir de la liste de s\xE9\
-      lection fournie dans le mod\xE8le."
+    comments:
+    - "S\xE9lectionnez \xAB\_COVID-19\_\xBB \xE0 partir de la liste de s\xE9lection\
+      \ fournie dans le mod\xE8le."
     examples:
     - value: COVID-19
   host_age:
@@ -1212,8 +1260,9 @@ slots:
     description: "\xC2ge de l\u2019h\xF4te au moment du pr\xE9l\xE8vement d\u2019\xE9\
       chantillons"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "Entrez l\u2019\xE2ge de l\u2019h\xF4te en ann\xE9es. S\u2019il n\u2019\
-      est pas disponible, fournissez une valeur nulle. S\u2019il n\u2019y a pas d\u2019\
+    comments:
+    - "Entrez l\u2019\xE2ge de l\u2019h\xF4te en ann\xE9es. S\u2019il n\u2019est pas\
+      \ disponible, fournissez une valeur nulle. S\u2019il n\u2019y a pas d\u2019\
       h\xF4te, inscrivez \xAB\_Sans objet\_\xBB."
     examples:
     - value: '79'
@@ -1223,9 +1272,10 @@ slots:
     description: "Unit\xE9 utilis\xE9e pour mesurer l\u2019\xE2ge de l\u2019h\xF4\
       te (mois ou ann\xE9e)"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "Indiquez si l\u2019\xE2ge de l\u2019h\xF4te est en mois ou en ann\xE9\
-      es. L\u2019\xE2ge indiqu\xE9 en mois sera class\xE9 dans la tranche d\u2019\xE2\
-      ge de 0 \xE0 9\_ans."
+    comments:
+    - "Indiquez si l\u2019\xE2ge de l\u2019h\xF4te est en mois ou en ann\xE9es. L\u2019\
+      \xE2ge indiqu\xE9 en mois sera class\xE9 dans la tranche d\u2019\xE2ge de 0\
+      \ \xE0 9\_ans."
     examples:
     - value: "ann\xE9e"
   host_age_bin:
@@ -1234,9 +1284,10 @@ slots:
     description: "\xC2ge de l\u2019h\xF4te au moment du pr\xE9l\xE8vement d\u2019\xE9\
       chantillons (groupe d\u2019\xE2ge)"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "S\xE9lectionnez la tranche d\u2019\xE2ge correspondante de l\u2019\
-      h\xF4te \xE0 partir de la liste de s\xE9lection fournie dans le mod\xE8le. Si\
-      \ vous ne la connaissez pas, fournissez une valeur nulle."
+    comments:
+    - "S\xE9lectionnez la tranche d\u2019\xE2ge correspondante de l\u2019h\xF4te \xE0\
+      \ partir de la liste de s\xE9lection fournie dans le mod\xE8le. Si vous ne la\
+      \ connaissez pas, fournissez une valeur nulle."
     examples:
     - value: 60 - 69
   host_gender:
@@ -1245,8 +1296,9 @@ slots:
     description: "Genre de l\u2019h\xF4te au moment du pr\xE9l\xE8vement d\u2019\xE9\
       chantillons"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "S\xE9lectionnez le genre correspondant de l\u2019h\xF4te \xE0 partir\
-      \ de la liste de s\xE9lection fournie dans le mod\xE8le. Si vous ne le connaissez\
+    comments:
+    - "S\xE9lectionnez le genre correspondant de l\u2019h\xF4te \xE0 partir de la\
+      \ liste de s\xE9lection fournie dans le mod\xE8le. Si vous ne le connaissez\
       \ pas, fournissez une valeur nulle. S\u2019il n\u2019y a pas d\u2019h\xF4te,\
       \ inscrivez \xAB\_Sans objet\_\xBB."
     examples:
@@ -1256,8 +1308,9 @@ slots:
     title: "R\xE9sidence de l\u2019h\xF4te\_\u2013 Nom de g\xE9o_loc (pays)"
     description: "Pays de r\xE9sidence de l\u2019h\xF4te"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "S\xE9lectionnez le nom du pays \xE0 partir de la liste de s\xE9lection\
-      \ fournie dans le mod\xE8le."
+    comments:
+    - "S\xE9lectionnez le nom du pays \xE0 partir de la liste de s\xE9lection fournie\
+      \ dans le mod\xE8le."
     examples:
     - value: Canada
   host_residence_geo_loc_name_state_province_territory:
@@ -1266,8 +1319,9 @@ slots:
     description: "\xC9tat, province ou territoire de r\xE9sidence de l\u2019h\xF4\
       te"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "S\xE9lectionnez le nom de la province ou du territoire \xE0 partir\
-      \ de la liste de s\xE9lection fournie dans le mod\xE8le."
+    comments:
+    - "S\xE9lectionnez le nom de la province ou du territoire \xE0 partir de la liste\
+      \ de s\xE9lection fournie dans le mod\xE8le."
     examples:
     - value: "Qu\xE9bec"
   host_subject_id:
@@ -1276,8 +1330,9 @@ slots:
     description: "Identifiant unique permettant de d\xE9signer chaque h\xF4te (p.\_\
       ex., 131)"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "Fournissez l\u2019identifiant de l\u2019h\xF4te. Il doit s\u2019agir\
-      \ d\u2019un identifiant unique d\xE9fini par l\u2019utilisateur."
+    comments:
+    - "Fournissez l\u2019identifiant de l\u2019h\xF4te. Il doit s\u2019agir d\u2019\
+      un identifiant unique d\xE9fini par l\u2019utilisateur."
     examples:
     - value: BCxy123
   symptom_onset_date:
@@ -1286,8 +1341,9 @@ slots:
     description: "Date \xE0 laquelle les sympt\xF4mes ont commenc\xE9 ou ont \xE9\
       t\xE9 observ\xE9s pour la premi\xE8re\_fois"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "La date doit \xEAtre fournie selon le format standard ISO\_8601\_:\
-      \ \xAB\_AAAA-MM-JJ\_\xBB."
+    comments:
+    - "La date doit \xEAtre fournie selon le format standard ISO\_8601\_: \xAB\_AAAA-MM-JJ\_\
+      \xBB."
     examples:
     - value: '2020-03-16'
   signs_and_symptoms:
@@ -1297,8 +1353,9 @@ slots:
       \ ou apparence) r\xE9v\xE9lant une maladie, qui est signal\xE9 par un patient\
       \ ou un clinicien"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "S\xE9lectionnez tous les sympt\xF4mes ressentis par l\u2019h\xF4te\
-      \ \xE0 partir de la liste de s\xE9lection."
+    comments:
+    - "S\xE9lectionnez tous les sympt\xF4mes ressentis par l\u2019h\xF4te \xE0 partir\
+      \ de la liste de s\xE9lection."
     examples:
     - value: Frissons (sensation soudaine de froid)
     - value: toux
@@ -1311,10 +1368,11 @@ slots:
       \ actuelle <li>Facteur de risque\_: Variable associ\xE9e \xE0 un risque accru\
       \ de maladie ou d\u2019infection"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "S\xE9lectionnez toutes les conditions pr\xE9existantes et tous les\
-      \ facteurs de risque de l\u2019h\xF4te \xE0 partir de la liste de s\xE9lection.\
-      \ S\u2019il manque le terme souhait\xE9, veuillez communiquer avec l\u2019\xE9\
-      quipe de conservation des donn\xE9es."
+    comments:
+    - "S\xE9lectionnez toutes les conditions pr\xE9existantes et tous les facteurs\
+      \ de risque de l\u2019h\xF4te \xE0 partir de la liste de s\xE9lection. S\u2019\
+      il manque le terme souhait\xE9, veuillez communiquer avec l\u2019\xE9quipe de\
+      \ conservation des donn\xE9es."
     examples:
     - value: Asthme
     - value: grossesse
@@ -1325,8 +1383,9 @@ slots:
     description: "Complications m\xE9dicales du patient qui seraient dues \xE0 une\
       \ maladie de l\u2019h\xF4te"
     slot_group: "Informations sur l'h\xF4te"
-    comments: "S\xE9lectionnez toutes les complications \xE9prouv\xE9es par l\u2019\
-      h\xF4te \xE0 partir de la liste de s\xE9lection. S\u2019il manque le terme souhait\xE9\
+    comments:
+    - "S\xE9lectionnez toutes les complications \xE9prouv\xE9es par l\u2019h\xF4te\
+      \ \xE0 partir de la liste de s\xE9lection. S\u2019il manque le terme souhait\xE9\
       , veuillez communiquer avec l\u2019\xE9quipe de conservation des donn\xE9es."
     examples:
     - value: "Insuffisance respiratoire aigu\xEB"
@@ -1338,8 +1397,9 @@ slots:
     description: "Statut de vaccination de l\u2019h\xF4te (enti\xE8rement vaccin\xE9\
       , partiellement vaccin\xE9 ou non vaccin\xE9)"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "S\xE9lectionnez le statut de vaccination de l\u2019h\xF4te \xE0 partir\
-      \ de la liste de s\xE9lection."
+    comments:
+    - "S\xE9lectionnez le statut de vaccination de l\u2019h\xF4te \xE0 partir de la\
+      \ liste de s\xE9lection."
     examples:
     - value: "Enti\xE8rement vaccin\xE9"
   number_of_vaccine_doses_received:
@@ -1347,8 +1407,8 @@ slots:
     title: "Nombre de doses du vaccin re\xE7ues"
     description: "Nombre de doses du vaccin re\xE7ues par l\u2019h\xF4te"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Enregistrez le nombre de doses du vaccin que l\u2019h\xF4te a re\xE7\
-      ues."
+    comments:
+    - "Enregistrez le nombre de doses du vaccin que l\u2019h\xF4te a re\xE7ues."
     examples:
     - value: '2'
   vaccination_dose_1_vaccine_name:
@@ -1357,9 +1417,10 @@ slots:
     description: "Nom du vaccin administr\xE9 comme premi\xE8re\_dose d\u2019un sch\xE9\
       ma vaccinal"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Fournissez le nom et le fabricant correspondant du vaccin contre la\
-      \ COVID-19 administr\xE9 comme premi\xE8re dose en s\xE9lectionnant une valeur\
-      \ \xE0 partir de la liste de s\xE9lection."
+    comments:
+    - "Fournissez le nom et le fabricant correspondant du vaccin contre la COVID-19\
+      \ administr\xE9 comme premi\xE8re dose en s\xE9lectionnant une valeur \xE0 partir\
+      \ de la liste de s\xE9lection."
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
   vaccination_dose_1_vaccination_date:
@@ -1368,9 +1429,10 @@ slots:
     description: "Date \xE0 laquelle la premi\xE8re\_dose d\u2019un vaccin a \xE9\
       t\xE9 administr\xE9e"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Indiquez la date \xE0 laquelle la premi\xE8re dose du vaccin contre\
-      \ la COVID-19 a \xE9t\xE9 administr\xE9e. La date doit \xEAtre fournie selon\
-      \ le format standard ISO\_8601 \xAB\_AAAA-MM-DD\_\xBB."
+    comments:
+    - "Indiquez la date \xE0 laquelle la premi\xE8re dose du vaccin contre la COVID-19\
+      \ a \xE9t\xE9 administr\xE9e. La date doit \xEAtre fournie selon le format standard\
+      \ ISO\_8601 \xAB\_AAAA-MM-DD\_\xBB."
     examples:
     - value: '2021-03-01'
   vaccination_dose_2_vaccine_name:
@@ -1379,9 +1441,10 @@ slots:
     description: "Nom du vaccin administr\xE9 comme deuxi\xE8me\_dose d\u2019un sch\xE9\
       ma vaccinal"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Fournissez le nom et le fabricant correspondant du vaccin contre la\
-      \ COVID-19 administr\xE9 comme deuxi\xE8me\_dose en s\xE9lectionnant une valeur\
-      \ \xE0 partir de la liste de s\xE9lection."
+    comments:
+    - "Fournissez le nom et le fabricant correspondant du vaccin contre la COVID-19\
+      \ administr\xE9 comme deuxi\xE8me\_dose en s\xE9lectionnant une valeur \xE0\
+      \ partir de la liste de s\xE9lection."
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
   vaccination_dose_2_vaccination_date:
@@ -1390,9 +1453,10 @@ slots:
     description: "Date \xE0 laquelle la deuxi\xE8me\_dose d\u2019un vaccin a \xE9\
       t\xE9 administr\xE9e"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Indiquez la date \xE0 laquelle la deuxi\xE8me dose du vaccin contre\
-      \ la COVID-19 a \xE9t\xE9 administr\xE9e. La date doit \xEAtre fournie selon\
-      \ le format standard ISO\_8601 \xAB\_AAAA-MM-DD\_\xBB."
+    comments:
+    - "Indiquez la date \xE0 laquelle la deuxi\xE8me dose du vaccin contre la COVID-19\
+      \ a \xE9t\xE9 administr\xE9e. La date doit \xEAtre fournie selon le format standard\
+      \ ISO\_8601 \xAB\_AAAA-MM-DD\_\xBB."
     examples:
     - value: '2021-09-01'
   vaccination_dose_3_vaccine_name:
@@ -1401,9 +1465,10 @@ slots:
     description: "Nom du vaccin administr\xE9 comme troisi\xE8me\_dose d\u2019un sch\xE9\
       ma vaccinal"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Fournissez le nom et le fabricant correspondant du vaccin contre la\
-      \ COVID-19 administr\xE9 comme troisi\xE8me\_dose en s\xE9lectionnant une valeur\
-      \ \xE0 partir de la liste de s\xE9lection."
+    comments:
+    - "Fournissez le nom et le fabricant correspondant du vaccin contre la COVID-19\
+      \ administr\xE9 comme troisi\xE8me\_dose en s\xE9lectionnant une valeur \xE0\
+      \ partir de la liste de s\xE9lection."
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
   vaccination_dose_3_vaccination_date:
@@ -1412,9 +1477,10 @@ slots:
     description: "Date \xE0 laquelle la troisi\xE8me\_dose d\u2019un vaccin a \xE9\
       t\xE9 administr\xE9e"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Indiquez la date \xE0 laquelle la troisi\xE8me dose du vaccin contre\
-      \ la COVID-19 a \xE9t\xE9 administr\xE9e. La date doit \xEAtre fournie selon\
-      \ le format standard ISO\_8601 \xAB\_AAAA-MM-DD\_\xBB."
+    comments:
+    - "Indiquez la date \xE0 laquelle la troisi\xE8me dose du vaccin contre la COVID-19\
+      \ a \xE9t\xE9 administr\xE9e. La date doit \xEAtre fournie selon le format standard\
+      \ ISO\_8601 \xAB\_AAAA-MM-DD\_\xBB."
     examples:
     - value: '2021-12-30'
   vaccination_dose_4_vaccine_name:
@@ -1423,9 +1489,10 @@ slots:
     description: "Nom du vaccin administr\xE9 comme quatri\xE8me dose d\u2019un sch\xE9\
       ma vaccinal"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Fournissez le nom et le fabricant correspondant du vaccin contre la\
-      \ COVID-19 administr\xE9 comme quatri\xE8me\_dose en s\xE9lectionnant une valeur\
-      \ \xE0 partir de la liste de s\xE9lection."
+    comments:
+    - "Fournissez le nom et le fabricant correspondant du vaccin contre la COVID-19\
+      \ administr\xE9 comme quatri\xE8me\_dose en s\xE9lectionnant une valeur \xE0\
+      \ partir de la liste de s\xE9lection."
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
   vaccination_dose_4_vaccination_date:
@@ -1434,9 +1501,10 @@ slots:
     description: "Date \xE0 laquelle la quatri\xE8me\_dose d\u2019un vaccin a \xE9\
       t\xE9 administr\xE9e"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Indiquez la date \xE0 laquelle la quatri\xE8me dose du vaccin contre\
-      \ la COVID-19 a \xE9t\xE9 administr\xE9e. La date doit \xEAtre fournie selon\
-      \ le format standard ISO\_8601 \xAB\_AAAA-MM-DD\_\xBB."
+    comments:
+    - "Indiquez la date \xE0 laquelle la quatri\xE8me dose du vaccin contre la COVID-19\
+      \ a \xE9t\xE9 administr\xE9e. La date doit \xEAtre fournie selon le format standard\
+      \ ISO\_8601 \xAB\_AAAA-MM-DD\_\xBB."
     examples:
     - value: '2022-01-15'
   vaccination_history:
@@ -1446,10 +1514,11 @@ slots:
       \ d\u2019une s\xE9rie de vaccins contre une maladie sp\xE9cifique ou un ensemble\
       \ de maladies"
     slot_group: "Informations sur la vaccination de l'h\xF4te"
-    comments: "Description en texte libre des dates et des vaccins administr\xE9s\
-      \ contre une maladie pr\xE9cise ou un ensemble de maladies. Il est \xE9galement\
-      \ acceptable de concat\xE9ner les renseignements sur les doses individuelles\
-      \ (nom du vaccin, date de vaccination) s\xE9par\xE9es par des points-virgules."
+    comments:
+    - "Description en texte libre des dates et des vaccins administr\xE9s contre une\
+      \ maladie pr\xE9cise ou un ensemble de maladies. Il est \xE9galement acceptable\
+      \ de concat\xE9ner les renseignements sur les doses individuelles (nom du vaccin,\
+      \ date de vaccination) s\xE9par\xE9es par des points-virgules."
     examples:
     - value: Pfizer-BioNTech (Comirnaty)
     - value: '2021-03-01'
@@ -1461,8 +1530,9 @@ slots:
     description: "Pays o\xF9 l\u2019h\xF4te a probablement \xE9t\xE9 expos\xE9 \xE0\
       \ l\u2019agent causal de la maladie"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "S\xE9lectionnez le nom du pays \xE0 partir de la liste de s\xE9lection\
-      \ fournie dans le mod\xE8le."
+    comments:
+    - "S\xE9lectionnez le nom du pays \xE0 partir de la liste de s\xE9lection fournie\
+      \ dans le mod\xE8le."
     examples:
     - value: Canada
   destination_of_most_recent_travel_city:
@@ -1470,9 +1540,9 @@ slots:
     title: Destination du dernier voyage (ville)
     description: "Nom de la ville de destination du voyage le plus r\xE9cent"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "Indiquez le nom de la ville dans laquelle l\u2019h\xF4te s\u2019est\
-      \ rendu. Utilisez ce service de recherche pour trouver le terme normalis\xE9\
-      \_: https://www.ebi.ac.uk/ols/ontologies/gaz."
+    comments:
+    - "Indiquez le nom de la ville dans laquelle l\u2019h\xF4te s\u2019est rendu.\
+      \ Utilisez ce service de recherche pour trouver le terme normalis\xE9\_: https://www.ebi.ac.uk/ols/ontologies/gaz."
     examples:
     - value: New York City
   destination_of_most_recent_travel_state_province_territory:
@@ -1480,9 +1550,10 @@ slots:
     title: "Destination du dernier voyage (\xE9tat/province/territoire)"
     description: "Nom de la province de destination du voyage le plus r\xE9cent"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "Indiquez le nom de l\u2019\xC9tat, de la province ou du territoire\
-      \ o\xF9 l\u2019h\xF4te s\u2019est rendu. Utilisez ce service de recherche pour\
-      \ trouver le terme normalis\xE9\_: https://www.ebi.ac.uk/ols/ontologies/gaz."
+    comments:
+    - "Indiquez le nom de l\u2019\xC9tat, de la province ou du territoire o\xF9 l\u2019\
+      h\xF4te s\u2019est rendu. Utilisez ce service de recherche pour trouver le terme\
+      \ normalis\xE9\_: https://www.ebi.ac.uk/ols/ontologies/gaz."
     examples:
     - value: Californie
   destination_of_most_recent_travel_country:
@@ -1490,8 +1561,9 @@ slots:
     title: Destination du dernier voyage (pays)
     description: "Nom du pays de destination du voyage le plus r\xE9cent"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "Indiquez le nom du pays dans lequel l\u2019h\xF4te s\u2019est rendu.\
-      \ Utilisez ce service de recherche pour trouver le terme normalis\xE9\_: https://www.ebi.ac.uk/ols/ontologies/gaz."
+    comments:
+    - "Indiquez le nom du pays dans lequel l\u2019h\xF4te s\u2019est rendu. Utilisez\
+      \ ce service de recherche pour trouver le terme normalis\xE9\_: https://www.ebi.ac.uk/ols/ontologies/gaz."
     examples:
     - value: Royaume-Uni
   most_recent_travel_departure_date:
@@ -1501,7 +1573,8 @@ slots:
       sidence principale (\xE0 ce moment-l\xE0) pour un voyage vers un ou plusieurs\
       \ autres endroits"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "Indiquez la date de d\xE9part du voyage."
+    comments:
+    - "Indiquez la date de d\xE9part du voyage."
     examples:
     - value: '2020-03-16'
   most_recent_travel_return_date:
@@ -1510,7 +1583,8 @@ slots:
     description: "Date du retour le plus r\xE9cent d\u2019une personne \xE0 une r\xE9\
       sidence apr\xE8s un voyage au d\xE9part de cette r\xE9sidence"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: Indiquez la date de retour du voyage.
+    comments:
+    - Indiquez la date de retour du voyage.
     examples:
     - value: '2020-04-26'
   travel_point_of_entry_type:
@@ -1518,7 +1592,8 @@ slots:
     title: "Type de point d\u2019entr\xE9e du voyage"
     description: "Type de point d\u2019entr\xE9e par lequel un voyageur arrive"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "S\xE9lectionnez le type de point d\u2019entr\xE9e."
+    comments:
+    - "S\xE9lectionnez le type de point d\u2019entr\xE9e."
     examples:
     - value: Air
   border_testing_test_day_type:
@@ -1527,7 +1602,8 @@ slots:
     description: "Jour o\xF9 un voyageur a \xE9t\xE9 test\xE9 \xE0 son point d\u2019\
       entr\xE9e ou apr\xE8s cette date"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "S\xE9lectionnez le jour du test."
+    comments:
+    - "S\xE9lectionnez le jour du test."
     examples:
     - value: Jour 1
   travel_history:
@@ -1535,10 +1611,11 @@ slots:
     title: "Ant\xE9c\xE9dents de voyage"
     description: "Historique de voyage au cours des six\_derniers mois"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "Pr\xE9cisez les pays (et les emplacements plus pr\xE9cis, si vous les\
-      \ connaissez) visit\xE9s au cours des six\_derniers mois, ce qui peut comprendre\
-      \ plusieurs voyages. S\xE9parez plusieurs \xE9v\xE9nements de voyage par un\
-      \ point-virgule. Commencez par le voyage le plus r\xE9cent."
+    comments:
+    - "Pr\xE9cisez les pays (et les emplacements plus pr\xE9cis, si vous les connaissez)\
+      \ visit\xE9s au cours des six\_derniers mois, ce qui peut comprendre plusieurs\
+      \ voyages. S\xE9parez plusieurs \xE9v\xE9nements de voyage par un point-virgule.\
+      \ Commencez par le voyage le plus r\xE9cent."
     examples:
     - value: Canada, Vancouver
     - value: "\xC9tats-Unis, Seattle"
@@ -1549,10 +1626,11 @@ slots:
     description: "Disponibilit\xE9 de diff\xE9rents types d\u2019historiques de voyages\
       \ au cours des six\_derniers mois (p.\_ex., internationaux, nationaux)"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "Si les ant\xE9c\xE9dents de voyage sont disponibles, mais que les d\xE9\
-      tails du voyage ne peuvent pas \xEAtre fournis, indiquez-le ainsi que le type\
-      \ d\u2019ant\xE9c\xE9dents disponibles en s\xE9lectionnant une valeur \xE0 partir\
-      \ de la liste de s\xE9lection. Les valeurs de ce champ peuvent \xEAtre utilis\xE9\
+    comments:
+    - "Si les ant\xE9c\xE9dents de voyage sont disponibles, mais que les d\xE9tails\
+      \ du voyage ne peuvent pas \xEAtre fournis, indiquez-le ainsi que le type d\u2019\
+      ant\xE9c\xE9dents disponibles en s\xE9lectionnant une valeur \xE0 partir de\
+      \ la liste de s\xE9lection. Les valeurs de ce champ peuvent \xEAtre utilis\xE9\
       es pour indiquer qu\u2019un \xE9chantillon est associ\xE9 \xE0 un voyage lorsque\
       \ le \xAB but du s\xE9quen\xE7age \xBB n\u2019est pas associ\xE9 \xE0 un voyage."
     examples:
@@ -1562,9 +1640,10 @@ slots:
     title: "\xC9v\xE9nement d\u2019exposition"
     description: "\xC9v\xE9nement conduisant \xE0 une exposition"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "S\xE9lectionnez un \xE9v\xE9nement conduisant \xE0 une exposition \xE0\
-      \ partir de la liste de s\xE9lection fournie dans le mod\xE8le. S\u2019il manque\
-      \ le terme souhait\xE9, veuillez communiquer avec l\u2019\xE9quipe de conservation\
+    comments:
+    - "S\xE9lectionnez un \xE9v\xE9nement conduisant \xE0 une exposition \xE0 partir\
+      \ de la liste de s\xE9lection fournie dans le mod\xE8le. S\u2019il manque le\
+      \ terme souhait\xE9, veuillez communiquer avec l\u2019\xE9quipe de conservation\
       \ des donn\xE9es."
     examples:
     - value: Convention
@@ -1573,8 +1652,9 @@ slots:
     title: "Niveau de contact de l\u2019exposition"
     description: "Type de contact de transmission d\u2019exposition"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "S\xE9lectionnez une exposition directe ou indirecte \xE0 partir de\
-      \ la liste de s\xE9lection."
+    comments:
+    - "S\xE9lectionnez une exposition directe ou indirecte \xE0 partir de la liste\
+      \ de s\xE9lection."
     examples:
     - value: Direct
   host_role:
@@ -1582,10 +1662,11 @@ slots:
     title: "R\xF4le de l\u2019h\xF4te"
     description: "R\xF4le de l\u2019h\xF4te par rapport au param\xE8tre d\u2019exposition"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "S\xE9lectionnez les r\xF4les personnels de l\u2019h\xF4te \xE0 partir\
-      \ de la liste de s\xE9lection fournie dans le mod\xE8le. S\u2019il manque le\
-      \ terme souhait\xE9, veuillez communiquer avec l\u2019\xE9quipe de conservation\
-      \ des donn\xE9es."
+    comments:
+    - "S\xE9lectionnez les r\xF4les personnels de l\u2019h\xF4te \xE0 partir de la\
+      \ liste de s\xE9lection fournie dans le mod\xE8le. S\u2019il manque le terme\
+      \ souhait\xE9, veuillez communiquer avec l\u2019\xE9quipe de conservation des\
+      \ donn\xE9es."
     examples:
     - value: Patient
   exposure_setting:
@@ -1593,8 +1674,9 @@ slots:
     title: "Contexte de l\u2019exposition"
     description: "Contexte menant \xE0 l\u2019exposition"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "S\xE9lectionnez les contextes menant \xE0 l\u2019exposition de l\u2019\
-      h\xF4te \xE0 partir de la liste de s\xE9lection fournie dans le mod\xE8le. S\u2019\
+    comments:
+    - "S\xE9lectionnez les contextes menant \xE0 l\u2019exposition de l\u2019h\xF4\
+      te \xE0 partir de la liste de s\xE9lection fournie dans le mod\xE8le. S\u2019\
       il manque le terme souhait\xE9, veuillez communiquer avec l\u2019\xE9quipe de\
       \ conservation des donn\xE9es."
     examples:
@@ -1605,7 +1687,8 @@ slots:
     description: "Renseignements suppl\xE9mentaires sur l\u2019exposition de l\u2019\
       h\xF4te"
     slot_group: "Informations sur l'exposition de l'h\xF4te"
-    comments: "Description en texte libre de l\u2019exposition."
+    comments:
+    - "Description en texte libre de l\u2019exposition."
     examples:
     - value: "R\xF4le d\u2019h\xF4te - Autre\_: Conducteur d\u2019autobus"
   prior_sarscov2_infection:
@@ -1613,8 +1696,9 @@ slots:
     title: "Infection ant\xE9rieure par le SRAS-CoV-2"
     description: "Infection ant\xE9rieure par le SRAS-CoV-2 ou non"
     slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-    comments: "Si vous le savez, fournissez des renseignements indiquant si la personne\
-      \ a d\xE9j\xE0 eu une infection par le SRAS-CoV-2. S\xE9lectionnez une valeur\
+    comments:
+    - "Si vous le savez, fournissez des renseignements indiquant si la personne a\
+      \ d\xE9j\xE0 eu une infection par le SRAS-CoV-2. S\xE9lectionnez une valeur\
       \ \xE0 partir de la liste de s\xE9lection."
     examples:
     - value: Oui
@@ -1624,9 +1708,10 @@ slots:
     description: "Identifiant de l\u2019isolat trouv\xE9 lors de l\u2019infection\
       \ ant\xE9rieure par le SRAS-CoV-2"
     slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-    comments: "Indiquez le nom de l\u2019isolat de l\u2019infection ant\xE9rieure\
-      \ la plus r\xE9cente. Structurez le nom de \xAB\_l\u2019isolat\_\xBB pour qu\u2019\
-      il soit conforme \xE0 la norme ICTV/INSDC dans le format suivant\_: \xAB\_SRAS-CoV-2/h\xF4\
+    comments:
+    - "Indiquez le nom de l\u2019isolat de l\u2019infection ant\xE9rieure la plus\
+      \ r\xE9cente. Structurez le nom de \xAB\_l\u2019isolat\_\xBB pour qu\u2019il\
+      \ soit conforme \xE0 la norme ICTV/INSDC dans le format suivant\_: \xAB\_SRAS-CoV-2/h\xF4\
       te/pays/ID\xE9chantillon/date\_\xBB."
     examples:
     - value: SARS-CoV-2/human/USA/CA-CDPH-001/2020
@@ -1635,9 +1720,10 @@ slots:
     title: "Date d\u2019une infection ant\xE9rieure par le SRAS-CoV-2"
     description: "Date du diagnostic de l\u2019infection ant\xE9rieure par le SRAS-CoV-2"
     slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-    comments: "Indiquez la date \xE0 laquelle l\u2019infection ant\xE9rieure la plus\
-      \ r\xE9cente a \xE9t\xE9 diagnostiqu\xE9e. Fournissez la date d\u2019infection\
-      \ ant\xE9rieure par le SRAS-CoV-2 selon le format standard ISO\_8601 \xAB AAAA-MM-DD\
+    comments:
+    - "Indiquez la date \xE0 laquelle l\u2019infection ant\xE9rieure la plus r\xE9\
+      cente a \xE9t\xE9 diagnostiqu\xE9e. Fournissez la date d\u2019infection ant\xE9\
+      rieure par le SRAS-CoV-2 selon le format standard ISO\_8601 \xAB AAAA-MM-DD\
       \ \xBB."
     examples:
     - value: '2021-01-23'
@@ -1647,7 +1733,8 @@ slots:
     description: "Traitement contre une infection ant\xE9rieure par le SRAS-CoV-2\
       \ avec un agent antiviral ou non"
     slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-    comments: "Si vous le savez, indiquez si la personne a d\xE9j\xE0 re\xE7u un traitement\
+    comments:
+    - "Si vous le savez, indiquez si la personne a d\xE9j\xE0 re\xE7u un traitement\
       \ antiviral contre le SRAS-CoV-2. S\xE9lectionnez une valeur \xE0 partir de\
       \ la liste de s\xE9lection."
     examples:
@@ -1659,8 +1746,9 @@ slots:
     description: "Nom de l\u2019agent de traitement antiviral administr\xE9 lors de\
       \ l\u2019infection ant\xE9rieure par le SRAS-CoV-2"
     slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-    comments: "Indiquez le nom de l\u2019agent de traitement antiviral administr\xE9\
-      \ lors de l\u2019infection ant\xE9rieure la plus r\xE9cente. Si aucun traitement\
+    comments:
+    - "Indiquez le nom de l\u2019agent de traitement antiviral administr\xE9 lors\
+      \ de l\u2019infection ant\xE9rieure la plus r\xE9cente. Si aucun traitement\
       \ n\u2019a \xE9t\xE9 administr\xE9, inscrivez \xAB Aucun traitement \xBB. Si\
       \ plusieurs agents antiviraux ont \xE9t\xE9 administr\xE9s, \xE9num\xE9rez-les\
       \ tous, s\xE9par\xE9s par des virgules."
@@ -1673,11 +1761,11 @@ slots:
     description: "Date \xE0 laquelle le traitement a \xE9t\xE9 administr\xE9 pour\
       \ la premi\xE8re\_fois lors de l\u2019infection ant\xE9rieure par le SRAS-CoV-2"
     slot_group: "Informations sur la r\xE9infection de l'h\xF4te"
-    comments: "Indiquez la date \xE0 laquelle l\u2019agent de traitement antiviral\
-      \ a \xE9t\xE9 administr\xE9 pour la premi\xE8re fois lors de l\u2019infection\
-      \ ant\xE9rieure la plus r\xE9cente. Fournissez la date du traitement ant\xE9\
-      rieur contre le SRAS-CoV-2 selon le format standard ISO\_8601 \xAB AAAA-MM-DD\
-      \ \xBB."
+    comments:
+    - "Indiquez la date \xE0 laquelle l\u2019agent de traitement antiviral a \xE9\
+      t\xE9 administr\xE9 pour la premi\xE8re fois lors de l\u2019infection ant\xE9\
+      rieure la plus r\xE9cente. Fournissez la date du traitement ant\xE9rieur contre\
+      \ le SRAS-CoV-2 selon le format standard ISO\_8601 \xAB AAAA-MM-DD \xBB."
     examples:
     - value: '2021-01-28'
   purpose_of_sequencing:
@@ -1685,10 +1773,11 @@ slots:
     title: "Objectif du s\xE9quen\xE7age"
     description: "Raison pour laquelle l\u2019\xE9chantillon a \xE9t\xE9 s\xE9quenc\xE9"
     slot_group: "S\xE9quen\xE7age"
-    comments: "La raison pour laquelle un \xE9chantillon a \xE9t\xE9 initialement\
-      \ pr\xE9lev\xE9 peut diff\xE9rer de la raison pour laquelle il a \xE9t\xE9 s\xE9\
-      lectionn\xE9 aux fins de s\xE9quen\xE7age. La raison pour laquelle un \xE9chantillon\
-      \ a \xE9t\xE9 s\xE9quenc\xE9 peut fournir des renseignements sur les biais potentiels\
+    comments:
+    - "La raison pour laquelle un \xE9chantillon a \xE9t\xE9 initialement pr\xE9lev\xE9\
+      \ peut diff\xE9rer de la raison pour laquelle il a \xE9t\xE9 s\xE9lectionn\xE9\
+      \ aux fins de s\xE9quen\xE7age. La raison pour laquelle un \xE9chantillon a\
+      \ \xE9t\xE9 s\xE9quenc\xE9 peut fournir des renseignements sur les biais potentiels\
       \ dans la strat\xE9gie de s\xE9quen\xE7age. Fournissez le but du s\xE9quen\xE7\
       age \xE0 partir de la liste de s\xE9lection dans le mod\xE8le. Le motif de pr\xE9\
       l\xE8vement de l\u2019\xE9chantillon doit \xEAtre indiqu\xE9 dans le champ \xAB\
@@ -1701,22 +1790,23 @@ slots:
     description: "Description de la raison pour laquelle l\u2019\xE9chantillon a \xE9\
       t\xE9 s\xE9quenc\xE9, fournissant des d\xE9tails sp\xE9cifiques"
     slot_group: "S\xE9quen\xE7age"
-    comments: "Fournissez une description d\xE9taill\xE9e de la raison pour laquelle\
-      \ l\u2019\xE9chantillon a \xE9t\xE9 s\xE9quenc\xE9 en utilisant du texte libre.\
-      \ La description peut inclure l\u2019importance des s\xE9quences pour une enqu\xEA\
-      te, une activit\xE9 de surveillance ou une question de recherche particuli\xE8\
-      re dans le domaine de la sant\xE9 publique. Les descriptions normalis\xE9es\
-      \ sugg\xE9r\xE9es sont les suivantes\_: D\xE9pistage de l\u2019absence de d\xE9\
-      tection du g\xE8ne\_S (abandon du g\xE8ne\_S), d\xE9pistage de variants associ\xE9\
-      s aux visons, d\xE9pistage du variant\_B.1.1.7, d\xE9pistage du variant\_B.1.135,\
-      \ d\xE9pistage du variant\_P.1, d\xE9pistage en raison des ant\xE9c\xE9dents\
-      \ de voyage, d\xE9pistage en raison d\u2019un contact \xE9troit avec une personne\
-      \ infect\xE9e, \xE9valuation des mesures de contr\xF4le de la sant\xE9 publique,\
-      \ d\xE9termination des introductions et de la propagation pr\xE9coces, enqu\xEA\
-      te sur les expositions li\xE9es aux voyages a\xE9riens, enqu\xEAte sur les travailleurs\
-      \ \xE9trangers temporaires, enqu\xEAte sur les r\xE9gions \xE9loign\xE9es, enqu\xEA\
-      te sur les travailleurs de la sant\xE9, enqu\xEAte sur les \xE9coles et les\
-      \ universit\xE9s, enqu\xEAte sur la r\xE9infection."
+    comments:
+    - "Fournissez une description d\xE9taill\xE9e de la raison pour laquelle l\u2019\
+      \xE9chantillon a \xE9t\xE9 s\xE9quenc\xE9 en utilisant du texte libre. La description\
+      \ peut inclure l\u2019importance des s\xE9quences pour une enqu\xEAte, une activit\xE9\
+      \ de surveillance ou une question de recherche particuli\xE8re dans le domaine\
+      \ de la sant\xE9 publique. Les descriptions normalis\xE9es sugg\xE9r\xE9es sont\
+      \ les suivantes\_: D\xE9pistage de l\u2019absence de d\xE9tection du g\xE8ne\_\
+      S (abandon du g\xE8ne\_S), d\xE9pistage de variants associ\xE9s aux visons,\
+      \ d\xE9pistage du variant\_B.1.1.7, d\xE9pistage du variant\_B.1.135, d\xE9\
+      pistage du variant\_P.1, d\xE9pistage en raison des ant\xE9c\xE9dents de voyage,\
+      \ d\xE9pistage en raison d\u2019un contact \xE9troit avec une personne infect\xE9\
+      e, \xE9valuation des mesures de contr\xF4le de la sant\xE9 publique, d\xE9termination\
+      \ des introductions et de la propagation pr\xE9coces, enqu\xEAte sur les expositions\
+      \ li\xE9es aux voyages a\xE9riens, enqu\xEAte sur les travailleurs \xE9trangers\
+      \ temporaires, enqu\xEAte sur les r\xE9gions \xE9loign\xE9es, enqu\xEAte sur\
+      \ les travailleurs de la sant\xE9, enqu\xEAte sur les \xE9coles et les universit\xE9\
+      s, enqu\xEAte sur la r\xE9infection."
     examples:
     - value: "D\xE9pistage de l\u2019absence de d\xE9tection du g\xE8ne\_S (abandon\
         \ du g\xE8ne\_S)"
@@ -1725,8 +1815,9 @@ slots:
     title: "Date de s\xE9quen\xE7age"
     description: "Date \xE0 laquelle l\u2019\xE9chantillon a \xE9t\xE9 s\xE9quenc\xE9"
     slot_group: "S\xE9quen\xE7age"
-    comments: "La date doit \xEAtre fournie selon le format standard ISO\_8601\_:\
-      \ \xAB\_AAAA-MM-JJ\_\xBB."
+    comments:
+    - "La date doit \xEAtre fournie selon le format standard ISO\_8601\_: \xAB\_AAAA-MM-JJ\_\
+      \xBB."
     examples:
     - value: '2020-06-22'
   library_id:
@@ -1735,10 +1826,10 @@ slots:
     description: "Identifiant sp\xE9cifi\xE9 par l\u2019utilisateur pour la biblioth\xE8\
       que faisant l\u2019objet du s\xE9quen\xE7age"
     slot_group: "S\xE9quen\xE7age"
-    comments: "Le nom de la biblioth\xE8que doit \xEAtre unique et peut \xEAtre un\
-      \ ID g\xE9n\xE9r\xE9 automatiquement \xE0 partir de votre syst\xE8me de gestion\
-      \ de l\u2019information des laboratoires, ou une modification de l\u2019ID de\
-      \ l\u2019isolat."
+    comments:
+    - "Le nom de la biblioth\xE8que doit \xEAtre unique et peut \xEAtre un ID g\xE9\
+      n\xE9r\xE9 automatiquement \xE0 partir de votre syst\xE8me de gestion de l\u2019\
+      information des laboratoires, ou une modification de l\u2019ID de l\u2019isolat."
     examples:
     - value: XYZ_123345
   amplicon_size:
@@ -1747,7 +1838,8 @@ slots:
     description: "Longueur de l\u2019amplicon g\xE9n\xE9r\xE9 par l\u2019amplification\
       \ de la r\xE9action de polym\xE9risation en cha\xEEne"
     slot_group: "S\xE9quen\xE7age"
-    comments: "Fournissez la taille de l\u2019amplicon, y compris les unit\xE9s."
+    comments:
+    - "Fournissez la taille de l\u2019amplicon, y compris les unit\xE9s."
     examples:
     - value: "300\_pb"
   library_preparation_kit:
@@ -1757,8 +1849,9 @@ slots:
       e pour g\xE9n\xE9rer la biblioth\xE8que faisant l\u2019objet du s\xE9quen\xE7\
       age"
     slot_group: "S\xE9quen\xE7age"
-    comments: "Indiquez le nom de la trousse de pr\xE9paration de la biblioth\xE8\
-      que utilis\xE9e."
+    comments:
+    - "Indiquez le nom de la trousse de pr\xE9paration de la biblioth\xE8que utilis\xE9\
+      e."
     examples:
     - value: Nextera XT
   flow_cell_barcode:
@@ -1767,8 +1860,9 @@ slots:
     description: "Code-barres de la cuve \xE0 circulation utilis\xE9e aux fins de\
       \ s\xE9quen\xE7age"
     slot_group: "S\xE9quen\xE7age"
-    comments: "Fournissez le code-barres de la cuve \xE0 circulation utilis\xE9e pour\
-      \ s\xE9quencer l\u2019\xE9chantillon."
+    comments:
+    - "Fournissez le code-barres de la cuve \xE0 circulation utilis\xE9e pour s\xE9\
+      quencer l\u2019\xE9chantillon."
     examples:
     - value: FAB06069
   sequencing_instrument:
@@ -1776,8 +1870,9 @@ slots:
     title: "Instrument de s\xE9quen\xE7age"
     description: "Mod\xE8le de l\u2019instrument de s\xE9quen\xE7age utilis\xE9"
     slot_group: "S\xE9quen\xE7age"
-    comments: "S\xE9lectionnez l\u2019instrument de s\xE9quen\xE7age \xE0 partir de\
-      \ la liste de s\xE9lection."
+    comments:
+    - "S\xE9lectionnez l\u2019instrument de s\xE9quen\xE7age \xE0 partir de la liste\
+      \ de s\xE9lection."
     examples:
     - value: Oxford Nanopore MinION
   sequencing_protocol_name:
@@ -1785,8 +1880,9 @@ slots:
     title: "Nom du protocole de s\xE9quen\xE7age"
     description: "Nom et num\xE9ro de version du protocole de s\xE9quen\xE7age utilis\xE9"
     slot_group: "S\xE9quen\xE7age"
-    comments: "Fournissez le nom et la version du protocole de s\xE9quen\xE7age (p.\_\
-      ex., 1D_DNA_MinION)."
+    comments:
+    - "Fournissez le nom et la version du protocole de s\xE9quen\xE7age (p.\_ex.,\
+      \ 1D_DNA_MinION)."
     examples:
     - value: https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann
   sequencing_protocol:
@@ -1794,10 +1890,11 @@ slots:
     title: "Protocole de s\xE9quen\xE7age"
     description: "Protocole utilis\xE9 pour g\xE9n\xE9rer la s\xE9quence"
     slot_group: "S\xE9quen\xE7age"
-    comments: "Fournissez une description en texte libre des m\xE9thodes et du mat\xE9\
-      riel utilis\xE9s pour g\xE9n\xE9rer la s\xE9quence. Voici le texte sugg\xE9\
-      r\xE9 (ins\xE9rez les renseignements manquants)\_: \xAB\_Le s\xE9quen\xE7age\
-      \ viral a \xE9t\xE9 effectu\xE9 selon une strat\xE9gie d\u2019amplicon en mosa\xEF\
+    comments:
+    - "Fournissez une description en texte libre des m\xE9thodes et du mat\xE9riel\
+      \ utilis\xE9s pour g\xE9n\xE9rer la s\xE9quence. Voici le texte sugg\xE9r\xE9\
+      \ (ins\xE9rez les renseignements manquants)\_: \xAB\_Le s\xE9quen\xE7age viral\
+      \ a \xE9t\xE9 effectu\xE9 selon une strat\xE9gie d\u2019amplicon en mosa\xEF\
       que en utilisant le sch\xE9ma d\u2019amorce <\xE0 remplir>. Le s\xE9quen\xE7\
       age a \xE9t\xE9 effectu\xE9 \xE0 l\u2019aide d\u2019un instrument de s\xE9quen\xE7\
       age <\xE0 remplir>. Les biblioth\xE8ques ont \xE9t\xE9 pr\xE9par\xE9es \xE0\
@@ -1814,7 +1911,8 @@ slots:
     title: "Num\xE9ro de la trousse de s\xE9quen\xE7age"
     description: "Num\xE9ro de la trousse du fabricant"
     slot_group: "S\xE9quen\xE7age"
-    comments: "Valeur alphanum\xE9rique."
+    comments:
+    - "Valeur alphanum\xE9rique."
     examples:
     - value: AB456XYZ789
   amplicon_pcr_primer_scheme:
@@ -1825,8 +1923,9 @@ slots:
       \ positions de liaison, taille des fragments g\xE9n\xE9r\xE9s, etc.) utilis\xE9\
       es pour g\xE9n\xE9rer les amplicons \xE0 s\xE9quencer"
     slot_group: "S\xE9quen\xE7age"
-    comments: "Fournissez le nom et la version du sch\xE9ma d\u2019amorce utilis\xE9\
-      \ pour g\xE9n\xE9rer les amplicons aux fins de s\xE9quen\xE7age."
+    comments:
+    - "Fournissez le nom et la version du sch\xE9ma d\u2019amorce utilis\xE9 pour\
+      \ g\xE9n\xE9rer les amplicons aux fins de s\xE9quen\xE7age."
     examples:
     - value: https://github.com/joshquick/artic-ncov2019/blob/master/primer_schemes/nCoV-2019/V3/nCoV-2019.tsv
   raw_sequence_data_processing_method:
@@ -1836,7 +1935,8 @@ slots:
       \ des donn\xE9es brutes, comme la suppression des codes-barres, le d\xE9coupage\
       \ de l\u2019adaptateur, le filtrage, etc."
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le nom du logiciel, suivi de la version (p.\_ex., Trimmomatic\_\
+    comments:
+    - "Fournissez le nom du logiciel, suivi de la version (p.\_ex., Trimmomatic\_\
       v.\_0.38, Porechop\_v.\_0.2.03)."
     examples:
     - value: Porechop 0.2.3
@@ -1846,8 +1946,9 @@ slots:
     description: "M\xE9thode utilis\xE9e pour supprimer les lectures de l\u2019h\xF4\
       te de la s\xE9quence de l\u2019agent pathog\xE8ne"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le nom et le num\xE9ro de version du logiciel utilis\xE9\
-      \ pour supprimer les lectures de l\u2019h\xF4te."
+    comments:
+    - "Fournissez le nom et le num\xE9ro de version du logiciel utilis\xE9 pour supprimer\
+      \ les lectures de l\u2019h\xF4te."
     examples:
     - value: Nanostripper
   consensus_sequence_name:
@@ -1855,7 +1956,8 @@ slots:
     title: "Nom de la s\xE9quence de consensus"
     description: "Nom de la s\xE9quence de consensus"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le nom et le num\xE9ro de version de la s\xE9quence de consensus."
+    comments:
+    - "Fournissez le nom et le num\xE9ro de version de la s\xE9quence de consensus."
     examples:
     - value: ncov123assembly3
   consensus_sequence_filename:
@@ -1863,8 +1965,9 @@ slots:
     title: "Nom du fichier de la s\xE9quence de consensus"
     description: "Nom du fichier de la s\xE9quence de consensus"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le nom et le num\xE9ro de version du fichier FASTA de la\
-      \ s\xE9quence de consensus."
+    comments:
+    - "Fournissez le nom et le num\xE9ro de version du fichier FASTA de la s\xE9quence\
+      \ de consensus."
     examples:
     - value: ncov123assembly.fasta
   consensus_sequence_filepath:
@@ -1872,8 +1975,9 @@ slots:
     title: "Chemin d\u2019acc\xE8s au fichier de la s\xE9quence de consensus"
     description: "Chemin d\u2019acc\xE8s au fichier de la s\xE9quence de consensus"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le chemin d\u2019acc\xE8s au fichier FASTA de la s\xE9quence\
-      \ de consensus."
+    comments:
+    - "Fournissez le chemin d\u2019acc\xE8s au fichier FASTA de la s\xE9quence de\
+      \ consensus."
     examples:
     - value: /User/Documents/RespLab/Data/ncov123assembly.fasta
   consensus_sequence_software_name:
@@ -1882,8 +1986,9 @@ slots:
     description: "Nom du logiciel utilis\xE9 pour g\xE9n\xE9rer la s\xE9quence de\
       \ consensus"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le nom du logiciel utilis\xE9 pour g\xE9n\xE9rer la s\xE9\
-      quence de consensus."
+    comments:
+    - "Fournissez le nom du logiciel utilis\xE9 pour g\xE9n\xE9rer la s\xE9quence\
+      \ de consensus."
     examples:
     - value: iVar
   consensus_sequence_software_version:
@@ -1892,8 +1997,9 @@ slots:
     description: "Version du logiciel utilis\xE9 pour g\xE9n\xE9rer la s\xE9quence\
       \ de consensus"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournir la version du logiciel utilis\xE9 pour g\xE9n\xE9rer la s\xE9\
-      quence de consensus."
+    comments:
+    - "Fournir la version du logiciel utilis\xE9 pour g\xE9n\xE9rer la s\xE9quence\
+      \ de consensus."
     examples:
     - value: '1.3'
   breadth_of_coverage_value:
@@ -1902,7 +2008,8 @@ slots:
     description: "Pourcentage du g\xE9nome de r\xE9f\xE9rence couvert par les donn\xE9\
       es s\xE9quenc\xE9es, jusqu\u2019\xE0 une profondeur prescrite"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: Fournissez la valeur en pourcentage.
+    comments:
+    - Fournissez la valeur en pourcentage.
     examples:
     - value: "95\_%"
   depth_of_coverage_value:
@@ -1911,7 +2018,8 @@ slots:
     description: "Nombre moyen de lectures repr\xE9sentant un nucl\xE9otide donn\xE9\
       \ dans la s\xE9quence reconstruite"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez la valeur sous forme de couverture amplifi\xE9e."
+    comments:
+    - "Fournissez la valeur sous forme de couverture amplifi\xE9e."
     examples:
     - value: 400x
   depth_of_coverage_threshold:
@@ -1919,7 +2027,8 @@ slots:
     title: "Seuil de l\u2019ampleur de la couverture"
     description: "Seuil utilis\xE9 comme limite pour l\u2019ampleur de la couverture"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez la couverture amplifi\xE9e."
+    comments:
+    - "Fournissez la couverture amplifi\xE9e."
     examples:
     - value: 100x
   r1_fastq_filename:
@@ -1927,7 +2036,8 @@ slots:
     title: "Nom de fichier\_R1\_FASTQ"
     description: "Nom du fichier\_R1\_FASTQ sp\xE9cifi\xE9 par l\u2019utilisateur"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le nom du fichier\_R1 FASTQ."
+    comments:
+    - "Fournissez le nom du fichier\_R1 FASTQ."
     examples:
     - value: ABC123_S1_L001_R1_001.fastq.gz
   r2_fastq_filename:
@@ -1935,7 +2045,8 @@ slots:
     title: "Nom de fichier\_R2\_FASTQ"
     description: "Nom du fichier\_R2\_FASTQ sp\xE9cifi\xE9 par l\u2019utilisateur"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le nom du fichier\_R2 FASTQ."
+    comments:
+    - "Fournissez le nom du fichier\_R2 FASTQ."
     examples:
     - value: ABC123_S1_L001_R2_001.fastq.gz
   r1_fastq_filepath:
@@ -1944,7 +2055,8 @@ slots:
     description: "Emplacement du fichier\_R1\_FASTQ dans le syst\xE8me de l\u2019\
       utilisateur"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le chemin d\u2019acc\xE8s au fichier\_R1 FASTQ."
+    comments:
+    - "Fournissez le chemin d\u2019acc\xE8s au fichier\_R1 FASTQ."
     examples:
     - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz
   r2_fastq_filepath:
@@ -1953,7 +2065,8 @@ slots:
     description: "Emplacement du fichier\_R2\_FASTQ dans le syst\xE8me de l\u2019\
       utilisateur"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le chemin d\u2019acc\xE8s au fichier\_R2 FASTQ."
+    comments:
+    - "Fournissez le chemin d\u2019acc\xE8s au fichier\_R2 FASTQ."
     examples:
     - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz
   fast5_filename:
@@ -1961,7 +2074,8 @@ slots:
     title: "Nom de fichier\_FAST5"
     description: "Nom du fichier\_FAST5 sp\xE9cifi\xE9 par l\u2019utilisateur"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le nom du fichier\_FAST5."
+    comments:
+    - "Fournissez le nom du fichier\_FAST5."
     examples:
     - value: rona123assembly.fast5
   fast5_filepath:
@@ -1969,7 +2083,8 @@ slots:
     title: "Chemin d\u2019acc\xE8s au fichier\_FAST5"
     description: "Emplacement du fichier\_FAST5 dans le syst\xE8me de l\u2019utilisateur"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le chemin d\u2019acc\xE8s au fichier\_FAST5."
+    comments:
+    - "Fournissez le chemin d\u2019acc\xE8s au fichier\_FAST5."
     examples:
     - value: /User/Documents/RespLab/Data/rona123assembly.fast5
   number_of_base_pairs_sequenced:
@@ -1978,7 +2093,8 @@ slots:
     description: "Nombre total de paires de bases g\xE9n\xE9r\xE9es par le processus\
       \ de s\xE9quen\xE7age"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez une valeur num\xE9rique (pas besoin d\u2019inclure des unit\xE9\
+    comments:
+    - "Fournissez une valeur num\xE9rique (pas besoin d\u2019inclure des unit\xE9\
       s)."
     examples:
     - value: "387\_566"
@@ -1988,7 +2104,8 @@ slots:
     description: "Taille du g\xE9nome reconstitu\xE9 d\xE9crite comme \xE9tant le\
       \ nombre de paires de bases"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez une valeur num\xE9rique (pas besoin d\u2019inclure des unit\xE9\
+    comments:
+    - "Fournissez une valeur num\xE9rique (pas besoin d\u2019inclure des unit\xE9\
       s)."
     examples:
     - value: "38\_677"
@@ -1998,7 +2115,8 @@ slots:
     description: "Nombre de symboles N pr\xE9sents dans la s\xE9quence fasta de consensus,\
       \ par 100\_kbp de s\xE9quence"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez une valeur num\xE9rique (pas besoin d\u2019inclure des unit\xE9\
+    comments:
+    - "Fournissez une valeur num\xE9rique (pas besoin d\u2019inclure des unit\xE9\
       s)."
     examples:
     - value: '330'
@@ -2008,8 +2126,8 @@ slots:
     description: "Identifiant persistant et unique d\u2019une entr\xE9e dans une base\
       \ de donn\xE9es g\xE9nomique"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Fournissez le num\xE9ro d\u2019acc\xE8s au g\xE9nome de r\xE9f\xE9\
-      rence."
+    comments:
+    - "Fournissez le num\xE9ro d\u2019acc\xE8s au g\xE9nome de r\xE9f\xE9rence."
     examples:
     - value: NC_045512.2
   bioinformatics_protocol:
@@ -2018,12 +2136,12 @@ slots:
     description: "Description de la strat\xE9gie bioinformatique globale utilis\xE9\
       e"
     slot_group: "Bioinformatique et mesures de contr\xF4le de la qualit\xE9"
-    comments: "Des d\xE9tails suppl\xE9mentaires concernant les m\xE9thodes utilis\xE9\
-      es pour traiter les donn\xE9es brutes, g\xE9n\xE9rer des assemblages ou g\xE9\
-      n\xE9rer des s\xE9quences de consensus peuvent \xEAtre fournis dans une PON,\
-      \ un protocole, un pipeline ou un flux de travail. Fournissez le nom et le num\xE9\
-      ro de version du protocole, ou un lien GitHub vers un pipeline ou un flux de\
-      \ travail."
+    comments:
+    - "Des d\xE9tails suppl\xE9mentaires concernant les m\xE9thodes utilis\xE9es pour\
+      \ traiter les donn\xE9es brutes, g\xE9n\xE9rer des assemblages ou g\xE9n\xE9\
+      rer des s\xE9quences de consensus peuvent \xEAtre fournis dans une PON, un protocole,\
+      \ un pipeline ou un flux de travail. Fournissez le nom et le num\xE9ro de version\
+      \ du protocole, ou un lien GitHub vers un pipeline ou un flux de travail."
     examples:
     - value: https://github.com/phac-nml/ncov2019-artic-nf
   lineage_clade_name:
@@ -2031,7 +2149,8 @@ slots:
     title: "Nom de la lign\xE9e ou du clade"
     description: "Nom de la lign\xE9e ou du clade"
     slot_group: "Informations sur les lign\xE9es et les variantes"
-    comments: "Fournissez le nom de la lign\xE9e ou du clade Pangolin ou Nextstrain."
+    comments:
+    - "Fournissez le nom de la lign\xE9e ou du clade Pangolin ou Nextstrain."
     examples:
     - value: B.1.1.7
   lineage_clade_analysis_software_name:
@@ -2040,8 +2159,9 @@ slots:
     description: "Nom du logiciel utilis\xE9 pour d\xE9terminer la lign\xE9e ou le\
       \ clade"
     slot_group: "Informations sur les lign\xE9es et les variantes"
-    comments: "Fournissez le nom du logiciel utilis\xE9 pour d\xE9terminer la lign\xE9\
-      e ou le clade."
+    comments:
+    - "Fournissez le nom du logiciel utilis\xE9 pour d\xE9terminer la lign\xE9e ou\
+      \ le clade."
     examples:
     - value: Pangolin
   lineage_clade_analysis_software_version:
@@ -2050,8 +2170,9 @@ slots:
     description: "Version du logiciel utilis\xE9 pour d\xE9terminer la lign\xE9e ou\
       \ le clade"
     slot_group: "Informations sur les lign\xE9es et les variantes"
-    comments: "Fournissez la version du logiciel utilis\xE9 pour d\xE9terminer la\
-      \ lign\xE9e ou le clade."
+    comments:
+    - "Fournissez la version du logiciel utilis\xE9 pour d\xE9terminer la lign\xE9\
+      e ou le clade."
     examples:
     - value: 2.1.10
   variant_designation:
@@ -2060,13 +2181,14 @@ slots:
     description: "Classification des variants de la lign\xE9e ou du clade (c.-\xE0\
       -d. le variant, le variant pr\xE9occupant)"
     slot_group: "Informations sur les lign\xE9es et les variantes"
-    comments: "Si la lign\xE9e ou le clade est consid\xE9r\xE9 comme \xE9tant un variant\
-      \ pr\xE9occupant, s\xE9lectionnez l\u2019option connexe \xE0 partir de la liste\
-      \ de s\xE9lection. Si la lign\xE9e ou le clade contient des mutations pr\xE9\
-      occupantes (mutations qui augmentent la transmission, la gravit\xE9 clinique\
-      \ ou d\u2019autres facteurs \xE9pid\xE9miologiques), mais qu\u2019il ne s\u2019\
-      agit pas d\u2019un variant pr\xE9occupant global, s\xE9lectionnez \xAB\_Variante\_\
-      \xBB. Si la lign\xE9e ou le clade ne contient pas de mutations pr\xE9occupantes,\
+    comments:
+    - "Si la lign\xE9e ou le clade est consid\xE9r\xE9 comme \xE9tant un variant pr\xE9\
+      occupant, s\xE9lectionnez l\u2019option connexe \xE0 partir de la liste de s\xE9\
+      lection. Si la lign\xE9e ou le clade contient des mutations pr\xE9occupantes\
+      \ (mutations qui augmentent la transmission, la gravit\xE9 clinique ou d\u2019\
+      autres facteurs \xE9pid\xE9miologiques), mais qu\u2019il ne s\u2019agit pas\
+      \ d\u2019un variant pr\xE9occupant global, s\xE9lectionnez \xAB\_Variante\_\xBB\
+      . Si la lign\xE9e ou le clade ne contient pas de mutations pr\xE9occupantes,\
       \ laissez ce champ vide."
     examples:
     - value: "Variant pr\xE9occupant"
@@ -2075,8 +2197,9 @@ slots:
     title: "Donn\xE9es probantes du variant"
     description: "Donn\xE9es probantes utilis\xE9es pour d\xE9terminer le variant"
     slot_group: "Informations sur les lign\xE9es et les variantes"
-    comments: "Indiquez si l\u2019\xE9chantillon a fait l\u2019objet d\u2019un d\xE9\
-      pistage RT-qPCR ou par s\xE9quen\xE7age \xE0 partir de la liste de s\xE9lection."
+    comments:
+    - "Indiquez si l\u2019\xE9chantillon a fait l\u2019objet d\u2019un d\xE9pistage\
+      \ RT-qPCR ou par s\xE9quen\xE7age \xE0 partir de la liste de s\xE9lection."
     examples:
     - value: RT-qPCR
   variant_evidence_details:
@@ -2085,11 +2208,12 @@ slots:
     description: "D\xE9tails sur les donn\xE9es probantes utilis\xE9es pour d\xE9\
       terminer le variant"
     slot_group: "Informations sur les lign\xE9es et les variantes"
-    comments: "Fournissez l\u2019essai biologique et r\xE9pertoriez l\u2019ensemble\
-      \ des mutations d\xE9finissant la lign\xE9e qui sont utilis\xE9es pour effectuer\
-      \ la d\xE9termination des variants. Si des mutations d\u2019int\xE9r\xEAt ou\
-      \ de pr\xE9occupation ont \xE9t\xE9 observ\xE9es en plus des mutations d\xE9\
-      finissant la lign\xE9e, d\xE9crivez-les ici."
+    comments:
+    - "Fournissez l\u2019essai biologique et r\xE9pertoriez l\u2019ensemble des mutations\
+      \ d\xE9finissant la lign\xE9e qui sont utilis\xE9es pour effectuer la d\xE9\
+      termination des variants. Si des mutations d\u2019int\xE9r\xEAt ou de pr\xE9\
+      occupation ont \xE9t\xE9 observ\xE9es en plus des mutations d\xE9finissant la\
+      \ lign\xE9e, d\xE9crivez-les ici."
     examples:
     - value: "Mutations d\xE9finissant la lign\xE9e\_: ORF1ab (K1655N), Spike (K417N,\
         \ E484K, N501Y, D614G, A701V), N (T205I), E (P71L)."
@@ -2098,10 +2222,11 @@ slots:
     title: "Nom du g\xE8ne\_1"
     description: "Nom du g\xE8ne utilis\xE9 dans le test diagnostique RT-PCR"
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-    comments: "Indiquez le nom complet du g\xE8ne soumis au d\xE9pistage. Le symbole\
-      \ du g\xE8ne (forme abr\xE9g\xE9e du nom du g\xE8ne) peut \xE9galement \xEA\
-      tre fourni. Il est possible de trouver les noms et les symboles de g\xE8nes\
-      \ normalis\xE9s dans Gene Ontology en utilisant ce service de recherche\_: https://bit.ly/2Sq1LbI."
+    comments:
+    - "Indiquez le nom complet du g\xE8ne soumis au d\xE9pistage. Le symbole du g\xE8\
+      ne (forme abr\xE9g\xE9e du nom du g\xE8ne) peut \xE9galement \xEAtre fourni.\
+      \ Il est possible de trouver les noms et les symboles de g\xE8nes normalis\xE9\
+      s dans Gene Ontology en utilisant ce service de recherche\_: https://bit.ly/2Sq1LbI."
     examples:
     - value: "G\xE8ne\_E (orf4)"
   diagnostic_pcr_protocol_1:
@@ -2110,8 +2235,9 @@ slots:
     description: "Nom et num\xE9ro de version du protocole utilis\xE9 pour l\u2019\
       amplification des marqueurs diagnostiques"
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-    comments: "Le nom et le num\xE9ro de version du protocole utilis\xE9 pour r\xE9\
-      aliser un test diagnostique bas\xE9 sur la r\xE9action en cha\xEEne de la polym\xE9\
+    comments:
+    - "Le nom et le num\xE9ro de version du protocole utilis\xE9 pour r\xE9aliser\
+      \ un test diagnostique bas\xE9 sur la r\xE9action en cha\xEEne de la polym\xE9\
       rase. Ces renseignements peuvent \xEAtre compar\xE9s aux donn\xE9es de s\xE9\
       quence pour l\u2019\xE9valuation du rendement et le contr\xF4le de la qualit\xE9\
       ."
@@ -2123,7 +2249,8 @@ slots:
     description: "Valeur Ct obtenue \xE0 la suite d\u2019un test de diagnostic RT-PCR\
       \ du SRAS-CoV-2"
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-    comments: "Fournissez la valeur Ct de l\u2019\xE9chantillon issu du test diagnostique\
+    comments:
+    - "Fournissez la valeur Ct de l\u2019\xE9chantillon issu du test diagnostique\
       \ RT-PCR."
     examples:
     - value: '21'
@@ -2132,11 +2259,12 @@ slots:
     title: "Nom du g\xE8ne\_2"
     description: "Nom du g\xE8ne utilis\xE9 dans le test diagnostique RT-PCR"
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-    comments: "Indiquez le nom complet d\u2019un autre g\xE8ne utilis\xE9 dans le\
-      \ test\_RT-PCR. Le symbole du g\xE8ne (forme abr\xE9g\xE9e du nom du g\xE8ne)\
-      \ peut \xE9galement \xEAtre fourni. Il est possible de trouver les noms et les\
-      \ symboles de g\xE8nes normalis\xE9s dans Gene Ontology en utilisant ce service\
-      \ de recherche\_: https://bit.ly/2Sq1LbI."
+    comments:
+    - "Indiquez le nom complet d\u2019un autre g\xE8ne utilis\xE9 dans le test\_RT-PCR.\
+      \ Le symbole du g\xE8ne (forme abr\xE9g\xE9e du nom du g\xE8ne) peut \xE9galement\
+      \ \xEAtre fourni. Il est possible de trouver les noms et les symboles de g\xE8\
+      nes normalis\xE9s dans Gene Ontology en utilisant ce service de recherche\_\
+      : https://bit.ly/2Sq1LbI."
     examples:
     - value: "G\xE8ne RdRp (nsp12)"
   diagnostic_pcr_protocol_2:
@@ -2145,9 +2273,10 @@ slots:
     description: "Nom et num\xE9ro de version du protocole utilis\xE9 pour l\u2019\
       amplification des marqueurs diagnostiques"
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-    comments: "Le nom et le num\xE9ro de version du protocole utilis\xE9 pour r\xE9\
-      aliser un deuxi\xE8me test diagnostique bas\xE9 sur la r\xE9action en cha\xEE\
-      ne de la polym\xE9rase. Ces renseignements peuvent \xEAtre compar\xE9s aux donn\xE9\
+    comments:
+    - "Le nom et le num\xE9ro de version du protocole utilis\xE9 pour r\xE9aliser\
+      \ un deuxi\xE8me test diagnostique bas\xE9 sur la r\xE9action en cha\xEEne de\
+      \ la polym\xE9rase. Ces renseignements peuvent \xEAtre compar\xE9s aux donn\xE9\
       es de s\xE9quence pour l\u2019\xE9valuation du rendement et le contr\xF4le de\
       \ la qualit\xE9."
     examples:
@@ -2158,8 +2287,9 @@ slots:
     description: "Valeur Ct obtenue \xE0 la suite d\u2019un test de diagnostic RT-PCR\
       \ du SRAS-CoV-2"
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-    comments: "Fournissez la valeur Ct du deuxi\xE8me \xE9chantillon issu du deuxi\xE8\
-      me test diagnostique RT-PCR."
+    comments:
+    - "Fournissez la valeur Ct du deuxi\xE8me \xE9chantillon issu du deuxi\xE8me test\
+      \ diagnostique RT-PCR."
     examples:
     - value: '36'
   gene_name_3:
@@ -2167,11 +2297,12 @@ slots:
     title: "Nom du g\xE8ne\_3"
     description: "Nom du g\xE8ne utilis\xE9 dans le test diagnostique RT-PCR"
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-    comments: "Indiquez le nom complet d\u2019un autre g\xE8ne utilis\xE9 dans le\
-      \ test\_RT-PCR. Le symbole du g\xE8ne (forme abr\xE9g\xE9e du nom du g\xE8ne)\
-      \ peut \xE9galement \xEAtre fourni. Il est possible de trouver les noms et les\
-      \ symboles de g\xE8nes normalis\xE9s dans Gene Ontology en utilisant ce service\
-      \ de recherche\_: https://bit.ly/2Sq1LbI."
+    comments:
+    - "Indiquez le nom complet d\u2019un autre g\xE8ne utilis\xE9 dans le test\_RT-PCR.\
+      \ Le symbole du g\xE8ne (forme abr\xE9g\xE9e du nom du g\xE8ne) peut \xE9galement\
+      \ \xEAtre fourni. Il est possible de trouver les noms et les symboles de g\xE8\
+      nes normalis\xE9s dans Gene Ontology en utilisant ce service de recherche\_\
+      : https://bit.ly/2Sq1LbI."
     examples:
     - value: "G\xE8ne RdRp (nsp12)"
   diagnostic_pcr_protocol_3:
@@ -2180,9 +2311,10 @@ slots:
     description: "Nom et num\xE9ro de version du protocole utilis\xE9 pour l\u2019\
       amplification des marqueurs diagnostiques"
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-    comments: "Le nom et le num\xE9ro de version du protocole utilis\xE9 pour r\xE9\
-      aliser un deuxi\xE8me test diagnostique bas\xE9 sur la r\xE9action en cha\xEE\
-      ne de la polym\xE9rase. Ces renseignements peuvent \xEAtre compar\xE9s aux donn\xE9\
+    comments:
+    - "Le nom et le num\xE9ro de version du protocole utilis\xE9 pour r\xE9aliser\
+      \ un deuxi\xE8me test diagnostique bas\xE9 sur la r\xE9action en cha\xEEne de\
+      \ la polym\xE9rase. Ces renseignements peuvent \xEAtre compar\xE9s aux donn\xE9\
       es de s\xE9quence pour l\u2019\xE9valuation du rendement et le contr\xF4le de\
       \ la qualit\xE9."
     examples:
@@ -2193,8 +2325,9 @@ slots:
     description: "Valeur Ct obtenue \xE0 la suite d\u2019un test de diagnostic RT-PCR\
       \ du SRAS-CoV-2"
     slot_group: "Tests de diagnostic des agents pathog\xE8nes"
-    comments: "Fournissez la valeur Ct du deuxi\xE8me \xE9chantillon issu du deuxi\xE8\
-      me test diagnostique RT-PCR."
+    comments:
+    - "Fournissez la valeur Ct du deuxi\xE8me \xE9chantillon issu du deuxi\xE8me test\
+      \ diagnostique RT-PCR."
     examples:
     - value: '30'
   authors:
@@ -2204,8 +2337,9 @@ slots:
       \ d\u2019\xE9chantillons, de g\xE9n\xE9ration de s\xE9quences, d\u2019analyse\
       \ et de soumission de donn\xE9es"
     slot_group: Reconnaissance des contributeurs
-    comments: "Incluez le pr\xE9nom et le nom de toutes les personnes qui doivent\
-      \ \xEAtre affect\xE9es, s\xE9par\xE9s par une virgule."
+    comments:
+    - "Incluez le pr\xE9nom et le nom de toutes les personnes qui doivent \xEAtre\
+      \ affect\xE9es, s\xE9par\xE9s par une virgule."
     examples:
     - value: "Tejinder\_Singh, Fei\_Hu, Joe\_Blogs"
   dataharmonizer_provenance:
@@ -2214,11 +2348,11 @@ slots:
     description: "Provenance du logiciel DataHarmonizer et de la version du mod\xE8\
       le"
     slot_group: Reconnaissance des contributeurs
-    comments: "Les renseignements actuels sur la version du logiciel et du mod\xE8\
-      le seront automatiquement g\xE9n\xE9r\xE9s dans ce champ une fois que l\u2019\
-      utilisateur aura utilis\xE9 la fonction \xAB Valider \xBB. Ces renseignements\
-      \ seront g\xE9n\xE9r\xE9s ind\xE9pendamment du fait que la ligne soit valide\
-      \ ou non."
+    comments:
+    - "Les renseignements actuels sur la version du logiciel et du mod\xE8le seront\
+      \ automatiquement g\xE9n\xE9r\xE9s dans ce champ une fois que l\u2019utilisateur\
+      \ aura utilis\xE9 la fonction \xAB Valider \xBB. Ces renseignements seront g\xE9\
+      n\xE9r\xE9s ind\xE9pendamment du fait que la ligne soit valide ou non."
     examples:
     - value: DataHarmonizer v1.4.3, CanCOGeN Covid-19 v1.0.0
 enums:

@@ -17,6 +17,10 @@ classes:
     title: 'PHAC Dexa'
     description: Specification for PHAC Dexa clinical virus biosample data gathering
     is_a: dh_interface
+    unique_keys:
+      phac_dexa_key:
+        unique_key_slots:
+          - specimen_id
 slots: {}
 enums: {}
 types:

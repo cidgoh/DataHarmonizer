@@ -8917,6 +8917,14 @@
           "slot_group": "Fields to put in sections",
           "range": "WhitespaceMinimizedString"
         }
+      },
+      "unique_keys": {
+        "phac_dexa_key": {
+          "unique_key_name": "phac_dexa_key",
+          "unique_key_slots": [
+            "specimen_id"
+          ]
+        }
       }
     }
   },

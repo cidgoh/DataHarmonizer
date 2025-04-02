@@ -16,6 +16,11 @@ classes:
     title: B2B2B
     description: "The B2B2B template is a One Health contextual data specification designed for gold standard benchmark datasets for microbial AMR analyses. The specification was developed as part of the JPIAMR’s Bench, Bedside, Business, and Beyond: innovative solutions for AMR diagnostics (B2B2B AMRDx) project, and represents a subset of Canada’s GRDI-AMR-One-Health vocabulary (see GRDI template). The specification provides standardized (ontology-based) fields and terms which are implemented via a spreadsheet collection template, supported by field and reference guides, as well as a new term request SOP."
     is_a: dh_interface
+    unique_keys:
+      b2b2b_key:
+        unique_key_slots:
+          - sample_collector_sample_ID
+
 slots: {}
 enums: {}
 types:

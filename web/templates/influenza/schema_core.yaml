@@ -16,6 +16,10 @@ classes:
     name: 'Influenza'
     description: Draft template for harmonizing human influenza virus genomic surveillance contextual data.
     is_a: dh_interface
+    unique_keys:
+      mpox_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
 slots: {}
 enums: {}
 types:

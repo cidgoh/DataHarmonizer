@@ -20,6 +20,10 @@ classes:
     see_also: 
     annotations:
       version: 1.0.0
+    unique_keys:
+      hpai_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
   'HPAIFood':
     name: 'HPAIFood'
     title: 'HPAI Food'
@@ -28,6 +32,10 @@ classes:
     see_also: 
     annotations:
       version: 1.0.0
+    unique_keys:
+      hpaifood_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
   'HPAIWW':
     name: 'HPAIWW'
     title: 'HPAI Wastewater'
@@ -36,6 +44,10 @@ classes:
     see_also: 
     annotations:
       version: 1.0.0
+    unique_keys:
+      hpaiww_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
   'HPAIEnviro':
     name: 'HPAIEnviro'
     title: 'HPAI Environmental'
@@ -44,6 +56,10 @@ classes:
     see_also: 
     annotations:
       version: 1.0.0
+    unique_keys:
+      hpaienviro_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
   'HPAIHost':
     name: 'HPAIHost'
     title: 'HPAI Host'
@@ -52,6 +68,10 @@ classes:
     see_also: 
     annotations:
       version: 1.0.0
+    unique_keys:
+      hpaihost_key:
+        unique_key_slots:
+          - specimen_collector_sample_id
 slots: {}
 enums: {}
 types:

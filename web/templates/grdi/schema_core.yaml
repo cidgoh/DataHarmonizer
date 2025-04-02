@@ -16,6 +16,10 @@ classes:
     name: 'GRDI'
     description: Specification for GRDI virus biosample data gathering
     is_a: dh_interface
+    unique_keys:
+      grdi_key:
+        unique_key_slots:
+          - sample_collector_sample_id
 slots: {}
 enums: {}
 types:
