@@ -62,6 +62,9 @@ classes:
         description: The semantic version identifier for this schema.
         examples:
         - value: 1.2.3
+        pattern: ^\d+\.\d+\.\d+$
+        comments:
+        - See https://semver.org/
       in_language:
         rank: 5
         slot_group: attributes
@@ -116,7 +119,6 @@ classes:
     - version
     - class_uri
     - tree_root
-    - Inlined as list
     slot_usage:
       schema_id:
         rank: 1
@@ -148,14 +150,14 @@ classes:
         rank: 5
         slot_group: attributes
         description: A semantic version identifier.
+        pattern: ^\d+\.\d+\.\d+$
+        comments:
+        - See https://semver.org/
       class_uri:
         rank: 6
         slot_group: attributes
       tree_root:
         rank: 7
-        slot_group: attributes
-      Inlined as list:
-        rank: 8
         slot_group: attributes
   UniqueKey:
     name: UniqueKey
@@ -225,6 +227,7 @@ classes:
     - slot_uri
     - title
     - range
+    - inlined
     - required
     - recommended
     - description
@@ -234,10 +237,15 @@ classes:
     - multivalued
     - minimum_value
     - maximum_value
+    - minimum_cardinality
+    - maximum_cardinality
     - equals_expression
     - pattern
+    - exact_mappings
     - comments
     - examples
+    - version
+    - notes
     slot_usage:
       schema_id:
         rank: 1
@@ -281,57 +289,78 @@ classes:
         required: true
         description: The range or ranges a slot is associated with.  If more than
           one, this appears in the slot's specification as a list of "any of" ranges.
-      required:
+      inlined:
         rank: 7
+        slot_group: attributes
+        description: Indicates whether slot range is a complex object, or whether
+          it is an identifier instead that points to one.
+      required:
+        rank: 8
         slot_group: attributes
         description: A boolean TRUE indicates this slot is a mandatory data field.
         comments:
         - A mandatory data field will fail validation if empty.
       recommended:
-        rank: 8
+        rank: 9
         slot_group: attributes
         description: A boolean TRUE indicates this slot is a recommended data field.
       description:
-        rank: 9
+        rank: 10
         slot_group: attributes
         range: string
         required: true
         description: A plan text description of this LinkML schema slot.
       aliases:
-        rank: 10
+        rank: 11
         slot_group: attributes
       identifier:
-        rank: 11
+        rank: 12
         slot_group: attributes
         description: A boolean TRUE indicates this slot is an identifier, or refers
           to one.
       foreign_key:
-        rank: 12
+        rank: 13
         slot_group: attributes
         description: A boolean TRUE indicates this slot is part of a primary key for
           the Class it is an attribute of.
       multivalued:
-        rank: 13
+        rank: 14
         slot_group: attributes
         description: A boolean TRUE indicates this slot can hold more than one values
           taken from its range.
       minimum_value:
-        rank: 14
-        slot_group: attributes
-      maximum_value:
         rank: 15
         slot_group: attributes
-      equals_expression:
+      maximum_value:
         rank: 16
         slot_group: attributes
-      pattern:
+      minimum_cardinality:
         rank: 17
         slot_group: attributes
-      comments:
+      maximum_cardinality:
         rank: 18
         slot_group: attributes
-      examples:
+      equals_expression:
         rank: 19
+        slot_group: attributes
+      pattern:
+        rank: 20
+        slot_group: attributes
+      exact_mappings:
+        rank: 21
+        slot_group: attributes
+      comments:
+        rank: 22
+        slot_group: attributes
+      examples:
+        rank: 23
+        slot_group: attributes
+      version:
+        rank: 24
+        slot_group: attributes
+        description: A version number indicating when this slot was introduced.
+      notes:
+        rank: 25
         slot_group: attributes
   SlotUsage:
     name: SlotUsage
@@ -351,20 +380,28 @@ classes:
     - slot_id
     - rank
     - slot_group
+    - slot_uri
+    - title
     - range
     - inlined
+    - required
+    - recommended
+    - description
+    - aliases
     - identifier
     - foreign_key
     - multivalued
-    - required
-    - recommended
     - minimum_value
     - maximum_value
     - minimum_cardinality
     - maximum_cardinality
+    - equals_expression
     - pattern
+    - exact_mappings
     - comments
     - examples
+    - version
+    - notes
     slot_usage:
       schema_id:
         rank: 1
@@ -390,53 +427,85 @@ classes:
         rank: 5
         slot_group: attributes
         description: An override on a slot's **slot_group** attribute.
-      range:
+      slot_uri:
         rank: 6
+        slot_group: attributes
+      title:
+        rank: 7
+        slot_group: attributes
+        description: The plain language name of this LinkML schema slot.
+        comments:
+        - This can be displayed in applications and documentation.
+      range:
+        rank: 8
         slot_group: attributes
         description: An override on a slot's **range* attribute.
       inlined:
-        rank: 7
-        slot_group: attributes
-      identifier:
-        rank: 8
-        slot_group: attributes
-        description: An override on a slot's **Identifier** attribute.
-      foreign_key:
         rank: 9
         slot_group: attributes
-        description: An override on a slot's **Foreign Key** attribute.
-      multivalued:
-        rank: 10
-        slot_group: attributes
-        description: An override on a slot's **Multivalued** attribute.
+        description: An override on a slot's **Inlined** attribute.
       required:
-        rank: 11
+        rank: 10
         slot_group: attributes
         description: An override on a slot's **Required** attribute.
       recommended:
-        rank: 12
+        rank: 11
         slot_group: attributes
         description: An override on a slot's **Recommended** attribute.
-      minimum_value:
+      description:
+        rank: 12
+        slot_group: attributes
+        range: string
+        required: true
+        description: A plan text description of this LinkML schema slot.
+      aliases:
         rank: 13
         slot_group: attributes
-      maximum_value:
+      identifier:
         rank: 14
         slot_group: attributes
-      minimum_cardinality:
+        description: An override on a slot's **Identifier** attribute.
+      foreign_key:
         rank: 15
         slot_group: attributes
-      maximum_cardinality:
+        description: An override on a slot's **Foreign Key** attribute.
+      multivalued:
         rank: 16
         slot_group: attributes
-      pattern:
+        description: An override on a slot's **Multivalued** attribute.
+      minimum_value:
         rank: 17
         slot_group: attributes
-      comments:
+      maximum_value:
         rank: 18
         slot_group: attributes
-      examples:
+      minimum_cardinality:
         rank: 19
+        slot_group: attributes
+      maximum_cardinality:
+        rank: 20
+        slot_group: attributes
+      equals_expression:
+        rank: 21
+        slot_group: attributes
+      pattern:
+        rank: 22
+        slot_group: attributes
+      exact_mappings:
+        rank: 23
+        slot_group: attributes
+      comments:
+        rank: 24
+        slot_group: attributes
+      examples:
+        rank: 25
+        slot_group: attributes
+      version:
+        rank: 26
+        slot_group: attributes
+        description: A version number indicating when this slot was introduced.
+      notes:
+        rank: 27
         slot_group: attributes
   Enum:
     name: Enum
@@ -499,6 +568,7 @@ classes:
     - schema_id
     - enum_id
     - name
+    - is_a
     - text
     - description
     - meaning
@@ -521,16 +591,19 @@ classes:
         rank: 3
         slot_group: key
         description: The coding name of this menu choice (PermissibleValue).
-      text:
+      is_a:
         rank: 4
         slot_group: attributes
-      description:
+      text:
         rank: 5
+        slot_group: attributes
+      description:
+        rank: 6
         slot_group: attributes
         range: string
         description: A plan text description of the meaning of this menu choice.
       meaning:
-        rank: 6
+        rank: 7
         slot_group: attributes
   Container:
     tree_root: true
@@ -621,10 +694,7 @@ slots:
   version:
     name: version
     title: Version
-    comments:
-    - See https://semver.org/
     range: WhitespaceMinimizedString
-    pattern: ^\d+\.\d+\.\d+$
   in_language:
     name: in_language
     title: Languages
@@ -665,17 +735,11 @@ slots:
     range: uri
   tree_root:
     name: tree_root
-    title: Container
+    title: Root Class
     description: A boolian indicating whether this is a specification for a top-level
       data container on which serializations are based.
     comments:
     - Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html
-    range: TrueFalseMenu
-  Inlined as list:
-    name: Inlined as list
-    title: Inlined as list
-    description: A boolian indicating whether the content of this class is present
-      inside its containing object as an array.
     range: TrueFalseMenu
   unique_key_slots:
     name: unique_key_slots
@@ -688,7 +752,8 @@ slots:
   notes:
     name: notes
     title: Notes
-    description: Notes about use of this key in other classes via slot ranges etc.
+    description: Editorial notes about an element intended primarily for internal
+      consumption
     range: WhitespaceMinimizedString
   slot_group:
     name: slot_group
@@ -704,6 +769,10 @@ slots:
     title: Range
     multivalued: true
     range: DataTypeMenu
+  inlined:
+    name: inlined
+    title: Inlined
+    range: TrueFalseMenu
   required:
     name: required
     title: Required
@@ -743,6 +812,16 @@ slots:
     description: A maximum value which is appropriate for the range data type of the
       slot.
     range: integer
+  minimum_cardinality:
+    name: minimum_cardinality
+    title: Minimum Cardinality
+    description: For multivalued slots, a minimum number of values
+    range: integer
+  maximum_cardinality:
+    name: maximum_cardinality
+    title: Maximum Cardinality
+    description: For multivalued slots, a maximum number of values
+    range: integer
   equals_expression:
     name: equals_expression
     title: Calculated value
@@ -759,6 +838,13 @@ slots:
     comments:
     - Regular expressions can begin with ^ to ensure start of string is tested, and
       $ to ensure up to end is tested.
+    range: WhitespaceMinimizedString
+  exact_mappings:
+    name: exact_mappings
+    title: Exact Mappings
+    description: A list of one or more Curies or URIs that point to semantically identical
+      terms.
+    multivalued: true
     range: WhitespaceMinimizedString
   comments:
     name: comments
@@ -777,26 +863,16 @@ slots:
     description: An integer which sets the order of this slot relative to the others
       within a given class.
     range: integer
-  inlined:
-    name: inlined
-    title: Inlined
-    description: An override on a slot's **Inlined** attribute.
-    range: TrueFalseMenu
-  minimum_cardinality:
-    name: minimum_cardinality
-    title: Minimum Cardinality
-    description: For multivalued slots, a minimum number of values
-    range: integer
-  maximum_cardinality:
-    name: maximum_cardinality
-    title: Maximum Cardinality
-    description: For multivalued slots, a maximum number of values
-    range: integer
   enum_uri:
     name: enum_uri
     title: Enum URI
     description: A URI for identifying this enumeration's semantic type.
     range: uri
+  is_a:
+    name: is_a
+    title: Parent
+    description: The parent term name (in an enumeration) of this term, if any.
+    range: WhitespaceMinimizedString
   text:
     name: text
     title: Text
