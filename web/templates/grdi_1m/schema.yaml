@@ -4,6 +4,8 @@ description: ''
 version: 14.5.5
 imports:
 - linkml:types
+in_language:
+- en
 prefixes:
   linkml: https://w3id.org/linkml/
   GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
