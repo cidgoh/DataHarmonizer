@@ -156,19 +156,24 @@ def set_mappings(record, row, EXPORT_FORMAT):
 		record['exact_mappings'] = mappings;
 
 
-# A single range goes into slot.range; more than one goes into slot.any_of[...]
+# OLD: A single range goes into slot.range; more than one goes into slot.any_of[...]
+# cardinality controls limit on answers.
 def set_range(slot, slot_range, slot_range_2):
 	
 	# range_2 column gets semi-colon separated list of additional ranges
-	if slot_range > '':
-		if slot_range_2 > '':
-			merged_ranges = [slot_range];
-			merged_ranges.extend(slot_range_2.split(';'));
-			slot['any_of'] = [];
-			for x in merged_ranges:
-				slot['any_of'].append({'range': x });
-		else:
-			slot['range'] = slot_range;	
+	ranges = [];
+	if len(slot_range): 
+		ranges.extend(slot_range.split(';'));
+	if len(slot_range_2):
+		ranges.extend(slot_range_2.split(';'));
+
+	if len(ranges) > 1:
+		slot['any_of'] = [];
+		for x in ranges:
+			slot['any_of'].append({'range': x });
+	
+	elif len(ranges) == 1:
+		slot['range'] = ranges[0];	
 
 
 # Currently LinkML minimum_value and maximum_value only validate if they are
