@@ -178,6 +178,19 @@ slots:
         value: Enum.name
 
 enums: 
+  SchemaTypeMenu:
+    name: SchemaTypeMenu
+    title: Type Menu
+    permissible_values: {}
+  SchemaClassMenu:
+    name: SchemaClassMenu 
+    title: Class Menu
+    permissible_values: {}
+  SchemaEnumMenu:
+    name: SchemaEnumMenu
+    title: Enumeration Menu
+    permissible_values: {}
+
 types:
   WhitespaceMinimizedString:
     name: 'WhitespaceMinimizedString'

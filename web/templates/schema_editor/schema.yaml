@@ -289,6 +289,10 @@ classes:
         required: true
         description: The range or ranges a slot is associated with.  If more than
           one, this appears in the slot's specification as a list of "any of" ranges.
+        any_of:
+        - range: SchemaTypeMenu
+        - range: SchemaClassMenu
+        - range: SchemaEnumMenu
       inlined:
         rank: 7
         slot_group: attributes
@@ -439,6 +443,7 @@ classes:
       range:
         rank: 8
         slot_group: attributes
+        range: DataTypeMenu
         description: An override on a slot's **range* attribute.
       inlined:
         rank: 9
@@ -768,7 +773,6 @@ slots:
     name: range
     title: Range
     multivalued: true
-    range: DataTypeMenu
   inlined:
     name: inlined
     title: Inlined
@@ -885,6 +889,18 @@ slots:
     description: A URI for identifying this choice's semantic type.
     range: uri
 enums:
+  SchemaTypeMenu:
+    name: SchemaTypeMenu
+    title: Type Menu
+    permissible_values: {}
+  SchemaClassMenu:
+    name: SchemaClassMenu
+    title: Class Menu
+    permissible_values: {}
+  SchemaEnumMenu:
+    name: SchemaEnumMenu
+    title: Enumeration Menu
+    permissible_values: {}
   TrueFalseMenu:
     name: TrueFalseMenu
     title: TrueFalseMenu

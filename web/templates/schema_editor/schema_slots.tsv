@@ -33,7 +33,7 @@ A slot can be used in one or more classes (templates). A slot may appear as a vi
 	attributes		slot_group	Slot Group	WhitespaceMinimizedString										The name of a grouping to place slot within during presentation.		
 	attributes		slot_uri	Slot URI	uri				 						A URI for identifying this slot's semantic type.		
 	attributes		title	Title	WhitespaceMinimizedString				TRUE						The plain language name of this LinkML schema slot.	This can be displayed in applications and documentation.	
-	attributes		range	Range	DataTypeMenu			TRUE	TRUE						The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of "any of" ranges.		
+	attributes		range	Range	SchemaTypeMenu;SchemaClassMenu;SchemaEnumMenu			TRUE	TRUE						The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of "any of" ranges.		
 	attributes		inlined	Inlined	TrueFalseMenu										Indicates whether slot range is a complex object, or whether it is an identifier instead that points to one.		
 	attributes		required	Required	TrueFalseMenu										A boolean TRUE indicates this slot is a mandatory data field.  	A mandatory data field will fail validation if empty.	
 	attributes		recommended	Recommended	TrueFalseMenu										A boolean TRUE indicates this slot is a recommended data field.  		

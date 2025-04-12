@@ -299,6 +299,21 @@
     }
   },
   "enums": {
+    "SchemaTypeMenu": {
+      "name": "SchemaTypeMenu",
+      "title": "Type Menu",
+      "from_schema": "https://example.com/DH_LinkML"
+    },
+    "SchemaClassMenu": {
+      "name": "SchemaClassMenu",
+      "title": "Class Menu",
+      "from_schema": "https://example.com/DH_LinkML"
+    },
+    "SchemaEnumMenu": {
+      "name": "SchemaEnumMenu",
+      "title": "Enumeration Menu",
+      "from_schema": "https://example.com/DH_LinkML"
+    },
     "TrueFalseMenu": {
       "name": "TrueFalseMenu",
       "title": "TrueFalseMenu",
@@ -663,7 +678,6 @@
         "Slot",
         "SlotUsage"
       ],
-      "range": "DataTypeMenu",
       "multivalued": true
     },
     "inlined": {
@@ -1659,7 +1673,18 @@
           "description": "The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of \"any of\" ranges.",
           "rank": 6,
           "slot_group": "attributes",
-          "required": true
+          "required": true,
+          "any_of": [
+            {
+              "range": "SchemaTypeMenu"
+            },
+            {
+              "range": "SchemaClassMenu"
+            },
+            {
+              "range": "SchemaEnumMenu"
+            }
+          ]
         },
         "inlined": {
           "name": "inlined",
@@ -1889,9 +1914,19 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "DataTypeMenu",
           "required": true,
-          "multivalued": true
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "SchemaTypeMenu"
+            },
+            {
+              "range": "SchemaClassMenu"
+            },
+            {
+              "range": "SchemaEnumMenu"
+            }
+          ]
         },
         "inlined": {
           "name": "inlined",
@@ -2268,7 +2303,8 @@
           "name": "range",
           "description": "An override on a slot's **range* attribute.",
           "rank": 8,
-          "slot_group": "attributes"
+          "slot_group": "attributes",
+          "range": "DataTypeMenu"
         },
         "inlined": {
           "name": "inlined",
