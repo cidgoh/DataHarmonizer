@@ -98,11 +98,30 @@ li.nav-item.disabled {
   transition: opacity 1s;
 }
 
+.tooltipy .tinytip {
+  text-wrap: nowrap !important;
+  min-width: auto !important;
+  left:0%;
+  right: auto;
+  margin-left: 0px !important;
+
+  font-weight:normal;
+  font-size: 0.8rem;
+}
+
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltipy:hover .tooltipytext {
-  /*visibility: visible;*/
   opacity: 1;
 }
+
+/* Hide tooltip text for DH tabs that aren't disabled */
+#data-harmonizer-tabs .tooltipy:not(.disabled) .tooltipytext {
+  opacity: 0;
+}
+
+
+
+record-hierarchy
 
 /* optional little arrow at top. See https://www.w3schools.com/css/css_tooltip.asp 
 .tooltip .tooltiptext::after {

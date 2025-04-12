@@ -30,23 +30,12 @@ export function createDataHarmonizerContainer(dhId, isActive) {
   return dhSubroot;
 }
 
-export function createDataHarmonizerTab(dhId, tab_title, isActive) {
-  const dhTab = document.createElement('li');
-  dhTab.className = 'nav-item';
-  dhTab.setAttribute('role', 'presentation');
+export function createDataHarmonizerTab(dhId, tab_title, class_name, tooltip, isActive) {
+  const template = document.createElement('template');
+  template.innerHTML = `<li class="nav-item ${tooltip.length ? 'tooltipy' :''}"><a class="nav-link${(isActive ? ' active' : '')}" id="tab-${dhId}" href=#${dhId} data-bs-target="#${dhId}" data-toggle="tab">${tab_title}</a>${tooltip.length ? '<span class="tooltipytext tinytip">' + tooltip + '</span>' : ''}</li>`;
 
-  const dhTabLink = document.createElement('a');
-  dhTabLink.className = 'nav-link' + (isActive ? ' active' : '');
-  dhTabLink.id = `tab-${dhId}`;
-  dhTabLink.href = `#${dhId}`;
-  dhTabLink.textContent = tab_title;
-  dhTabLink.dataset.toggle = 'tab';
-  //dhTabLink.setAttribute('data-bs-toggle', 'tab'); // Bootstrap specific data attribute for tabs
-  dhTabLink.setAttribute('data-bs-target', dhTabLink.href);
-  //dhTabLink.setAttribute('role', 'tab');
-  //dhTabLink.setAttribute('aria-controls', dhId);
+  const dhTab = template.content.firstChild;
 
-  dhTab.appendChild(dhTabLink);
   dhNavTabs.appendChild(dhTab);
   return dhTab;
 }
