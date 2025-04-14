@@ -61,7 +61,7 @@ SlotUsage	key		schema_id	Schema	Schema				TRUE						The coding name of the schem
 	attributes		slot_group	Slot Group	WhitespaceMinimizedString										An override on a slot's **slot_group** attribute.		
 	attributes		slot_uri	Slot URI	uri				 						A URI for identifying this slot's semantic type.		
 	attributes		title	Title	WhitespaceMinimizedString				TRUE						The plain language name of this LinkML schema slot.	This can be displayed in applications and documentation.	
-	attributes		range	Range	DataTypeMenu			TRUE							An override on a slot's **range* attribute.		
+	attributes		range	Range	SchemaTypeMenu;SchemaClassMenu;SchemaEnumMenu			TRUE							An override on a slot's **range* attribute.		
 	attributes		inlined	Inlined	TrueFalseMenu										An override on a slot's **Inlined** attribute.		
 	attributes		required	Required	TrueFalseMenu										An override on a slot's **Required** attribute.		
 	attributes		recommended	Recommended	TrueFalseMenu										An override on a slot's **Recommended** attribute.		

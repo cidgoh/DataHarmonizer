@@ -289,10 +289,6 @@ classes:
         required: true
         description: The range or ranges a slot is associated with.  If more than
           one, this appears in the slot's specification as a list of "any of" ranges.
-        any_of:
-        - range: SchemaTypeMenu
-        - range: SchemaClassMenu
-        - range: SchemaEnumMenu
       inlined:
         rank: 7
         slot_group: attributes
@@ -443,7 +439,6 @@ classes:
       range:
         rank: 8
         slot_group: attributes
-        range: DataTypeMenu
         description: An override on a slot's **range* attribute.
       inlined:
         rank: 9
@@ -773,6 +768,10 @@ slots:
     name: range
     title: Range
     multivalued: true
+    any_of:
+    - range: SchemaTypeMenu
+    - range: SchemaClassMenu
+    - range: SchemaEnumMenu
   inlined:
     name: inlined
     title: Inlined
@@ -903,61 +902,15 @@ enums:
     permissible_values: {}
   TrueFalseMenu:
     name: TrueFalseMenu
-    title: TrueFalseMenu
+    title: True/False Menu
     permissible_values:
       'TRUE':
         text: 'TRUE'
       'FALSE':
         text: 'FALSE'
-  DataTypeMenu:
-    name: DataTypeMenu
-    title: DataTypeMenu
-    permissible_values:
-      string:
-        text: string
-      WhitespaceMinimizedString:
-        text: WhitespaceMinimizedString
-      boolean:
-        text: boolean
-      integer:
-        text: integer
-      decimal:
-        text: decimal
-      double:
-        text: double
-      float:
-        text: float
-      date:
-        text: date
-      datetime:
-        text: datetime
-      date_or_datetime:
-        text: date_or_datetime
-      time:
-        text: time
-      uriorcurie:
-        text: uriorcurie
-      curie:
-        text: curie
-      uri:
-        text: uri
-      Schema:
-        text: Schema
-      Slot:
-        text: Slot
-      Class:
-        text: Class
-      Provenance:
-        text: Provenance
-      TrueFalseMenu:
-        text: TrueFalseMenu
-      DataTypeMenu:
-        text: DataTypeMenu
-      LanguagesMenu:
-        text: LanguagesMenu
   LanguagesMenu:
     name: LanguagesMenu
-    title: LanguagesMenu
+    title: Language Menu
     permissible_values:
       en:
         text: en

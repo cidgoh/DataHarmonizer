@@ -316,7 +316,7 @@
     },
     "TrueFalseMenu": {
       "name": "TrueFalseMenu",
-      "title": "TrueFalseMenu",
+      "title": "True/False Menu",
       "from_schema": "https://example.com/DH_LinkML",
       "permissible_values": {
         "TRUE": {
@@ -327,79 +327,9 @@
         }
       }
     },
-    "DataTypeMenu": {
-      "name": "DataTypeMenu",
-      "title": "DataTypeMenu",
-      "from_schema": "https://example.com/DH_LinkML",
-      "permissible_values": {
-        "string": {
-          "text": "string"
-        },
-        "WhitespaceMinimizedString": {
-          "text": "WhitespaceMinimizedString"
-        },
-        "boolean": {
-          "text": "boolean"
-        },
-        "integer": {
-          "text": "integer"
-        },
-        "decimal": {
-          "text": "decimal"
-        },
-        "double": {
-          "text": "double"
-        },
-        "float": {
-          "text": "float"
-        },
-        "date": {
-          "text": "date"
-        },
-        "datetime": {
-          "text": "datetime"
-        },
-        "date_or_datetime": {
-          "text": "date_or_datetime"
-        },
-        "time": {
-          "text": "time"
-        },
-        "uriorcurie": {
-          "text": "uriorcurie"
-        },
-        "curie": {
-          "text": "curie"
-        },
-        "uri": {
-          "text": "uri"
-        },
-        "Schema": {
-          "text": "Schema"
-        },
-        "Slot": {
-          "text": "Slot"
-        },
-        "Class": {
-          "text": "Class"
-        },
-        "Provenance": {
-          "text": "Provenance"
-        },
-        "TrueFalseMenu": {
-          "text": "TrueFalseMenu"
-        },
-        "DataTypeMenu": {
-          "text": "DataTypeMenu"
-        },
-        "LanguagesMenu": {
-          "text": "LanguagesMenu"
-        }
-      }
-    },
     "LanguagesMenu": {
       "name": "LanguagesMenu",
-      "title": "LanguagesMenu",
+      "title": "Language Menu",
       "from_schema": "https://example.com/DH_LinkML",
       "permissible_values": {
         "en": {
@@ -678,7 +608,18 @@
         "Slot",
         "SlotUsage"
       ],
-      "multivalued": true
+      "multivalued": true,
+      "any_of": [
+        {
+          "range": "SchemaTypeMenu"
+        },
+        {
+          "range": "SchemaClassMenu"
+        },
+        {
+          "range": "SchemaEnumMenu"
+        }
+      ]
     },
     "inlined": {
       "name": "inlined",
@@ -1673,18 +1614,7 @@
           "description": "The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of \"any of\" ranges.",
           "rank": 6,
           "slot_group": "attributes",
-          "required": true,
-          "any_of": [
-            {
-              "range": "SchemaTypeMenu"
-            },
-            {
-              "range": "SchemaClassMenu"
-            },
-            {
-              "range": "SchemaEnumMenu"
-            }
-          ]
+          "required": true
         },
         "inlined": {
           "name": "inlined",
@@ -2303,8 +2233,7 @@
           "name": "range",
           "description": "An override on a slot's **range* attribute.",
           "rank": 8,
-          "slot_group": "attributes",
-          "range": "DataTypeMenu"
+          "slot_group": "attributes"
         },
         "inlined": {
           "name": "inlined",
@@ -2561,8 +2490,18 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "DataTypeMenu",
-          "multivalued": true
+          "multivalued": true,
+          "any_of": [
+            {
+              "range": "SchemaTypeMenu"
+            },
+            {
+              "range": "SchemaClassMenu"
+            },
+            {
+              "range": "SchemaEnumMenu"
+            }
+          ]
         },
         "inlined": {
           "name": "inlined",
