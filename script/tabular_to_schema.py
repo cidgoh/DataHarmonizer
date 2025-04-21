@@ -52,6 +52,9 @@ from linkml_runtime.utils.schemaview import SchemaView
 from linkml_runtime.dumpers.json_dumper import JSONDumper
 import subprocess
 
+# Locale datastructure mirrors schema only for variable language elements.
+# 'name' not included because it is coding name which isn't locale specific.
+LOCALE_SLOT_FIELDS = ['title','description','slot_group','comments'];
 
 def init_parser():
 	parser = optparse.OptionParser()
@@ -68,12 +71,9 @@ def init_parser():
 	return parser.parse_args();
 
 
-def set_class_slot(schema_class, slot, slot_group):
+def set_class_slot(schema_class, slot, slot_name, slot_group):
 
-	class_name = schema_class['name'];
-	slot_name = slot['name'];
-
-	print ("processing SLOT:", class_name, slot_name);
+	print ("processing SLOT:", schema_class['name'], slot_name);
 
 	if not ('slots' in schema_class):
 		schema_class['slots'] = [];
@@ -82,7 +82,7 @@ def set_class_slot(schema_class, slot, slot_group):
 		schema_class['slot_usage'] = {};
 
 	if slot_name in schema_class['slots']:
-		warnings.append(f"{class_name} {slot_name} is repeated.  Duplicate slot for this class?");
+		warnings.append(f"{schema_class['name']} {slot_name} is repeated.  Duplicate slot for this class?");
 
 	# Each class lists off its slots in "slots" attribute.
 	schema_class['slots'].append(slot_name);
@@ -156,8 +156,9 @@ def set_mappings(record, row, EXPORT_FORMAT):
 		record['exact_mappings'] = mappings;
 
 
-# OLD: A single range goes into slot.range; more than one goes into slot.any_of[...]
-# cardinality controls limit on answers.
+# A single range goes into slot.range; more than one goes into slot.any_of[...]
+# cardinality controls limit on answer count.  Otherwise we would implement the
+# slot .all_of, .exactly_one_of, and .none_of options.
 def set_range(slot, slot_range, slot_range_2):
 	
 	# range_2 column gets semi-colon separated list of additional ranges
@@ -279,7 +280,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					slot_description =				row.get('description','');
 					slot_comments =						row.get('comments','');
 					slot_examples = 					row.get('examples','');
-					slot_annotations = 					row.get('annotations','');
+					slot_annotations = 				row.get('annotations','');
 					slot_uri =								row.get('slot_uri','');
 
 					slot_identifier =					bool(row.get('identifier',''));
@@ -288,25 +289,25 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					slot_recommended =				bool(row.get('recommended', ''));
 
 					slot_range =							row.get('range','');
-					slot_range_2 =						row.get('range_2','');
-					slot_unit =						row.get('unit','');
+					slot_range_2 =						row.get('range_2',''); #Phasing this out.
+					slot_unit =								row.get('unit','');
 					slot_pattern = 						row.get('pattern','');
 					slot_structured_pattern = row.get('structured_pattern','');
 					slot_minimum_value =			row.get('minimum_value','');
 					slot_maximum_value =			row.get('maximum_value','');
-					slot_minimum_cardinality =			row.get('minimum_cardinality','');
-					slot_maximum_cardinality =			row.get('maximum_cardinality','');
+					slot_minimum_cardinality =		row.get('minimum_cardinality','');
+					slot_maximum_cardinality =		row.get('maximum_cardinality','');
 
 					slot = {'name': slot_name};
 
-					set_class_slot(schema_class, slot, slot_group);
+					set_class_slot(schema_class, slot, slot_name, slot_group);
 
-					if slot_title > '':							slot['title'] = slot_title;
-					if slot_description > '':				slot['description'] = slot_description;
-					if slot_comments > '':					slot['comments'] = [slot_comments];
+					if slot_title > '':						slot['title'] = slot_title;
+					if slot_description > '':			slot['description'] = slot_description;
+					if slot_comments > '':				slot['comments'] = [slot_comments];
 
 
-					if slot_uri > '':								slot['slot_uri'] = slot_uri;
+					if slot_uri > '':							slot['slot_uri'] = slot_uri;
 
 					if slot_identifier == True:		slot['identifier'] = True;
 					if slot_multivalued == True:	slot['multivalued'] = True;
@@ -317,16 +318,17 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					if slot_maximum_cardinality > '':	slot['maximum_cardinality'] = int(slot_maximum_cardinality);
 
 					set_range(slot, slot_range, slot_range_2);
-					if slot_unit > '':							slot['unit'] = slot_unit;
+					if slot_unit > '':						slot['unit'] = slot_unit;
 
 					set_min_max(slot, slot_minimum_value, slot_maximum_value);
-					if slot_pattern > '':						slot['pattern'] = slot_pattern;		
+
+					if slot_pattern > '':					slot['pattern'] = slot_pattern;		
 					if slot_structured_pattern > '':
-																					slot['structured_pattern'] = {
-																						'syntax': slot_structured_pattern,
-																						'partial_match': False,
-																						'interpolated': True
-																					}
+						slot['structured_pattern'] = {
+							'syntax': slot_structured_pattern,
+							'partial_match': False,
+							'interpolated': True
+						}
 
 					set_attribute(slot, "unit", slot_unit);
 					set_examples(slot, slot_examples);
@@ -390,27 +392,37 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 						# Do language variant(s) since we are at a particular slot, with its
 						# language translations for "name", "title", "text", "description",
 						# "slot_group", "comments", and example "value"]. 
-						# Datastructure mirrors schema only for variable language elements.
-						variant_fields = ['name','title','description','slot_group','comments'];
 						for lcode in locale_schemas.keys():
 							locale_schema = locale_schemas[lcode];
 							locale_class = locale_schema['classes'][class_name];
 							variant_slot = {'name': slot_name};
+							# variant_slot = {};
 							variant_slot_group = '';
-							for field in variant_fields:
+							for field in LOCALE_SLOT_FIELDS:
 								text = row.get(field + '_' + lcode, schema['slots'][slot_name].get(field, '' ));
 								if text:
 									if field == 'comments':
 										variant_slot[field] = [text];
 									else:
 										variant_slot[field] = text;
-									if field == 'slot_group': variant_slot_group = text;
+
+									if field == 'slot_group': 
+										variant_slot_group = text;
 
 							set_examples(variant_slot, row.get('examples' + '_' + lcode, ''));
-							set_class_slot(locale_class, variant_slot, variant_slot_group);
+							set_class_slot(locale_class, variant_slot, slot_name, variant_slot_group);
 
-							locale_schema['slots'][slot_name] = variant_slot; # combine into set_examples?
-							
+							locale_schema['slots'][slot_name] = variant_slot;
+							# if len(variant_slot) > 0: # Some locale attribute(s) added.
+							# 	schema['slots'][slot_name].update({
+							# 		'extensions': {
+							# 			'locale': {
+							# 				'tag': 'locale',
+							# 				'value': [{lcode: variant_slot}]
+							# 			}
+							# 		}
+							# 	});
+
 		if len(schema['slots']) == 0:
 			warnings.append("WARNING: there are no slots in this schema!");
 
@@ -476,6 +488,21 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 						if locale_title > '':
 							locale_schema['enums'][name]['title'] = locale_title;
 
+							#local_menu_item = {'title': locale_title};
+							locale_description = row.get('description' + lcode, '');
+							if locale_description > '':
+								locale_schema['enums'][name]['description'] = locale_description;
+								#local_menu_item['description'] = locale_description;
+
+						# enumerations[name].update({
+						# 	'extensions': {
+						# 		'locale': {
+						# 			'tag': 'locale',
+						# 			'value': [{lcode: local_menu_item}]
+						# 		}
+						# 	}
+						# });
+
 			if name > '':
 				# Text is label of a particular menu choice
 				# Loop scans through columns until it gets a value
@@ -514,11 +541,21 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 								locale_schemas[lcode]['enums'][name]['permissible_values'][choice_text] = local_choice;
 
+								# if len(local_choice) > 0: # Some locale attribute(s) added.
+								# 	enum['permissible_values'][choice_text].update({
+								# 		'extensions': {
+								# 			'locale': {
+								# 				'tag': 'locale',
+								# 				'value': [{lcode: local_choice}]
+								# 			}
+								# 		}
+								# 	});
+
 						break;
 
 
 		if len(enumerations) == 0:
-			warnings.append("WARNING: there are no enumerations in this specification!");
+			warnings.append("Note: there are no enumerations in this specification!");
 
 
 def write_schema(schema):
@@ -608,7 +645,7 @@ def write_locales(locale_schemas):
 
 		for name, class_obj in locale_view.all_classes().items():
 			if locale_view.class_slots(name): 
-				new_obj = locale_view.induced_class(name); # specimen collector sample ID
+				new_obj = locale_view.induced_class(name);
 				locale_view.add_class(new_obj);
 
 		JSONDumper().dump(locale_view.schema, directory + w_filename_base + '.json');
@@ -704,6 +741,7 @@ if 'in_language' in SCHEMA:
 	locales = SCHEMA['in_language'];
 	print("locales (", len(locales),"):", locales);
 	for locale in locales[1:]:
+
 		locale_schemas[locale] = copy.deepcopy(SCHEMA); 
 		locale_schemas[locale]['in_language'] = locale;
 
@@ -711,12 +749,34 @@ if 'in_language' in SCHEMA:
 set_classes(r_schema_slots, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
 set_enums(r_schema_enums, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
 
+if len(locale_schemas) > 0:
+	for lcode in locale_schemas.keys():
+		lschema = locale_schemas[lcode];
+		lschema.pop('prefixes', None);
+		lschema.pop('imports', None);
+		lschema.pop('types', None);
+		lschema.pop('settings', None);
+		for class_name, class_obj in lschema['classes'].items():
+			class_obj.pop('slots', None);
+			class_obj.pop('unique_keys', None);	
+			class_obj.pop('is_a', None);
+c
+		SCHEMA.update({
+			'extensions': {
+				'locale': {
+					'tag': 'locale',
+					'value': [{lcode: lschema}]
+				}
+			}
+		});
+
 if len(warnings):
 	print ("\nWARNING: \n", "\n ".join(warnings));
 
 print("finished processing.")
 
 schema_view = write_schema(SCHEMA);
+# NIX this when locales are integral to main schema
 write_locales(locale_schemas);
 
 # Adjust menu.json to include or update entries for given schema's template(s)
