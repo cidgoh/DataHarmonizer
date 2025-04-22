@@ -760,11 +760,11 @@ if len(locale_schemas) > 0:
 			class_obj.pop('slots', None);
 			class_obj.pop('unique_keys', None);	
 			class_obj.pop('is_a', None);
-c
+
 		SCHEMA.update({
 			'extensions': {
-				'locale': {
-					'tag': 'locale',
+				'locales': {
+					'tag': 'locales',
 					'value': [{lcode: lschema}]
 				}
 			}
