@@ -458,13 +458,13 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 			# Each enumeration begins with a row that provides the name of the enum.
 			# subsequent rows may not have a name.
-			if row.get('name','') > '' or row.get('title','') > '':
+			if row.get('name','') > '': # or row.get('title','') > ''
 
 				# Process default language title
 				name = row.get('name');
 				title = row.get('title');
-				if not name: # For enumerations that don't have separate name field
-					name = title;
+				#if not name: # For enumerations that don't have separate name field
+				#	print("ERROR: enumeration:", title)
 				if not (name in enumerations):
 					enum = {
 						'name': name,
@@ -515,10 +515,12 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 						description = row.get('description','');
 						meaning = row.get('meaning','');
+						title = row.get('title','');
 
 						choice = {'text' : choice_text}
 						if description > '': choice['description'] = description;
 						if meaning > '': choice['meaning'] = meaning;
+						if title > '': choice['title'] = title;
 
 						# Export mappings can be established for any enumeration items too.
 						set_mappings(choice, row, export_format);
@@ -532,7 +534,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 						for lcode in locale_schemas.keys():
 							translation = row.get(menu_x + '_' + lcode, '');
-							if translation > '' and translation != choice['text']:
+							if translation > '': # and translation != choice['text'] - don't loose translation entries that happen to have same spelling.
 
 								local_choice = {'title': translation}
 								description = row.get(description + '_' + lcode, '');
@@ -752,14 +754,28 @@ set_enums(r_schema_enums, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
 if len(locale_schemas) > 0:
 	for lcode in locale_schemas.keys():
 		lschema = locale_schemas[lcode];
+		# These have no translation elements
 		lschema.pop('prefixes', None);
 		lschema.pop('imports', None);
 		lschema.pop('types', None);
 		lschema.pop('settings', None);
+
 		for class_name, class_obj in lschema['classes'].items():
-			class_obj.pop('slots', None);
-			class_obj.pop('unique_keys', None);	
-			class_obj.pop('is_a', None);
+			class_obj.pop('name', None); # not translatatble
+			class_obj.pop('slots', None); # no translations
+			class_obj.pop('unique_keys', None);	# no translations
+			class_obj.pop('is_a', None); # no translations
+
+			if 'slot_usage' in class_obj:
+				for slot_name, slot_usage in class_obj['slot_usage'].items():
+					slot_usage.pop('rank', None);
+
+		for name, slot_obj in lschema['slots'].items():
+			slot_obj.pop('name', None); # not translatatble
+
+		for name, enum_obj in lschema['enums'].items():
+			enum_obj.pop('name', None); # not translatatble
+			#enum_obj.pop('is_a', None);
 
 		SCHEMA.update({
 			'extensions': {
