@@ -86,7 +86,7 @@ li.nav-item.disabled {
   background-color: black;
   color: #fff;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   border-radius: 6px;
   /* Position the tooltip text - see examples below! */
   position: absolute;
@@ -142,4 +142,30 @@ record-hierarchy
     cursor: -webkit-grab;
     cursor: grab;
 }
+/*.modal.show */
+#translate-modal .modal-dialog {
+  width:95%; 
+  max-width: 100% !important;
+  margin:1rem !important;
+}
+#translate-modal table {
+  min-width: 50%;
+  margin-bottom:15px;
+}
+#translate-modal table th {
+  background-color:#EEE;
+  padding:5px;
+}
+#translate-modal table th.locale {
+  width:60px;
+}
 
+#translate-modal table tr td, table tr th {
+  vertical-align: top; 
+}
+tr.translation-input td textarea {
+  min-height:3lh;
+  max-height:10lh;
+  min-width:200px;
+  field-sizing: content;
+}
