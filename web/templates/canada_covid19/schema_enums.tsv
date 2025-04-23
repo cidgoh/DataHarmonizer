@@ -1,14 +1,14 @@
-title	name	title_fr	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	menu_1_fr	menu_2_fr	menu_3_fr	menu_4_fr	menu_5_fr	description	EXPORT_GISAID	EXPORT_CNPHI	EXPORT_NML_LIMS	EXPORT_BIOSAMPLE	EXPORT_VirusSeq_Portal
-																			
-umbrella bioproject accession menu	UmbrellaBioprojectAccessionMenu	Menu « Accès au bioprojet cadre »		PRJNA623807					PRJNA623807										
-																			
-null value menu	NullValueMenu	Menu « Valeur nulle »	GENEPIO:0001619	Not Applicable					Sans objet										
+name	title	title_fr	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	menu_1_fr	menu_2_fr	menu_3_fr	menu_4_fr	menu_5_fr	description	EXPORT_GISAID	EXPORT_CNPHI	EXPORT_NML_LIMS	EXPORT_BIOSAMPLE	EXPORT_VirusSeq_Portal
+UmbrellaBioprojectAccessionMenu	umbrella bioproject accession menu	Menu « Accès au bioprojet cadre »																	
+				PRJNA623807					PRJNA623807										
+NullValueMenu	null value menu	Menu « Valeur nulle »																	
+			GENEPIO:0001619	Not Applicable					Sans objet										
 			GENEPIO:0001618	Missing					Manquante										
 			GENEPIO:0001620	Not Collected					Non prélevée										
 			GENEPIO:0001668	Not Provided					Non fournie										
 			GENEPIO:0001810	Restricted Access					Accès restreint										
-																			
-geo_loc_name (state/province/territory) menu	GeoLocNameStateProvinceTerritoryMenu	Menu « nom_lieu_géo (état/province/territoire) »	GAZ:00002566	Alberta					Alberta										
+GeoLocNameStateProvinceTerritoryMenu	geo_loc_name (state/province/territory) menu	Menu « nom_lieu_géo (état/province/territoire) »																	
+			GAZ:00002566	Alberta					Alberta										
 			GAZ:00002562	British Columbia					Colombie-Britannique										
 			GAZ:00002571	Manitoba					Manitoba										
 			GAZ:00002570	New Brunswick					Nouveau-Brunswick										
@@ -22,24 +22,24 @@ geo_loc_name (state/province/territory) menu	GeoLocNameStateProvinceTerritoryMen
 			GAZ:00002564	Saskatchewan					Saskatchewan										
 			GAZ:00002576	Yukon					Yukon										
 																			
-																			
-host age unit menu	HostAgeUnitMenu	Menu « Groupe d’âge de l’hôte »	UO:0000035	month					Mois										
+HostAgeUnitMenu	host age unit menu	Menu « Groupe d’âge de l’hôte »																	
+			UO:0000035	month					Mois										
 			UO:0000036	year					Année										
 																			
-																			
-sample collection date precision menu	SampleCollectionDatePrecisionMenu	Menu « Précision de la date de prélèvement des échantillons »	UO:0000036	year					Année										
+SampleCollectionDatePrecisionMenu	sample collection date precision menu	Menu « Précision de la date de prélèvement des échantillons »																	
+			UO:0000036	year					Année										
 			UO:0000035	month					Mois										
 			UO:0000033	day					Jour										
 																			
-																			
-biomaterial extracted menu	BiomaterialExtractedMenu	Menu « Biomatériaux extraits »	OBI:0000895	RNA (total)					ARN (total)										
+BiomaterialExtractedMenu	biomaterial extracted menu	Menu « Biomatériaux extraits »																	
+			OBI:0000895	RNA (total)					ARN (total)										
 			OBI:0000869	RNA (poly-A)					ARN (poly-A)										
 			OBI:0002627	RNA (ribo-depleted)					ARN (déplétion ribosomique)										
 			GENEPIO:0100104	mRNA (messenger RNA)					ARNm (ARN messager)										
 			OBI:0002754	mRNA (cDNA)					ARNm (ADNc)										
 																			
-																			
-signs and symptoms menu	SignsAndSymptomsMenu	Menu « Signes et symptômes »	HP:0030829	Abnormal lung auscultation					Auscultation pulmonaire anormale										
+SignsAndSymptomsMenu	signs and symptoms menu	Menu « Signes et symptômes »																	
+			HP:0030829	Abnormal lung auscultation					Auscultation pulmonaire anormale										
 			HP:0000223	Abnormality of taste sensation					Anomalie de la sensation gustative										
 			HP:0041051		Ageusia (complete loss of taste)					Agueusie (perte totale du goût)									
 			HP:0031249		Parageusia (distorted sense of taste)					Paragueusie (distorsion du goût)									
@@ -127,24 +127,24 @@ signs and symptoms menu	SignsAndSymptomsMenu	Menu « Signes et symptômes »	H
 			HP:0002321	Vertigo (dizziness)					Vertige (étourdissement)										
 			HP:0002013	Vomiting (throwing up)					Vomissements										
 																			
-																			
-host vaccination status menu	HostVaccinationStatusMenu	Menu « Statut de vaccination de l’hôte »	GENEPIO:0100100	Fully Vaccinated					Entièrement vacciné										
+HostVaccinationStatusMenu	host vaccination status menu	Menu « Statut de vaccination de l’hôte »																	
+			GENEPIO:0100100	Fully Vaccinated					Entièrement vacciné										
 			GENEPIO:0100101	Partially Vaccinated					Partiellement vacciné										
 			GENEPIO:0100102	Not Vaccinated					Non vacciné										
 																			
-																			
-prior SARS-CoV-2 antiviral treatment menu	PriorSarsCov2AntiviralTreatmentMenu	Menu « Traitement antiviral contre une infection antérieure par le SRAS-CoV-2 »	GENEPIO:0100037	Prior antiviral treatment					Traitement antiviral antérieur										
+PriorSarsCov2AntiviralTreatmentMenu	prior SARS-CoV-2 antiviral treatment menu	Menu « Traitement antiviral contre une infection antérieure par le SRAS-CoV-2 »																	
+			GENEPIO:0100037	Prior antiviral treatment					Traitement antiviral antérieur										
 			GENEPIO:0100233	No prior antiviral treatment					Aucun traitement antiviral antérieur										
 																			
-																			
-NML submitted specimen type menu	NmlSubmittedSpecimenTypeMenu	Menu « Types d’échantillons soumis au LNM »	OBI:0002600	Swab 					Écouvillon										
+NmlSubmittedSpecimenTypeMenu	NML submitted specimen type menu	Menu « Types d’échantillons soumis au LNM »																	
+			OBI:0002600	Swab 					Écouvillon										
 			OBI:0000880	RNA					ARN										
 			OBI:0002754	mRNA (cDNA)					ARNm (ADNc)										
 			OBI:0001010	Nucleic acid					Acide nucléique										
 			GENEPIO:0001619	Not Applicable					Sans objet										
 																			
-																			
-Related specimen relationship type menu	RelatedSpecimenRelationshipTypeMenu	Menu « Types de relations entre spécimens associés »	HP:0011009	Acute					Infection aiguë										
+RelatedSpecimenRelationshipTypeMenu	Related specimen relationship type menu	Menu « Types de relations entre spécimens associés »																	
+			HP:0011009	Acute					Infection aiguë										
 			GENEPIO:0101016	Chronic (prolonged) infection investigation					Enquête sur l’infection chronique (prolongée)										
 				Convalescent					Phase de convalescence										
 				Familial					Forme familiale										
@@ -154,8 +154,8 @@ Related specimen relationship type menu	RelatedSpecimenRelationshipTypeMenu	Menu
 				Sequencing/bioinformatics methods development/validation 					Développement et validation de méthodes bioinformatiques ou de séquençage										
 				Specimen sampling methods testing					Essai des méthodes de prélèvement des échantillons										
 																			
-																			
-pre-existing conditions and risk factors menu	PreExistingConditionsAndRiskFactorsMenu	Menu « Conditions préexistantes et des facteurs de risque »	VO:0004925	Age 60+					60 ans et plus										
+PreExistingConditionsAndRiskFactorsMenu	pre-existing conditions and risk factors menu	Menu « Conditions préexistantes et des facteurs de risque »																	
+			VO:0004925	Age 60+					60 ans et plus										
 			HP:0001903	Anemia					Anémie										
 			HP:0002039	Anorexia					Anorexie										
 			NCIT:C92743	Birthing labor					Travail ou accouchement										
@@ -246,17 +246,17 @@ pre-existing conditions and risk factors menu	PreExistingConditionsAndRiskFactor
 			NCIT:C157332		Kidney transplant					Greffe de rein									
 			GENEPIO:0100081		Liver transplant					Greffe de foie									
 																			
-																			
-variant designation menu	VariantDesignationMenu	Menu « Désignation des variants »	GENEPIO:0100082	Variant of Concern (VOC)					Variant préoccupant										
+VariantDesignationMenu	variant designation menu	Menu « Désignation des variants »																	
+			GENEPIO:0100082	Variant of Concern (VOC)					Variant préoccupant										
 			GENEPIO:0100083	Variant of Interest (VOI)					Variant d’intérêt										
 			GENEPIO:0100279	Variant Under Monitoring (VUM)					Variante sous surveillance										
 																			
-																			
-variant evidence menu	VariantEvidenceMenu	Menu « Preuves de variants »	CIDO:0000019	RT-qPCR					RT-qPCR										
+VariantEvidenceMenu	variant evidence menu	Menu « Preuves de variants »																	
+			CIDO:0000019	RT-qPCR					RT-qPCR										
 			CIDO:0000027	Sequencing					Séquençage										
 																			
-																			
-complications menu	ComplicationsMenu	Menu « Complications »	HP:0500165	Abnormal blood oxygen level					Taux anormal d’oxygène dans le sang 										
+ComplicationsMenu	complications menu	Menu « Complications »																	
+			HP:0500165	Abnormal blood oxygen level					Taux anormal d’oxygène dans le sang 										
 			HP:0001919	Acute kidney injury					Lésions rénales aiguës										
 			MONDO:0015796	Acute lung injury					Lésions pulmonaires aiguës										
 			GENEPIO:0100092		Ventilation induced lung injury (VILI)					Lésions pulmonaires causées par la ventilation									
@@ -336,15 +336,15 @@ complications menu	ComplicationsMenu	Menu « Complications »	HP:0500165	Abnor
 			NCIT:C35018		Septic shock					Choc septique									
 			HP:0002633	Vasculitis					Vascularite										
 																			
-																			
-vaccine name menu	VaccineNameMenu	Menu « Noms de vaccins »	GENEPIO:0100308	Astrazeneca (Vaxzevria)					AstraZeneca (Vaxzevria)										
+VaccineNameMenu	vaccine name menu	Menu « Noms de vaccins »																	
+			GENEPIO:0100308	Astrazeneca (Vaxzevria)					AstraZeneca (Vaxzevria)										
 			GENEPIO:0100307	Johnson & Johnson (Janssen)					Johnson & Johnson (Janssen)										
 			GENEPIO:0100304	Moderna (Spikevax)					Moderna (Spikevax)										
 			GENEPIO:0100305	Pfizer-BioNTech (Comirnaty)					Pfizer-BioNTech (Comirnaty)										
 			GENEPIO:0100306	Pfizer-BioNTech (Comirnaty Pediatric)					Pfizer-BioNTech (Comirnaty, formule pédiatrique)										
 																			
-																			
-anatomical material menu	AnatomicalMaterialMenu	Menu « Matières anatomiques »	UBERON:0000178	Blood					Sang										
+AnatomicalMaterialMenu	anatomical material menu	Menu « Matières anatomiques »																	
+			UBERON:0000178	Blood					Sang										
 			UBERON:0006314	Fluid					Liquide										
 			UBERON:0001836		Saliva					Salive									
 			UBERON:0001359		Fluid (cerebrospinal (CSF))					Liquide (céphalorachidien)									
@@ -354,8 +354,8 @@ anatomical material menu	AnatomicalMaterialMenu	Menu « Matières anatomiques 
 			UBERON:0000173		Fluid (amniotic)					Liquide (amniotique)									
 			UBERON:0000479	Tissue					Tissu										
 																			
-																			
-anatomical part menu	AnatomicalPartMenu	Menu « Parties anatomiques »	UBERON:0001245	Anus					Anus										
+AnatomicalPartMenu	anatomical part menu	Menu « Parties anatomiques »																	
+			UBERON:0001245	Anus					Anus										
 			UBERON:0006956	Buccal mucosa					Muqueuse buccale										
 			UBERON:0002114	Duodenum					Duodénum										
 			UBERON:0000970	Eye					Œil										
@@ -382,8 +382,8 @@ anatomical part menu	AnatomicalPartMenu	Menu « Parties anatomiques »	UBERON:
 			UBERON:0001729		Oropharynx (OP)					Oropharynx									
 			UBERON:0000341		Pharynx (throat)					Pharynx (gorge)									
 																			
-																			
-body product menu	BodyProductMenu	Menu « Produit corporel »	UBERON:0001913	Breast Milk					Lait maternel										
+BodyProductMenu	body product menu	Menu « Produit corporel »																	
+			UBERON:0001913	Breast Milk					Lait maternel										
 			UBERON:0001988	Feces					Selles										
 			UBERON:0006530	Fluid (seminal)					Sperme										
 			UBERON:0000912	Mucus					Mucus										
@@ -392,12 +392,12 @@ body product menu	BodyProductMenu	Menu « Produit corporel »	UBERON:0001913	B
 			UBERON:0001827	Tear					Larme										
 			UBERON:0001088	Urine					Urine										
 																			
-																			
-prior SARS-CoV-2 infection menu	PriorSarsCov2InfectionMenu	Menu « Infection antérieure par le SRAS-CoV-2 »	GENEPIO:0100037	Prior infection					Infection antérieure										
+PriorSarsCov2InfectionMenu	prior SARS-CoV-2 infection menu	Menu « Infection antérieure par le SRAS-CoV-2 »																	
+			GENEPIO:0100037	Prior infection					Infection antérieure										
 			GENEPIO:0100233	No prior infection					Aucune infection antérieure										
 																			
-																			
-environmental material menu	EnvironmentalMaterialMenu	Menu « Matériel environnemental »	ENVO:03501208	Air vent					Évent d’aération										
+EnvironmentalMaterialMenu	environmental material menu	Menu « Matériel environnemental »																	
+			ENVO:03501208	Air vent					Évent d’aération										
 			ENVO:00003896	Banknote					Billet de banque										
 			ENVO:03501209	Bed rail					Côté de lit										
 			ENVO:01000486	Building floor					Plancher du bâtiment										
@@ -431,8 +431,8 @@ environmental material menu	EnvironmentalMaterialMenu	Menu « Matériel environ
 			ENVO:03501219	Window					Fenêtre										
 			ENVO:00002040	Wood					Bois										
 																			
-																			
-environmental site menu	EnvironmentalSiteMenu	Menu « Site environnemental »	ENVO:03501135	Acute care facility					Établissement de soins de courte durée										
+EnvironmentalSiteMenu	environmental site menu	Menu « Site environnemental »																	
+			ENVO:03501135	Acute care facility					Établissement de soins de courte durée										
 			ENVO:00003040	Animal house					Refuge pour animaux										
 			ENVO:01000422	Bathroom					Salle de bain										
 			ENVO:03501136	Clinical assessment centre					Centre d’évaluation clinique										
@@ -455,8 +455,8 @@ environmental site menu	EnvironmentalSiteMenu	Menu « Site environnemental »	
 			ENVO:00000467	University campus					Campus de l’université										
 			ENVO:03501198	Wet market					Marché traditionnel de produits frais										
 																			
-																			
-collection method menu	CollectionMethodMenu	Menu « Méthode de prélèvement »	NCIT:C52009	Amniocentesis					Amniocentèse										
+CollectionMethodMenu	collection method menu	Menu « Méthode de prélèvement »																	
+			NCIT:C52009	Amniocentesis					Amniocentèse										
 			NCIT:C15631	Aspiration					Aspiration										
 			GENEPIO:0100028		Suprapubic Aspiration					Aspiration sus-pubienne									
 			GENEPIO:0100029		Tracheal aspiration					Aspiration trachéale									
@@ -478,8 +478,8 @@ collection method menu	CollectionMethodMenu	Menu « Méthode de prélèvement 
 			GENEPIO:0100036	Finger Prick					Piqûre du doigt										
 			GENEPIO:0100038	Washout Tear Collection					Lavage – Collecte de larmes										
 																			
-																			
-collection device menu	CollectionDeviceMenu	Menu « Dispositif de prélèvement »	ENVO:00003968	Air filter					Filtre à air										
+CollectionDeviceMenu	collection device menu	Menu « Dispositif de prélèvement »																	
+			ENVO:00003968	Air filter					Filtre à air										
 			OBI:0002859	Blood Collection Tube					Tube de prélèvement sanguin										
 			OBI:0002826	Bronchoscope					Bronchoscope										
 			OBI:0002088	Collection Container					Récipient à échantillons										
@@ -497,8 +497,8 @@ collection device menu	CollectionDeviceMenu	Menu « Dispositif de prélèvement
 			OBI:0002862	Urine Collection Tube					Tube de prélèvement d’urine										
 			OBI:0002866	Virus Transport Medium					Milieu de transport viral										
 																			
-																			
-host (scientific name) menu	HostScientificNameMenu	Menu « Hôte (nom scientifique) »	NCBITaxon:9606	Homo sapiens					Homo sapiens										
+HostScientificNameMenu	host (scientific name) menu	Menu « Hôte (nom scientifique) »																	
+			NCBITaxon:9606	Homo sapiens					Homo sapiens										
 			NCBITaxon:9913	Bos taurus					Bos taureau										
 			NCBITaxon:9615	Canis lupus familiaris					Canis lupus familiaris										
 			NCBITaxon:9397	Chiroptera					Chiroptères										
@@ -514,8 +514,8 @@ host (scientific name) menu	HostScientificNameMenu	Menu « Hôte (nom scientifi
 			NCBITaxon:59477	Rhinolophus affinis					Rhinolophus affinis										
 			NCBITaxon:9825	Sus scrofa domesticus					Sus scrofa domesticus										
 			NCBITaxon:9673	Viverridae					Viverridés										
-																			
-host (common name) menu	HostCommonNameMenu	Menu « Hôte (nom commun) »	NCBITaxon:9606	Human					Humain										
+HostCommonNameMenu	host (common name) menu	Menu « Hôte (nom commun) »																	
+			NCBITaxon:9606	Human					Humain										
 			NCBITaxon:9397	Bat					Chauve-souris										
 			NCBITaxon:9685	Cat					Chat										
 			NCBITaxon:9031	Chicken					Poulet										
@@ -529,15 +529,15 @@ host (common name) menu	HostCommonNameMenu	Menu « Hôte (nom commun) »	NCBIT
 			NCBITaxon:8930	Pigeon					Pigeon										
 			NCBITaxon:9694	Tiger					Tigre										
 																			
-																			
-host health state menu	HostHealthStateMenu	Menu « État de santé de l’hôte »	NCIT:C3833	Asymptomatic					Asymptomatique										
+HostHealthStateMenu	host health state menu	Menu « État de santé de l’hôte »																	
+			NCIT:C3833	Asymptomatic					Asymptomatique										
 			NCIT:C28554	Deceased					Décédé										
 			NCIT:C115935	Healthy					En santé										
 			NCIT:C49498	Recovered					Rétabli										
 			NCIT:C25269	Symptomatic					Symptomatique										
 																			
-																			
-host health status details menu	HostHealthStatusDetailsMenu	Menu « Détails de l’état de santé de l’hôte »	NCIT:C25179	Hospitalized					Hospitalisé										
+HostHealthStatusDetailsMenu	host health status details menu	Menu « Détails de l’état de santé de l’hôte »																	
+			NCIT:C25179	Hospitalized					Hospitalisé										
 			GENEPIO:0100045		Hospitalized (Non-ICU)					Hospitalisé (hors USI)									
 			GENEPIO:0100046		Hospitalized (ICU)					Hospitalisé (USI)									
 			NCIT:C70909	Mechanical Ventilation					Ventilation artificielle										
@@ -545,25 +545,25 @@ host health status details menu	HostHealthStatusDetailsMenu	Menu « Détails de
 			GENEPIO:0100048		Medically Isolated (Negative Pressure)					Isolement médical (pression négative)									
 			NCIT:C173768	Self-quarantining					Quarantaine volontaire										
 																			
-																			
-host health outcome menu	HostHealthOutcomeMenu	Menu « Résultats sanitaires de l’hôte »	NCIT:C28554	Deceased					Décédé										
+HostHealthOutcomeMenu	host health outcome menu	Menu « Résultats sanitaires de l’hôte »																	
+			NCIT:C28554	Deceased					Décédé										
 			NCIT:C25254	Deteriorating					Détérioration										
 			NCIT:C49498	Recovered					Rétabli										
 			NCIT:C30103	Stable					Stabilisation										
 																			
-																			
-organism menu	OrganismMenu	Menu « Organisme »	NCBITaxon:2697049	Severe acute respiratory syndrome coronavirus 2					Coronavirus du syndrome respiratoire aigu sévère 2										
+OrganismMenu	organism menu	Menu « Organisme »																	
+			NCBITaxon:2697049	Severe acute respiratory syndrome coronavirus 2					Coronavirus du syndrome respiratoire aigu sévère 2										
 			NCBITaxon:2709072	RaTG13					RaTG13										
 			GENEPIO:0100000	RmYN02					RmYN02										
 																			
-																			
-purpose of sampling menu	PurposeOfSamplingMenu	Menu « Objectif de l’échantillonnage »	GENEPIO:0100001	Cluster/Outbreak investigation					Enquête sur les grappes et les éclosions										
+PurposeOfSamplingMenu	purpose of sampling menu	Menu « Objectif de l’échantillonnage »																	
+			GENEPIO:0100001	Cluster/Outbreak investigation					Enquête sur les grappes et les éclosions										
 			GENEPIO:0100002	Diagnostic testing					Tests de diagnostic										
 			GENEPIO:0100003	Research					Recherche										
 			GENEPIO:0100004	Surveillance 					Surveillance										
 																			
-																			
-purpose of sequencing menu	PurposeOfSequencingMenu	Menu « Objectif du séquençage »	GENEPIO:0100005	Baseline surveillance (random sampling)					Surveillance de base (échantillonnage aléatoire)										
+PurposeOfSequencingMenu	purpose of sequencing menu	Menu « Objectif du séquençage »																	
+			GENEPIO:0100005	Baseline surveillance (random sampling)					Surveillance de base (échantillonnage aléatoire)										
 			GENEPIO:0100006	Targeted surveillance (non-random sampling)					Surveillance ciblée (échantillonnage non aléatoire)										
 			GENEPIO:0100007		Priority surveillance project					Projet de surveillance prioritaire									
 			GENEPIO:0100008			Screening for Variants of Concern (VoC)					Dépistage des variants préoccupants								
@@ -590,13 +590,13 @@ purpose of sequencing menu	PurposeOfSequencingMenu	Menu « Objectif du séquen�
 			GENEPIO:0100024		Protocol testing experiment					Expérience du test de protocole									
 			GENEPIO:0100356	Retrospective sequencing					Séquençage rétrospectif										
 																			
-																			
-specimen processing menu	SpecimenProcessingMenu	Menu « Traitement des échantillons »	GENEPIO:0100039	Virus passage					Transmission du virus										
+SpecimenProcessingMenu	specimen processing menu	Menu « Traitement des échantillons »																	
+			GENEPIO:0100039	Virus passage					Transmission du virus										
 			GENEPIO:0100040	RNA re-extraction (post RT-PCR)					Rétablissement de l’extraction de l’ARN (après RT-PCR)										
 			OBI:0600016	Specimens pooled					Échantillons regroupés										
 																			
-																			
-lab host menu	LabHostMenu	Menu « Laboratoire hôte »	GENEPIO:0100041	293/ACE2 cell line					Lignée cellulaire 293/ACE2										
+LabHostMenu	lab host menu	Menu « Laboratoire hôte »																	
+			GENEPIO:0100041	293/ACE2 cell line					Lignée cellulaire 293/ACE2										
 			BTO:0000195	Caco2 cell line					Lignée cellulaire Caco2										
 			BTO:0002750	Calu3 cell line					Lignée cellulaire Calu3										
 			GENEPIO:0100042	EFK3B cell line					Lignée cellulaire EFK3B										
@@ -613,11 +613,11 @@ lab host menu	LabHostMenu	Menu « Laboratoire hôte »	GENEPIO:0100041	293/ACE
 			BTO:0004755		Vero E6 cell line					Lignée cellulaire Vero E6									
 			GENEPIO:0100044			VeroE6/TMPRSS2 cell line					Lignée cellulaire VeroE6/TMPRSS2								
 																			
+HostDiseaseMenu	host disease menu	Menu « Maladie de l’hôte »																	
+			MONDO:0100096	COVID-19					COVID-19										
 																			
-host disease menu	HostDiseaseMenu	Menu « Maladie de l’hôte »	MONDO:0100096	COVID-19					COVID-19										
-																			
-																			
-host age bin menu	HostAgeBinMenu	Menu « Groupe d’âge de l’hôte »	GENEPIO:0100049	0 - 9					0 - 9										
+HostAgeBinMenu	host age bin menu	Menu « Groupe d’âge de l’hôte »																	
+			GENEPIO:0100049	0 - 9					0 - 9										
 			GENEPIO:0100050	10 - 19					10 - 19										
 			GENEPIO:0100051	20 - 29					20 - 29										
 			GENEPIO:0100052	30 - 39					30 - 39										
@@ -629,16 +629,16 @@ host age bin menu	HostAgeBinMenu	Menu « Groupe d’âge de l’hôte »	GENEP
 			GENEPIO:0100058	90 - 99					90 - 99										90+
 			GENEPIO:0100059	100+					100+										90+
 																			
-																			
-host gender menu	HostGenderMenu	Menu « Genre de l’hôte »	NCIT:C46110	Female					Femme										
+HostGenderMenu	host gender menu	Menu « Genre de l’hôte »																	
+			NCIT:C46110	Female					Femme										
 			NCIT:C46109	Male					Homme										
 			GSSO:000132	Non-binary gender					Non binaire										
 			GSSO:004004	Transgender (assigned male at birth)					Transgenre (sexe masculin à la naissance)										
 			GSSO:004005	Transgender (assigned female at birth)					Transgenre (sexe féminin à la naissance)										
 			NCIT:C110959	Undeclared					Non déclaré										
 																			
-																			
-exposure event menu	ExposureEventMenu	Menu « Événement d’exposition »	GENEPIO:0100237	Mass Gathering					Rassemblement de masse										
+ExposureEventMenu	exposure event menu	Menu « Événement d’exposition »																	
+			GENEPIO:0100237	Mass Gathering					Rassemblement de masse										
 			GENEPIO:0100240		Agricultural Event					Événement agricole									
 			GENEPIO:0100238		Convention					Convention									
 			GENEPIO:0100239		Convocation					Convocation									
@@ -658,15 +658,15 @@ exposure event menu	ExposureEventMenu	Menu « Événement d’exposition »	GE
 			PCO:0000038		Wedding					Mariage									
 				Other exposure event					Autre événement d’exposition										
 																			
-																			
-exposure contact level menu	ExposureContactLevelMenu	Menu « Niveau de contact de l’exposition »	GENEPIO:0100357	Contact with infected individual					Contact avec une personne infectée										
+ExposureContactLevelMenu	exposure contact level menu	Menu « Niveau de contact de l’exposition »																	
+			GENEPIO:0100357	Contact with infected individual					Contact avec une personne infectée										
 			TRANS:0000001		Direct contact (direct human-to-human contact)					Contact direct (contact interhumain)									
 			GENEPIO:0100246		Indirect contact					Contact indirect									
 			GENEPIO:0100247			Close contact (face-to-face, no direct contact) 					Contact étroit (contact personnel, aucun contact étroit)								
 			GENEPIO:0100248			Casual contact					Contact occasionnel								
 																			
-																			
-host role menu	HostRoleMenu	Menu « Rôle de l’hôte »	GENEPIO:0100249	Attendee					Participant										
+HostRoleMenu	host role menu	Menu « Rôle de l’hôte »																	
+			GENEPIO:0100249	Attendee					Participant										
 			OMRSE:00000058		Student					Étudiant									
 			OMRSE:00000030	Patient					Patient										
 			NCIT:C25182		Inpatient					Patient hospitalisé									
@@ -708,8 +708,8 @@ host role menu	HostRoleMenu	Menu « Rôle de l’hôte »	GENEPIO:0100249	Atte
 			GENEPIO:0100272		Spouse of case					Conjoint du cas									
 				Other Host Role					Autre rôle de l’hôte										
 																			
-																			
-exposure setting menu	ExposureSettingMenu	Menu « Contexte de l’exposition »	ECTO:3000005	Human Exposure					Exposition humaine										
+ExposureSettingMenu	exposure setting menu	Menu « Contexte de l’exposition »																	
+			ECTO:3000005	Human Exposure					Exposition humaine										
 			GENEPIO:0100184		Contact with Known COVID-19 Case					Contact avec un cas connu de COVID-19									
 			GENEPIO:0100185		Contact with Patient					Contact avec un patient									
 			GENEPIO:0100186		Contact with Probable COVID-19 Case					Contact avec un cas probable de COVID-19									
@@ -773,24 +773,24 @@ exposure setting menu	ExposureSettingMenu	Menu « Contexte de l’exposition �
 			GENEPIO:0001119		Travelled outside Canada					Voyage en dehors du Canada									
 			GENEPIO:0100235	Other Exposure Setting					Autres contextes d’exposition										
 																			
-																			
-travel point of entry type menu	TravelPointOfEntryTypeMenu	Menu «  Type de point d’entrée du voyage »	GENEPIO:0100408	Air					Voie aérienne										
+TravelPointOfEntryTypeMenu	travel point of entry type menu	Menu «  Type de point d’entrée du voyage »																	
+			GENEPIO:0100408	Air					Voie aérienne										
 			GENEPIO:0100409	Land					Voie terrestre										
 																			
-																			
-border testing test day type menu	BorderTestingTestDayTypeMenu	Menu « Jour du dépistage à la frontière »	GENEPIO:0100410	day 1					Jour 1										
+BorderTestingTestDayTypeMenu	border testing test day type menu	Menu « Jour du dépistage à la frontière »																	
+			GENEPIO:0100410	day 1					Jour 1										
 			GENEPIO:0100411	day 8					Jour 8										
 			GENEPIO:0100412	day 10					Jour 10										
 																			
-																			
-travel history availability menu	TravelHistoryAvailabilityMenu	Menu « Disponibilité des antécédents de voyage »	GENEPIO:0100650	Travel history available					Antécédents de voyage disponibles										
+TravelHistoryAvailabilityMenu	travel history availability menu	Menu « Disponibilité des antécédents de voyage »																	
+			GENEPIO:0100650	Travel history available					Antécédents de voyage disponibles										
 			GENEPIO:0100651		Domestic travel history available					Antécédents des voyages intérieurs disponibles									
 			GENEPIO:0100652		International travel history available					Antécédents des voyages internationaux disponibles									
 			GENEPIO:0100653		International and domestic travel history available					Antécédents des voyages intérieurs et internationaux disponibles									
 			GENEPIO:0100654	No travel history available					Aucun antécédent de voyage disponible										
 																			
-																			
-sequencing instrument menu	SequencingInstrumentMenu	Menu « Instrument de séquençage »	GENEPIO:0100105	Illumina					Illumina										
+SequencingInstrumentMenu	sequencing instrument menu	Menu « Instrument de séquençage »																	
+			GENEPIO:0100105	Illumina					Illumina										
 			GENEPIO:0100106		Illumina Genome Analyzer					Analyseur de génome Illumina									
 			GENEPIO:0100107			Illumina Genome Analyzer II					Analyseur de génome Illumina II								
 			GENEPIO:0100108			Illumina Genome Analyzer IIx					Analyseur de génome Illumina IIx								
@@ -837,8 +837,8 @@ sequencing instrument menu	SequencingInstrumentMenu	Menu « Instrument de séqu
 			GENEPIO:0100149		MGI DNBSEQ-G400 FAST					MGI DNBSEQ-G400 FAST									
 			GENEPIO:0100150		MGI DNBSEQ-G50					MGI DNBSEQ-G50									
 																			
-																			
-gene name menu	GeneNameMenu	Menu « Nom du gène »	GENEPIO:0100151	E gene (orf4)					Gène E (orf4)							E gene		E (orf4)	
+GeneNameMenu	gene name menu	Menu « Nom du gène »																	
+			GENEPIO:0100151	E gene (orf4)					Gène E (orf4)							E gene		E (orf4)	
 			GENEPIO:0100152	M gene (orf5)					Gène M (orf5)									M (orf5)	
 			GENEPIO:0100153	N gene (orf9)					Gène N (orf9)									N (orf9)	
 			GENEPIO:0100154	Spike gene (orf2)					Gène de pointe (orf2)									S (orf2)	
@@ -872,8 +872,8 @@ gene name menu	GeneNameMenu	Menu « Nom du gène »	GENEPIO:0100151	E gene (or
 			GENEPIO:0100182	orf14					orf14									orf14	
 			GENEPIO:0100183	SARS-COV-2 5' UTR					SRAS-COV-2 5' UTR										
 																			
-																			
-sequence submitted by menu	SequenceSubmittedByMenu	Menu « Séquence soumise par »		Alberta Precision Labs (APL)					Alberta Precision Labs (APL)										
+SequenceSubmittedByMenu	sequence submitted by menu	Menu « Séquence soumise par »																	
+				Alberta Precision Labs (APL)					Alberta Precision Labs (APL)										
 					Alberta ProvLab North (APLN)					Alberta ProvLab North (APLN)									
 					Alberta ProvLab South (APLS)					Alberta ProvLab South (APLS)									
 				BCCDC Public Health Laboratory					Laboratoire de santé publique du CCMCB										
@@ -902,8 +902,8 @@ sequence submitted by menu	SequenceSubmittedByMenu	Menu « Séquence soumise pa
 				Thunder Bay Regional Health Sciences Centre					"Centre régional des sciences
 de la santé de Thunder Bay"										
 																			
-																			
-sample collected by menu	SampleCollectedByMenu	Menu « Échantillon prélevé par »		Alberta Precision Labs (APL)					Alberta Precision Labs (APL)										
+SampleCollectedByMenu	sample collected by menu	Menu « Échantillon prélevé par »																	
+				Alberta Precision Labs (APL)					Alberta Precision Labs (APL)										
 					Alberta ProvLab North (APLN)					Alberta ProvLab North (APLN)									
 					Alberta ProvLab South (APLS)					Alberta ProvLab South (APLS)									
 				BCCDC Public Health Laboratory					Laboratoire de santé publique du CCMCB										
@@ -940,8 +940,8 @@ sample collected by menu	SampleCollectedByMenu	Menu « Échantillon prélevé p
 				Unity Health Toronto					Unity Health Toronto										
 				William Osler Health System					William Osler Health System										
 																			
-																			
-geo_loc_name (country) menu	GeoLocNameCountryMenu	Menu « nom_lieu_géo (pays) »	GAZ:00006882	Afghanistan					Afghanistan										
+GeoLocNameCountryMenu	geo_loc_name (country) menu	Menu « nom_lieu_géo (pays) »																	
+			GAZ:00006882	Afghanistan					Afghanistan										
 			GAZ:00002953	Albania					Albanie										
 			GAZ:00000563	Algeria					Algérie										
 			GAZ:00003957	American Samoa					Samoa américaines										
