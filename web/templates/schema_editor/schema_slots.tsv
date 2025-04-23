@@ -90,8 +90,8 @@ Enum	key		schema_id	Schema	Schema				TRUE						The coding name of the schema thi
 																	
 PermissibleValue	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this menu choice's menu (enumeration) is contained in.		
 	key		enum_id	Enum	Enum				TRUE						The coding name of the menu (enumeration) that this choice is contained in.		
-	key		name	Name	WhitespaceMinimizedString				TRUE						The coding name of this menu choice (PermissibleValue).		
+	key		text	Code	WhitespaceMinimizedString				TRUE						The coding name of this menu choice (PermissibleValue).		
 	attributes		is_a	Parent	WhitespaceMinimizedString										The parent term name (in an enumeration) of this term, if any.		
-	attributes		text	Text	WhitespaceMinimizedString										The plain language text of this menu choice (PermissibleValue) to display.		
+	attributes		title	title	WhitespaceMinimizedString										The plain language title of this menu choice (PermissibleValue) to display.		
 	attributes		description	Description	string										A plan text description of the meaning of this menu choice.		
 	attributes		meaning	Meaning	uri										A URI for identifying this choice's semantic type.		

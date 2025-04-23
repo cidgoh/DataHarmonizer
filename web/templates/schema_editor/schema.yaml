@@ -141,6 +141,8 @@ classes:
         rank: 3
         slot_group: attributes
         description: The plain language name of a LinkML schema class.
+        title: Title
+        required: true
       description:
         rank: 4
         slot_group: attributes
@@ -283,6 +285,8 @@ classes:
         description: The plain language name of this LinkML schema slot.
         comments:
         - This can be displayed in applications and documentation.
+        title: Title
+        required: true
       range:
         rank: 6
         slot_group: attributes
@@ -436,6 +440,8 @@ classes:
         description: The plain language name of this LinkML schema slot.
         comments:
         - This can be displayed in applications and documentation.
+        title: Title
+        required: true
       range:
         rank: 8
         slot_group: attributes
@@ -543,6 +549,8 @@ classes:
         rank: 3
         slot_group: attributes
         description: The plain language name of this enumeration menu.
+        title: Title
+        required: true
       description:
         rank: 4
         slot_group: attributes
@@ -563,13 +571,13 @@ classes:
         unique_key_slots:
         - schema_id
         - enum_id
-        - name
+        - text
     slots:
     - schema_id
     - enum_id
-    - name
-    - is_a
     - text
+    - is_a
+    - title
     - description
     - meaning
     slot_usage:
@@ -587,16 +595,18 @@ classes:
         range: Enum
         description: The coding name of the menu (enumeration) that this choice is
           contained in.
-      name:
+      text:
         rank: 3
         slot_group: key
-        description: The coding name of this menu choice (PermissibleValue).
       is_a:
         rank: 4
         slot_group: attributes
-      text:
+      title:
         rank: 5
         slot_group: attributes
+        title: title
+        description: The plain language title of this menu choice (PermissibleValue)
+          to display.
       description:
         rank: 6
         slot_group: attributes
@@ -725,8 +735,6 @@ slots:
     range: uri
   title:
     name: title
-    title: Title
-    required: true
     range: WhitespaceMinimizedString
   class_uri:
     name: class_uri
@@ -871,16 +879,16 @@ slots:
     title: Enum URI
     description: A URI for identifying this enumeration's semantic type.
     range: uri
+  text:
+    name: text
+    title: Code
+    description: The coding name of this menu choice (PermissibleValue).
+    required: true
+    range: WhitespaceMinimizedString
   is_a:
     name: is_a
     title: Parent
     description: The parent term name (in an enumeration) of this term, if any.
-    range: WhitespaceMinimizedString
-  text:
-    name: text
-    title: Text
-    description: The plain language text of this menu choice (PermissibleValue) to
-      display.
     range: WhitespaceMinimizedString
   meaning:
     name: meaning

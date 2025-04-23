@@ -416,8 +416,7 @@
         "Class",
         "UniqueKey",
         "Slot",
-        "Enum",
-        "PermissibleValue"
+        "Enum"
       ],
       "range": "WhitespaceMinimizedString",
       "required": true
@@ -519,16 +518,15 @@
     },
     "title": {
       "name": "title",
-      "title": "Title",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Class",
         "Slot",
         "SlotUsage",
-        "Enum"
+        "Enum",
+        "PermissibleValue"
       ],
-      "range": "WhitespaceMinimizedString",
-      "required": true
+      "range": "WhitespaceMinimizedString"
     },
     "class_uri": {
       "name": "class_uri",
@@ -821,20 +819,21 @@
       ],
       "range": "uri"
     },
-    "is_a": {
-      "name": "is_a",
-      "description": "The parent term name (in an enumeration) of this term, if any.",
-      "title": "Parent",
+    "text": {
+      "name": "text",
+      "description": "The coding name of this menu choice (PermissibleValue).",
+      "title": "Code",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "PermissibleValue"
       ],
-      "range": "WhitespaceMinimizedString"
+      "range": "WhitespaceMinimizedString",
+      "required": true
     },
-    "text": {
-      "name": "text",
-      "description": "The plain language text of this menu choice (PermissibleValue) to display.",
-      "title": "Text",
+    "is_a": {
+      "name": "is_a",
+      "description": "The parent term name (in an enumeration) of this term, if any.",
+      "title": "Parent",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "PermissibleValue"
@@ -938,8 +937,7 @@
             "Class",
             "UniqueKey",
             "Slot",
-            "Enum",
-            "PermissibleValue"
+            "Enum"
           ],
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
@@ -1190,8 +1188,10 @@
         "title": {
           "name": "title",
           "description": "The plain language name of a LinkML schema class.",
+          "title": "Title",
           "rank": 3,
-          "slot_group": "attributes"
+          "slot_group": "attributes",
+          "required": true
         },
         "description": {
           "name": "description",
@@ -1270,8 +1270,7 @@
             "Class",
             "UniqueKey",
             "Slot",
-            "Enum",
-            "PermissibleValue"
+            "Enum"
           ],
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
@@ -1290,7 +1289,8 @@
             "Class",
             "Slot",
             "SlotUsage",
-            "Enum"
+            "Enum",
+            "PermissibleValue"
           ],
           "slot_group": "attributes",
           "range": "WhitespaceMinimizedString",
@@ -1488,8 +1488,7 @@
             "Class",
             "UniqueKey",
             "Slot",
-            "Enum",
-            "PermissibleValue"
+            "Enum"
           ],
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
@@ -1603,11 +1602,13 @@
         "title": {
           "name": "title",
           "description": "The plain language name of this LinkML schema slot.",
+          "title": "Title",
           "comments": [
             "This can be displayed in applications and documentation."
           ],
           "rank": 5,
-          "slot_group": "attributes"
+          "slot_group": "attributes",
+          "required": true
         },
         "range": {
           "name": "range",
@@ -1772,8 +1773,7 @@
             "Class",
             "UniqueKey",
             "Slot",
-            "Enum",
-            "PermissibleValue"
+            "Enum"
           ],
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
@@ -1825,7 +1825,8 @@
             "Class",
             "Slot",
             "SlotUsage",
-            "Enum"
+            "Enum",
+            "PermissibleValue"
           ],
           "slot_group": "attributes",
           "range": "WhitespaceMinimizedString",
@@ -2223,11 +2224,13 @@
         "title": {
           "name": "title",
           "description": "The plain language name of this LinkML schema slot.",
+          "title": "Title",
           "comments": [
             "This can be displayed in applications and documentation."
           ],
           "rank": 7,
-          "slot_group": "attributes"
+          "slot_group": "attributes",
+          "required": true
         },
         "range": {
           "name": "range",
@@ -2471,7 +2474,8 @@
             "Class",
             "Slot",
             "SlotUsage",
-            "Enum"
+            "Enum",
+            "PermissibleValue"
           ],
           "slot_group": "attributes",
           "range": "WhitespaceMinimizedString",
@@ -2846,8 +2850,10 @@
         "title": {
           "name": "title",
           "description": "The plain language name of this enumeration menu.",
+          "title": "Title",
           "rank": 3,
-          "slot_group": "attributes"
+          "slot_group": "attributes",
+          "required": true
         },
         "description": {
           "name": "description",
@@ -2907,8 +2913,7 @@
             "Class",
             "UniqueKey",
             "Slot",
-            "Enum",
-            "PermissibleValue"
+            "Enum"
           ],
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
@@ -2927,7 +2932,8 @@
             "Class",
             "Slot",
             "SlotUsage",
-            "Enum"
+            "Enum",
+            "PermissibleValue"
           ],
           "slot_group": "attributes",
           "range": "WhitespaceMinimizedString",
@@ -3001,9 +3007,8 @@
           "slot_group": "key",
           "range": "Enum"
         },
-        "name": {
-          "name": "name",
-          "description": "The coding name of this menu choice (PermissibleValue).",
+        "text": {
+          "name": "text",
           "rank": 3,
           "slot_group": "key"
         },
@@ -3012,8 +3017,10 @@
           "rank": 4,
           "slot_group": "attributes"
         },
-        "text": {
-          "name": "text",
+        "title": {
+          "name": "title",
+          "description": "The plain language title of this menu choice (PermissibleValue) to display.",
+          "title": "title",
           "rank": 5,
           "slot_group": "attributes"
         },
@@ -3079,20 +3086,15 @@
           "range": "Enum",
           "required": true
         },
-        "name": {
-          "name": "name",
+        "text": {
+          "name": "text",
           "description": "The coding name of this menu choice (PermissibleValue).",
-          "title": "Name",
+          "title": "Code",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 3,
-          "alias": "name",
+          "alias": "text",
           "owner": "PermissibleValue",
           "domain_of": [
-            "Schema",
-            "Class",
-            "UniqueKey",
-            "Slot",
-            "Enum",
             "PermissibleValue"
           ],
           "slot_group": "key",
@@ -3113,15 +3115,19 @@
           "slot_group": "attributes",
           "range": "WhitespaceMinimizedString"
         },
-        "text": {
-          "name": "text",
-          "description": "The plain language text of this menu choice (PermissibleValue) to display.",
-          "title": "Text",
+        "title": {
+          "name": "title",
+          "description": "The plain language title of this menu choice (PermissibleValue) to display.",
+          "title": "title",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 5,
-          "alias": "text",
+          "alias": "title",
           "owner": "PermissibleValue",
           "domain_of": [
+            "Class",
+            "Slot",
+            "SlotUsage",
+            "Enum",
             "PermissibleValue"
           ],
           "slot_group": "attributes",
@@ -3168,7 +3174,7 @@
           "unique_key_slots": [
             "schema_id",
             "enum_id",
-            "name"
+            "text"
           ],
           "description": "An enumeration is uniquely identified by the schema it appears in as well as its name."
         }
