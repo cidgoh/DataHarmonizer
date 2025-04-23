@@ -918,12 +918,548 @@ enums:
         text: 'FALSE'
   LanguagesMenu:
     name: LanguagesMenu
-    title: Language Menu
+    title: Languages Menu
     permissible_values:
+      ab:
+        text: ab
+        title: Abkhazian
+      aa:
+        text: aa
+        title: Afar
+      af:
+        text: af
+        title: Afrikaans
+      ak:
+        text: ak
+        title: Akan
+      sq:
+        text: sq
+        title: Albanian
+      am:
+        text: am
+        title: Amharic
+      ar:
+        text: ar
+        title: Arabic
+      an:
+        text: an
+        title: Aragonese
+      hy:
+        text: hy
+        title: Armenian
+      as:
+        text: as
+        title: Assamese
+      av:
+        text: av
+        title: Avaric
+      ae:
+        text: ae
+        title: Avestan
+      ay:
+        text: ay
+        title: Aymara
+      az:
+        text: az
+        title: Azerbaijani
+      bm:
+        text: bm
+        title: Bambara
+      ba:
+        text: ba
+        title: Bashkir
+      eu:
+        text: eu
+        title: Basque
+      be:
+        text: be
+        title: Belarusian
+      bn:
+        text: bn
+        title: Bengali
+      bi:
+        text: bi
+        title: Bislama
+      bs:
+        text: bs
+        title: Bosnian
+      br:
+        text: br
+        title: Breton
+      bg:
+        text: bg
+        title: Bulgarian
+      my:
+        text: my
+        title: Burmese
+      ca:
+        text: ca
+        title: Catalan, Valencian
+      ch:
+        text: ch
+        title: Chamorro
+      ce:
+        text: ce
+        title: Chechen
+      ny:
+        text: ny
+        title: Chichewa, Chewa, Nyanja
+      zh:
+        text: zh
+        title: Chinese
+      cv:
+        text: cv
+        title: Chuvash
+      kw:
+        text: kw
+        title: Cornish
+      co:
+        text: co
+        title: Corsican
+      cr:
+        text: cr
+        title: Cree
+      hr:
+        text: hr
+        title: Croatian
+      cs:
+        text: cs
+        title: Czech
+      da:
+        text: da
+        title: Danish
+      dv:
+        text: dv
+        title: Divehi, Dhivehi, Maldivian
+      nl:
+        text: nl
+        title: Dutch, Flemish
+      dz:
+        text: dz
+        title: Dzongkha
       en:
         text: en
+        title: English
+      eo:
+        text: eo
+        title: Esperanto
+      et:
+        text: et
+        title: Estonian
+      ee:
+        text: ee
+        title: Ewe
+      fo:
+        text: fo
+        title: Faroese
+      fj:
+        text: fj
+        title: Fijian
+      fi:
+        text: fi
+        title: Finnish
       fr:
         text: fr
+        title: French
+      fy:
+        text: fy
+        title: Western Frisian
+      ff:
+        text: ff
+        title: Fulah
+      gd:
+        text: gd
+        title: Gaelic, Scottish Gaelic
+      gl:
+        text: gl
+        title: Galician
+      lg:
+        text: lg
+        title: Ganda
+      ka:
+        text: ka
+        title: Georgian
+      de:
+        text: de
+        title: German
+      el:
+        text: el
+        title: "Greek, Modern (1453\u2013)"
+      kl:
+        text: kl
+        title: Kalaallisut, Greenlandic
+      gn:
+        text: gn
+        title: Guarani
+      gu:
+        text: gu
+        title: Gujarati
+      ht:
+        text: ht
+        title: Haitian, Haitian Creole
+      ha:
+        text: ha
+        title: Hausa
+      he:
+        text: he
+        title: Hebrew
+      hz:
+        text: hz
+        title: Herero
+      hi:
+        text: hi
+        title: Hindi
+      ho:
+        text: ho
+        title: Hiri Motu
+      hu:
+        text: hu
+        title: Hungarian
+      is:
+        text: is
+        title: Icelandic
+      io:
+        text: io
+        title: Ido
+      ig:
+        text: ig
+        title: Igbo
+      id:
+        text: id
+        title: Indonesian
+      iu:
+        text: iu
+        title: Inuktitut
+      ik:
+        text: ik
+        title: Inupiaq
+      ga:
+        text: ga
+        title: Irish
+      it:
+        text: it
+        title: Italian
+      ja:
+        text: ja
+        title: Japanese
+      jv:
+        text: jv
+        title: Javanese
+      kn:
+        text: kn
+        title: Kannada
+      kr:
+        text: kr
+        title: Kanuri
+      ks:
+        text: ks
+        title: Kashmiri
+      kk:
+        text: kk
+        title: Kazakh
+      km:
+        text: km
+        title: Central Khmer
+      ki:
+        text: ki
+        title: Kikuyu, Gikuyu
+      rw:
+        text: rw
+        title: Kinyarwanda
+      ky:
+        text: ky
+        title: Kyrgyz, Kirghiz
+      kv:
+        text: kv
+        title: Komi
+      kg:
+        text: kg
+        title: Kongo
+      ko:
+        text: ko
+        title: Korean
+      kj:
+        text: kj
+        title: Kuanyama, Kwanyama
+      ku:
+        text: ku
+        title: Kurdish
+      lo:
+        text: lo
+        title: Lao
+      la:
+        text: la
+        title: Latin
+      lv:
+        text: lv
+        title: Latvian
+      li:
+        text: li
+        title: Limburgan, Limburger, Limburgish
+      ln:
+        text: ln
+        title: Lingala
+      lt:
+        text: lt
+        title: Lithuanian
+      lu:
+        text: lu
+        title: Luba-Katanga
+      lb:
+        text: lb
+        title: Luxembourgish, Letzeburgesch
+      mk:
+        text: mk
+        title: Macedonian
+      mg:
+        text: mg
+        title: Malagasy
+      ms:
+        text: ms
+        title: Malay
+      ml:
+        text: ml
+        title: Malayalam
+      mt:
+        text: mt
+        title: Maltese
+      gv:
+        text: gv
+        title: Manx
+      mi:
+        text: mi
+        title: Maori
+      mr:
+        text: mr
+        title: Marathi
+      mh:
+        text: mh
+        title: Marshallese
+      mn:
+        text: mn
+        title: Mongolian
+      na:
+        text: na
+        title: Nauru
+      nv:
+        text: nv
+        title: Navajo, Navaho
+      nd:
+        text: nd
+        title: North Ndebele
+      nr:
+        text: nr
+        title: South Ndebele
+      ng:
+        text: ng
+        title: Ndonga
+      ne:
+        text: ne
+        title: Nepali
+      'no':
+        text: 'no'
+        title: Norwegian
+      nb:
+        text: nb
+        title: "Norwegian Bokm\xE5l"
+      nn:
+        text: nn
+        title: Norwegian Nynorsk
+      oc:
+        text: oc
+        title: Occitan
+      oj:
+        text: oj
+        title: Ojibwa
+      or:
+        text: or
+        title: Oriya
+      om:
+        text: om
+        title: Oromo
+      os:
+        text: os
+        title: Ossetian, Ossetic
+      pi:
+        text: pi
+        title: Pali
+      ps:
+        text: ps
+        title: Pashto, Pushto
+      fa:
+        text: fa
+        title: Persian
+      pl:
+        text: pl
+        title: Polish
+      pt:
+        text: pt
+        title: Portuguese
+      pa:
+        text: pa
+        title: Punjabi, Panjabi
+      qu:
+        text: qu
+        title: Quechua
+      ro:
+        text: ro
+        title: Romanian, Moldavian, Moldovan
+      rm:
+        text: rm
+        title: Romansh
+      rn:
+        text: rn
+        title: Rundi
+      ru:
+        text: ru
+        title: Russian
+      se:
+        text: se
+        title: Northern Sami
+      sm:
+        text: sm
+        title: Samoan
+      sg:
+        text: sg
+        title: Sango
+      sa:
+        text: sa
+        title: Sanskrit
+      sc:
+        text: sc
+        title: Sardinian
+      sr:
+        text: sr
+        title: Serbian
+      sn:
+        text: sn
+        title: Shona
+      sd:
+        text: sd
+        title: Sindhi
+      si:
+        text: si
+        title: Sinhala, Sinhalese
+      sk:
+        text: sk
+        title: Slovak
+      sl:
+        text: sl
+        title: Slovenian
+      so:
+        text: so
+        title: Somali
+      st:
+        text: st
+        title: Southern Sotho
+      es:
+        text: es
+        title: Spanish, Castilian
+      su:
+        text: su
+        title: Sundanese
+      sw:
+        text: sw
+        title: Swahili
+      ss:
+        text: ss
+        title: Swati
+      sv:
+        text: sv
+        title: Swedish
+      tl:
+        text: tl
+        title: Tagalog
+      ty:
+        text: ty
+        title: Tahitian
+      tg:
+        text: tg
+        title: Tajik
+      ta:
+        text: ta
+        title: Tamil
+      tt:
+        text: tt
+        title: Tatar
+      te:
+        text: te
+        title: Telugu
+      th:
+        text: th
+        title: Thai
+      bo:
+        text: bo
+        title: Tibetan
+      ti:
+        text: ti
+        title: Tigrinya
+      to:
+        text: to
+        title: Tonga (Tonga Islands)
+      ts:
+        text: ts
+        title: Tsonga
+      tn:
+        text: tn
+        title: Tswana
+      tr:
+        text: tr
+        title: Turkish
+      tk:
+        text: tk
+        title: Turkmen
+      tw:
+        text: tw
+        title: Twi
+      ug:
+        text: ug
+        title: Uighur, Uyghur
+      uk:
+        text: uk
+        title: Ukrainian
+      ur:
+        text: ur
+        title: Urdu
+      uz:
+        text: uz
+        title: Uzbek
+      ve:
+        text: ve
+        title: Venda
+      vi:
+        text: vi
+        title: Vietnamese
+      vo:
+        text: vo
+        title: "Volap\xFCk"
+      wa:
+        text: wa
+        title: Walloon
+      cy:
+        text: cy
+        title: Welsh
+      wo:
+        text: wo
+        title: Wolof
+      xh:
+        text: xh
+        title: Xhosa
+      ii:
+        text: ii
+        title: Sichuan Yi, Nuosu
+      yi:
+        text: yi
+        title: Yiddish
+      yo:
+        text: yo
+        title: Yoruba
+      za:
+        text: za
+        title: Zhuang, Chuang
+      zu:
+        text: zu
+        title: Zulu
 types:
   WhitespaceMinimizedString:
     name: WhitespaceMinimizedString
