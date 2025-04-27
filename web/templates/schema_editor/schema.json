@@ -1183,11 +1183,18 @@
     },
     "in_language": {
       "name": "in_language",
-      "description": "A list of i18n language codes that this schema is available in.",
-      "title": "Languages",
-      "comments": [
-        "The first listed schema is the default (usually english), while remaining ones are language overlays compiled into a locales/ subfolder."
+      "description": "This is the language (ISO 639-1 Code; often en for English) that the schema’s class, slot, and enumeration titles, descriptions and other textual items are in.",
+      "title": "Default Language",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema"
       ],
+      "range": "LanguagesMenu"
+    },
+    "locales": {
+      "name": "locales",
+      "description": "These are the (ISO 639-1) language codes used as keys for language translations held in the schema’s extensions.locales list.",
+      "title": "Locales",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Schema"
@@ -1263,7 +1270,14 @@
       "domain_of": [
         "Class"
       ],
-      "range": "TrueFalseMenu"
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
     },
     "unique_key_slots": {
       "name": "unique_key_slots",
@@ -1298,8 +1312,7 @@
       "domain_of": [
         "Slot",
         "SlotUsage"
-      ],
-      "range": "WhitespaceMinimizedString"
+      ]
     },
     "slot_uri": {
       "name": "slot_uri",
@@ -1341,7 +1354,14 @@
         "Slot",
         "SlotUsage"
       ],
-      "range": "TrueFalseMenu"
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
     },
     "required": {
       "name": "required",
@@ -1351,7 +1371,14 @@
         "Slot",
         "SlotUsage"
       ],
-      "range": "TrueFalseMenu"
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
     },
     "recommended": {
       "name": "recommended",
@@ -1361,7 +1388,14 @@
         "Slot",
         "SlotUsage"
       ],
-      "range": "TrueFalseMenu"
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
     },
     "aliases": {
       "name": "aliases",
@@ -1385,7 +1419,14 @@
         "Slot",
         "SlotUsage"
       ],
-      "range": "TrueFalseMenu"
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
     },
     "foreign_key": {
       "name": "foreign_key",
@@ -1405,7 +1446,14 @@
         "Slot",
         "SlotUsage"
       ],
-      "range": "TrueFalseMenu"
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
     },
     "minimum_value": {
       "name": "minimum_value",
@@ -1535,7 +1583,7 @@
     },
     "text": {
       "name": "text",
-      "description": "The coding name of this menu choice (PermissibleValue).",
+      "description": "The actual permissible value itself. (The coding name of this choice).",
       "title": "Code",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
@@ -1623,9 +1671,14 @@
           "rank": 5,
           "slot_group": "attributes"
         },
+        "locales": {
+          "name": "locales",
+          "rank": 6,
+          "slot_group": "attributes"
+        },
         "default_prefix": {
           "name": "default_prefix",
-          "rank": 6,
+          "rank": 7,
           "slot_group": "attributes"
         }
       },
@@ -1732,14 +1785,25 @@
         },
         "in_language": {
           "name": "in_language",
-          "description": "A list of i18n language codes that this schema is available in.",
-          "title": "Languages",
-          "comments": [
-            "The first listed schema is the default (usually english), while remaining ones are language overlays compiled into a locales/ subfolder."
-          ],
+          "description": "This is the language (ISO 639-1 Code; often en for English) that the schema’s class, slot, and enumeration titles, descriptions and other textual items are in.",
+          "title": "Default Language",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 5,
           "alias": "in_language",
+          "owner": "Schema",
+          "domain_of": [
+            "Schema"
+          ],
+          "slot_group": "attributes",
+          "range": "LanguagesMenu"
+        },
+        "locales": {
+          "name": "locales",
+          "description": "These are the (ISO 639-1) language codes used as keys for language translations held in the schema’s extensions.locales list.",
+          "title": "Locales",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 6,
+          "alias": "locales",
           "owner": "Schema",
           "domain_of": [
             "Schema"
@@ -1755,7 +1819,7 @@
             "A prefix to assume all classes and slots can be addressed by."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 6,
+          "rank": 7,
           "alias": "default_prefix",
           "owner": "Schema",
           "domain_of": [
@@ -2080,7 +2144,14 @@
             "Class"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         }
       },
       "unique_keys": {
@@ -2306,7 +2377,8 @@
           "name": "slot_group",
           "description": "The name of a grouping to place slot within during presentation.",
           "rank": 3,
-          "slot_group": "attributes"
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
         },
         "slot_uri": {
           "name": "slot_uri",
@@ -2586,7 +2658,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "required": {
           "name": "required",
@@ -2604,7 +2683,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "recommended": {
           "name": "recommended",
@@ -2619,7 +2705,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "description": {
           "name": "description",
@@ -2673,7 +2766,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "foreign_key": {
           "name": "foreign_key",
@@ -2703,7 +2803,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "minimum_value": {
           "name": "minimum_value",
@@ -2928,7 +3035,9 @@
           "name": "slot_group",
           "description": "An override on a slot's **slot_group** attribute.",
           "rank": 5,
-          "slot_group": "attributes"
+          "slot_group": "attributes",
+          "range": "SchemaSlotGroupMenu",
+          "required": true
         },
         "slot_uri": {
           "name": "slot_uri",
@@ -2943,8 +3052,7 @@
             "This can be displayed in applications and documentation."
           ],
           "rank": 7,
-          "slot_group": "attributes",
-          "required": true
+          "slot_group": "attributes"
         },
         "range": {
           "name": "range",
@@ -2975,8 +3083,7 @@
           "description": "A plan text description of this LinkML schema slot.",
           "rank": 12,
           "slot_group": "attributes",
-          "range": "string",
-          "required": true
+          "range": "string"
         },
         "aliases": {
           "name": "aliases",
@@ -3156,7 +3263,8 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "WhitespaceMinimizedString"
+          "range": "SchemaSlotGroupMenu",
+          "required": true
         },
         "slot_uri": {
           "name": "slot_uri",
@@ -3192,8 +3300,7 @@
             "PermissibleValue"
           ],
           "slot_group": "attributes",
-          "range": "WhitespaceMinimizedString",
-          "required": true
+          "range": "WhitespaceMinimizedString"
         },
         "range": {
           "name": "range",
@@ -3234,7 +3341,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "required": {
           "name": "required",
@@ -3249,7 +3363,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "recommended": {
           "name": "recommended",
@@ -3264,7 +3385,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "description": {
           "name": "description",
@@ -3284,8 +3412,7 @@
             "PermissibleValue"
           ],
           "slot_group": "attributes",
-          "range": "string",
-          "required": true
+          "range": "string"
         },
         "aliases": {
           "name": "aliases",
@@ -3318,7 +3445,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "foreign_key": {
           "name": "foreign_key",
@@ -3348,7 +3482,14 @@
             "SlotUsage"
           ],
           "slot_group": "attributes",
-          "range": "TrueFalseMenu"
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "minimum_value": {
           "name": "minimum_value",
@@ -3802,7 +3943,7 @@
         },
         "text": {
           "name": "text",
-          "description": "The coding name of this menu choice (PermissibleValue).",
+          "description": "The actual permissible value itself. (The coding name of this choice).",
           "title": "Code",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 3,

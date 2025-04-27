@@ -5,7 +5,8 @@ A schema can also import other schemas and their slots, classes, etc."	Wastewate
 	key		id	ID	uri		TRUE		TRUE						The unique URI for identifying this LinkML schema.	Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development.	https://example.com/GRDI
 	attributes		description	Description	string				TRUE						The plain language description of this LinkML schema.		
 	attributes		version	Version	WhitespaceMinimizedString				TRUE		^\d+\.\d+\.\d+$				The semantic version identifier for this schema.	See https://semver.org/	1.2.3
-	attributes		in_language	Languages	LanguagesMenu			TRUE							A list of i18n language codes that this schema is available in.	The first listed schema is the default (usually english), while remaining ones are language overlays compiled into a locales/ subfolder.	
+	attributes		in_language	Default Language	LanguagesMenu										This is the language (ISO 639-1 Code; often en for English) that the schema’s class, slot, and enumeration titles, descriptions and other textual items are in.		
+	attributes		locales	Locales	LanguagesMenu			TRUE							These are the (ISO 639-1) language codes used as keys for language translations held in the schema’s extensions.locales list.		
 	attributes		default_prefix	Default prefix	uri				TRUE							A prefix to assume all classes and slots can be addressed by.	
 Prefix	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this prefix is listed in.		
 	key		prefix	Prefix	WhitespaceMinimizedString				TRUE						The namespace prefix string.		
@@ -18,7 +19,7 @@ Class	key		schema_id	Schema	Schema				TRUE						The coding name of the schema th
 	attributes		description	Description	string				TRUE								
 	attributes		version	Version	WhitespaceMinimizedString						^\d+\.\d+\.\d+$				A semantic version identifier.	See https://semver.org/	
 	attributes		class_uri	Class URI	uri										A URI for identifying this class's semantic type.		
-	attributes		tree_root	Root Class	TrueFalseMenu										A boolian indicating whether this is a specification for a top-level data container on which serializations are based.	Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html 	
+	attributes		tree_root	Root Class	boolean;TrueFalseMenu										A boolian indicating whether this is a specification for a top-level data container on which serializations are based.	Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html 	
 																	
 UniqueKey	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this slot usage's class is contained in.		
 	key		class_id	Class	Class				TRUE						The coding name of this slot usage's class.		
@@ -34,14 +35,14 @@ A slot can be used in one or more classes (templates). A slot may appear as a vi
 	attributes		slot_uri	Slot URI	uri				 						A URI for identifying this slot's semantic type.		
 	attributes		title	Title	WhitespaceMinimizedString				TRUE						The plain language name of this LinkML schema slot.	This can be displayed in applications and documentation.	
 	attributes		range	Range	SchemaTypeMenu;SchemaClassMenu;SchemaEnumMenu			TRUE	TRUE						The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of "any of" ranges.		
-	attributes		inlined	Inlined	TrueFalseMenu										Indicates whether slot range is a complex object, or whether it is an identifier instead that points to one.		
-	attributes		required	Required	TrueFalseMenu										A boolean TRUE indicates this slot is a mandatory data field.  	A mandatory data field will fail validation if empty.	
-	attributes		recommended	Recommended	TrueFalseMenu										A boolean TRUE indicates this slot is a recommended data field.  		
+	attributes		inlined	Inlined	boolean;TrueFalseMenu										Indicates whether slot range is a complex object, or whether it is an identifier instead that points to one.		
+	attributes		required	Required	boolean;TrueFalseMenu										A boolean TRUE indicates this slot is a mandatory data field.  	A mandatory data field will fail validation if empty.	
+	attributes		recommended	Recommended	boolean;TrueFalseMenu										A boolean TRUE indicates this slot is a recommended data field.  		
 	attributes		description	Description	string				TRUE						A plan text description of this LinkML schema slot.		
 	attributes		aliases	Aliases	WhitespaceMinimizedString										A list of other names that slot can be known by.	See https://linkml.io/linkml/schemas/metadata.html#providing-aliases	
-	attributes		identifier	Identifier	TrueFalseMenu										A boolean TRUE indicates this slot is an identifier, or refers to one.  		
+	attributes		identifier	Identifier	boolean;TrueFalseMenu										A boolean TRUE indicates this slot is an identifier, or refers to one.  		
 	attributes		foreign_key	Foreign Key	WhitespaceMinimizedString										A boolean TRUE indicates this slot is part of a primary key for the Class it is an attribute of.  		
-	attributes		multivalued	Multivalued	TrueFalseMenu										A boolean TRUE indicates this slot can hold more than one values taken from its range.  		
+	attributes		multivalued	Multivalued	boolean;TrueFalseMenu										A boolean TRUE indicates this slot can hold more than one values taken from its range.  		
 	attributes		minimum_value	Minimum_value	integer										A minimum value which is appropriate for the range data type of the slot.		
 	attributes		maximum_value	Maximum_value	integer										A maximum value which is appropriate for the range data type of the slot.		
 	attributes		minimum_cardinality	Minimum Cardinality	integer										For multivalued slots, a minimum number of values		
@@ -58,18 +59,18 @@ SlotUsage	key		schema_id	Schema	Schema				TRUE						The coding name of the schem
 	key		class_id	Class	Class				TRUE						The coding name of this slot usage's class.		
 	key		slot_id	Slot	Slot				TRUE						The coding name of the slot this slot usage pertains to.		
 	attributes		rank	Rank	integer										An integer which sets the order of this slot relative to the others within a given class.  		
-	attributes		slot_group	Slot Group	WhitespaceMinimizedString										An override on a slot's **slot_group** attribute.		
+	attributes		slot_group	Slot Group	SchemaSlotGroupMenu				TRUE						An override on a slot's **slot_group** attribute.		
 	attributes		slot_uri	Slot URI	uri				 						A URI for identifying this slot's semantic type.		
-	attributes		title	Title	WhitespaceMinimizedString				TRUE						The plain language name of this LinkML schema slot.	This can be displayed in applications and documentation.	
+	attributes		title	Title	WhitespaceMinimizedString										The plain language name of this LinkML schema slot.	This can be displayed in applications and documentation.	
 	attributes		range	Range	SchemaTypeMenu;SchemaClassMenu;SchemaEnumMenu			TRUE							An override on a slot's **range* attribute.		
-	attributes		inlined	Inlined	TrueFalseMenu										An override on a slot's **Inlined** attribute.		
-	attributes		required	Required	TrueFalseMenu										An override on a slot's **Required** attribute.		
-	attributes		recommended	Recommended	TrueFalseMenu										An override on a slot's **Recommended** attribute.		
-	attributes		description	Description	string				TRUE						A plan text description of this LinkML schema slot.		
+	attributes		inlined	Inlined	boolean;TrueFalseMenu										An override on a slot's **Inlined** attribute.		
+	attributes		required	Required	boolean;TrueFalseMenu										An override on a slot's **Required** attribute.		
+	attributes		recommended	Recommended	boolean;TrueFalseMenu										An override on a slot's **Recommended** attribute.		
+	attributes		description	Description	string										A plan text description of this LinkML schema slot.		
 	attributes		aliases	Aliases	WhitespaceMinimizedString										A list of other names that slot can be known by.	See https://linkml.io/linkml/schemas/metadata.html#providing-aliases	
-	attributes		identifier	Identifier	TrueFalseMenu										An override on a slot's **Identifier** attribute.		
+	attributes		identifier	Identifier	boolean;TrueFalseMenu										An override on a slot's **Identifier** attribute.		
 	attributes		foreign_key	Foreign Key	WhitespaceMinimizedString										An override on a slot's **Foreign Key** attribute.		
-	attributes		multivalued	Multivalued	TrueFalseMenu										An override on a slot's **Multivalued** attribute.		
+	attributes		multivalued	Multivalued	boolean;TrueFalseMenu										An override on a slot's **Multivalued** attribute.		
 	attributes		minimum_value	Minimum_value	integer										A minimum value which is appropriate for the range data type of the slot.		
 	attributes		maximum_value	Maximum_value	integer										A maximum value which is appropriate for the range data type of the slot.		
 	attributes		minimum_cardinality	Minimum Cardinality	integer										For multivalued slots, a minimum number of values		
@@ -90,7 +91,7 @@ Enum	key		schema_id	Schema	Schema				TRUE						The coding name of the schema thi
 																	
 PermissibleValue	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this menu choice's menu (enumeration) is contained in.		
 	key		enum_id	Enum	Enum				TRUE						The coding name of the menu (enumeration) that this choice is contained in.		
-	key		text	Code	WhitespaceMinimizedString				TRUE						The coding name of this menu choice (PermissibleValue).		
+	key		text	Code	WhitespaceMinimizedString				TRUE						The actual permissible value itself. (The coding name of this choice).		
 	attributes		is_a	Parent	WhitespaceMinimizedString										The parent term name (in an enumeration) of this term, if any.		
 	attributes		title	title	WhitespaceMinimizedString										The plain language title of this menu choice (PermissibleValue) to display.		
 	attributes		description	Description	string										A plan text description of the meaning of this menu choice.		

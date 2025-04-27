@@ -29,6 +29,7 @@ classes:
     - description
     - version
     - in_language
+    - locales
     - default_prefix
     slot_usage:
       name:
@@ -68,8 +69,11 @@ classes:
       in_language:
         rank: 5
         slot_group: attributes
-      default_prefix:
+      locales:
         rank: 6
+        slot_group: attributes
+      default_prefix:
+        rank: 7
         slot_group: attributes
   Prefix:
     name: Prefix
@@ -141,8 +145,8 @@ classes:
         rank: 3
         slot_group: attributes
         description: The plain language name of a LinkML schema class.
-        title: Title
         required: true
+        title: Title
       description:
         rank: 4
         slot_group: attributes
@@ -275,6 +279,7 @@ classes:
       slot_group:
         rank: 3
         slot_group: attributes
+        range: WhitespaceMinimizedString
         description: The name of a grouping to place slot within during presentation.
       slot_uri:
         rank: 4
@@ -285,8 +290,8 @@ classes:
         description: The plain language name of this LinkML schema slot.
         comments:
         - This can be displayed in applications and documentation.
-        title: Title
         required: true
+        title: Title
       range:
         rank: 6
         slot_group: attributes
@@ -430,6 +435,8 @@ classes:
       slot_group:
         rank: 5
         slot_group: attributes
+        range: SchemaSlotGroupMenu
+        required: true
         description: An override on a slot's **slot_group** attribute.
       slot_uri:
         rank: 6
@@ -441,7 +448,6 @@ classes:
         comments:
         - This can be displayed in applications and documentation.
         title: Title
-        required: true
       range:
         rank: 8
         slot_group: attributes
@@ -462,7 +468,6 @@ classes:
         rank: 12
         slot_group: attributes
         range: string
-        required: true
         description: A plan text description of this LinkML schema slot.
       aliases:
         rank: 13
@@ -548,9 +553,9 @@ classes:
       title:
         rank: 3
         slot_group: attributes
+        required: true
         description: The plain language name of this enumeration menu.
         title: Title
-        required: true
       description:
         rank: 4
         slot_group: attributes
@@ -707,11 +712,16 @@ slots:
     range: WhitespaceMinimizedString
   in_language:
     name: in_language
-    title: Languages
-    description: A list of i18n language codes that this schema is available in.
-    comments:
-    - The first listed schema is the default (usually english), while remaining ones
-      are language overlays compiled into a locales/ subfolder.
+    title: Default Language
+    description: "This is the language (ISO 639-1 Code; often en for English) that\
+      \ the schema\u2019s class, slot, and enumeration titles, descriptions and other\
+      \ textual items are in."
+    range: LanguagesMenu
+  locales:
+    name: locales
+    title: Locales
+    description: "These are the (ISO 639-1) language codes used as keys for language\
+      \ translations held in the schema\u2019s extensions.locales list."
     multivalued: true
     range: LanguagesMenu
   default_prefix:
@@ -748,7 +758,9 @@ slots:
       data container on which serializations are based.
     comments:
     - Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html
-    range: TrueFalseMenu
+    any_of:
+    - range: boolean
+    - range: TrueFalseMenu
   unique_key_slots:
     name: unique_key_slots
     title: Unique Key Slots
@@ -766,7 +778,6 @@ slots:
   slot_group:
     name: slot_group
     title: Slot Group
-    range: WhitespaceMinimizedString
   slot_uri:
     name: slot_uri
     title: Slot URI
@@ -783,15 +794,21 @@ slots:
   inlined:
     name: inlined
     title: Inlined
-    range: TrueFalseMenu
+    any_of:
+    - range: boolean
+    - range: TrueFalseMenu
   required:
     name: required
     title: Required
-    range: TrueFalseMenu
+    any_of:
+    - range: boolean
+    - range: TrueFalseMenu
   recommended:
     name: recommended
     title: Recommended
-    range: TrueFalseMenu
+    any_of:
+    - range: boolean
+    - range: TrueFalseMenu
   aliases:
     name: aliases
     title: Aliases
@@ -802,7 +819,9 @@ slots:
   identifier:
     name: identifier
     title: Identifier
-    range: TrueFalseMenu
+    any_of:
+    - range: boolean
+    - range: TrueFalseMenu
   foreign_key:
     name: foreign_key
     title: Foreign Key
@@ -810,7 +829,9 @@ slots:
   multivalued:
     name: multivalued
     title: Multivalued
-    range: TrueFalseMenu
+    any_of:
+    - range: boolean
+    - range: TrueFalseMenu
   minimum_value:
     name: minimum_value
     title: Minimum_value
@@ -882,7 +903,7 @@ slots:
   text:
     name: text
     title: Code
-    description: The coding name of this menu choice (PermissibleValue).
+    description: The actual permissible value itself. (The coding name of this choice).
     required: true
     range: WhitespaceMinimizedString
   is_a:
