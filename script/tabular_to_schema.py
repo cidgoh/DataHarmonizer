@@ -555,6 +555,24 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 						break;
 
+		# Generate 'SchemaSlotGroup[schema_class]Menu' so slot and slot_usage
+		# attr slot_group can be set.
+		# for schema_class in schema['classes']:
+		# 			if 'slot_usage'in schema['classes'][schema_class]:
+		# 				slot_usage = schema['classes'][schema_class]['slot_usage'];
+		# 				for slot_name in slot_usage:
+		# 					if 'slot_group' in slot_usage[slot_name]:
+		# 						slot_group = slot_usage[slot_name]['slot_group'];
+		# 						enum_name = 'SchemaSlotGroup' + schema_class + 'Menu';
+		# 						if not (enum_name in enumerations):
+		# 							enumerations[enum_name] = {
+		# 								'name': enum_name, 
+		# 								'permissible_values': {}
+		# 							}
+		# 						if not (slot_group in enumerations[enum_name]['permissible_values']):
+		# 							enumerations[enum_name]['permissible_values'][slot_group] = {
+		# 								'title': slot_group
+		# 							}
 
 		if len(enumerations) == 0:
 			warnings.append("Note: there are no enumerations in this specification!");
@@ -610,7 +628,7 @@ def write_schema(schema):
 		# Presence of "slots" in class indicates field hierarchy
 		# Error trap is_a reference to non-existent class
 		if "is_a" in class_obj and class_obj['is_a'] and (not class_obj['is_a'] in schema['classes']):
-			print("Error: Class ", name, "has an is_a reference to a Class [", class_obj['is_a'], " ]which isn't defined.  This reference needs to be removed.");
+			print("Error: Class ", name, "has an is_a reference to a Class [", class_obj['is_a'], "] which isn't defined.  This reference needs to be removed.");
 			sys.exit(0);
 
 		if schema_view.class_slots(name):
@@ -781,7 +799,7 @@ if len(locale_schemas) > 0:
 			'extensions': {
 				'locales': {
 					'tag': 'locales',
-					'value': [{lcode: lschema}]
+					'value': {lcode: lschema}
 				}
 			}
 		});
