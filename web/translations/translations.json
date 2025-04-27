@@ -1,16 +1,38 @@
 {
-  "file-menu-button": {
-    "en": "File",
-    "fr": "Fichier"
+
+
+  "template_label": {
+    "en": "Template",
+    "fr": "Modèle"
   },
   "select-template-modal-button": {
     "en": "Select Template from menu",
     "fr": "Sélectionner un modèle"
   },
   "upload-template-dropdown-item": {
-    "en": "Upload Template (.json format)",
+    "en": "Upload DataHarmonizer Schema (.json format)",
     "fr": "Télécharger le modèle (format .json)"
   },
+  "schema-editor-menu": {
+    "en": "Schema Editor (schema_editor/Schema)",
+    "fr": "Éditeur de schéma"
+  },
+  "upload-template-yaml-dropdown-item": {
+    "en": "Load Schema (.yaml format)",
+    "fr": "Charger le schéma (format .yaml)"
+  },
+  "save-template-button": {
+    "en": "Save Selected Schema (.yaml format)",
+    "fr": "Enregistrer le schéma sélectionné (format .yaml)"
+  },
+
+  "file-menu-button": {
+    "en": "File",
+    "fr": "Fichier"
+  },
+
+
+
   "new-dropdown-item": {
     "en": "New",
     "fr": "Nouveau"
@@ -101,10 +123,6 @@
     "fr": "Contactez-nous"
   },
 
-  "template_label": {
-    "en": "Template",
-    "fr": "Modèle"
-  },
   "language_label": {
     "en": "Language",
     "fr": "Langue"
