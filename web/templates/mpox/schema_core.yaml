@@ -12,8 +12,8 @@ classes:
     name: dh_interface
     description: 'A DataHarmonizer interface'
     from_schema: https://example.com/Mpox
-  'Mpox':
-    name: 'Mpox'
+  Mpox:
+    name: Mpox
     description: Canadian specification for Mpox clinical virus biosample data gathering
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox.pdf
@@ -23,7 +23,7 @@ classes:
       mpox_key:
         unique_key_slots:
           - specimen_collector_sample_id
-  "MpoxInternational":
+  MpoxInternational:
     name: "MpoxInternational"
     description: International specification for Mpox clinical virus biosample data gathering
     is_a: dh_interface
