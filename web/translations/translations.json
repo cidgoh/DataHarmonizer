@@ -4,12 +4,12 @@
     "fr": "Fichier"
   },
   "select-template-modal-button": {
-    "en": "Select Template",
+    "en": "Select Template from menu",
     "fr": "Sélectionner un modèle"
   },
   "upload-template-dropdown-item": {
-    "en": "Upload Template",
-    "fr": "Télécharger le modèle"
+    "en": "Upload Template (.json format)",
+    "fr": "Télécharger le modèle (format .json)"
   },
   "new-dropdown-item": {
     "en": "New",
@@ -72,7 +72,10 @@
     "en": "Validate",
     "fr": "Valider"
   },
-
+  "search-field": { 
+    "en": "Search",
+    "fr": "Rechercher"
+  },
   "help-menu-button": {
     "en": "Help",
     "fr": "Aide"
@@ -114,13 +117,17 @@
     "en": "Loaded file",
     "fr": "Fichier téléchargé"
   },
+  "record-path": {
+    "en": "Focus",
+    "fr": "Chemin"
+  },
   "add-row": {
     "en": "Add",
     "fr": "Ajouter"
   },
   "add-row-text": {
     "en": "row(s)",
-    "fr": "plus de lignes en bas"
+    "fr": "ligne"
   },
   "template-cancel": {
     "en": "Cancel",
