@@ -6917,6 +6917,31 @@ enums:
       Zimbabwe:
         text: Zimbabwe
         meaning: GAZ:00001106
+  SchemaSlotGroupCanCOGeNCovid19Menu:
+    name: SchemaSlotGroupCanCOGeNCovid19Menu
+    permissible_values:
+      Database Identifiers:
+        title: Database Identifiers
+      Sample collection and processing:
+        title: Sample collection and processing
+      Host Information:
+        title: Host Information
+      Host vaccination information:
+        title: Host vaccination information
+      Host exposure information:
+        title: Host exposure information
+      Host reinfection information:
+        title: Host reinfection information
+      Sequencing:
+        title: Sequencing
+      Bioinformatics and QC metrics:
+        title: Bioinformatics and QC metrics
+      Lineage and Variant information:
+        title: Lineage and Variant information
+      Pathogen diagnostic testing:
+        title: Pathogen diagnostic testing
+      Contributor acknowledgement:
+        title: Contributor acknowledgement
 types:
   WhitespaceMinimizedString:
     name: WhitespaceMinimizedString
@@ -6941,7 +6966,7 @@ extensions:
   locales:
     tag: locales
     value:
-    - fr:
+      fr:
         id: https://example.com/CanCOGeN_Covid-19
         name: CanCOGeN_Covid-19
         description: ''
