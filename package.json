@@ -1,6 +1,6 @@
 {
   "name": "data-harmonizer",
-  "version": "1.9.3",
+  "version": "1.9.5",
   "description": "A standardized spreadsheet editor and validator that can be run offline and locally",
   "repository": "git@github.com:cidgoh/DataHarmonizer.git",
   "license": "MIT",
@@ -82,11 +82,11 @@
     "yaml-loader": "^0.8.0"
   },
   "dependencies": {
-    "@selectize/selectize": "^0.13.5",
+    "@selectize/selectize": "^0.15.2", 
     "date-fns": "^2.28.0",
     "file-saver": "^2.0.5",
     "flatpickr": "^4.6.13",
-    "handsontable": "13.1.0",
+    "handsontable": "15.2.0",
     "i18next": "^23.11.5",
     "jquery-i18next": "^1.2.1",
     "jquery-ui-bundle": "^1.12.1-migrate",
