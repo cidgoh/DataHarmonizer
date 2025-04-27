@@ -120,9 +120,6 @@ li.nav-item.disabled {
 }
 
 
-
-record-hierarchy
-
 /* optional little arrow at top. See https://www.w3schools.com/css/css_tooltip.asp 
 .tooltip .tooltiptext::after {
   content: " ";
@@ -135,6 +132,11 @@ record-hierarchy
   border-color: transparent transparent black transparent;
 }
 */
+
+button.btn.small {
+   padding: 5px !important;
+   margin: 2px 0px 2px 4px !important;
+}
 
 .handsontable .ht__manualRowMove.after-selection--rows tbody th.ht__highlight, .handsontable.ht__manualRowMove.after-selection--rows tbody th.ht__highlight {
     cursor: move;
@@ -156,12 +158,19 @@ record-hierarchy
   background-color:#EEE;
   padding:5px;
 }
+#translate-modal table td {
+  padding:5px;
+}
 #translate-modal table th.locale {
   width:60px;
 }
 
 #translate-modal table tr td, table tr th {
   vertical-align: top; 
+}
+#translate-modal table tr.translate td {
+  background-color:#EFE; 
+  margin-top:15px;
 }
 tr.translation-input td textarea {
   min-height:3lh;
