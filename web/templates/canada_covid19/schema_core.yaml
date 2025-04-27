@@ -48,7 +48,7 @@ classes:
     is_a: dh_interface
     see_also: templates/canada_covid19/SOP.pdf
     unique_keys:
-      mpox_key:
+      cancogen_key:
         unique_key_slots:
           - specimen_collector_sample_id
 slots: {}
