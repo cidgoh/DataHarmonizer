@@ -18,20 +18,29 @@
     "fr": "Éditeur de schéma"
   },
   "upload-template-yaml-dropdown-item": {
-    "en": "Load Schema (.yaml format)",
-    "fr": "Charger le schéma (format .yaml)"
+    "en": "Load Schema from file (.yaml format)",
+    "fr": "Charger le schéma à partir du fichier (format .yaml)"
   },
+    "upload-template-uri": {
+    "en": "Load Schema from URI (yaml format)",
+    "fr": "Charger le schéma à partir de l'URI (format yaml)"
+  },
+  
   "save-template-button": {
     "en": "Save Selected Schema (.yaml format)",
     "fr": "Enregistrer le schéma sélectionné (format .yaml)"
   },
+  "translation-form-button": {
+    "en": "Translation Form (for chosen rows)",
+    "fr": "Formulaire de traduction (pour les lignes choisies)"
+  },
+
+
 
   "file-menu-button": {
     "en": "File",
     "fr": "Fichier"
   },
-
-
 
   "new-dropdown-item": {
     "en": "New",
@@ -90,14 +99,12 @@
     "en": "Fill column...",
     "fr": "Remplir la colonne..."
   },
+
   "validate-btn": {
     "en": "Validate",
     "fr": "Valider"
   },
-  "search-field": { 
-    "en": "Search",
-    "fr": "Rechercher"
-  },
+
   "help-menu-button": {
     "en": "Help",
     "fr": "Aide"
@@ -131,10 +138,23 @@
     "en": "Language",
     "fr": "Langue"
   },
+
   "loaded_file_label": {
     "en": "Loaded file",
     "fr": "Fichier téléchargé"
   },
+
+  "search-field": { 
+    "en": "Search",
+    "fr": "Rechercher"
+  },
+
+   "tooltip-require-selection": {
+    "en": "Requires key selection from",
+    "fr": "Nécessite la sélection de la clé à partir de"
+  },
+  
+
   "record-path": {
     "en": "Focus",
     "fr": "Chemin"
@@ -147,6 +167,8 @@
     "en": "row(s)",
     "fr": "ligne"
   },
+
+
   "template-cancel": {
     "en": "Cancel",
     "fr": "Annuler"

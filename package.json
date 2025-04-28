@@ -1,6 +1,6 @@
 {
   "name": "data-harmonizer",
-  "version": "1.9.5",
+  "version": "1.9.6",
   "description": "A standardized spreadsheet editor and validator that can be run offline and locally",
   "repository": "git@github.com:cidgoh/DataHarmonizer.git",
   "license": "MIT",
@@ -96,7 +96,8 @@
     "punycode": "^2.3.1",
     "sheetclip": "^0.3.0",
     "sifter": "^0.5.4",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "nested-property": "^4.0.0"
   },
   "jest": {
     "transform": {

@@ -42,7 +42,7 @@
               class="dropdown-item mb-0"
               id="upload-template-yaml-dropdown-item"
               data-i18n="upload-template-yaml-dropdown-item"
-              >Load Schema (yaml format)</label
+              >Load Schema from file (yaml format)</label
             >
             <input
               type="file"
@@ -52,7 +52,22 @@
               style="display:none"
               id="schema_upload"
             />
-
+            <!--
+            <label
+              for="schema_from_uri"
+              class="dropdown-item mb-0"
+              id="upload-template-uri"
+              data-i18n="upload-template-uri"
+              >Load Schema from URI (yaml format)</label
+            >
+            <input
+              type="text"
+              class="form-control-file"
+              multiple="false"
+              style="display:none"
+              id="schema_from_uri"
+            />
+            -->
             <span
               class="dropdown-item"
               data-toggle="modal"
@@ -60,7 +75,13 @@
               data-i18n="save-template-button"
               >Save Selected Schema (yaml format)</span
             >
-
+            <span
+              class="dropdown-item"
+              data-toggle="modal"
+              id="translation-form-button"
+              data-i18n="translation-form-button"
+              >Translation Form (for chosen rows)</span
+            >
           </div>
         </div>
 
