@@ -81,25 +81,37 @@ li.nav-item.disabled {
 */
 
 background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M6%209.65685L7.41421%2011.0711L11.6569%206.82843L15.8995%2011.0711L17.3137%209.65685L11.6569%204L6%209.65685Z%22%0A%20%20%20%20fill%3D%22currentColor%22%2F%3E%0A%20%20%3Cpath%0A%20%20%20%20d%3D%22M6%2014.4433L7.41421%2013.0291L11.6569%2017.2717L15.8995%2013.0291L17.3137%2014.4433L11.6569%2020.1001L6%2014.4433Z%22%0A%20%20%20%20fill%3D%22currentColor%22%2F%3E%0A%20%20%3C%2Fsvg%3E");
-  background-size:.9rem;
-  right:-20px;
-  padding-right:30px;
+  background-size:1.1rem;
+  right:-10px;
+  padding-right:10px;
   padding-bottom:15px;
 
 }
 
 .handsontable span.colHeader.columnSorting.ascending::before {
-  /* arrow up; 20 x 40 px, scaled to 5 x 10 px; base64 size: 0.3kB */
+  /* arrow up */
   background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M6%209.65685L7.41421%2011.0711L11.6569%206.82843L15.8995%2011.0711L17.3137%209.65685L11.6569%204L6%209.65685Z%22%0A%20%20%20%20fill%3D%22currentColor%22%2F%3E%0A%20%20%3C%2Fsvg%3E");
-  margin-top:0;
-  top:-3px;
+  top:6px;
 }
 
 .handsontable span.colHeader.columnSorting.descending::before {
   background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%0A%20%20%20%20d%3D%22M6%2014.4433L7.41421%2013.0291L11.6569%2017.2717L15.8995%2013.0291L17.3137%2014.4433L11.6569%2020.1001L6%2014.4433Z%22%0A%20%20%20%20fill%3D%22currentColor%22%2F%3E%0A%3C%2Fsvg%3E");
-  margin-top:0;
-  top:6px;
+  top:13px;
 }
+
+/* removes arrows from section header row */
+.handsontable tr:first-child span.colHeader.columnSorting::before {
+  background-size:0 !important;
+}
+
+
+.secondary-header-text {
+  cursor:pointer !important;
+  z-index: 10; 
+  margin-right:10px;
+  margin-top:5px;
+}
+
 
 /* Tooltip container */
 .tooltipy {
@@ -208,6 +220,7 @@ tr.translation-input td textarea {
   min-width:200px;
   field-sizing: content;
 }
+
 /* Need class indicating that DH_LinkML schema_editor is at work. */
 div#data-harmonizer-grid-4.data-harmonizer-grid tr:has(td.row-highlight) td {
   border-top:2px solid green;
