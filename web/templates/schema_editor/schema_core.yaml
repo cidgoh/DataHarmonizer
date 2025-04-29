@@ -13,7 +13,8 @@ classes:
 
   Schema:
     name: Schema
-    description: The top-level description of a LinkML schema.  A schema contains classes for describing one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
+    title: Schema
+    description: The top-level description of a LinkML schema.  A schema contains tables (LinkML classes) that detail one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
     see_also: 
       - templates/schema_editor/SOP.pdf
     unique_keys:
@@ -24,6 +25,7 @@ classes:
 
   Prefix:
     name: Prefix
+    title: Prefix
     description: A prefix used in the URIs mentioned in this schema.
     unique_keys:
       prefix_key:
@@ -35,7 +37,8 @@ classes:
 
   Class:
     name: Class
-    description: A class contained in given schema.  A class may be a top-level DataHarmonizer "template" that can be displayed in a spreadsheet tab, or it may be a subordinate 1-many class linked to a parent class by a primary key field.  
+    title: Table
+    description: A table (LinkML class) specification contained in given schema.  A table may be a top-level DataHarmonizer "template" that can be displayed in a spreadsheet tab, or it may be a subordinate 1-many table linked to a parent table by a primary key field.  
     unique_keys:
       class_key:
         description: A class is uniquely identified by the schema it appears in as well as its name.
@@ -45,38 +48,43 @@ classes:
 
   UniqueKey:
     name: UniqueKey
+    title: Table key
     description: A table linking the name of each multi-component(slot) key to the schema class it appears in.
     unique_keys:
       uniquekey_key:
         description: A slot is uniquely identified by the schema it appears in as well as its name
         unique_key_slots:
         - schema_id
-        - class_id
+        - class_name
         - name
 
   Slot:
     name: Slot
-    description: One or more slots contained in given schema. A slot can be used in one or more classes (templates).  A slot defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
+    title: Field
+    description: One or more fields (LinkML slots) contained in given schema. A field (slot) can be used in one or more table (class) specifications.  A field defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
     unique_keys:
       slot_key:
         description: A slot is uniquely identified by the schema it appears in as well as its name
         unique_key_slots:
         - schema_id
         - name
+        - slot_type
 
-  SlotUsage:
-    name: SlotUsage
-    description: A list of each classes slots which can include ordering (rank) and attribute overrides.
+  Annotation:
+    name: Annotation
+    title: Annotation
+    description: One or more fields (LinkML slots) contained in given schema. A field (slot) can be used in one or more table (class) specifications.  A field defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
     unique_keys:
-      slotusage_key:
-        description: A class is uniquely identified by the schema it appears in as well as its name.
+      slot_key:
+        description: A slot is uniquely identified by the schema it appears in as well as its name
         unique_key_slots:
         - schema_id
-        - class_id
-        - slot_id
+        - name
+        - slot_type
 
   Enum:
     name: Enum
+    title: Picklist
     description: One or more enumerations in given schema.  An enumeration can be used in the "range" or "any of" attribute of a slot.  Each enumeration has a flat list or hierarchy of permitted values.
     unique_keys:
       enum_key:
@@ -87,6 +95,7 @@ classes:
 
   PermissibleValue:
     name: PermissibleValue
+    title: Picklist choices
     description: An enumeration picklist value.
     unique_keys:
       permissiblevalue_key:
@@ -95,6 +104,29 @@ classes:
         - schema_id
         - enum_id
         - text
+
+  Setting: 
+    name: Setting
+    title: Setting
+    description: A regular expression that can be reused in a structured_pattern. See:https://linkml.io/linkml/faq/modeling.html#can-i-reuse-regular-expression-patterns.
+    unique_keys:
+      settings_key:
+        description: A setting is uniquely identified by the name key whose value is a regular expression.
+        unique_key_slots:
+        - schema_id
+        - name
+        - value
+
+  Extension: 
+    name: Extension
+    title: Extension
+    description: A list of LinkML attribute-value pairs that are not directly part of the schema's class/slot structure.  Locale information is held here.
+    unique_keys:
+      extension_key:
+        description: A key which details each schema's extension.
+        unique_key_slots:
+        - schema_id
+        - name
 
   Container:
       tree_root: true
@@ -107,10 +139,15 @@ classes:
           range: Prefix
           multivalued: true
           inlined_as_list: true
-        Slots:
-          range: Slot
+        Settings:
+          range: Setting
           multivalued: true
-          inlined_as_list: true
+          inlined_as_list: true         
+        Extensions:
+          range: Extension
+          multivalued: true
+          inlined_as_list: true 
+
         Enums:
           range: Enum
           multivalued: true
@@ -119,12 +156,18 @@ classes:
           range: PermissibleValue
           multivalued: true
           inlined_as_list: true
-        Classes:
-          range: Class
+
+        Slots:
+          range: Slot
           multivalued: true
           inlined_as_list: true
-        SlotUsages:
-          range: SlotUsage
+        Annotations:
+          range: Annotation
+          multivalued: true
+          inlined_as_list: true
+
+        Classes:
+          range: Class
           multivalued: true
           inlined_as_list: true
         UniqueKeys:
@@ -148,8 +191,8 @@ slots:
     name: class_id
     title: Class
     description: The class name that this table is linked to.
-    required: true
-    range: WhitespaceMinimizedString
+
+    range: SchemaClassMenu
     annotations:
       foreign_key:
         tag: foreign_key
@@ -178,18 +221,22 @@ slots:
         value: Enum.name
 
 enums: 
-  SchemaTypeMenu:
-    name: SchemaTypeMenu
-    title: Type Menu
-    permissible_values: {}
-  SchemaClassMenu:
-    name: SchemaClassMenu 
-    title: Class Menu
-    permissible_values: {}
-  SchemaEnumMenu:
-    name: SchemaEnumMenu
-    title: Enumeration Menu
-    permissible_values: {}
+  SchemaSlotTypeMenu:
+    name: SchemaSlotTypeMenu
+    title: Schema Slot Type Menu
+    permissible_values:
+      slot:
+        text: slot
+        title: Schema field
+        description: A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (class).  Note however that its attributes which have values cannot be overriden when reused.
+      slot_usage:
+        text: slot_usage
+        title: Table field (from schema)
+        description: A table field whose name and source attributes come from a schema library field. It can add its own attributes, but cannot overwrite the schema field ones.  (A LinkML schema slot referenced within a class's slot_usage list of slots.)
+      attribute:
+        text: attribute
+        title: Table field (independent)
+        description: A table field which is not reused from the schema.  The field can impose its own attribute values.
 
 types:
   WhitespaceMinimizedString:
