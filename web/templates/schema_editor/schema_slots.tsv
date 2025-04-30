@@ -8,6 +8,7 @@ A schema can also import other schemas and their slots, classes, etc."	Wastewate
 	attributes		in_language	Default language	LanguagesMenu										This is the language (ISO 639-1 Code; often en for English) that the schema’s class, slot, and enumeration titles, descriptions and other textual items are in.		
 	attributes		locales	Locales	LanguagesMenu			TRUE							These are the (ISO 639-1) language codes used as keys for language translations held in the schema’s extensions.locales list.		
 	attributes		default_prefix	Default prefix	uri				TRUE							A prefix to assume all classes and slots can be addressed by.	
+	attributes		imports	Imports	WhitespaceMinimizedString			TRUE									
 																	
 Prefix	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this prefix is listed in.		
 	key		prefix	Prefix	WhitespaceMinimizedString				TRUE						The namespace prefix string.		
@@ -63,6 +64,7 @@ A slot can be used in one or more classes (templates). A slot may appear as a vi
 	attributes		notes	Notes	WhitespaceMinimizedString										Editorial notes about an element intended primarily for internal consumption		
 																	
 Annotation	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this enumeration is contained in.		
+	key		slot_type	Type	SchemaSlotTypeMenu				TRUE								
 	key		class_name	On table	SchemaClassMenu										If this annotation is attached to a table (LinkML class), provide the name of the table.		
 	key		slot_name	On field	SchemaSlotMenu										If this annotation is attached to a field (LinkML slot), provide the name of the field. 		
 	key		name	Key	WhitespaceMinimizedString				TRUE		^[a-z]+[a-z0-9_]*$				The annotation key (i.e. name of the annotation).	This is a lowercase **snake_case** formatted name in the LinkML standard naming convention.	
@@ -71,7 +73,7 @@ Annotation	key		schema_id	Schema	Schema				TRUE						The coding name of the sche
 Enum	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this enumeration is contained in.		
 	key		name	Name	WhitespaceMinimizedString				TRUE		^([A-Z]+[a-z0-9]*)+$				The coding name of this LinkML schema enumeration.	See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/ 	
 	attributes		title	Title	WhitespaceMinimizedString				TRUE						The plain language name of this enumeration menu.		
-	attributes		description	Description	string				TRUE						A plan text description of this LinkML schema enumeration menu of terms.		
+	attributes		description	Description	string										A plan text description of this LinkML schema enumeration menu of terms.		
 	attributes		enum_uri	Enum URI	uri										A URI for identifying this enumeration's semantic type.		
 																	
 PermissibleValue	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this menu choice's menu (enumeration) is contained in.		
@@ -86,7 +88,9 @@ PermissibleValue	key		schema_id	Schema	Schema				TRUE						The coding name of th
 Setting	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this setting is contained in.		
 	key		name	Name	WhitespaceMinimizedString				TRUE		^([A-Z]+[a-z0-9]*)+$				The coding name of this setting, which I can be referenced in a Linkml structured_pattern expression. See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/ 		
 	attributes		value	Value	string				TRUE						The setting’s value, which is a regular expression that can be used in a LinkML structured_pattern expression field.		
+	attributes		description	Description	string										A plan text description of this setting.		
 																	
 Extension	key		schema_id	Schema	Schema				TRUE								
 	key		name	Name	WhitespaceMinimizedString				TRUE								
 	attributes		value	Value	string												
+	attributes		description	Description	string										A plan text description of this extension.  LinkML extensions allow saving any kind of object as a value of a key.		

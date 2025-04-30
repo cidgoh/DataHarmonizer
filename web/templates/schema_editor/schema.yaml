@@ -32,6 +32,7 @@ classes:
     - in_language
     - locales
     - default_prefix
+    - imports
     slot_usage:
       name:
         rank: 1
@@ -77,6 +78,9 @@ classes:
         slot_group: attributes
       default_prefix:
         rank: 7
+        slot_group: attributes
+      imports:
+        rank: 8
         slot_group: attributes
   Prefix:
     name: Prefix
@@ -409,6 +413,7 @@ classes:
         - slot_type
     slots:
     - schema_id
+    - slot_type
     - class_name
     - slot_name
     - name
@@ -420,17 +425,20 @@ classes:
         title: Schema
         range: Schema
         description: The coding name of the schema this enumeration is contained in.
-      class_name:
+      slot_type:
         rank: 2
+        slot_group: key
+      class_name:
+        rank: 3
         slot_group: key
         title: On table
         description: If this annotation is attached to a table (LinkML class), provide
           the name of the table.
       slot_name:
-        rank: 3
+        rank: 4
         slot_group: key
       name:
-        rank: 4
+        rank: 5
         slot_group: key
         title: Key
         range: WhitespaceMinimizedString
@@ -440,7 +448,7 @@ classes:
         - This is a lowercase **snake_case** formatted name in the LinkML standard
           naming convention.
       value:
-        rank: 5
+        rank: 6
         slot_group: attributes
         description: "The annotation\u2019s value, which can be a string or an object\
           \ of any kind (in non-serialized data)."
@@ -489,7 +497,6 @@ classes:
         rank: 4
         slot_group: attributes
         range: string
-        required: true
         description: A plan text description of this LinkML schema enumeration menu
           of terms.
       enum_uri:
@@ -574,6 +581,7 @@ classes:
     - schema_id
     - name
     - value
+    - description
     slot_usage:
       schema_id:
         rank: 1
@@ -596,6 +604,11 @@ classes:
         required: true
         description: "The setting\u2019s value, which is a regular expression that\
           \ can be used in a LinkML structured_pattern expression field."
+      description:
+        rank: 4
+        slot_group: attributes
+        range: string
+        description: A plan text description of this setting.
   Extension:
     name: Extension
     title: Extension
@@ -611,6 +624,7 @@ classes:
     - schema_id
     - name
     - value
+    - description
     slot_usage:
       schema_id:
         rank: 1
@@ -625,6 +639,12 @@ classes:
       value:
         rank: 3
         slot_group: attributes
+      description:
+        rank: 4
+        slot_group: attributes
+        range: string
+        description: A plan text description of this extension.  LinkML extensions
+          allow saving any kind of object as a value of a key.
   Container:
     tree_root: true
     attributes:
@@ -743,6 +763,11 @@ slots:
     - A prefix to assume all classes and slots can be addressed by.
     required: true
     range: uri
+  imports:
+    name: imports
+    title: Imports
+    multivalued: true
+    range: WhitespaceMinimizedString
   prefix:
     name: prefix
     title: Prefix
@@ -973,8 +998,8 @@ enums:
         title: Schema field
         description: A field (LinkML slot) that is stored in the schema's field (slot)
           library.  This field specification is available for customizable reuse in
-          any table (class).  Note however that its attributes which have values cannot
-          be overriden when reused.
+          any table (LinkML class).  Note however that its attributes which have values
+          cannot be overriden when reused.
       slot_usage:
         text: slot_usage
         title: Table field (from schema)

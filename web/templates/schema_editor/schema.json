@@ -306,7 +306,7 @@
       "permissible_values": {
         "slot": {
           "text": "slot",
-          "description": "A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (class).  Note however that its attributes which have values cannot be overriden when reused.",
+          "description": "A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (LinkML class).  Note however that its attributes which have values cannot be overriden when reused.",
           "title": "Schema field"
         },
         "slot_usage": {
@@ -1172,7 +1172,9 @@
         "UniqueKey",
         "Slot",
         "Enum",
-        "PermissibleValue"
+        "PermissibleValue",
+        "Setting",
+        "Extension"
       ]
     },
     "version": {
@@ -1219,6 +1221,16 @@
       ],
       "range": "uri",
       "required": true
+    },
+    "imports": {
+      "name": "imports",
+      "title": "Imports",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
     },
     "prefix": {
       "name": "prefix",
@@ -1332,7 +1344,8 @@
       "title": "Type",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
-        "Slot"
+        "Slot",
+        "Annotation"
       ],
       "range": "SchemaSlotTypeMenu",
       "required": true
@@ -1726,6 +1739,11 @@
           "name": "default_prefix",
           "rank": 7,
           "slot_group": "attributes"
+        },
+        "imports": {
+          "name": "imports",
+          "rank": 8,
+          "slot_group": "attributes"
         }
       },
       "attributes": {
@@ -1798,7 +1816,9 @@
             "UniqueKey",
             "Slot",
             "Enum",
-            "PermissibleValue"
+            "PermissibleValue",
+            "Setting",
+            "Extension"
           ],
           "slot_group": "attributes",
           "range": "string",
@@ -1875,6 +1895,20 @@
           "slot_group": "attributes",
           "range": "uri",
           "required": true
+        },
+        "imports": {
+          "name": "imports",
+          "title": "Imports",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 8,
+          "alias": "imports",
+          "owner": "Schema",
+          "domain_of": [
+            "Schema"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "multivalued": true
         }
       },
       "unique_keys": {
@@ -2151,7 +2185,9 @@
             "UniqueKey",
             "Slot",
             "Enum",
-            "PermissibleValue"
+            "PermissibleValue",
+            "Setting",
+            "Extension"
           ],
           "slot_group": "attributes",
           "range": "string",
@@ -2392,7 +2428,9 @@
             "UniqueKey",
             "Slot",
             "Enum",
-            "PermissibleValue"
+            "PermissibleValue",
+            "Setting",
+            "Extension"
           ],
           "slot_group": "attributes",
           "range": "WhitespaceMinimizedString"
@@ -2679,7 +2717,8 @@
           "alias": "slot_type",
           "owner": "Slot",
           "domain_of": [
-            "Slot"
+            "Slot",
+            "Annotation"
           ],
           "slot_group": "key",
           "range": "SchemaSlotTypeMenu",
@@ -2893,7 +2932,9 @@
             "UniqueKey",
             "Slot",
             "Enum",
-            "PermissibleValue"
+            "PermissibleValue",
+            "Setting",
+            "Extension"
           ],
           "slot_group": "attributes",
           "range": "string",
@@ -3151,16 +3192,21 @@
           "slot_group": "key",
           "range": "Schema"
         },
+        "slot_type": {
+          "name": "slot_type",
+          "rank": 2,
+          "slot_group": "key"
+        },
         "class_name": {
           "name": "class_name",
           "description": "If this annotation is attached to a table (LinkML class), provide the name of the table.",
           "title": "On table",
-          "rank": 2,
+          "rank": 3,
           "slot_group": "key"
         },
         "slot_name": {
           "name": "slot_name",
-          "rank": 3,
+          "rank": 4,
           "slot_group": "key"
         },
         "name": {
@@ -3170,7 +3216,7 @@
           "comments": [
             "This is a lowercase **snake_case** formatted name in the LinkML standard naming convention."
           ],
-          "rank": 4,
+          "rank": 5,
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
           "pattern": "^[a-z]+[a-z0-9_]*$"
@@ -3178,7 +3224,7 @@
         "value": {
           "name": "value",
           "description": "The annotation’s value, which can be a string or an object of any kind (in non-serialized data).",
-          "rank": 5,
+          "rank": 6,
           "slot_group": "attributes"
         }
       },
@@ -3212,12 +3258,27 @@
           "range": "Schema",
           "required": true
         },
+        "slot_type": {
+          "name": "slot_type",
+          "title": "Type",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "alias": "slot_type",
+          "owner": "Annotation",
+          "domain_of": [
+            "Slot",
+            "Annotation"
+          ],
+          "slot_group": "key",
+          "range": "SchemaSlotTypeMenu",
+          "required": true
+        },
         "class_name": {
           "name": "class_name",
           "description": "If this annotation is attached to a table (LinkML class), provide the name of the table.",
           "title": "On table",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 2,
+          "rank": 3,
           "alias": "class_name",
           "owner": "Annotation",
           "domain_of": [
@@ -3232,7 +3293,7 @@
           "description": "If this annotation is attached to a field (LinkML slot), provide the name of the field.",
           "title": "On field",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 3,
+          "rank": 4,
           "alias": "slot_name",
           "owner": "Annotation",
           "domain_of": [
@@ -3249,7 +3310,7 @@
             "This is a lowercase **snake_case** formatted name in the LinkML standard naming convention."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 4,
+          "rank": 5,
           "alias": "name",
           "owner": "Annotation",
           "domain_of": [
@@ -3272,7 +3333,7 @@
           "description": "The annotation’s value, which can be a string or an object of any kind (in non-serialized data).",
           "title": "Value",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 5,
+          "rank": 6,
           "alias": "value",
           "owner": "Annotation",
           "domain_of": [
@@ -3335,8 +3396,7 @@
           "description": "A plan text description of this LinkML schema enumeration menu of terms.",
           "rank": 4,
           "slot_group": "attributes",
-          "range": "string",
-          "required": true
+          "range": "string"
         },
         "enum_uri": {
           "name": "enum_uri",
@@ -3432,11 +3492,12 @@
             "UniqueKey",
             "Slot",
             "Enum",
-            "PermissibleValue"
+            "PermissibleValue",
+            "Setting",
+            "Extension"
           ],
           "slot_group": "attributes",
-          "range": "string",
-          "required": true
+          "range": "string"
         },
         "enum_uri": {
           "name": "enum_uri",
@@ -3636,7 +3697,9 @@
             "UniqueKey",
             "Slot",
             "Enum",
-            "PermissibleValue"
+            "PermissibleValue",
+            "Setting",
+            "Extension"
           ],
           "slot_group": "attributes",
           "range": "string"
@@ -3713,6 +3776,13 @@
           "rank": 3,
           "slot_group": "attributes",
           "required": true
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this setting.",
+          "rank": 4,
+          "slot_group": "attributes",
+          "range": "string"
         }
       },
       "attributes": {
@@ -3784,6 +3854,27 @@
           "slot_group": "attributes",
           "range": "string",
           "required": true
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this setting.",
+          "title": "Description",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "alias": "description",
+          "owner": "Setting",
+          "domain_of": [
+            "Schema",
+            "Class",
+            "UniqueKey",
+            "Slot",
+            "Enum",
+            "PermissibleValue",
+            "Setting",
+            "Extension"
+          ],
+          "slot_group": "attributes",
+          "range": "string"
         }
       },
       "unique_keys": {
@@ -3822,6 +3913,13 @@
           "name": "value",
           "rank": 3,
           "slot_group": "attributes"
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this extension.  LinkML extensions allow saving any kind of object as a value of a key.",
+          "rank": 4,
+          "slot_group": "attributes",
+          "range": "string"
         }
       },
       "attributes": {
@@ -3883,6 +3981,27 @@
           "owner": "Extension",
           "domain_of": [
             "Annotation",
+            "Setting",
+            "Extension"
+          ],
+          "slot_group": "attributes",
+          "range": "string"
+        },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this extension.  LinkML extensions allow saving any kind of object as a value of a key.",
+          "title": "Description",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "alias": "description",
+          "owner": "Extension",
+          "domain_of": [
+            "Schema",
+            "Class",
+            "UniqueKey",
+            "Slot",
+            "Enum",
+            "PermissibleValue",
             "Setting",
             "Extension"
           ],

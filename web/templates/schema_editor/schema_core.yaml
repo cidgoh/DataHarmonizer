@@ -228,7 +228,7 @@ enums:
       slot:
         text: slot
         title: Schema field
-        description: A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (class).  Note however that its attributes which have values cannot be overriden when reused.
+        description: A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (LinkML class).  Note however that its attributes which have values cannot be overriden when reused.
       slot_usage:
         text: slot_usage
         title: Table field (from schema)
