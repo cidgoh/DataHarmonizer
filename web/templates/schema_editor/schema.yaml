@@ -273,6 +273,7 @@ classes:
     - maximum_cardinality
     - equals_expression
     - pattern
+    - todos
     - exact_mappings
     - comments
     - examples
@@ -380,21 +381,27 @@ classes:
       pattern:
         rank: 23
         slot_group: attributes
-      exact_mappings:
+      todos:
         rank: 24
         slot_group: attributes
-      comments:
+      exact_mappings:
         rank: 25
         slot_group: attributes
-      examples:
+        title: Exact mappings
+        description: A list of one or more Curies or URIs that point to semantically
+          identical terms.
+      comments:
         rank: 26
         slot_group: attributes
-      version:
+      examples:
         rank: 27
+        slot_group: attributes
+      version:
+        rank: 28
         slot_group: attributes
         description: A version number indicating when this slot was introduced.
       notes:
-        rank: 28
+        rank: 29
         slot_group: attributes
   Annotation:
     name: Annotation
@@ -413,7 +420,7 @@ classes:
         - slot_type
     slots:
     - schema_id
-    - slot_type
+    - annotation_type
     - class_name
     - slot_name
     - name
@@ -425,7 +432,7 @@ classes:
         title: Schema
         range: Schema
         description: The coding name of the schema this enumeration is contained in.
-      slot_type:
+      annotation_type:
         rank: 2
         slot_group: key
       class_name:
@@ -521,6 +528,7 @@ classes:
     - is_a
     - title
     - description
+    - exact_mappings
     - meaning
     - notes
     slot_usage:
@@ -546,7 +554,8 @@ classes:
         slot_group: attributes
         title: Parent
         range: WhitespaceMinimizedString
-        description: The parent term name (in an enumeration) of this term, if any.
+        description: The parent term name (in the same enumeration) of this term,
+          if any.
       title:
         rank: 5
         slot_group: attributes
@@ -558,11 +567,15 @@ classes:
         slot_group: attributes
         range: string
         description: A plan text description of the meaning of this menu choice.
-      meaning:
+      exact_mappings:
         rank: 7
         slot_group: attributes
-      notes:
+        title: Code mappings
+      meaning:
         rank: 8
+        slot_group: attributes
+      notes:
+        rank: 9
         slot_group: attributes
   Setting:
     name: Setting
@@ -943,11 +956,16 @@ slots:
     - Regular expressions can begin with ^ to ensure start of string is tested, and
       $ to ensure up to end is tested.
     range: WhitespaceMinimizedString
+  todos:
+    name: todos
+    title: Conditional
+    description: "A delimited list of simple conditionals that pertain to this field\
+      \ (e.g. \u2018<={today}\u2019 , or \u2018<={some_other_field_name}\u2019.  This\
+      \ field may also include \u201Cwork in progress\u201D notes."
+    multivalued: true
+    range: WhitespaceMinimizedString
   exact_mappings:
     name: exact_mappings
-    title: Exact mappings
-    description: A list of one or more Curies or URIs that point to semantically identical
-      terms.
     multivalued: true
     range: WhitespaceMinimizedString
   comments:
@@ -961,6 +979,11 @@ slots:
     description: A free text field for including examples of string, numeric, date
       or categorical values.
     range: WhitespaceMinimizedString
+  annotation_type:
+    name: annotation_type
+    title: Type
+    required: true
+    range: SchemaAnnotationTypeMenu
   slot_name:
     name: slot_name
     title: On field
@@ -991,7 +1014,7 @@ slots:
 enums:
   SchemaSlotTypeMenu:
     name: SchemaSlotTypeMenu
-    title: Schema Slot Type Menu
+    title: Slot Type
     permissible_values:
       slot:
         text: slot
@@ -1010,6 +1033,35 @@ enums:
       attribute:
         text: attribute
         title: Table field (independent)
+        description: A table field which is not reused from the schema.  The field
+          can impose its own attribute values.
+  SchemaAnnotationTypeMenu:
+    name: SchemaAnnotationTypeMenu
+    title: Annotation Type
+    permissible_values:
+      schema:
+        text: schema
+        title: Schema annotation
+      class:
+        text: class
+        title: Class annotation
+      slot:
+        text: slot
+        title: Schema field
+        description: A field (LinkML slot) that is stored in the schema's field (slot)
+          library.  This field specification is available for customizable reuse in
+          any table (LinkML class).  Note however that its attributes which have values
+          cannot be overriden when reused.
+      slot_usage:
+        text: slot_usage
+        title: table field (from schema)
+        description: A table field whose name and source attributes come from a schema
+          library field. It can add its own attributes, but cannot overwrite the schema
+          field ones.  (A LinkML schema slot referenced within a class's slot_usage
+          list of slots.)
+      attribute:
+        text: attribute
+        title: table field (independent)
         description: A table field which is not reused from the schema.  The field
           can impose its own attribute values.
   TrueFalseMenu:

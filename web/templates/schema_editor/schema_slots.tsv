@@ -57,6 +57,7 @@ A slot can be used in one or more classes (templates). A slot may appear as a vi
 	attributes		maximum_cardinality	Maximum cardinality	integer										For multivalued slots, a maximum number of values		
 	attributes		equals_expression	Calculated value	WhitespaceMinimizedString										Enables inferring (calculating) value based on other slot values. Expressed as a python expression.	See https://linkml.io/linkml/schemas/advanced.html#equals-expression 	
 	attributes		pattern	Pattern	WhitespaceMinimizedString										A regular expression pattern used to validate a slot's string range data type content.	Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested.	
+	attributes		todos	Conditional	WhitespaceMinimizedString			TRUE							A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.		
 	attributes		exact_mappings	Exact mappings	WhitespaceMinimizedString			TRUE							A list of one or more Curies or URIs that point to semantically identical terms.		
 	attributes		comments	Comments	WhitespaceMinimizedString										A free text field for adding other comments to guide usage of field.		
 	attributes		examples	Examples	WhitespaceMinimizedString										A free text field for including examples of string, numeric, date or categorical values.		
@@ -64,7 +65,7 @@ A slot can be used in one or more classes (templates). A slot may appear as a vi
 	attributes		notes	Notes	WhitespaceMinimizedString										Editorial notes about an element intended primarily for internal consumption		
 																	
 Annotation	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this enumeration is contained in.		
-	key		slot_type	Type	SchemaSlotTypeMenu				TRUE								
+	key		annotation_type	Type	SchemaAnnotationTypeMenu				TRUE								
 	key		class_name	On table	SchemaClassMenu										If this annotation is attached to a table (LinkML class), provide the name of the table.		
 	key		slot_name	On field	SchemaSlotMenu										If this annotation is attached to a field (LinkML slot), provide the name of the field. 		
 	key		name	Key	WhitespaceMinimizedString				TRUE		^[a-z]+[a-z0-9_]*$				The annotation key (i.e. name of the annotation).	This is a lowercase **snake_case** formatted name in the LinkML standard naming convention.	
@@ -79,9 +80,10 @@ Enum	key		schema_id	Schema	Schema				TRUE						The coding name of the schema thi
 PermissibleValue	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this menu choice's menu (enumeration) is contained in.		
 	key		enum_id	Enum	Enum				TRUE						The coding name of the menu (enumeration) that this choice is contained in.		
 	key		text	Code	WhitespaceMinimizedString				TRUE						The code (LinkML permissible_value key) for the menu item choice.  It can be plain language or s(The coding name of this choice).		
-	attributes		is_a	Parent	WhitespaceMinimizedString										The parent term name (in an enumeration) of this term, if any.		
+	attributes		is_a	Parent	WhitespaceMinimizedString										The parent term name (in the same enumeration) of this term, if any.		
 	attributes		title	title	WhitespaceMinimizedString										The plain language title of this menu choice (LinkML PermissibleValue) to display. If none, the code will be dsplayed.		
 	attributes		description	Description	string										A plan text description of the meaning of this menu choice.		
+	attributes		exact_mappings	Code mappings	WhitespaceMinimizedString			TRUE									
 	attributes		meaning	Meaning	uri										A URI for identifying this choice's semantic type.		
 	attributes		notes	Notes	WhitespaceMinimizedString										Editorial notes about an element intended primarily for internal consumption		
 																	

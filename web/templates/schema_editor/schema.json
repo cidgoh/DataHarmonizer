@@ -301,7 +301,7 @@
   "enums": {
     "SchemaSlotTypeMenu": {
       "name": "SchemaSlotTypeMenu",
-      "title": "Schema Slot Type Menu",
+      "title": "Slot Type",
       "from_schema": "https://example.com/DH_LinkML",
       "permissible_values": {
         "slot": {
@@ -318,6 +318,36 @@
           "text": "attribute",
           "description": "A table field which is not reused from the schema.  The field can impose its own attribute values.",
           "title": "Table field (independent)"
+        }
+      }
+    },
+    "SchemaAnnotationTypeMenu": {
+      "name": "SchemaAnnotationTypeMenu",
+      "title": "Annotation Type",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "schema": {
+          "text": "schema",
+          "title": "Schema annotation"
+        },
+        "class": {
+          "text": "class",
+          "title": "Class annotation"
+        },
+        "slot": {
+          "text": "slot",
+          "description": "A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (LinkML class).  Note however that its attributes which have values cannot be overriden when reused.",
+          "title": "Schema field"
+        },
+        "slot_usage": {
+          "text": "slot_usage",
+          "description": "A table field whose name and source attributes come from a schema library field. It can add its own attributes, but cannot overwrite the schema field ones.  (A LinkML schema slot referenced within a class's slot_usage list of slots.)",
+          "title": "table field (from schema)"
+        },
+        "attribute": {
+          "text": "attribute",
+          "description": "A table field which is not reused from the schema.  The field can impose its own attribute values.",
+          "title": "table field (independent)"
         }
       }
     },
@@ -1344,8 +1374,7 @@
       "title": "Type",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
-        "Slot",
-        "Annotation"
+        "Slot"
       ],
       "range": "SchemaSlotTypeMenu",
       "required": true
@@ -1585,13 +1614,23 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "exact_mappings": {
-      "name": "exact_mappings",
-      "description": "A list of one or more Curies or URIs that point to semantically identical terms.",
-      "title": "Exact mappings",
+    "todos": {
+      "name": "todos",
+      "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
+      "title": "Conditional",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Slot"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
+    },
+    "exact_mappings": {
+      "name": "exact_mappings",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot",
+        "PermissibleValue"
       ],
       "range": "WhitespaceMinimizedString",
       "multivalued": true
@@ -1615,6 +1654,16 @@
         "Slot"
       ],
       "range": "WhitespaceMinimizedString"
+    },
+    "annotation_type": {
+      "name": "annotation_type",
+      "title": "Type",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Annotation"
+      ],
+      "range": "SchemaAnnotationTypeMenu",
+      "required": true
     },
     "slot_name": {
       "name": "slot_name",
@@ -2616,30 +2665,37 @@
           "rank": 23,
           "slot_group": "attributes"
         },
+        "todos": {
+          "name": "todos",
+          "rank": 24,
+          "slot_group": "attributes"
+        },
         "exact_mappings": {
           "name": "exact_mappings",
-          "rank": 24,
+          "description": "A list of one or more Curies or URIs that point to semantically identical terms.",
+          "title": "Exact mappings",
+          "rank": 25,
           "slot_group": "attributes"
         },
         "comments": {
           "name": "comments",
-          "rank": 25,
+          "rank": 26,
           "slot_group": "attributes"
         },
         "examples": {
           "name": "examples",
-          "rank": 26,
+          "rank": 27,
           "slot_group": "attributes"
         },
         "version": {
           "name": "version",
           "description": "A version number indicating when this slot was introduced.",
-          "rank": 27,
+          "rank": 28,
           "slot_group": "attributes"
         },
         "notes": {
           "name": "notes",
-          "rank": 28,
+          "rank": 29,
           "slot_group": "attributes"
         }
       },
@@ -2717,8 +2773,7 @@
           "alias": "slot_type",
           "owner": "Slot",
           "domain_of": [
-            "Slot",
-            "Annotation"
+            "Slot"
           ],
           "slot_group": "key",
           "range": "SchemaSlotTypeMenu",
@@ -3090,16 +3145,32 @@
           "slot_group": "attributes",
           "range": "WhitespaceMinimizedString"
         },
+        "todos": {
+          "name": "todos",
+          "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
+          "title": "Conditional",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 24,
+          "alias": "todos",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "multivalued": true
+        },
         "exact_mappings": {
           "name": "exact_mappings",
           "description": "A list of one or more Curies or URIs that point to semantically identical terms.",
           "title": "Exact mappings",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 24,
+          "rank": 25,
           "alias": "exact_mappings",
           "owner": "Slot",
           "domain_of": [
-            "Slot"
+            "Slot",
+            "PermissibleValue"
           ],
           "slot_group": "attributes",
           "range": "WhitespaceMinimizedString",
@@ -3110,7 +3181,7 @@
           "description": "A free text field for adding other comments to guide usage of field.",
           "title": "Comments",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 25,
+          "rank": 26,
           "alias": "comments",
           "owner": "Slot",
           "domain_of": [
@@ -3124,7 +3195,7 @@
           "description": "A free text field for including examples of string, numeric, date or categorical values.",
           "title": "Examples",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 26,
+          "rank": 27,
           "alias": "examples",
           "owner": "Slot",
           "domain_of": [
@@ -3138,7 +3209,7 @@
           "description": "A version number indicating when this slot was introduced.",
           "title": "Version",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 27,
+          "rank": 28,
           "alias": "version",
           "owner": "Slot",
           "domain_of": [
@@ -3154,7 +3225,7 @@
           "description": "Editorial notes about an element intended primarily for internal consumption",
           "title": "Notes",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 28,
+          "rank": 29,
           "alias": "notes",
           "owner": "Slot",
           "domain_of": [
@@ -3192,8 +3263,8 @@
           "slot_group": "key",
           "range": "Schema"
         },
-        "slot_type": {
-          "name": "slot_type",
+        "annotation_type": {
+          "name": "annotation_type",
           "rank": 2,
           "slot_group": "key"
         },
@@ -3258,19 +3329,18 @@
           "range": "Schema",
           "required": true
         },
-        "slot_type": {
-          "name": "slot_type",
+        "annotation_type": {
+          "name": "annotation_type",
           "title": "Type",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 2,
-          "alias": "slot_type",
+          "alias": "annotation_type",
           "owner": "Annotation",
           "domain_of": [
-            "Slot",
             "Annotation"
           ],
           "slot_group": "key",
-          "range": "SchemaSlotTypeMenu",
+          "range": "SchemaAnnotationTypeMenu",
           "required": true
         },
         "class_name": {
@@ -3554,7 +3624,7 @@
         },
         "is_a": {
           "name": "is_a",
-          "description": "The parent term name (in an enumeration) of this term, if any.",
+          "description": "The parent term name (in the same enumeration) of this term, if any.",
           "title": "Parent",
           "rank": 4,
           "slot_group": "attributes",
@@ -3574,14 +3644,20 @@
           "slot_group": "attributes",
           "range": "string"
         },
+        "exact_mappings": {
+          "name": "exact_mappings",
+          "title": "Code mappings",
+          "rank": 7,
+          "slot_group": "attributes"
+        },
         "meaning": {
           "name": "meaning",
-          "rank": 7,
+          "rank": 8,
           "slot_group": "attributes"
         },
         "notes": {
           "name": "notes",
-          "rank": 8,
+          "rank": 9,
           "slot_group": "attributes"
         }
       },
@@ -3653,7 +3729,7 @@
         },
         "is_a": {
           "name": "is_a",
-          "description": "The parent term name (in an enumeration) of this term, if any.",
+          "description": "The parent term name (in the same enumeration) of this term, if any.",
           "title": "Parent",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 4,
@@ -3704,12 +3780,27 @@
           "slot_group": "attributes",
           "range": "string"
         },
+        "exact_mappings": {
+          "name": "exact_mappings",
+          "title": "Code mappings",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 7,
+          "alias": "exact_mappings",
+          "owner": "PermissibleValue",
+          "domain_of": [
+            "Slot",
+            "PermissibleValue"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "multivalued": true
+        },
         "meaning": {
           "name": "meaning",
           "description": "A URI for identifying this choice's semantic type.",
           "title": "Meaning",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 7,
+          "rank": 8,
           "alias": "meaning",
           "owner": "PermissibleValue",
           "domain_of": [
@@ -3723,7 +3814,7 @@
           "description": "Editorial notes about an element intended primarily for internal consumption",
           "title": "Notes",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 8,
+          "rank": 9,
           "alias": "notes",
           "owner": "PermissibleValue",
           "domain_of": [
