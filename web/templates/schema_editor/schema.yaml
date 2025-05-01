@@ -478,6 +478,7 @@ classes:
     - title
     - description
     - enum_uri
+    - inherits
     slot_usage:
       schema_id:
         rank: 1
@@ -508,6 +509,9 @@ classes:
           of terms.
       enum_uri:
         rank: 5
+        slot_group: attributes
+      inherits:
+        rank: 6
         slot_group: attributes
   PermissibleValue:
     name: PermissibleValue
@@ -577,6 +581,60 @@ classes:
       notes:
         rank: 9
         slot_group: attributes
+  EnumSource:
+    name: EnumSource
+    title: Picklist Source
+    description: The external (URI reachable) source of an ontology or other parseable
+      vocabulary that aids in composing this menu.  This includes specifications for
+      extracting nodes or branches for inclusion or exclusion in the picklist (LinkML)
+      enumeration.
+    unique_keys:
+      enum_source_key:
+        description: A picklist source consists of the schema, enumeration, inclusion
+          or exclusion flag, and source URI of the ontology.
+        unique_key_slots:
+        - schema_id
+        - enum_id
+        - criteria
+        - source_ontology
+    slots:
+    - schema_id
+    - enum_id
+    - criteria
+    - source_ontology
+    - relationship_types
+    - source_nodes
+    - include_self
+    slot_usage:
+      schema_id:
+        rank: 1
+        slot_group: key
+        title: Schema
+        range: Schema
+        description: The coding name of the schema this menu inclusion and exclusion
+          criteria pertain to.
+      enum_id:
+        rank: 2
+        slot_group: key
+        title: Enum
+        range: Enum
+        description: The coding name of the menu (enumeration) that this inclusion
+          criteria pertains to.
+      criteria:
+        rank: 3
+        slot_group: key
+      source_ontology:
+        rank: 4
+        slot_group: key
+      relationship_types:
+        rank: 5
+        slot_group: attributes
+      source_nodes:
+        rank: 6
+        slot_group: atributes
+      include_self:
+        rank: 7
+        slot_group: attributes
   Setting:
     name: Setting
     title: Setting
@@ -622,6 +680,13 @@ classes:
         slot_group: attributes
         range: string
         description: A plan text description of this setting.
+  Rule:
+    name: Rule
+    title: Rule
+    description: A rule that executes the change in state of one or more fields (slots).  Each
+      rule has a "precondition" expression of constraints one or more fields' values
+      and a postcondition expression stating what the same or other field's values
+      change to.
   Extension:
     name: Extension
     title: Extension
@@ -683,6 +748,10 @@ classes:
         inlined_as_list: true
       PermissibleValues:
         range: PermissibleValue
+        multivalued: true
+        inlined_as_list: true
+      EnumSources:
+        range: EnumSource
         multivalued: true
         inlined_as_list: true
       Slots:
@@ -943,7 +1012,7 @@ slots:
     name: equals_expression
     title: Calculated value
     description: Enables inferring (calculating) value based on other slot values.
-      Expressed as a python expression.
+      This is a server-side LinkML expression, having the syntax of a python expression.
     comments:
     - See https://linkml.io/linkml/schemas/advanced.html#equals-expression
     range: WhitespaceMinimizedString
@@ -981,7 +1050,7 @@ slots:
     range: WhitespaceMinimizedString
   annotation_type:
     name: annotation_type
-    title: Type
+    title: Annotation on
     required: true
     range: SchemaAnnotationTypeMenu
   slot_name:
@@ -999,6 +1068,12 @@ slots:
     title: Enum URI
     description: A URI for identifying this enumeration's semantic type.
     range: uri
+  inherits:
+    name: inherits
+    title: Inherits
+    description: Indicates that this menu inherits choices from another menu, and
+      includes or excludes other values (for selection and validation).
+    range: SchemaEnumMenu
   text:
     name: text
     title: Code
@@ -1011,6 +1086,40 @@ slots:
     title: Meaning
     description: A URI for identifying this choice's semantic type.
     range: uri
+  criteria:
+    name: criteria
+    title: Criteria
+    description: "Whether to include or exclude (minus) the source ontology\u2019\
+      s given terms (and their underlying terms, if any)."
+    required: true
+    range: EnumCriteriaMenu
+  source_ontology:
+    name: source_ontology
+    title: Source ontology
+    description: The URI of the source ontology to trust and fetch terms from.
+    range: uri
+  relationship_types:
+    name: relationship_types
+    title: Relations
+    description: The relations (usually owl:SubClassOf) that compose the hierarchy
+      of terms.
+    multivalued: true
+    range: WhitespaceMinimizedString
+  source_nodes:
+    name: source_nodes
+    title: Term identifiers
+    description: The selection of term nodes (and their underlying terms) to allow
+      or exclude selections from, and to validate data by.
+    multivalued: true
+    range: uriorcurie
+  include_self:
+    name: include_self
+    title: Add source node(s) to menu too?
+    description: Include the listed selection of items (top of term branch or otherwise)
+      as selectable items themselves.
+    any_of:
+    - range: boolean
+    - range: TrueFalseMenu
 enums:
   SchemaSlotTypeMenu:
     name: SchemaSlotTypeMenu
@@ -1041,10 +1150,10 @@ enums:
     permissible_values:
       schema:
         text: schema
-        title: Schema annotation
+        title: Schema
       class:
         text: class
-        title: Class annotation
+        title: Table
       slot:
         text: slot
         title: Schema field
@@ -1054,16 +1163,26 @@ enums:
           cannot be overriden when reused.
       slot_usage:
         text: slot_usage
-        title: table field (from schema)
+        title: Table field (from schema)
         description: A table field whose name and source attributes come from a schema
           library field. It can add its own attributes, but cannot overwrite the schema
           field ones.  (A LinkML schema slot referenced within a class's slot_usage
           list of slots.)
       attribute:
         text: attribute
-        title: table field (independent)
+        title: Table field (independent)
         description: A table field which is not reused from the schema.  The field
           can impose its own attribute values.
+  EnumCriteriaMenu:
+    name: EnumCriteriaMenu
+    title: Criteria Menu
+    permissible_values:
+      include:
+        text: include
+        title: include
+      exclude:
+        text: exclude
+        title: exclude
   TrueFalseMenu:
     name: TrueFalseMenu
     title: True/False Menu

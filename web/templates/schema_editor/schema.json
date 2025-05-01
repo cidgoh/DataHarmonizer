@@ -328,11 +328,11 @@
       "permissible_values": {
         "schema": {
           "text": "schema",
-          "title": "Schema annotation"
+          "title": "Schema"
         },
         "class": {
           "text": "class",
-          "title": "Class annotation"
+          "title": "Table"
         },
         "slot": {
           "text": "slot",
@@ -342,12 +342,27 @@
         "slot_usage": {
           "text": "slot_usage",
           "description": "A table field whose name and source attributes come from a schema library field. It can add its own attributes, but cannot overwrite the schema field ones.  (A LinkML schema slot referenced within a class's slot_usage list of slots.)",
-          "title": "table field (from schema)"
+          "title": "Table field (from schema)"
         },
         "attribute": {
           "text": "attribute",
           "description": "A table field which is not reused from the schema.  The field can impose its own attribute values.",
-          "title": "table field (independent)"
+          "title": "Table field (independent)"
+        }
+      }
+    },
+    "EnumCriteriaMenu": {
+      "name": "EnumCriteriaMenu",
+      "title": "Criteria Menu",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "include": {
+          "text": "include",
+          "title": "include"
+        },
+        "exclude": {
+          "text": "exclude",
+          "title": "exclude"
         }
       }
     },
@@ -1110,6 +1125,7 @@
         "Annotation",
         "Enum",
         "PermissibleValue",
+        "EnumSource",
         "Setting",
         "Extension"
       ],
@@ -1153,7 +1169,8 @@
       },
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
-        "PermissibleValue"
+        "PermissibleValue",
+        "EnumSource"
       ],
       "required": true
     },
@@ -1590,7 +1607,7 @@
     },
     "equals_expression": {
       "name": "equals_expression",
-      "description": "Enables inferring (calculating) value based on other slot values. Expressed as a python expression.",
+      "description": "Enables inferring (calculating) value based on other slot values. This is a server-side LinkML expression, having the syntax of a python expression.",
       "title": "Calculated value",
       "comments": [
         "See https://linkml.io/linkml/schemas/advanced.html#equals-expression"
@@ -1657,7 +1674,7 @@
     },
     "annotation_type": {
       "name": "annotation_type",
-      "title": "Type",
+      "title": "Annotation on",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Annotation"
@@ -1696,6 +1713,16 @@
       ],
       "range": "uri"
     },
+    "inherits": {
+      "name": "inherits",
+      "description": "Indicates that this menu inherits choices from another menu, and includes or excludes other values (for selection and validation).",
+      "title": "Inherits",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Enum"
+      ],
+      "range": "SchemaEnumMenu"
+    },
     "text": {
       "name": "text",
       "description": "The code (LinkML permissible_value key) for the menu item choice.  It can be plain language or s(The coding name of this choice).",
@@ -1716,6 +1743,66 @@
         "PermissibleValue"
       ],
       "range": "uri"
+    },
+    "criteria": {
+      "name": "criteria",
+      "description": "Whether to include or exclude (minus) the source ontology’s given terms (and their underlying terms, if any).",
+      "title": "Criteria",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "EnumCriteriaMenu",
+      "required": true
+    },
+    "source_ontology": {
+      "name": "source_ontology",
+      "description": "The URI of the source ontology to trust and fetch terms from.",
+      "title": "Source ontology",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "uri"
+    },
+    "relationship_types": {
+      "name": "relationship_types",
+      "description": "The relations (usually owl:SubClassOf) that compose the hierarchy of terms.",
+      "title": "Relations",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
+    },
+    "source_nodes": {
+      "name": "source_nodes",
+      "description": "The selection of term nodes (and their underlying terms) to allow or exclude selections from, and to validate data by.",
+      "title": "Term identifiers",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "uriorcurie",
+      "multivalued": true
+    },
+    "include_self": {
+      "name": "include_self",
+      "description": "Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.",
+      "title": "Add source node(s) to menu too?",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
     }
   },
   "classes": {
@@ -2018,6 +2105,7 @@
             "Annotation",
             "Enum",
             "PermissibleValue",
+            "EnumSource",
             "Setting",
             "Extension"
           ],
@@ -2165,6 +2253,7 @@
             "Annotation",
             "Enum",
             "PermissibleValue",
+            "EnumSource",
             "Setting",
             "Extension"
           ],
@@ -2398,6 +2487,7 @@
             "Annotation",
             "Enum",
             "PermissibleValue",
+            "EnumSource",
             "Setting",
             "Extension"
           ],
@@ -2725,6 +2815,7 @@
             "Annotation",
             "Enum",
             "PermissibleValue",
+            "EnumSource",
             "Setting",
             "Extension"
           ],
@@ -3113,7 +3204,7 @@
         },
         "equals_expression": {
           "name": "equals_expression",
-          "description": "Enables inferring (calculating) value based on other slot values. Expressed as a python expression.",
+          "description": "Enables inferring (calculating) value based on other slot values. This is a server-side LinkML expression, having the syntax of a python expression.",
           "title": "Calculated value",
           "comments": [
             "See https://linkml.io/linkml/schemas/advanced.html#equals-expression"
@@ -3322,6 +3413,7 @@
             "Annotation",
             "Enum",
             "PermissibleValue",
+            "EnumSource",
             "Setting",
             "Extension"
           ],
@@ -3331,7 +3423,7 @@
         },
         "annotation_type": {
           "name": "annotation_type",
-          "title": "Type",
+          "title": "Annotation on",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 2,
           "alias": "annotation_type",
@@ -3472,6 +3564,11 @@
           "name": "enum_uri",
           "rank": 5,
           "slot_group": "attributes"
+        },
+        "inherits": {
+          "name": "inherits",
+          "rank": 6,
+          "slot_group": "attributes"
         }
       },
       "attributes": {
@@ -3497,6 +3594,7 @@
             "Annotation",
             "Enum",
             "PermissibleValue",
+            "EnumSource",
             "Setting",
             "Extension"
           ],
@@ -3582,6 +3680,20 @@
           ],
           "slot_group": "attributes",
           "range": "uri"
+        },
+        "inherits": {
+          "name": "inherits",
+          "description": "Indicates that this menu inherits choices from another menu, and includes or excludes other values (for selection and validation).",
+          "title": "Inherits",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 6,
+          "alias": "inherits",
+          "owner": "Enum",
+          "domain_of": [
+            "Enum"
+          ],
+          "slot_group": "attributes",
+          "range": "SchemaEnumMenu"
         }
       },
       "unique_keys": {
@@ -3684,6 +3796,7 @@
             "Annotation",
             "Enum",
             "PermissibleValue",
+            "EnumSource",
             "Setting",
             "Extension"
           ],
@@ -3706,7 +3819,8 @@
           "alias": "enum_id",
           "owner": "PermissibleValue",
           "domain_of": [
-            "PermissibleValue"
+            "PermissibleValue",
+            "EnumSource"
           ],
           "slot_group": "key",
           "range": "Enum",
@@ -3838,6 +3952,201 @@
         }
       }
     },
+    "EnumSource": {
+      "name": "EnumSource",
+      "description": "The external (URI reachable) source of an ontology or other parseable vocabulary that aids in composing this menu.  This includes specifications for extracting nodes or branches for inclusion or exclusion in the picklist (LinkML) enumeration.",
+      "title": "Picklist Source",
+      "from_schema": "https://example.com/DH_LinkML",
+      "slot_usage": {
+        "schema_id": {
+          "name": "schema_id",
+          "description": "The coding name of the schema this menu inclusion and exclusion criteria pertain to.",
+          "title": "Schema",
+          "rank": 1,
+          "slot_group": "key",
+          "range": "Schema"
+        },
+        "enum_id": {
+          "name": "enum_id",
+          "description": "The coding name of the menu (enumeration) that this inclusion criteria pertains to.",
+          "title": "Enum",
+          "rank": 2,
+          "slot_group": "key",
+          "range": "Enum"
+        },
+        "criteria": {
+          "name": "criteria",
+          "rank": 3,
+          "slot_group": "key"
+        },
+        "source_ontology": {
+          "name": "source_ontology",
+          "rank": 4,
+          "slot_group": "key"
+        },
+        "relationship_types": {
+          "name": "relationship_types",
+          "rank": 5,
+          "slot_group": "attributes"
+        },
+        "source_nodes": {
+          "name": "source_nodes",
+          "rank": 6,
+          "slot_group": "atributes"
+        },
+        "include_self": {
+          "name": "include_self",
+          "rank": 7,
+          "slot_group": "attributes"
+        }
+      },
+      "attributes": {
+        "schema_id": {
+          "name": "schema_id",
+          "annotations": {
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Schema.name"
+            }
+          },
+          "description": "The coding name of the schema this menu inclusion and exclusion criteria pertain to.",
+          "title": "Schema",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 1,
+          "alias": "schema_id",
+          "owner": "EnumSource",
+          "domain_of": [
+            "Prefix",
+            "Class",
+            "UniqueKey",
+            "Slot",
+            "Annotation",
+            "Enum",
+            "PermissibleValue",
+            "EnumSource",
+            "Setting",
+            "Extension"
+          ],
+          "slot_group": "key",
+          "range": "Schema",
+          "required": true
+        },
+        "enum_id": {
+          "name": "enum_id",
+          "annotations": {
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Enum.name"
+            }
+          },
+          "description": "The coding name of the menu (enumeration) that this inclusion criteria pertains to.",
+          "title": "Enum",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "alias": "enum_id",
+          "owner": "EnumSource",
+          "domain_of": [
+            "PermissibleValue",
+            "EnumSource"
+          ],
+          "slot_group": "key",
+          "range": "Enum",
+          "required": true
+        },
+        "criteria": {
+          "name": "criteria",
+          "description": "Whether to include or exclude (minus) the source ontology’s given terms (and their underlying terms, if any).",
+          "title": "Criteria",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "alias": "criteria",
+          "owner": "EnumSource",
+          "domain_of": [
+            "EnumSource"
+          ],
+          "slot_group": "key",
+          "range": "EnumCriteriaMenu",
+          "required": true
+        },
+        "source_ontology": {
+          "name": "source_ontology",
+          "description": "The URI of the source ontology to trust and fetch terms from.",
+          "title": "Source ontology",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "alias": "source_ontology",
+          "owner": "EnumSource",
+          "domain_of": [
+            "EnumSource"
+          ],
+          "slot_group": "key",
+          "range": "uri"
+        },
+        "relationship_types": {
+          "name": "relationship_types",
+          "description": "The relations (usually owl:SubClassOf) that compose the hierarchy of terms.",
+          "title": "Relations",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 5,
+          "alias": "relationship_types",
+          "owner": "EnumSource",
+          "domain_of": [
+            "EnumSource"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "multivalued": true
+        },
+        "source_nodes": {
+          "name": "source_nodes",
+          "description": "The selection of term nodes (and their underlying terms) to allow or exclude selections from, and to validate data by.",
+          "title": "Term identifiers",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 6,
+          "alias": "source_nodes",
+          "owner": "EnumSource",
+          "domain_of": [
+            "EnumSource"
+          ],
+          "slot_group": "atributes",
+          "range": "uriorcurie",
+          "multivalued": true
+        },
+        "include_self": {
+          "name": "include_self",
+          "description": "Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.",
+          "title": "Add source node(s) to menu too?",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 7,
+          "alias": "include_self",
+          "owner": "EnumSource",
+          "domain_of": [
+            "EnumSource"
+          ],
+          "slot_group": "attributes",
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
+        }
+      },
+      "unique_keys": {
+        "enum_source_key": {
+          "unique_key_name": "enum_source_key",
+          "unique_key_slots": [
+            "schema_id",
+            "enum_id",
+            "criteria",
+            "source_ontology"
+          ],
+          "description": "A picklist source consists of the schema, enumeration, inclusion or exclusion flag, and source URI of the ontology."
+        }
+      }
+    },
     "Setting": {
       "name": "Setting",
       "description": "A regular expression that can be reused in a structured_pattern. See:https://linkml.io/linkml/faq/modeling.html#can-i-reuse-regular-expression-patterns.",
@@ -3899,6 +4208,7 @@
             "Annotation",
             "Enum",
             "PermissibleValue",
+            "EnumSource",
             "Setting",
             "Extension"
           ],
@@ -3980,6 +4290,12 @@
         }
       }
     },
+    "Rule": {
+      "name": "Rule",
+      "description": "A rule that executes the change in state of one or more fields (slots).  Each rule has a \"precondition\" expression of constraints one or more fields' values and a postcondition expression stating what the same or other field's values change to.",
+      "title": "Rule",
+      "from_schema": "https://example.com/DH_LinkML"
+    },
     "Extension": {
       "name": "Extension",
       "description": "A list of LinkML attribute-value pairs that are not directly part of the schema's class/slot structure.  Locale information is held here.",
@@ -4035,6 +4351,7 @@
             "Annotation",
             "Enum",
             "PermissibleValue",
+            "EnumSource",
             "Setting",
             "Extension"
           ],
@@ -4184,6 +4501,18 @@
             "Container"
           ],
           "range": "PermissibleValue",
+          "multivalued": true,
+          "inlined_as_list": true
+        },
+        "EnumSources": {
+          "name": "EnumSources",
+          "from_schema": "https://example.com/DH_LinkML",
+          "alias": "EnumSources",
+          "owner": "Container",
+          "domain_of": [
+            "Container"
+          ],
+          "range": "EnumSource",
           "multivalued": true,
           "inlined_as_list": true
         },

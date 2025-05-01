@@ -105,6 +105,19 @@ classes:
         - enum_id
         - text
 
+  EnumSource:
+    name: EnumSource
+    title: Picklist Source
+    description: The external (URI reachable) source of an ontology or other parseable vocabulary that aids in composing this menu.  This includes specifications for extracting nodes or branches for inclusion or exclusion in the picklist (LinkML) enumeration.
+    unique_keys:
+      enum_source_key:
+        description: A picklist source consists of the schema, enumeration, inclusion or exclusion flag, and source URI of the ontology.
+        unique_key_slots:
+        - schema_id
+        - enum_id
+        - criteria
+        - source_ontology
+
   Setting: 
     name: Setting
     title: Setting
@@ -116,6 +129,12 @@ classes:
         - schema_id
         - name
         - value
+
+  Rule: 
+    name: Rule
+    title: Rule
+    description: A rule that executes the change in state of one or more fields (slots).  Each rule has a "precondition" expression of constraints one or more fields' values and a postcondition expression stating what the same or other field's values change to.
+
 
   Extension: 
     name: Extension
@@ -156,6 +175,10 @@ classes:
           range: PermissibleValue
           multivalued: true
           inlined_as_list: true
+        EnumSources:
+          range: EnumSource
+          multivalued: true
+          inlined_as_list: true  
 
         Slots:
           range: Slot
@@ -244,23 +267,33 @@ enums:
     permissible_values:
       schema:
         text: schema
-        title: Schema annotation
+        title: Schema
       class:
         text: class
-        title: Class annotation
+        title: Table
       slot:
         text: slot
         title: Schema field
         description: A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (LinkML class).  Note however that its attributes which have values cannot be overriden when reused.
       slot_usage:
         text: slot_usage
-        title: table field (from schema)
+        title: Table field (from schema)
         description: A table field whose name and source attributes come from a schema library field. It can add its own attributes, but cannot overwrite the schema field ones.  (A LinkML schema slot referenced within a class's slot_usage list of slots.)
       attribute:
         text: attribute
-        title: table field (independent)
+        title: Table field (independent)
         description: A table field which is not reused from the schema.  The field can impose its own attribute values.
 
+  EnumCriteriaMenu:
+      name: EnumCriteriaMenu
+      title: Criteria Menu
+      permissible_values:
+        include:
+          text: include
+          title: include
+        exclude:
+          text: exclude
+          title: exclude
 
 types:
   WhitespaceMinimizedString:
