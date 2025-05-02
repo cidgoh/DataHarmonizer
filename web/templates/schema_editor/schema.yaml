@@ -602,9 +602,10 @@ classes:
     - enum_id
     - criteria
     - source_ontology
-    - relationship_types
+    - is_direct
     - source_nodes
     - include_self
+    - relationship_types
     slot_usage:
       schema_id:
         rank: 1
@@ -626,14 +627,17 @@ classes:
       source_ontology:
         rank: 4
         slot_group: key
-      relationship_types:
+      is_direct:
         rank: 5
         slot_group: attributes
       source_nodes:
         rank: 6
-        slot_group: atributes
+        slot_group: attributes
       include_self:
         rank: 7
+        slot_group: attributes
+      relationship_types:
+        rank: 8
         slot_group: attributes
   Setting:
     name: Setting
@@ -1098,6 +1102,29 @@ slots:
     title: Source ontology
     description: The URI of the source ontology to trust and fetch terms from.
     range: uri
+  is_direct:
+    name: is_direct
+    title: Directly downloadable
+    description: Can the vocabulary source be automatically downloaded and processed,
+      or is a manual process involved?
+    any_of:
+    - range: boolean
+    - range: TrueFalseMenu
+  source_nodes:
+    name: source_nodes
+    title: Top level term ids
+    description: The selection of term nodes (and their underlying terms) to allow
+      or exclude selections from, and to validate data by.
+    multivalued: true
+    range: uriorcurie
+  include_self:
+    name: include_self
+    title: Include top level terms
+    description: Include the listed selection of items (top of term branch or otherwise)
+      as selectable items themselves.
+    any_of:
+    - range: boolean
+    - range: TrueFalseMenu
   relationship_types:
     name: relationship_types
     title: Relations
@@ -1105,21 +1132,6 @@ slots:
       of terms.
     multivalued: true
     range: WhitespaceMinimizedString
-  source_nodes:
-    name: source_nodes
-    title: Term identifiers
-    description: The selection of term nodes (and their underlying terms) to allow
-      or exclude selections from, and to validate data by.
-    multivalued: true
-    range: uriorcurie
-  include_self:
-    name: include_self
-    title: Add source node(s) to menu too?
-    description: Include the listed selection of items (top of term branch or otherwise)
-      as selectable items themselves.
-    any_of:
-    - range: boolean
-    - range: TrueFalseMenu
 enums:
   SchemaSlotTypeMenu:
     name: SchemaSlotTypeMenu

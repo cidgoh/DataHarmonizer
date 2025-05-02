@@ -92,9 +92,10 @@ EnumSource	key		schema_id	Schema	Schema				TRUE						The coding name of the sche
 	key		enum_id	Enum	Enum				TRUE						The coding name of the menu (enumeration) that this inclusion criteria pertains to.		
 	key		criteria	Criteria	EnumCriteriaMenu				TRUE						Whether to include or exclude (minus) the source ontology’s given terms (and their underlying terms, if any).		
 	key		source_ontology	Source ontology	uri										The URI of the source ontology to trust and fetch terms from.		
+	attributes		is_direct	Directly downloadable	boolean;TrueFalseMenu										Can the vocabulary source be automatically downloaded and processed, or is a manual process involved?		
+	attributes		source_nodes	Top level term ids	uriorcurie			TRUE							The selection of term nodes (and their underlying terms) to allow or exclude selections from, and to validate data by.		
+	attributes		include_self	Include top level terms	boolean;TrueFalseMenu										Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.		
 	attributes		relationship_types	Relations	WhitespaceMinimizedString			TRUE							The relations (usually owl:SubClassOf) that compose the hierarchy of terms.		
-	atributes		source_nodes	Term identifiers	uriorcurie			TRUE							The selection of term nodes (and their underlying terms) to allow or exclude selections from, and to validate data by.		
-	attributes		include_self	Add source node(s) to menu too?	boolean;TrueFalseMenu										Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.		
 																	
 Setting	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this setting is contained in.		
 	key		name	Name	WhitespaceMinimizedString				TRUE		^([A-Z]+[a-z0-9]*)+$				The coding name of this setting, which I can be referenced in a Linkml structured_pattern expression. See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/ 		

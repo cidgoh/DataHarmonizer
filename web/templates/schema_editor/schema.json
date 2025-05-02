@@ -1765,32 +1765,10 @@
       ],
       "range": "uri"
     },
-    "relationship_types": {
-      "name": "relationship_types",
-      "description": "The relations (usually owl:SubClassOf) that compose the hierarchy of terms.",
-      "title": "Relations",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "EnumSource"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "multivalued": true
-    },
-    "source_nodes": {
-      "name": "source_nodes",
-      "description": "The selection of term nodes (and their underlying terms) to allow or exclude selections from, and to validate data by.",
-      "title": "Term identifiers",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "EnumSource"
-      ],
-      "range": "uriorcurie",
-      "multivalued": true
-    },
-    "include_self": {
-      "name": "include_self",
-      "description": "Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.",
-      "title": "Add source node(s) to menu too?",
+    "is_direct": {
+      "name": "is_direct",
+      "description": "Can the vocabulary source be automatically downloaded and processed, or is a manual process involved?",
+      "title": "Directly downloadable",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "EnumSource"
@@ -1803,6 +1781,45 @@
           "range": "TrueFalseMenu"
         }
       ]
+    },
+    "source_nodes": {
+      "name": "source_nodes",
+      "description": "The selection of term nodes (and their underlying terms) to allow or exclude selections from, and to validate data by.",
+      "title": "Top level term ids",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "uriorcurie",
+      "multivalued": true
+    },
+    "include_self": {
+      "name": "include_self",
+      "description": "Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.",
+      "title": "Include top level terms",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "relationship_types": {
+      "name": "relationship_types",
+      "description": "The relations (usually owl:SubClassOf) that compose the hierarchy of terms.",
+      "title": "Relations",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
     }
   },
   "classes": {
@@ -3984,19 +4001,24 @@
           "rank": 4,
           "slot_group": "key"
         },
-        "relationship_types": {
-          "name": "relationship_types",
+        "is_direct": {
+          "name": "is_direct",
           "rank": 5,
           "slot_group": "attributes"
         },
         "source_nodes": {
           "name": "source_nodes",
           "rank": 6,
-          "slot_group": "atributes"
+          "slot_group": "attributes"
         },
         "include_self": {
           "name": "include_self",
           "rank": 7,
+          "slot_group": "attributes"
+        },
+        "relationship_types": {
+          "name": "relationship_types",
+          "rank": 8,
           "slot_group": "attributes"
         }
       },
@@ -4082,25 +4104,31 @@
           "slot_group": "key",
           "range": "uri"
         },
-        "relationship_types": {
-          "name": "relationship_types",
-          "description": "The relations (usually owl:SubClassOf) that compose the hierarchy of terms.",
-          "title": "Relations",
+        "is_direct": {
+          "name": "is_direct",
+          "description": "Can the vocabulary source be automatically downloaded and processed, or is a manual process involved?",
+          "title": "Directly downloadable",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 5,
-          "alias": "relationship_types",
+          "alias": "is_direct",
           "owner": "EnumSource",
           "domain_of": [
             "EnumSource"
           ],
           "slot_group": "attributes",
-          "range": "WhitespaceMinimizedString",
-          "multivalued": true
+          "any_of": [
+            {
+              "range": "boolean"
+            },
+            {
+              "range": "TrueFalseMenu"
+            }
+          ]
         },
         "source_nodes": {
           "name": "source_nodes",
           "description": "The selection of term nodes (and their underlying terms) to allow or exclude selections from, and to validate data by.",
-          "title": "Term identifiers",
+          "title": "Top level term ids",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 6,
           "alias": "source_nodes",
@@ -4108,14 +4136,14 @@
           "domain_of": [
             "EnumSource"
           ],
-          "slot_group": "atributes",
+          "slot_group": "attributes",
           "range": "uriorcurie",
           "multivalued": true
         },
         "include_self": {
           "name": "include_self",
           "description": "Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.",
-          "title": "Add source node(s) to menu too?",
+          "title": "Include top level terms",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 7,
           "alias": "include_self",
@@ -4132,6 +4160,21 @@
               "range": "TrueFalseMenu"
             }
           ]
+        },
+        "relationship_types": {
+          "name": "relationship_types",
+          "description": "The relations (usually owl:SubClassOf) that compose the hierarchy of terms.",
+          "title": "Relations",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 8,
+          "alias": "relationship_types",
+          "owner": "EnumSource",
+          "domain_of": [
+            "EnumSource"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "multivalued": true
         }
       },
       "unique_keys": {
