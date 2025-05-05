@@ -10,7 +10,7 @@
     "fr": "Sélectionner un modèle"
   },
   "upload-template-dropdown-item": {
-    "en": "Upload DataHarmonizer Schema (.json format)",
+    "en": "Upload Template (.json format)",
     "fr": "Télécharger le modèle (format .json)"
   },
   "schema-editor-menu": {

@@ -261,6 +261,7 @@ classes:
     - slot_uri
     - title
     - range
+    - unit
     - required
     - recommended
     - description
@@ -342,66 +343,69 @@ classes:
       range:
         rank: 11
         slot_group: attributes
-      required:
+      unit:
         rank: 12
         slot_group: attributes
-      recommended:
+      required:
         rank: 13
         slot_group: attributes
-      description:
+      recommended:
         rank: 14
+        slot_group: attributes
+      description:
+        rank: 15
         slot_group: attributes
         range: string
         required: true
         description: A plan text description of this LinkML schema slot.
       aliases:
-        rank: 15
-        slot_group: attributes
-      identifier:
         rank: 16
         slot_group: attributes
-      multivalued:
+      identifier:
         rank: 17
         slot_group: attributes
-      minimum_value:
+      multivalued:
         rank: 18
         slot_group: attributes
-      maximum_value:
+      minimum_value:
         rank: 19
         slot_group: attributes
-      minimum_cardinality:
+      maximum_value:
         rank: 20
         slot_group: attributes
-      maximum_cardinality:
+      minimum_cardinality:
         rank: 21
         slot_group: attributes
-      equals_expression:
+      maximum_cardinality:
         rank: 22
         slot_group: attributes
-      pattern:
+      equals_expression:
         rank: 23
         slot_group: attributes
-      todos:
+      pattern:
         rank: 24
         slot_group: attributes
-      exact_mappings:
+      todos:
         rank: 25
+        slot_group: attributes
+      exact_mappings:
+        rank: 26
         slot_group: attributes
         title: Exact mappings
         description: A list of one or more Curies or URIs that point to semantically
           identical terms.
       comments:
-        rank: 26
-        slot_group: attributes
-      examples:
         rank: 27
         slot_group: attributes
-      version:
+      examples:
         rank: 28
+        slot_group: attributes
+      version:
+        rank: 29
         slot_group: attributes
         description: A version number indicating when this slot was introduced.
       notes:
-        rank: 29
+        rank: 30
         slot_group: attributes
   Annotation:
     name: Annotation
@@ -417,7 +421,7 @@ classes:
         unique_key_slots:
         - schema_id
         - name
-        - slot_type
+        - annotation_type
     slots:
     - schema_id
     - annotation_type
@@ -583,7 +587,7 @@ classes:
         slot_group: attributes
   EnumSource:
     name: EnumSource
-    title: Picklist Source
+    title: Picklist config
     description: The external (URI reachable) source of an ontology or other parseable
       vocabulary that aids in composing this menu.  This includes specifications for
       extracting nodes or branches for inclusion or exclusion in the picklist (LinkML)
@@ -948,6 +952,13 @@ slots:
     - range: SchemaTypeMenu
     - range: SchemaClassMenu
     - range: SchemaEnumMenu
+  unit:
+    name: unit
+    title: Unit
+    description: "A unit of a numeric value, expressed in the Unified Code for Units\
+      \ of Measure\_(UCUM, https://ucum.org/) codes.  A UCUM code can be looked up\
+      \ at https://units-of-measurement.org/"
+    range: WhitespaceMinimizedString
   required:
     name: required
     title: Required

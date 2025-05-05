@@ -80,7 +80,7 @@ classes:
         unique_key_slots:
         - schema_id
         - name
-        - slot_type
+        - annotation_type
 
   Enum:
     name: Enum
@@ -107,7 +107,7 @@ classes:
 
   EnumSource:
     name: EnumSource
-    title: Picklist Source
+    title: Picklist config
     description: The external (URI reachable) source of an ontology or other parseable vocabulary that aids in composing this menu.  This includes specifications for extracting nodes or branches for inclusion or exclusion in the picklist (LinkML) enumeration.
     unique_keys:
       enum_source_key:

@@ -45,6 +45,7 @@ A slot can be used in one or more classes (templates). A slot may appear as a vi
 	attributes		slot_uri	Slot URI	uri				 						A URI for identifying this field’s (slot’s) semantic type.		
 	attributes		title	Title	WhitespaceMinimizedString				TRUE						The plain language name of this field (slot).	This can be displayed in applications and documentation.	
 	attributes		range	Range	SchemaTypeMenu;SchemaClassMenu;SchemaEnumMenu			TRUE	TRUE						The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of "any of" ranges.		
+	attributes		unit	Unit	WhitespaceMinimizedString										A unit of a numeric value, expressed in the Unified Code for Units of Measure (UCUM, https://ucum.org/) codes.  A UCUM code can be looked up at https://units-of-measurement.org/		
 	attributes		required	Required	boolean;TrueFalseMenu										A boolean TRUE indicates this slot is a mandatory data field.  	A mandatory data field will fail validation if empty.	
 	attributes		recommended	Recommended	boolean;TrueFalseMenu										A boolean TRUE indicates this slot is a recommended data field.  		
 	attributes		description	Description	string				TRUE						A plan text description of this LinkML schema slot.		

@@ -1480,6 +1480,16 @@
         }
       ]
     },
+    "unit": {
+      "name": "unit",
+      "description": "A unit of a numeric value, expressed in the Unified Code for Units of Measure (UCUM, https://ucum.org/) codes.  A UCUM code can be looked up at https://units-of-measurement.org/",
+      "title": "Unit",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
     "required": {
       "name": "required",
       "description": "A boolean TRUE indicates this slot is a mandatory data field.",
@@ -2709,100 +2719,105 @@
           "rank": 11,
           "slot_group": "attributes"
         },
+        "unit": {
+          "name": "unit",
+          "rank": 12,
+          "slot_group": "attributes"
+        },
         "required": {
           "name": "required",
-          "rank": 12,
+          "rank": 13,
           "slot_group": "attributes"
         },
         "recommended": {
           "name": "recommended",
-          "rank": 13,
+          "rank": 14,
           "slot_group": "attributes"
         },
         "description": {
           "name": "description",
           "description": "A plan text description of this LinkML schema slot.",
-          "rank": 14,
+          "rank": 15,
           "slot_group": "attributes",
           "range": "string",
           "required": true
         },
         "aliases": {
           "name": "aliases",
-          "rank": 15,
+          "rank": 16,
           "slot_group": "attributes"
         },
         "identifier": {
           "name": "identifier",
-          "rank": 16,
+          "rank": 17,
           "slot_group": "attributes"
         },
         "multivalued": {
           "name": "multivalued",
-          "rank": 17,
+          "rank": 18,
           "slot_group": "attributes"
         },
         "minimum_value": {
           "name": "minimum_value",
-          "rank": 18,
+          "rank": 19,
           "slot_group": "attributes"
         },
         "maximum_value": {
           "name": "maximum_value",
-          "rank": 19,
+          "rank": 20,
           "slot_group": "attributes"
         },
         "minimum_cardinality": {
           "name": "minimum_cardinality",
-          "rank": 20,
+          "rank": 21,
           "slot_group": "attributes"
         },
         "maximum_cardinality": {
           "name": "maximum_cardinality",
-          "rank": 21,
+          "rank": 22,
           "slot_group": "attributes"
         },
         "equals_expression": {
           "name": "equals_expression",
-          "rank": 22,
+          "rank": 23,
           "slot_group": "attributes"
         },
         "pattern": {
           "name": "pattern",
-          "rank": 23,
+          "rank": 24,
           "slot_group": "attributes"
         },
         "todos": {
           "name": "todos",
-          "rank": 24,
+          "rank": 25,
           "slot_group": "attributes"
         },
         "exact_mappings": {
           "name": "exact_mappings",
           "description": "A list of one or more Curies or URIs that point to semantically identical terms.",
           "title": "Exact mappings",
-          "rank": 25,
+          "rank": 26,
           "slot_group": "attributes"
         },
         "comments": {
           "name": "comments",
-          "rank": 26,
+          "rank": 27,
           "slot_group": "attributes"
         },
         "examples": {
           "name": "examples",
-          "rank": 27,
+          "rank": 28,
           "slot_group": "attributes"
         },
         "version": {
           "name": "version",
           "description": "A version number indicating when this slot was introduced.",
-          "rank": 28,
+          "rank": 29,
           "slot_group": "attributes"
         },
         "notes": {
           "name": "notes",
-          "rank": 29,
+          "rank": 30,
           "slot_group": "attributes"
         }
       },
@@ -3036,6 +3051,20 @@
             }
           ]
         },
+        "unit": {
+          "name": "unit",
+          "description": "A unit of a numeric value, expressed in the Unified Code for Units of Measure (UCUM, https://ucum.org/) codes.  A UCUM code can be looked up at https://units-of-measurement.org/",
+          "title": "Unit",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 12,
+          "alias": "unit",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
+        },
         "required": {
           "name": "required",
           "description": "A boolean TRUE indicates this slot is a mandatory data field.",
@@ -3044,7 +3073,7 @@
             "A mandatory data field will fail validation if empty."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 12,
+          "rank": 13,
           "alias": "required",
           "owner": "Slot",
           "domain_of": [
@@ -3065,7 +3094,7 @@
           "description": "A boolean TRUE indicates this slot is a recommended data field.",
           "title": "Recommended",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 13,
+          "rank": 14,
           "alias": "recommended",
           "owner": "Slot",
           "domain_of": [
@@ -3086,7 +3115,7 @@
           "description": "A plan text description of this LinkML schema slot.",
           "title": "Description",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 14,
+          "rank": 15,
           "alias": "description",
           "owner": "Slot",
           "domain_of": [
@@ -3111,7 +3140,7 @@
             "See https://linkml.io/linkml/schemas/metadata.html#providing-aliases"
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 15,
+          "rank": 16,
           "alias": "aliases",
           "owner": "Slot",
           "domain_of": [
@@ -3126,7 +3155,7 @@
           "description": "A boolean TRUE indicates this field is an identifier such that each of its row values must be unique within the table.  In LinkML, “If a slot is declared as an identifier then it serves as a unique key for members of that class. It can also be used for inlining as a dict in JSON serializations.”",
           "title": "Identifier",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 16,
+          "rank": 17,
           "alias": "identifier",
           "owner": "Slot",
           "domain_of": [
@@ -3147,7 +3176,7 @@
           "description": "A boolean TRUE indicates this slot can hold more than one values taken from its range.",
           "title": "Multivalued",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 17,
+          "rank": 18,
           "alias": "multivalued",
           "owner": "Slot",
           "domain_of": [
@@ -3168,7 +3197,7 @@
           "description": "A minimum value which is appropriate for the range data type of the slot.",
           "title": "Minimum value",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 18,
+          "rank": 19,
           "alias": "minimum_value",
           "owner": "Slot",
           "domain_of": [
@@ -3182,7 +3211,7 @@
           "description": "A maximum value which is appropriate for the range data type of the slot.",
           "title": "Maximum value",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 19,
+          "rank": 20,
           "alias": "maximum_value",
           "owner": "Slot",
           "domain_of": [
@@ -3196,7 +3225,7 @@
           "description": "For multivalued slots, a minimum number of values",
           "title": "Minimum cardinality",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 20,
+          "rank": 21,
           "alias": "minimum_cardinality",
           "owner": "Slot",
           "domain_of": [
@@ -3210,7 +3239,7 @@
           "description": "For multivalued slots, a maximum number of values",
           "title": "Maximum cardinality",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 21,
+          "rank": 22,
           "alias": "maximum_cardinality",
           "owner": "Slot",
           "domain_of": [
@@ -3227,7 +3256,7 @@
             "See https://linkml.io/linkml/schemas/advanced.html#equals-expression"
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 22,
+          "rank": 23,
           "alias": "equals_expression",
           "owner": "Slot",
           "domain_of": [
@@ -3244,7 +3273,7 @@
             "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 23,
+          "rank": 24,
           "alias": "pattern",
           "owner": "Slot",
           "domain_of": [
@@ -3258,7 +3287,7 @@
           "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
           "title": "Conditional",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 24,
+          "rank": 25,
           "alias": "todos",
           "owner": "Slot",
           "domain_of": [
@@ -3273,7 +3302,7 @@
           "description": "A list of one or more Curies or URIs that point to semantically identical terms.",
           "title": "Exact mappings",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 25,
+          "rank": 26,
           "alias": "exact_mappings",
           "owner": "Slot",
           "domain_of": [
@@ -3289,7 +3318,7 @@
           "description": "A free text field for adding other comments to guide usage of field.",
           "title": "Comments",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 26,
+          "rank": 27,
           "alias": "comments",
           "owner": "Slot",
           "domain_of": [
@@ -3303,7 +3332,7 @@
           "description": "A free text field for including examples of string, numeric, date or categorical values.",
           "title": "Examples",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 27,
+          "rank": 28,
           "alias": "examples",
           "owner": "Slot",
           "domain_of": [
@@ -3317,7 +3346,7 @@
           "description": "A version number indicating when this slot was introduced.",
           "title": "Version",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 28,
+          "rank": 29,
           "alias": "version",
           "owner": "Slot",
           "domain_of": [
@@ -3333,7 +3362,7 @@
           "description": "Editorial notes about an element intended primarily for internal consumption",
           "title": "Notes",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 29,
+          "rank": 30,
           "alias": "notes",
           "owner": "Slot",
           "domain_of": [
@@ -3530,7 +3559,7 @@
           "unique_key_slots": [
             "schema_id",
             "name",
-            "slot_type"
+            "annotation_type"
           ],
           "description": "A slot is uniquely identified by the schema it appears in as well as its name"
         }
@@ -3972,7 +4001,7 @@
     "EnumSource": {
       "name": "EnumSource",
       "description": "The external (URI reachable) source of an ontology or other parseable vocabulary that aids in composing this menu.  This includes specifications for extracting nodes or branches for inclusion or exclusion in the picklist (LinkML) enumeration.",
-      "title": "Picklist Source",
+      "title": "Picklist config",
       "from_schema": "https://example.com/DH_LinkML",
       "slot_usage": {
         "schema_id": {
