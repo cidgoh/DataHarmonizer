@@ -32,7 +32,7 @@ export function createDataHarmonizerContainer(dhId, isActive) {
 
 export function createDataHarmonizerTab(dhId, tab_title, class_name, tooltip, isActive) {
   const template = document.createElement('template');
-  template.innerHTML = `<li class="nav-item ${tooltip.length ? 'tooltipy' :''}"><a class="nav-link${(isActive ? ' active' : '')}" id="tab-${dhId}" href=#${dhId} data-bs-target="#${dhId}" data-toggle="tab">${tab_title}</a>${tooltip.length ? '<span class="tooltipytext tinytip">' + tooltip + '</span>' : ''}</li>`;
+  template.innerHTML = `<li role="tab" class="nav-item ${tooltip.length ? 'tooltipy' :''}"><a class="nav-link${(isActive ? ' active' : '')}" id="tab-${dhId}" href=#${dhId} data-bs-target="#${dhId}" data-name="${class_name}" data-toggle="tab">${tab_title}</a>${tooltip.length ? '<span class="tooltipytext tinytip">' + tooltip + '</span>' : ''}</li>`;
 
   const dhTab = template.content.firstChild;
 
@@ -66,7 +66,9 @@ const main = async function () {
     });
 
     new Toolbar(dhToolbarRoot, context, {
-      templatePath: context.appConfig.template_path, // TODO: a default should be loaded before Toolbar is constructed! then take out all loading in "toolbar" to an outside context
+      templatePath: context.appConfig.template_path, 
+      // TODO: a default should be loaded before Toolbar is constructed! then
+      // take out all loading in "toolbar" to an outside context
       releasesURL:
         'https://github.com/cidgoh/pathogen-genomics-package/releases',
       getLanguages: context.getLocaleData.bind(context),
