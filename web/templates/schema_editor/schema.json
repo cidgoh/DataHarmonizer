@@ -1139,10 +1139,9 @@
           "value": "Class.name"
         }
       },
+      "description": "The class name that this table is linked to.",
+      "title": "Class",
       "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
       "range": "SchemaClassMenu"
     },
     "slot_id": {
@@ -1355,6 +1354,7 @@
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "UniqueKey",
+        "Slot",
         "Annotation"
       ],
       "range": "SchemaClassMenu"
@@ -2532,6 +2532,7 @@
           "owner": "UniqueKey",
           "domain_of": [
             "UniqueKey",
+            "Slot",
             "Annotation"
           ],
           "slot_group": "key",
@@ -2671,8 +2672,8 @@
           "rank": 3,
           "slot_group": "key"
         },
-        "class_id": {
-          "name": "class_id",
+        "class_name": {
+          "name": "class_name",
           "description": "The table (class) name that this field is an attribute or a reused field (slot) of.",
           "title": "As used in table",
           "rank": 4,
@@ -2902,22 +2903,18 @@
           "range": "SchemaSlotTypeMenu",
           "required": true
         },
-        "class_id": {
-          "name": "class_id",
-          "annotations": {
-            "foreign_key": {
-              "tag": "foreign_key",
-              "value": "Class.name"
-            }
-          },
+        "class_name": {
+          "name": "class_name",
           "description": "The table (class) name that this field is an attribute or a reused field (slot) of.",
           "title": "As used in table",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 4,
-          "alias": "class_id",
+          "alias": "class_name",
           "owner": "Slot",
           "domain_of": [
-            "Slot"
+            "UniqueKey",
+            "Slot",
+            "Annotation"
           ],
           "slot_group": "table specific attributes",
           "range": "SchemaClassMenu"
@@ -3491,6 +3488,7 @@
           "owner": "Annotation",
           "domain_of": [
             "UniqueKey",
+            "Slot",
             "Annotation"
           ],
           "slot_group": "key",

@@ -36,7 +36,7 @@ Slot	key		schema_id	Schema	Schema				TRUE						The coding name of the schema tha
 A slot can be used in one or more classes (templates). A slot may appear as a visible single-field datatype column in a spreadsheet (template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."	
 	key		slot_type	Type	SchemaSlotTypeMenu				TRUE								
 																	
-	table specific attributes		class_id	As used in table	SchemaClassMenu										The table (class) name that this field is an attribute or a reused field (slot) of.		
+	table specific attributes		class_name	As used in table	SchemaClassMenu										The table (class) name that this field is an attribute or a reused field (slot) of.		
 	table specific attributes		rank	Ordering	integer										An integer which sets the order of this slot relative to the others within a given class.  This is the LinkML rank attribute.		
 	table specific attributes		slot_group	Field group	SchemaSlotGroupMenu										The name of a grouping to place slot within during presentation.		
 	table specific attributes		inlined	Inlined	boolean;TrueFalseMenu												

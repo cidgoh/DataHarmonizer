@@ -253,7 +253,7 @@ classes:
     - schema_id
     - name
     - slot_type
-    - class_id
+    - class_name
     - rank
     - slot_group
     - inlined
@@ -311,7 +311,7 @@ classes:
       slot_type:
         rank: 3
         slot_group: key
-      class_id:
+      class_name:
         rank: 4
         slot_group: table specific attributes
         title: As used in table
@@ -788,6 +788,8 @@ slots:
         value: Schema.name
   class_id:
     name: class_id
+    title: Class
+    description: The class name that this table is linked to.
     range: SchemaClassMenu
     annotations:
       foreign_key:
