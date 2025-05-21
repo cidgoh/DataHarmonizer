@@ -32,9 +32,6 @@ classes:
     slot_usage:
       sample_collector_sample_id:
         annotations:
-#          required:
-#            tag: required
-#            value: True
           foreign_key:
             tag: foreign_key
             value: GRDISample.sample_collector_sample_id
@@ -52,9 +49,6 @@ classes:
     slot_usage:
       isolate_id:
         annotations:
-#          required:
-#            tag: required
-#            value: True
           foreign_key:
             tag: foreign_key
             value: GRDIIsolate.isolate_id
