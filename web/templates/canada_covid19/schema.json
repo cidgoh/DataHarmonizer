@@ -5949,10 +5949,7 @@
     }
   },
   "description": "",
-  "in_language": [
-    "en",
-    "fr"
-  ],
+  "in_language": "en",
   "id": "https://example.com/CanCOGeN_Covid-19",
   "version": "3.0.0",
   "prefixes": {
@@ -11562,56 +11559,6 @@
         "Zimbabwe": {
           "text": "Zimbabwe",
           "meaning": "GAZ:00001106"
-        }
-      }
-    },
-    "SchemaSlotGroupCanCOGeNCovid19Menu": {
-      "name": "SchemaSlotGroupCanCOGeNCovid19Menu",
-      "from_schema": "https://example.com/CanCOGeN_Covid-19",
-      "permissible_values": {
-        "Database Identifiers": {
-          "text": "Database Identifiers",
-          "title": "Database Identifiers"
-        },
-        "Sample collection and processing": {
-          "text": "Sample collection and processing",
-          "title": "Sample collection and processing"
-        },
-        "Host Information": {
-          "text": "Host Information",
-          "title": "Host Information"
-        },
-        "Host vaccination information": {
-          "text": "Host vaccination information",
-          "title": "Host vaccination information"
-        },
-        "Host exposure information": {
-          "text": "Host exposure information",
-          "title": "Host exposure information"
-        },
-        "Host reinfection information": {
-          "text": "Host reinfection information",
-          "title": "Host reinfection information"
-        },
-        "Sequencing": {
-          "text": "Sequencing",
-          "title": "Sequencing"
-        },
-        "Bioinformatics and QC metrics": {
-          "text": "Bioinformatics and QC metrics",
-          "title": "Bioinformatics and QC metrics"
-        },
-        "Lineage and Variant information": {
-          "text": "Lineage and Variant information",
-          "title": "Lineage and Variant information"
-        },
-        "Pathogen diagnostic testing": {
-          "text": "Pathogen diagnostic testing",
-          "title": "Pathogen diagnostic testing"
-        },
-        "Contributor acknowledgement": {
-          "text": "Contributor acknowledgement",
-          "title": "Contributor acknowledgement"
         }
       }
     }
@@ -20943,8 +20890,8 @@
         }
       },
       "unique_keys": {
-        "mpox_key": {
-          "unique_key_name": "mpox_key",
+        "cancogen_key": {
+          "unique_key_name": "cancogen_key",
           "unique_key_slots": [
             "specimen_collector_sample_id"
           ]
