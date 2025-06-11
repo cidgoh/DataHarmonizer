@@ -127,7 +127,6 @@ classes:
         unique_key_slots:
         - schema_id
         - name
-        - value
 
   Rule: 
     name: Rule

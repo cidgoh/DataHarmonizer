@@ -2,8 +2,7 @@ id: https://example.com/DH_LinkML
 name: DH_LinkML
 description: The DataHarmonizer template for editing a schema.
 version: 1.0.0
-in_language:
-- en
+in_language: en
 imports:
 - linkml:types
 prefixes:
@@ -655,7 +654,6 @@ classes:
         unique_key_slots:
         - schema_id
         - name
-        - value
     slots:
     - schema_id
     - name
@@ -1214,8 +1212,10 @@ enums:
     permissible_values:
       'TRUE':
         text: 'TRUE'
+        title: 'TRUE'
       'FALSE':
         text: 'FALSE'
+        title: 'FALSE'
   LanguagesMenu:
     name: LanguagesMenu
     title: Languages Menu

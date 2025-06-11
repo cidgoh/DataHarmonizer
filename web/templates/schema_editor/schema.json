@@ -1,9 +1,7 @@
 {
   "name": "DH_LinkML",
   "description": "The DataHarmonizer template for editing a schema.",
-  "in_language": [
-    "en"
-  ],
+  "in_language": "en",
   "id": "https://example.com/DH_LinkML",
   "version": "1.0.0",
   "prefixes": {
@@ -372,10 +370,12 @@
       "from_schema": "https://example.com/DH_LinkML",
       "permissible_values": {
         "TRUE": {
-          "text": "TRUE"
+          "text": "TRUE",
+          "title": "TRUE"
         },
         "FALSE": {
-          "text": "FALSE"
+          "text": "FALSE",
+          "title": "FALSE"
         }
       }
     },
@@ -4353,8 +4353,7 @@
           "unique_key_name": "settings_key",
           "unique_key_slots": [
             "schema_id",
-            "name",
-            "value"
+            "name"
           ],
           "description": "A setting is uniquely identified by the name key whose value is a regular expression."
         }
