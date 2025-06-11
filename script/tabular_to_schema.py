@@ -117,7 +117,6 @@ def set_examples (slot, example_string):
 
 # Parse annotation_string into slot.examples. Works for multilingual slot locale
 def set_attribute (slot, attribute, content):
-	print (content)	
 	if content > '':
 		annotations = {};
 		for v in content.split(';'):
@@ -135,7 +134,7 @@ def set_attribute (slot, attribute, content):
 					annotations[key] = value;
 			else:
 				if attribute == 'unit':
-					annotations['ucum_code'] = value;
+					annotations['ucum_code'] = content;
 		slot[attribute] = annotations;
 
 
@@ -430,7 +429,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 '''
 Process each enumeration provided in tabular tsv format. Enumerations are 
 referenced by one or more slots.
-Row has keys: title	title_fr	meaning	menu_1	menu_2	menu_3	menu_4	menu_5 
+Row has keys: title	title_fr	text meaning	menu_1	menu_2	menu_3	menu_4	menu_5 
 description ...   
 It may also have EXPORT_[field name] columns too, e.g. EXPORT_GISAID	
 EXPORT_CNPHI	EXPORT_NML_LIMS	EXPORT_BIOSAMPLE	EXPORT_VirusSeq_Portal
@@ -458,7 +457,7 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 			# Each enumeration begins with a row that provides the name of the enum.
 			# subsequent rows may not have a name.
-			if row.get('name','') > '': # or row.get('title','') > ''
+			if row.get('name','') > '':
 
 				# Process default language title
 				name = row.get('name');
@@ -504,56 +503,74 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 						# });
 
 			if name > '':
-				# Text is label of a particular menu choice
-				# Loop scans through columns until it gets a value
+
+				# Many menus take default locale (english) label as key, and don't have a value for "text"
 				for depth in range(1,6):
 					menu_x = 'menu_' + str(depth);
-					choice_text = row.get(menu_x);
-					# Here there is a menu item to process
-					if choice_text > '':
-						del choice_path[depth-1:] # Menu path always points to parent
-
-						description = row.get('description','');
-						meaning = row.get('meaning','');
-						title = row.get('title','');
-
-						choice = {'text' : choice_text}
-						if description > '': choice['description'] = description;
-						if meaning > '': choice['meaning'] = meaning;
-						if title > '': choice['title'] = title;
-
-						# Export mappings can be established for any enumeration items too.
-						set_mappings(choice, row, export_format);
-
-						# IMPLEMENTS FLAT LIST WITH IS_A HIERARCHY
-						if len(choice_path) > 0:
-							choice['is_a'] = choice_path[-1]; # Last item in path
-
-						enum['permissible_values'][choice_text] = choice;
-						choice_path.append(choice_text);
-
-						for lcode in locale_schemas.keys():
-							translation = row.get(menu_x + '_' + lcode, '');
-							if translation > '': # and translation != choice['text'] - don't loose translation entries that happen to have same spelling.
-
-								local_choice = {'title': translation}
-								description = row.get(description + '_' + lcode, '');
-								if description:
-									local_choice['description': description];
-
-								locale_schemas[lcode]['enums'][name]['permissible_values'][choice_text] = local_choice;
-
-								# if len(local_choice) > 0: # Some locale attribute(s) added.
-								# 	enum['permissible_values'][choice_text].update({
-								# 		'extensions': {
-								# 			'locale': {
-								# 				'tag': 'locale',
-								# 				'value': [{lcode: local_choice}]
-								# 			}
-								# 		}
-								# 	});
-
+					title = row.get(menu_x);
+					if title:
+						# Here there is a menu title with possible depth to process
 						break;
+
+				# Text is label of a particular menu choice
+				# Loop scans through columns until it gets a value
+				if 'text' in row and row.get('text') > '':
+					choice_text = row.get('text');
+				else:
+					if title:
+						choice_text = title;
+					else:
+						continue;
+
+				#if title == '': title = choice_text;
+
+				choice = {'text': choice_text};
+
+				if title: choice['title'] = title;
+
+				meaning = row.get('meaning','');
+				if meaning: choice['meaning'] = meaning;
+
+				description = row.get('description','');
+				if description: choice['description'] = description;
+
+				# Export mappings can be established for any enumeration items too.
+				set_mappings(choice, row, export_format);
+
+				enum['permissible_values'][choice_text] = choice;
+
+
+				# Here there is a menu title with possible depth to process
+				if title > '':
+
+					del choice_path[depth-1:] # Menu path always points to parent
+					# IMPLEMENTS FLAT LIST WITH IS_A HIERARCHY
+					if len(choice_path) > 0:
+						choice['is_a'] = choice_path[-1]; # Last item in path
+					
+					choice_path.append(choice_text);
+
+					for lcode in locale_schemas.keys():
+						translation = row.get(menu_x + '_' + lcode, '');
+						if translation > '': # and translation != choice['text'] - don't loose translation entries that happen to have same spelling.
+
+							local_choice = {'title': translation};
+							description = row.get(description + '_' + lcode, '');
+							if description:
+								local_choice['description': description];
+
+							locale_schemas[lcode]['enums'][name]['permissible_values'][choice_text] = local_choice;
+
+							# if len(local_choice) > 0: # Some locale attribute(s) added.
+							# 	enum['permissible_values'][choice_text].update({
+							# 		'extensions': {
+							# 			'locale': {
+							# 				'tag': 'locale',
+							# 				'value': [{lcode: local_choice}]
+							# 			}
+							# 		}
+							# 	});
+
 
 		# Generate 'SchemaSlotGroup[schema_class]Menu' so slot and slot_usage
 		# attr slot_group can be set.
@@ -636,8 +653,7 @@ def write_schema(schema):
 			schema_view.add_class(new_obj);
 
 	# SchemaView() is coercing "in_language" into a string when it is an array
-	# of i18n languages as per official LinkML spec.  We're bending the rules
-	# slightly.  Put it back into an array.
+	# of i18n languages as per official LinkML spec.  
 	if 'in_language' in SCHEMA:
 		schema_view.schema['in_language'] = SCHEMA['in_language'];
 
@@ -757,11 +773,10 @@ with open(r_schema_core, 'r') as file:
 # IETF BCP 47.  See https://linkml.io/linkml-model/latest/docs/in_language/
 # Copy schema_core object into all array of locales (but skip first default 
 # schema since it is the reference.
-if 'in_language' in SCHEMA:
-	locales = SCHEMA['in_language'];
-	print("locales (", len(locales),"):", locales);
-	for locale in locales[1:]:
-
+if 'extensions' in SCHEMA and 'locales' in SCHEMA['extensions']:
+	locales = SCHEMA['extensions']['locales'];
+	for locale in locales:
+		print ('processing locale', locale)
 		locale_schemas[locale] = copy.deepcopy(SCHEMA); 
 		locale_schemas[locale]['in_language'] = locale;
 
@@ -771,12 +786,14 @@ set_enums(r_schema_enums, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
 
 if len(locale_schemas) > 0:
 	for lcode in locale_schemas.keys():
+		print("doing", lcode)
 		lschema = locale_schemas[lcode];
 		# These have no translation elements
 		lschema.pop('prefixes', None);
 		lschema.pop('imports', None);
 		lschema.pop('types', None);
 		lschema.pop('settings', None);
+		lschema.pop('extensions', None);
 
 		for class_name, class_obj in lschema['classes'].items():
 			class_obj.pop('name', None); # not translatatble
@@ -795,9 +812,12 @@ if len(locale_schemas) > 0:
 			enum_obj.pop('name', None); # not translatatble
 			#enum_obj.pop('is_a', None);
 
+		# This works for 1 language locale only; For DataHarmonizer 2.0, use 
+		# DataHarmonizer Schema Editor (template) instead to manage locale
+		# content.
 		SCHEMA.update({
 			'extensions': {
-				'locales': {
+				'locales': { 
 					'tag': 'locales',
 					'value': {lcode: lschema}
 				}
@@ -811,7 +831,7 @@ print("finished processing.")
 
 schema_view = write_schema(SCHEMA);
 # NIX this when locales are integral to main schema
-write_locales(locale_schemas);
+#write_locales(locale_schemas);
 
 # Adjust menu.json to include or update entries for given schema's template(s)
 if options.menu:
