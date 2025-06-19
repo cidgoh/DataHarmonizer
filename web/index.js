@@ -54,9 +54,9 @@ $(dhRoot).append(`
 // Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
   const context = new AppContext();
-  context.reload(context.appConfig.template_path).then(async (context) => {
-    // FUTURE: possibly connect to locale of browser!
-    // Takes `lang` as argument (unused)
+  context.reload(context.appConfig.template_path)
+    .then(async (context) => {
+    // FUTURE: Connect to locale of browser? Takes `lang` as argument (unused)
     initI18n((/* lang */) => {
       $(document).localize();
 
