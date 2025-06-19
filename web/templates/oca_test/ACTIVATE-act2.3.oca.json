@@ -1,0 +1,244 @@
+{
+	"d": "EIem5ascBmJ8ud_RcMLBGj1JprhWZkIg0ajaz92Q5q5x",
+	"type": "oca_package/1.0",
+	"oca_bundle": {
+		"v": "OCAA11JSON001cd9_",
+		"bundle": {
+			"v": "OCAS11JSON001cbc_",
+			"d": "EEsBPAJOOmqyYyF-mLuOuY67V-h0qSyS_RA26-mH0axJ",
+			"capture_base": {
+				"d": "EEyEpnhlN7oKPxUAHvevuy9pKAGUxp78GikCqP19gLQC",
+				"type": "spec/capture_base/1.1",
+				"attributes": {
+					"Block": "Numeric",
+					"BlockCol": "Numeric",
+					"BlockRow": "Numeric",
+					"Col": "Numeric",
+					"Combo": "Text",
+					"Comment": "Text",
+					"Days_to_Emergence": "Numeric",
+					"Emergence_Date": "DateTime",
+					"Expt": "Text",
+					"Flowering_Date_R1": "DateTime",
+					"Half_Pods_Mature_R7": "Numeric",
+					"Lentil": "Text",
+					"Lodging": "Numeric",
+					"Maturity_Date_R7": "DateTime",
+					"NIR": "Numeric",
+					"NIR_LenPro_preTweak": "Numeric",
+					"Name": "Text",
+					"One_Open_Flower_R1": "Numeric",
+					"Planting_Date": "DateTime",
+					"Rep": "Text",
+					"Row": "Numeric",
+					"Type": "Text",
+					"UniqueID": "Text",
+					"Wheat": "Text",
+					"plot": "Text",
+					"yield_plot": "Numeric",
+					"yield_subsample": "Numeric",
+					"yield_total": "Numeric"
+				},
+				"classification": "RDF401",
+				"flagged_attributes": []
+			},
+			"overlays": {
+				"conformance": {
+					"d": "EOC6Uk1_jls26qvmEHO3ALSbXD2KuisF6Z_QI8NigAii",
+					"capture_base": "EEyEpnhlN7oKPxUAHvevuy9pKAGUxp78GikCqP19gLQC",
+					"type": "spec/overlays/conformance/1.1",
+					"attribute_conformance": {
+						"Block": "M",
+						"BlockCol": "M",
+						"BlockRow": "M",
+						"Col": "M",
+						"Combo": "M",
+						"Comment": "O",
+						"Days_to_Emergence": "O",
+						"Emergence_Date": "O",
+						"Expt": "M",
+						"Flowering_Date_R1": "O",
+						"Half_Pods_Mature_R7": "O",
+						"Lentil": "M",
+						"Lodging": "O",
+						"Maturity_Date_R7": "O",
+						"NIR": "O",
+						"NIR_LenPro_preTweak": "O",
+						"Name": "M",
+						"One_Open_Flower_R1": "O",
+						"Planting_Date": "O",
+						"Rep": "M",
+						"Row": "M",
+						"Type": "M",
+						"UniqueID": "M",
+						"Wheat": "M",
+						"plot": "M",
+						"yield_plot": "O",
+						"yield_subsample": "O",
+						"yield_total": "O"
+					}
+				},
+				"entry": [{
+					"d": "EFIq1_ERFkejuxa94JZLMguJLesadV90nbLU-FxUvQwN",
+					"capture_base": "EEyEpnhlN7oKPxUAHvevuy9pKAGUxp78GikCqP19gLQC",
+					"type": "spec/overlays/entry/1.1",
+					"language": "eng",
+					"attribute_entries": {
+						"Expt": {
+							"ACTIVATE 2024 Clavet Lentil": "ACTIVATE 2024 Clavet Lentil",
+							"ACTIVATE 2024 Hunter Lentil": "ACTIVATE 2024 Hunter Lentil",
+							"ACTIVATE 2025 Clavet Wheat": "ACTIVATE 2025 Clavet Wheat",
+							"ACTIVATE 2025 Hunter Wheat": "ACTIVATE 2025 Hunter Wheat"
+						},
+						"Lodging": {
+							"1": "Upright",
+							"5": "Prostate"
+						},
+						"Type": {
+							"Check": "Check",
+							"Treatment": "Treatment"
+						}
+					}
+				}],
+				"entry_code": {
+					"d": "EB1lNVeHbpUWX_7ZxddBMVK1zTw1vi4FYQ-JGvoCAdNH",
+					"capture_base": "EEyEpnhlN7oKPxUAHvevuy9pKAGUxp78GikCqP19gLQC",
+					"type": "spec/overlays/entry_code/1.1",
+					"attribute_entry_codes": {
+						"Expt": ["ACTIVATE 2024 Clavet Lentil", "ACTIVATE 2024 Hunter Lentil", "ACTIVATE 2025 Clavet Wheat", "ACTIVATE 2025 Hunter Wheat"],
+						"Lodging": ["1", "5"],
+						"Type": ["Check", "Treatment"]
+					}
+				},
+				"information": [{
+					"d": "EFvSJfygFy2zPLxJ13-msmYhNRStVm0GeWHEY5GrGrIG",
+					"capture_base": "EEyEpnhlN7oKPxUAHvevuy9pKAGUxp78GikCqP19gLQC",
+					"type": "spec/overlays/information/1.1",
+					"language": "eng",
+					"attribute_information": {
+						"Block": "Block number",
+						"BlockCol": "Column number within block",
+						"BlockRow": "Row number within block",
+						"Col": "Column number",
+						"Combo": "Identifies the Lentil-Wheat combination evaluated in this plot.",
+						"Comment": "General comments from the field crew that may be pertinent to know during analysis.",
+						"Days_to_Emergence": "The number of days from the date of planting to the \\\"Emergence Date\\\".",
+						"Emergence_Date": "The date on which at least 50% of the seeds within the plot are visible above the soil.",
+						"Expt": "Captures the particular siteyear and Lentil/Wheat portion of the experiment evaluated in this row. This also indicates where and then these data were collected.",
+						"Flowering_Date_R1": "The date at which there is one open flower at any node on 50% of the plants in the plot. This is R1 in the Lentil Reproductive & Maturity Staging Guide.",
+						"Half_Pods_Mature_R7": "The number of days from the date of planting to the \\\"Maturity Date\\\" where the Maturity date is the date the plants reach R7 according to the Lentil Reproductive & Maturity Staging Guide.",
+						"Lentil": "Uniquely identifies the Lentil germplasm planted in this plot within the trial.",
+						"Lodging": "Indicates the rate of lodging in the plot between R6-R7 where lodging is defined as an irreversible falling over of the primary plant stem greater than 45 degrees.",
+						"Maturity_Date_R7": "This is R7 in the Lentil Reproductive & Maturity Staging Guide.",
+						"NIR": "Protein percentage estimated by Near Infrared Spectroscopy (updated calibration)",
+						"NIR_LenPro_preTweak": "Protein percentage estimated by Near Infrared Spectroscopy (old calibration)",
+						"Name": "The full name of the Lentil or Wheat germplasm evaluated in this particular row.",
+						"One_Open_Flower_R1": "The number of days from the date of planting to the \\\"Flowering Date\\\" where the Flowering date is the date the plants reach R1 according to the Lentil Reproductive & Maturity Staging Guide.",
+						"Planting_Date": "The date the seeds were sown.",
+						"Rep": "Replication number",
+						"Row": "Row number",
+						"Type": "Treatment or check",
+						"UniqueID": "Uniquely identifies the particular plot within the larger trial. It consists of the year the plot was grown, the Plot ID and either the Lentil OR Wheat ID depending on which is grown when these data are taken.",
+						"Wheat": "Uniquely identifies the Wheat germplasm planted in this plot within the trial.",
+						"plot": "Identifies the plot uniquely within a given location/year (i.e. siteyear).",
+						"yield_plot": "The weight of the seed harvested from the plot by the combine.",
+						"yield_subsample": "Some plots have yield subsampled at R7 by hand. This value is recorded here.",
+						"yield_total": "For subsampled plots this is the yield from both the combine and the subsample. For others this will be equal to the plot yield measurement."
+					}
+				}],
+				"label": [{
+					"d": "EE460RPr8j5v9J0cYfPwhp7zAqMX1VjC__jTVrS1W5WW",
+					"capture_base": "EEyEpnhlN7oKPxUAHvevuy9pKAGUxp78GikCqP19gLQC",
+					"type": "spec/overlays/label/1.1",
+					"language": "eng",
+					"attribute_categories": [],
+					"attribute_labels": {
+						"Block": "Block",
+						"BlockCol": "BlockCol",
+						"BlockRow": "BlockRow",
+						"Col": "Col",
+						"Combo": "Combo",
+						"Comment": "Comment",
+						"Days_to_Emergence": "Days to Emergence (date)",
+						"Emergence_Date": "Emergence Date (date)",
+						"Expt": "Expt",
+						"Flowering_Date_R1": "Flowering Date (R1; date)",
+						"Half_Pods_Mature_R7": "Days till 10% of Plants have 1/2 Pods Mature (R7; days)",
+						"Lentil": "Lentil",
+						"Lodging": "Lodging (scale; 1=upright; 5=prostrate)",
+						"Maturity_Date_R7": "Maturity Date (R7; date)",
+						"NIR": "NIR",
+						"NIR_LenPro_preTweak": "NIR_LenPro_preTweak",
+						"Name": "Name",
+						"One_Open_Flower_R1": "Days till 10% of Plants have One Open Flower (R1; days)",
+						"Planting_Date": "Planting Date (date)",
+						"Rep": "Rep",
+						"Row": "Row",
+						"Type": "Type",
+						"UniqueID": "Unique ID",
+						"Wheat": "Wheat",
+						"plot": "Plot",
+						"yield_plot": "yield plot (g)",
+						"yield_subsample": "yield subsample (g)",
+						"yield_total": "yield total (g)"
+					},
+					"category_labels": {}
+				}],
+				"meta": [{
+					"d": "EAiNK207L5C5VzUuKtFPiCyaNIUGsrDF1E1n8SNBLlke",
+					"capture_base": "EEyEpnhlN7oKPxUAHvevuy9pKAGUxp78GikCqP19gLQC",
+					"type": "spec/overlays/meta/1.1",
+					"language": "eng",
+					"description": "This data schema refers to the Activity 2.3 phenotypic dataset which is taken on our large, multi-genus field trial.",
+					"name": "Team ACTIVATE: Multi-genus Rotational Field Trial"
+				}],
+				"unit": {
+					"d": "EDofPlXiMTMvdhBJsvNdkLMbQUG9ipP2XiRqIqVYo5e4",
+					"capture_base": "EEyEpnhlN7oKPxUAHvevuy9pKAGUxp78GikCqP19gLQC",
+					"type": "spec/overlays/unit/1.1",
+					"attribute_unit": {
+						"Days_to_Emergence": "days",
+						"Emergence_Date": "year-month-day",
+						"Flowering_Date_R1": "year-month-day",
+						"Half_Pods_Mature_R7": "days",
+						"Lodging": "scale",
+						"Maturity_Date_R7": "year-month-day",
+						"NIR": "percent protein",
+						"NIR_LenPro_preTweak": "percent protein",
+						"One_Open_Flower_R1": "days",
+						"Planting_Date": "year-month-day",
+						"yield_plot": "grams",
+						"yield_subsample": "grams",
+						"yield_total": "grams"
+					}
+				}
+			}
+		},
+		"dependencies": []
+	},
+	"extensions": {
+		"adc": {
+			"EEyEpnhlN7oKPxUAHvevuy9pKAGUxp78GikCqP19gLQC": {
+				"d": "ELvz3RWmrGeZWOb8_o1ak1CWWSXW3AevHthSNTHqpH_h",
+				"type": "community/adc/extension/1.0",
+				"overlays": {
+					"ordering": {
+						"d": "EA1QnkpytB6RMT2JrDOiY9dTV62cSJCydyCb6_XpBEv3",
+						"type": "community/overlays/adc/ordering/1.1",
+						"attribute_ordering": ["plot", "UniqueID", "Lentil", "Wheat", "Combo", "Rep", "Type", "Col", "Row", "Block", "BlockRow", "BlockCol", "Name", "Expt", "Planting_Date", "Emergence_Date", "Flowering_Date_R1", "Maturity_Date_R7", "Days_to_Emergence", "One_Open_Flower_R1", "Half_Pods_Mature_R7", "Lodging", "yield_plot", "yield_subsample", "yield_total", "NIR_LenPro_preTweak", "NIR", "Comment"],
+						"entry_code_ordering": {
+							"Type": ["Treatment", "Check"],
+							"Expt": ["ACTIVATE 2024 Hunter Lentil", "ACTIVATE 2024 Clavet Lentil", "ACTIVATE 2025 Hunter Wheat", "ACTIVATE 2025 Clavet Wheat"],
+							"Lodging": ["1", "5"]
+						}
+					},
+					"sensitive": {
+						"d": "EH03eeS641_CQzycegyrynCne8eRoKyeJoAUD9QlSwnk",
+						"type": "community/overlays/adc/sensitive/1.1",
+						"sensitive_attributes": []
+					}
+				}
+			}
+		}
+	}
+}
