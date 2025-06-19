@@ -805,7 +805,12 @@ if len(locale_schemas) > 0:
 		lschema.pop('settings', None);
 		lschema.pop('extensions', None);
 
+		if 'Container' in lschema['classes']:
+			lschema['classes'].pop('Container');
+			print("Ignoring Container")
+
 		for class_name, class_obj in lschema['classes'].items():
+
 			class_obj.pop('name', None); # not translatatble
 			class_obj.pop('slots', None); # no translations
 			class_obj.pop('unique_keys', None);	# no translations
