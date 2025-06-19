@@ -34,15 +34,21 @@
           class="form-control-file"
           id="upload-template-input"
         />
+        <span
+          class="dropdown-item"
+          id="load-schema-editor-button"
+          data-i18n="load-schema-editor-button"
+          >Load Schema Editor</span
+        >
         <div style="padding: 0.25rem 1.5rem" id="schema-editor-menu">
-          <span data-i18n="schema-editor-menu">Schema Editor:</span>
+          <span data-i18n="schema-editor-menu">Schema Editor options:</span>
           <div>
             <label
               for="schema_upload"
               class="dropdown-item mb-0"
               id="upload-template-yaml-dropdown-item"
               data-i18n="upload-template-yaml-dropdown-item"
-              >Load Schema from file (yaml format)</label
+              >Load schema from file (yaml format)</label
             >
             <input
               type="file"
@@ -73,14 +79,14 @@
               data-toggle="modal"
               id="save-template-button"
               data-i18n="save-template-button"
-              >Save Selected Schema (yaml format)</span
+              >Save selected schema (yaml format)</span
             >
             <span
               class="dropdown-item"
               data-toggle="modal"
               id="translation-form-button"
               data-i18n="translation-form-button"
-              >Translation Form (for chosen rows)</span
+              >Translation form (for chosen rows)</span
             >
           </div>
         </div>
