@@ -233,3 +233,6 @@ div#data-harmonizer-grid-4.data-harmonizer-grid tr:has(td.row-highlight) td {
   border-top:2px solid green;
   background-color: #EFE;
 }
+
+.coding_name {font-size: .8rem} /* Used where slot.name is shown */
+
