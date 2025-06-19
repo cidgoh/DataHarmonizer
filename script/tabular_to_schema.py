@@ -652,6 +652,16 @@ def write_schema(schema):
 			new_obj = schema_view.induced_class(name);
 			schema_view.add_class(new_obj);
 
+	# ADD pass to Report if classes.attributes.slot_group is found by name or
+	# title in a slot definition.  We should evolve to have it in slot_group
+	# by name, with title being what is displayed via locale.  So warning
+	# if slot_group = title of a slot.
+
+
+
+
+
+
 	# SchemaView() is coercing "in_language" into a string when it is an array
 	# of i18n languages as per official LinkML spec.  
 	if 'in_language' in SCHEMA:
@@ -786,7 +796,7 @@ set_enums(r_schema_enums, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
 
 if len(locale_schemas) > 0:
 	for lcode in locale_schemas.keys():
-		print("doing", lcode)
+		print("Doing", lcode)
 		lschema = locale_schemas[lcode];
 		# These have no translation elements
 		lschema.pop('prefixes', None);
@@ -830,8 +840,12 @@ if len(warnings):
 print("finished processing.")
 
 schema_view = write_schema(SCHEMA);
+
+# locales now kept in SCHEMA.extensions.locales
 # NIX this when locales are integral to main schema
 #write_locales(locale_schemas);
+
+
 
 # Adjust menu.json to include or update entries for given schema's template(s)
 if options.menu:

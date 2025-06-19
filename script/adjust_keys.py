@@ -2,6 +2,7 @@ import shutil
 import re
 
 """
+    ARCHAIC (Unused)
     This script takes in a DH schema.json file as a reference, and a 
     schema.raw_translation.json file mirror of the schema.json file, 
     containing translated text in a particular language - which is only valid
