@@ -637,18 +637,27 @@ else:
 if "information" in oca_overlays:
 	oca_informations = oca_overlays["information"][0]["attribute_information"];
 else:
-	oca_informations = {}
+	oca_informations = {};
 
 # A dictionary for each field indicating required/recommended status:  
 # M is mandatory and O is optional.
-oca_conformance = oca_overlays["conformance"]["attribute_conformance"];
+if "conformance" in oca_overlays:
+	oca_conformance = oca_overlays["conformance"]["attribute_conformance"];
+else:
+	oca_conformance = {};
 
 # Contains [enumeration name]:[code,...]
-oca_entry_codes = oca_overlays["entry_code"]["attribute_entry_codes"];
+if "entry_code" in oca_overlays:
+	oca_entry_codes = oca_overlays["entry_code"]["attribute_entry_codes"];
+else:
+	oca_entry_codes = {};
 
 # Contains array of {enumeration.language,.attribute_entries} where 
 # attribute_entries is dictionary of [enumeration name]: {code, label}
-oca_entry_labels = oca_overlays["entry"][0]["attribute_entries"];
+if "entry" in oca_overlays:
+	oca_entry_labels = oca_overlays["entry"][0]["attribute_entries"];
+else:
+	oca_entry_labels = {};
 
 # Also has   "metric_system": "SI",
 # FUTURE: automatically incorporate unit menu: https://github.com/agrifooddatacanada/UCUM_agri-food_units/blob/main/UCUM_ADC_current.csv 
