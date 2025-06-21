@@ -1,10 +1,9 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: CanCOGeN_Covid-19
-description: ""
 version: 3.0.0
 in_language: en
 imports:
-- 'linkml:types'
+- linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
   BTO: http://purl.obolibrary.org/obo/BTO_
@@ -37,9 +36,10 @@ prefixes:
 classes:
   CanCOGeNCovid19:
     name: CanCOGeNCovid19
-    title: 'CanCOGeN Covid-19'
+    title: CanCOGeN Covid-19
     description: Canadian specification for Covid-19 clinical virus biosample data gathering
-    see_also: templates/canada_covid19/SOP.pdf
+    see_also: 
+    - templates/canada_covid19/SOP.pdf
     unique_keys:
       cancogen_key:
         unique_key_slots:
@@ -48,21 +48,21 @@ classes:
     name: Container
     tree_root: true
     attributes:
-      name: CanCOGeNCovid19Data
-      multivalued: true
-      range: CanCOGeNCovid19
-      inlined_as_list: true
+      CanCOGeNCovid19Data:
+        multivalued: true
+        range: CanCOGeNCovid19
+        inlined_as_list: true
 slots: {}
 enums: {}
 types:
   WhitespaceMinimizedString:
-    name: 'WhitespaceMinimizedString'
+    name: WhitespaceMinimizedString
     typeof: string
     description: 'A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).'
     base: str
     uri: xsd:token
   Provenance:
-    name: 'Provenance'
+    name: Provenance
     typeof: string
     description: 'A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.'
     base: str
