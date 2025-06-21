@@ -16,12 +16,13 @@ Prefix	key		schema_id	Schema	Schema				TRUE						The coding name of the schema t
 																	
 Class	key		schema_id	Schema	Schema				TRUE						The coding name of the schema this class is contained in.		
 	key		name	Name	WhitespaceMinimizedString				TRUE		^([A-Z]+[a-z0-9]*)+$				A class contained in given schema.  	Each class can be displayed in DataHarmonizer in a spreadsheet tab. A class may be visible as a top-level DataHarmonizer "template", or it may be a subordinate 1-many class linked to a parent class by a primary key field.	WastewaterAMR|WastewaterPathogenAgnostic
-	attributes		title	Title	WhitespaceMinimizedString				TRUE						The plain language name of a LinkML schema class.		
-	attributes		description	Description	string				TRUE								
+	attributes		title	Title	WhitespaceMinimizedString				TRUE						The plain language name of this table (LinkML class).		
+	attributes		description	Description	string				TRUE						The plain language description of this table (LinkML class).		
 	attributes		version	Version	WhitespaceMinimizedString						^\d+\.\d+\.\d+$				A semantic version identifier.	See https://semver.org/	
 	attributes		class_uri	Table URI	uri										A URI for identifying this class's semantic type.		
 	attributes		is_a	Is a	SchemaClassMenu												
 	attributes		tree_root	Root Table	boolean;TrueFalseMenu										A boolian indicating whether this is a specification for a top-level data container on which serializations are based.	Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html 	
+	attributes		see_also	See Also	WhitespaceMinimizedString			TRUE							A delimited list of URLs to supporting documentation; or possibly a local file path containing such information.		
 																	
 UniqueKey	key		schema_id	Schema	Schema				TRUE						A schema name that this unique key class is in.		
 	key		class_name	Class	SchemaClassMenu				TRUE						A class id (name) that unique key is in		
@@ -45,7 +46,7 @@ A slot can be used in one or more classes (templates). A slot may appear as a vi
 	attributes		slot_uri	Slot URI	uri				 						A URI for identifying this field’s (slot’s) semantic type.		
 	attributes		title	Title	WhitespaceMinimizedString				TRUE						The plain language name of this field (slot).	This can be displayed in applications and documentation.	
 	attributes		range	Range	SchemaTypeMenu;SchemaClassMenu;SchemaEnumMenu			TRUE	TRUE						The range or ranges a slot is associated with.  If more than one, this appears in the slot's specification as a list of "any of" ranges.		
-	attributes		unit	Unit	WhitespaceMinimizedString										A unit of a numeric value, expressed in the Unified Code for Units of Measure (UCUM, https://ucum.org/) codes.  A UCUM code can be looked up at https://units-of-measurement.org/		
+	attributes		ucum_code	Unit	WhitespaceMinimizedString										A unit of a numeric value, expressed in the Unified Code for Units of Measure (UCUM, https://ucum.org/) codes.  A UCUM code can be looked up at https://units-of-measurement.org/		
 	attributes		required	Required	boolean;TrueFalseMenu										A boolean TRUE indicates this slot is a mandatory data field.  	A mandatory data field will fail validation if empty.	
 	attributes		recommended	Recommended	boolean;TrueFalseMenu										A boolean TRUE indicates this slot is a recommended data field.  		
 	attributes		description	Description	string				TRUE						A plan text description of this LinkML schema slot.		
