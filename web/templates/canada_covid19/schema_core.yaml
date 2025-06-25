@@ -3,7 +3,7 @@ name: CanCOGeN_Covid-19
 version: 3.0.0
 in_language: en
 imports:
-- linkml:types
+  - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
   BTO: http://purl.obolibrary.org/obo/BTO_
@@ -49,9 +49,11 @@ classes:
     tree_root: true
     attributes:
       CanCOGeNCovid19Data:
-        multivalued: true
-        range: CanCOGeNCovid19
+        name: CanCOGeNCovid19Data
+        rank: 1
         inlined_as_list: true
+        range: CanCOGeNCovid19
+        multivalued: true
 slots: {}
 enums: {}
 types:
