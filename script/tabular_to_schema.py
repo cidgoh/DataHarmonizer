@@ -41,7 +41,6 @@
 import csv
 import copy
 import sys
-import yaml
 import json
 import optparse
 import os
@@ -51,10 +50,45 @@ from functools import reduce
 from linkml_runtime.utils.schemaview import SchemaView
 from linkml_runtime.dumpers.json_dumper import JSONDumper
 import subprocess
+from collections import OrderedDict
+from datetime import datetime 
+from dateutil import parser
+
+import yaml as safe_yam # yaml
+
+import ruamel.yaml
+from ruamel.yaml import YAML # For better indentation on dump
+def doubleQuoted(s):
+	return s
+#ruDoubleQuoted = ruamel.yaml.scalarstring.DoubleQuotedScalarString
+ru_yaml = YAML(typ='rt');# rt is default.  typ="safe" resorts keys for loaded files.  See https://stackoverflow.com/questions/78910274/how-to-maintain-original-order-of-attributes-when-using-ruamel-yaml-dump
+#ru_yaml.preserve_quotes = True;
+ru_yaml.default_style = None; # '"' quotes everything
+ru_yaml.width = 4096;
+ru_yaml.indent(mapping=2, sequence=4, offset=2) # Tailored to match javascripts write of same file from schema_editor.
 
 # Locale datastructure mirrors schema only for variable language elements.
 # 'name' not included because it is coding name which isn't locale specific.
 LOCALE_SLOT_FIELDS = ['title','description','slot_group','comments'];
+
+def validateDateTime(date_text):
+    try:
+        if date_text != datetime.strptime(date_text, "%Y-%m-%d").strftime('%Y-%m-%d'):
+            raise ValueError
+        return True
+    except ValueError:
+        return False
+
+def rm_style_info(d):
+    if isinstance(d, dict):
+        d.fa._flow_style = None
+        for k, v in d.items():
+            rm_style_info(k)
+            rm_style_info(v)
+    elif isinstance(d, list):
+        d.fa._flow_style = None
+        for elem in d:
+            rm_style_info(elem)
 
 def init_parser():
 	parser = optparse.OptionParser()
@@ -89,9 +123,9 @@ def set_class_slot(schema_class, slot, slot_name, slot_group):
 
 	#### Now initialize slot_usage requirements
 	if not (slot_name in schema_class['slot_usage']):
-		schema_class['slot_usage'][slot_name] = {'rank': len(schema_class['slots'])};
-	else:
-		schema_class['slot_usage'][slot_name]['rank'] = len(schema_class['slots']);
+		schema_class['slot_usage'][slot_name] = {'name': slot_name};
+
+	schema_class['slot_usage'][slot_name]['rank'] = len(schema_class['slots']);
 
 	if slot_group > '':	
 		schema_class['slot_usage'][slot_name]['slot_group'] = slot_group;
@@ -106,16 +140,24 @@ def set_examples (slot, example_string):
 			# A special trigger to create description is ":  " (2 spaces following)
 			ptr = v.find(':  ');
 			if ptr == -1:
-				examples.append({'value': v.strip() });
+				value = v.strip();
+				# There is no way to remove quotes on this side of python object-to-yaml, so must add them on javascript side somehow. See https://stackoverflow.com/questions/70899177/in-ruamel-how-to-start-a-string-with-with-no-quotes-like-any-other-string
+				#if validateDateTime(value):
+				#	value = parser.parse(value) ; # YAML preservation of date/time
+				#	print("GOT DATE", value)
+				examples.append({'value': doubleQuoted(value) });
 			else:
-				# Capturing description field as [description]:[value]
+				# Capturing description field as [description]:[value] 
 				description = v[0:ptr].strip();
 				value = v[ptr+1:].strip();
-				examples.append({'description': description, 'value': value})
+				#if validateDateTime(value):
+				#	value = parser.parse(value); # YAML preservation of date/time
+				#	print("GOT DATE 2", value)
+				examples.append({'description': description, 'value': doubleQuoted(value)}) 
 
 		slot['examples'] = examples;
 
-# Parse annotation_string into slot.examples. Works for multilingual slot locale
+
 def set_attribute (slot, attribute, content):
 	if content > '':
 		annotations = {};
@@ -190,7 +232,7 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 		else:
 			if not 'todos' in slot:
 				slot['todos'] = [];
-			slot['todos'] = ['>=' + slot_minimum_value];
+			slot['todos'] = [doubleQuoted('>=' + slot_minimum_value)];
 	if slot_maximum_value > '':
 		if isInteger(slot_maximum_value):
 			slot['maximum_value'] = int(slot_maximum_value);
@@ -199,7 +241,7 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 		else:
 			if not 'todos' in slot:
 				slot['todos'] = [];
-			slot['todos'].append('<=' + slot_maximum_value);
+			slot['todos'].append(doubleQuoted('<=' + slot_maximum_value));
 
 def isDecimal(x):
     try:
@@ -272,67 +314,115 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 				range_col = row.get('range','');
 				if range_col and range_col > '':
 
-					# Define basics of slot:
+					# Define basics of slot
+
+					# DataHarmonizer Schema Editor saves slot attributes in this order:
+					#'name', 'rank','slot_group','inlined','inlined_as_list','slot_uri','title',
+					#'range','any_of','ucum_code','required','recommended','description', 'aliases',   
+					#'identifier','multivalued','minimum_value','maximum_value','minimum_cardinality',
+					#'maximum_cardinality','pattern', 'structured_pattern','todos','equals_expression',
+					#'exact_mappings','comments','examples','version','notes'
+
 					slot_name = row.get('name',False) or row.get('title','[UNNAMED!!!]');
-					slot_title =							row.get('title','');
-					slot_group =							row.get('slot_group','');
-					slot_description =				row.get('description','');
-					slot_comments =						row.get('comments','');
-					slot_examples = 					row.get('examples','');
-					slot_annotations = 				row.get('annotations','');
-					slot_uri =								row.get('slot_uri','');
-
-					slot_identifier =					bool(row.get('identifier',''));
-					slot_multivalued =				bool(row.get('multivalued',''));
-					slot_required =						bool(row.get('required',''));
-					slot_recommended =				bool(row.get('recommended', ''));
-
-					slot_range =							row.get('range','');
-					slot_range_2 =						row.get('range_2',''); #Phasing this out.
-					slot_unit =								row.get('unit','');
-					slot_pattern = 						row.get('pattern','');
-					slot_structured_pattern = row.get('structured_pattern','');
-					slot_minimum_value =			row.get('minimum_value','');
-					slot_maximum_value =			row.get('maximum_value','');
-					slot_minimum_cardinality =		row.get('minimum_cardinality','');
-					slot_maximum_cardinality =		row.get('maximum_cardinality','');
-
 					slot = {'name': slot_name};
 
+					slot_rank =			row.get('rank','');
+					if slot_rank > '':	slot['slot_rank'] = slot_rank;
+
+					slot_group =		row.get('slot_group','');
+					# Slot_group gets attached to class.slot_usage[slot]
 					set_class_slot(schema_class, slot, slot_name, slot_group);
 
-					if slot_title > '':						slot['title'] = slot_title;
-					if slot_description > '':			slot['description'] = slot_description;
-					if slot_comments > '':				slot['comments'] = [slot_comments];
+					slot_inlined =			row.get('inlined','');
+					if slot_inlined > '':	slot['slot_inlined'] = slot_inlined;
 
+					slot_inlined_as_list =			row.get('inlined_as_list','');
+					if slot_inlined_as_list > '':	slot['slot_inlined_as_list'] = slot_inlined_as_list;
 
-					if slot_uri > '':							slot['slot_uri'] = slot_uri;
+					slot_uri =			row.get('slot_uri','');
+					if slot_uri > '':	slot['slot_uri'] = slot_uri;
 
-					if slot_identifier == True:		slot['identifier'] = True;
-					if slot_multivalued == True:	slot['multivalued'] = True;
-					if slot_required == True:			slot['required'] = True;
+					slot_title =		row.get('title','');
+					if slot_title > '':	slot['title'] = slot_title;
+
+					slot_range =			row.get('range','');
+					slot_range_2 =			row.get('range_2',''); #Phasing this out.
+					set_range(slot, slot_range, slot_range_2); # Includes 'any_of'
+
+					# Only permitting UCUM codes for now.
+					slot_unit =				row.get('unit','');
+					#if slot_unit > '':		slot['unit'] = slot_unit;
+					if slot_unit > '':	
+						slot['unit'] = {'ucum_code': slot_unit};
+						#Issue: missing has_quantity_kind, e.g. has_quantity_kind: PATO:0000125 ## mass
+					#WHAT????
+					#set_attribute(slot, "unit", slot_unit);
+
+					slot_required =					bool(row.get('required',''));
+					if slot_required == True:		slot['required'] = True;
+
+					slot_recommended =				bool(row.get('recommended', ''));
 					if slot_recommended == True:	slot['recommended'] = True;
 
-					if slot_minimum_cardinality > '':	slot['minimum_cardinality'] = int(slot_minimum_cardinality);
-					if slot_maximum_cardinality > '':	slot['maximum_cardinality'] = int(slot_maximum_cardinality);
+					slot_description =				row.get('description','');
+					if slot_description > '':			slot['description'] = slot_description;
 
-					set_range(slot, slot_range, slot_range_2);
-					if slot_unit > '':						slot['unit'] = slot_unit;
+					# Aliases
 
+
+					slot_identifier =				bool(row.get('identifier',''));
+					if slot_identifier == True:		slot['identifier'] = True;
+
+					slot_multivalued =				bool(row.get('multivalued',''));
+					if slot_multivalued == True:	slot['multivalued'] = True;
+
+					slot_minimum_value =			row.get('minimum_value','');
+					slot_maximum_value =			row.get('maximum_value','');
 					set_min_max(slot, slot_minimum_value, slot_maximum_value);
 
-					if slot_pattern > '':					slot['pattern'] = slot_pattern;		
+					slot_minimum_cardinality =		row.get('minimum_cardinality','');
+					if slot_minimum_cardinality > '':	
+						slot['minimum_cardinality'] = int(slot_minimum_cardinality);
+
+					slot_maximum_cardinality =		row.get('maximum_cardinality','');
+					if slot_maximum_cardinality > '':	
+						slot['maximum_cardinality'] = int(slot_maximum_cardinality);
+
+
+
+					slot_pattern = 			row.get('pattern','');
+					if slot_pattern > '':	slot['pattern'] = slot_pattern;	
+
+					# https://linkml.io/linkml/schemas/constraints.html#structured-patterns
+					slot_structured_pattern = row.get('structured_pattern','');
 					if slot_structured_pattern > '':
 						slot['structured_pattern'] = {
-							'syntax': slot_structured_pattern,
+							'syntax': doubleQuoted(slot_structured_pattern), 
 							'partial_match': False,
 							'interpolated': True
 						}
 
-					set_attribute(slot, "unit", slot_unit);
-					set_examples(slot, slot_examples);
-					set_attribute(slot, "annotations", slot_annotations);
+					#todos
+
+					#equals_expression
+
+					# Exact_mappings
 					set_mappings(slot, row, export_format);
+
+					slot_comments =			row.get('comments','');
+					if slot_comments > '':	slot['comments'] = [doubleQuoted(slot_comments)];
+
+					slot_examples = 		row.get('examples','');
+					set_examples(slot, slot_examples);
+
+					#version  -  Must be an annotation.
+					#notes'
+
+					# Not sure which specs are using annotations...
+					slot_annotations = 		row.get('annotations','');
+					set_attribute(slot, "annotations", slot_annotations);
+
+
 
 					# If slot has already been set up in schema['slots'] then compare 
 					# each field of new slot to existing generic one, and where there
@@ -534,6 +624,14 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 				description = row.get('description','');
 				if description: choice['description'] = description;
 
+				del choice_path[depth-1:] # Menu path always points to parent
+				# IMPLEMENTS FLAT LIST WITH IS_A HIERARCHY
+				if len(choice_path) > 0:
+					choice['is_a'] = choice_path[-1]; # Last item in path
+
+				# Prepares case where next item is deeper
+				choice_path.append(choice_text);
+
 				# Export mappings can be established for any enumeration items too.
 				set_mappings(choice, row, export_format);
 
@@ -543,12 +641,6 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 				# Here there is a menu title with possible depth to process
 				if title > '':
 
-					del choice_path[depth-1:] # Menu path always points to parent
-					# IMPLEMENTS FLAT LIST WITH IS_A HIERARCHY
-					if len(choice_path) > 0:
-						choice['is_a'] = choice_path[-1]; # Last item in path
-					
-					choice_path.append(choice_text);
 
 					for lcode in locale_schemas.keys():
 						translation = row.get(menu_x + '_' + lcode, '');
@@ -598,7 +690,9 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 def write_schema(schema):
 
 	with open(w_filename_base + '.yaml', 'w') as output_handle:
-		yaml.dump(schema, output_handle, sort_keys=False)
+		# Can't use safe_yam because safe_yam sorts the items differently?!
+		ru_yaml.dump(schema, output_handle) # 
+		#safe_yam.dump(schema, output_handle, sort_keys=False) # 
 
 	# Trap some errors that come up in created schema.yaml before SchemaView()
 	# is attempted
@@ -633,8 +727,9 @@ def write_schema(schema):
 	# Now create schema.json which browser app can read directly.  Replaces each
 	# class with its induced version. This shifts each slot's content into an
 	# attributes: {} dictionary object.
-	schema_view = SchemaView(yaml.dump(schema, sort_keys=False));
-
+	#print("SCHEMA VIEW",schema)
+	schema_view = SchemaView(safe_yam.dump(schema, sort_keys=False));
+	#print("SCHEMAVIEW",schema_view)
 	# Brings in any "imports:". This also includes built-in linkml:types
 	schema_view.merge_imports();
 
@@ -667,34 +762,56 @@ def write_schema(schema):
 	if 'in_language' in SCHEMA:
 		schema_view.schema['in_language'] = SCHEMA['in_language'];
 
-	# Output the amalgamated content:
-	JSONDumper().dump(schema_view.schema, w_filename_base + '.json');
+
+	# Output amalgamated content. Schema_view is reordering a number of items.
+	# Preserve order
+	schema_ordered = OrderedDict();
+	annotations = schema_view.all_schema()[0];
+	for attribute in [
+		'id', 
+		'name', 
+		'description', 
+		'version', 
+		'in_language', 
+		'default_prefix', 
+		'imports',
+		'prefixes',
+		'classes', 
+		'slots', 
+		'enums',
+		'types',
+		'settings',
+		'extensions']:
+		if attribute in annotations and not annotations[attribute] == None :
+			schema_ordered[attribute] = annotations[attribute];
+
+	JSONDumper().dump(schema_ordered, w_filename_base + '.json');
 	
 	return schema_view;
 
 
-def write_locales(locale_schemas):
-	# Do pretty much the same for any locales
-	for lcode in locale_schemas.keys():
-
-		directory = 'locales/' + lcode + '/';
-		if not os.path.exists(directory):
-			os.makedirs(directory, exist_ok=True);
-
-		locale_schema = locale_schemas[lcode];
-
-		with open(directory + w_filename_base + '.yaml', 'w') as output_handle:
-			yaml.dump(locale_schema, output_handle, sort_keys=False)
-
-		# Mirror language variant to match default schema.json structure
-		locale_view = SchemaView(yaml.dump(locale_schema, sort_keys=False));
-
-		for name, class_obj in locale_view.all_classes().items():
-			if locale_view.class_slots(name): 
-				new_obj = locale_view.induced_class(name);
-				locale_view.add_class(new_obj);
-
-		JSONDumper().dump(locale_view.schema, directory + w_filename_base + '.json');
+#def write_locales(locale_schemas):
+#	# Do pretty much the same for any locales
+#	for lcode in locale_schemas.keys():
+#
+#		directory = 'locales/' + lcode + '/';
+#		if not os.path.exists(directory):
+#			os.makedirs(directory, exist_ok=True);
+#
+#		locale_schema = locale_schemas[lcode];
+#
+#		with open(directory + w_filename_base + '.yaml', 'w') as output_handle:
+#			yaml.dump(locale_schema, output_handle) #, sort_keys=False
+#
+#		# Mirror language variant to match default schema.json structure
+#		locale_view = SchemaView(safe_yam.dump(locale_schema)); #, sort_keys=False
+#
+#		for name, class_obj in locale_view.all_classes().items():
+#			if locale_view.class_slots(name): 
+#				new_obj = locale_view.induced_class(name);
+#				locale_view.add_class(new_obj);
+#
+#		JSONDumper().dump(locale_view.schema, directory + w_filename_base + '.json');
 
 
 
@@ -776,7 +893,7 @@ EXPORT_FORMAT = [];
 options, args = init_parser();
 
 with open(r_schema_core, 'r') as file:
-	SCHEMA = yaml.safe_load(file);
+	SCHEMA = safe_yam.safe_load(file);
 
 # The schema.in_language locales should be a list (array) of locales beginning
 # with the primary language, usually "en" for english. Each local can be from 
