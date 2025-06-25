@@ -79,7 +79,8 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2",
     "webpack-xlsx-loader": "^1.0.0",
-    "yaml-loader": "^0.8.0"
+    "yaml-loader": "^0.8.0",
+    "yaml": "^2.8.0"
   },
   "dependencies": {
     "@selectize/selectize": "^0.15.2", 
