@@ -96,7 +96,6 @@ classes:
         unique_key_slots:
           - schema_id
           - prefix
-          - reference
     slots:
       - schema_id
       - prefix

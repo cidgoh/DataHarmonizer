@@ -396,8 +396,7 @@
           "unique_key_name": "prefix_key",
           "unique_key_slots": [
             "schema_id",
-            "prefix",
-            "reference"
+            "prefix"
           ],
           "description": "A slot is uniquely identified by the schema it appears in as well as its name"
         }

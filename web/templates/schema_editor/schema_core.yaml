@@ -32,7 +32,6 @@ classes:
         unique_key_slots:
         - schema_id
         - prefix
-        - reference
 
   Class:
     name: Class
