@@ -253,5 +253,120 @@
         "display": false
       }
     }
+  },
+  "nmdc_submission_schema": {
+    "folder": "nmdc_mixs",
+    "id": "https://example.com/nmdc_submission_schema",
+    "version": "0.0.0",
+    "templates": {
+      "AirInterface": {
+        "name": "AirInterface",
+        "display": false
+      },
+      "BiofilmInterface": {
+        "name": "BiofilmInterface",
+        "display": false
+      },
+      "BuiltEnvInterface": {
+        "name": "BuiltEnvInterface",
+        "display": false
+      },
+      "EmslInterface": {
+        "name": "EmslInterface",
+        "display": false
+      },
+      "HcrCoresInterface": {
+        "name": "HcrCoresInterface",
+        "display": false
+      },
+      "HcrFluidsSwabsInterface": {
+        "name": "HcrFluidsSwabsInterface",
+        "display": false
+      },
+      "HostAssociatedInterface": {
+        "name": "HostAssociatedInterface",
+        "display": false
+      },
+      "JgiMgInterface": {
+        "name": "JgiMgInterface",
+        "display": false
+      },
+      "JgiMgLrInterface": {
+        "name": "JgiMgLrInterface",
+        "display": false
+      },
+      "JgiMtInterface": {
+        "name": "JgiMtInterface",
+        "display": false
+      },
+      "MiscEnvsInterface": {
+        "name": "MiscEnvsInterface",
+        "display": true
+      },
+      "PlantAssociatedInterface": {
+        "name": "PlantAssociatedInterface",
+        "display": true
+      },
+      "SedimentInterface": {
+        "name": "SedimentInterface",
+        "display": true
+      },
+      "SoilInterface": {
+        "name": "SoilInterface",
+        "display": true
+      },
+      "WastewaterSludgeInterface": {
+        "name": "WastewaterSludgeInterface",
+        "display": true
+      },
+      "WaterInterface": {
+        "name": "WaterInterface",
+        "display": true
+      },
+      "MetagenomeSequencingNonInterleavedDataInterface": {
+        "name": "MetagenomeSequencingNonInterleavedDataInterface",
+        "display": false
+      },
+      "MetagenomeSequencingInterleavedDataInterface": {
+        "name": "MetagenomeSequencingInterleavedDataInterface",
+        "display": false
+      },
+      "MetatranscriptomeSequencingNonInterleavedDataInterface": {
+        "name": "MetatranscriptomeSequencingNonInterleavedDataInterface",
+        "display": false
+      },
+      "MetatranscriptomeSequencingInterleavedDataInterface": {
+        "name": "MetatranscriptomeSequencingInterleavedDataInterface",
+        "display": false
+      },
+      "DhMultiviewCommonColumnsMixin": {
+        "name": "DhMultiviewCommonColumnsMixin",
+        "display": false
+      },
+      "SampIdNewTermsMixin": {
+        "name": "SampIdNewTermsMixin",
+        "display": false
+      },
+      "SoilMixsInspiredMixin": {
+        "name": "SoilMixsInspiredMixin",
+        "display": true
+      },
+      "SampleData": {
+        "name": "SampleData",
+        "display": true
+      },
+      "GeneProduct": {
+        "name": "GeneProduct",
+        "display": false
+      },
+      "NamedThing": {
+        "name": "NamedThing",
+        "display": false
+      },
+      "Protocol": {
+        "name": "Protocol",
+        "display": false
+      }
+    }
   }
 }
