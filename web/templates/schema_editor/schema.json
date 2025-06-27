@@ -217,7 +217,7 @@
         },
         "in_language": {
           "name": "in_language",
-          "description": "This is the default language (ISO 639-1 Code) that the schema’s class, slot, and enumeration titles, descriptions and other textual items are in.",
+          "description": "This is the default language (ISO 639-1 Code) that the schema’s table, field and picklist (LinkML class, slot, and enumeration) titles, descriptions and other textual items are in.",
           "title": "Default language",
           "comments": [
             "This is often “en” for English."
@@ -234,8 +234,11 @@
         },
         "locales": {
           "name": "locales",
-          "description": "For multilingual schemas, a list of (ISO 639-1) language codes used as keys for language translations held in the schema’s extensions.locales list.",
-          "title": "Locales",
+          "description": "For multilingual schemas, a list of (ISO 639-1) languages (codes) which translations can be provided for.",
+          "title": "Translations",
+          "comments": [
+            "Language translations are held in the schema’s extensions.locales data structure."
+          ],
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 6,
           "alias": "locales",
@@ -266,6 +269,9 @@
           "name": "imports",
           "description": "A list of linkml:[import name] schemas to import and reuse.",
           "title": "Imports",
+          "comments": [
+            "Currently only the default linkml:types is implemented."
+          ],
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 8,
           "alias": "imports",
@@ -421,7 +427,7 @@
           "description": "The coding name of this table (LinkML class).",
           "title": "Name",
           "comments": [
-            "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nEach table can be displayed in DataHarmonizer in a spreadsheet tab. A table may be visible as a top-level DataHarmonizer template\", or it may be a subordinate 1-many table linked to a parent table by a primary key field.\""
+            "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nEach table can be displayed in DataHarmonizer in a spreadsheet tab. A table may be visible as a top-level DataHarmonizer template\", or it may be a subordinate 1-many table linked to a parent table by a primary key field."
           ],
           "examples": [
             {
@@ -520,7 +526,7 @@
           "description": "The coding name of this table (LinkML class).",
           "title": "Name",
           "comments": [
-            "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nEach table can be displayed in DataHarmonizer in a spreadsheet tab. A table may be visible as a top-level DataHarmonizer template\", or it may be a subordinate 1-many table linked to a parent table by a primary key field.\""
+            "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nEach table can be displayed in DataHarmonizer in a spreadsheet tab. A table may be visible as a top-level DataHarmonizer template\", or it may be a subordinate 1-many table linked to a parent table by a primary key field."
           ],
           "examples": [
             {
@@ -1017,28 +1023,28 @@
           "rank": 20,
           "slot_group": "field attribute"
         },
-        "ifabsent": {
-          "name": "ifabsent",
-          "rank": 21,
-          "slot_group": "field attribute"
-        },
         "todos": {
           "name": "todos",
-          "rank": 22,
+          "rank": 21,
           "slot_group": "field attribute"
         },
         "pattern": {
           "name": "pattern",
-          "rank": 23,
-          "slot_group": "field attribute"
-        },
-        "equals_expression": {
-          "name": "equals_expression",
-          "rank": 24,
+          "rank": 22,
           "slot_group": "field attribute"
         },
         "structured_pattern": {
           "name": "structured_pattern",
+          "rank": 23,
+          "slot_group": "field attribute"
+        },
+        "ifabsent": {
+          "name": "ifabsent",
+          "rank": 24,
+          "slot_group": "field attribute"
+        },
+        "equals_expression": {
+          "name": "equals_expression",
           "rank": 25,
           "slot_group": "field attribute"
         },
@@ -1154,10 +1160,10 @@
         },
         "slot_type": {
           "name": "slot_type",
-          "description": "The type of field (LinkML slot) that this record is about.",
+          "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
           "title": "Type",
           "comments": [
-            "In a LinkML schema, any component of a field (slot) definition can appear in three places - in the schema’s fields (slots) list, in a table’s (class’s) slot_usage list, or, for custom or inherited fields, in a table’s “attributes” list."
+            "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
           ],
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 3,
@@ -1477,6 +1483,52 @@
           "slot_group": "field attribute",
           "range": "integer"
         },
+        "todos": {
+          "name": "todos",
+          "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
+          "title": "Conditional",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 21,
+          "alias": "todos",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "field attribute",
+          "range": "WhitespaceMinimizedString",
+          "multivalued": true
+        },
+        "pattern": {
+          "name": "pattern",
+          "description": "A regular expression pattern used to validate a string field’s (LinkML slot)’s value content.",
+          "title": "Pattern",
+          "comments": [
+            "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 22,
+          "alias": "pattern",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "field attribute",
+          "range": "WhitespaceMinimizedString"
+        },
+        "structured_pattern": {
+          "name": "structured_pattern",
+          "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
+          "title": "Structured pattern",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 23,
+          "alias": "structured_pattern",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "field attribute",
+          "range": "WhitespaceMinimizedString"
+        },
         "ifabsent": {
           "name": "ifabsent",
           "description": "Specify a default value for a field (LinkML slot) using the syntax shown in the examples.",
@@ -1502,40 +1554,8 @@
             }
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 21,
+          "rank": 24,
           "alias": "ifabsent",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "field attribute",
-          "range": "WhitespaceMinimizedString"
-        },
-        "todos": {
-          "name": "todos",
-          "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
-          "title": "Conditional",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 22,
-          "alias": "todos",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "field attribute",
-          "range": "WhitespaceMinimizedString",
-          "multivalued": true
-        },
-        "pattern": {
-          "name": "pattern",
-          "description": "A regular expression pattern used to validate a string field’s (LinkML slot)’s value content.",
-          "title": "Pattern",
-          "comments": [
-            "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
-          ],
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 23,
-          "alias": "pattern",
           "owner": "Slot",
           "domain_of": [
             "Slot"
@@ -1551,22 +1571,8 @@
             "See https://linkml.io/linkml/schemas/advanced.html#equals-expression"
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 24,
-          "alias": "equals_expression",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "field attribute",
-          "range": "WhitespaceMinimizedString"
-        },
-        "structured_pattern": {
-          "name": "structured_pattern",
-          "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
-          "title": "Structured pattern",
-          "from_schema": "https://example.com/DH_LinkML",
           "rank": 25,
-          "alias": "structured_pattern",
+          "alias": "equals_expression",
           "owner": "Slot",
           "domain_of": [
             "Slot"
@@ -3091,7 +3097,7 @@
     },
     "in_language": {
       "name": "in_language",
-      "description": "This is the default language (ISO 639-1 Code) that the schema’s class, slot, and enumeration titles, descriptions and other textual items are in.",
+      "description": "This is the default language (ISO 639-1 Code) that the schema’s table, field and picklist (LinkML class, slot, and enumeration) titles, descriptions and other textual items are in.",
       "title": "Default language",
       "comments": [
         "This is often “en” for English."
@@ -3104,8 +3110,11 @@
     },
     "locales": {
       "name": "locales",
-      "description": "For multilingual schemas, a list of (ISO 639-1) language codes used as keys for language translations held in the schema’s extensions.locales list.",
-      "title": "Locales",
+      "description": "For multilingual schemas, a list of (ISO 639-1) languages (codes) which translations can be provided for.",
+      "title": "Translations",
+      "comments": [
+        "Language translations are held in the schema’s extensions.locales data structure."
+      ],
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Schema"
@@ -3128,6 +3137,9 @@
       "name": "imports",
       "description": "A list of linkml:[import name] schemas to import and reuse.",
       "title": "Imports",
+      "comments": [
+        "Currently only the default linkml:types is implemented."
+      ],
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Schema"
@@ -3258,10 +3270,10 @@
     },
     "slot_type": {
       "name": "slot_type",
-      "description": "The type of field (LinkML slot) that this record is about.",
+      "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
       "title": "Type",
       "comments": [
-        "In a LinkML schema, any component of a field (slot) definition can appear in three places - in the schema’s fields (slots) list, in a table’s (class’s) slot_usage list, or, for custom or inherited fields, in a table’s “attributes” list."
+        "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
       ],
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
@@ -3477,6 +3489,40 @@
       ],
       "range": "integer"
     },
+    "todos": {
+      "name": "todos",
+      "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
+      "title": "Conditional",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
+    },
+    "pattern": {
+      "name": "pattern",
+      "description": "A regular expression pattern used to validate a string field’s (LinkML slot)’s value content.",
+      "title": "Pattern",
+      "comments": [
+        "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "structured_pattern": {
+      "name": "structured_pattern",
+      "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
+      "title": "Structured pattern",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
     "ifabsent": {
       "name": "ifabsent",
       "description": "Specify a default value for a field (LinkML slot) using the syntax shown in the examples.",
@@ -3507,30 +3553,6 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "todos": {
-      "name": "todos",
-      "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
-      "title": "Conditional",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "multivalued": true
-    },
-    "pattern": {
-      "name": "pattern",
-      "description": "A regular expression pattern used to validate a string field’s (LinkML slot)’s value content.",
-      "title": "Pattern",
-      "comments": [
-        "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
     "equals_expression": {
       "name": "equals_expression",
       "description": "Enables inferring (calculating) value based on other field (LinkML slot) values. This is a LinkML-script-processed expression, having the syntax of a python expression.",
@@ -3538,16 +3560,6 @@
       "comments": [
         "See https://linkml.io/linkml/schemas/advanced.html#equals-expression"
       ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "structured_pattern": {
-      "name": "structured_pattern",
-      "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
-      "title": "Structured pattern",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Slot"
@@ -3842,723 +3854,723 @@
       "permissible_values": {
         "ab": {
           "text": "ab",
-          "title": "Abkhazian"
+          "title": "Abkhazian (ab)"
         },
         "aa": {
           "text": "aa",
-          "title": "Afar"
+          "title": "Afar (aa)"
         },
         "af": {
           "text": "af",
-          "title": "Afrikaans"
+          "title": "Afrikaans (af)"
         },
         "ak": {
           "text": "ak",
-          "title": "Akan"
+          "title": "Akan (ak)"
         },
         "sq": {
           "text": "sq",
-          "title": "Albanian"
+          "title": "Albanian (sq)"
         },
         "am": {
           "text": "am",
-          "title": "Amharic"
+          "title": "Amharic (am)"
         },
         "ar": {
           "text": "ar",
-          "title": "Arabic"
+          "title": "Arabic (ar)"
         },
         "an": {
           "text": "an",
-          "title": "Aragonese"
+          "title": "Aragonese (an)"
         },
         "hy": {
           "text": "hy",
-          "title": "Armenian"
+          "title": "Armenian (hy)"
         },
         "as": {
           "text": "as",
-          "title": "Assamese"
+          "title": "Assamese (as)"
         },
         "av": {
           "text": "av",
-          "title": "Avaric"
+          "title": "Avaric (av)"
         },
         "ae": {
           "text": "ae",
-          "title": "Avestan"
+          "title": "Avestan (ae)"
         },
         "ay": {
           "text": "ay",
-          "title": "Aymara"
+          "title": "Aymara (ay)"
         },
         "az": {
           "text": "az",
-          "title": "Azerbaijani"
+          "title": "Azerbaijani (az)"
         },
         "bm": {
           "text": "bm",
-          "title": "Bambara"
+          "title": "Bambara (bm)"
         },
         "ba": {
           "text": "ba",
-          "title": "Bashkir"
+          "title": "Bashkir (ba)"
         },
         "eu": {
           "text": "eu",
-          "title": "Basque"
+          "title": "Basque (eu)"
         },
         "be": {
           "text": "be",
-          "title": "Belarusian"
+          "title": "Belarusian (be)"
         },
         "bn": {
           "text": "bn",
-          "title": "Bengali"
+          "title": "Bengali (bn)"
         },
         "bi": {
           "text": "bi",
-          "title": "Bislama"
+          "title": "Bislama (bi)"
         },
         "bs": {
           "text": "bs",
-          "title": "Bosnian"
+          "title": "Bosnian (bs)"
         },
         "br": {
           "text": "br",
-          "title": "Breton"
+          "title": "Breton (br)"
         },
         "bg": {
           "text": "bg",
-          "title": "Bulgarian"
+          "title": "Bulgarian (bg)"
         },
         "my": {
           "text": "my",
-          "title": "Burmese"
+          "title": "Burmese (my)"
         },
         "ca": {
           "text": "ca",
-          "title": "Catalan, Valencian"
+          "title": "Catalan, Valencian (ca)"
         },
         "ch": {
           "text": "ch",
-          "title": "Chamorro"
+          "title": "Chamorro (ch)"
         },
         "ce": {
           "text": "ce",
-          "title": "Chechen"
+          "title": "Chechen (ce)"
         },
         "ny": {
           "text": "ny",
-          "title": "Chichewa, Chewa, Nyanja"
+          "title": "Chichewa, Chewa, Nyanja (ny)"
         },
         "zh": {
           "text": "zh",
-          "title": "Chinese"
+          "title": "Chinese (zh)"
         },
         "cv": {
           "text": "cv",
-          "title": "Chuvash"
+          "title": "Chuvash (cv)"
         },
         "kw": {
           "text": "kw",
-          "title": "Cornish"
+          "title": "Cornish (kw)"
         },
         "co": {
           "text": "co",
-          "title": "Corsican"
+          "title": "Corsican (co)"
         },
         "cr": {
           "text": "cr",
-          "title": "Cree"
+          "title": "Cree (cr)"
         },
         "hr": {
           "text": "hr",
-          "title": "Croatian"
+          "title": "Croatian (hr)"
         },
         "cs": {
           "text": "cs",
-          "title": "Czech"
+          "title": "Czech (cs)"
         },
         "da": {
           "text": "da",
-          "title": "Danish"
+          "title": "Danish (da)"
         },
         "dv": {
           "text": "dv",
-          "title": "Divehi, Dhivehi, Maldivian"
+          "title": "Divehi, Dhivehi, Maldivian (dv)"
         },
         "nl": {
           "text": "nl",
-          "title": "Dutch, Flemish"
+          "title": "Dutch, Flemish (nl)"
         },
         "dz": {
           "text": "dz",
-          "title": "Dzongkha"
+          "title": "Dzongkha (dz)"
         },
         "en": {
           "text": "en",
-          "title": "English"
+          "title": "English (en)"
         },
         "eo": {
           "text": "eo",
-          "title": "Esperanto"
+          "title": "Esperanto (eo)"
         },
         "et": {
           "text": "et",
-          "title": "Estonian"
+          "title": "Estonian (et)"
         },
         "ee": {
           "text": "ee",
-          "title": "Ewe"
+          "title": "Ewe (ee)"
         },
         "fo": {
           "text": "fo",
-          "title": "Faroese"
+          "title": "Faroese (fo)"
         },
         "fj": {
           "text": "fj",
-          "title": "Fijian"
+          "title": "Fijian (fj)"
         },
         "fi": {
           "text": "fi",
-          "title": "Finnish"
+          "title": "Finnish (fi)"
         },
         "fr": {
           "text": "fr",
-          "title": "French"
+          "title": "French (fr)"
         },
         "fy": {
           "text": "fy",
-          "title": "Western Frisian"
+          "title": "Western Frisian (fy)"
         },
         "ff": {
           "text": "ff",
-          "title": "Fulah"
+          "title": "Fulah (ff)"
         },
         "gd": {
           "text": "gd",
-          "title": "Gaelic, Scottish Gaelic"
+          "title": "Gaelic, Scottish Gaelic (gd)"
         },
         "gl": {
           "text": "gl",
-          "title": "Galician"
+          "title": "Galician (gl)"
         },
         "lg": {
           "text": "lg",
-          "title": "Ganda"
+          "title": "Ganda (lg)"
         },
         "ka": {
           "text": "ka",
-          "title": "Georgian"
+          "title": "Georgian (ka)"
         },
         "de": {
           "text": "de",
-          "title": "German"
+          "title": "German (de)"
         },
         "el": {
           "text": "el",
-          "title": "Greek, Modern (1453–)"
+          "title": "Greek, Modern (1453–) (el)"
         },
         "kl": {
           "text": "kl",
-          "title": "Kalaallisut, Greenlandic"
+          "title": "Kalaallisut, Greenlandic (kl)"
         },
         "gn": {
           "text": "gn",
-          "title": "Guarani"
+          "title": "Guarani (gn)"
         },
         "gu": {
           "text": "gu",
-          "title": "Gujarati"
+          "title": "Gujarati (gu)"
         },
         "ht": {
           "text": "ht",
-          "title": "Haitian, Haitian Creole"
+          "title": "Haitian, Haitian Creole (ht)"
         },
         "ha": {
           "text": "ha",
-          "title": "Hausa"
+          "title": "Hausa (ha)"
         },
         "he": {
           "text": "he",
-          "title": "Hebrew"
+          "title": "Hebrew (he)"
         },
         "hz": {
           "text": "hz",
-          "title": "Herero"
+          "title": "Herero (hz)"
         },
         "hi": {
           "text": "hi",
-          "title": "Hindi"
+          "title": "Hindi (hi)"
         },
         "ho": {
           "text": "ho",
-          "title": "Hiri Motu"
+          "title": "Hiri Motu (ho)"
         },
         "hu": {
           "text": "hu",
-          "title": "Hungarian"
+          "title": "Hungarian (hu)"
         },
         "is": {
           "text": "is",
-          "title": "Icelandic"
+          "title": "Icelandic (is)"
         },
         "io": {
           "text": "io",
-          "title": "Ido"
+          "title": "Ido (io)"
         },
         "ig": {
           "text": "ig",
-          "title": "Igbo"
+          "title": "Igbo (ig)"
         },
         "id": {
           "text": "id",
-          "title": "Indonesian"
+          "title": "Indonesian (id)"
         },
         "iu": {
           "text": "iu",
-          "title": "Inuktitut"
+          "title": "Inuktitut (iu)"
         },
         "ik": {
           "text": "ik",
-          "title": "Inupiaq"
+          "title": "Inupiaq (ik)"
         },
         "ga": {
           "text": "ga",
-          "title": "Irish"
+          "title": "Irish (ga)"
         },
         "it": {
           "text": "it",
-          "title": "Italian"
+          "title": "Italian (it)"
         },
         "ja": {
           "text": "ja",
-          "title": "Japanese"
+          "title": "Japanese (ja)"
         },
         "jv": {
           "text": "jv",
-          "title": "Javanese"
+          "title": "Javanese (jv)"
         },
         "kn": {
           "text": "kn",
-          "title": "Kannada"
+          "title": "Kannada (kn)"
         },
         "kr": {
           "text": "kr",
-          "title": "Kanuri"
+          "title": "Kanuri (kr)"
         },
         "ks": {
           "text": "ks",
-          "title": "Kashmiri"
+          "title": "Kashmiri (ks)"
         },
         "kk": {
           "text": "kk",
-          "title": "Kazakh"
+          "title": "Kazakh (kk)"
         },
         "km": {
           "text": "km",
-          "title": "Central Khmer"
+          "title": "Central Khmer (km)"
         },
         "ki": {
           "text": "ki",
-          "title": "Kikuyu, Gikuyu"
+          "title": "Kikuyu, Gikuyu (ki)"
         },
         "rw": {
           "text": "rw",
-          "title": "Kinyarwanda"
+          "title": "Kinyarwanda (rw)"
         },
         "ky": {
           "text": "ky",
-          "title": "Kyrgyz, Kirghiz"
+          "title": "Kyrgyz, Kirghiz (ky)"
         },
         "kv": {
           "text": "kv",
-          "title": "Komi"
+          "title": "Komi (kv)"
         },
         "kg": {
           "text": "kg",
-          "title": "Kongo"
+          "title": "Kongo (kg)"
         },
         "ko": {
           "text": "ko",
-          "title": "Korean"
+          "title": "Korean (ko)"
         },
         "kj": {
           "text": "kj",
-          "title": "Kuanyama, Kwanyama"
+          "title": "Kuanyama, Kwanyama (kj)"
         },
         "ku": {
           "text": "ku",
-          "title": "Kurdish"
+          "title": "Kurdish (ku)"
         },
         "lo": {
           "text": "lo",
-          "title": "Lao"
+          "title": "Lao (lo)"
         },
         "la": {
           "text": "la",
-          "title": "Latin"
+          "title": "Latin (la)"
         },
         "lv": {
           "text": "lv",
-          "title": "Latvian"
+          "title": "Latvian (lv)"
         },
         "li": {
           "text": "li",
-          "title": "Limburgan, Limburger, Limburgish"
+          "title": "Limburgan, Limburger, Limburgish (li)"
         },
         "ln": {
           "text": "ln",
-          "title": "Lingala"
+          "title": "Lingala (ln)"
         },
         "lt": {
           "text": "lt",
-          "title": "Lithuanian"
+          "title": "Lithuanian (lt)"
         },
         "lu": {
           "text": "lu",
-          "title": "Luba-Katanga"
+          "title": "Luba-Katanga (lu)"
         },
         "lb": {
           "text": "lb",
-          "title": "Luxembourgish, Letzeburgesch"
+          "title": "Luxembourgish, Letzeburgesch (lb)"
         },
         "mk": {
           "text": "mk",
-          "title": "Macedonian"
+          "title": "Macedonian (mk)"
         },
         "mg": {
           "text": "mg",
-          "title": "Malagasy"
+          "title": "Malagasy (mg)"
         },
         "ms": {
           "text": "ms",
-          "title": "Malay"
+          "title": "Malay (ms)"
         },
         "ml": {
           "text": "ml",
-          "title": "Malayalam"
+          "title": "Malayalam (ml)"
         },
         "mt": {
           "text": "mt",
-          "title": "Maltese"
+          "title": "Maltese (mt)"
         },
         "gv": {
           "text": "gv",
-          "title": "Manx"
+          "title": "Manx (gv)"
         },
         "mi": {
           "text": "mi",
-          "title": "Maori"
+          "title": "Maori (mi)"
         },
         "mr": {
           "text": "mr",
-          "title": "Marathi"
+          "title": "Marathi (mr)"
         },
         "mh": {
           "text": "mh",
-          "title": "Marshallese"
+          "title": "Marshallese (mh)"
         },
         "mn": {
           "text": "mn",
-          "title": "Mongolian"
+          "title": "Mongolian (mn)"
         },
         "na": {
           "text": "na",
-          "title": "Nauru"
+          "title": "Nauru (na)"
         },
         "nv": {
           "text": "nv",
-          "title": "Navajo, Navaho"
+          "title": "Navajo, Navaho (nv)"
         },
         "nd": {
           "text": "nd",
-          "title": "North Ndebele"
+          "title": "North Ndebele (nd)"
         },
         "nr": {
           "text": "nr",
-          "title": "South Ndebele"
+          "title": "South Ndebele (nr)"
         },
         "ng": {
           "text": "ng",
-          "title": "Ndonga"
+          "title": "Ndonga (ng)"
         },
         "ne": {
           "text": "ne",
-          "title": "Nepali"
+          "title": "Nepali (ne)"
         },
         "no": {
           "text": "no",
-          "title": "Norwegian"
+          "title": "Norwegian (no)"
         },
         "nb": {
           "text": "nb",
-          "title": "Norwegian Bokmål"
+          "title": "Norwegian Bokmål (nb)"
         },
         "nn": {
           "text": "nn",
-          "title": "Norwegian Nynorsk"
+          "title": "Norwegian Nynorsk (nn)"
         },
         "oc": {
           "text": "oc",
-          "title": "Occitan"
+          "title": "Occitan (oc)"
         },
         "oj": {
           "text": "oj",
-          "title": "Ojibwa"
+          "title": "Ojibwa (oj)"
         },
         "or": {
           "text": "or",
-          "title": "Oriya"
+          "title": "Oriya (or)"
         },
         "om": {
           "text": "om",
-          "title": "Oromo"
+          "title": "Oromo (om)"
         },
         "os": {
           "text": "os",
-          "title": "Ossetian, Ossetic"
+          "title": "Ossetian, Ossetic (os)"
         },
         "pi": {
           "text": "pi",
-          "title": "Pali"
+          "title": "Pali (pi)"
         },
         "ps": {
           "text": "ps",
-          "title": "Pashto, Pushto"
+          "title": "Pashto, Pushto (ps)"
         },
         "fa": {
           "text": "fa",
-          "title": "Persian"
+          "title": "Persian (fa)"
         },
         "pl": {
           "text": "pl",
-          "title": "Polish"
+          "title": "Polish (pl)"
         },
         "pt": {
           "text": "pt",
-          "title": "Portuguese"
+          "title": "Portuguese (pt)"
         },
         "pa": {
           "text": "pa",
-          "title": "Punjabi, Panjabi"
+          "title": "Punjabi, Panjabi (pa)"
         },
         "qu": {
           "text": "qu",
-          "title": "Quechua"
+          "title": "Quechua (qu)"
         },
         "ro": {
           "text": "ro",
-          "title": "Romanian, Moldavian, Moldovan"
+          "title": "Romanian, Moldavian, Moldovan (ro)"
         },
         "rm": {
           "text": "rm",
-          "title": "Romansh"
+          "title": "Romansh (rm)"
         },
         "rn": {
           "text": "rn",
-          "title": "Rundi"
+          "title": "Rundi (rn)"
         },
         "ru": {
           "text": "ru",
-          "title": "Russian"
+          "title": "Russian (ru)"
         },
         "se": {
           "text": "se",
-          "title": "Northern Sami"
+          "title": "Northern Sami (se)"
         },
         "sm": {
           "text": "sm",
-          "title": "Samoan"
+          "title": "Samoan (sm)"
         },
         "sg": {
           "text": "sg",
-          "title": "Sango"
+          "title": "Sango (sg)"
         },
         "sa": {
           "text": "sa",
-          "title": "Sanskrit"
+          "title": "Sanskrit (sa)"
         },
         "sc": {
           "text": "sc",
-          "title": "Sardinian"
+          "title": "Sardinian (sc)"
         },
         "sr": {
           "text": "sr",
-          "title": "Serbian"
+          "title": "Serbian (sr)"
         },
         "sn": {
           "text": "sn",
-          "title": "Shona"
+          "title": "Shona (sn)"
         },
         "sd": {
           "text": "sd",
-          "title": "Sindhi"
+          "title": "Sindhi (sd)"
         },
         "si": {
           "text": "si",
-          "title": "Sinhala, Sinhalese"
+          "title": "Sinhala, Sinhalese (si)"
         },
         "sk": {
           "text": "sk",
-          "title": "Slovak"
+          "title": "Slovak (sk)"
         },
         "sl": {
           "text": "sl",
-          "title": "Slovenian"
+          "title": "Slovenian (sl)"
         },
         "so": {
           "text": "so",
-          "title": "Somali"
+          "title": "Somali (so)"
         },
         "st": {
           "text": "st",
-          "title": "Southern Sotho"
+          "title": "Southern Sotho (st)"
         },
         "es": {
           "text": "es",
-          "title": "Spanish, Castilian"
+          "title": "Spanish, Castilian (es)"
         },
         "su": {
           "text": "su",
-          "title": "Sundanese"
+          "title": "Sundanese (su)"
         },
         "sw": {
           "text": "sw",
-          "title": "Swahili"
+          "title": "Swahili (sw)"
         },
         "ss": {
           "text": "ss",
-          "title": "Swati"
+          "title": "Swati (ss)"
         },
         "sv": {
           "text": "sv",
-          "title": "Swedish"
+          "title": "Swedish (sv)"
         },
         "tl": {
           "text": "tl",
-          "title": "Tagalog"
+          "title": "Tagalog (tl)"
         },
         "ty": {
           "text": "ty",
-          "title": "Tahitian"
+          "title": "Tahitian (ty)"
         },
         "tg": {
           "text": "tg",
-          "title": "Tajik"
+          "title": "Tajik (tg)"
         },
         "ta": {
           "text": "ta",
-          "title": "Tamil"
+          "title": "Tamil (ta)"
         },
         "tt": {
           "text": "tt",
-          "title": "Tatar"
+          "title": "Tatar (tt)"
         },
         "te": {
           "text": "te",
-          "title": "Telugu"
+          "title": "Telugu (te)"
         },
         "th": {
           "text": "th",
-          "title": "Thai"
+          "title": "Thai (th)"
         },
         "bo": {
           "text": "bo",
-          "title": "Tibetan"
+          "title": "Tibetan (bo)"
         },
         "ti": {
           "text": "ti",
-          "title": "Tigrinya"
+          "title": "Tigrinya (ti)"
         },
         "to": {
           "text": "to",
-          "title": "Tonga (Tonga Islands)"
+          "title": "Tonga (Tonga Islands) (to)"
         },
         "ts": {
           "text": "ts",
-          "title": "Tsonga"
+          "title": "Tsonga (ts)"
         },
         "tn": {
           "text": "tn",
-          "title": "Tswana"
+          "title": "Tswana (tn)"
         },
         "tr": {
           "text": "tr",
-          "title": "Turkish"
+          "title": "Turkish (tr)"
         },
         "tk": {
           "text": "tk",
-          "title": "Turkmen"
+          "title": "Turkmen (tk)"
         },
         "tw": {
           "text": "tw",
-          "title": "Twi"
+          "title": "Twi (tw)"
         },
         "ug": {
           "text": "ug",
-          "title": "Uighur, Uyghur"
+          "title": "Uighur, Uyghur (ug)"
         },
         "uk": {
           "text": "uk",
-          "title": "Ukrainian"
+          "title": "Ukrainian (uk)"
         },
         "ur": {
           "text": "ur",
-          "title": "Urdu"
+          "title": "Urdu (ur)"
         },
         "uz": {
           "text": "uz",
-          "title": "Uzbek"
+          "title": "Uzbek (uz)"
         },
         "ve": {
           "text": "ve",
-          "title": "Venda"
+          "title": "Venda (ve)"
         },
         "vi": {
           "text": "vi",
-          "title": "Vietnamese"
+          "title": "Vietnamese (vi)"
         },
         "vo": {
           "text": "vo",
-          "title": "Volapük"
+          "title": "Volapük (vo)"
         },
         "wa": {
           "text": "wa",
-          "title": "Walloon"
+          "title": "Walloon (wa)"
         },
         "cy": {
           "text": "cy",
-          "title": "Welsh"
+          "title": "Welsh (cy)"
         },
         "wo": {
           "text": "wo",
-          "title": "Wolof"
+          "title": "Wolof (wo)"
         },
         "xh": {
           "text": "xh",
-          "title": "Xhosa"
+          "title": "Xhosa (xh)"
         },
         "ii": {
           "text": "ii",
-          "title": "Sichuan Yi, Nuosu"
+          "title": "Sichuan Yi, Nuosu (ii)"
         },
         "yi": {
           "text": "yi",
-          "title": "Yiddish"
+          "title": "Yiddish (yi)"
         },
         "yo": {
           "text": "yo",
-          "title": "Yoruba"
+          "title": "Yoruba (yo)"
         },
         "za": {
           "text": "za",
-          "title": "Zhuang, Chuang"
+          "title": "Zhuang, Chuang (za)"
         },
         "zu": {
           "text": "zu",
-          "title": "Zulu"
+          "title": "Zulu (zu)"
         }
       }
     }
