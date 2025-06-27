@@ -32,7 +32,7 @@ export function createDataHarmonizerContainer(dhId, isActive) {
 
 export function createDataHarmonizerTab(dhId, tab_title, class_name, tooltip, isActive) {
   const template = document.createElement('template');
-  template.innerHTML = `<li role="tab" class="nav-item ${tooltip.length ? 'tooltipy' :''}"><a class="nav-link${(isActive ? ' active' : '')}" id="tab-${dhId}" href=#${dhId} data-bs-target="#${dhId}" data-name="${class_name}" data-toggle="tab">${tab_title}</a>${tooltip.length ? '<span class="tooltipytext tinytip">' + tooltip + '</span>' : ''}</li>`;
+  template.innerHTML = `<li role="tab" id="tab-bar-${class_name}" class="nav-item ${tooltip.length ? 'tooltipy' :''}"><a class="nav-link${(isActive ? ' active' : '')}" id="tab-${dhId}" href=#${dhId} data-bs-target="#${dhId}" data-name="${class_name}" data-toggle="tab">${tab_title}</a>${tooltip.length ? '<span class="tooltipytext tinytip">' + tooltip + '</span>' : ''}</li>`;
 
   const dhTab = template.content.firstChild;
 

@@ -21,6 +21,10 @@
     "en": "Schema Editor options",
     "fr": "Options de l'éditeur de schéma"
   },
+  "schema-editor-expert-options": {
+    "en": "Toggle expert user mode",
+    "fr": "Activer/désactiver le mode utilisateur expert"
+  },
   "upload-template-yaml-dropdown-item": {
     "en": "Load Schema from file (.yaml format)",
     "fr": "Charger le schéma à partir du fichier (format .yaml)"
