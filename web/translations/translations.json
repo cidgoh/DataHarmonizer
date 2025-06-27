@@ -59,12 +59,12 @@
     "fr": "Ouvrir"
   },
   "save-as-dropdown-item": {
-    "en": "Save As...",
-    "fr": "Enregistrer sous..."
+    "en": "Save As",
+    "fr": "Enregistrer sous"
   },
   "export-to-dropdown-item": {
-    "en": "Export To...",
-    "fr": "Exporter vers..."
+    "en": "Export To",
+    "fr": "Exporter vers"
   },
 
   "settings-menu-button": {
