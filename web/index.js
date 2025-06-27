@@ -37,7 +37,7 @@ export function createDataHarmonizerTab(dhId, tab_title, class_name, tooltip, is
   const dhTab = template.content.firstChild;
 
   dhNavTabs.appendChild(dhTab);
-  return dhTab;
+  return $(`#tab-bar-${class_name} > a`)[0];
 }
 
 // loading screen
