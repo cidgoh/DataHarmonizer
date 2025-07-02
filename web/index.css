@@ -33,14 +33,7 @@ body {
 .data-harmonizer-grid th.recommended {
   background-color: plum !important;
 }
-.data-harmonizer-grid th.overlayEdge {
-  border-right: medium solid gray;
-}
-.data-harmonizer-grid table.htCore > tbody > tr td:nth-child(2) {
-  border-right: medium solid gray;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
+
 
 /* TESTING FOR WIDER DROPDOWN MENU WIDTH */
 .handsontable.listbox .ht_master table {
@@ -140,7 +133,7 @@ background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%
   /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
-  bottom: 100%;
+  bottom: -40px;
   right: 50%;
   margin-right: -10px; /* Use half of the width (120/2 = 60), to center the tooltip */
   opacity: 0;
@@ -167,7 +160,9 @@ background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%
 #data-harmonizer-tabs .tooltipy:not(.disabled) .tooltipytext {
   opacity: 0;
 }
-
+#data-harmonizer-tabs .tooltipy.disabled .tooltipytext {
+  bottom:100%;
+}
 
 /* optional little arrow at top. See https://www.w3schools.com/css/css_tooltip.asp 
 .tooltip .tooltiptext::after {
@@ -228,11 +223,36 @@ tr.translation-input td textarea {
   field-sizing: content;
 }
 
-/* Need class indicating that DH_LinkML schema_editor is at work. */
-div#data-harmonizer-grid-4.data-harmonizer-grid tr:has(td.row-highlight) td {
+td.schemaSlot {
   border-top:2px solid green;
   background-color: #EFE;
 }
 
+/* Not sure how to display frozen column right side in header area
+.data-harmonizer-grid th.overlayEdge {
+  border-right: 2px solid black !important;
+}
+*/
+
+/* Handsontable class. Marks right side of frozen columns */
+.ht_clone_left {
+  border-right: 2px solid black !important;
+}
+
+/* Handsontable class.  Enables clipped display of frozen column identifier fields */
+.ht_clone_inline_start td {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .coding_name {font-size: .8rem} /* Used where slot.name is shown */
 
+/* Handsontable class for readOnly fields */
+.handsontable td.hatched {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 7px,
+    silver 1px,
+    silver 8px);
+}
