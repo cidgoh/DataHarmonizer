@@ -1,5 +1,6 @@
 <div>
   <div class="btn-group" role="group">
+    <!--
     <div class="btn-group" id="file-dropdown-btn-group" role="group">
       <button
         class="btn btn-primary dropdown-toggle"
@@ -13,101 +14,10 @@
         Template
       </button>
       <div class="dropdown-menu">
-        <span
-          class="dropdown-item"
-          data-toggle="modal"
-          data-target="#select-template-modal"
-          id="select-template-modal-button"
-          data-i18n="select-template-modal-button"
-          >Select Template from menu</span
-        >
-        <label
-          for="upload-template-input"
-          class="dropdown-item mb-0"
-          id="upload-template-dropdown-item"
-          data-i18n="upload-template-dropdown-item"
-          >Upload Template (.json format)</label
-        >
-        <input
-          type="file"
-          accept=".json"
-          class="form-control-file"
-          id="upload-template-input"
-        />
-        <span
-          class="dropdown-item"
-          id="load-schema-editor-button"
-          data-i18n="load-schema-editor-button"
-          >Load Schema Editor</span
-        >
-        <div style="padding: 0.25rem 1.5rem" id="schema-editor-menu">
-          <span data-i18n="schema-editor-menu">Schema Editor options:</span>
-          <div>
-
-            <label
-              for="schema_expert"
-              class="dropdown-item mb-0"
-              id="schema-editor-expert-user"
-              ><span data-i18n="schema-editor-expert-options">Toggle expert user mode</span>
-              <input
-                type="checkbox"
-                class="form-control"
-                style="width:1rem;height:1.5rem;float:right"
-                id="schema_expert"
-              />
-            </label
-            >
-            <label
-              for="schema_upload"
-              class="dropdown-item mb-0"
-              id="upload-template-yaml-dropdown-item"
-              data-i18n="upload-template-yaml-dropdown-item"
-              >Load schema from file (yaml format)</label
-            >
-            <input
-              type="file"
-              accept=".yaml" 
-              class="form-control-file"
-              multiple="false"
-              style="display:none"
-              id="schema_upload"
-            />
-            <!--
-            <label
-              for="schema_from_uri"
-              class="dropdown-item mb-0"
-              id="upload-template-uri"
-              data-i18n="upload-template-uri"
-              >Load Schema from URI (yaml format)</label
-            >
-            <input
-              type="text"
-              class="form-control-file"
-              multiple="false"
-              style="display:none"
-              id="schema_from_uri"
-            />
-            -->
-            <span
-              class="dropdown-item"
-              data-toggle="modal"
-              id="save-template-button"
-              data-i18n="save-template-button"
-              >Save selected schema (yaml format)</span
-            >
-            <span
-              class="dropdown-item"
-              data-toggle="modal"
-              id="translation-form-button"
-              data-i18n="translation-form-button"
-              >Translation form (for chosen rows)</span
-            >
-          </div>
-        </div>
 
       </div>
     </div>
-
+    -->
     <div class="btn-group" id="file-dropdown-btn-group" role="group">
       <button
         class="btn btn-primary dropdown-toggle"
@@ -121,42 +31,143 @@
         File
       </button>
       <div class="dropdown-menu">
-        <span
-          class="dropdown-item"
-          id="new-dropdown-item"
-          data-i18n="new-dropdown-item"
-          >New</span
-        >
-        <label
-          for="open-file-input"
-          class="dropdown-item mb-0"
-          id="open-dropdown-item"
-          data-i18n="open-dropdown-item"
-          >Open</label
-        >
-        <input
-          type="file"
-          accept=".xlsx,.xls,.tsv,.csv,.json"
-          class="form-control-file"
-          id="open-file-input"
-          data-i18n="open-file-input"
-        />
-        <span
-          class="dropdown-item"
-          data-toggle="modal"
-          id="save-as-dropdown-item"
-          data-i18n="save-as-dropdown-item"
-          >Save As...</span
-        >
-        <span
-          class="dropdown-item"
-          data-toggle="modal"
-          id="export-to-dropdown-item"
-          data-i18n="export-to-dropdown-item"
-          >Export To...</span
-        >
+        <div style="padding: 0.25rem 1.5rem">
+          <span data-i18n="data">Data</span>
+          <span
+            class="dropdown-item"
+            id="new-dropdown-item"
+            data-i18n="new-dropdown-item"
+            >New</span
+          >
+          <label
+            for="open-file-input"
+            class="dropdown-item mb-0"
+            id="open-dropdown-item"
+            data-i18n="open-dropdown-item"
+            >Open</label
+          >
+          <input
+            type="file"
+            accept=".xlsx,.xls,.tsv,.csv,.json"
+            class="form-control-file"
+            id="open-file-input"
+            data-i18n="open-file-input"
+          />
+          <span
+            class="dropdown-item"
+            data-toggle="modal"
+            id="save-as-dropdown-item"
+            data-i18n="save-as-dropdown-item"
+            >Save As...</span
+          >
+          <span
+            class="dropdown-item"
+            data-toggle="modal"
+            id="export-to-dropdown-item"
+            data-i18n="export-to-dropdown-item"
+            >Export To...</span
+          >
+
+          <span data-i18n="data">Template</span>
+          <span
+            class="dropdown-item"
+            data-toggle="modal"
+            data-target="#select-template-modal"
+            id="select-template-modal-button"
+            data-i18n="select-template-modal-button"
+            >Select Template from menu</span
+          >
+          <label
+            for="upload-template-input"
+            class="dropdown-item mb-0"
+            id="upload-template-dropdown-item"
+            data-i18n="upload-template-dropdown-item"
+            >Upload Template (.json format)</label
+          >
+          <input
+            type="file"
+            accept=".json"
+            class="form-control-file"
+            id="upload-template-input"
+          />
+
+          <span data-i18n="data">Schema Editor</span>
+          <span
+            class="dropdown-item"
+            id="load-schema-editor-button"
+            data-i18n="load-schema-editor-button"
+            >Load Editor</span
+          >
+          <div style="padding: 0.25rem 1.5rem" id="schema-editor-menu">
+            <span data-i18n="schema-editor-menu">Schema Editor options:</span>
+            <div>
+              <label
+                for="schema_expert"
+                class="dropdown-item mb-0"
+                id="schema-editor-expert-user"
+                ><span data-i18n="schema-editor-expert-options">Toggle expert user mode</span>
+                <input
+                  type="checkbox"
+                  class="form-control"
+                  style="width:1rem;height:1.5rem;float:right"
+                  id="schema_expert"
+                />
+              </label
+              >
+              <label
+                for="schema_upload"
+                class="dropdown-item mb-0"
+                id="upload-template-yaml-dropdown-item"
+                data-i18n="upload-template-yaml-dropdown-item"
+                >Load schema from file (yaml format)</label
+              >
+              <input
+                type="file"
+                accept=".yaml" 
+                class="form-control-file"
+                multiple="false"
+                style="display:none"
+                id="schema_upload"
+              />
+              <!--
+              <label
+                for="schema_from_uri"
+                class="dropdown-item mb-0"
+                id="upload-template-uri"
+                data-i18n="upload-template-uri"
+                >Load Schema from Web (yaml format)</label
+              >
+              <input
+                type="text"
+                class="form-control-file"
+                multiple="false"
+                style="display:none"
+                id="schema_from_uri"
+              />
+              -->
+              <span
+                class="dropdown-item"
+                data-toggle="modal"
+                id="save-template-button"
+                data-i18n="save-template-button"
+                >Save selected schema (yaml format)</span
+              >
+              <span
+                class="dropdown-item"
+                data-toggle="modal"
+                id="translation-form-button"
+                data-i18n="translation-form-button"
+                >Translation form (for chosen rows)</span
+              >
+            </div>
+          </div>
+        </div>
+
+
         <!-- span class="dropdown-item" data-toggle="modal" id="export-to-dropdown-item" data-target="#export-to-modal">Export To...</span -->
       </div>
+
+      <!-- next section -->
     </div>
     <div class="btn-group" id="settings-dropdown-btn-group" role="group">
       <button
@@ -1195,4 +1206,13 @@
     </div>
   </div>
 
+</div>
+
+<div style="margin-top:10px">
+  <div class="btn-group" role="group">
+    <div class="input-group-append" id="record-hierarchy-div">
+      <span class="input-group-text" id="record-path" data-i18n="record-path">Focus</span>
+      <span class="input-group-text" style="background-color:#fdfdfd" id="record-hierarchy"></span>
+    </div>
+  </div>
 </div>
