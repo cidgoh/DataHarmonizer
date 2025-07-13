@@ -255,7 +255,7 @@ enums:
         description: A table field whose name and source attributes come from a schema library field. It can add its own attributes, but cannot overwrite the schema field ones.  (A LinkML schema slot referenced within a class's slot_usage list of slots.)
       attribute:
         text: attribute
-        title: Table field (independent)
+        title: Table field (stand-alone)
         description: A table field which is not reused from the schema.  The field can impose its own attribute values.
 
   SchemaAnnotationTypeMenu:

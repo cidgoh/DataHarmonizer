@@ -903,6 +903,21 @@
           "slot_group": "key",
           "range": "Schema"
         },
+        "slot_type": {
+          "name": "slot_type",
+          "rank": 2,
+          "slot_group": "key"
+        },
+        "class_name": {
+          "name": "class_name",
+          "description": "If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.",
+          "title": "Table reuse",
+          "comments": [
+            "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
+          ],
+          "rank": 3,
+          "slot_group": "key"
+        },
         "name": {
           "name": "name",
           "description": "The coding name of this field (LinkML slot).",
@@ -910,7 +925,7 @@
           "comments": [
             "This name is formatted as a standard lowercase **snake_case** formatted name.\nA field can be used in one or more tables. A field can be shown as a visible datatype column in a spreadsheet (DataHarmonizer template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
           ],
-          "rank": 2,
+          "rank": 4,
           "slot_group": "key",
           "pattern": "^[a-z]+[a-z0-9_]*$",
           "any_of": [
@@ -922,40 +937,25 @@
             }
           ]
         },
-        "slot_type": {
-          "name": "slot_type",
-          "rank": 3,
-          "slot_group": "key"
-        },
-        "class_name": {
-          "name": "class_name",
-          "description": "If this field definition details a field’s use in a table (LinkML class), provide the table name.",
-          "title": "As used in table",
-          "comments": [
-            "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
-          ],
-          "rank": 4,
-          "slot_group": "tabular attribute"
-        },
         "rank": {
           "name": "rank",
           "rank": 5,
-          "slot_group": "tabular attribute"
-        },
-        "slot_group": {
-          "name": "slot_group",
-          "rank": 6,
-          "slot_group": "tabular attribute"
+          "slot_group": "table attribute"
         },
         "inlined": {
           "name": "inlined",
-          "rank": 7,
-          "slot_group": "tabular attribute"
+          "rank": 6,
+          "slot_group": "table attribute"
         },
         "inlined_as_list": {
           "name": "inlined_as_list",
+          "rank": 7,
+          "slot_group": "table attribute"
+        },
+        "slot_group": {
+          "name": "slot_group",
           "rank": 8,
-          "slot_group": "tabular attribute"
+          "slot_group": "field attribute"
         },
         "slot_uri": {
           "name": "slot_uri",
@@ -1125,6 +1125,43 @@
           "range": "Schema",
           "required": true
         },
+        "slot_type": {
+          "name": "slot_type",
+          "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
+          "title": "Type",
+          "comments": [
+            "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "alias": "slot_type",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "key",
+          "range": "SchemaSlotTypeMenu",
+          "required": true
+        },
+        "class_name": {
+          "name": "class_name",
+          "description": "If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.",
+          "title": "Table reuse",
+          "comments": [
+            "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "alias": "class_name",
+          "owner": "Slot",
+          "domain_of": [
+            "UniqueKey",
+            "Slot",
+            "Annotation"
+          ],
+          "slot_group": "key",
+          "range": "SchemaClassMenu"
+        },
         "name": {
           "name": "name",
           "description": "The coding name of this field (LinkML slot).",
@@ -1133,7 +1170,7 @@
             "This name is formatted as a standard lowercase **snake_case** formatted name.\nA field can be used in one or more tables. A field can be shown as a visible datatype column in a spreadsheet (DataHarmonizer template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 2,
+          "rank": 4,
           "alias": "name",
           "owner": "Slot",
           "domain_of": [
@@ -1158,43 +1195,6 @@
             }
           ]
         },
-        "slot_type": {
-          "name": "slot_type",
-          "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
-          "title": "Type",
-          "comments": [
-            "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
-          ],
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 3,
-          "alias": "slot_type",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "key",
-          "range": "SchemaSlotTypeMenu",
-          "required": true
-        },
-        "class_name": {
-          "name": "class_name",
-          "description": "If this field definition details a field’s use in a table (LinkML class), provide the table name.",
-          "title": "As used in table",
-          "comments": [
-            "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
-          ],
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 4,
-          "alias": "class_name",
-          "owner": "Slot",
-          "domain_of": [
-            "UniqueKey",
-            "Slot",
-            "Annotation"
-          ],
-          "slot_group": "tabular attribute",
-          "range": "SchemaClassMenu"
-        },
         "rank": {
           "name": "rank",
           "description": "An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.",
@@ -1206,35 +1206,21 @@
           "domain_of": [
             "Slot"
           ],
-          "slot_group": "tabular attribute",
+          "slot_group": "table attribute",
           "range": "integer"
-        },
-        "slot_group": {
-          "name": "slot_group",
-          "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
-          "title": "Field group",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 6,
-          "alias": "slot_group",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "tabular attribute",
-          "range": "SchemaSlotGroupMenu"
         },
         "inlined": {
           "name": "inlined",
           "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.",
           "title": "Inlined",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 7,
+          "rank": 6,
           "alias": "inlined",
           "owner": "Slot",
           "domain_of": [
             "Slot"
           ],
-          "slot_group": "tabular attribute",
+          "slot_group": "table attribute",
           "any_of": [
             {
               "range": "boolean"
@@ -1249,13 +1235,13 @@
           "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.",
           "title": "Inlined as list",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 8,
+          "rank": 7,
           "alias": "inlined_as_list",
           "owner": "Slot",
           "domain_of": [
             "Slot"
           ],
-          "slot_group": "tabular attribute",
+          "slot_group": "table attribute",
           "any_of": [
             {
               "range": "boolean"
@@ -1264,6 +1250,20 @@
               "range": "TrueFalseMenu"
             }
           ]
+        },
+        "slot_group": {
+          "name": "slot_group",
+          "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
+          "title": "Field group",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 8,
+          "alias": "slot_group",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "field attribute",
+          "range": "SchemaSlotGroupMenu"
         },
         "slot_uri": {
           "name": "slot_uri",
@@ -2205,6 +2205,9 @@
           "name": "text",
           "description": "The code (LinkML permissible_value key) for the menu item choice.",
           "title": "Code",
+          "comments": [
+            "A picklist's codes must be unique.  Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice."
+          ],
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 3,
           "alias": "text",
@@ -3292,16 +3295,6 @@
       ],
       "range": "integer"
     },
-    "slot_group": {
-      "name": "slot_group",
-      "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
-      "title": "Field group",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "SchemaSlotGroupMenu"
-    },
     "inlined": {
       "name": "inlined",
       "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.",
@@ -3335,6 +3328,16 @@
           "range": "TrueFalseMenu"
         }
       ]
+    },
+    "slot_group": {
+      "name": "slot_group",
+      "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
+      "title": "Field group",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "SchemaSlotGroupMenu"
     },
     "slot_uri": {
       "name": "slot_uri",
@@ -3669,6 +3672,9 @@
       "name": "text",
       "description": "The code (LinkML permissible_value key) for the menu item choice.",
       "title": "Code",
+      "comments": [
+        "A picklist's codes must be unique.  Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice."
+      ],
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "PermissibleValue"

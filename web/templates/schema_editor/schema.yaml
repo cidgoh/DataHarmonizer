@@ -267,13 +267,13 @@ classes:
           - slot_type
     slots:
       - schema_id
-      - name
       - slot_type
       - class_name
+      - name
       - rank
-      - slot_group
       - inlined
       - inlined_as_list
+      - slot_group
       - slot_uri
       - title
       - range
@@ -308,9 +308,21 @@ classes:
         description: The coding name of the schema that this field (LinkML slot) is contained in.
         comments:
           - A schema has a list of fields it defines. A schema can also import other schemas' fields.
+      slot_type:
+        name: slot_type
+        rank: 2
+        slot_group: key
+      class_name:
+        name: class_name
+        rank: 3
+        slot_group: key
+        title: Table reuse
+        description: If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.
+        comments:
+          - A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.
       name:
         name: name
-        rank: 2
+        rank: 4
         slot_group: key
         pattern: ^[a-z]+[a-z0-9_]*$
         description: The coding name of this field (LinkML slot).
@@ -320,34 +332,22 @@ classes:
           - range: WhitespaceMinimizedString
           - range: SchemaSlotMenu
         title: Name
-      slot_type:
-        name: slot_type
-        rank: 3
-        slot_group: key
-      class_name:
-        name: class_name
-        rank: 4
-        slot_group: tabular attribute
-        title: As used in table
-        description: If this field definition details a field’s use in a table (LinkML class), provide the table name.
-        comments:
-          - A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.
       rank:
         name: rank
         rank: 5
-        slot_group: tabular attribute
-      slot_group:
-        name: slot_group
-        rank: 6
-        slot_group: tabular attribute
+        slot_group: table attribute
       inlined:
         name: inlined
-        rank: 7
-        slot_group: tabular attribute
+        rank: 6
+        slot_group: table attribute
       inlined_as_list:
         name: inlined_as_list
+        rank: 7
+        slot_group: table attribute
+      slot_group:
+        name: slot_group
         rank: 8
-        slot_group: tabular attribute
+        slot_group: field attribute
       slot_uri:
         name: slot_uri
         rank: 9
@@ -983,11 +983,6 @@ slots:
     title: Ordering
     range: integer
     description: An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.
-  slot_group:
-    name: slot_group
-    title: Field group
-    range: SchemaSlotGroupMenu
-    description: The name of a grouping to place this field (LinkML slot) within during presentation in a table.
   inlined:
     name: inlined
     title: Inlined
@@ -1002,6 +997,11 @@ slots:
       - range: boolean
       - range: TrueFalseMenu
     description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.
+  slot_group:
+    name: slot_group
+    title: Field group
+    range: SchemaSlotGroupMenu
+    description: The name of a grouping to place this field (LinkML slot) within during presentation in a table.
   slot_uri:
     name: slot_uri
     title: Slot URI
@@ -1164,6 +1164,8 @@ slots:
     range: WhitespaceMinimizedString
     required: true
     description: The code (LinkML permissible_value key) for the menu item choice.
+    comments:
+      - A picklist's codes must be unique.  Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice.
   meaning:
     name: meaning
     title: Meaning

@@ -251,7 +251,7 @@
         "AMRTests": [
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "amoxicillin-clavulanic_acid",
+                "antimicrobial_drug": "amoxicillin-clavulanic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -267,7 +267,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "ampicillin",
+                "antimicrobial_drug": "ampicillin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -283,7 +283,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "azithromycin",
+                "antimicrobial_drug": "azithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "8",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -297,7 +297,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "cefoxitin",
+                "antimicrobial_drug": "cefoxitin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "2",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -312,7 +312,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "ceftiofur",
+                "antimicrobial_drug": "ceftiofur",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -328,7 +328,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "ceftriaxone",
+                "antimicrobial_drug": "ceftriaxone",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -344,7 +344,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "chloramphenicol",
+                "antimicrobial_drug": "chloramphenicol",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "8",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -360,7 +360,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "ciprofloxacin",
+                "antimicrobial_drug": "ciprofloxacin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.015",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -376,7 +376,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "gentamicin",
+                "antimicrobial_drug": "gentamicin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -392,7 +392,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "kanamycin",
+                "antimicrobial_drug": "kanamycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "8",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -408,7 +408,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "nalidixic_acid",
+                "antimicrobial_drug": "nalidixic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -424,7 +424,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "streptomycin",
+                "antimicrobial_drug": "streptomycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "32",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -438,7 +438,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "sulfisoxazole",
+                "antimicrobial_drug": "sulfisoxazole",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "32",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -454,7 +454,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "tetracycline",
+                "antimicrobial_drug": "tetracycline",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -470,7 +470,7 @@
             },
             {
                 "isolate_id": "ABC123",
-                "antimicrobial_resistance_test_drug": "trimethoprim-sulfamethoxazole",
+                "antimicrobial_drug": "trimethoprim-sulfamethoxazole",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -486,7 +486,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-555",
-                "antimicrobial_resistance_test_drug": "azithromycin",
+                "antimicrobial_drug": "azithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.03",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -501,7 +501,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-555",
-                "antimicrobial_resistance_test_drug": "ciprofloxacin_resistance_phenotype",
+                "antimicrobial_drug": "ciprofloxacin_resistance_phenotype",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -513,7 +513,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-555",
-                "antimicrobial_resistance_test_drug": "clindamycin",
+                "antimicrobial_drug": "clindamycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -525,7 +525,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-555",
-                "antimicrobial_resistance_test_drug": "erythromycin",
+                "antimicrobial_drug": "erythromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -537,7 +537,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-555",
-                "antimicrobial_resistance_test_drug": "florfenicol",
+                "antimicrobial_drug": "florfenicol",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -549,7 +549,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-555",
-                "antimicrobial_resistance_test_drug": "gentamicin",
+                "antimicrobial_drug": "gentamicin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -561,7 +561,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-555",
-                "antimicrobial_resistance_test_drug": "nalidixic_acid",
+                "antimicrobial_drug": "nalidixic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -573,7 +573,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-555",
-                "antimicrobial_resistance_test_drug": "telithromycin",
+                "antimicrobial_drug": "telithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -585,7 +585,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-555",
-                "antimicrobial_resistance_test_drug": "tetracycline",
+                "antimicrobial_drug": "tetracycline",
                 "resistance_phenotype": "Resistant antimicrobial phenotype [ARO:3004301]",
                 "measurement": "64",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -597,7 +597,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "azithromycin",
+                "antimicrobial_drug": "azithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -612,7 +612,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "ciprofloxacin_resistance_phenotype",
+                "antimicrobial_drug": "ciprofloxacin_resistance_phenotype",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -624,7 +624,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "erythromycin",
+                "antimicrobial_drug": "erythromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -636,7 +636,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "clindamycin",
+                "antimicrobial_drug": "clindamycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -648,7 +648,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "erythromycin",
+                "antimicrobial_drug": "erythromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -660,7 +660,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "florfenicol",
+                "antimicrobial_drug": "florfenicol",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "2",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -672,7 +672,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "gentamicin",
+                "antimicrobial_drug": "gentamicin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -684,7 +684,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "nalidixic_acid",
+                "antimicrobial_drug": "nalidixic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -696,7 +696,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "telithromycin",
+                "antimicrobial_drug": "telithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "2",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -708,7 +708,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-556",
-                "antimicrobial_resistance_test_drug": "tetracycline",
+                "antimicrobial_drug": "tetracycline",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -720,7 +720,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-557",
-                "antimicrobial_resistance_test_drug": "azithromycin",
+                "antimicrobial_drug": "azithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.06",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -735,7 +735,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-557",
-                "antimicrobial_resistance_test_drug": "ciprofloxacin_resistance_phenotype",
+                "antimicrobial_drug": "ciprofloxacin_resistance_phenotype",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.12",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -747,7 +747,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-557",
-                "antimicrobial_resistance_test_drug": "clindamycin",
+                "antimicrobial_drug": "clindamycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.06",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -759,7 +759,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-557",
-                "antimicrobial_resistance_test_drug": "erythromycin",
+                "antimicrobial_drug": "erythromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.25",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -771,7 +771,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-557",
-                "antimicrobial_resistance_test_drug": "florfenicol",
+                "antimicrobial_drug": "florfenicol",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "1",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -783,7 +783,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-557",
-                "antimicrobial_resistance_test_drug": "gentamicin",
+                "antimicrobial_drug": "gentamicin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -795,7 +795,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-557",
-                "antimicrobial_resistance_test_drug": "nalidixic_acid",
+                "antimicrobial_drug": "nalidixic_acid",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "4",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -807,7 +807,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-557",
-                "antimicrobial_resistance_test_drug": "telithromycin",
+                "antimicrobial_drug": "telithromycin",
                 "resistance_phenotype": "Susceptible antimicrobial phenotype [ARO:3004302]",
                 "measurement": "0.5",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -819,7 +819,7 @@
             },
             {
                 "isolate_id": "EG-MB-RR-557",
-                "antimicrobial_resistance_test_drug": "tetracycline",
+                "antimicrobial_drug": "tetracycline",
                 "resistance_phenotype": "Resistant antimicrobial phenotype [ARO:3004301]",
                 "measurement": "64",
                 "measurement_units": "mg/L [UO:0000273]",
@@ -831,175 +831,175 @@
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "amikacin"
+                "antimicrobial_drug": "amikacin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "amoxicillin-clavulanic_acid"
+                "antimicrobial_drug": "amoxicillin-clavulanic_acid"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "ampicillin"
+                "antimicrobial_drug": "ampicillin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "azithromycin"
+                "antimicrobial_drug": "azithromycin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "cefazolin"
+                "antimicrobial_drug": "cefazolin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "cefepime"
+                "antimicrobial_drug": "cefepime"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "cefotaxime"
+                "antimicrobial_drug": "cefotaxime"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "cefotaxime-clavulanic_acid"
+                "antimicrobial_drug": "cefotaxime-clavulanic_acid"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "cefoxitin"
+                "antimicrobial_drug": "cefoxitin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "cefpodoxime"
+                "antimicrobial_drug": "cefpodoxime"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "ceftazidime"
+                "antimicrobial_drug": "ceftazidime"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "ceftazidime-clavulanic_acid"
+                "antimicrobial_drug": "ceftazidime-clavulanic_acid"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "ceftiofur"
+                "antimicrobial_drug": "ceftiofur"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "ceftriaxone"
+                "antimicrobial_drug": "ceftriaxone"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "cephalothin"
+                "antimicrobial_drug": "cephalothin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "chloramphenicol"
+                "antimicrobial_drug": "chloramphenicol"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "ciprofloxacin"
+                "antimicrobial_drug": "ciprofloxacin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "clindamycin"
+                "antimicrobial_drug": "clindamycin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "doxycycline"
+                "antimicrobial_drug": "doxycycline"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "enrofloxacin"
+                "antimicrobial_drug": "enrofloxacin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "erythromycin"
+                "antimicrobial_drug": "erythromycin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "florfenicol"
+                "antimicrobial_drug": "florfenicol"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "gentamicin"
+                "antimicrobial_drug": "gentamicin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "imipenem"
+                "antimicrobial_drug": "imipenem"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "kanamycin"
+                "antimicrobial_drug": "kanamycin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "levofloxacin"
+                "antimicrobial_drug": "levofloxacin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "linezolid"
+                "antimicrobial_drug": "linezolid"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "meropenem"
+                "antimicrobial_drug": "meropenem"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "nalidixic_acid"
+                "antimicrobial_drug": "nalidixic_acid"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "nitrofurantoin"
+                "antimicrobial_drug": "nitrofurantoin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "norfloxacin"
+                "antimicrobial_drug": "norfloxacin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "oxolinic-acid"
+                "antimicrobial_drug": "oxolinic-acid"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "oxytetracycline"
+                "antimicrobial_drug": "oxytetracycline"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "piperacillin"
+                "antimicrobial_drug": "piperacillin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "piperacillin-tazobactam"
+                "antimicrobial_drug": "piperacillin-tazobactam"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "polymyxin-b"
+                "antimicrobial_drug": "polymyxin-b"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "quinupristin-dalfopristin"
+                "antimicrobial_drug": "quinupristin-dalfopristin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "streptomycin"
+                "antimicrobial_drug": "streptomycin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "sulfisoxazole"
+                "antimicrobial_drug": "sulfisoxazole"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "telithromycin"
+                "antimicrobial_drug": "telithromycin"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "tetracycline"
+                "antimicrobial_drug": "tetracycline"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "tigecycline"
+                "antimicrobial_drug": "tigecycline"
             },
             {
                 "isolate_id": "EG-MB-RR-558",
-                "antimicrobial_resistance_test_drug": "trimethoprim-sulfamethoxazole"
+                "antimicrobial_drug": "trimethoprim-sulfamethoxazole"
             }
         ]
     }
