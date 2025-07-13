@@ -99,11 +99,10 @@ background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%
   top:13px;
 }
 
-/* removes arrows from section header row */
-.handsontable tr:first-child span.colHeader.columnSorting::before {
+/* Removes arrows from section header row as well as any disabled sort columns */
+.handsontable span.colHeader.columnSorting.indicatorDisabled::before {
   background-size:0 !important;
 }
-
 
 .secondary-header-text {
   cursor:pointer !important;
@@ -223,6 +222,11 @@ tr.translation-input td textarea {
   field-sizing: content;
 }
 
+tr.translate_key td {
+  border-top:1px solid gray;
+  font-weight:bold;
+}
+
 td.schemaSlot {
   border-top:2px solid green;
   background-color: #EFE;
@@ -256,3 +260,5 @@ td.schemaSlot {
     silver 1px,
     silver 8px);
 }
+
+.slot-report-select {width:150px}
