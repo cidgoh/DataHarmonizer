@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "in_language": "en",
   "Container": {
-    "CanCOGeNCovid19s": [
+    "CanCOGeNCovid19Data": [
       {
         "specimen_collector_sample_id": "AB-Lab_12345",
         "umbrella_bioproject_accession": "PRJNA623807",
