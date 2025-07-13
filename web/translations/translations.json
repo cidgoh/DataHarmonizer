@@ -10,8 +10,8 @@
     "fr": "Sélectionner un modèle"
   },
   "upload-template-dropdown-item": {
-    "en": "Upload Template (.json format)",
-    "fr": "Télécharger le modèle (format .json)"
+    "en": "Load Template (.json format)",
+    "fr": "Charger le modèle (format .json)"
   },
   "schema-editor-menu": {
     "en": "Load Schema Editor (schema_editor/Schema)",
