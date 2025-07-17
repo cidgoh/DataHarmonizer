@@ -1,5 +1,5 @@
 class_name	slot_group	name	title	range	identifier	multivalued	required	recommended	minimum_value	maximum_value	pattern	structured_pattern	slot_uri	description	comments	examples
-Schema	key	name	Name	WhitespaceMinimizedString			TRUE				^([A-Z][a-z0-9]+)+$			The coding name of a LinkML schema.	"This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.
+Schema	key	name	Name	WhitespaceMinimizedString	TRUE		TRUE				^([A-Z][a-z0-9]+)+$			The coding name of a LinkML schema.	"This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.
 A LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab.
 A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."	Wastewater
 	key	id	ID	uri	TRUE		TRUE							The unique URI for identifying this LinkML schema.	Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development. This semantic metadata helps in the comparison of datasets.	https://example.com/GRDI

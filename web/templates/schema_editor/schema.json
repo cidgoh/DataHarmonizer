@@ -51,6 +51,7 @@
             }
           ],
           "rank": 1,
+          "identifier": true,
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
           "pattern": "^([A-Z][a-z0-9]+)+$"
@@ -126,6 +127,7 @@
           ],
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
+          "identifier": true,
           "alias": "name",
           "owner": "Schema",
           "domain_of": [
@@ -3789,7 +3791,7 @@
         "attribute": {
           "text": "attribute",
           "description": "A table field which is not reused from the schema.  The field can impose its own attribute values.",
-          "title": "Table field (independent)"
+          "title": "Table field (stand-alone)"
         }
       }
     },
