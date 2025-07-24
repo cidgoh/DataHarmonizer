@@ -162,14 +162,9 @@
     "fr": "Nécessite la sélection de la clé à partir de"
   },
   
-  "slot-tab-control": {
-    "en": "Field Display",
-    "fr": "Affichage du champ"
-  },
-
   "record-path": {
-    "en": "Focus",
-    "fr": "Chemin"
+    "en": "Display",
+    "fr": "Affichage"
   },
   "add-row": {
     "en": "Add",
