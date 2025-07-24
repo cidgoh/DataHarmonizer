@@ -372,6 +372,47 @@
     </div>
   </div>
 
+
+  <div class="btn-group" role="group" style="margin-top:10px" id="record-hierarchy-div">
+    <div class="input-group-append">
+      <span class="input-group-text" id="record-path" data-i18n="record-path">Display</span>
+      <select id="report_select_type" class="btn btn-primary">
+        <option value="all">All records</option>
+        <option value="" selected="selected">Records by 1-many key</option>
+        <optgroup label="By tab-specific report:"> 
+          <option value="slot">Schema field</option>
+          <option value="slot_usage">Table field from schema</option>
+          <option value="attribute">Table field (stand-alone)</option>
+        </optgroup>
+      </select>
+      <span class="input-group-text" style="background-color:#fdfdfd" id="record-hierarchy"></span>
+    </div>
+
+      <!--
+      &nbsp;
+      <select id="slot_report_schema" class="btn btn-primary slot-report-select">
+        <option value=''>in any schema</option> 
+      </select>
+      &nbsp;
+      <select id="slot_report_class" class="btn btn-primary slot-report-select">
+        <option value=''>in any table</option>
+      </select>
+      &nbsp;
+      -->
+      <!--
+      <select id="slot_report_slot" class="btn btn-primary slot-report-select">
+        <option value=''>any field</option>
+      </select>
+      &nbsp;
+      <select id="slot_report_slot_group" class="btn btn-primary slot-report-select">
+        <option value=''>any field group</option>
+      </select>
+      -->
+
+
+  </div>
+
+
   <!-- Modals -->
   <div
     class="modal fade"
@@ -1202,11 +1243,3 @@
 
 </div>
 
-<div style="margin-top:10px">
-  <div class="btn-group" role="group">
-    <div class="input-group-append" id="record-hierarchy-div">
-      <span class="input-group-text" id="record-path" data-i18n="record-path">Focus</span>
-      <span class="input-group-text" style="background-color:#fdfdfd" id="record-hierarchy"></span>
-    </div>
-  </div>
-</div>
