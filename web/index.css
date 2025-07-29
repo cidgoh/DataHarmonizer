@@ -262,3 +262,15 @@ td.schemaSlot {
 }
 
 .slot-report-select {width:150px}
+
+select#select-translation-localization {
+  margin-left:15px;
+  appearance: base-select !important; /*Adds ability to show SVG icons in chrome.*/
+}
+
+/* problematic to identify language with flag */
+select#select-translation-localization:has(> option[value="en"]:checked)::before {
+  content: url("translations/flags/ca.svg");
+  width: 15px;
+  margin-right: 15px;
+}
