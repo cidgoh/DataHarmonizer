@@ -312,21 +312,6 @@
   </div>
 
   <div class="btn-group" role="group" style="margin-right: 40px">
-    <!-- ; display:none-->
-    <div class="input-group-prepend">
-      <div class="btn" id="translation_label" data-i18n="translation_label">
-        Language
-      </div>
-    </div>
-    <div class="input-group-append">
-      <select
-        class="form-control"
-        id="select-translation-localization"
-      ></select>
-    </div>
-  </div>
-
-  <div class="btn-group" role="group" style="margin-right: 40px">
     <div class="input-group-prepend">
       <div class="btn" id="loaded_file_label" data-i18n="loaded_file_label">
         Loaded file
@@ -363,6 +348,21 @@
   </div>
 
   <div class="btn-group" role="group" style="float:right">
+    <!-- ; display:none
+    <div class="input-group-prepend">
+      <div class="btn" id="translation_label" data-i18n="translation_label">
+        Language
+      </div>
+    </div>
+    -->
+    <div class="input-group-append">
+      <select class="form-control"
+        id="select-translation-localization"
+      ></select>
+    </div>
+  </div>
+
+  <div class="btn-group" role="group" style="float:right">
     <div class="input-group-prepend">
       <input id="search-field" type="search" data-i18n="[placeholder]search-field" placeholder="Search" class="input-group-text" style="text-align:left;width:130px"> 
     </div>
@@ -372,14 +372,13 @@
     </div>
   </div>
 
-
-  <div class="btn-group" role="group" style="margin-top:10px" id="record-hierarchy-div">
+  <div class="btn-group" role="group" style="margin-top:10px;width:100%" id="record-hierarchy-div">
     <div class="input-group-append">
       <span class="input-group-text" id="record-path" data-i18n="record-path">Display</span>
       <select id="report_select_type" class="btn btn-primary">
         <option value="all">All records</option>
-        <option value="" selected="selected">Records by 1-many key</option>
-        <optgroup label="By tab-specific report:"> 
+        <option value="" selected="selected">Record(s) by selected key</option>
+        <optgroup id="slot_report_type" label="By field report:"> 
           <option value="slot">Schema field</option>
           <option value="slot_usage">Table field from schema</option>
           <option value="attribute">Table field (stand-alone)</option>
