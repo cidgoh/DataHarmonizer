@@ -16,6 +16,7 @@ classes:
     name: 'GRDI'
     description: Specification for GRDI virus biosample data gathering
     is_a: dh_interface
+    see_also: templates/grdi/SOP.pdf
 slots: {}
 enums: {}
 types:
