@@ -6158,7 +6158,8 @@
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:sample_name",
         "NCBI_BIOSAMPLE_GenomeTrakr:sample_name",
         "NCBI_SRAGenomeTrakr:sample_name",
-        "NCBI_SRA:sample_name"
+        "NCBI_SRA:sample_name",
+        "VirusSeq_Portal:specimen%20collector%20sample%20ID"
       ],
       "slot_uri": "GENEPIO:0001123",
       "identifier": true,
@@ -6401,6 +6402,9 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "VirusSeq_Portal:GISAID%20accession"
+      ],
       "slot_uri": "GENEPIO:0001147",
       "domain_of": [
         "WastewaterSARS-CoV-2",
@@ -6540,7 +6544,8 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:collected_by",
-        "NCBI_BIOSAMPLE_GenomeTrakr:collected_by"
+        "NCBI_BIOSAMPLE_GenomeTrakr:collected_by",
+        "VirusSeq_Portal:sample%20collected%20by"
       ],
       "slot_uri": "GENEPIO:0001153",
       "domain_of": [
@@ -6616,7 +6621,8 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name",
-        "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name"
+        "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name",
+        "VirusSeq_Portal:geo_loc_name%20%28country%29"
       ],
       "slot_uri": "GENEPIO:0001181",
       "domain_of": [
@@ -6649,7 +6655,8 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name",
-        "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name"
+        "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name",
+        "VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29"
       ],
       "slot_uri": "GENEPIO:0001185",
       "domain_of": [
@@ -6835,7 +6842,8 @@
       "title": "organism",
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "ENA_SEWAGE_ERC00036:surveillance%20target"
+        "ENA_SEWAGE_ERC00036:surveillance%20target",
+        "VirusSeq_Portal:organism"
       ],
       "slot_uri": "GENEPIO:0001191",
       "domain_of": [
@@ -6861,7 +6869,8 @@
       "exact_mappings": [
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sampling",
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:description",
-        "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sampling"
+        "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sampling",
+        "VirusSeq_Portal:purpose%20of%20sampling"
       ],
       "slot_uri": "GENEPIO:0001198",
       "domain_of": [
@@ -6966,7 +6975,8 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:collection_date",
-        "NCBI_BIOSAMPLE_GenomeTrakr:collection_date"
+        "NCBI_BIOSAMPLE_GenomeTrakr:collection_date",
+        "VirusSeq_Portal:sample%20collection%20date"
       ],
       "slot_uri": "GENEPIO:0001174",
       "domain_of": [
@@ -7539,7 +7549,8 @@
         "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
         "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_site",
         "NCBI_BIOSAMPLE_GenomeTrakr:description",
-        "ENA_GSC-MIxS-WW_ERC00023:broad-scale%20environmental%20context"
+        "ENA_GSC-MIxS-WW_ERC00023:broad-scale%20environmental%20context",
+        "VirusSeq_Portal:environmental%20site"
       ],
       "slot_uri": "GENEPIO:0001232",
       "domain_of": [
@@ -7600,7 +7611,8 @@
         "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
         "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_matrix",
         "NCBI_BIOSAMPLE_GenomeTrakr:description",
-        "ENA_GSC-MIxS-WW_ERC00023:environmental%20medium"
+        "ENA_GSC-MIxS-WW_ERC00023:environmental%20medium",
+        "VirusSeq_Portal:environmental%20material"
       ],
       "slot_uri": "GENEPIO:0001223",
       "domain_of": [
@@ -7752,7 +7764,8 @@
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_sample_type",
         "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
         "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type",
-        "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20device"
+        "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20device",
+        "VirusSeq_Portal:collection%20device"
       ],
       "slot_uri": "GENEPIO:0001234",
       "domain_of": [
@@ -7788,7 +7801,8 @@
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_sample_type",
         "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
         "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type",
-        "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20method"
+        "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20method",
+        "VirusSeq_Portal:collection%20method"
       ],
       "slot_uri": "GENEPIO:0001241",
       "domain_of": [
@@ -10081,7 +10095,8 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sequencing",
-        "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sequencing"
+        "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sequencing",
+        "VirusSeq_Portal:purpose%20of%20sequencing"
       ],
       "slot_uri": "GENEPIO:0001445",
       "domain_of": [
@@ -10113,6 +10128,9 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "VirusSeq_Portal:purpose%20of%20sequencing%20details"
+      ],
       "slot_uri": "GENEPIO:0001446",
       "domain_of": [
         "WastewaterSARS-CoV-2",
@@ -10247,7 +10265,8 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_BIOSAMPLE_SARS-COV-2_WWS:sequenced_by",
-        "NCBI_BIOSAMPLE_GenomeTrakr:sequenced_by"
+        "NCBI_BIOSAMPLE_GenomeTrakr:sequenced_by",
+        "VirusSeq_Portal:sequence%20submitted%20by"
       ],
       "slot_uri": "GENEPIO:0001159",
       "domain_of": [
@@ -10399,7 +10418,8 @@
       "exact_mappings": [
         "NCBI_SRAGenomeTrakr:instrument_model",
         "NCBI_SRA:instrument_model",
-        "ENA_GSC-MIxS-WW_ERC00023:sequencing%20method"
+        "ENA_GSC-MIxS-WW_ERC00023:sequencing%20method",
+        "VirusSeq_Portal:sequencing%20instrument"
       ],
       "slot_uri": "GENEPIO:0001452",
       "domain_of": [
@@ -10492,7 +10512,8 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_SRAGenomeTrakr:design_description",
-        "NCBI_SRA:design_description"
+        "NCBI_SRA:design_description",
+        "VirusSeq_Portal:sequencing%20protocol"
       ],
       "slot_uri": "GENEPIO:0001454",
       "domain_of": [
@@ -10807,7 +10828,8 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "NCBI_SRAGenomeTrakr:raw_sequence_data_processing_method"
+        "NCBI_SRAGenomeTrakr:raw_sequence_data_processing_method",
+        "VirusSeq_Portal:raw%20sequence%20data%20processing%20method"
       ],
       "slot_uri": "GENEPIO:0001458",
       "domain_of": [
@@ -10839,7 +10861,8 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "NCBI_SRAGenomeTrakr:dehosting_method"
+        "NCBI_SRAGenomeTrakr:dehosting_method",
+        "VirusSeq_Portal:dehosting%20method"
       ],
       "slot_uri": "GENEPIO:0001459",
       "domain_of": [
@@ -10983,6 +11006,9 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "VirusSeq_Portal:consensus%20sequence%20software%20name"
+      ],
       "slot_uri": "GENEPIO:0001463",
       "domain_of": [
         "WastewaterSARS-CoV-2"
@@ -11009,6 +11035,9 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "VirusSeq_Portal:consensus%20sequence%20software%20version"
+      ],
       "slot_uri": "GENEPIO:0001469",
       "domain_of": [
         "WastewaterSARS-CoV-2"
@@ -11035,6 +11064,9 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "VirusSeq_Portal:breadth%20of%20coverage%20value"
+      ],
       "slot_uri": "GENEPIO:0001472",
       "domain_of": [
         "WastewaterSARS-CoV-2",
@@ -11056,6 +11088,9 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "VirusSeq_Portal:depth%20of%20coverage%20value"
+      ],
       "slot_uri": "GENEPIO:0001474",
       "domain_of": [
         "WastewaterSARS-CoV-2",
@@ -11344,7 +11379,8 @@
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_SRAGenomeTrakr:assembly",
-        "NCBI_SRA:assembly"
+        "NCBI_SRA:assembly",
+        "VirusSeq_Portal:reference%20genome%20accession"
       ],
       "slot_uri": "GENEPIO:0001485",
       "domain_of": [
@@ -11386,6 +11422,9 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "VirusSeq_Portal:bioinformatics%20protocol"
+      ],
       "slot_uri": "GENEPIO:0001489",
       "domain_of": [
         "WastewaterSARS-CoV-2",
@@ -13419,7 +13458,8 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:sample_name",
             "NCBI_BIOSAMPLE_GenomeTrakr:sample_name",
             "NCBI_SRAGenomeTrakr:sample_name",
-            "NCBI_SRA:sample_name"
+            "NCBI_SRA:sample_name",
+            "VirusSeq_Portal:specimen%20collector%20sample%20ID"
           ],
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
@@ -13678,6 +13718,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:GISAID%20accession"
+          ],
           "rank": 10,
           "slot_uri": "GENEPIO:0001147",
           "alias": "gisaid_accession",
@@ -13841,7 +13884,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:collected_by",
-            "NCBI_BIOSAMPLE_GenomeTrakr:collected_by"
+            "NCBI_BIOSAMPLE_GenomeTrakr:collected_by",
+            "VirusSeq_Portal:sample%20collected%20by"
           ],
           "rank": 16,
           "slot_uri": "GENEPIO:0001153",
@@ -13929,7 +13973,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name",
-            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name"
+            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name",
+            "VirusSeq_Portal:geo_loc_name%20%28country%29"
           ],
           "rank": 19,
           "slot_uri": "GENEPIO:0001181",
@@ -13966,7 +14011,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name",
-            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name"
+            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name",
+            "VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29"
           ],
           "rank": 20,
           "slot_uri": "GENEPIO:0001185",
@@ -14192,7 +14238,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "ENA_SEWAGE_ERC00036:surveillance%20target"
+            "ENA_SEWAGE_ERC00036:surveillance%20target",
+            "VirusSeq_Portal:organism"
           ],
           "rank": 28,
           "slot_uri": "GENEPIO:0001191",
@@ -14231,7 +14278,8 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sampling",
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:description",
-            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sampling"
+            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sampling",
+            "VirusSeq_Portal:purpose%20of%20sampling"
           ],
           "rank": 29,
           "slot_uri": "GENEPIO:0001198",
@@ -14348,7 +14396,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:collection_date",
-            "NCBI_BIOSAMPLE_GenomeTrakr:collection_date"
+            "NCBI_BIOSAMPLE_GenomeTrakr:collection_date",
+            "VirusSeq_Portal:sample%20collection%20date"
           ],
           "rank": 32,
           "slot_uri": "GENEPIO:0001174",
@@ -15001,7 +15050,8 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_site",
             "NCBI_BIOSAMPLE_GenomeTrakr:description",
-            "ENA_GSC-MIxS-WW_ERC00023:broad-scale%20environmental%20context"
+            "ENA_GSC-MIxS-WW_ERC00023:broad-scale%20environmental%20context",
+            "VirusSeq_Portal:environmental%20site"
           ],
           "rank": 52,
           "slot_uri": "GENEPIO:0001232",
@@ -15070,7 +15120,8 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_matrix",
             "NCBI_BIOSAMPLE_GenomeTrakr:description",
-            "ENA_GSC-MIxS-WW_ERC00023:environmental%20medium"
+            "ENA_GSC-MIxS-WW_ERC00023:environmental%20medium",
+            "VirusSeq_Portal:environmental%20material"
           ],
           "rank": 54,
           "slot_uri": "GENEPIO:0001223",
@@ -15242,7 +15293,8 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_sample_type",
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type",
-            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20device"
+            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20device",
+            "VirusSeq_Portal:collection%20device"
           ],
           "rank": 59,
           "slot_uri": "GENEPIO:0001234",
@@ -15282,7 +15334,8 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_sample_type",
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type",
-            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20method"
+            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20method",
+            "VirusSeq_Portal:collection%20method"
           ],
           "rank": 60,
           "slot_uri": "GENEPIO:0001241",
@@ -17611,7 +17664,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sequencing",
-            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sequencing"
+            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sequencing",
+            "VirusSeq_Portal:purpose%20of%20sequencing"
           ],
           "rank": 141,
           "slot_uri": "GENEPIO:0001445",
@@ -17647,6 +17701,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:purpose%20of%20sequencing%20details"
+          ],
           "rank": 142,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
@@ -17801,7 +17858,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:sequenced_by",
-            "NCBI_BIOSAMPLE_GenomeTrakr:sequenced_by"
+            "NCBI_BIOSAMPLE_GenomeTrakr:sequenced_by",
+            "VirusSeq_Portal:sequence%20submitted%20by"
           ],
           "rank": 147,
           "slot_uri": "GENEPIO:0001159",
@@ -17973,7 +18031,8 @@
           "exact_mappings": [
             "NCBI_SRAGenomeTrakr:instrument_model",
             "NCBI_SRA:instrument_model",
-            "ENA_GSC-MIxS-WW_ERC00023:sequencing%20method"
+            "ENA_GSC-MIxS-WW_ERC00023:sequencing%20method",
+            "VirusSeq_Portal:sequencing%20instrument"
           ],
           "rank": 152,
           "slot_uri": "GENEPIO:0001452",
@@ -18078,7 +18137,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRAGenomeTrakr:design_description",
-            "NCBI_SRA:design_description"
+            "NCBI_SRA:design_description",
+            "VirusSeq_Portal:sequencing%20protocol"
           ],
           "rank": 155,
           "slot_uri": "GENEPIO:0001454",
@@ -18349,7 +18409,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:raw_sequence_data_processing_method"
+            "NCBI_SRAGenomeTrakr:raw_sequence_data_processing_method",
+            "VirusSeq_Portal:raw%20sequence%20data%20processing%20method"
           ],
           "rank": 164,
           "slot_uri": "GENEPIO:0001458",
@@ -18385,7 +18446,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:dehosting_method"
+            "NCBI_SRAGenomeTrakr:dehosting_method",
+            "VirusSeq_Portal:dehosting%20method"
           ],
           "rank": 165,
           "slot_uri": "GENEPIO:0001459",
@@ -18487,6 +18549,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:consensus%20sequence%20software%20name"
+          ],
           "rank": 168,
           "slot_uri": "GENEPIO:0001463",
           "alias": "consensus_sequence_software_name",
@@ -18517,6 +18582,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:consensus%20sequence%20software%20version"
+          ],
           "rank": 169,
           "slot_uri": "GENEPIO:0001469",
           "alias": "consensus_sequence_software_version",
@@ -18547,6 +18615,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:breadth%20of%20coverage%20value"
+          ],
           "rank": 170,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
@@ -18572,6 +18643,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:depth%20of%20coverage%20value"
+          ],
           "rank": 171,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
@@ -18893,7 +18967,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRAGenomeTrakr:assembly",
-            "NCBI_SRA:assembly"
+            "NCBI_SRA:assembly",
+            "VirusSeq_Portal:reference%20genome%20accession"
           ],
           "rank": 184,
           "slot_uri": "GENEPIO:0001485",
@@ -18943,6 +19018,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:bioinformatics%20protocol"
+          ],
           "rank": 186,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
@@ -20848,7 +20926,8 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:sample_name",
             "NCBI_BIOSAMPLE_GenomeTrakr:sample_name",
             "NCBI_SRAGenomeTrakr:sample_name",
-            "NCBI_SRA:sample_name"
+            "NCBI_SRA:sample_name",
+            "VirusSeq_Portal:specimen%20collector%20sample%20ID"
           ],
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
@@ -21131,6 +21210,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:GISAID%20accession"
+          ],
           "rank": 11,
           "slot_uri": "GENEPIO:0001147",
           "alias": "gisaid_accession",
@@ -21294,7 +21376,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:collected_by",
-            "NCBI_BIOSAMPLE_GenomeTrakr:collected_by"
+            "NCBI_BIOSAMPLE_GenomeTrakr:collected_by",
+            "VirusSeq_Portal:sample%20collected%20by"
           ],
           "rank": 17,
           "slot_uri": "GENEPIO:0001153",
@@ -21382,7 +21465,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name",
-            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name"
+            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name",
+            "VirusSeq_Portal:geo_loc_name%20%28country%29"
           ],
           "rank": 20,
           "slot_uri": "GENEPIO:0001181",
@@ -21419,7 +21503,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name",
-            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name"
+            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name",
+            "VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29"
           ],
           "rank": 21,
           "slot_uri": "GENEPIO:0001185",
@@ -21645,7 +21730,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "ENA_SEWAGE_ERC00036:surveillance%20target"
+            "ENA_SEWAGE_ERC00036:surveillance%20target",
+            "VirusSeq_Portal:organism"
           ],
           "rank": 29,
           "slot_uri": "GENEPIO:0001191",
@@ -21684,7 +21770,8 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sampling",
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:description",
-            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sampling"
+            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sampling",
+            "VirusSeq_Portal:purpose%20of%20sampling"
           ],
           "rank": 30,
           "slot_uri": "GENEPIO:0001198",
@@ -21801,7 +21888,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:collection_date",
-            "NCBI_BIOSAMPLE_GenomeTrakr:collection_date"
+            "NCBI_BIOSAMPLE_GenomeTrakr:collection_date",
+            "VirusSeq_Portal:sample%20collection%20date"
           ],
           "rank": 33,
           "slot_uri": "GENEPIO:0001174",
@@ -22454,7 +22542,8 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_site",
             "NCBI_BIOSAMPLE_GenomeTrakr:description",
-            "ENA_GSC-MIxS-WW_ERC00023:broad-scale%20environmental%20context"
+            "ENA_GSC-MIxS-WW_ERC00023:broad-scale%20environmental%20context",
+            "VirusSeq_Portal:environmental%20site"
           ],
           "rank": 53,
           "slot_uri": "GENEPIO:0001232",
@@ -22523,7 +22612,8 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_matrix",
             "NCBI_BIOSAMPLE_GenomeTrakr:description",
-            "ENA_GSC-MIxS-WW_ERC00023:environmental%20medium"
+            "ENA_GSC-MIxS-WW_ERC00023:environmental%20medium",
+            "VirusSeq_Portal:environmental%20material"
           ],
           "rank": 55,
           "slot_uri": "GENEPIO:0001223",
@@ -22695,7 +22785,8 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_sample_type",
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type",
-            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20device"
+            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20device",
+            "VirusSeq_Portal:collection%20device"
           ],
           "rank": 60,
           "slot_uri": "GENEPIO:0001234",
@@ -22735,7 +22826,8 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_sample_type",
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type",
-            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20method"
+            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20method",
+            "VirusSeq_Portal:collection%20method"
           ],
           "rank": 61,
           "slot_uri": "GENEPIO:0001241",
@@ -25064,7 +25156,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sequencing",
-            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sequencing"
+            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sequencing",
+            "VirusSeq_Portal:purpose%20of%20sequencing"
           ],
           "rank": 142,
           "slot_uri": "GENEPIO:0001445",
@@ -25100,6 +25193,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:purpose%20of%20sequencing%20details"
+          ],
           "rank": 143,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
@@ -25254,7 +25350,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:sequenced_by",
-            "NCBI_BIOSAMPLE_GenomeTrakr:sequenced_by"
+            "NCBI_BIOSAMPLE_GenomeTrakr:sequenced_by",
+            "VirusSeq_Portal:sequence%20submitted%20by"
           ],
           "rank": 148,
           "slot_uri": "GENEPIO:0001159",
@@ -25426,7 +25523,8 @@
           "exact_mappings": [
             "NCBI_SRAGenomeTrakr:instrument_model",
             "NCBI_SRA:instrument_model",
-            "ENA_GSC-MIxS-WW_ERC00023:sequencing%20method"
+            "ENA_GSC-MIxS-WW_ERC00023:sequencing%20method",
+            "VirusSeq_Portal:sequencing%20instrument"
           ],
           "rank": 153,
           "slot_uri": "GENEPIO:0001452",
@@ -25531,7 +25629,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRAGenomeTrakr:design_description",
-            "NCBI_SRA:design_description"
+            "NCBI_SRA:design_description",
+            "VirusSeq_Portal:sequencing%20protocol"
           ],
           "rank": 156,
           "slot_uri": "GENEPIO:0001454",
@@ -25808,7 +25907,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:raw_sequence_data_processing_method"
+            "NCBI_SRAGenomeTrakr:raw_sequence_data_processing_method",
+            "VirusSeq_Portal:raw%20sequence%20data%20processing%20method"
           ],
           "rank": 165,
           "slot_uri": "GENEPIO:0001458",
@@ -25844,7 +25944,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:dehosting_method"
+            "NCBI_SRAGenomeTrakr:dehosting_method",
+            "VirusSeq_Portal:dehosting%20method"
           ],
           "rank": 166,
           "slot_uri": "GENEPIO:0001459",
@@ -26008,6 +26109,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:breadth%20of%20coverage%20value"
+          ],
           "rank": 171,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
@@ -26033,6 +26137,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:depth%20of%20coverage%20value"
+          ],
           "rank": 172,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
@@ -26186,6 +26293,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:bioinformatics%20protocol"
+          ],
           "rank": 178,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",
@@ -28412,7 +28522,8 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:sample_name",
             "NCBI_BIOSAMPLE_GenomeTrakr:sample_name",
             "NCBI_SRAGenomeTrakr:sample_name",
-            "NCBI_SRA:sample_name"
+            "NCBI_SRA:sample_name",
+            "VirusSeq_Portal:specimen%20collector%20sample%20ID"
           ],
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
@@ -28695,6 +28806,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:GISAID%20accession"
+          ],
           "rank": 11,
           "slot_uri": "GENEPIO:0001147",
           "alias": "gisaid_accession",
@@ -28858,7 +28972,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:collected_by",
-            "NCBI_BIOSAMPLE_GenomeTrakr:collected_by"
+            "NCBI_BIOSAMPLE_GenomeTrakr:collected_by",
+            "VirusSeq_Portal:sample%20collected%20by"
           ],
           "rank": 17,
           "slot_uri": "GENEPIO:0001153",
@@ -28946,7 +29061,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name",
-            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name"
+            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name",
+            "VirusSeq_Portal:geo_loc_name%20%28country%29"
           ],
           "rank": 20,
           "slot_uri": "GENEPIO:0001181",
@@ -28983,7 +29099,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name",
-            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name"
+            "NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name",
+            "VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29"
           ],
           "rank": 21,
           "slot_uri": "GENEPIO:0001185",
@@ -29209,7 +29326,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "ENA_SEWAGE_ERC00036:surveillance%20target"
+            "ENA_SEWAGE_ERC00036:surveillance%20target",
+            "VirusSeq_Portal:organism"
           ],
           "rank": 29,
           "slot_uri": "GENEPIO:0001191",
@@ -29248,7 +29366,8 @@
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sampling",
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:description",
-            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sampling"
+            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sampling",
+            "VirusSeq_Portal:purpose%20of%20sampling"
           ],
           "rank": 30,
           "slot_uri": "GENEPIO:0001198",
@@ -29365,7 +29484,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:collection_date",
-            "NCBI_BIOSAMPLE_GenomeTrakr:collection_date"
+            "NCBI_BIOSAMPLE_GenomeTrakr:collection_date",
+            "VirusSeq_Portal:sample%20collection%20date"
           ],
           "rank": 33,
           "slot_uri": "GENEPIO:0001174",
@@ -30018,7 +30138,8 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_site",
             "NCBI_BIOSAMPLE_GenomeTrakr:description",
-            "ENA_GSC-MIxS-WW_ERC00023:broad-scale%20environmental%20context"
+            "ENA_GSC-MIxS-WW_ERC00023:broad-scale%20environmental%20context",
+            "VirusSeq_Portal:environmental%20site"
           ],
           "rank": 53,
           "slot_uri": "GENEPIO:0001232",
@@ -30087,7 +30208,8 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_matrix",
             "NCBI_BIOSAMPLE_GenomeTrakr:description",
-            "ENA_GSC-MIxS-WW_ERC00023:environmental%20medium"
+            "ENA_GSC-MIxS-WW_ERC00023:environmental%20medium",
+            "VirusSeq_Portal:environmental%20material"
           ],
           "rank": 55,
           "slot_uri": "GENEPIO:0001223",
@@ -30259,7 +30381,8 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_sample_type",
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type",
-            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20device"
+            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20device",
+            "VirusSeq_Portal:collection%20device"
           ],
           "rank": 60,
           "slot_uri": "GENEPIO:0001234",
@@ -30299,7 +30422,8 @@
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:ww_sample_type",
             "NCBI_BIOSAMPLE_GenomeTrakr:isolation_source",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type",
-            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20method"
+            "ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20method",
+            "VirusSeq_Portal:collection%20method"
           ],
           "rank": 61,
           "slot_uri": "GENEPIO:0001241",
@@ -32972,7 +33096,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sequencing",
-            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sequencing"
+            "NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sequencing",
+            "VirusSeq_Portal:purpose%20of%20sequencing"
           ],
           "rank": 156,
           "slot_uri": "GENEPIO:0001445",
@@ -33008,6 +33133,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:purpose%20of%20sequencing%20details"
+          ],
           "rank": 157,
           "slot_uri": "GENEPIO:0001446",
           "alias": "purpose_of_sequencing_details",
@@ -33162,7 +33290,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS-COV-2_WWS:sequenced_by",
-            "NCBI_BIOSAMPLE_GenomeTrakr:sequenced_by"
+            "NCBI_BIOSAMPLE_GenomeTrakr:sequenced_by",
+            "VirusSeq_Portal:sequence%20submitted%20by"
           ],
           "rank": 162,
           "slot_uri": "GENEPIO:0001159",
@@ -33334,7 +33463,8 @@
           "exact_mappings": [
             "NCBI_SRAGenomeTrakr:instrument_model",
             "NCBI_SRA:instrument_model",
-            "ENA_GSC-MIxS-WW_ERC00023:sequencing%20method"
+            "ENA_GSC-MIxS-WW_ERC00023:sequencing%20method",
+            "VirusSeq_Portal:sequencing%20instrument"
           ],
           "rank": 167,
           "slot_uri": "GENEPIO:0001452",
@@ -33439,7 +33569,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRAGenomeTrakr:design_description",
-            "NCBI_SRA:design_description"
+            "NCBI_SRA:design_description",
+            "VirusSeq_Portal:sequencing%20protocol"
           ],
           "rank": 170,
           "slot_uri": "GENEPIO:0001454",
@@ -33802,7 +33933,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:raw_sequence_data_processing_method"
+            "NCBI_SRAGenomeTrakr:raw_sequence_data_processing_method",
+            "VirusSeq_Portal:raw%20sequence%20data%20processing%20method"
           ],
           "rank": 182,
           "slot_uri": "GENEPIO:0001458",
@@ -33838,7 +33970,8 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:dehosting_method"
+            "NCBI_SRAGenomeTrakr:dehosting_method",
+            "VirusSeq_Portal:dehosting%20method"
           ],
           "rank": 183,
           "slot_uri": "GENEPIO:0001459",
@@ -34002,6 +34135,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:breadth%20of%20coverage%20value"
+          ],
           "rank": 188,
           "slot_uri": "GENEPIO:0001472",
           "alias": "breadth_of_coverage_value",
@@ -34027,6 +34163,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:depth%20of%20coverage%20value"
+          ],
           "rank": 189,
           "slot_uri": "GENEPIO:0001474",
           "alias": "depth_of_coverage_value",
@@ -34325,7 +34464,8 @@
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_SRAGenomeTrakr:assembly",
-            "NCBI_SRA:assembly"
+            "NCBI_SRA:assembly",
+            "VirusSeq_Portal:reference%20genome%20accession"
           ],
           "rank": 201,
           "slot_uri": "GENEPIO:0001485",
@@ -34375,6 +34515,9 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "VirusSeq_Portal:bioinformatics%20protocol"
+          ],
           "rank": 203,
           "slot_uri": "GENEPIO:0001489",
           "alias": "bioinformatics_protocol",

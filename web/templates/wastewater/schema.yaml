@@ -2784,6 +2784,7 @@ slots:
     - NCBI_BIOSAMPLE_GenomeTrakr:sample_name
     - NCBI_SRAGenomeTrakr:sample_name
     - NCBI_SRA:sample_name
+    - VirusSeq_Portal:specimen%20collector%20sample%20ID
   specimen_collector_subsample_id:
     name: specimen_collector_subsample_id
     title: specimen collector subsample ID
@@ -2927,6 +2928,8 @@ slots:
       interpolated: true
     examples:
     - value: EPI_ISL_402131
+    exact_mappings:
+    - VirusSeq_Portal:GISAID%20accession
   gisaid_virus_name:
     name: gisaid_virus_name
     title: GISAID virus name
@@ -3004,6 +3007,7 @@ slots:
     exact_mappings:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:collected_by
     - NCBI_BIOSAMPLE_GenomeTrakr:collected_by
+    - VirusSeq_Portal:sample%20collected%20by
   sample_collector_contact_name:
     name: sample_collector_contact_name
     title: sample collector contact name
@@ -3045,6 +3049,7 @@ slots:
     exact_mappings:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name
     - NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name
+    - VirusSeq_Portal:geo_loc_name%20%28country%29
   geo_loc_name_state_province_territory:
     name: geo_loc_name_state_province_territory
     title: geo loc name (state/province/territory)
@@ -3061,6 +3066,7 @@ slots:
     exact_mappings:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:geo_loc_name
     - NCBI_BIOSAMPLE_GenomeTrakr:geo_loc_name
+    - VirusSeq_Portal:geo_loc_name%20%28state/province/territory%29
   geo_loc_name_county_region:
     name: geo_loc_name_county_region
     title: geo loc name (county/region)
@@ -3155,6 +3161,7 @@ slots:
     multivalued: true
     exact_mappings:
     - ENA_SEWAGE_ERC00036:surveillance%20target
+    - VirusSeq_Portal:organism
   purpose_of_sampling:
     name: purpose_of_sampling
     title: purpose of sampling
@@ -3177,6 +3184,7 @@ slots:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sampling
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:description
     - NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sampling
+    - VirusSeq_Portal:purpose%20of%20sampling
   scale_of_sampling:
     name: scale_of_sampling
     title: scale of sampling
@@ -3230,6 +3238,7 @@ slots:
     exact_mappings:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:collection_date
     - NCBI_BIOSAMPLE_GenomeTrakr:collection_date
+    - VirusSeq_Portal:sample%20collection%20date
   sample_collection_end_date:
     name: sample_collection_end_date
     title: sample collection end date
@@ -3513,6 +3522,7 @@ slots:
     - NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_site
     - NCBI_BIOSAMPLE_GenomeTrakr:description
     - ENA_GSC-MIxS-WW_ERC00023:broad-scale%20environmental%20context
+    - VirusSeq_Portal:environmental%20site
   proximal_environmental_site:
     name: proximal_environmental_site
     title: proximal environmental site
@@ -3549,6 +3559,7 @@ slots:
     - NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_matrix
     - NCBI_BIOSAMPLE_GenomeTrakr:description
     - ENA_GSC-MIxS-WW_ERC00023:environmental%20medium
+    - VirusSeq_Portal:environmental%20material
   environmental_material_properties:
     name: environmental_material_properties
     title: environmental material properties
@@ -3629,6 +3640,7 @@ slots:
     - NCBI_BIOSAMPLE_GenomeTrakr:isolation_source
     - NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type
     - ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20device
+    - VirusSeq_Portal:collection%20device
   collection_method:
     name: collection_method
     title: collection method
@@ -3649,6 +3661,7 @@ slots:
     - NCBI_BIOSAMPLE_GenomeTrakr:isolation_source
     - NCBI_BIOSAMPLE_GenomeTrakr:ww_sample_type
     - ENA_GSC-MIxS-WW_ERC00023:sample%20collection%20method
+    - VirusSeq_Portal:collection%20method
   nucleic_acid_extraction_method:
     name: nucleic_acid_extraction_method
     title: nucleic acid extraction method
@@ -4742,6 +4755,7 @@ slots:
     exact_mappings:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:purpose_of_ww_sequencing
     - NCBI_BIOSAMPLE_GenomeTrakr:purpose_of_ww_sequencing
+    - VirusSeq_Portal:purpose%20of%20sequencing
   purpose_of_sequencing_details:
     name: purpose_of_sequencing_details
     title: purpose of sequencing details
@@ -4758,6 +4772,8 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: Investigating schools/universities
+    exact_mappings:
+    - VirusSeq_Portal:purpose%20of%20sequencing%20details
   sequenced_by:
     name: sequenced_by
     title: sequenced by
@@ -4839,6 +4855,7 @@ slots:
     exact_mappings:
     - NCBI_BIOSAMPLE_SARS-COV-2_WWS:sequenced_by
     - NCBI_BIOSAMPLE_GenomeTrakr:sequenced_by
+    - VirusSeq_Portal:sequence%20submitted%20by
   sequence_submitter_contact_email:
     name: sequence_submitter_contact_email
     title: sequence submitter contact email
@@ -4918,6 +4935,7 @@ slots:
     - NCBI_SRAGenomeTrakr:instrument_model
     - NCBI_SRA:instrument_model
     - ENA_GSC-MIxS-WW_ERC00023:sequencing%20method
+    - VirusSeq_Portal:sequencing%20instrument
   sequencing_assay_type:
     name: sequencing_assay_type
     title: sequencing assay type
@@ -4963,6 +4981,7 @@ slots:
     exact_mappings:
     - NCBI_SRAGenomeTrakr:design_description
     - NCBI_SRA:design_description
+    - VirusSeq_Portal:sequencing%20protocol
   dna_fragment_length:
     name: dna_fragment_length
     title: DNA fragment length
@@ -5142,6 +5161,7 @@ slots:
     - value: Porechop 0.2.3
     exact_mappings:
     - NCBI_SRAGenomeTrakr:raw_sequence_data_processing_method
+    - VirusSeq_Portal:raw%20sequence%20data%20processing%20method
   dehosting_method:
     name: dehosting_method
     title: dehosting method
@@ -5157,6 +5177,7 @@ slots:
     - value: Nanostripper
     exact_mappings:
     - NCBI_SRAGenomeTrakr:dehosting_method
+    - VirusSeq_Portal:dehosting%20method
   genome_sequence_file_name:
     name: genome_sequence_file_name
     title: genome sequence file name
@@ -5216,6 +5237,8 @@ slots:
     - range: NullValueMenu
     examples:
     - value: iVar
+    exact_mappings:
+    - VirusSeq_Portal:consensus%20sequence%20software%20name
   consensus_sequence_software_version:
     name: consensus_sequence_software_version
     title: consensus sequence software version
@@ -5227,6 +5250,8 @@ slots:
     - range: NullValueMenu
     examples:
     - value: '1.3'
+    exact_mappings:
+    - VirusSeq_Portal:consensus%20sequence%20software%20version
   breadth_of_coverage_value:
     name: breadth_of_coverage_value
     title: breadth of coverage value
@@ -5237,6 +5262,8 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: '95'
+    exact_mappings:
+    - VirusSeq_Portal:breadth%20of%20coverage%20value
   depth_of_coverage_value:
     name: depth_of_coverage_value
     title: depth of coverage value
@@ -5247,6 +5274,8 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: '400'
+    exact_mappings:
+    - VirusSeq_Portal:depth%20of%20coverage%20value
   depth_of_coverage_threshold:
     name: depth_of_coverage_threshold
     title: depth of coverage threshold
@@ -5386,6 +5415,7 @@ slots:
     exact_mappings:
     - NCBI_SRAGenomeTrakr:assembly
     - NCBI_SRA:assembly
+    - VirusSeq_Portal:reference%20genome%20accession
   deduplication_method:
     name: deduplication_method
     title: deduplication method
@@ -5408,6 +5438,8 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: https://github.com/phac-nml/ncov2019-artic-nf
+    exact_mappings:
+    - VirusSeq_Portal:bioinformatics%20protocol
   read_mapping_software_name:
     name: read_mapping_software_name
     title: read mapping software name
