@@ -106,7 +106,7 @@ export default {
       return outputMatrix;
     },
   },
-  "NCBI_BIOSAMPLE_SARS-COV-2_WWS": {
+  NCBI_BIOSAMPLE_SARS_COV_2_WWS: {
     fileType: 'xlsx',
     status: 'published',
     method: function(dh) {
@@ -168,11 +168,13 @@ export default {
       const outputMatrix = [[...exportHeaders.keys()]];
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-      dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_BIOSAMPLE_SARS-COV-2_WWS');
+      dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_BIOSAMPLE_SARS_COV_2_WWS');
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
       const outputRow = [];
       let value;
       for (const [headerName, sources] of exportHeaders) {
+        
+        // organism header always "wastewater metagenome"
         if (headerName === "organism") {
         value = "wastewater metagenome";
         } else {
@@ -183,7 +185,7 @@ export default {
           sourceFields,
           sourceFieldNameMap,
           '; ',
-          'NCBI_BIOSAMPLE_SARS-COV-2_WWS'
+          'NCBI_BIOSAMPLE_SARS_COV_2_WWS'
         );
         }
         outputRow.push(value);
@@ -282,7 +284,7 @@ export default {
       return outputMatrix;
     },
   },
-    "ENA_GSC-MIxS-WW_ERC00023": {
+  ENA_GSC_MIxS_WW_ERC00023: {
     fileType: 'xlsx',
     status: 'published',
     method: function(dh) {
@@ -379,11 +381,19 @@ export default {
       const outputMatrix = [[...exportHeaders.keys()]];
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-      dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRA');
+      dh.getHeaderMap(exportHeaders, sourceFields, 'ENA_GSC_MIxS_WW_ERC00023');
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
         let value;
         for (const [headerName, sources] of exportHeaders) {
+            if (headerName === "source material identifiers") {
+            // Get the values from the input row
+            const subsampleIdField = sourceFieldNameMap["specimen collector subsample ID"];
+            const sampleIdField = sourceFieldNameMap["specimen collector sample ID"];
+            let subsampleId = subsampleIdField !== undefined ? inputRow[subsampleIdField] : "";
+            let sampleId = sampleIdField !== undefined ? inputRow[sampleIdField] : "";
+            value = (subsampleId && subsampleId.trim() !== "") ? subsampleId : ((sampleId && sampleId.trim() !== "") ? sampleId : "");
+          } else {
           value = dh.getMappedField(
               headerName,
               inputRow,
@@ -391,8 +401,9 @@ export default {
               sourceFields,
               sourceFieldNameMap,
               '; ',
-              'ENA_GSC-MIxS-WW_ERC00023'
+              'ENA_GSC_MIxS_WW_ERC00023'
             );
+          }
           outputRow.push(value);
         }
         outputMatrix.push(outputRow);
@@ -454,7 +465,7 @@ export default {
       return outputMatrix;
     },
   },
-VirusSeq_Portal: {
+  VirusSeq_Portal: {
     fileType: 'tsv',
     status: 'published',
     method: function (dh) {
@@ -485,7 +496,6 @@ VirusSeq_Portal: {
         ['collection method', []],
         ['host (scientific name)', []],
         ['host disease', []],
-        ['host age', []],
         ['host age null reason', []], // VirusSeq custom field
         ['host age unit', []],
         ['host age bin', []],
@@ -503,10 +513,7 @@ VirusSeq_Portal: {
         ['reference genome accession', []],
         ['bioinformatics protocol', []],
         ['gene name', []],
-        ['diagnostic pcr Ct value', []],
-        ['diagnostic pcr Ct value null reason', []], // VirusSeq custom field
       ]);
-
       // various null options to recognize for "null reason" fields
       const // Conversion of all cancogen metadata keywords to NML LIMS version
         nullOptionsMap = new Map([
@@ -631,5 +638,148 @@ VirusSeq_Portal: {
 
       return outputMatrix;
     }
-  }, 
+  },
+  GISAID: {
+    fileType: 'xls',
+    status: 'published',
+    method: function (dh) {
+      // ExportHeaders below is NOT a map. It is an array because it can happen,
+      // as below with 'Address', that a column name appears two or more times.
+
+      const ExportHeaders = [
+        ['Submitter', []], // submitter
+        ['FASTA filename', []], // fn
+        ['Virus name', []], // covv_virus_name
+        ['Type', []], // covv_type  // Not in MPox GSAID.
+        ['Passage details/history', []], // covv_passage
+        ['Collection date', []], // covv_collection_date
+        ['Location', []], // covv_location
+        ['Additional location information', []], // covv_add_location
+        ['Host', []], // covv_host
+        ['Additional host information', []], // covv_add_host_info
+        ['Sampling Strategy', []], // covv_sampling_strategy
+        ['Gender', []], // covv_gender
+        ['Patient age', []], // covv_patient_age
+        ['Patient status', []], // covv_patient_status
+        ['Specimen source', []], // covv_specimen
+        ['Outbreak', []], // covv_outbreak
+        ['Last vaccinated', []], // covv_last_vaccinated
+        ['Treatment', []], // covv_treatment
+        ['Sequencing technology', []], // covv_seq_technology
+        ['Assembly method', []], // covv_assembly_method
+        ['Coverage', ['depth_of_coverage_value']], // covv_coverage
+        ['Originating lab', []], // covv_orig_lab
+        ['Address', ['sample_collector_contact_address']], // covv_orig_lab_addr
+        ['Sample ID given by the sample provider', []], // covv_provider_sample_id
+        ['Submitting lab', []], // covv_subm_lab
+        // Custom rule: 2nd address points to sequence submitter.
+        ['Address', ['sequence_submitter_contact_address']], // covv_subm_lab_addr
+        ['Sample ID given by the submitting laboratory', ['specimen_collector_sample_id']], // covv_subm_sample_id
+        ['Authors', []], // covv_authors
+      ];
+
+      // GISAID has new sampling_strategy field as of May 12, 2021
+      const header_GISAID = [
+        'submitter',
+        'fn',
+        'covv_virus_name',
+        'covv_type', // Not in Mpox GSAID
+        'covv_passage',
+        'covv_collection_date',
+        'covv_location',
+        'covv_add_location',
+        'covv_host',
+        'covv_add_host_info',
+        'covv_sampling_strategy',
+        'covv_gender',
+        'covv_patient_age',
+        'covv_patient_status',
+        'covv_specimen',
+        'covv_outbreak',
+        'covv_last_vaccinated',
+        'covv_treatment',
+        'covv_seq_technology',
+        'covv_assembly_method',
+        'covv_coverage',
+        'covv_orig_lab',
+        'covv_orig_lab_addr',
+        'covv_provider_sample_id',
+        'covv_subm_lab',
+        'covv_subm_lab_addr',
+        'covv_subm_sample_id',
+        'covv_authors',
+      ];
+
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
+      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+
+      dh.getHeaderMap(ExportHeaders, sourceFields, 'GISAID');
+
+      // Create an export table with target format's headers and remaining rows of data
+      const outputMatrix = [Array.from(ExportHeaders, (x) => x[0])];
+      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+        const outputRow = [];
+        for (const [headerIndex] of ExportHeaders.entries()) {
+          const headerName = ExportHeaders[headerIndex][0];
+          const sources = ExportHeaders[headerIndex][1];
+
+          if (headerName === 'Type') {
+            // Assign constant value and do next field.
+            outputRow.push('betacoronavirus');
+            continue;
+          }
+
+          const mappedCell = [];
+
+          // Amalgamate values of all sources for given headerIndex field.
+          for (const mappedFieldName of sources) {
+            let sourceFieldIndex = sourceFieldNameMap[mappedFieldName];
+            let mappedCellVal = inputRow[sourceFieldIndex];
+            if (!mappedCellVal) continue;
+
+            // Only map specimen processing if it is "virus passage"
+            const field = sourceFields[sourceFieldIndex];
+            const standardizedCellVal = mappedCellVal.toLowerCase().trim();
+
+            if (field.name === 'specimen_processing') {
+              // Specimen processing is a multi-select field
+              const standardizedCellValArr = standardizedCellVal.split(';');
+              if (!standardizedCellValArr.includes('virus passage')) continue;
+              // We only want to map "virus passage"
+              mappedCellVal = 'Virus passage';
+            }
+
+            // All null values should be converted to "Unknown"
+            if (field.dataStatus) {
+              const standardizedDataStatus = field.dataStatus.map((val) =>
+                val.toLowerCase().trim()
+              );
+              if (standardizedDataStatus.includes(standardizedCellVal)) {
+                // Don't push "Unknown" to fields with multi, concat mapped values
+                if (sources.length > 1) continue;
+
+                mappedCellVal = 'Unknown';
+              }
+            }
+
+            // Add 'passage number ' prefix to number.
+            if (field.name === 'passage_number') {
+              mappedCellVal = 'passage number ' + mappedCellVal;
+            }
+
+            mappedCell.push(mappedCellVal);
+          }
+          if (headerName === 'Assembly method')
+            outputRow.push(mappedCell.join(':'));
+          else outputRow.push(mappedCell.join(';'));
+        }
+        outputMatrix.push(outputRow);
+      }
+
+      // Insert header fields into top row of export file
+      outputMatrix.splice(0, 0, header_GISAID);
+
+      return outputMatrix;
+    },
+  },   
 };
