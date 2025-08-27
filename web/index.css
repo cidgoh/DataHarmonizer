@@ -116,8 +116,8 @@ background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%
 .tooltipy {
   position: relative;
   display: inline-block;
+  /*border:1px solid red; */
   cursor: pointer;
-  z-index: 10;
   /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
 }
 
@@ -129,28 +129,30 @@ background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%
   color: #fff;
   text-align: center;
   font-size: 0.8rem;
-  padding: 5px;
-  border-radius: 6px;
+  padding: 2px;
+  border-radius: 3px;
+  border:1px solid green;
   /* Position the tooltip text - see examples below! */
   position: absolute;
-  bottom: 25px;
-  right: -50%;
-  margin-right: -10px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    margin: 0px !important;
+  margin-bottom: 25px;
+  bottom:25px;
+  left:0px;
+  text-wrap: nowrap !important;
+  min-width: auto !important;
+  font-weight:normal;
+  font-size: 0.7rem;
   opacity: 0;
   transition: opacity 1s;
 }
 
 .tooltipy .tinytip {
-  text-wrap: nowrap !important;
-  min-width: auto !important;
-  bottom: 10px;
-  margin-left: 0px !important;
-  font-weight:normal;
-  font-size: 0.8rem;
+  
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltipy:hover .tooltipytext {
+  visibility:visible;
   opacity: 1;
 }
 
