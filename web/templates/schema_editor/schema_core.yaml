@@ -256,7 +256,7 @@ enums:
       attribute:
         text: attribute
         title: Table field (stand-alone)
-        description: A table field which is not reused from the schema.  The field can impose its own attribute values.
+        description: A table field which is not reused from the schema.  The field imposes its own attribute values.
 
   SchemaAnnotationTypeMenu:
     name: SchemaAnnotationTypeMenu
