@@ -166,6 +166,31 @@
     "en": "Display",
     "fr": "Affichage"
   },
+
+  "all-records": {
+    "en":"All records",
+    "fr":"Tous les enregistrements"
+  },
+  "records-by-selected-key": {
+    "en": "Record(s) by selected key",
+    "fr": "Enregistrement(s) par clé sélectionnée"
+  },
+
+  "schema-field": {
+    "en":"Schema field",
+    "fr":"Champ de données de schéma"
+  }, 
+
+  "table-field-from-schema": {
+    "en": "Table field from schema",
+    "fr": "Champ de table du schéma"
+  },
+
+  "table-field-stand-alone": {
+    "en": "Table field (stand-alone)",
+    "fr": "Champ de table (autonome)"
+  },
+
   "add-row": {
     "en": "Add",
     "fr": "Ajouter"
