@@ -13,8 +13,12 @@
     "en": "Load Template (.json format)",
     "fr": "Charger le modèle (format .json)"
   },
-  "schema-editor-menu": {
-    "en": "Load Schema Editor (schema_editor/Schema)",
+  "schema-editor": {
+    "en": "Schema Editor",
+    "fr": "L'éditeur de schéma"
+  },
+  "load-schema-editor": {
+    "en": "Load Schema Editor",
     "fr": "Charger l'éditeur de schéma"
   },
   "schema-editor-menu": {
