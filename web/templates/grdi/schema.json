@@ -298,7 +298,6 @@
   "enums": {
     "NullValueMenu": {
       "name": "NullValueMenu",
-      "title": "null value menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Not Applicable [GENEPIO:0001619]": {
@@ -350,7 +349,6 @@
     },
     "SampleCollectedByMenu": {
       "name": "SampleCollectedByMenu",
-      "title": "sample_collected_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Agriculture and Agri-Food Canada (AAFC) [GENEPIO:0100553]": {
@@ -390,7 +388,6 @@
     },
     "PurposeOfSamplingMenu": {
       "name": "PurposeOfSamplingMenu",
-      "title": "purpose_of_sampling menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Cluster/Outbreak investigation [GENEPIO:0100001]": {
@@ -424,7 +421,6 @@
     },
     "PresamplingActivityMenu": {
       "name": "PresamplingActivityMenu",
-      "title": "presampling_activity menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Addition of substances to food/water [GENEPIO:0100536]": {
@@ -514,7 +510,6 @@
     },
     "ExperimentalSpecimenRoleTypeMenu": {
       "name": "ExperimentalSpecimenRoleTypeMenu",
-      "title": "experimental_specimen_role_type menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Positive experimental control [GENEPIO:0101018]": {
@@ -533,7 +528,6 @@
     },
     "SpecimenProcessingMenu": {
       "name": "SpecimenProcessingMenu",
-      "title": "specimen_processing menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Biological replicate process [GENEPIO:0101022]": {
@@ -552,7 +546,6 @@
     },
     "GeoLocNameCountryMenu": {
       "name": "GeoLocNameCountryMenu",
-      "title": "geo_loc_name (country) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Afghanistan [GAZ:00006882]": {
@@ -2727,7 +2720,6 @@
     },
     "GeoLocNameStateProvinceRegionMenu": {
       "name": "GeoLocNameStateProvinceRegionMenu",
-      "title": "geo_loc_name (state/province/region) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Atlantic region (Canada) [wikidata:Q246972]": {
@@ -2891,7 +2883,6 @@
     },
     "SampleCollectionDatePrecisionMenu": {
       "name": "SampleCollectionDatePrecisionMenu",
-      "title": "sample_collection_date_precision menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "year [UO:0000036]": {
@@ -2922,7 +2913,6 @@
     },
     "EnvironmentalSiteMenu": {
       "name": "EnvironmentalSiteMenu",
-      "title": "environmental_site menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Abattoir [ENVO:01000925]": {
@@ -3188,7 +3178,6 @@
     },
     "WaterDepthUnitsMenu": {
       "name": "WaterDepthUnitsMenu",
-      "title": "water_depth_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "centimeter (cm) [UO:0000015]": {
@@ -3235,7 +3224,6 @@
     },
     "SedimentDepthUnitsMenu": {
       "name": "SedimentDepthUnitsMenu",
-      "title": "sediment_depth_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "centimeter (cm) [UO:0000015]": {
@@ -3282,7 +3270,6 @@
     },
     "AirTemperatureUnitsMenu": {
       "name": "AirTemperatureUnitsMenu",
-      "title": "air_temperature_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "degree Fahrenheit (F) [UO:0000195]": {
@@ -3305,7 +3292,6 @@
     },
     "WaterTemperatureUnitsMenu": {
       "name": "WaterTemperatureUnitsMenu",
-      "title": "water_temperature_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "degree Fahrenheit (F) [UO:0000195]": {
@@ -3328,7 +3314,6 @@
     },
     "PrecipitationMeasurementUnitMenu": {
       "name": "PrecipitationMeasurementUnitMenu",
-      "title": "precipitation_measurement_unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "millimeter (mm) [UO:0000016]": {
@@ -3375,7 +3360,6 @@
     },
     "AvailableDataTypesMenu": {
       "name": "AvailableDataTypesMenu",
-      "title": "available_data_types menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Documentation [GENEPIO:0100702]": {
@@ -3571,7 +3555,6 @@
     },
     "SamplingWeatherConditionsMenu": {
       "name": "SamplingWeatherConditionsMenu",
-      "title": "sampling_weather_conditions menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Cloudy/Overcast [ENVO:03501418]": {
@@ -3603,7 +3586,6 @@
     },
     "AnimalOrPlantPopulationMenu": {
       "name": "AnimalOrPlantPopulationMenu",
-      "title": "animal_or_plant_population menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Algae [FOODON:03411301]": {
@@ -3674,7 +3656,6 @@
     },
     "EnvironmentalMaterialMenu": {
       "name": "EnvironmentalMaterialMenu",
-      "title": "environmental_material menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Air [ENVO:00002005]": {
@@ -3904,7 +3885,6 @@
     },
     "AnatomicalMaterialMenu": {
       "name": "AnatomicalMaterialMenu",
-      "title": "anatomical_material menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Blood [UBERON:0000178]": {
@@ -3932,7 +3912,6 @@
     },
     "BodyProductMenu": {
       "name": "BodyProductMenu",
-      "title": "body_product menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Digestive tract substance [GENEPIO:0100898]": {
@@ -3986,7 +3965,6 @@
     },
     "AnatomicalPartMenu": {
       "name": "AnatomicalPartMenu",
-      "title": "anatomical_part menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Carcass [UBERON:0008979]": {
@@ -4329,7 +4307,6 @@
     },
     "AnatomicalRegionMenu": {
       "name": "AnatomicalRegionMenu",
-      "title": "anatomical_region menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Dorso-lateral region [BSPO:0000080]": {
@@ -4345,7 +4322,6 @@
     },
     "FoodProductMenu": {
       "name": "FoodProductMenu",
-      "title": "food_product menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Animal feed [ENVO:02000047]": {
@@ -5340,7 +5316,6 @@
     },
     "FoodProductPropertiesMenu": {
       "name": "FoodProductPropertiesMenu",
-      "title": "food_product_properties menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Food (canned) [FOODON:00002418]": {
@@ -5423,7 +5398,6 @@
     },
     "LabelClaimMenu": {
       "name": "LabelClaimMenu",
-      "title": "label_claim menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Antibiotic free [FOODON:03601063]": {
@@ -5448,7 +5422,6 @@
     },
     "AnimalSourceOfFoodMenu": {
       "name": "AnimalSourceOfFoodMenu",
-      "title": "animal_source_of_food menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Cow [NCBITaxon:9913]": {
@@ -5497,7 +5470,6 @@
     },
     "FoodProductProductionStreamMenu": {
       "name": "FoodProductProductionStreamMenu",
-      "title": "food_product_production_stream menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Beef cattle production stream [FOODON:03000452]": {
@@ -5529,7 +5501,6 @@
     },
     "CollectionDeviceMenu": {
       "name": "CollectionDeviceMenu",
-      "title": "collection_device menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Auger (earth auger) [AGRO:00000405]": {
@@ -5608,7 +5579,6 @@
     },
     "CollectionMethodMenu": {
       "name": "CollectionMethodMenu",
-      "title": "collection_method menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Aspiration [HP:0002835]": {
@@ -5670,7 +5640,6 @@
     },
     "SampleVolumeMeasurementUnitMenu": {
       "name": "SampleVolumeMeasurementUnitMenu",
-      "title": "sample_volume_measurement_unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "microliter (uL) [UO:0000101]": {
@@ -5698,7 +5667,6 @@
     },
     "ResidualSampleStatusMenu": {
       "name": "ResidualSampleStatusMenu",
-      "title": "residual_sample_status menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Residual sample remaining (some sample left) [GENEPIO:0101087]": {
@@ -5714,7 +5682,6 @@
     },
     "SampleStorageDurationUnitMenu": {
       "name": "SampleStorageDurationUnitMenu",
-      "title": "sample_storage_duration_unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Second [UO:0000010]": {
@@ -5763,7 +5730,6 @@
     },
     "NucelicAcidStorageDurationUnitMenu": {
       "name": "NucelicAcidStorageDurationUnitMenu",
-      "title": "nucelic_acid_storage_duration_unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Second [UO:0000010]": {
@@ -5812,7 +5778,6 @@
     },
     "FoodPackagingMenu": {
       "name": "FoodPackagingMenu",
-      "title": "food_packaging menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Bag, sack or pouch [FOODON:03490197]": {
@@ -5853,7 +5818,6 @@
     },
     "HostCommonNameMenu": {
       "name": "HostCommonNameMenu",
-      "title": "host (common name) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Bird [NCBITaxon:8782]": {
@@ -5984,7 +5948,6 @@
     },
     "HostScientificNameMenu": {
       "name": "HostScientificNameMenu",
-      "title": "host (scientific name) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Anoplopoma fimbria [NCBITaxon:229290]": {
@@ -6054,7 +6017,6 @@
     },
     "HostFoodProductionNameMenu": {
       "name": "HostFoodProductionNameMenu",
-      "title": "host (food production name) menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Cow (by age/production stage) (organizational term)": {
@@ -6254,7 +6216,6 @@
     },
     "HostAgeBinMenu": {
       "name": "HostAgeBinMenu",
-      "title": "host_age_bin menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "First winter [GENEPIO:0100684]": {
@@ -6293,7 +6254,6 @@
     },
     "IsolatedByMenu": {
       "name": "IsolatedByMenu",
-      "title": "isolated_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]": {
@@ -6318,7 +6278,6 @@
     },
     "OrganismMenu": {
       "name": "OrganismMenu",
-      "title": "organism menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Acinetobacter [NCBITaxon:469]": {
@@ -6794,7 +6753,6 @@
     },
     "TaxonomicIdentificationProcessMenu": {
       "name": "TaxonomicIdentificationProcessMenu",
-      "title": "taxonomic_identification_process menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Whole genome sequencing assay [OBI:0002117]": {
@@ -6816,7 +6774,6 @@
     },
     "SequencedByMenu": {
       "name": "SequencedByMenu",
-      "title": "sequenced_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]": {
@@ -6844,7 +6801,6 @@
     },
     "PurposeOfSequencingMenu": {
       "name": "PurposeOfSequencingMenu",
-      "title": "purpose_of_sequencing menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Cluster/Outbreak investigation [GENEPIO:0100001]": {
@@ -6882,7 +6838,6 @@
     },
     "SequencingPlatformMenu": {
       "name": "SequencingPlatformMenu",
-      "title": "sequencing_platform menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Illumina [GENEPIO:0001923]": {
@@ -6907,7 +6862,6 @@
     },
     "SequencingInstrumentMenu": {
       "name": "SequencingInstrumentMenu",
-      "title": "sequencing_instrument menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Illumina [GENEPIO:0100105]": {
@@ -7148,7 +7102,6 @@
     },
     "SequencingAssayTypeMenu": {
       "name": "SequencingAssayTypeMenu",
-      "title": "sequencing_assay_type menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Amplicon sequencing assay [OBI:0002767]": {
@@ -7172,7 +7125,6 @@
     },
     "GenomicTargetEnrichmentMethodMenu": {
       "name": "GenomicTargetEnrichmentMethodMenu",
-      "title": "genomic_target_enrichment_method menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Hybrid selection method (bait-capture) [GENEPIO:0001950]": {
@@ -7185,7 +7137,6 @@
     },
     "SequenceSubmittedByMenu": {
       "name": "SequenceSubmittedByMenu",
-      "title": "sequence_submitted_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]": {
@@ -7213,7 +7164,6 @@
     },
     "QualityControlDeterminationMenu": {
       "name": "QualityControlDeterminationMenu",
-      "title": "quality_control_determination menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "No quality control issues identified [GENEPIO:0100562]": {
@@ -7238,7 +7188,6 @@
     },
     "QualityControlIssuesMenu": {
       "name": "QualityControlIssuesMenu",
-      "title": "quality _control_issues menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Low quality sequence [GENEPIO:0100568]": {
@@ -7269,7 +7218,6 @@
     },
     "AttributePackageMenu": {
       "name": "AttributePackageMenu",
-      "title": "attribute_package menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Pathogen.cl [GENEPIO:0001835]": {
@@ -7282,7 +7230,6 @@
     },
     "ExperimentalInterventionMenu": {
       "name": "ExperimentalInterventionMenu",
-      "title": "experimental_intervention menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Addition of substances to food/water [GENEPIO:0100536]": {
@@ -7325,7 +7272,6 @@
     },
     "AmrTestingByMenu": {
       "name": "AmrTestingByMenu",
-      "title": "AMR_testing_by menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Public Health Agency of Canada (PHAC) [GENEPIO:0100551]": {
@@ -7350,7 +7296,6 @@
     },
     "AntimicrobialPhenotypeMenu": {
       "name": "AntimicrobialPhenotypeMenu",
-      "title": "antimicrobial_phenotype menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Antibiotic resistance not defined [GENEPIO:0002040]": {
@@ -7401,7 +7346,6 @@
     },
     "AntimicrobialMeasurementUnitsMenu": {
       "name": "AntimicrobialMeasurementUnitsMenu",
-      "title": "antimicrobial_measurement_units menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "milligram per litre (mg/L) [UO:0000273]": {
@@ -7425,7 +7369,6 @@
     },
     "AntimicrobialMeasurementSignMenu": {
       "name": "AntimicrobialMeasurementSignMenu",
-      "title": "antimicrobial_measurement_sign menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "less than (<) [GENEPIO:0001002]": {
@@ -7462,7 +7405,6 @@
     },
     "AntimicrobialLaboratoryTypingMethodMenu": {
       "name": "AntimicrobialLaboratoryTypingMethodMenu",
-      "title": "antimicrobial_laboratory_typing_method menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Agar diffusion [NCIT:85595]": {
@@ -7491,7 +7433,6 @@
     },
     "AntimicrobialLaboratoryTypingPlatformMenu": {
       "name": "AntimicrobialLaboratoryTypingPlatformMenu",
-      "title": "antimicrobial_laboratory_typing_platform menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "BIOMIC Microbiology System [ARO:3007569]": {
@@ -7528,7 +7469,6 @@
     },
     "AntimicrobialVendorNameMenu": {
       "name": "AntimicrobialVendorNameMenu",
-      "title": "antimicrobial_vendor_name menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Becton Dickinson [ARO:3004405]": {
@@ -7565,7 +7505,6 @@
     },
     "AntimicrobialTestingStandardMenu": {
       "name": "AntimicrobialTestingStandardMenu",
-      "title": "antimicrobial_testing_standard menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "British Society for Antimicrobial Chemotherapy (BSAC) [ARO:3004365]": {
@@ -7626,7 +7565,6 @@
     },
     "AntimicrobialResistanceTestDrugMenu": {
       "name": "AntimicrobialResistanceTestDrugMenu",
-      "title": "Antimicrobial Resistance Test Drug Menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "amikacin": {
