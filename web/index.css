@@ -279,3 +279,10 @@ select#select-translation-localization:has(> option[value="fr"]:checked)::before
   width: 15px;
   margin-right: 15px;
 }
+
+.selectDepth_0 {padding-left:0px !important}
+.selectDepth_1 {padding-left:20px !important}
+.selectDepth_2 {padding-left:40px !important}
+.selectDepth_3 {padding-left:60px !important}
+.selectDepth_4 {padding-left:80px !important}
+.selectDepth_5 {padding-left:100px !important}
