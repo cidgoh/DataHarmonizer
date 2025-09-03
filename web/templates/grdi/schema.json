@@ -3683,6 +3683,9 @@
           "text": "Watering bowl [AGRO:00000677]",
           "is_a": "Animal feeding equipment [AGRO:00000675]"
         },
+        "Animal litter [ENVO:00002191]": {
+          "text": "Animal litter [ENVO:00002191]"
+        },
         "Animal transportation equipment [AGRO:00000671]": {
           "text": "Animal transportation equipment [AGRO:00000671]"
         },
@@ -3952,6 +3955,9 @@
           "text": "Colostrum [UBERON:0001914]",
           "is_a": "Milk [UBERON:0001913]"
         },
+        "Mucosa [UBERON:0000344]": {
+          "text": "Mucosa [UBERON:0000344]"
+        },
         "Urine [UBERON:0001088]": {
           "text": "Urine [UBERON:0001088]"
         }
@@ -4069,6 +4075,17 @@
         "Urinary bladder [UBERON:0001255]": {
           "text": "Urinary bladder [UBERON:0001255]",
           "is_a": "Excretory system (organizational term)"
+        },
+        "Exocrine system [UBERON:0002330]": {
+          "text": "Exocrine system [UBERON:0002330]"
+        },
+        "Mammary gland [UBERON:0001911]": {
+          "text": "Mammary gland [UBERON:0001911]",
+          "is_a": "Exocrine system [UBERON:0002330]"
+        },
+        "Nipple [UBERON:0002030]": {
+          "text": "Nipple [UBERON:0002030]",
+          "is_a": "Mammary gland [UBERON:0001911]"
         },
         "Foot [UBERON:0002387]": {
           "text": "Foot [UBERON:0002387]"
@@ -4326,6 +4343,10 @@
           "text": "Canola meal [FOODON:00002694]",
           "is_a": "Animal feed [ENVO:02000047]"
         },
+        "Chicken feed [FOODON:03310338]": {
+          "text": "Chicken feed [FOODON:03310338]",
+          "is_a": "Animal feed [ENVO:02000047]"
+        },
         "Compound feed premix [FOODON:00004323]": {
           "text": "Compound feed premix [FOODON:00004323]",
           "is_a": "Animal feed [ENVO:02000047]"
@@ -4462,6 +4483,22 @@
           "text": "Bulk grain [FOODON:03309390]",
           "is_a": "Grains, cereals, and bakery product (organizational term)"
         },
+        "Flour food product [FOODON:00001056]": {
+          "text": "Flour food product [FOODON:00001056]",
+          "is_a": "Grains, cereals, and bakery product (organizational term)"
+        },
+        "Corn flour [FOODON:03302500]": {
+          "text": "Corn flour [FOODON:03302500]",
+          "is_a": "Flour food product [FOODON:00001056]"
+        },
+        "White wheat flour (all purpose) [FOODON:03304534]": {
+          "text": "White wheat flour (all purpose) [FOODON:03304534]",
+          "is_a": "Flour food product [FOODON:00001056]"
+        },
+        "Whole wheat flour [FOODON:03302340]": {
+          "text": "Whole wheat flour [FOODON:03302340]",
+          "is_a": "Flour food product [FOODON:00001056]"
+        },
         "Oat grain [FOODON:00003429]": {
           "text": "Oat grain [FOODON:00003429]",
           "is_a": "Grains, cereals, and bakery product (organizational term)"
@@ -4534,6 +4571,10 @@
         },
         "Beef tenderloin [FOODON:00003302]": {
           "text": "Beef tenderloin [FOODON:00003302]",
+          "is_a": "Meat, poultry and fish (organizational term)"
+        },
+        "Beef trim [FOODON:03311508]": {
+          "text": "Beef trim [FOODON:03311508]",
           "is_a": "Meat, poultry and fish (organizational term)"
         },
         "Beef (pieces) [FOODON:02000412]": {
@@ -4680,33 +4721,33 @@
           "text": "Pork chop [FOODON:00001049]",
           "is_a": "Meat, poultry and fish (organizational term)"
         },
-        "pork meat (ground) [FOODON:02021718]": {
-          "text": "pork meat (ground) [FOODON:02021718]",
+        "Pork meat (ground) [FOODON:02021718]": {
+          "text": "Pork meat (ground) [FOODON:02021718]",
           "is_a": "Meat, poultry and fish (organizational term)"
         },
         "Pork meat (ground or minced, boneless) [FOODON:03000413]": {
           "text": "Pork meat (ground or minced, boneless) [FOODON:03000413]",
-          "is_a": "pork meat (ground) [FOODON:02021718]"
+          "is_a": "Pork meat (ground) [FOODON:02021718]"
         },
         "Pork meat (ground or minced, extra lean) [FOODON:03000399]": {
           "text": "Pork meat (ground or minced, extra lean) [FOODON:03000399]",
-          "is_a": "pork meat (ground) [FOODON:02021718]"
+          "is_a": "Pork meat (ground) [FOODON:02021718]"
         },
         "Pork meat (ground or minced, lean) [FOODON:03000395]": {
           "text": "Pork meat (ground or minced, lean) [FOODON:03000395]",
-          "is_a": "pork meat (ground) [FOODON:02021718]"
+          "is_a": "Pork meat (ground) [FOODON:02021718]"
         },
         "Pork meat (ground or minced, medium) [FOODON:03000403]": {
           "text": "Pork meat (ground or minced, medium) [FOODON:03000403]",
-          "is_a": "pork meat (ground) [FOODON:02021718]"
+          "is_a": "Pork meat (ground) [FOODON:02021718]"
         },
         "Pork meat (ground or minced, regular) [FOODON:03000407]": {
           "text": "Pork meat (ground or minced, regular) [FOODON:03000407]",
-          "is_a": "pork meat (ground) [FOODON:02021718]"
+          "is_a": "Pork meat (ground) [FOODON:02021718]"
         },
         "Pork meat (ground or minced, Sirloin) [FOODON:03000409]": {
           "text": "Pork meat (ground or minced, Sirloin) [FOODON:03000409]",
-          "is_a": "pork meat (ground) [FOODON:02021718]"
+          "is_a": "Pork meat (ground) [FOODON:02021718]"
         },
         "Pork shoulder [FOODON:02000322]": {
           "text": "Pork shoulder [FOODON:02000322]",
@@ -4888,6 +4929,14 @@
           "text": "Grain-fed veal [FOODON:00004280]",
           "is_a": "Veal [FOODON:00003083]"
         },
+        "Piece of veal meat (boneless) [FOODON:02021341]": {
+          "text": "Piece of veal meat (boneless) [FOODON:02021341]",
+          "is_a": "Veal [FOODON:00003083]"
+        },
+        "Veal meat (ground) [FOODON:02021351]": {
+          "text": "Veal meat (ground) [FOODON:02021351]",
+          "is_a": "Veal [FOODON:00003083]"
+        },
         "Microbial food product [FOODON:00001145]": {
           "text": "Microbial food product [FOODON:00001145]"
         },
@@ -4961,9 +5010,33 @@
           "text": "Confectionery food product [FOODON:00001149]",
           "is_a": "Prepared food product [FOODON:00001180]"
         },
+        "Halva [FOODON:00002931]": {
+          "text": "Halva [FOODON:00002931]",
+          "is_a": "Confectionery food product [FOODON:00001149]"
+        },
         "Snack food [FOODON:03315013]": {
           "text": "Snack food [FOODON:03315013]",
           "is_a": "Prepared food product [FOODON:00001180]"
+        },
+        "Soup food product [FOODON:00002257]": {
+          "text": "Soup food product [FOODON:00002257]",
+          "is_a": "Prepared food product [FOODON:00001180]"
+        },
+        "Animal soup food product [FOODON:00001608]": {
+          "text": "Animal soup food product [FOODON:00001608]",
+          "is_a": "Soup food product [FOODON:00002257]"
+        },
+        "Broth [FOODON:03309462]": {
+          "text": "Broth [FOODON:03309462]",
+          "is_a": "Soup food product [FOODON:00002257]"
+        },
+        "Vegetable soup food product [FOODON:00002335]": {
+          "text": "Vegetable soup food product [FOODON:00002335]",
+          "is_a": "Soup food product [FOODON:00002257]"
+        },
+        "Sambar [FOODON:03601053]": {
+          "text": "Sambar [FOODON:03601053]",
+          "is_a": "Vegetable soup food product [FOODON:00002335]"
         },
         "Produce [FOODON:03305145]": {
           "text": "Produce [FOODON:03305145]"
@@ -5028,9 +5101,21 @@
           "text": "Karela (bitter melon) [FOODON:00004367]",
           "is_a": "Produce [FOODON:03305145]"
         },
+        "Leafy vegetable plant [FOODON:03411566]": {
+          "text": "Leafy vegetable plant [FOODON:03411566]",
+          "is_a": "Produce [FOODON:03305145]"
+        },
         "Lettuce head (whole or parts) [FOODON:03000239]": {
           "text": "Lettuce head (whole or parts) [FOODON:03000239]",
           "is_a": "Produce [FOODON:03305145]"
+        },
+        "Red leaf lettuce [FOODON:03000018]": {
+          "text": "Red leaf lettuce [FOODON:03000018]",
+          "is_a": "Lettuce head (whole or parts) [FOODON:03000239]"
+        },
+        "Romaine lettuce head [FOODON:00002687]": {
+          "text": "Romaine lettuce head [FOODON:00002687]",
+          "is_a": "Lettuce head (whole or parts) [FOODON:03000239]"
         },
         "Mango (whole or parts) [FOODON:03000217]": {
           "text": "Mango (whole or parts) [FOODON:03000217]",
@@ -5055,6 +5140,18 @@
         "Pepper (whole or parts) [FOODON:03000249]": {
           "text": "Pepper (whole or parts) [FOODON:03000249]",
           "is_a": "Produce [FOODON:03305145]"
+        },
+        "Sweet green bell pepper [FOODON:00003547]": {
+          "text": "Sweet green bell pepper [FOODON:00003547]",
+          "is_a": "Pepper (whole or parts) [FOODON:03000249]"
+        },
+        "Plum [FOODON:00003483]": {
+          "text": "Plum [FOODON:00003483]",
+          "is_a": "Produce [FOODON:03305145]"
+        },
+        "Blue plum [FOODON:00003535]": {
+          "text": "Blue plum [FOODON:00003535]",
+          "is_a": "Plum [FOODON:00003483]"
         },
         "Potato [FOODON:03315354]": {
           "text": "Potato [FOODON:03315354]",
@@ -5086,6 +5183,10 @@
         },
         "Bean sprout [FOODON:00002576]": {
           "text": "Bean sprout [FOODON:00002576]",
+          "is_a": "Germinated or sprouted seed [FOODON:03420102]"
+        },
+        "Broccoli sprout [FOODON:00002989]": {
+          "text": "Broccoli sprout [FOODON:00002989]",
           "is_a": "Germinated or sprouted seed [FOODON:03420102]"
         },
         "Chia sprout [FOODON:03000180]": {
@@ -5271,6 +5372,9 @@
         },
         "Food (unseasoned) [FOODON:00004287]": {
           "text": "Food (unseasoned) [FOODON:00004287]"
+        },
+        "Food (washed) [FOODON:00005176]": {
+          "text": "Food (washed) [FOODON:00005176]"
         },
         "Italian-style food product [FOODON:00004321]": {
           "text": "Italian-style food product [FOODON:00004321]"
@@ -6136,6 +6240,7 @@
     },
     "ExposureEventMenu": {
       "name": "ExposureEventMenu",
+      "title": "exposure_event menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
         "Exposure to chemical [ECTO:0000231]": {
