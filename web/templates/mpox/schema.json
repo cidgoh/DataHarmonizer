@@ -5183,40 +5183,6 @@
         }
       }
     },
-    "SequencingAssayTypeMenu": {
-      "name": "SequencingAssayTypeMenu",
-      "title": "sequencing assay type menu",
-      "from_schema": "https://example.com/mpox",
-      "permissible_values": {
-        "Amplicon sequencing assay": {
-          "text": "Amplicon sequencing assay",
-          "description": "A sequencing assay in which a DNA or RNA input molecule is amplified by PCR and the product sequenced.",
-          "meaning": "OBI:0002767"
-        },
-        "16S ribosomal gene sequencing assay": {
-          "text": "16S ribosomal gene sequencing assay",
-          "description": "An amplicon sequencing assay in which the amplicon is derived from universal primers used to amplify the 16S ribosomal RNA gene from isolate bacterial genomic DNA or metagenomic DNA from a microbioal community.",
-          "meaning": "OBI:0002763",
-          "is_a": "Amplicon sequencing assay"
-        },
-        "Whole genome sequencing assay": {
-          "text": "Whole genome sequencing assay",
-          "description": "A DNA sequencing assay that intends to provide information about the sequence of an entire genome of an organism.",
-          "meaning": "OBI:0002117"
-        },
-        "Whole metagenome sequencing assay": {
-          "text": "Whole metagenome sequencing assay",
-          "description": "A DNA sequencing assay that intends to provide information on the DNA sequences of multiple genomes (a metagenome) from different organisms present in the same input sample.",
-          "meaning": "OBI:0002623"
-        },
-        "Whole virome sequencing assay": {
-          "text": "Whole virome sequencing assay",
-          "description": "A whole metagenome sequencing assay that intends to provide information on multiple genome sequences from different viruses present in the same input sample.",
-          "meaning": "OBI:0002768",
-          "is_a": "Whole metagenome sequencing assay"
-        }
-      }
-    },
     "SequencingAssayTypeInternationalMenu": {
       "name": "SequencingAssayTypeInternationalMenu",
       "title": "sequencing assay type international menu",
@@ -5829,23 +5795,6 @@
         }
       }
     },
-    "GenomicTargetEnrichmentMethodMenu": {
-      "name": "GenomicTargetEnrichmentMethodMenu",
-      "title": "genomic target enrichment method menu",
-      "from_schema": "https://example.com/mpox",
-      "permissible_values": {
-        "Hybridization capture": {
-          "text": "Hybridization capture",
-          "description": "Selection by hybridization in array or solution.",
-          "meaning": "GENEPIO:0001950"
-        },
-        "rRNA depletion method": {
-          "text": "rRNA depletion method",
-          "description": "Removal of background RNA for the purposes of enriching the genomic target.",
-          "meaning": "GENEPIO:0101020"
-        }
-      }
-    },
     "GenomicTargetEnrichmentMethodInternationalMenu": {
       "name": "GenomicTargetEnrichmentMethodInternationalMenu",
       "title": "genomic target enrichment method international menu",
@@ -5860,43 +5809,6 @@
           "text": "rRNA depletion method [GENEPIO:0101020]",
           "description": "Removal of background RNA for the purposes of enriching the genomic target.",
           "meaning": "GENEPIO:0101020"
-        }
-      }
-    },
-    "QualityControlDeterminationMenu": {
-      "name": "QualityControlDeterminationMenu",
-      "title": "quality control determination menu",
-      "from_schema": "https://example.com/mpox",
-      "permissible_values": {
-        "No quality control issues identified": {
-          "text": "No quality control issues identified",
-          "description": "A data item which is a statement confirming that quality control processes were carried out and no quality issues were detected.",
-          "meaning": "GENEPIO:0100562"
-        },
-        "Sequence passed quality control": {
-          "text": "Sequence passed quality control",
-          "description": "A data item which is a statement confirming that quality control processes were carried out and that the sequence met the assessment criteria.",
-          "meaning": "GENEPIO:0100563"
-        },
-        "Sequence failed quality control": {
-          "text": "Sequence failed quality control",
-          "description": "A data item which is a statement confirming that quality control processes were carried out and that the sequence did not meet the assessment criteria.",
-          "meaning": "GENEPIO:0100564"
-        },
-        "Minor quality control issues identified": {
-          "text": "Minor quality control issues identified",
-          "description": "A data item which is a statement confirming that quality control processes were carried out and that the sequence did not meet the assessment criteria, however the issues detected were minor.",
-          "meaning": "GENEPIO:0100565"
-        },
-        "Sequence flagged for potential quality control issues": {
-          "text": "Sequence flagged for potential quality control issues",
-          "description": "A data item which is a statement confirming that quality control processes were carried out however it is unclear whether the sequence meets the assessment criteria and the assessment requires review.",
-          "meaning": "GENEPIO:0100566"
-        },
-        "Quality control not performed": {
-          "text": "Quality control not performed",
-          "description": "A data item which is a statement confirming that quality control processes have not been carried out.",
-          "meaning": "GENEPIO:0100567"
         }
       }
     },
@@ -5934,53 +5846,6 @@
           "text": "Quality control not performed [GENEPIO:0100567]",
           "description": "A data item which is a statement confirming that quality control processes have not been carried out.",
           "meaning": "GENEPIO:0100567"
-        }
-      }
-    },
-    "QualityControlIssuesMenu": {
-      "name": "QualityControlIssuesMenu",
-      "title": "quality control issues menu",
-      "from_schema": "https://example.com/mpox",
-      "permissible_values": {
-        "Low quality sequence": {
-          "text": "Low quality sequence",
-          "description": "A data item that describes sequence data that does not meet quality control thresholds.",
-          "meaning": "GENEPIO:0100568"
-        },
-        "Sequence contaminated": {
-          "text": "Sequence contaminated",
-          "description": "A data item that describes sequence data that contains reads from unintended targets (e.g. other organisms, other samples) due to contamination so that it does not faithfully represent the genetic information from the biological source.",
-          "meaning": "GENEPIO:0100569"
-        },
-        "Low average genome coverage": {
-          "text": "Low average genome coverage",
-          "description": "A data item that describes sequence data in which the entire length of the genome is not sufficiently sequenced (low breadth of coverage), or particular positions of the genome are not sequenced a prescribed number of times (low depth of coverage).",
-          "meaning": "GENEPIO:0100570"
-        },
-        "Low percent genome captured": {
-          "text": "Low percent genome captured",
-          "description": "A data item that describes sequence data in which the entire length of the genome is not sufficiently sequenced (low breadth of coverage).",
-          "meaning": "GENEPIO:0100571"
-        },
-        "Read lengths shorter than expected": {
-          "text": "Read lengths shorter than expected",
-          "description": "A data item that describes average sequence read lengths that are below the expected size range given a particular sequencing instrument, reagents and conditions.",
-          "meaning": "GENEPIO:0100572"
-        },
-        "Sequence amplification artifacts": {
-          "text": "Sequence amplification artifacts",
-          "description": "A data item that describes sequence data containing errors generated during the polymerase chain reaction (PCR) amplification process during library generation (e.g. mutations, altered read distribution, amplicon dropouts).",
-          "meaning": "GENEPIO:0100573"
-        },
-        "Low signal to noise ratio": {
-          "text": "Low signal to noise ratio",
-          "description": "A data item that describes sequence data containing more errors or undetermined bases (noise) than sequence representing the biological source (signal).",
-          "meaning": "GENEPIO:0100574"
-        },
-        "Low coverage of characteristic mutations": {
-          "text": "Low coverage of characteristic mutations",
-          "description": "A data item that describes sequence data that contains a lower than expected number of mutations that are usually observed in the reference sequence.",
-          "meaning": "GENEPIO:0100575"
         }
       }
     },
