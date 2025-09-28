@@ -105,7 +105,7 @@ def init_parser():
 	return parser.parse_args();
 
 
-def set_class_slot(schema_class, slot, slot_name, slot_group):
+def set_class_slot(schema_class, slot, slot_name, slot_group, warnings):
 
 	print ("processing SLOT:", schema_class['name'], slot_name);
 
@@ -331,7 +331,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 
 					slot_group =		row.get('slot_group','');
 					# Slot_group gets attached to class.slot_usage[slot]
-					set_class_slot(schema_class, slot, slot_name, slot_group);
+					set_class_slot(schema_class, slot, slot_name, slot_group, warnings);
 
 					slot_inlined =			row.get('inlined','');
 					if slot_inlined > '':	slot['slot_inlined'] = slot_inlined;
@@ -499,7 +499,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 										variant_slot_group = text;
 
 							set_examples(variant_slot, row.get('examples' + '_' + lcode, ''));
-							set_class_slot(locale_class, variant_slot, slot_name, variant_slot_group);
+							set_class_slot(locale_class, variant_slot, slot_name, variant_slot_group, warnings);
 
 							locale_schema['slots'][slot_name] = variant_slot;
 							# if len(variant_slot) > 0: # Some locale attribute(s) added.
@@ -637,10 +637,8 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 				enum['permissible_values'][choice_text] = choice;
 
-
 				# Here there is a menu title with possible depth to process
 				if title > '':
-
 
 					for lcode in locale_schemas.keys():
 						translation = row.get(menu_x + '_' + lcode, '');
@@ -687,9 +685,9 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 			warnings.append("Note: there are no enumerations in this specification!");
 
 
-def write_schema(schema):
+def write_schema(folder, filename_base, schema):
 
-	with open(w_filename_base + '.yaml', 'w') as output_handle:
+	with open(folder + filename_base + '.yaml', 'w') as output_handle:
 		# Can't use safe_yam because safe_yam sorts the items differently?!
 		ru_yaml.dump(schema, output_handle) # 
 		#safe_yam.dump(schema, output_handle, sort_keys=False) # 
@@ -719,9 +717,9 @@ def write_schema(schema):
 
 		# Add primary key / foreign key relational annotations.  SQL table
 		# definition output is hidden but could be put in an optional output.
-		#subprocess.run(["gen-sqltables", "--no-metadata", "--relmodel-output", w_filename_base + '.yaml', "temp.yaml"],capture_output=True);
+		#subprocess.run(["gen-sqltables", "--no-metadata", "--relmodel-output", filename_base + '.yaml', "temp.yaml"],capture_output=True);
 		# Read in schema that is now endowed with relationship annotations:
-		#with open(w_filename_base + '.yaml', "r") as schema_handle:
+		#with open(filename_base + '.yaml', "r") as schema_handle:
 		#	schema = yaml.safe_load(schema_handle);
 
 	# Now create schema.json which browser app can read directly.  Replaces each
@@ -754,13 +752,10 @@ def write_schema(schema):
 
 
 
-
-
-
 	# SchemaView() is coercing "in_language" into a string when it is an array
 	# of i18n languages as per official LinkML spec.  
-	if 'in_language' in SCHEMA:
-		schema_view.schema['in_language'] = SCHEMA['in_language'];
+	if 'in_language' in schema:
+		schema_view.schema['in_language'] = schema['in_language'];
 
 
 	# Output amalgamated content. Schema_view is reordering a number of items.
@@ -785,7 +780,7 @@ def write_schema(schema):
 		if attribute in annotations and not annotations[attribute] == None :
 			schema_ordered[attribute] = annotations[attribute];
 
-	JSONDumper().dump(schema_ordered, w_filename_base + '.json');
+	JSONDumper().dump(schema_ordered, folder + filename_base + '.json');
 	
 	return schema_view;
 
@@ -800,7 +795,7 @@ def write_schema(schema):
 #
 #		locale_schema = locale_schemas[lcode];
 #
-#		with open(directory + w_filename_base + '.yaml', 'w') as output_handle:
+#		with open(directory + filename_base + '.yaml', 'w') as output_handle:
 #			yaml.dump(locale_schema, output_handle) #, sort_keys=False
 #
 #		# Mirror language variant to match default schema.json structure
@@ -811,25 +806,25 @@ def write_schema(schema):
 #				new_obj = locale_view.induced_class(name);
 #				locale_view.add_class(new_obj);
 #
-#		JSONDumper().dump(locale_view.schema, directory + w_filename_base + '.json');
+#		JSONDumper().dump(locale_view.schema, directory + filename_base + '.json');
 
 
 
 # ********* Adjust the menu to include this schema and its classes ******
-def write_menu(menu_path, schema_folder, schema_view):
+def write_menu(folder, menu_path, schema_view):
 
 	schema_name = schema_view.schema['name'];
 
 	# Work with existing MENU menu.js, or start new one.
-	if os.path.isfile(menu_path):
-	    with open(menu_path, "r") as f:
+	if os.path.isfile(folder + menu_path):
+	    with open(folder + menu_path, "r") as f:
 	        menu = json.load(f);
 	else:
 	    menu = {};
 
 	# Reset this folder's menu content
 	menu[schema_name] = {
-		"folder": schema_folder,
+		"folder": folder,
 		"id": schema_view.schema['id'],
 		"version": schema_view.schema['version'],
 		"templates":{}
@@ -851,11 +846,11 @@ def write_menu(menu_path, schema_folder, schema_view):
 
 	# Now cycle through each template:
 	for class_name, class_obj in class_menu.items():
+		# Obsoleting this: Old DataHarmonizer <=1.9.1 included class_name in
+		# menu via "display" if it had an "is_a" attribute = "dh_interface".
 		display = 'is_a' in class_obj and class_obj['is_a'] == 'dh_interface';
-		# Old DataHarmonizer <=1.9.1 included class_name in menu via "display"
-		# if it had an "is_a" attribute = "dh_interface".
-		# DH > 1.9.1 also displays if class is mentined in a "Container" class
-		# attribute [Class name 2].range = class_name
+
+		# DH > 1.9.1 displays if class is mentined in a "Container" class
 		if display == False and 'Container' in schema_view.schema.classes:
 			container = schema_view.get_class('Container');
 			for container_name, container_obj in container['attributes'].items():
@@ -872,103 +867,113 @@ def write_menu(menu_path, schema_folder, schema_view):
 		if 'version' in annotations:
 			menu[schema_name]['templates'][class_name]['version'] = annotations['version'];
 
-		print("Updated menu for", schema_name+'/' + class_name);
+		print("Updated menu for", schema_name + '/' + class_name);
 
 	# Update or create whole menu
-	with open(menu_path, "w") as output_handle:
+	with open(folder + menu_path, "w") as output_handle:
 	    json.dump(menu, fp=output_handle, sort_keys=False, indent=2, separators=(",", ": "))
 
 
 ###############################################################################
 
-r_schema_core = 'schema_core.yaml';
-r_schema_slots = 'schema_slots.tsv';
-r_schema_enums = 'schema_enums.tsv';
-w_filename_base = 'schema';
+def make_schema(folder, file_name_base, menu = False):
 
-warnings = [];
-locale_schemas = {};
-EXPORT_FORMAT = [];
+	r_schema_core = 'schema_core.yaml';
+	r_schema_slots = 'schema_slots.tsv';
+	r_schema_enums = 'schema_enums.tsv';
 
-options, args = init_parser();
+	warnings = [];
+	locale_schemas = {};
+	EXPORT_FORMAT = [];
 
-with open(r_schema_core, 'r') as file:
-	SCHEMA = safe_yam.safe_load(file);
+	with open(folder + r_schema_core, 'r') as file:
+		SCHEMA = safe_yam.safe_load(file);
 
-# The schema.in_language locales should be a list (array) of locales beginning
-# with the primary language, usually "en" for english. Each local can be from 
-# IETF BCP 47.  See https://linkml.io/linkml-model/latest/docs/in_language/
-# Copy schema_core object into all array of locales (but skip first default 
-# schema since it is the reference.
-if 'extensions' in SCHEMA and 'locales' in SCHEMA['extensions']:
-	locales = SCHEMA['extensions']['locales'];
-	for locale in locales:
-		print ('processing locale', locale)
-		locale_schemas[locale] = copy.deepcopy(SCHEMA); 
-		locale_schemas[locale]['in_language'] = locale;
+	# The schema.in_language locales should be a list (array) of locales beginning
+	# with the primary language, usually "en" for english. Each local can be from 
+	# IETF BCP 47.  See https://linkml.io/linkml-model/latest/docs/in_language/
+	# Copy schema_core object into all array of locales (but skip first default 
+	# schema since it is the reference.
+	if 'extensions' in SCHEMA and 'locales' in SCHEMA['extensions']:
+		locales = SCHEMA['extensions']['locales'];
+		for locale in locales:
+			print ('processing locale', locale)
+			locale_schemas[locale] = copy.deepcopy(SCHEMA); 
+			locale_schemas[locale]['in_language'] = locale;
 
-# Process each slot given in tabular format.
-set_classes(r_schema_slots, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
-set_enums(r_schema_enums, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
+	# Process each slot given in tabular format.
+	set_classes(folder + r_schema_slots, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
+	set_enums(folder + r_schema_enums, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
 
-if len(locale_schemas) > 0:
-	for lcode in locale_schemas.keys():
-		print("Doing", lcode)
-		lschema = locale_schemas[lcode];
-		# These have no translation elements
-		lschema.pop('prefixes', None);
-		lschema.pop('imports', None);
-		lschema.pop('types', None);
-		lschema.pop('settings', None);
-		lschema.pop('extensions', None);
+	if len(locale_schemas) > 0:
+		for lcode in locale_schemas.keys():
+			print("Doing", lcode)
+			lschema = locale_schemas[lcode];
+			# These have no translation elements
+			lschema.pop('prefixes', None);
+			lschema.pop('imports', None);
+			lschema.pop('types', None);
+			lschema.pop('settings', None);
+			lschema.pop('extensions', None);
 
-		if 'Container' in lschema['classes']:
-			lschema['classes'].pop('Container');
-			print("Ignoring Container")
+			if 'Container' in lschema['classes']:
+				lschema['classes'].pop('Container');
+				print("Ignoring Container")
 
-		for class_name, class_obj in lschema['classes'].items():
+			for class_name, class_obj in lschema['classes'].items():
 
-			class_obj.pop('name', None); # not translatatble
-			class_obj.pop('slots', None); # no translations
-			class_obj.pop('unique_keys', None);	# no translations
-			class_obj.pop('is_a', None); # no translations
+				class_obj.pop('name', None); # not translatatble
+				class_obj.pop('slots', None); # no translations
+				class_obj.pop('unique_keys', None);	# no translations
+				class_obj.pop('is_a', None); # no translations
 
-			if 'slot_usage' in class_obj:
-				for slot_name, slot_usage in class_obj['slot_usage'].items():
-					slot_usage.pop('rank', None);
+				if 'slot_usage' in class_obj:
+					for slot_name, slot_usage in class_obj['slot_usage'].items():
+						slot_usage.pop('rank', None);
 
-		for name, slot_obj in lschema['slots'].items():
-			slot_obj.pop('name', None); # not translatatble
+			for name, slot_obj in lschema['slots'].items():
+				slot_obj.pop('name', None); # not translatatble
 
-		for name, enum_obj in lschema['enums'].items():
-			enum_obj.pop('name', None); # not translatatble
-			#enum_obj.pop('is_a', None);
+			for name, enum_obj in lschema['enums'].items():
+				enum_obj.pop('name', None); # not translatatble
+				#enum_obj.pop('is_a', None);
 
-		# This works for 1 language locale only; For DataHarmonizer 2.0, use 
-		# DataHarmonizer Schema Editor (template) instead to manage locale
-		# content.
-		SCHEMA.update({
-			'extensions': {
-				'locales': { 
-					'tag': 'locales',
-					'value': {lcode: lschema}
+			# This works for 1 language locale only; For DataHarmonizer 2.0, use 
+			# DataHarmonizer Schema Editor (template) instead to manage locale
+			# content.
+			SCHEMA.update({
+				'extensions': {
+					'locales': { 
+						'tag': 'locales',
+						'value': {lcode: lschema}
+					}
 				}
-			}
-		});
+			});
 
-if len(warnings):
-	print ("\nWARNING: \n", "\n ".join(warnings));
+	if len(warnings):
+		print ("\nWARNING: \n", "\n ".join(warnings));
 
-print("finished processing.")
+	schema_view = write_schema(folder, file_name_base, SCHEMA);
 
-schema_view = write_schema(SCHEMA);
+	# Archaic: locales now kept in SCHEMA.extensions.locales
+	#write_locales(locale_schemas);
 
-# locales now kept in SCHEMA.extensions.locales
-# NIX this when locales are integral to main schema
-#write_locales(locale_schemas);
+	# Adjust menu.json to include or update entries for given schema's template(s)
+	if menu:
+		write_menu(folder, '../menu.json', schema_view);
 
 
 
-# Adjust menu.json to include or update entries for given schema's template(s)
-if options.menu:
-	write_menu('../menu.json', os.path.basename(os.getcwd()), schema_view);
+###############################################################################
+# Currently command only runs in context of folder where schema_core.yaml is.
+def main():
+
+	folder = os.getcwd() + '/';
+	options, args = init_parser();
+	make_schema(folder, 'schema', options.menu); 
+	print("Finished processing.")
+
+###############################################################################
+# Only run when accessed by command line.
+if __name__ == "__main__":
+    main();

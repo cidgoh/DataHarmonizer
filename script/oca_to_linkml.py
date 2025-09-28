@@ -54,7 +54,6 @@ import re
 ###############################################################################
 
 warnings = [];
-locale_mapping = {}; # Converting OCA language terms to i18n
 
 SCHEMA_CORE = r"""id: https://example.com/
 name: ExampleSchema
@@ -333,16 +332,135 @@ def getLookup(overlay, oca_locale, key):
 	return "";
 
 # For those schemas that have multilingual content
-def addLocaleHeaders(headers, fields):
+def addLocaleHeaders(oca, headers, fields):
 	# Ensure given slot or enum table has right language variation
-	if len(locale_mapping) > 1:
+	if len(oca['locale_mapping']) > 1:
 		for field in fields:
-			for locale in list(locale_mapping)[1:]:
+			for locale in list(oca['locale_mapping'])[1:]:
 				headers.append(field + "_" + locale);
+
+
+
+################################ CONVERSION ################################
+def convert_oca_to_linkml(input_oca_file, file_path):
+	# In parsing input_oca_file, a few attributes are ignored for now in much of
+	# the structure:
+	# 	"type": [string absolute/relative URI], 
+	# 	"capture_base": hash, # Ignore
+	# ALSO, it is assumed that language variant objects all have the "default" 
+	# and consistent primary language as first entry.
+	
+	with open(input_oca_file, "r") as file_handle:
+		oca_obj = json.load(file_handle);
+
+	# Sniff file to see if it is newer "package" format
+	if 'type' in oca_obj and oca_obj['type'].split('/')[0] == 'oca_package':
+		extensions = oca_obj['extensions'];
+		oca_obj = oca_obj['oca_bundle'];
+	else:
+		extensions = {}
+	
+	oca = {
+		'extensions': extensions,
+		'locale_mapping': {} # Converting OCA language terms to i18n
+	};
+
+	if 'dependencies' in oca_obj:
+		oca['dependencies'] = oca_obj['dependencies'];
+
+	# oca_attributes contains slot.name and slot.Type (datatype, e.g. Numeric, ...)
+	oca['attributes'] = oca_obj["bundle"]["capture_base"]["attributes"];
+
+	# Keywords about this schema (class's) subject categorization.
+	oca['classification'] = oca_obj["bundle"]["capture_base"]["classification"];
+
+	# Fields which likely have personal or institutional confidentiality content:
+	oca['identifying_factors'] = oca_obj["bundle"]["capture_base"]["flagged_attributes"];
+
+	############################# Overlays #################################
+	oca['overlays'] = oca_obj["bundle"]["overlays"];
+
+	# Contains {schema.name,.description,.language} in array.  Optional?
+	oca['metas'] = oca['overlays']["meta"][0];
+
+	# Contains slot.name and slot.pattern
+	if "format" in oca['overlays']:
+		oca['formats'] = oca['overlays']["format"]["attribute_formats"];
+	else:
+		oca['formats'] = {};
+
+	# Minnum and maximum number of values in array of a multivalued field.
+	if "cardinality" in oca['overlays']:
+		oca['cardinality'] = oca['overlays']["cardinality"]["attr_cardinality"];
+	else:
+		oca['cardinality'] = {};
+
+	# Contains {slot.title,.language} in array
+	if "label" in oca['overlays']:
+		oca['labels'] = oca['overlays']["label"][0]["attribute_labels"];
+	else:
+		oca['labels'] = {};
+
+	# Contains {slot.name,.description,.language} in array 
+
+	if "information" in oca['overlays']:
+		oca['informations'] = oca['overlays']["information"][0]["attribute_information"];
+	else:
+		oca['informations'] = {};
+
+	# A dictionary for each field indicating required/recommended status:  
+	# M is mandatory and O is optional.
+	if "conformance" in oca['overlays']:
+		oca['conformance'] = oca['overlays']["conformance"]["attribute_conformance"];
+	else:
+		oca['conformance'] = {};
+
+	# Contains [enumeration name]:[code,...]
+	if "entry_code" in oca['overlays']:
+		oca['entry_codes'] = oca['overlays']["entry_code"]["attribute_entry_codes"];
+	else:
+		oca['entry_codes'] = {};
+
+	# Contains array of {enumeration.language,.attribute_entries} where 
+	# attribute_entries is dictionary of [enumeration name]: {code, label}
+	if "entry" in oca['overlays']:
+		oca['entry_labels'] = oca['overlays']["entry"][0]["attribute_entries"];
+	else:
+		oca['entry_labels'] = {};
+
+	# Also has   "metric_system": "SI",
+	# FUTURE: automatically incorporate unit menu: https://github.com/agrifooddatacanada/UCUM_agri-food_units/blob/main/UCUM_ADC_current.csv 
+	if "unit" in oca['overlays']:
+		if 'attribute_unit' in oca['overlays']["unit"]:
+			oca['units'] = oca['overlays']["unit"]["attribute_unit"];
+		else: # old package:
+			oca['units'] = oca['overlays']["unit"]["attribute_units"];
+	else:
+		oca['units'] = {};
+
+	# TO DO:
+	#extensions["adc": {
+	#"overlays": {
+	#	"ordering": {
+	#		"type": "community/overlays/adc/ordering/1.1",
+	#		"attribute_ordering": : ["GCS_ID", "Original_soil_label", ...],
+	#		"entry_code_ordering": {
+	#			"Soil_type": ["Bulk", "Rhizosphere"],
+	#			"Province": ["AB", "BC"...]
+	#		}
+	# "sensitive": {
+	#		"type": "community/overlays/adc/sensitive/1.1",
+	#		"sensitive_attributes": []
+	#	}
+
+
+	linkml_schema = writeSchemaCore(oca_obj, oca, file_path);
+	writeSlots(linkml_schema, oca, file_path);
+	writeEnums(oca, file_path);
 
 # Make LinkML schema_core.yaml file which is then filled in with slots and 
 # enumerations.
-def writeSchemaCore(file_path):
+def writeSchemaCore(oca_obj, oca, file_path):
 
 	#with open("schema_core_template.yaml", 'r') as file:
 	SCHEMA = yaml.safe_load(SCHEMA_CORE);
@@ -350,7 +468,7 @@ def writeSchemaCore(file_path):
 	SCHEMA["name"] = "DefaultSchemaName";
 	# Is meta always in spec?
 	if "meta" in oca_obj["bundle"]["overlays"]: 
-		oca_meta = oca_metas; # FIRST meta is default
+		oca_meta = oca['metas']; # FIRST meta is default
 		if "name" in oca_meta:
 			SCHEMA["title"] = oca_meta["name"]; # e.g. "Chicken gut health"
 			# Schema name as PascalCase version of oca meta schema name.
@@ -364,10 +482,10 @@ def writeSchemaCore(file_path):
 	# SCHEMA["in_language"] set to "en" in template above.
 	# Only do multiple languages if "language" parameter is present.
 	# Assume existence of label overlay means english if no language specified
-	if "label" in oca_overlays and "language" in oca_overlays["label"][0]:
+	if "label" in oca['overlays'] and "language" in oca['overlays']["label"][0]:
 		for label_obj in oca_obj["bundle"]["overlays"]["label"]:
 			locale = localeLookup(label_obj["language"]);
-			locale_mapping[locale] = label_obj["language"];
+			oca['locale_mapping'][locale] = label_obj["language"];
 			# Set up empty extension for tabular_to_schema.py to set up:
 			if locale != 'en':
 				if not 'extensions' in SCHEMA:
@@ -384,8 +502,8 @@ def writeSchemaCore(file_path):
 	}
 
 	# Associate classification keywords with this class (Rather than LinkML schema as a whole)
-	if len(oca_classification):
-		SCHEMA["classes"][SCHEMA["name"]]["keywords"] = oca_classification;
+	if len(oca['classification']):
+		SCHEMA["classes"][SCHEMA["name"]]["keywords"] = oca['classification'];
 
 	# Set up Container class to hold given schema class's data
 	SCHEMA['classes']['Container'] = {
@@ -410,30 +528,30 @@ def writeSchemaCore(file_path):
 
 
 ################################ SLOT OUTPUT ################################
-def writeSlots(file_path):
+def writeSlots(linkml_schema, oca, file_path):
 	# Ensure SCHEMA_SLOTS has language variation
-	addLocaleHeaders(SCHEMA_SLOTS, ["slot_group","title","description","comments","examples"]);
+	addLocaleHeaders(oca, SCHEMA_SLOTS, ["slot_group","title","description","comments","examples"]);
 
 	# Start slots as an ordered dictionary {slot name:,...} of DH slot attributes.
-	slots = OrderedDict([i, OrderedDict([i,""] for i in SCHEMA_SLOTS) ] for i in oca_attributes)
+	slots = OrderedDict([i, OrderedDict([i,""] for i in SCHEMA_SLOTS) ] for i in oca['attributes'])
 
-	for slot_name in oca_attributes:
+	for slot_name in oca['attributes']:
 		slot = slots[slot_name];
 		slot['slot_group'] = "General"; #Default; ideally not needed.
-		slot['class_name'] = SCHEMA["name"];
+		slot['class_name'] = linkml_schema["name"];
 		slot['name'] = slot_name;
-		if slot_name in oca_labels:
-			slot['title'] = oca_labels[slot_name];
-		slot['range'] = oca_attributes[slot_name]; # Type is a required field?
-		if slot_name in oca_formats:
-			slot['pattern'] = oca_formats[slot_name];
-		if slot_name in oca_informations:
-			slot['description'] = oca_informations[slot_name]; 
+		if slot_name in oca['labels']:
+			slot['title'] = oca['labels'][slot_name];
+		slot['range'] = oca['attributes'][slot_name]; # Type is a required field?
+		if slot_name in oca['formats']:
+			slot['pattern'] = oca['formats'][slot_name];
+		if slot_name in oca['informations']:
+			slot['description'] = oca['informations'][slot_name]; 
 
 		# Minnum and maximum number of values in array of a multivalued field.
 		# See https://oca.colossi.network/specification/#cardinality-overlay
-		if slot_name in oca_cardinality:  # Format: n, n-, n-m, -m
-			card = oca_cardinality[slot_name];
+		if slot_name in oca['cardinality']:  # Format: n, n-, n-m, -m
+			card = oca['cardinality'][slot_name];
 			if '-' in card:
 				if '-' == card[0]:
 					slot['maximum_cardinality'] = int(card[1:]);
@@ -461,11 +579,11 @@ def writeSlots(file_path):
 			slot['range'] = re.search('\[(.+)\]', slot['range']).group(1);
 
 		# Range 2 gets any picklist for now.
-		if slot_name in oca_entry_codes:
+		if slot_name in oca['entry_codes']:
 			slots[slot_name]['range_2'] = slot_name;
 
-		if slot_name in oca_conformance:
-			match oca_conformance[slot_name]:
+		if slot_name in oca['conformance']:
+			match oca['conformance'][slot_name]:
 				case "M": # Mandatory
 					slot['required'] = True;
 				case "O": # Optional -> Recommended?!
@@ -475,7 +593,7 @@ def writeSlots(file_path):
 		# Field confidentiality https://kantarainitiative.org/download/blinding-identity-taxonomy-pdf/
 		# https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/22974595/Blinding+Identity+Taxonomy
 		# Currently the only use of slot.attributes:
-		if slot_name in oca_identifying_factors:
+		if slot_name in oca['identifying_factors']:
 			slot['annotations'] = 'identifying_factor:True';
 
 		# Conversion of range field from OCA to LinkML data types.
@@ -506,29 +624,29 @@ def writeSlots(file_path):
 			case "Boolean":
 				pass
 
-		# OCA mentions a oca_overlays["unit"]["metric_system"] (usually = "SI"),
+		# OCA mentions a oca['overlays']["unit"]["metric_system"] (usually = "SI"),
 		# So here is a place to do unit conversion to UCUM if possible.
 		# https://ucum.nlm.nih.gov/ucum-lhc/demo.html
-		if slot_name in oca_units:
+		if slot_name in oca['units']:
 			# slot unit: / ucum_code: cm
-			if "metric_system" in oca_overlays["unit"]:
-				slot['unit'] = oca_overlays["unit"]["metric_system"] + ":" + oca_units[slot_name];
+			if "metric_system" in oca['overlays']["unit"]:
+				slot['unit'] = oca['overlays']["unit"]["metric_system"] + ":" + oca['units'][slot_name];
 			else:
-				slot['unit'] = oca_units[slot_name];
+				slot['unit'] = oca['units'][slot_name];
 
     # Now convert any slot datatypes where pattern matches OCA-specific data type
-		for type_name in SCHEMA["types"]:
-			if "pattern" in SCHEMA["types"][type_name]:
-				if SCHEMA["types"][type_name]["pattern"] == slot['pattern']:
+		for type_name in linkml_schema["types"]:
+			if "pattern" in linkml_schema["types"][type_name]:
+				if linkml_schema["types"][type_name]["pattern"] == slot['pattern']:
 					#print("PATTERN", type_name, )
 					slot['range'] = type_name;
 					slot['pattern'] = ''; # Redundant
 
 
 		# Need access to original oca language parameter, e.g. "eng"
-		if len(locale_mapping) > 1:
-			for locale in list(locale_mapping)[1:]: # Skips english
-				oca_locale = locale_mapping[locale];
+		if len(oca['locale_mapping']) > 1:
+			for locale in list(oca['locale_mapping'])[1:]: # Skips english
+				oca_locale = oca['locale_mapping'][locale];
 				slot['slot_group_'+locale] = "Generic";
 				slot['title_'+locale] = getLookup("label", oca_locale, slot_name)
 				slot['description_'+locale] = getLookup("information", oca_locale, slot_name)
@@ -539,158 +657,58 @@ def writeSlots(file_path):
 
 
 ################################ ENUM OUTPUT ################################
-def writeEnums(file_path):
-	addLocaleHeaders(SCHEMA_ENUMS, ["title", "menu_1"]);
+def writeEnums(oca, file_path):
+	addLocaleHeaders(oca, SCHEMA_ENUMS, ["title", "menu_1"]);
 	enums = [];
-	for enum_name in oca_entry_codes:
+	for enum_name in oca['entry_codes']:
 		row = OrderedDict([i,""] for i in SCHEMA_ENUMS);
 		row["name"] = enum_name;
 		row["title"] = enum_name;
 		enums.append(row);
 
-		for enum_choice in oca_entry_codes[enum_name]:
+		for enum_choice in oca['entry_codes'][enum_name]:
 			row = OrderedDict([i,""] for i in SCHEMA_ENUMS);
 			row["text"] = enum_choice;
 			#row["meaning"] = ????;
-			row["menu_1"] = oca_entry_labels[enum_name][enum_choice];
+			row["menu_1"] = oca['entry_labels'][enum_name][enum_choice];
 
-			if len(locale_mapping) > 1:
-				for locale in list(locale_mapping)[1:]:
-					oca_locale = locale_mapping[locale];
+			if len(oca['locale_mapping']) > 1:
+				for locale in list(oca['locale_mapping'])[1:]:
+					oca_locale = oca['locale_mapping'][locale];
 					row['menu_1_'+locale] = getLookup("entry", oca_locale, enum_choice)
 
 			enums.append(row);
 
 	save_tsv(file_path + "/schema_enums.tsv", SCHEMA_ENUMS, enums);
 
+############################# Stand-alone operation ###########################
+def main():
+
+	options, args = init_parser();
+
+	if not options: # there are always opitions --- but if no length...
+		sys.exit("- [Input OCA bundle file is required]");
+
+	# Load OCA schema bundle specification
+	if options:
+		if options.input_oca_file and os.path.isfile(options.input_oca_file):
+
+			if options.file_path == '':
+				options.file_path = options.input_oca_file.split('.')[0];
+
+			if not os.path.isdir(options.file_path):
+				os.mkdir(options.file_path);
+
+			convert_oca_to_linkml(options.input_oca_file, options.file_path);
+
+	if len(warnings):
+		print ("\nWARNING: \n", "\n ".join(warnings));
+
+	sys.exit("Finished processing");
+
+
 
 ###############################################################################
-
-options, args = init_parser();
-
-# Load OCA schema bundle specification
-if options.input_oca_file and os.path.isfile(options.input_oca_file):
-    with open(options.input_oca_file, "r") as file_handle:
-        oca_obj = json.load(file_handle);
-
-    if options.file_path == '':
-    	options.file_path = options.input_oca_file.split('.')[0];
-
-    if not os.path.isdir(options.file_path):
-    	os.mkdir(options.file_path);
-
-else:
-	os.exit("- [Input OCA bundle file is required]")
-
-# In parsing input_oca_file, a few attributes are ignored for now in much of
-# the structure:
-# 	"type": [string absolute/relative URI], 
-# 	"capture_base": hash, # Ignore
-# ALSO, it is assumed that language variant objects all have the "default" 
-# and consistent primary language as first entry.
-
-# Sniff file to see if it is newer "package" format
-if 'type' in oca_obj and oca_obj['type'].split('/')[0] == 'oca_package':
-	extensions = oca_obj['extensions'];
-	oca_obj = oca_obj['oca_bundle'];
-else:
-	extensions = {}
-
-if 'dependencies' in oca_obj:
-	oca_dependencies = oca_obj['dependencies'];
-
-# oca_attributes contains slot.name and slot.Type (datatype, e.g. Numeric, ...)
-oca_attributes = oca_obj["bundle"]["capture_base"]["attributes"];
-
-# Keywords about this schema (class's) subject categorization.
-oca_classification = oca_obj["bundle"]["capture_base"]["classification"];
-
-# Fields which likely have personal or institutional confidentiality content:
-oca_identifying_factors = oca_obj["bundle"]["capture_base"]["flagged_attributes"];
-
-############################# Overlays #################################
-oca_overlays = oca_obj["bundle"]["overlays"];
-
-# Contains {schema.name,.description,.language} in array.  Optional?
-oca_metas = oca_overlays["meta"][0];
-
-# Contains slot.name and slot.pattern
-if "format" in oca_overlays:
-	oca_formats = oca_overlays["format"]["attribute_formats"];
-else:
-	oca_formats = {};
-
-# Minnum and maximum number of values in array of a multivalued field.
-if "cardinality" in oca_overlays:
-	oca_cardinality = oca_overlays["cardinality"]["attr_cardinality"];
-else:
-	oca_cardinality = {};
-
-# Contains {slot.title,.language} in array
-if "label" in oca_overlays:
-	oca_labels = oca_overlays["label"][0]["attribute_labels"];
-else:
-	oca_labels = {};
-
-# Contains {slot.name,.description,.language} in array 
-
-if "information" in oca_overlays:
-	oca_informations = oca_overlays["information"][0]["attribute_information"];
-else:
-	oca_informations = {};
-
-# A dictionary for each field indicating required/recommended status:  
-# M is mandatory and O is optional.
-if "conformance" in oca_overlays:
-	oca_conformance = oca_overlays["conformance"]["attribute_conformance"];
-else:
-	oca_conformance = {};
-
-# Contains [enumeration name]:[code,...]
-if "entry_code" in oca_overlays:
-	oca_entry_codes = oca_overlays["entry_code"]["attribute_entry_codes"];
-else:
-	oca_entry_codes = {};
-
-# Contains array of {enumeration.language,.attribute_entries} where 
-# attribute_entries is dictionary of [enumeration name]: {code, label}
-if "entry" in oca_overlays:
-	oca_entry_labels = oca_overlays["entry"][0]["attribute_entries"];
-else:
-	oca_entry_labels = {};
-
-# Also has   "metric_system": "SI",
-# FUTURE: automatically incorporate unit menu: https://github.com/agrifooddatacanada/UCUM_agri-food_units/blob/main/UCUM_ADC_current.csv 
-if "unit" in oca_overlays:
-	if 'attribute_unit' in oca_overlays["unit"]:
-		oca_units = oca_overlays["unit"]["attribute_unit"];
-	else: # old package:
-		oca_units = oca_overlays["unit"]["attribute_units"];
-else:
-	oca_units = {}
-
-# TO DO:
-#extensions["adc": {
-#"overlays": {
-#	"ordering": {
-#		"type": "community/overlays/adc/ordering/1.1",
-#		"attribute_ordering": : ["GCS_ID", "Original_soil_label", ...],
-#		"entry_code_ordering": {
-#			"Soil_type": ["Bulk", "Rhizosphere"],
-#			"Province": ["AB", "BC"...]
-#		}
-# "sensitive": {
-#		"type": "community/overlays/adc/sensitive/1.1",
-#		"sensitive_attributes": []
-#	}
-
-
-SCHEMA = writeSchemaCore(options.file_path);
-writeSlots(options.file_path);
-writeEnums(options.file_path);
-
-if len(warnings):
-	print ("\nWARNING: \n", "\n ".join(warnings));
-
-sys.exit("Finished processing")
-
+# Only run when accessed by command line.
+if __name__ == "__main__":
+    main();
