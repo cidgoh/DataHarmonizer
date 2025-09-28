@@ -876,7 +876,7 @@ def write_menu(folder, menu_path, schema_view):
 
 ###############################################################################
 
-def make_schema(folder, file_name_base, menu = False):
+def make_linkml_schema(folder, file_name_base, menu = False):
 
 	r_schema_core = 'schema_core.yaml';
 	r_schema_slots = 'schema_slots.tsv';
@@ -970,7 +970,7 @@ def main():
 
 	folder = os.getcwd() + '/';
 	options, args = init_parser();
-	make_schema(folder, 'schema', options.menu); 
+	make_linkml_schema(folder, 'schema', options.menu); 
 	print("Finished processing.")
 
 ###############################################################################

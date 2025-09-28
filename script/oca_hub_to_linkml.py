@@ -24,6 +24,7 @@ import sys
 import re
 import subprocess
 from oca_to_linkml import convert_oca_to_linkml;
+from tabular_to_schema import make_linkml_schema;
 
 # Relative path from this script to GitHub repo folder for HUB_Harmonization 
 SCHEMA_BASE = "../../HUB-Harmonization/library/schemas/";
@@ -71,16 +72,17 @@ def process_markdown(row):
 
     #print(text);
 	match = re.search(RE_DOWNLOADS, text);
+	summary = '';
 	if (match):
 		if match.group(3):
-			print ("Found!");
+			summary = 'Updating LinkML links in: ';
 			text = text.replace(match.group(3), linkml_links);
 		else:
-			print ("NEW")
+			summary = 'New LinkML links in: ';
 			text = text.replace(match.group(1), match.group(1) + linkml_links);
 
 		with open(md_file, "w") as file_handle_out:
-			print("Updating",md_file);
+			print(summary, md_file);
 			file_handle_out.write(text);
 
 	else:
@@ -93,6 +95,7 @@ def process_markdown(row):
 		os.mkdir(linkml_folder);
 
 	convert_oca_to_linkml(oca_file, linkml_folder);
+	make_linkml_schema(linkml_folder, 'schema');
 
 	print ("LinkML conversion complete.");
 
