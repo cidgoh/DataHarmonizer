@@ -706,8 +706,6 @@ def main():
 
 	sys.exit("Finished processing");
 
-
-
 ###############################################################################
 # Only run when accessed by command line.
 if __name__ == "__main__":
