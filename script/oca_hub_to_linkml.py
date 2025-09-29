@@ -6,8 +6,8 @@
 # In .md files look for:
 #	[Download ...
 #
-#	[Download LinkML ...
-# OR
+#	[Download LinkML schema](...) ... (OPTIONAL)
+#
 #	# Schema quick view
 #
 # And insert/replace [Download LinkML ... with
@@ -54,7 +54,7 @@ NDGP	Pedigree	Pedigree_OCA_schema.md	Pedigree_OCA_package.json
 peACE	PeaCE	PeaCE_OCA_schema-Final-1.md	PeaCE_OCA_package_Final.json
 '''
 
-def process_markdown(row):
+def process_markdown(row, first_call):
 	md_file = f"{SCHEMA_BASE}{row['folder']}/{row['markup']}";
 	oca_file = f"{SCHEMA_BASE}{row['folder']}/{row['oca']}";
 	if not os.path.isfile(oca_file):
@@ -64,8 +64,10 @@ def process_markdown(row):
 	if not os.path.isfile(md_file):
 		sys.exit(f"ERROR: Input markup .md file not found: {md_file}")
 
-	# markdown for links to newly refreshed linkml yaml, json etc.
-	linkml_links = f"[Download LinkML Schema]({row['prefix']}_LinkML/schema.json) ([yaml](https://github.com/ClimateSmartAgCollab/HUB-Harmonization/blob/main/library/schemas/{row['folder']}/{row['prefix']}_LinkML/schema.yaml); table view: [fields](https://github.com/ClimateSmartAgCollab/HUB-Harmonization/blob/main/library/schemas/{row['folder']}/{row['prefix']}_LinkML/schema_slots.tsv), [picklists](https://github.com/ClimateSmartAgCollab/HUB-Harmonization/blob/main/library/schemas/{row['folder']}/{row['prefix']}_LinkML/schema_enums.tsv))\n\n";
+	# Markdown for links to newly refreshed linkml yaml, json etc.
+	# A special link so files can be viewed in tabular fashion on GitHub
+	tsv_view_prefix = f"https://github.com/ClimateSmartAgCollab/HUB-Harmonization/blob/main/library/schemas/{row['folder']}/";
+	linkml_links = f"[Download LinkML Schema]({row['prefix']}_LinkML/schema.json) ([yaml]({row['prefix']}_LinkML/schema.yaml); table view: [fields]({tsv_view_prefix}{row['prefix']}_LinkML/schema_slots.tsv), [picklists]({tsv_view_prefix}{row['prefix']}_LinkML/schema_enums.tsv))\n\n";
 
 	with open(md_file, "r") as file_handle:
 		text = file_handle.read();
@@ -89,24 +91,78 @@ def process_markdown(row):
 		print(f"ERROR: Unable to find Download links section in: {md_file}");
 
 	linkml_folder = f"{SCHEMA_BASE}{row['folder']}/{row['prefix']}_LinkML/";
-	oca_file = f"{SCHEMA_BASE}{row['folder']}/{row['oca']}";
+	oca_file_path = f"{SCHEMA_BASE}{row['folder']}/{row['oca']}";
 
 	if not os.path.isdir(linkml_folder):
 		os.mkdir(linkml_folder);
 
-	convert_oca_to_linkml(oca_file, linkml_folder);
+	convert_oca_to_linkml(oca_file_path, linkml_folder);
+
+	report_build(row, first_call, linkml_folder + 'schema_slots.tsv', SCHEMA_BASE + 'report_all_schema_fields.tsv');
+
+	report_build(row, first_call, linkml_folder + 'schema_enums.tsv', SCHEMA_BASE + 'report_all_schema_menus.tsv');
+
 	make_linkml_schema(linkml_folder, 'schema');
 
 	print ("LinkML conversion complete.");
 
 
-# Read above table
-#with open('hub_harmonization.tsv', newline='') as f:
-reader = csv.DictReader(io.StringIO(SCHEMA_TABLE_TSV), delimiter='\t')
-for row in reader:
-	#print(row)
-	if 'folder' in row:
-		if row['oca']:
-			process_markdown(row);
+def report_build(row, first_call, input_file, output_file):
+
+	# Build cumulative report of slots and enums
+	with open(input_file, newline='') as tsvfile:
+		reader = csv.DictReader(tsvfile, delimiter='\t');
+
+		slot_field_names = ['folder','prefix'] + reader.fieldnames;
+
+		if first_call == True:
+			mode = 'w';
 		else:
-			print(f"WARNING: No OCA .json file for {row['folder']} {row['prefix']} schema.");
+			mode = 'a';
+
+		with open(output_file, mode=mode, newline='') as report:
+			writer = csv.DictWriter(report, fieldnames=slot_field_names, delimiter='\t');
+			if first_call == True:
+				writer.writeheader();
+
+			# Used to fill in any empty name column value which is inherited
+			# from a previous row in file.  Pertains to schema_enums.tsv
+			old_name= ""; 
+			for slot_row in reader: 
+				# Report rows have these additional initial fields:
+
+				if len(slot_row['name'].strip()) > 0:
+					old_name = slot_row['name'].strip();
+				else:
+					slot_row['name'] = old_name;
+
+				row_out = {
+					'folder': row['folder'], # Row from config file above.
+					'prefix': row['prefix']
+				};
+				for field in slot_row:
+					row_out[field] = slot_row[field].strip();
+
+				writer.writerow(row_out);
+
+
+###############################################################################
+def main():
+
+	# Read above table
+	# [ALTERNATE code: keep table in file:] with open('hub_harmonization.tsv', newline='') as f:
+	reader = csv.DictReader(io.StringIO(SCHEMA_TABLE_TSV), delimiter='\t');
+
+	first_call = True;
+	for row in reader:
+		if 'folder' in row:
+			if row['oca']:
+				process_markdown(row, first_call);
+				first_call = False;
+			else:
+				print(f"WARNING: No OCA .json file for {row['folder']} {row['prefix']} schema.");
+
+###############################################################################
+# Only run when accessed by command line.
+if __name__ == "__main__":
+    main();
