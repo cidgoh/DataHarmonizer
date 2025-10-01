@@ -37,6 +37,9 @@ SCHEMA_TABLE_TSV = '''folder	prefix	markup	oca
 ACTIVATE	ACTIVATE	Activate-act2-3.md	ACTIVATE-act2.3.json
 BENEFIT	BENEFIT	BENEFIT_OCA_schema.md	BENEFIT_OCA_package.json
 BENEFIT	CCASM	CCASM_OCA_schema.md	CCASM_OCA_package.json
+catg	Kinsella	Kinsella_OCA_schema.md	Kinsella_Cow_Production_OCA_package.json
+catg	Soil_Moisture	SoilMoisture_OCA_schema.md	Soil_Moisture_OCA_package.json
+catg	SoilData	SoilData_OCA_schema.md	SoilData_OCA_package.json
 Cell_cultured	Bioreactor	Bioreactor_OCA_schema.md	Bioreactor_OCA_package.json
 Cell_cultured	Bovine	Bovine_Cells_OCA_schema.md	Bovine_Cells_OCA_package.json
 Cell_cultured	Chronoamperometry	Chronoamperometry_OCA_schema.md	Chronoamperometry_OCA_package.json
@@ -45,13 +48,14 @@ Cell_cultured	Lactate	Lactate_OCA_schema.md	Lactate_OCA_package.json
 Cell_cultured	Lactate_Spec	Lactate_Spec_OCA_schema.md	Lactate_Spec_OCA_package.json
 Cell_cultured	qRT-PCR	qRT-PCR_OCA_schema.md	qRT-PCR_OCA_package.json
 GG4GHG	Community	Community_OCA_schema.md	Community_OCA_package.json
-JT	GENOME	GENOME_OCA_schema.md	GENOME_OCA_package.json
+loop	environmental_DNA	environmental_DNA.md	environmental_DNA.json
 NDGP	Calving	Calving_OCA_schema.md	Calving_OCA_package.json
 NDGP	Genotype	Genotype_OCA_schema.md
 NDGP	Milk	Milk_OCA_schema.md	Milk_OCA_package.json
 NDGP	MIR	MIR_OCA_schema.md	MIR_OCA_package.json
 NDGP	Pedigree	Pedigree_OCA_schema.md	Pedigree_OCA_package.json
 peACE	PeaCE	PeaCE_OCA_schema-Final-1.md	PeaCE_OCA_package_Final.json
+JT	GENOME	GENOME_OCA_schema.md	GENOME_OCA_package.json
 '''
 
 def process_markdown(row, first_call):
