@@ -1,9 +1,10 @@
 # Populate https://climatesmartagcollab.github.io/HUB-Harmonization/ schema markup files with
 # links to generated LinkML specifications.
 #
-# From table below load each .md and OCA.json file and convert to LinkML files in {folder}_LinkML/
+# From table below, 
+# 1) load each OCA.json file and convert to LinkML files in {folder}_LinkML/
 #
-# In .md files look for:
+# 2) In .md files look for:
 #	[Download ...
 #
 #	[Download LinkML schema](...) ... (OPTIONAL)
