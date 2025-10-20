@@ -131,6 +131,108 @@ export default {
     },
   },
 
+    Pathoplexus_Mpox: {
+    fileType: 'xlsx',
+    status: 'published',
+    method: function(dh) {
+      const exportHeaders = new Map([
+        ["sample_name", []],
+        ["specimenCollectorSampleId", []],
+        ["bioprojectAccession", []],
+        ["biosampleAccession", []],
+        ["insdcRawReadsAccession", []],
+        ["sampleCollectionDate", []],
+        ["sampleReceivedDate", []],
+        ["geoLocCountry", []],
+        ["geoLocAdmin1", []],
+        ["geoLocAdmin2", []],
+        ["geoLocSite", []],
+        ["geoLocLatitude", []],
+        ["geoLocLongitude", []],
+        ["purposeOfSampling", []],
+        ["anatomicalMaterial", []],
+        ["anatomicalPart", []],
+        ["bodyProduct", []],
+        ["environmentalMaterial", []],
+        ["environmentalSite", []],
+        ["collectionDevice", []],
+        ["collectionMethod", []],
+        ["specimenProcessing", []],
+        ["specimenProcessingDetails", []],
+        ["cellLine", []],
+        ["passageNumber", []],
+        ["passageMethod", []],
+        ["experimentalSpecimenRoleType", []],
+        ["hostNameCommon", []],
+        ["hostNameCommon  (just label; put ID in hostTaxonId)", []],
+        ["hostNameScientific", []],
+        ["hostHealthState", []],
+        ["hostHealthOutcome", []],
+        ["hostDisease", []],
+        ["hostAge", []],
+        ["hostAgeBin", []],
+        ["hostGender", []],
+        ["hostOriginCountry", []],
+        ["signsAndSymptoms", []],
+        ["hostVaccinationStatus", []],
+        ["travelHistory", []],
+        ["exposureEvent", []],
+        ["hostRole", []],
+        ["exposureSetting", []],
+        ["exposureDetails", []],
+        ["previousInfectionDisease", []],
+        ["sequencedByOrganization", []],
+        ["sequencedByContactName", []],
+        ["sequencedByContactEmail", []],
+        ["purposeOfSequencing", []],
+        ["sequencingDate", []],
+        ["sequencingAssayType", []],
+        ["sequencingInstrument", []],
+        ["sequencingProtocol", []],
+        ["ampliconPcrPrimerScheme", []],
+        ["ampliconSize", []],
+        ["qualityControlMethodName", []],
+        ["qualityControlMethodVersion", []],
+        ["qualityControlDetermination", []],
+        ["qualityControlIssues", []],
+        ["qualityControlDetails", []],
+        ["rawSequenceDataProcessingMethod", []],
+        ["dehostingMethod", []],
+        ["submissionId", []],
+        ["consensusSequenceSoftwareName", []],
+        ["consensusSequenceSoftwareVersion", []],
+        ["breadthOfCoverage", []],
+        ["depthOfCoverage", []],
+        ["assemblyReferenceGenomeAccession", []],
+        ["diagnosticTargetGeneName", []],
+        ["diagnosticMeasurementValue", []],
+        ["authors", []],
+      ]);
+      const outputMatrix = [[...exportHeaders.keys()]];
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
+      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      dh.getHeaderMap(exportHeaders, sourceFields, 'Pathoplexus_Mpox');
+      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+        const outputRow = [];
+        let value;
+        for (const [headerName, sources] of exportHeaders) {
+          value = dh.getMappedField(
+              headerName,
+              inputRow,
+              sources,
+              sourceFields,
+              sourceFieldNameMap,
+              '; ',
+              'Pathoplexus_Mpox'
+            );
+          outputRow.push(value);
+        }
+        outputMatrix.push(outputRow);
+      }
+      return outputMatrix;
+    },
+  },
+
   ENA_ERC000033_Virus_SAMPLE: {
     fileType: 'xls',
     status: 'published',
