@@ -207,7 +207,6 @@ export default {
         ["diagnosticTargetGeneName", []],
         ["diagnosticMeasurementValue", []],
         ["authors", []],
-
       ]);
       const outputMatrix = [[...exportHeaders.keys()]];
       const sourceFields = dh.slots; //dh.getFields(dh.table);
