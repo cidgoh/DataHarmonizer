@@ -211,7 +211,7 @@ export default {
       const outputMatrix = [[...exportHeaders.keys()]];
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-      dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRA');
+      dh.getHeaderMap(exportHeaders, sourceFields, 'Pathoplexus_Mpox');
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
         let value;
