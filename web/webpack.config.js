@@ -50,6 +50,11 @@ module.exports = (env, argv) => {
             to: 'templates/[path][name][ext]',
           },
           {
+            context: 'images',
+            from: '**/*.gif',
+            to: 'images/[path][name][ext]',
+          },
+          {
             from: 'main.html',
           },
         ],
