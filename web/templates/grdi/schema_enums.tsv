@@ -670,7 +670,7 @@ anatomical_part menu	AnatomicalPartMenu		Carcass [UBERON:0008979]
 				Mammary gland [UBERON:0001911]								
 					Nipple [UBERON:0002030]							
 			Foot [UBERON:0002387]									
-				Head [UBERON:0000033]								
+			Head [UBERON:0000033]									
 				Brain [UBERON:0000955]								
 				Ear [UBERON:0001690]								
 				Eye [UBERON:0000970]								
@@ -1104,7 +1104,7 @@ sample_storage_duration_unit menu	SampleStorageDurationUnitMenu		Second [UO:0000
 			Month [UO:0000035]						Month			
 			Year [UO:0000036]						Year			
 												
-nucelic_acid_storage_duration_unit menu	NucelicAcidStorageDurationUnitMenu		Second [UO:0000010]						Second			
+nucelic_acid_storage_duration_unit menu	NucleicAcidStorageDurationUnitMenu		Second [UO:0000010]						Second			
 			Minute [UO:0000031]						Minute			
 			Hour [UO:0000032]						Hour			
 			Day [UO:0000033]						Day			
@@ -1621,3 +1621,4 @@ Antimicrobial Resistance Test Drug Menu	AntimicrobialResistanceTestDrugMenu		ami
 			tetracycline								tetracycline	
 			tigecycline								tigecycline	
 			trimethoprim-sulfamethoxazole								trimethoprim-sulfamethoxazole	
+												

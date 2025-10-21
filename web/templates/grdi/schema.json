@@ -2,7 +2,7 @@
   "name": "GRDI",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "14.5.5",
+  "version": "15.1.1",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -4113,28 +4113,27 @@
           "text": "Foot [UBERON:0002387]"
         },
         "Head [UBERON:0000033]": {
-          "text": "Head [UBERON:0000033]",
-          "is_a": "Foot [UBERON:0002387]"
+          "text": "Head [UBERON:0000033]"
         },
         "Brain [UBERON:0000955]": {
           "text": "Brain [UBERON:0000955]",
-          "is_a": "Foot [UBERON:0002387]"
+          "is_a": "Head [UBERON:0000033]"
         },
         "Ear [UBERON:0001690]": {
           "text": "Ear [UBERON:0001690]",
-          "is_a": "Foot [UBERON:0002387]"
+          "is_a": "Head [UBERON:0000033]"
         },
         "Eye [UBERON:0000970]": {
           "text": "Eye [UBERON:0000970]",
-          "is_a": "Foot [UBERON:0002387]"
+          "is_a": "Head [UBERON:0000033]"
         },
         "Mouth [UBERON:0000165]": {
           "text": "Mouth [UBERON:0000165]",
-          "is_a": "Foot [UBERON:0002387]"
+          "is_a": "Head [UBERON:0000033]"
         },
         "Nose [UBERON:0000004]": {
           "text": "Nose [UBERON:0000004]",
-          "is_a": "Foot [UBERON:0002387]"
+          "is_a": "Head [UBERON:0000033]"
         },
         "Nasal turbinal [UBERON:0035612]": {
           "text": "Nasal turbinal [UBERON:0035612]",
@@ -5761,8 +5760,8 @@
         }
       }
     },
-    "NucelicAcidStorageDurationUnitMenu": {
-      "name": "NucelicAcidStorageDurationUnitMenu",
+    "NucleicAcidStorageDurationUnitMenu": {
+      "name": "NucleicAcidStorageDurationUnitMenu",
       "title": "nucelic_acid_storage_duration_unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
@@ -8038,7 +8037,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100430",
+      "slot_uri": "GENEPIO:0100285",
       "domain_of": [
         "GRDI"
       ],
@@ -8238,7 +8237,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100435",
+      "slot_uri": "GENEPIO:0001253",
       "domain_of": [
         "GRDI"
       ],
@@ -10178,7 +10177,7 @@
         "NCBI_BIOSAMPLE_Enterics:strain",
         "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
       ],
-      "slot_uri": "GENEPIO:0100456",
+      "slot_uri": "GENEPIO:0001644",
       "domain_of": [
         "GRDI"
       ],
@@ -11600,8 +11599,8 @@
       ],
       "range": "integer"
     },
-    "percent_read_contamination_": {
-      "name": "percent_read_contamination_",
+    "percent_read_contamination": {
+      "name": "percent_read_contamination",
       "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
       "title": "percent_read_contamination",
       "comments": [
@@ -28220,8 +28219,8 @@
           "rank": 152,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "rank": 153,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -31698,7 +31697,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 6,
-          "slot_uri": "GENEPIO:0100430",
+          "slot_uri": "GENEPIO:0100285",
           "alias": "sample_plan_name",
           "owner": "GRDI",
           "domain_of": [
@@ -31934,7 +31933,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 15,
-          "slot_uri": "GENEPIO:0100435",
+          "slot_uri": "GENEPIO:0001253",
           "alias": "specimen_processing",
           "owner": "GRDI",
           "domain_of": [
@@ -34174,7 +34173,7 @@
             "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
           ],
           "rank": 90,
-          "slot_uri": "GENEPIO:0100456",
+          "slot_uri": "GENEPIO:0001644",
           "alias": "isolate_id",
           "owner": "GRDI",
           "domain_of": [
@@ -35847,8 +35846,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
           "title": "percent_read_contamination",
           "comments": [
@@ -35862,7 +35861,7 @@
           "from_schema": "https://example.com/GRDI",
           "rank": 153,
           "slot_uri": "GENEPIO:0100845",
-          "alias": "percent_read_contamination_",
+          "alias": "percent_read_contamination",
           "owner": "GRDI",
           "domain_of": [
             "GRDI"

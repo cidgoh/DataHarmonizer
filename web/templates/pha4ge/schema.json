@@ -5922,8 +5922,8 @@
         }
       ]
     },
-    "isolate": {
-      "name": "isolate",
+    "isolate_id": {
+      "name": "isolate_id",
       "description": "Identifier of the specific isolate.",
       "title": "isolate",
       "comments": [
@@ -7946,8 +7946,16 @@
     },
     "raw_sequence_data_processing_method": {
       "name": "raw_sequence_data_processing_method",
-      "description": "#REF!",
+      "description": "The method used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
       "title": "raw sequence data processing method",
+      "comments": [
+        "Provide the name and version numbers of the software used to process the raw data."
+      ],
+      "examples": [
+        {
+          "value": "Porechop 0.2.3"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "NCBI_SRA:raw_sequence_data_processing_method"
@@ -7961,7 +7969,16 @@
     },
     "dehosting_method": {
       "name": "dehosting_method",
+      "description": "The method used to remove host reads from the pathogen sequence.",
       "title": "dehosting method",
+      "comments": [
+        "Provide the name and version number of the software used to remove host reads."
+      ],
+      "examples": [
+        {
+          "value": "Nanostripper 1.2.3"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "NCBI_SRA:dehosting_method"
@@ -7975,7 +7992,16 @@
     },
     "consensus_sequence_name": {
       "name": "consensus_sequence_name",
+      "description": "The name of the consensus sequence.",
       "title": "consensus sequence name",
+      "comments": [
+        "Provide the name and version number of the consensus sequence."
+      ],
+      "examples": [
+        {
+          "value": "ncov123assembly3"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001460",
       "domain_of": [
@@ -7985,7 +8011,16 @@
     },
     "consensus_sequence_filename": {
       "name": "consensus_sequence_filename",
+      "description": "The name of the consensus sequence file.",
       "title": "consensus sequence filename",
+      "comments": [
+        "Provide the name and version number of the consensus sequence FASTA file."
+      ],
+      "examples": [
+        {
+          "value": "ncov123assembly.fasta"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "NCBI_Genbank:filename"
@@ -8000,6 +8035,14 @@
       "name": "consensus_sequence_filepath",
       "description": "The filepath of the consensus sequence file.",
       "title": "consensus sequence filepath",
+      "comments": [
+        "Provide the filepath of the consensus sequence FASTA file."
+      ],
+      "examples": [
+        {
+          "value": "/User/Documents/RespLab/Data/ncov123assembly.fasta"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001462",
       "domain_of": [
@@ -8009,7 +8052,16 @@
     },
     "consensus_sequence_software_name": {
       "name": "consensus_sequence_software_name",
+      "description": "The name of software used to generate the consensus sequence.",
       "title": "consensus sequence software name",
+      "comments": [
+        "Provide the name of the software used to generate the consensus sequence."
+      ],
+      "examples": [
+        {
+          "value": "Ivar"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "GISAID:Assembly%20method",
@@ -8024,7 +8076,16 @@
     },
     "consensus_sequence_software_version": {
       "name": "consensus_sequence_software_version",
+      "description": "The version of the software used to generate the consensus sequence.",
       "title": "consensus sequence software version",
+      "comments": [
+        "Provide the version of the software used to generate the consensus sequence."
+      ],
+      "examples": [
+        {
+          "value": "1.3"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "GISAID:Assembly%20method",
@@ -8039,7 +8100,16 @@
     },
     "breadth_of_coverage_value": {
       "name": "breadth_of_coverage_value",
+      "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
       "title": "breadth of coverage value",
+      "comments": [
+        "Provide value as a percent."
+      ],
+      "examples": [
+        {
+          "value": "95%"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001472",
       "domain_of": [
@@ -8049,7 +8119,16 @@
     },
     "depth_of_coverage_value": {
       "name": "depth_of_coverage_value",
+      "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
       "title": "depth of coverage value",
+      "comments": [
+        "Provide value as a fold of coverage."
+      ],
+      "examples": [
+        {
+          "value": "400x"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "GISAID:Depth%20of%20coverage",
@@ -8063,7 +8142,16 @@
     },
     "depth_of_coverage_threshold": {
       "name": "depth_of_coverage_threshold",
+      "description": "The threshold used as a cut-off for the depth of coverage.",
       "title": "depth of coverage threshold",
+      "comments": [
+        "Provide the threshold fold coverage."
+      ],
+      "examples": [
+        {
+          "value": "100x"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001475",
       "domain_of": [
@@ -8073,7 +8161,16 @@
     },
     "r1_fastq_filename": {
       "name": "r1_fastq_filename",
+      "description": "The user-specified filename of the r1 FASTQ file.",
       "title": "r1 fastq filename",
+      "comments": [
+        "Provide the r1 FASTQ filename."
+      ],
+      "examples": [
+        {
+          "value": "ABC123_S1_L001_R1_001.fastq.gz"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001476",
       "domain_of": [
@@ -8083,7 +8180,16 @@
     },
     "r2_fastq_filename": {
       "name": "r2_fastq_filename",
+      "description": "The user-specified filename of the r2 FASTQ file.",
       "title": "r2 fastq filename",
+      "comments": [
+        "Provide the r2 FASTQ filename."
+      ],
+      "examples": [
+        {
+          "value": "ABC123_S1_L001_R2_001.fastq.gz"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001477",
       "domain_of": [
@@ -8093,7 +8199,16 @@
     },
     "r1_fastq_filepath": {
       "name": "r1_fastq_filepath",
+      "description": "The filepath of the r1 FASTQ file.",
       "title": "r1 fastq filepath",
+      "comments": [
+        "Provide the filepath of the r1 FASTQ file."
+      ],
+      "examples": [
+        {
+          "value": "/User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001478",
       "domain_of": [
@@ -8103,7 +8218,16 @@
     },
     "r2_fastq_filepath": {
       "name": "r2_fastq_filepath",
+      "description": "The filepath of the r2 FASTQ file.",
       "title": "r2 fastq filepath",
+      "comments": [
+        "Provide the filepath of the r2 FASTQ file."
+      ],
+      "examples": [
+        {
+          "value": "/User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001479",
       "domain_of": [
@@ -8113,7 +8237,16 @@
     },
     "fast5_filename": {
       "name": "fast5_filename",
+      "description": "The user-specified filename of the FAST5 file.",
       "title": "fast5 filename",
+      "comments": [
+        "Provide the FAST5 filename."
+      ],
+      "examples": [
+        {
+          "value": "batch1a_sequences.fast5"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001480",
       "domain_of": [
@@ -8123,7 +8256,16 @@
     },
     "fast5_filepath": {
       "name": "fast5_filepath",
+      "description": "The filepath of the FAST5 file.",
       "title": "fast5 filepath",
+      "comments": [
+        "Provide the filepath of the FAST5 file."
+      ],
+      "examples": [
+        {
+          "value": "/User/Documents/RespLab/Data/batch1a_sequences.fast5"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001481",
       "domain_of": [
@@ -8133,7 +8275,16 @@
     },
     "number_of_base_pairs_sequenced": {
       "name": "number_of_base_pairs_sequenced",
+      "description": "The number of total base pairs generated by the sequencing process.",
       "title": "number of base pairs sequenced",
+      "comments": [
+        "Provide a numerical value (no need to include units)."
+      ],
+      "examples": [
+        {
+          "value": "387566"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001482",
       "domain_of": [
@@ -8144,7 +8295,16 @@
     },
     "consensus_genome_length": {
       "name": "consensus_genome_length",
+      "description": "Size of the assembled genome described as the number of base pairs.",
       "title": "consensus genome length",
+      "comments": [
+        "Provide a numerical value (no need to include units)."
+      ],
+      "examples": [
+        {
+          "value": "38677"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001483",
       "domain_of": [
@@ -8155,7 +8315,16 @@
     },
     "ns_per_100_kbp": {
       "name": "ns_per_100_kbp",
+      "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
       "title": "Ns per 100 kbp",
+      "comments": [
+        "Provide a numerical value (no need to include units)."
+      ],
+      "examples": [
+        {
+          "value": "300"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001484",
       "domain_of": [
@@ -8165,7 +8334,16 @@
     },
     "reference_genome_accession": {
       "name": "reference_genome_accession",
+      "description": "A persistent, unique identifier of a genome database entry.",
       "title": "reference genome accession",
+      "comments": [
+        "Provide the accession number of the reference genome."
+      ],
+      "examples": [
+        {
+          "value": "NC_045512.2"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
         "NCBI_Genbank:reference_genome"
@@ -8178,7 +8356,16 @@
     },
     "bioinformatics_protocol": {
       "name": "bioinformatics_protocol",
+      "description": "The name and version number of the bioinformatics protocol used.",
       "title": "bioinformatics protocol",
+      "comments": [
+        "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol, or a link if deposited in a protocol repository."
+      ],
+      "examples": [
+        {
+          "value": "https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members"
+        }
+      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001489",
       "domain_of": [
@@ -8192,11 +8379,6 @@
       "title": "lineage/clade name",
       "comments": [
         "Provide the Pangolin or Nextstrain lineage/clade name."
-      ],
-      "examples": [
-        {
-          "value": "B.1.1.7"
-        }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001500",
@@ -8212,11 +8394,6 @@
       "comments": [
         "Provide the name of the software used to determine the lineage/clade."
       ],
-      "examples": [
-        {
-          "value": "Pangolin"
-        }
-      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001501",
       "domain_of": [
@@ -8231,11 +8408,6 @@
       "comments": [
         "Provide the version of the software used ot determine the lineage/clade."
       ],
-      "examples": [
-        {
-          "value": "2.1.10"
-        }
-      ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001502",
       "domain_of": [
@@ -8249,11 +8421,6 @@
       "title": "variant designation",
       "comments": [
         "If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank."
-      ],
-      "examples": [
-        {
-          "value": "Variant of Concern (VOC) [GENEPIO:0100083]"
-        }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001503",
@@ -8275,11 +8442,6 @@
       "title": "variant evidence details",
       "comments": [
         "List the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here."
-      ],
-      "examples": [
-        {
-          "value": "RT-qPCR TaqPath assay: S gene target failure"
-        }
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "slot_uri": "GENEPIO:0001505",
@@ -8747,8 +8909,8 @@
           "rank": 24,
           "slot_group": "Sample collection and processing"
         },
-        "isolate": {
-          "name": "isolate",
+        "isolate_id": {
+          "name": "isolate_id",
           "rank": 25,
           "slot_group": "Sample collection and processing"
         },
@@ -10081,8 +10243,8 @@
             }
           ]
         },
-        "isolate": {
-          "name": "isolate",
+        "isolate_id": {
+          "name": "isolate_id",
           "description": "Identifier of the specific isolate.",
           "title": "isolate",
           "comments": [
@@ -10100,7 +10262,7 @@
           ],
           "rank": 25,
           "slot_uri": "GENEPIO:0001644",
-          "alias": "isolate",
+          "alias": "isolate_id",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -12425,8 +12587,16 @@
         },
         "raw_sequence_data_processing_method": {
           "name": "raw_sequence_data_processing_method",
-          "description": "#REF!",
+          "description": "The method used for raw data processing such as removing barcodes, adapter trimming, filtering etc.",
           "title": "raw sequence data processing method",
+          "comments": [
+            "Provide the name and version numbers of the software used to process the raw data."
+          ],
+          "examples": [
+            {
+              "value": "Porechop 0.2.3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "exact_mappings": [
             "NCBI_SRA:raw_sequence_data_processing_method"
@@ -12444,7 +12614,16 @@
         },
         "dehosting_method": {
           "name": "dehosting_method",
+          "description": "The method used to remove host reads from the pathogen sequence.",
           "title": "dehosting method",
+          "comments": [
+            "Provide the name and version number of the software used to remove host reads."
+          ],
+          "examples": [
+            {
+              "value": "Nanostripper 1.2.3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "exact_mappings": [
             "NCBI_SRA:dehosting_method"
@@ -12462,7 +12641,16 @@
         },
         "consensus_sequence_name": {
           "name": "consensus_sequence_name",
+          "description": "The name of the consensus sequence.",
           "title": "consensus sequence name",
+          "comments": [
+            "Provide the name and version number of the consensus sequence."
+          ],
+          "examples": [
+            {
+              "value": "ncov123assembly3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 107,
           "slot_uri": "GENEPIO:0001460",
@@ -12476,7 +12664,16 @@
         },
         "consensus_sequence_filename": {
           "name": "consensus_sequence_filename",
+          "description": "The name of the consensus sequence file.",
           "title": "consensus sequence filename",
+          "comments": [
+            "Provide the name and version number of the consensus sequence FASTA file."
+          ],
+          "examples": [
+            {
+              "value": "ncov123assembly.fasta"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "exact_mappings": [
             "NCBI_Genbank:filename"
@@ -12495,6 +12692,14 @@
           "name": "consensus_sequence_filepath",
           "description": "The filepath of the consensus sequence file.",
           "title": "consensus sequence filepath",
+          "comments": [
+            "Provide the filepath of the consensus sequence FASTA file."
+          ],
+          "examples": [
+            {
+              "value": "/User/Documents/RespLab/Data/ncov123assembly.fasta"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 109,
           "slot_uri": "GENEPIO:0001462",
@@ -12508,7 +12713,16 @@
         },
         "consensus_sequence_software_name": {
           "name": "consensus_sequence_software_name",
+          "description": "The name of software used to generate the consensus sequence.",
           "title": "consensus sequence software name",
+          "comments": [
+            "Provide the name of the software used to generate the consensus sequence."
+          ],
+          "examples": [
+            {
+              "value": "Ivar"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "exact_mappings": [
             "GISAID:Assembly%20method",
@@ -12527,7 +12741,16 @@
         },
         "consensus_sequence_software_version": {
           "name": "consensus_sequence_software_version",
+          "description": "The version of the software used to generate the consensus sequence.",
           "title": "consensus sequence software version",
+          "comments": [
+            "Provide the version of the software used to generate the consensus sequence."
+          ],
+          "examples": [
+            {
+              "value": "1.3"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "exact_mappings": [
             "GISAID:Assembly%20method",
@@ -12546,7 +12769,16 @@
         },
         "breadth_of_coverage_value": {
           "name": "breadth_of_coverage_value",
+          "description": "The percentage of the reference genome covered by the sequenced data, to a prescribed depth.",
           "title": "breadth of coverage value",
+          "comments": [
+            "Provide value as a percent."
+          ],
+          "examples": [
+            {
+              "value": "95%"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 112,
           "slot_uri": "GENEPIO:0001472",
@@ -12560,7 +12792,16 @@
         },
         "depth_of_coverage_value": {
           "name": "depth_of_coverage_value",
+          "description": "The average number of reads representing a given nucleotide in the reconstructed sequence.",
           "title": "depth of coverage value",
+          "comments": [
+            "Provide value as a fold of coverage."
+          ],
+          "examples": [
+            {
+              "value": "400x"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "exact_mappings": [
             "GISAID:Depth%20of%20coverage",
@@ -12578,7 +12819,16 @@
         },
         "depth_of_coverage_threshold": {
           "name": "depth_of_coverage_threshold",
+          "description": "The threshold used as a cut-off for the depth of coverage.",
           "title": "depth of coverage threshold",
+          "comments": [
+            "Provide the threshold fold coverage."
+          ],
+          "examples": [
+            {
+              "value": "100x"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 114,
           "slot_uri": "GENEPIO:0001475",
@@ -12592,7 +12842,16 @@
         },
         "r1_fastq_filename": {
           "name": "r1_fastq_filename",
+          "description": "The user-specified filename of the r1 FASTQ file.",
           "title": "r1 fastq filename",
+          "comments": [
+            "Provide the r1 FASTQ filename."
+          ],
+          "examples": [
+            {
+              "value": "ABC123_S1_L001_R1_001.fastq.gz"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 115,
           "slot_uri": "GENEPIO:0001476",
@@ -12606,7 +12865,16 @@
         },
         "r2_fastq_filename": {
           "name": "r2_fastq_filename",
+          "description": "The user-specified filename of the r2 FASTQ file.",
           "title": "r2 fastq filename",
+          "comments": [
+            "Provide the r2 FASTQ filename."
+          ],
+          "examples": [
+            {
+              "value": "ABC123_S1_L001_R2_001.fastq.gz"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 116,
           "slot_uri": "GENEPIO:0001477",
@@ -12620,7 +12888,16 @@
         },
         "r1_fastq_filepath": {
           "name": "r1_fastq_filepath",
+          "description": "The filepath of the r1 FASTQ file.",
           "title": "r1 fastq filepath",
+          "comments": [
+            "Provide the filepath of the r1 FASTQ file."
+          ],
+          "examples": [
+            {
+              "value": "/User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 117,
           "slot_uri": "GENEPIO:0001478",
@@ -12634,7 +12911,16 @@
         },
         "r2_fastq_filepath": {
           "name": "r2_fastq_filepath",
+          "description": "The filepath of the r2 FASTQ file.",
           "title": "r2 fastq filepath",
+          "comments": [
+            "Provide the filepath of the r2 FASTQ file."
+          ],
+          "examples": [
+            {
+              "value": "/User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 118,
           "slot_uri": "GENEPIO:0001479",
@@ -12648,7 +12934,16 @@
         },
         "fast5_filename": {
           "name": "fast5_filename",
+          "description": "The user-specified filename of the FAST5 file.",
           "title": "fast5 filename",
+          "comments": [
+            "Provide the FAST5 filename."
+          ],
+          "examples": [
+            {
+              "value": "batch1a_sequences.fast5"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 119,
           "slot_uri": "GENEPIO:0001480",
@@ -12662,7 +12957,16 @@
         },
         "fast5_filepath": {
           "name": "fast5_filepath",
+          "description": "The filepath of the FAST5 file.",
           "title": "fast5 filepath",
+          "comments": [
+            "Provide the filepath of the FAST5 file."
+          ],
+          "examples": [
+            {
+              "value": "/User/Documents/RespLab/Data/batch1a_sequences.fast5"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 120,
           "slot_uri": "GENEPIO:0001481",
@@ -12676,7 +12980,16 @@
         },
         "number_of_base_pairs_sequenced": {
           "name": "number_of_base_pairs_sequenced",
+          "description": "The number of total base pairs generated by the sequencing process.",
           "title": "number of base pairs sequenced",
+          "comments": [
+            "Provide a numerical value (no need to include units)."
+          ],
+          "examples": [
+            {
+              "value": "387566"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 121,
           "slot_uri": "GENEPIO:0001482",
@@ -12691,7 +13004,16 @@
         },
         "consensus_genome_length": {
           "name": "consensus_genome_length",
+          "description": "Size of the assembled genome described as the number of base pairs.",
           "title": "consensus genome length",
+          "comments": [
+            "Provide a numerical value (no need to include units)."
+          ],
+          "examples": [
+            {
+              "value": "38677"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 122,
           "slot_uri": "GENEPIO:0001483",
@@ -12706,7 +13028,16 @@
         },
         "ns_per_100_kbp": {
           "name": "ns_per_100_kbp",
+          "description": "The number of N symbols present in the consensus fasta sequence, per 100kbp of sequence.",
           "title": "Ns per 100 kbp",
+          "comments": [
+            "Provide a numerical value (no need to include units)."
+          ],
+          "examples": [
+            {
+              "value": "300"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 123,
           "slot_uri": "GENEPIO:0001484",
@@ -12720,7 +13051,16 @@
         },
         "reference_genome_accession": {
           "name": "reference_genome_accession",
+          "description": "A persistent, unique identifier of a genome database entry.",
           "title": "reference genome accession",
+          "comments": [
+            "Provide the accession number of the reference genome."
+          ],
+          "examples": [
+            {
+              "value": "NC_045512.2"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "exact_mappings": [
             "NCBI_Genbank:reference_genome"
@@ -12737,7 +13077,16 @@
         },
         "bioinformatics_protocol": {
           "name": "bioinformatics_protocol",
+          "description": "The name and version number of the bioinformatics protocol used.",
           "title": "bioinformatics protocol",
+          "comments": [
+            "Further details regarding the methods used to process raw data, and/or generate assemblies, and/or generate consensus sequences can be provided in an SOP or protocol. Provide the name and version number of the protocol, or a link if deposited in a protocol repository."
+          ],
+          "examples": [
+            {
+              "value": "https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members"
+            }
+          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 125,
           "slot_uri": "GENEPIO:0001489",
@@ -12755,11 +13104,6 @@
           "title": "lineage/clade name",
           "comments": [
             "Provide the Pangolin or Nextstrain lineage/clade name."
-          ],
-          "examples": [
-            {
-              "value": "B.1.1.7"
-            }
           ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 126,
@@ -12779,11 +13123,6 @@
           "comments": [
             "Provide the name of the software used to determine the lineage/clade."
           ],
-          "examples": [
-            {
-              "value": "Pangolin"
-            }
-          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 127,
           "slot_uri": "GENEPIO:0001501",
@@ -12802,11 +13141,6 @@
           "comments": [
             "Provide the version of the software used ot determine the lineage/clade."
           ],
-          "examples": [
-            {
-              "value": "2.1.10"
-            }
-          ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 128,
           "slot_uri": "GENEPIO:0001502",
@@ -12824,11 +13158,6 @@
           "title": "variant designation",
           "comments": [
             "If the lineage/clade is considered a Variant of Concern, select Variant of Concern from the pick list. If the lineage/clade contains mutations of concern (mutations that increase transmission, clincal severity, or other epidemiological fa ctors) but it not a global Variant of Concern, select Variant. If the lineage/clade does not contain mutations of concern, leave blank."
-          ],
-          "examples": [
-            {
-              "value": "Variant of Concern (VOC) [GENEPIO:0100083]"
-            }
           ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 129,
@@ -12854,11 +13183,6 @@
           "title": "variant evidence details",
           "comments": [
             "List the set of lineage-defining mutations used to make the variant determination. If there are mutations of interest/concern observed in addition to lineage-defining mutations, describe those here."
-          ],
-          "examples": [
-            {
-              "value": "RT-qPCR TaqPath assay: S gene target failure"
-            }
           ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 130,

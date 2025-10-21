@@ -192,7 +192,7 @@ classes:
     - total_phosphorus_tp_measurement_value
     - total_phosphorus_tp_measurement_unit
     - total_phosphorus_tp_measurement_method
-    - fecal_contamination_indicator_
+    - fecal_contamination_indicator
     - fecal_contamination_value
     - fecal_contamination_unit
     - fecal_contamination_method
@@ -260,7 +260,7 @@ classes:
     - percent_ns_across_total_genome_length
     - ns_per_100_kbp
     - n50
-    - percent_read_contamination_
+    - percent_read_contamination
     - sequence_assembly_length
     - consensus_genome_length
     - reference_genome_accession
@@ -790,7 +790,7 @@ classes:
       total_phosphorus_tp_measurement_method:
         rank: 167
         slot_group: Environmental conditions and measurements
-      fecal_contamination_indicator_:
+      fecal_contamination_indicator:
         rank: 168
         slot_group: Environmental conditions and measurements
       fecal_contamination_value:
@@ -994,7 +994,7 @@ classes:
       n50:
         rank: 235
         slot_group: Bioinformatics and QC metrics
-      percent_read_contamination_:
+      percent_read_contamination:
         rank: 236
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
@@ -1196,7 +1196,7 @@ classes:
     - percent_ns_across_total_genome_length
     - ns_per_100_kbp
     - n50
-    - percent_read_contamination_
+    - percent_read_contamination
     - sequence_assembly_length
     - consensus_genome_length
     - reference_genome_accession
@@ -1552,7 +1552,7 @@ classes:
       n50:
         rank: 109
         slot_group: Bioinformatics and QC metrics
-      percent_read_contamination_:
+      percent_read_contamination:
         rank: 110
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
@@ -1769,7 +1769,7 @@ classes:
     - total_phosphorus_tp_measurement_value
     - total_phosphorus_tp_measurement_unit
     - total_phosphorus_tp_measurement_method
-    - fecal_contamination_indicator_
+    - fecal_contamination_indicator
     - fecal_contamination_value
     - fecal_contamination_unit
     - fecal_contamination_method
@@ -1837,7 +1837,7 @@ classes:
     - percent_ns_across_total_genome_length
     - ns_per_100_kbp
     - n50
-    - percent_read_contamination_
+    - percent_read_contamination
     - sequence_assembly_length
     - consensus_genome_length
     - reference_genome_accession
@@ -2238,7 +2238,7 @@ classes:
       total_phosphorus_tp_measurement_method:
         rank: 124
         slot_group: Environmental conditions and measurements
-      fecal_contamination_indicator_:
+      fecal_contamination_indicator:
         rank: 125
         slot_group: Environmental conditions and measurements
       fecal_contamination_value:
@@ -2442,7 +2442,7 @@ classes:
       n50:
         rank: 192
         slot_group: Bioinformatics and QC metrics
-      percent_read_contamination_:
+      percent_read_contamination:
         rank: 193
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
@@ -2660,7 +2660,7 @@ classes:
     - total_phosphorus_tp_measurement_value
     - total_phosphorus_tp_measurement_unit
     - total_phosphorus_tp_measurement_method
-    - fecal_contamination_indicator_
+    - fecal_contamination_indicator
     - fecal_contamination_value
     - fecal_contamination_unit
     - fecal_contamination_method
@@ -2728,7 +2728,7 @@ classes:
     - percent_ns_across_total_genome_length
     - ns_per_100_kbp
     - n50
-    - percent_read_contamination_
+    - percent_read_contamination
     - sequence_assembly_length
     - consensus_genome_length
     - reference_genome_accession
@@ -3129,7 +3129,7 @@ classes:
       total_phosphorus_tp_measurement_method:
         rank: 124
         slot_group: Environmental conditions and measurements
-      fecal_contamination_indicator_:
+      fecal_contamination_indicator:
         rank: 125
         slot_group: Environmental conditions and measurements
       fecal_contamination_value:
@@ -3333,7 +3333,7 @@ classes:
       n50:
         rank: 192
         slot_group: Bioinformatics and QC metrics
-      percent_read_contamination_:
+      percent_read_contamination:
         rank: 193
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
@@ -3564,7 +3564,7 @@ classes:
     - percent_ns_across_total_genome_length
     - ns_per_100_kbp
     - n50
-    - percent_read_contamination_
+    - percent_read_contamination
     - sequence_assembly_length
     - consensus_genome_length
     - reference_genome_accession
@@ -4007,7 +4007,7 @@ classes:
       n50:
         rank: 138
         slot_group: Bioinformatics and QC metrics
-      percent_read_contamination_:
+      percent_read_contamination:
         rank: 139
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
@@ -4104,8 +4104,8 @@ slots:
       your lab.
     slot_uri: GENEPIO:0001123
     identifier: true
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: ASDFG123
     exact_mappings:
@@ -4142,8 +4142,8 @@ slots:
       site, regardless of when these samples were taken. Any important changes in
       site location, should be represented with a new site ID.
     slot_uri: GENEPIO:0100760
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Site 12A
   sampling_event_id:
@@ -4155,8 +4155,8 @@ slots:
       For example, an event could be one person taking samples from multiple sites,
       or multiple people taking samples from one site.
     slot_uri: GENEPIO:0100761
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Event 120522.1
   bioproject_accession:
@@ -4189,8 +4189,8 @@ slots:
     comments: Store the accession returned from the BioSample submission. NCBI BioSamples
       will have the prefix SAMN, ENA have the prefix SAMEA, DDBJ have SAMD
     slot_uri: GENEPIO:0001139
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     pattern: '{UPPER_CASE}'
     structured_pattern:
       syntax: '{UPPER_CASE}'
@@ -4263,10 +4263,10 @@ slots:
     comments: The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions.
     slot_uri: GENEPIO:0001153
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Public Health Agency of Canada
     exact_mappings:
@@ -4289,10 +4289,10 @@ slots:
     description: The country of origin of the sample.
     comments: If known, select a value from the pick list.
     slot_uri: GENEPIO:0001181
+    required: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Canada
     exact_mappings:
@@ -4304,10 +4304,10 @@ slots:
     comments: 'Provide the state/province/territory name from the GAZ geography ontology.
       Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/ga'
     slot_uri: GENEPIO:0001185
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Western Cape
     exact_mappings:
@@ -4380,11 +4380,11 @@ slots:
       sample. Multiple organisms can be entered, separated by semicolons. Avoid abbreviations.
       Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
     slot_uri: GENEPIO:0001191
+    multivalued: true
+    required: true
     any_of:
     - range: OrganismMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Vibrio cholerae
     exact_mappings:
@@ -4393,9 +4393,9 @@ slots:
     name: influenza_subtype
     title: influenza_subtype
     slot_uri: GENEPIO:0101108
-    range: InfluenzaSubtypeMenu
     multivalued: true
     required: true
+    range: InfluenzaSubtypeMenu
   influenza_subtyping_scheme_name:
     name: influenza_subtyping_scheme_name
     title: influenza_subtyping_scheme_name
@@ -4426,12 +4426,12 @@ slots:
       types of analyses. Required granularity includes year, month and day. The date
       should be provided in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0001174
+    required: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - <={today}
-    required: true
     examples:
     - value: '2020-03-16'
     exact_mappings:
@@ -4443,13 +4443,13 @@ slots:
     comments: Provide the date that sample collection ended in ISO 8601 format i.e.
       YYYY-MM-DD
     slot_uri: GENEPIO:0101071
+    recommended: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - '>={sample_collection_date}'
     - <={today}
-    recommended: true
     examples:
     - value: '2020-03-18'
   sample_collection_start_time:
@@ -4458,10 +4458,10 @@ slots:
     description: The time at which sample collection began.
     comments: Provide this time in ISO 8601 24hr format, in your local time.
     slot_uri: GENEPIO:0101072
+    recommended: true
     any_of:
     - range: time
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: 17:15 PST
   sample_collection_end_time:
@@ -4470,10 +4470,10 @@ slots:
     description: The time at which sample collection ended.
     comments: Provide this time in ISO 8601 24hr format, in your local time.
     slot_uri: GENEPIO:0101073
+    recommended: true
     any_of:
     - range: time
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: 19:15 PST
   sample_collection_time_of_day:
@@ -4495,10 +4495,10 @@ slots:
     description: The amount of time over which the sample was collected.
     comments: Provide the numerical value of time.
     slot_uri: GENEPIO:0100766
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: '4'
   sample_collection_time_duration_unit:
@@ -4507,10 +4507,10 @@ slots:
     description: The units of the time duration measurement of sample collection.
     comments: Provide the units from the pick list.
     slot_uri: GENEPIO:0100767
+    recommended: true
     any_of:
     - range: SampleCollectionDurationUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Hour
   sample_received_date:
@@ -4579,11 +4579,11 @@ slots:
       term and ontology ID for the anatomical material from the picklist provided.
       Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0100444
+    multivalued: true
+    required: true
     any_of:
     - range: FoodProductMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Feather meal [FOODON:00003927]
     - value: Bone meal [ENVO:02000054]
@@ -4603,11 +4603,11 @@ slots:
       (e.g. raw, ready-to-eat), any known information about its containment (e.g.
       canned), and any information about a label claim (e.g. organic, fat-free).
     slot_uri: GENEPIO:0100445
+    multivalued: true
+    recommended: true
     any_of:
     - range: FoodProductPropertiesMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Food (chopped) [FOODON:00002777]
     - value: Ready-to-eat (RTE) [FOODON:03316636]
@@ -4621,11 +4621,11 @@ slots:
     description: The type of packaging used to contain a food product.
     comments: If known, provide information regarding how the food product was packaged.
     slot_uri: GENEPIO:0100447
+    multivalued: true
+    recommended: true
     any_of:
     - range: FoodPackagingMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Plastic tray or pan [FOODON:03490126]
     exact_mappings:
@@ -4671,11 +4671,11 @@ slots:
       environmental site from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     slot_uri: GENEPIO:0001232
+    multivalued: true
+    recommended: true
     any_of:
     - range: EnvironmentalSiteMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Poultry hatchery [ENVO:01001874]
     exact_mappings:
@@ -4692,11 +4692,11 @@ slots:
       environmental material from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     slot_uri: GENEPIO:0001223
+    multivalued: true
+    recommended: true
     any_of:
     - range: EnvironmentalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Soil [ENVO:00001998]
     - value: Water [CHEBI:15377]
@@ -4715,11 +4715,11 @@ slots:
       select the standardized term and ontology ID for the anatomical material from
       the picklist provided. Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001211
+    multivalued: true
+    recommended: true
     any_of:
     - range: AnatomicalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Tissue [UBERON:0000479]
     - value: Blood [UBERON:0000178]
@@ -4738,11 +4738,11 @@ slots:
       ontology ID for the body product from the picklist provided. Multiple values
       can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001216
+    multivalued: true
+    recommended: true
     any_of:
     - range: BodyProductMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Feces [UBERON:0001988]
     - value: Urine [UBERON:0001088]
@@ -4759,11 +4759,11 @@ slots:
       select the standardized term and ontology ID for the anatomical material from
       the picklist provided. Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001214
+    multivalued: true
+    recommended: true
     any_of:
     - range: AnatomicalPartMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Snout [UBERON:0006333]
     exact_mappings:
@@ -4778,10 +4778,10 @@ slots:
       term and ontology ID for the anatomical material from the picklist provided.
       Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001234
+    recommended: true
     any_of:
     - range: CollectionDeviceMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Drag swab [OBI:0002822]
     exact_mappings:
@@ -4797,10 +4797,10 @@ slots:
       anatomical material from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     slot_uri: GENEPIO:0001241
+    recommended: true
     any_of:
     - range: CollectionMethodMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Rinsing for specimen collection [GENEPIO_0002116]
     exact_mappings:
@@ -4848,11 +4848,11 @@ slots:
       why it was selected for sequencing, which should be indicated in the "purpose
       of sequencing" field.
     slot_uri: GENEPIO:0001198
+    multivalued: true
+    required: true
     any_of:
     - range: PurposeOfSamplingMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Public health surveillance
     exact_mappings:
@@ -4867,10 +4867,10 @@ slots:
       one or more values from the template pick list. If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100433
+    multivalued: true
     any_of:
     - range: PresamplingActivityMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Agricultural activity
   presampling_activity_details:
@@ -4937,10 +4937,10 @@ slots:
       sample.
     comments: Select processes from the picklist that were applied to this sample.
     slot_uri: GENEPIO:0001253
+    multivalued: true
     any_of:
     - range: SpecimenProcessingMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Centrifugation
   specimen_processing_details:
@@ -4974,10 +4974,10 @@ slots:
       or a replicate, select a role type from the picklist. If the sample was not
       a control, leave blank or select "Not Applicable".
     slot_uri: GENEPIO:0100921
+    multivalued: true
     any_of:
     - range: ExperimentalSpecimenRoleTypeMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Positive experimental control
   experimental_specimen_details:
@@ -4996,10 +4996,10 @@ slots:
       Additional data types may require special permission to access. Contact the
       data provider for more information.
     slot_uri: GENEPIO:0100690
+    multivalued: true
     any_of:
     - range: AvailableDataTypesMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Total coliform count [GENEPIO:0100729]
   available_data_type_details:
@@ -5021,10 +5021,10 @@ slots:
       name must be provided (although both can be included, if known).  If known,
       provide the common name.
     slot_uri: GENEPIO:0001386
+    recommended: true
     any_of:
     - range: HostCommonNameMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Cow [NCBITaxon:9913]
     - value: Chicken [NCBITaxon:9913], Human [NCBITaxon:9606]
@@ -5038,10 +5038,10 @@ slots:
       name must be provided (although both can be included, if known).  If known,
       select the scientific name from the picklist provided.
     slot_uri: GENEPIO:0001387
+    recommended: true
     any_of:
     - range: HostScientificNameMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Bos taurus [NCBITaxon:9913]
     - value: Homo sapiens [NCBITaxon:9103]
@@ -5096,11 +5096,11 @@ slots:
     description: Age of host at the time of sampling.
     comments: If known, provide age. Age-binning is also acceptable.
     slot_uri: GENEPIO:0001392
+    required: true
     any_of:
     - range: decimal
     - range: NullValueMenu
     maximum_value: 130
-    required: true
     examples:
     - value: '79'
     exact_mappings:
@@ -5113,10 +5113,10 @@ slots:
     comments: If known, provide the age units used to measure the host's age from
       the pick list.
     slot_uri: GENEPIO:0001393
+    required: true
     any_of:
     - range: HostAgeUnitMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: year [UO:0000036]
   host_age_bin:
@@ -5232,10 +5232,10 @@ slots:
       appearance) indicative of a disease, reported by a patient.
     comments: Select all of the symptoms experienced by the host from the pick list.
     slot_uri: GENEPIO:0001400
+    recommended: true
     any_of:
     - range: SignsAndSymptomsMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Cough [HP:0012735], Fever [HP:0001945],  Rigors (fever shakes) [HP:0025145]
   preexisting_conditions_and_risk_factors:
@@ -5251,10 +5251,10 @@ slots:
       by the host from the pick list. If the desired term is missing, contact the
       curation team.
     slot_uri: GENEPIO:0001401
+    recommended: true
     any_of:
     - range: PreexistingConditionsAndRiskFactorsMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Asthma [HP:0002099]
   complications:
@@ -5265,10 +5265,10 @@ slots:
     comments: Select all of the complications experienced by the host from the pick
       list.
     slot_uri: GENEPIO:0001402
+    recommended: true
     any_of:
     - range: ComplicationsMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Acute respiratory failure [MONDO:0001208]
   exposure_event:
@@ -5307,8 +5307,8 @@ slots:
     comments: Select the host's personal role(s) from the pick list provided in the
       template. If the desired term is missing, contact the curation team.
     slot_uri: GENEPIO:0001419
-    range: HostRoleMenu
     multivalued: true
+    range: HostRoleMenu
     examples:
     - value: Inpatient
     exact_mappings:
@@ -5320,8 +5320,8 @@ slots:
     comments: Select the host exposure setting(s) from the pick list provided in the
       template. If a desired term is missing, contact the curation team.
     slot_uri: GENEPIO:0001428
-    range: ExposureSettingMenu
     multivalued: true
+    range: ExposureSettingMenu
     examples:
     - value: Healthcare Setting
     exact_mappings:
@@ -5461,10 +5461,10 @@ slots:
     comments: Where known, provide the numerical value of population size, i.e. the
       number of people.
     slot_uri: GENEPIO:0100773
+    recommended: true
     any_of:
     - range: integer
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: 10,500
   water_catchment_area_human_population_range:
@@ -5532,10 +5532,10 @@ slots:
       dryness, sunshine, wind, rain, etc.
     comments: Provide the weather conditions at the time of sample collection.
     slot_uri: GENEPIO:0100779
+    multivalued: true
     any_of:
     - range: SamplingWeatherConditionsMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Rain
   presampling_weather_conditions:
@@ -5544,10 +5544,10 @@ slots:
     description: Weather conditions prior to collection that may affect the sample.
     comments: Provide the weather conditions prior to sample collection.
     slot_uri: GENEPIO:0100780
+    multivalued: true
     any_of:
     - range: PresamplingWeatherConditionsMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Drizzle
   water_depth:
@@ -5639,10 +5639,10 @@ slots:
     comments: Provide the quantity of precipitation in the area leading up to the
       time of sample collection.
     slot_uri: GENEPIO:0100911
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: '12'
   precipitation_measurement_unit:
@@ -5653,10 +5653,10 @@ slots:
     comments: Provide the units of precipitation by selecting a value from the pick
       list.
     slot_uri: GENEPIO:0100912
+    recommended: true
     any_of:
     - range: PrecipitationMeasurementUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: inch
   precipitation_measurement_method:
@@ -5777,8 +5777,8 @@ slots:
     description: The numerical value of a measurement of turbidity.
     comments: Provide the numerical value of the measured turbidity.
     slot_uri: GENEPIO:0100783
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: '0.02'
   turbidity_measurement_unit:
@@ -5788,10 +5788,10 @@ slots:
     comments: Provide the units of the measured turbidity by selecting a value from
       the pick list.
     slot_uri: GENEPIO:0100914
+    recommended: true
     any_of:
     - range: TurbidityMeasurementUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: nephelometric turbidity unit (NTU)
   turbidity_measurement_method:
@@ -5808,7 +5808,7 @@ slots:
     title: dissolved oxygen measurement value
     description: The numerical value of a measurement of dissolved oxygen.
     comments: Provide the numerical value of the measured dissolved oxygen.
-    slot_uri: GENEPIO:0100915
+    slot_uri: GENEPIO:0000035
     range: WhitespaceMinimizedString
     examples:
     - value: '5'
@@ -6164,18 +6164,18 @@ slots:
     range: WhitespaceMinimizedString
     examples:
     - value: Merck phosphate spectrophotometric test kit
-  fecal_contamination_indicator_:
-    name: fecal_contamination_indicator_
+  fecal_contamination_indicator:
+    name: fecal_contamination_indicator
     title: fecal contamination indicator
     description: A gene, virus, bacteria, or substance used to measure the sanitary
       quality of water in regards to fecal contamination.
     comments: If a fecal contamination indicator was measured, select it from the
       picklist.
     slot_uri: GENEPIO:0100814
+    recommended: true
     any_of:
     - range: FecalContaminationIndicatorMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: crAssphage
   fecal_contamination_value:
@@ -6184,8 +6184,8 @@ slots:
     description: The numerical value of a measurement of fecal contamination.
     comments: Provide the numerical value of the measured fecal contamination.
     slot_uri: GENEPIO:0100815
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: '10'
   fecal_contamination_unit:
@@ -6194,10 +6194,10 @@ slots:
     description: The units of a measurement of fecal contamination.
     comments: Provide the units of the measured fecal contamination.
     slot_uri: GENEPIO:0100816
+    recommended: true
     any_of:
     - range: FecalContaminationUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: cycle threshold (Ct) / quantification cycle (Cq)
   fecal_contamination_method:
@@ -6373,11 +6373,11 @@ slots:
       the purpose of sequencing from the picklist in the template. The reason for
       sample collection should be indicated in the "purpose of sampling" field.
     slot_uri: GENEPIO:0001445
+    multivalued: true
+    required: true
     any_of:
     - range: PurposeOfSequencingMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Travel-associated surveillance
   purpose_of_sequencing_details:
@@ -6405,10 +6405,10 @@ slots:
       the sequencing in full (avoid abbreviations). If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100416
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Public Health Agency of Canada (PHAC) [GENEPIO:0100551]
     exact_mappings:
@@ -6437,10 +6437,10 @@ slots:
       the information is unknown or cannot be provided, leave blank or provide a null
       value.
     slot_uri: GENEPIO:0100471
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Enterics Lab Manager
   sequenced_by_contact_email:
@@ -6454,10 +6454,10 @@ slots:
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100422
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: enterics@lab.ca
   sequence_submitted_by:
@@ -6469,10 +6469,10 @@ slots:
       specimens rather than sequencing data, please put the "National Microbiology
       Laboratory (NML)".
     slot_uri: GENEPIO:0001159
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Public Health Ontario (PHO)
   sequence_submitter_contact_email:
@@ -6482,10 +6482,10 @@ slots:
       the sequence.
     comments: The email address can represent a specific individual or laboratory.
     slot_uri: GENEPIO:0001165
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     pattern: ^\S+@\S+\.\S+$
     examples:
     - value: RespLab@lab.ca
@@ -6517,8 +6517,8 @@ slots:
       during extraction. If relevant, include titers of these controls, as well as
       whether any controls were expected but not identified in the sample.
     slot_uri: GENEPIO:0100923
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
   sequencing_project_name:
     name: sequencing_project_name
     title: sequencing_project_name
@@ -6726,10 +6726,10 @@ slots:
       submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the
       New Term Request form.
     slot_uri: GENEPIO:0100559
+    multivalued: true
     any_of:
     - range: QualityControlDeterminationMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: sequence failed quality control
   quality_control_issues:
@@ -6741,10 +6741,10 @@ slots:
       submit a new term request to the PHA4GE QC Tag GitHub issuetracker using the
       New Term Request form.
     slot_uri: GENEPIO:0100560
+    multivalued: true
     any_of:
     - range: QualityControlIssuesMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: low average genome coverage
   quality_control_details:
@@ -6767,10 +6767,10 @@ slots:
       trimming adaptors, quality filtering, etc (e.g. Trimmomatic v. 0.38, Porechop
       v. 0.2.3), or a link to a GitHub protocol.
     slot_uri: GENEPIO:0001458
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Porechop 0.2.3
   dehosting_method:
@@ -6780,10 +6780,10 @@ slots:
     comments: Provide the name and version number of the software used to remove host
       reads.
     slot_uri: GENEPIO:0001459
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Nanostripper
   sequence_assembly_software_name:
@@ -6945,8 +6945,8 @@ slots:
     range: integer
     examples:
     - value: '150'
-  percent_read_contamination_:
-    name: percent_read_contamination_
+  percent_read_contamination:
+    name: percent_read_contamination
     title: percent read contamination
     description: The percent of the total number of reads identified as contamination
       (not belonging to the target organism) in a sequence dataset.
@@ -7186,8 +7186,8 @@ slots:
       organism". You do not need to provide the actual values, just indicate that
       the information is available.
     slot_uri: GENEPIO:0100480
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Number of total samples collected, Number of positive samples
   prevalence_metrics_details:
@@ -7198,8 +7198,8 @@ slots:
     comments: If there are details pertaining to samples or organism counts in the
       sample plan that might be informative, provide details using free text.
     slot_uri: GENEPIO:0100481
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Hazard organism counts (i.e. Salmonella) do not distinguish between serovars.
   stage_of_production:
@@ -7208,10 +7208,10 @@ slots:
     description: The stage of food production.
     comments: Provide the stage of food production as free text.
     slot_uri: GENEPIO:0100482
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Abattoir [ENVO:01000925]
   experimental_intervention:
@@ -7223,11 +7223,11 @@ slots:
       in studied. If there was an intervention specified in the sample plan, select
       the intervention category from the pick list provided.
     slot_uri: GENEPIO:0100483
+    multivalued: true
+    recommended: true
     any_of:
     - range: ExperimentalInterventionMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Vaccination [NCIT:C15346]
   experiment_intervention_details:
@@ -7238,8 +7238,8 @@ slots:
     comments: If an experimental intervention was applied in the survey, provide details
       in this field as free text.
     slot_uri: GENEPIO:0100484
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: 2% cranberry solution mixed in feed
 enums:
@@ -7282,11 +7282,13 @@ enums:
         meaning: NCBITaxon:11320
   InfluenzaSubtypeMenu:
     name: InfluenzaSubtypeMenu
-    title: influenza_subtype menu
+    title: viral_subtype menu
     permissible_values:
       H5N1 subtype (Influenza A virus) [NCBITaxon:102793]:
         text: H5N1 subtype (Influenza A virus) [NCBITaxon:102793]
         meaning: NCBITaxon:102793
+      H5Nx:
+        text: H5Nx
   InfluenzaSubtypingSchemeNameMenu:
     name: InfluenzaSubtypingSchemeNameMenu
     title: influenza_subtyping_scheme_name menu
@@ -9718,10 +9720,14 @@ enums:
         meaning: GENEPIO:0101018
       Validation strain [GENEPIO:0101123]:
         text: Validation strain [GENEPIO:0101123]
+        description: A positive control specimen with known characteristics used to
+          validate and assay.
         meaning: GENEPIO:0101123
         is_a: Positive experimental control [GENEPIO:0101018]
       Proficiency test isolate [GENEPIO:0101124]:
         text: Proficiency test isolate [GENEPIO:0101124]
+        description: A positive control specimen with known characteristics used to
+          in an assay to test an operator's proficiency in running the assay.
         meaning: GENEPIO:0101124
         is_a: Positive experimental control [GENEPIO:0101018]
       Negative experimental control [GENEPIO:0101019]:
@@ -9742,9 +9748,13 @@ enums:
         meaning: EFO:0002091
       Synthetic lab construct [GENEPIO:0101039]:
         text: Synthetic lab construct [GENEPIO:0101039]
+        description: A type of material made in a laboratory designed to have specific
+          functions or properties.
         meaning: GENEPIO:0101039
       Negative sample [GENEPIO:0101120]:
         text: Negative sample [GENEPIO:0101120]
+        description: A specimen that has been tested previously and found to lack
+          a material of interest.
         meaning: GENEPIO:0101120
   AvailableDataTypesMenu:
     name: AvailableDataTypesMenu
@@ -10559,9 +10569,9 @@ enums:
         description: An age group used to classify birds identified by their third
           summer plumage (many types of birds molt several times during the same season).
         meaning: GENEPIO:0100689
-      0 - 9 [GENEPIO:0100049]]:
-        text: 0 - 9 [GENEPIO:0100049]]
-        meaning: ENEPIO:0100049
+      0 - 9 [GENEPIO:0100049]:
+        text: 0 - 9 [GENEPIO:0100049]
+        meaning: GENEPIO:0100049
       10 - 19 [GENEPIO:0100050]:
         text: 10 - 19 [GENEPIO:0100050]
         description: An age group that stratifies the age of a case to be between

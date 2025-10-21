@@ -2,7 +2,7 @@
   "name": "Influenza",
   "description": "Draft template for harmonizing human influenza virus genomic surveillance contextual data.",
   "id": "https://example.com/Influenza",
-  "version": "1.0.2",
+  "version": "1.1.3",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -296,11 +296,6 @@
     }
   },
   "enums": {
-    "UmbrellaBioprojectAccessionMenu": {
-      "name": "UmbrellaBioprojectAccessionMenu",
-      "title": "umbrella bioproject accession menu",
-      "from_schema": "https://example.com/Influenza"
-    },
     "NullValueMenu": {
       "name": "NullValueMenu",
       "title": "null value menu",
@@ -537,14 +532,10 @@
           "text": "Post-infection convalescence"
         },
         "Vaccination": {
-          "text": "Vaccination"
+          "text": "Vaccination",
+          "meaning": "NCIT:C15346"
         }
       }
-    },
-    "VaccineNameMenu": {
-      "name": "VaccineNameMenu",
-      "title": "vaccine name menu",
-      "from_schema": "https://example.com/Influenza"
     },
     "AnatomicalMaterialMenu": {
       "name": "AnatomicalMaterialMenu",
@@ -3557,7 +3548,7 @@
       "domain_of": [
         "Influenza"
       ],
-      "range": "UmbrellaBioprojectAccessionMenu",
+      "range": "WhitespaceMinimizedString",
       "structured_pattern": {
         "syntax": "{UPPER_CASE}",
         "interpolated": true,
@@ -3720,6 +3711,7 @@
         }
       ],
       "from_schema": "https://example.com/Influenza",
+      "slot_uri": "GENEPIO:0100282",
       "domain_of": [
         "Influenza"
       ],
@@ -4017,10 +4009,10 @@
         }
       ]
     },
-    "isolate": {
-      "name": "isolate",
+    "isolate_id": {
+      "name": "isolate_id",
       "description": "Identifier of the specific isolate.",
-      "title": "isolate",
+      "title": "isolate ID",
       "from_schema": "https://example.com/Influenza",
       "exact_mappings": [
         "GISAID:Virus%20name",
@@ -4031,7 +4023,7 @@
         "VirusSeq_Portal:isolate",
         "VirusSeq_Portal:fasta%20header%20name"
       ],
-      "slot_uri": "GENEPIO:0001195",
+      "slot_uri": "GENEPIO:0001644",
       "domain_of": [
         "Influenza"
       ],
@@ -5812,8 +5804,8 @@
           "rank": 22,
           "slot_group": "Sample collection and processing"
         },
-        "isolate": {
-          "name": "isolate",
+        "isolate_id": {
+          "name": "isolate_id",
           "rank": 23,
           "slot_group": "Sample collection and processing"
         },
@@ -6315,7 +6307,7 @@
             "Influenza"
           ],
           "slot_group": "Database Identifiers",
-          "range": "UmbrellaBioprojectAccessionMenu",
+          "range": "WhitespaceMinimizedString",
           "structured_pattern": {
             "syntax": "{UPPER_CASE}",
             "interpolated": true,
@@ -6499,6 +6491,7 @@
           ],
           "from_schema": "https://example.com/Influenza",
           "rank": 13,
+          "slot_uri": "GENEPIO:0100282",
           "alias": "gisaid_virus_name",
           "owner": "Influenza",
           "domain_of": [
@@ -6835,10 +6828,10 @@
             }
           ]
         },
-        "isolate": {
-          "name": "isolate",
+        "isolate_id": {
+          "name": "isolate_id",
           "description": "Identifier of the specific isolate.",
-          "title": "isolate",
+          "title": "isolate ID",
           "from_schema": "https://example.com/Influenza",
           "exact_mappings": [
             "GISAID:Virus%20name",
@@ -6850,8 +6843,8 @@
             "VirusSeq_Portal:fasta%20header%20name"
           ],
           "rank": 23,
-          "slot_uri": "GENEPIO:0001195",
-          "alias": "isolate",
+          "slot_uri": "GENEPIO:0001644",
+          "alias": "isolate_id",
           "owner": "Influenza",
           "domain_of": [
             "Influenza"

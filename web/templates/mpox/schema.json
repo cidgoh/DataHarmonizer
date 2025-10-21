@@ -12032,11 +12032,12 @@
       ],
       "required": true
     },
-    "isolate": {
-      "name": "isolate",
+    "isolate_id": {
+      "name": "isolate_id",
       "description": "Identifier of the specific isolate.",
-      "title": "isolate",
+      "title": "isolate ID",
       "from_schema": "https://example.com/mpox",
+      "slot_uri": "GENEPIO:0001644",
       "domain_of": [
         "Mpox",
         "MpoxInternational"
@@ -12522,7 +12523,7 @@
       ],
       "any_of": [
         {
-          "range": "LineageCladeNameINternationalMenu"
+          "range": "LineageCladeNameInternationalMenu"
         },
         {
           "range": "NullValueMenu"
@@ -12664,7 +12665,7 @@
         "If known, select a value from the pick list."
       ],
       "from_schema": "https://example.com/mpox",
-      "slot_uri": "GENEPIO:0001389",
+      "slot_uri": "GENEPIO:0001390",
       "domain_of": [
         "Mpox",
         "MpoxInternational"
@@ -15751,8 +15752,8 @@
             }
           ]
         },
-        "isolate": {
-          "name": "isolate",
+        "isolate_id": {
+          "name": "isolate_id",
           "comments": [
             "Provide the GISAID EpiPox virus name, which should be written in the format “hMpxV/Canada/2 digit provincial ISO code-xxxxx/year”. If the province code cannot be shared for privacy reasons, put \"UN\" for \"Unknown\"."
           ],
@@ -15768,7 +15769,6 @@
             "GISAID_EpiPox:Virus%20name"
           ],
           "rank": 18,
-          "slot_uri": "GENEPIO:0001195",
           "slot_group": "Sample collection and processing"
         },
         "purpose_of_sampling": {
@@ -16511,7 +16511,7 @@
           "slot_group": "Sequencing",
           "any_of": [
             {
-              "range": "SequenceSubmittedByMenu"
+              "range": "SequencedByMenu"
             },
             {
               "range": "NullValueMenu"
@@ -17413,10 +17413,10 @@
             }
           ]
         },
-        "isolate": {
-          "name": "isolate",
+        "isolate_id": {
+          "name": "isolate_id",
           "description": "Identifier of the specific isolate.",
-          "title": "isolate",
+          "title": "isolate ID",
           "comments": [
             "Provide the GISAID EpiPox virus name, which should be written in the format “hMpxV/Canada/2 digit provincial ISO code-xxxxx/year”. If the province code cannot be shared for privacy reasons, put \"UN\" for \"Unknown\"."
           ],
@@ -17433,8 +17433,8 @@
             "GISAID_EpiPox:Virus%20name"
           ],
           "rank": 18,
-          "slot_uri": "GENEPIO:0001195",
-          "alias": "isolate",
+          "slot_uri": "GENEPIO:0001644",
+          "alias": "isolate_id",
           "owner": "Mpox",
           "domain_of": [
             "Mpox",
@@ -18076,7 +18076,7 @@
             "Pathoplexus_Mpox:hostHealthOutcome"
           ],
           "rank": 36,
-          "slot_uri": "GENEPIO:0001389",
+          "slot_uri": "GENEPIO:0001390",
           "alias": "host_health_outcome",
           "owner": "Mpox",
           "domain_of": [
@@ -19246,7 +19246,7 @@
           "required": true,
           "any_of": [
             {
-              "range": "SequenceSubmittedByMenu"
+              "range": "SequencedByMenu"
             },
             {
               "range": "NullValueMenu"
@@ -20865,8 +20865,8 @@
             }
           ]
         },
-        "isolate": {
-          "name": "isolate",
+        "isolate_id": {
+          "name": "isolate_id",
           "comments": [
             "This identifier should be an unique, indexed, alpha-numeric ID within your laboratory. If submitted to the INSDC, the \"isolate\" name is propagated throughtout different databases. As such, structure the \"isolate\" name to be ICTV/INSDC compliant in the following format: \"MpxV/host/country/sampleID/date\"."
           ],
@@ -20880,7 +20880,6 @@
             "ENA_ERC000033_Virus_SAMPLE:virus%20identifier"
           ],
           "rank": 22,
-          "slot_uri": "GENEPIO:0001644",
           "slot_group": "Sample collection and processing"
         },
         "purpose_of_sampling": {
@@ -22770,10 +22769,10 @@
             }
           ]
         },
-        "isolate": {
-          "name": "isolate",
+        "isolate_id": {
+          "name": "isolate_id",
           "description": "Identifier of the specific isolate.",
-          "title": "isolate",
+          "title": "isolate ID",
           "comments": [
             "This identifier should be an unique, indexed, alpha-numeric ID within your laboratory. If submitted to the INSDC, the \"isolate\" name is propagated throughtout different databases. As such, structure the \"isolate\" name to be ICTV/INSDC compliant in the following format: \"MpxV/host/country/sampleID/date\"."
           ],
@@ -22789,7 +22788,7 @@
           ],
           "rank": 22,
           "slot_uri": "GENEPIO:0001644",
-          "alias": "isolate",
+          "alias": "isolate_id",
           "owner": "MpoxInternational",
           "domain_of": [
             "Mpox",
@@ -23405,7 +23404,7 @@
           "slot_group": "Lineage and Variant information",
           "any_of": [
             {
-              "range": "LineageCladeNameINternationalMenu"
+              "range": "LineageCladeNameInternationalMenu"
             },
             {
               "range": "NullValueMenu"
@@ -23643,7 +23642,7 @@
             "Pathoplexus_Mpox:hostHealthOutcome"
           ],
           "rank": 46,
-          "slot_uri": "GENEPIO:0001389",
+          "slot_uri": "GENEPIO:0001390",
           "alias": "host_health_outcome",
           "owner": "MpoxInternational",
           "domain_of": [
