@@ -2,7 +2,7 @@
   "name": "Wastewater",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "4.3.3",
+  "version": "4.2.2",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -9151,7 +9151,7 @@
       ],
       "examples": [
         {
-          "value": "Meat processing plant"
+          "value": "Influent pump station [ENVO:03501465]"
         }
       ],
       "from_schema": "https://example.com/GRDI",
@@ -9602,7 +9602,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100456",
+      "slot_uri": "GENEPIO:0001644",
       "domain_of": [
         "WastewaterPathogenAgnostic"
       ],
@@ -11883,7 +11883,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0100471",
+      "slot_uri": "GENEPIO:0100422",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -13734,6 +13734,7 @@
         "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_known_present",
         "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_known_present"
       ],
+      "slot_uri": "GENEPIO:0100962",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -13765,6 +13766,7 @@
         "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_conc",
         "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc"
       ],
+      "slot_uri": "GENEPIO:0100963",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -13789,6 +13791,7 @@
         "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_conc_unit",
         "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc_unit"
       ],
+      "slot_uri": "GENEPIO:0100964",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -13816,6 +13819,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100965",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -13887,6 +13891,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100962",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -13914,6 +13919,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100963",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -13934,6 +13940,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100964",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -13961,6 +13968,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0100965",
       "domain_of": [
         "WastewaterSARS-CoV-2",
         "WastewaterAMR",
@@ -13987,7 +13995,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "4.3.3"
+          "value": "4.2.2"
         }
       },
       "description": "Specification for Wastewater SARS-CoV-2 virus biosample data gathering",
@@ -16760,7 +16768,7 @@
           ],
           "examples": [
             {
-              "value": "Meat processing plant"
+              "value": "Influent pump station [ENVO:03501465]"
             }
           ],
           "from_schema": "https://example.com/GRDI",
@@ -19578,7 +19586,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 146,
-          "slot_uri": "GENEPIO:0100471",
+          "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -21235,6 +21243,7 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_known_present"
           ],
           "rank": 202,
+          "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_2",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -21270,6 +21279,7 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc"
           ],
           "rank": 203,
+          "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_2",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -21298,6 +21308,7 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc_unit"
           ],
           "rank": 204,
+          "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_2",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -21329,6 +21340,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 205,
+          "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_2",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -21432,6 +21444,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 209,
+          "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_3",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -21463,6 +21476,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 210,
+          "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_3",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -21487,6 +21501,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 211,
+          "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_3",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -21518,6 +21533,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 212,
+          "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_3",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
@@ -21542,7 +21558,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "4.3.3"
+          "value": "4.2.2"
         }
       },
       "description": "Specification for Wastewater AMR biosample data gathering",
@@ -24345,7 +24361,7 @@
           ],
           "examples": [
             {
-              "value": "Meat processing plant"
+              "value": "Influent pump station [ENVO:03501465]"
             }
           ],
           "from_schema": "https://example.com/GRDI",
@@ -27163,7 +27179,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 147,
-          "slot_uri": "GENEPIO:0100471",
+          "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -28839,6 +28855,7 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_known_present"
           ],
           "rank": 203,
+          "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -28874,6 +28891,7 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc"
           ],
           "rank": 204,
+          "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -28902,6 +28920,7 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc_unit"
           ],
           "rank": 205,
+          "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -28933,6 +28952,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 206,
+          "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_2",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -29036,6 +29056,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 210,
+          "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -29067,6 +29088,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 211,
+          "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -29091,6 +29113,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 212,
+          "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -29122,6 +29145,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 213,
+          "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_3",
           "owner": "WastewaterAMR",
           "domain_of": [
@@ -29146,7 +29170,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "4.3.3"
+          "value": "4.2.2"
         }
       },
       "description": "Specification for Wastewater Pathogen Agnostic biosample data gathering",
@@ -32044,7 +32068,7 @@
           ],
           "examples": [
             {
-              "value": "Meat processing plant"
+              "value": "Influent pump station [ENVO:03501465]"
             }
           ],
           "from_schema": "https://example.com/GRDI",
@@ -32560,7 +32584,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 69,
-          "slot_uri": "GENEPIO:0100456",
+          "slot_uri": "GENEPIO:0001644",
           "alias": "isolate_id",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -35209,7 +35233,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 161,
-          "slot_uri": "GENEPIO:0100471",
+          "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -37025,6 +37049,7 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_known_present"
           ],
           "rank": 222,
+          "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -37060,6 +37085,7 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc"
           ],
           "rank": 223,
+          "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -37088,6 +37114,7 @@
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc_unit"
           ],
           "rank": 224,
+          "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -37119,6 +37146,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 225,
+          "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_2",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -37222,6 +37250,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 229,
+          "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -37253,6 +37282,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 230,
+          "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -37277,6 +37307,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 231,
+          "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -37308,6 +37339,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 232,
+          "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_3",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [

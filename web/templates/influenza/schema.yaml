@@ -41,7 +41,7 @@ classes:
     - geo_loc_name_country
     - geo_loc_name_state_province_territory
     - organism
-    - isolate
+    - isolate_id
     - purpose_of_sampling
     - purpose_of_sampling_details
     - nml_submitted_specimen_type
@@ -169,7 +169,7 @@ classes:
       organism:
         rank: 22
         slot_group: Sample collection and processing
-      isolate:
+      isolate_id:
         rank: 23
         slot_group: Sample collection and processing
       purpose_of_sampling:
@@ -457,7 +457,7 @@ slots:
       CanCOGen submitters. Different provinces will have their own BioProjects, however
       these BioProjects will be linked under one umbrella BioProject.
     slot_uri: GENEPIO:0001133
-    range: UmbrellaBioprojectAccessionMenu
+    range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
@@ -566,6 +566,7 @@ slots:
       format prescribed by the GISAID database.
     comments: 'Provide the GISAID virus name, which should be written in the format:
       A/Province/Country/SampleID/year'
+    slot_uri: GENEPIO:0100282
     required: true
     range: WhitespaceMinimizedString
     examples:
@@ -739,11 +740,11 @@ slots:
     - NML_LIMS:HC_CURRENT_ID
     - BIOSAMPLE:organism
     - VirusSeq_Portal:organism
-  isolate:
-    name: isolate
-    title: isolate
+  isolate_id:
+    name: isolate_id
+    title: isolate ID
     description: Identifier of the specific isolate.
-    slot_uri: GENEPIO:0001195
+    slot_uri: GENEPIO:0001644
     required: true
     any_of:
     - range: WhitespaceMinimizedString
@@ -1712,10 +1713,6 @@ slots:
     - CNPHI:Additional%20Comments
     - NML_LIMS:HC_COMMENTS
 enums:
-  UmbrellaBioprojectAccessionMenu:
-    name: UmbrellaBioprojectAccessionMenu
-    title: umbrella bioproject accession menu
-    permissible_values: {}
   NullValueMenu:
     name: NullValueMenu
     title: null value menu
@@ -1883,10 +1880,7 @@ enums:
         text: Post-infection convalescence
       Vaccination:
         text: Vaccination
-  VaccineNameMenu:
-    name: VaccineNameMenu
-    title: vaccine name menu
-    permissible_values: {}
+        meaning: NCIT:C15346
   AnatomicalMaterialMenu:
     name: AnatomicalMaterialMenu
     title: anatomical material menu

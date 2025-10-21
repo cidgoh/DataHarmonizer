@@ -170,7 +170,7 @@ classes:
     - percent_ns_across_total_genome_length
     - ns_per_100_kbp
     - n50
-    - percent_read_contamination_
+    - percent_read_contamination
     - sequence_assembly_length
     - consensus_genome_length
     - reference_genome_accession
@@ -1291,7 +1291,7 @@ classes:
       n50:
         rank: 152
         slot_group: Bioinformatics and QC metrics
-      percent_read_contamination_:
+      percent_read_contamination:
         rank: 153
         slot_group: Bioinformatics and QC metrics
       sequence_assembly_length:
@@ -3373,7 +3373,7 @@ slots:
     comments: Provide the name of the sample plan used for sample collection. If the
       information is unknown or cannot be provided, leave blank or provide a null
       value.
-    slot_uri: GENEPIO:0100430
+    slot_uri: GENEPIO:0100285
     recommended: true
     range: WhitespaceMinimizedString
     examples:
@@ -3501,7 +3501,7 @@ slots:
     comments: Provide the sample processing information by selecting a value from
       the template pick list. If the information is unknown or cannot be provided,
       leave blank or provide a null value.
-    slot_uri: GENEPIO:0100435
+    slot_uri: GENEPIO:0001253
     any_of:
     - range: SpecimenProcessingMenu
     - range: NullValueMenu
@@ -4548,7 +4548,7 @@ slots:
       leave blank or provide a null value. If only an alternate isolate ID is known
       (e.g. the ID from your lab, if your lab did not isolate the isolate from the
       original sample), make asure to include it in the alternative_isolate_ID field.
-    slot_uri: GENEPIO:0100456
+    slot_uri: GENEPIO:0001644
     required: true
     range: WhitespaceMinimizedString
     examples:
@@ -5346,8 +5346,8 @@ slots:
     range: integer
     examples:
     - value: '150'
-  percent_read_contamination_:
-    name: percent_read_contamination_
+  percent_read_contamination:
+    name: percent_read_contamination
     title: percent_read_contamination
     description: The percent of the total number of reads identified as contamination
       (not belonging to the target organism) in a sequence dataset.
@@ -16063,22 +16063,21 @@ enums:
         text: Foot [UBERON:0002387]
       Head [UBERON:0000033]:
         text: Head [UBERON:0000033]
-        is_a: Foot [UBERON:0002387]
       Brain [UBERON:0000955]:
         text: Brain [UBERON:0000955]
-        is_a: Foot [UBERON:0002387]
+        is_a: Head [UBERON:0000033]
       Ear [UBERON:0001690]:
         text: Ear [UBERON:0001690]
-        is_a: Foot [UBERON:0002387]
+        is_a: Head [UBERON:0000033]
       Eye [UBERON:0000970]:
         text: Eye [UBERON:0000970]
-        is_a: Foot [UBERON:0002387]
+        is_a: Head [UBERON:0000033]
       Mouth [UBERON:0000165]:
         text: Mouth [UBERON:0000165]
-        is_a: Foot [UBERON:0002387]
+        is_a: Head [UBERON:0000033]
       Nose [UBERON:0000004]:
         text: Nose [UBERON:0000004]
-        is_a: Foot [UBERON:0002387]
+        is_a: Head [UBERON:0000033]
       Nasal turbinal [UBERON:0035612]:
         text: Nasal turbinal [UBERON:0035612]
         is_a: Nose [UBERON:0000004]
@@ -17255,8 +17254,8 @@ enums:
         text: Year [UO:0000036]
         exact_mappings:
         - NCBI_BIOSAMPLE_Pathogen:Year
-  NucelicAcidStorageDurationUnitMenu:
-    name: NucelicAcidStorageDurationUnitMenu
+  NucleicAcidStorageDurationUnitMenu:
+    name: NucleicAcidStorageDurationUnitMenu
     title: nucelic_acid_storage_duration_unit menu
     permissible_values:
       Second [UO:0000010]:

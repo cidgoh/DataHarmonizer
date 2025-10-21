@@ -1,6 +1,6 @@
 id: https://example.com/mpox
 name: Mpox
-version: 9.0.0
+version: 8.5.5
 description: ""
 imports:
   - 'linkml:types'
@@ -18,14 +18,14 @@ classes:
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox.pdf
     annotations:
-      version: 7.6.6
+      version: 7.5.5
   "MpoxInternational":
     name: "MpoxInternational"
     description: International specification for Mpox clinical virus biosample data gathering
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox_international.pdf
     annotations:
-      version: 9.0.0
+      version: 8.5.5
 slots: {}
 enums: {}
 types:

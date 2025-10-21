@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
 name: Wastewater
 description: ''
-version: 4.3.3
+version: 4.2.2
 imports:
 - linkml:types
 prefixes:
@@ -17,7 +17,7 @@ classes:
     description: Specification for Wastewater SARS-CoV-2 virus biosample data gathering
     is_a: dh_interface
     annotations:
-      version: 4.3.3
+      version: 4.2.2
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id
@@ -904,7 +904,7 @@ classes:
     description: Specification for Wastewater AMR biosample data gathering
     is_a: dh_interface
     annotations:
-      version: 4.3.3
+      version: 4.2.2
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id
@@ -1803,7 +1803,7 @@ classes:
     description: Specification for Wastewater Pathogen Agnostic biosample data gathering
     is_a: dh_interface
     annotations:
-      version: 4.3.3
+      version: 4.2.2
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id
@@ -3555,7 +3555,7 @@ slots:
     - range: EnvironmentalSiteMenu
     - range: NullValueMenu
     examples:
-    - value: Meat processing plant
+    - value: Influent pump station [ENVO:03501465]
     exact_mappings:
     - GISAID:Specimen%20source
     - NCBI_BIOSAMPLE_SARS_COV_2_WWS:isolation_source
@@ -3805,7 +3805,7 @@ slots:
       leave blank or provide a null value. If only an alternate isolate ID is known
       (e.g. the ID from your lab, if your lab did not isolate the isolate from the
       original sample), make asure to include it in the alternative_isolate_ID field.
-    slot_uri: GENEPIO:0100456
+    slot_uri: GENEPIO:0001644
     required: true
     any_of:
     - range: WhitespaceMinimizedString
@@ -4901,7 +4901,7 @@ slots:
       an address for a position or lab, to ensure accuracy of information and institutional
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
-    slot_uri: GENEPIO:0100471
+    slot_uri: GENEPIO:0100422
     required: true
     any_of:
     - range: WhitespaceMinimizedString
@@ -5861,6 +5861,7 @@ slots:
     description: The binary value of the result from a diagnostic test.
     comments: Select a value from the pick list provided, to describe whether a target
       was determined to be present or absent within a sample.
+    slot_uri: GENEPIO:0100962
     any_of:
     - range: DiagnosticTargetPresenceMenu
     - range: NullValueMenu
@@ -5875,6 +5876,7 @@ slots:
     description: The value of the result from a diagnostic test.
     comments: Provide the numerical result of a diagnostic test (no need to include
       units).
+    slot_uri: GENEPIO:0100963
     range: WhitespaceMinimizedString
     examples:
     - value: '1000'
@@ -5887,6 +5889,7 @@ slots:
     description: The unit of the result from a diagnostic test.
     comments: Select a value from the pick list provided, to describe the units of
       the given diagnostic test.
+    slot_uri: GENEPIO:0100964
     any_of:
     - range: DiagnosticMeasurementUnitMenu
     - range: NullValueMenu
@@ -5901,6 +5904,7 @@ slots:
     description: The method by which a diagnostic result was determined.
     comments: Select a value from the pick list provided to describe the method used
       for a given diagnostic test.
+    slot_uri: GENEPIO:0100965
     any_of:
     - range: DiagnosticMeasurementMethodMenu
     - range: NullValueMenu
@@ -5935,6 +5939,7 @@ slots:
     description: The binary value of the result from a diagnostic test.
     comments: Select a value from the pick list provided, to describe whether a target
       was determined to be present or absent within a sample.
+    slot_uri: GENEPIO:0100962
     any_of:
     - range: DiagnosticTargetPresenceMenu
     - range: NullValueMenu
@@ -5946,6 +5951,7 @@ slots:
     description: The value of the result from a diagnostic test.
     comments: Provide the numerical result of a diagnostic test (no need to include
       units).
+    slot_uri: GENEPIO:0100963
     range: WhitespaceMinimizedString
     examples:
     - value: '1000'
@@ -5955,6 +5961,7 @@ slots:
     description: The unit of the result from a diagnostic test.
     comments: Select a value from the pick list provided, to describe the units of
       the given diagnostic test.
+    slot_uri: GENEPIO:0100964
     any_of:
     - range: DiagnosticMeasurementUnitMenu
     - range: NullValueMenu
@@ -5966,6 +5973,7 @@ slots:
     description: The method by which a diagnostic result was determined.
     comments: Select a value from the pick list provided to describe the method used
       for a given diagnostic test.
+    slot_uri: GENEPIO:0100965
     any_of:
     - range: DiagnosticMeasurementMethodMenu
     - range: NullValueMenu

@@ -1,7 +1,7 @@
 id: https://example.com/B2B2B
 name: B2B2B
 description: B2B2B Schema which includes B2B2B template
-version: 1.1.1
+version: 1.0.0
 imports:
 - linkml:types
 prefixes:
@@ -24,18 +24,18 @@ classes:
       \ supported by field and reference guides, as well as a new term request SOP."
     is_a: dh_interface
     slots:
-    - sample_collector_sample_ID
+    - sample_collector_sample_id
     - bioproject_accession
     - biosample_accession
     - sample_collection_data_steward_contact_email
     - sample_collected_by
     - sample_collection_name
-    - sample_collection_ID
-    - sample_collection_URL
+    - sample_collection_id
+    - sample_collection_url
     - sample_collector_contact_email
-    - geo_loc_name_(country)
-    - geo_loc_name_(state/province/territory)
-    - geo_loc_name_(site)
+    - geo_loc_name_country
+    - geo_loc_name_state/province/territory
+    - geo_loc_name_site
     - organism
     - purpose_of_sampling
     - presampling_activity
@@ -44,8 +44,8 @@ classes:
     - experimental_control_details
     - specimen_processing
     - specimen_processing_details
-    - food_product_origin_geo_loc_name (country)
-    - host_origin_geo_loc_name_(country)
+    - food_product_origin_geo_loc_name_country
+    - host_origin_geo_loc_name_country
     - sample_collection_date
     - environmental_site
     - environmental_material
@@ -56,17 +56,17 @@ classes:
     - food_product_properties
     - collection_device
     - collection_method
-    - host_(common_name)
-    - host_(scientific_name)
+    - host_common_name
+    - host_scientific_name
     - host_disease
     - host_age
     - host_age_unit
     - host_gender
-    - isolate_ID
+    - isolate_id
     - isolated_by
     - isolated_by_contact_email
     - sequencing_assay_type
-    - library_ID
+    - library_id
     - nucleic_acid_extraction_method
     - genomic_target_enrichment_method
     - library_preparation_kit
@@ -104,7 +104,7 @@ classes:
     - authors
     - dataharmonizer_provenance
     slot_usage:
-      sample_collector_sample_ID:
+      sample_collector_sample_id:
         rank: 1
         slot_group: Database Identifiers
       bioproject_accession:
@@ -122,22 +122,22 @@ classes:
       sample_collection_name:
         rank: 6
         slot_group: Sample collection and processing
-      sample_collection_ID:
+      sample_collection_id:
         rank: 7
         slot_group: Sample collection and processing
-      sample_collection_URL:
+      sample_collection_url:
         rank: 8
         slot_group: Sample collection and processing
       sample_collector_contact_email:
         rank: 9
         slot_group: Sample collection and processing
-      geo_loc_name_(country):
+      geo_loc_name_country:
         rank: 10
         slot_group: Sample collection and processing
-      geo_loc_name_(state/province/territory):
+      geo_loc_name_state/province/territory:
         rank: 11
         slot_group: Sample collection and processing
-      geo_loc_name_(site):
+      geo_loc_name_site:
         rank: 12
         slot_group: Sample collection and processing
       organism:
@@ -164,10 +164,10 @@ classes:
       specimen_processing_details:
         rank: 20
         slot_group: Sample collection and processing
-      food_product_origin_geo_loc_name (country):
+      food_product_origin_geo_loc_name_country:
         rank: 21
         slot_group: Sample collection and processing
-      host_origin_geo_loc_name_(country):
+      host_origin_geo_loc_name_country:
         rank: 22
         slot_group: Sample collection and processing
       sample_collection_date:
@@ -200,10 +200,10 @@ classes:
       collection_method:
         rank: 32
         slot_group: Sample collection and processing
-      host_(common_name):
+      host_common_name:
         rank: 33
         slot_group: Host information
-      host_(scientific_name):
+      host_scientific_name:
         rank: 34
         slot_group: Host information
       host_disease:
@@ -218,7 +218,7 @@ classes:
       host_gender:
         rank: 38
         slot_group: Host Information
-      isolate_ID:
+      isolate_id:
         rank: 39
         slot_group: Strain and isolation information
       isolated_by:
@@ -230,7 +230,7 @@ classes:
       sequencing_assay_type:
         rank: 42
         slot_group: Sequence information
-      library_ID:
+      library_id:
         rank: 43
         slot_group: Sequence information
       nucleic_acid_extraction_method:
@@ -342,8 +342,8 @@ classes:
         rank: 79
         slot_group: Contributor acknowledgement
 slots:
-  sample_collector_sample_ID:
-    name: sample_collector_sample_ID
+  sample_collector_sample_id:
+    name: sample_collector_sample_id
     title: sample_collector_sample_ID
     description: The user-defined name for the sample.
     comments: The sample_ID should represent the identifier assigned to the sample
@@ -424,15 +424,15 @@ slots:
     comments: If the sample is associated with a particular collection, provide the
       name of the sample collection. Type culture collection names can be referenced
       here. Private collections and sample collection project names can also be included.
-    slot_uri: GENEPIO:0100429
+    slot_uri: GENEPIO:0102162
     required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
     examples:
     - value: American Type Culture Collection (ATCC)
-  sample_collection_ID:
-    name: sample_collection_ID
+  sample_collection_id:
+    name: sample_collection_id
     title: sample_collection_ID
     description: The identifier associated with the sample collection.
     comments: If the sample is associated with a particular collection that can be
@@ -444,8 +444,8 @@ slots:
     - range: null value menu
     examples:
     - value: BCRCAMUAMR
-  sample_collection_URL:
-    name: sample_collection_URL
+  sample_collection_url:
+    name: sample_collection_url
     title: sample_collection_URL
     description: The URL associated with online material about a sample collection.
     comments: If the sample collection has online materials that may be useful for
@@ -471,8 +471,8 @@ slots:
     - range: null value menu
     examples:
     - value: WaterTester@facility.ca
-  geo_loc_name_(country):
-    name: geo_loc_name_(country)
+  geo_loc_name_country:
+    name: geo_loc_name_country
     title: geo_loc_name_(country)
     description: The country of origin of the sample.
     comments: If known, select a value from the pick list.
@@ -483,8 +483,8 @@ slots:
     - range: null value menu
     examples:
     - value: Canada
-  geo_loc_name_(state/province/territory):
-    name: geo_loc_name_(state/province/territory)
+  geo_loc_name_state/province/territory:
+    name: geo_loc_name_state/province/territory
     title: geo_loc_name_(state/province/territory)
     description: The state/province/territory of origin of the sample.
     comments: 'Provide the state/province/territory name from the GAZ geography ontology.
@@ -496,8 +496,8 @@ slots:
     - range: null value menu
     examples:
     - value: Western Cape
-  geo_loc_name_(site):
-    name: geo_loc_name_(site)
+  geo_loc_name_site:
+    name: geo_loc_name_site
     title: geo_loc_name_(site)
     description: The name of a specific geographical location e.g. Credit River (rather
       than river).
@@ -606,7 +606,7 @@ slots:
     comments: Provide the sample processing information by selecting a value from
       the template pick list. If the information is unknown or cannot be provided,
       leave blank or provide a null value.
-    slot_uri: GENEPIO:0100435
+    slot_uri: GENEPIO:0001253
     required: true
     any_of:
     - range: SpecimenProcessingMenu
@@ -627,8 +627,8 @@ slots:
     examples:
     - value: 25 samples were pooled and further prepared as a single sample during
         library prep.
-  food_product_origin_geo_loc_name (country):
-    name: food_product_origin_geo_loc_name (country)
+  food_product_origin_geo_loc_name_country:
+    name: food_product_origin_geo_loc_name_country
     title: food_product_origin_geo_loc_name (country)
     description: The country of origin of a food product.
     comments: If a food product was sampled and the food product was manufactured
@@ -643,8 +643,8 @@ slots:
     - range: null value menu
     examples:
     - value: United States of America [GAZ:00002459]
-  host_origin_geo_loc_name_(country):
-    name: host_origin_geo_loc_name_(country)
+  host_origin_geo_loc_name_country:
+    name: host_origin_geo_loc_name_country
     title: host_origin_geo_loc_name_(country)
     description: The country of origin of the host.
     comments: If a sample is from a human or animal host that originated from outside
@@ -807,8 +807,8 @@ slots:
     - range: null value menu
     examples:
     - value: Necropsy [MMO:0000344]
-  host_(common_name):
-    name: host_(common_name)
+  host_common_name:
+    name: host_common_name
     title: host_(common_name)
     description: The commonly used name of the host.
     comments: Common name or scientific name are required if there was a host. Both
@@ -821,8 +821,8 @@ slots:
     - range: null value menu
     examples:
     - value: Human [NCBITaxon:9606]
-  host_(scientific_name):
-    name: host_(scientific_name)
+  host_scientific_name:
+    name: host_scientific_name
     title: host_(scientific_name)
     description: The taxonomic, or scientific name of the host.
     comments: Common name or scientific name are required if there was a host. Both
@@ -889,8 +889,8 @@ slots:
     - range: NullValueMenu
     examples:
     - value: Male
-  isolate_ID:
-    name: isolate_ID
+  isolate_id:
+    name: isolate_id
     title: isolate_ID
     description: The user-defined identifier for the isolate, as provided by the laboratory
       that originally isolated the isolate.
@@ -899,7 +899,7 @@ slots:
       leave blank or provide a null value. If only an alternate isolate ID is known
       (e.g. the ID from your lab, if your lab did not isolate the isolate from the
       original sample), make asure to include it in the alternative_isolate_ID field.
-    slot_uri: GENEPIO:0100456
+    slot_uri: GENEPIO:0001644
     recommended: true
     any_of:
     - range: WhitespaceMinimizedString
@@ -952,8 +952,8 @@ slots:
     - range: null value menu
     examples:
     - value: Whole genome sequencing assay [OBI:0002117]
-  library_ID:
-    name: library_ID
+  library_id:
+    name: library_id
     title: library_ID
     description: The user-specified identifier for the library prepared for sequencing.
     comments: The library name should be unique, and can be an autogenerated ID from
@@ -1092,7 +1092,7 @@ slots:
       an address for a position or lab, to ensure accuracy of information and institutional
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
-    slot_uri: GENEPIO:0100471
+    slot_uri: GENEPIO:0100422
     required: true
     any_of:
     - range: WhitespaceMinimizedString
@@ -1321,7 +1321,7 @@ slots:
     slot_uri: GENEPIO:0100526
     required: true
     any_of:
-    - range: WhitespaceMinimizedString
+    - range: AmrLaboratoryTypingMethodMenu
     - range: null value menu
     examples:
     - value: Broth dilution [ARO:3004397]
@@ -4995,9 +4995,9 @@ enums:
         description: A time unit which is equal to 12 months which in science is taken
           to be equal to 365.25 days.
         meaning: UO:0000036
-  HostGenderInternationalMenu:
-    name: HostGenderInternationalMenu
-    title: host_gender_international menu
+  HostGenderMenu:
+    name: HostGenderMenu
+    title: host_gender menu
     permissible_values:
       Female [NCIT:C46110]:
         text: Female [NCIT:C46110]
@@ -6356,9 +6356,9 @@ enums:
         description: A sampling strategy in which individuals are sampled for surveillance
           investigations.
         meaning: GENEPIO:0100004
-  AntimicrobialAgentNameMenu:
-    name: AntimicrobialAgentNameMenu
-    title: antimicrobial_agent_name menu
+  AmrAgentNameMenu:
+    name: AmrAgentNameMenu
+    title: amr_agent_name menu
     permissible_values:
       Amikacin [CHEBI:2637]:
         text: Amikacin [CHEBI:2637]
@@ -6787,8 +6787,8 @@ enums:
         description: "Specific automated system of analysis for determining antimicrobial\
           \ susceptibility developed by bioM\xE9rieux."
         meaning: ARO:3004403
-  AMR_vendor_name menu:
-    name: AMR_vendor_name menu
+  AmrVendorNameMenu:
+    name: AmrVendorNameMenu
     title: AMR_vendor_name menu
     permissible_values:
       Becton Dickinson [ARO:3004405]:

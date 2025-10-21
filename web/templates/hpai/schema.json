@@ -341,12 +341,15 @@
     },
     "InfluenzaSubtypeMenu": {
       "name": "InfluenzaSubtypeMenu",
-      "title": "influenza_subtype menu",
+      "title": "viral_subtype menu",
       "from_schema": "https://example.com/hpai",
       "permissible_values": {
         "H5N1 subtype (Influenza A virus) [NCBITaxon:102793]": {
           "text": "H5N1 subtype (Influenza A virus) [NCBITaxon:102793]",
           "meaning": "NCBITaxon:102793"
+        },
+        "H5Nx": {
+          "text": "H5Nx"
         }
       }
     },
@@ -2837,11 +2840,13 @@
         },
         "Validation strain [GENEPIO:0101123]": {
           "text": "Validation strain [GENEPIO:0101123]",
+          "description": "A positive control specimen with known characteristics used to validate and assay.",
           "meaning": "GENEPIO:0101123",
           "is_a": "Positive experimental control [GENEPIO:0101018]"
         },
         "Proficiency test isolate [GENEPIO:0101124]": {
           "text": "Proficiency test isolate [GENEPIO:0101124]",
+          "description": "A positive control specimen with known characteristics used to in an assay to test an operator's proficiency in running the assay.",
           "meaning": "GENEPIO:0101124",
           "is_a": "Positive experimental control [GENEPIO:0101018]"
         },
@@ -2862,10 +2867,12 @@
         },
         "Synthetic lab construct [GENEPIO:0101039]": {
           "text": "Synthetic lab construct [GENEPIO:0101039]",
+          "description": "A type of material made in a laboratory designed to have specific functions or properties.",
           "meaning": "GENEPIO:0101039"
         },
         "Negative sample [GENEPIO:0101120]": {
           "text": "Negative sample [GENEPIO:0101120]",
+          "description": "A specimen that has been tested previously and found to lack a material of interest.",
           "meaning": "GENEPIO:0101120"
         }
       }
@@ -3715,9 +3722,9 @@
           "description": "An age group used to classify birds identified by their third summer plumage (many types of birds molt several times during the same season).",
           "meaning": "GENEPIO:0100689"
         },
-        "0 - 9 [GENEPIO:0100049]]": {
-          "text": "0 - 9 [GENEPIO:0100049]]",
-          "meaning": "ENEPIO:0100049"
+        "0 - 9 [GENEPIO:0100049]": {
+          "text": "0 - 9 [GENEPIO:0100049]",
+          "meaning": "GENEPIO:0100049"
         },
         "10 - 19 [GENEPIO:0100050]": {
           "text": "10 - 19 [GENEPIO:0100050]",
@@ -12129,7 +12136,7 @@
         }
       ],
       "from_schema": "https://example.com/hpai",
-      "slot_uri": "GENEPIO:0100915",
+      "slot_uri": "GENEPIO:0000035",
       "domain_of": [
         "HPAI",
         "HPAIWW",
@@ -12956,8 +12963,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "fecal_contamination_indicator_": {
-      "name": "fecal_contamination_indicator_",
+    "fecal_contamination_indicator": {
+      "name": "fecal_contamination_indicator",
       "description": "A gene, virus, bacteria, or substance used to measure the sanitary quality of water in regards to fecal contamination.",
       "title": "fecal contamination indicator",
       "comments": [
@@ -14670,8 +14677,8 @@
       ],
       "range": "integer"
     },
-    "percent_read_contamination_": {
-      "name": "percent_read_contamination_",
+    "percent_read_contamination": {
+      "name": "percent_read_contamination",
       "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
       "title": "percent read contamination",
       "comments": [
@@ -15337,7 +15344,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.1"
+          "value": "1.0.0"
         }
       },
       "description": "Master specification (contains all fields/terms)",
@@ -16180,8 +16187,8 @@
           "rank": 167,
           "slot_group": "Environmental conditions and measurements"
         },
-        "fecal_contamination_indicator_": {
-          "name": "fecal_contamination_indicator_",
+        "fecal_contamination_indicator": {
+          "name": "fecal_contamination_indicator",
           "rank": 168,
           "slot_group": "Environmental conditions and measurements"
         },
@@ -16520,8 +16527,8 @@
           "rank": 235,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "rank": 236,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -20695,7 +20702,7 @@
           ],
           "from_schema": "https://example.com/hpai",
           "rank": 132,
-          "slot_uri": "GENEPIO:0100915",
+          "slot_uri": "GENEPIO:0000035",
           "alias": "dissolved_oxygen_measurement_value",
           "owner": "HPAI",
           "domain_of": [
@@ -21665,8 +21672,8 @@
           "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
-        "fecal_contamination_indicator_": {
-          "name": "fecal_contamination_indicator_",
+        "fecal_contamination_indicator": {
+          "name": "fecal_contamination_indicator",
           "description": "A gene, virus, bacteria, or substance used to measure the sanitary quality of water in regards to fecal contamination.",
           "title": "fecal contamination indicator",
           "comments": [
@@ -21680,7 +21687,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 168,
           "slot_uri": "GENEPIO:0100814",
-          "alias": "fecal_contamination_indicator_",
+          "alias": "fecal_contamination_indicator",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -23651,8 +23658,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
           "title": "percent read contamination",
           "comments": [
@@ -23666,7 +23673,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 236,
           "slot_uri": "GENEPIO:0100845",
-          "alias": "percent_read_contamination_",
+          "alias": "percent_read_contamination",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -24425,7 +24432,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.1"
+          "value": "1.0.0"
         }
       },
       "description": "Food-specific template for HPAI surveillance",
@@ -24978,8 +24985,8 @@
           "rank": 109,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "rank": 110,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -28429,8 +28436,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
           "title": "percent read contamination",
           "comments": [
@@ -28444,7 +28451,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 110,
           "slot_uri": "GENEPIO:0100845",
-          "alias": "percent_read_contamination_",
+          "alias": "percent_read_contamination",
           "owner": "HPAIFood",
           "domain_of": [
             "HPAI",
@@ -29203,7 +29210,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.1"
+          "value": "1.0.0"
         }
       },
       "description": "Wastewater-specific template for HPAI surveillance",
@@ -29831,8 +29838,8 @@
           "rank": 124,
           "slot_group": "Environmental conditions and measurements"
         },
-        "fecal_contamination_indicator_": {
-          "name": "fecal_contamination_indicator_",
+        "fecal_contamination_indicator": {
+          "name": "fecal_contamination_indicator",
           "rank": 125,
           "slot_group": "Environmental conditions and measurements"
         },
@@ -30171,8 +30178,8 @@
           "rank": 192,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "rank": 193,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -32982,7 +32989,7 @@
           ],
           "from_schema": "https://example.com/hpai",
           "rank": 89,
-          "slot_uri": "GENEPIO:0100915",
+          "slot_uri": "GENEPIO:0000035",
           "alias": "dissolved_oxygen_measurement_value",
           "owner": "HPAIWW",
           "domain_of": [
@@ -33952,8 +33959,8 @@
           "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
-        "fecal_contamination_indicator_": {
-          "name": "fecal_contamination_indicator_",
+        "fecal_contamination_indicator": {
+          "name": "fecal_contamination_indicator",
           "description": "A gene, virus, bacteria, or substance used to measure the sanitary quality of water in regards to fecal contamination.",
           "title": "fecal contamination indicator",
           "comments": [
@@ -33967,7 +33974,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 125,
           "slot_uri": "GENEPIO:0100814",
-          "alias": "fecal_contamination_indicator_",
+          "alias": "fecal_contamination_indicator",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -35938,8 +35945,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
           "title": "percent read contamination",
           "comments": [
@@ -35953,7 +35960,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 193,
           "slot_uri": "GENEPIO:0100845",
-          "alias": "percent_read_contamination_",
+          "alias": "percent_read_contamination",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -36712,7 +36719,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.1"
+          "value": "1.0.0"
         }
       },
       "description": "Environment-specific template for HPAI surveillance (wastewater template contains more specific fields)",
@@ -37340,8 +37347,8 @@
           "rank": 124,
           "slot_group": "Environmental conditions and measurements"
         },
-        "fecal_contamination_indicator_": {
-          "name": "fecal_contamination_indicator_",
+        "fecal_contamination_indicator": {
+          "name": "fecal_contamination_indicator",
           "rank": 125,
           "slot_group": "Environmental conditions and measurements"
         },
@@ -37680,8 +37687,8 @@
           "rank": 192,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "rank": 193,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -40491,7 +40498,7 @@
           ],
           "from_schema": "https://example.com/hpai",
           "rank": 89,
-          "slot_uri": "GENEPIO:0100915",
+          "slot_uri": "GENEPIO:0000035",
           "alias": "dissolved_oxygen_measurement_value",
           "owner": "HPAIEnviro",
           "domain_of": [
@@ -41461,8 +41468,8 @@
           "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
-        "fecal_contamination_indicator_": {
-          "name": "fecal_contamination_indicator_",
+        "fecal_contamination_indicator": {
+          "name": "fecal_contamination_indicator",
           "description": "A gene, virus, bacteria, or substance used to measure the sanitary quality of water in regards to fecal contamination.",
           "title": "fecal contamination indicator",
           "comments": [
@@ -41476,7 +41483,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 125,
           "slot_uri": "GENEPIO:0100814",
-          "alias": "fecal_contamination_indicator_",
+          "alias": "fecal_contamination_indicator",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -43447,8 +43454,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
           "title": "percent read contamination",
           "comments": [
@@ -43462,7 +43469,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 193,
           "slot_uri": "GENEPIO:0100845",
-          "alias": "percent_read_contamination_",
+          "alias": "percent_read_contamination",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -44221,7 +44228,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.1"
+          "value": "1.0.0"
         }
       },
       "description": "Host-specific template for HPAI surveillance",
@@ -44919,8 +44926,8 @@
           "rank": 138,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "rank": 139,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -49214,8 +49221,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "integer"
         },
-        "percent_read_contamination_": {
-          "name": "percent_read_contamination_",
+        "percent_read_contamination": {
+          "name": "percent_read_contamination",
           "description": "The percent of the total number of reads identified as contamination (not belonging to the target organism) in a sequence dataset.",
           "title": "percent read contamination",
           "comments": [
@@ -49229,7 +49236,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 139,
           "slot_uri": "GENEPIO:0100845",
-          "alias": "percent_read_contamination_",
+          "alias": "percent_read_contamination",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",

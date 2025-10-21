@@ -2,7 +2,7 @@
   "name": "B2B2B",
   "description": "B2B2B Schema which includes B2B2B template",
   "id": "https://example.com/B2B2B",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -3878,9 +3878,9 @@
         }
       }
     },
-    "HostGenderInternationalMenu": {
-      "name": "HostGenderInternationalMenu",
-      "title": "host_gender_international menu",
+    "HostGenderMenu": {
+      "name": "HostGenderMenu",
+      "title": "host_gender menu",
       "from_schema": "https://example.com/B2B2B",
       "permissible_values": {
         "Female [NCIT:C46110]": {
@@ -5057,9 +5057,9 @@
         }
       }
     },
-    "AntimicrobialAgentNameMenu": {
-      "name": "AntimicrobialAgentNameMenu",
-      "title": "antimicrobial_agent_name menu",
+    "AmrAgentNameMenu": {
+      "name": "AmrAgentNameMenu",
+      "title": "amr_agent_name menu",
       "from_schema": "https://example.com/B2B2B",
       "permissible_values": {
         "Amikacin [CHEBI:2637]": {
@@ -5447,8 +5447,8 @@
         }
       }
     },
-    "AMR_vendor_name menu": {
-      "name": "AMR_vendor_name menu",
+    "AmrVendorNameMenu": {
+      "name": "AmrVendorNameMenu",
       "title": "AMR_vendor_name menu",
       "from_schema": "https://example.com/B2B2B",
       "permissible_values": {
@@ -6885,8 +6885,8 @@
     }
   },
   "slots": {
-    "sample_collector_sample_ID": {
-      "name": "sample_collector_sample_ID",
+    "sample_collector_sample_id": {
+      "name": "sample_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "sample_collector_sample_ID",
       "comments": [
@@ -7033,7 +7033,7 @@
         }
       ],
       "from_schema": "https://example.com/B2B2B",
-      "slot_uri": "GENEPIO:0100429",
+      "slot_uri": "GENEPIO:0102162",
       "domain_of": [
         "B2B2B"
       ],
@@ -7047,8 +7047,8 @@
         }
       ]
     },
-    "sample_collection_ID": {
-      "name": "sample_collection_ID",
+    "sample_collection_id": {
+      "name": "sample_collection_id",
       "description": "The identifier associated with the sample collection.",
       "title": "sample_collection_ID",
       "comments": [
@@ -7074,8 +7074,8 @@
         }
       ]
     },
-    "sample_collection_URL": {
-      "name": "sample_collection_URL",
+    "sample_collection_url": {
+      "name": "sample_collection_url",
       "description": "The URL associated with online material about a sample collection.",
       "title": "sample_collection_URL",
       "comments": [
@@ -7128,8 +7128,8 @@
         }
       ]
     },
-    "geo_loc_name_(country)": {
-      "name": "geo_loc_name_(country)",
+    "geo_loc_name_country": {
+      "name": "geo_loc_name_country",
       "description": "The country of origin of the sample.",
       "title": "geo_loc_name_(country)",
       "comments": [
@@ -7155,8 +7155,8 @@
         }
       ]
     },
-    "geo_loc_name_(state/province/territory)": {
-      "name": "geo_loc_name_(state/province/territory)",
+    "geo_loc_name_state/province/territory": {
+      "name": "geo_loc_name_state/province/territory",
       "description": "The state/province/territory of origin of the sample.",
       "title": "geo_loc_name_(state/province/territory)",
       "comments": [
@@ -7182,8 +7182,8 @@
         }
       ]
     },
-    "geo_loc_name_(site)": {
-      "name": "geo_loc_name_(site)",
+    "geo_loc_name_site": {
+      "name": "geo_loc_name_site",
       "description": "The name of a specific geographical location e.g. Credit River (rather than river).",
       "title": "geo_loc_name_(site)",
       "comments": [
@@ -7379,7 +7379,7 @@
         }
       ],
       "from_schema": "https://example.com/B2B2B",
-      "slot_uri": "GENEPIO:0100435",
+      "slot_uri": "GENEPIO:0001253",
       "domain_of": [
         "B2B2B"
       ],
@@ -7420,8 +7420,8 @@
         }
       ]
     },
-    "food_product_origin_geo_loc_name (country)": {
-      "name": "food_product_origin_geo_loc_name (country)",
+    "food_product_origin_geo_loc_name_country": {
+      "name": "food_product_origin_geo_loc_name_country",
       "description": "The country of origin of a food product.",
       "title": "food_product_origin_geo_loc_name (country)",
       "comments": [
@@ -7447,8 +7447,8 @@
         }
       ]
     },
-    "host_origin_geo_loc_name_(country)": {
-      "name": "host_origin_geo_loc_name_(country)",
+    "host_origin_geo_loc_name_country": {
+      "name": "host_origin_geo_loc_name_country",
       "description": "The country of origin of the host.",
       "title": "host_origin_geo_loc_name_(country)",
       "comments": [
@@ -7750,8 +7750,8 @@
         }
       ]
     },
-    "host_(common_name)": {
-      "name": "host_(common_name)",
+    "host_common_name": {
+      "name": "host_common_name",
       "description": "The commonly used name of the host.",
       "title": "host_(common_name)",
       "comments": [
@@ -7777,8 +7777,8 @@
         }
       ]
     },
-    "host_(scientific_name)": {
-      "name": "host_(scientific_name)",
+    "host_scientific_name": {
+      "name": "host_scientific_name",
       "description": "The taxonomic, or scientific name of the host.",
       "title": "host_(scientific_name)",
       "comments": [
@@ -7912,8 +7912,8 @@
         }
       ]
     },
-    "isolate_ID": {
-      "name": "isolate_ID",
+    "isolate_id": {
+      "name": "isolate_id",
       "description": "The user-defined identifier for the isolate, as provided by the laboratory that originally isolated the isolate.",
       "title": "isolate_ID",
       "comments": [
@@ -7925,7 +7925,7 @@
         }
       ],
       "from_schema": "https://example.com/B2B2B",
-      "slot_uri": "GENEPIO:0100456",
+      "slot_uri": "GENEPIO:0001644",
       "domain_of": [
         "B2B2B"
       ],
@@ -8020,8 +8020,8 @@
         }
       ]
     },
-    "library_ID": {
-      "name": "library_ID",
+    "library_id": {
+      "name": "library_id",
       "description": "The user-specified identifier for the library prepared for sequencing.",
       "title": "library_ID",
       "comments": [
@@ -8276,7 +8276,7 @@
         }
       ],
       "from_schema": "https://example.com/B2B2B",
-      "slot_uri": "GENEPIO:0100471",
+      "slot_uri": "GENEPIO:0100422",
       "domain_of": [
         "B2B2B"
       ],
@@ -8715,7 +8715,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "WhitespaceMinimizedString"
+          "range": "AmrLaboratoryTypingMethodMenu"
         },
         {
           "range": "null value menu"
@@ -9033,8 +9033,8 @@
       "from_schema": "https://example.com/B2B2B",
       "is_a": "dh_interface",
       "slot_usage": {
-        "sample_collector_sample_ID": {
-          "name": "sample_collector_sample_ID",
+        "sample_collector_sample_id": {
+          "name": "sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
@@ -9063,13 +9063,13 @@
           "rank": 6,
           "slot_group": "Sample collection and processing"
         },
-        "sample_collection_ID": {
-          "name": "sample_collection_ID",
+        "sample_collection_id": {
+          "name": "sample_collection_id",
           "rank": 7,
           "slot_group": "Sample collection and processing"
         },
-        "sample_collection_URL": {
-          "name": "sample_collection_URL",
+        "sample_collection_url": {
+          "name": "sample_collection_url",
           "rank": 8,
           "slot_group": "Sample collection and processing"
         },
@@ -9078,18 +9078,18 @@
           "rank": 9,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_(country)": {
-          "name": "geo_loc_name_(country)",
+        "geo_loc_name_country": {
+          "name": "geo_loc_name_country",
           "rank": 10,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_(state/province/territory)": {
-          "name": "geo_loc_name_(state/province/territory)",
+        "geo_loc_name_state/province/territory": {
+          "name": "geo_loc_name_state/province/territory",
           "rank": 11,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_(site)": {
-          "name": "geo_loc_name_(site)",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "rank": 12,
           "slot_group": "Sample collection and processing"
         },
@@ -9133,13 +9133,13 @@
           "rank": 20,
           "slot_group": "Sample collection and processing"
         },
-        "food_product_origin_geo_loc_name (country)": {
-          "name": "food_product_origin_geo_loc_name (country)",
+        "food_product_origin_geo_loc_name_country": {
+          "name": "food_product_origin_geo_loc_name_country",
           "rank": 21,
           "slot_group": "Sample collection and processing"
         },
-        "host_origin_geo_loc_name_(country)": {
-          "name": "host_origin_geo_loc_name_(country)",
+        "host_origin_geo_loc_name_country": {
+          "name": "host_origin_geo_loc_name_country",
           "rank": 22,
           "slot_group": "Sample collection and processing"
         },
@@ -9193,13 +9193,13 @@
           "rank": 32,
           "slot_group": "Sample collection and processing"
         },
-        "host_(common_name)": {
-          "name": "host_(common_name)",
+        "host_common_name": {
+          "name": "host_common_name",
           "rank": 33,
           "slot_group": "Host information"
         },
-        "host_(scientific_name)": {
-          "name": "host_(scientific_name)",
+        "host_scientific_name": {
+          "name": "host_scientific_name",
           "rank": 34,
           "slot_group": "Host information"
         },
@@ -9223,8 +9223,8 @@
           "rank": 38,
           "slot_group": "Host Information"
         },
-        "isolate_ID": {
-          "name": "isolate_ID",
+        "isolate_id": {
+          "name": "isolate_id",
           "rank": 39,
           "slot_group": "Strain and isolation information"
         },
@@ -9243,8 +9243,8 @@
           "rank": 42,
           "slot_group": "Sequence information"
         },
-        "library_ID": {
-          "name": "library_ID",
+        "library_id": {
+          "name": "library_id",
           "rank": 43,
           "slot_group": "Sequence information"
         },
@@ -9430,8 +9430,8 @@
         }
       },
       "attributes": {
-        "sample_collector_sample_ID": {
-          "name": "sample_collector_sample_ID",
+        "sample_collector_sample_id": {
+          "name": "sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "sample_collector_sample_ID",
           "comments": [
@@ -9445,7 +9445,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
-          "alias": "sample_collector_sample_ID",
+          "alias": "sample_collector_sample_id",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -9599,7 +9599,7 @@
           ],
           "from_schema": "https://example.com/B2B2B",
           "rank": 6,
-          "slot_uri": "GENEPIO:0100429",
+          "slot_uri": "GENEPIO:0102162",
           "alias": "sample_collection_name",
           "owner": "B2B2B",
           "domain_of": [
@@ -9616,8 +9616,8 @@
             }
           ]
         },
-        "sample_collection_ID": {
-          "name": "sample_collection_ID",
+        "sample_collection_id": {
+          "name": "sample_collection_id",
           "description": "The identifier associated with the sample collection.",
           "title": "sample_collection_ID",
           "comments": [
@@ -9631,7 +9631,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 7,
           "slot_uri": "OBIB:0000001",
-          "alias": "sample_collection_ID",
+          "alias": "sample_collection_id",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -9647,8 +9647,8 @@
             }
           ]
         },
-        "sample_collection_URL": {
-          "name": "sample_collection_URL",
+        "sample_collection_url": {
+          "name": "sample_collection_url",
           "description": "The URL associated with online material about a sample collection.",
           "title": "sample_collection_URL",
           "comments": [
@@ -9662,7 +9662,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 8,
           "slot_uri": "GENEPIO:0102067",
-          "alias": "sample_collection_URL",
+          "alias": "sample_collection_url",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -9709,8 +9709,8 @@
             }
           ]
         },
-        "geo_loc_name_(country)": {
-          "name": "geo_loc_name_(country)",
+        "geo_loc_name_country": {
+          "name": "geo_loc_name_country",
           "description": "The country of origin of the sample.",
           "title": "geo_loc_name_(country)",
           "comments": [
@@ -9724,7 +9724,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 10,
           "slot_uri": "GENEPIO:0001181",
-          "alias": "geo_loc_name_(country)",
+          "alias": "geo_loc_name_country",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -9740,8 +9740,8 @@
             }
           ]
         },
-        "geo_loc_name_(state/province/territory)": {
-          "name": "geo_loc_name_(state/province/territory)",
+        "geo_loc_name_state/province/territory": {
+          "name": "geo_loc_name_state/province/territory",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo_loc_name_(state/province/territory)",
           "comments": [
@@ -9755,7 +9755,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 11,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_(state/province/territory)",
+          "alias": "geo_loc_name_state/province/territory",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -9771,8 +9771,8 @@
             }
           ]
         },
-        "geo_loc_name_(site)": {
-          "name": "geo_loc_name_(site)",
+        "geo_loc_name_site": {
+          "name": "geo_loc_name_site",
           "description": "The name of a specific geographical location e.g. Credit River (rather than river).",
           "title": "geo_loc_name_(site)",
           "comments": [
@@ -9786,7 +9786,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 12,
           "slot_uri": "GENEPIO:0100436",
-          "alias": "geo_loc_name_(site)",
+          "alias": "geo_loc_name_site",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -9997,7 +9997,7 @@
           ],
           "from_schema": "https://example.com/B2B2B",
           "rank": 19,
-          "slot_uri": "GENEPIO:0100435",
+          "slot_uri": "GENEPIO:0001253",
           "alias": "specimen_processing",
           "owner": "B2B2B",
           "domain_of": [
@@ -10045,8 +10045,8 @@
             }
           ]
         },
-        "food_product_origin_geo_loc_name (country)": {
-          "name": "food_product_origin_geo_loc_name (country)",
+        "food_product_origin_geo_loc_name_country": {
+          "name": "food_product_origin_geo_loc_name_country",
           "description": "The country of origin of a food product.",
           "title": "food_product_origin_geo_loc_name (country)",
           "comments": [
@@ -10060,7 +10060,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 21,
           "slot_uri": "GENEPIO:0100437",
-          "alias": "food_product_origin_geo_loc_name_(country)",
+          "alias": "food_product_origin_geo_loc_name_country",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -10076,8 +10076,8 @@
             }
           ]
         },
-        "host_origin_geo_loc_name_(country)": {
-          "name": "host_origin_geo_loc_name_(country)",
+        "host_origin_geo_loc_name_country": {
+          "name": "host_origin_geo_loc_name_country",
           "description": "The country of origin of the host.",
           "title": "host_origin_geo_loc_name_(country)",
           "comments": [
@@ -10091,7 +10091,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 22,
           "slot_uri": "GENEPIO:0100438",
-          "alias": "host_origin_geo_loc_name_(country)",
+          "alias": "host_origin_geo_loc_name_country",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -10423,8 +10423,8 @@
             }
           ]
         },
-        "host_(common_name)": {
-          "name": "host_(common_name)",
+        "host_common_name": {
+          "name": "host_common_name",
           "description": "The commonly used name of the host.",
           "title": "host_(common_name)",
           "comments": [
@@ -10438,7 +10438,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 33,
           "slot_uri": "GENEPIO:0001386",
-          "alias": "host_(common_name)",
+          "alias": "host_common_name",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -10454,8 +10454,8 @@
             }
           ]
         },
-        "host_(scientific_name)": {
-          "name": "host_(scientific_name)",
+        "host_scientific_name": {
+          "name": "host_scientific_name",
           "description": "The taxonomic, or scientific name of the host.",
           "title": "host_(scientific_name)",
           "comments": [
@@ -10469,7 +10469,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 34,
           "slot_uri": "GENEPIO:0001387",
-          "alias": "host_(scientific_name)",
+          "alias": "host_scientific_name",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -10609,8 +10609,8 @@
             }
           ]
         },
-        "isolate_ID": {
-          "name": "isolate_ID",
+        "isolate_id": {
+          "name": "isolate_id",
           "description": "The user-defined identifier for the isolate, as provided by the laboratory that originally isolated the isolate.",
           "title": "isolate_ID",
           "comments": [
@@ -10623,8 +10623,8 @@
           ],
           "from_schema": "https://example.com/B2B2B",
           "rank": 39,
-          "slot_uri": "GENEPIO:0100456",
-          "alias": "isolate_ID",
+          "slot_uri": "GENEPIO:0001644",
+          "alias": "isolate_id",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -10733,8 +10733,8 @@
             }
           ]
         },
-        "library_ID": {
-          "name": "library_ID",
+        "library_id": {
+          "name": "library_id",
           "description": "The user-specified identifier for the library prepared for sequencing.",
           "title": "library_ID",
           "comments": [
@@ -10748,7 +10748,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 43,
           "slot_uri": "GENEPIO:0001448",
-          "alias": "library_ID",
+          "alias": "library_id",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -11026,7 +11026,7 @@
           ],
           "from_schema": "https://example.com/B2B2B",
           "rank": 52,
-          "slot_uri": "GENEPIO:0100471",
+          "slot_uri": "GENEPIO:0100422",
           "alias": "sequenced_by_contact_email",
           "owner": "B2B2B",
           "domain_of": [
@@ -11532,7 +11532,7 @@
           "required": true,
           "any_of": [
             {
-              "range": "WhitespaceMinimizedString"
+              "range": "AmrLaboratoryTypingMethodMenu"
             },
             {
               "range": "null value menu"

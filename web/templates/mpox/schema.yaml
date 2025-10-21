@@ -1,6 +1,6 @@
 id: https://example.com/mpox
 name: Mpox
-version: 9.0.0
+version: 8.5.5
 description: ''
 imports:
 - linkml:types
@@ -18,7 +18,7 @@ classes:
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox.pdf
     annotations:
-      version: 7.6.6
+      version: 7.5.5
     slots:
     - specimen_collector_sample_id
     - related_specimen_primary_id
@@ -37,7 +37,7 @@ classes:
     - geo_loc_name_country
     - geo_loc_name_state_province_territory
     - organism
-    - isolate
+    - isolate_id
     - purpose_of_sampling
     - purpose_of_sampling_details
     - nml_submitted_specimen_type
@@ -215,10 +215,9 @@ classes:
         any_of:
         - range: OrganismMenu
         - range: NullValueMenu
-      isolate:
+      isolate_id:
         rank: 18
         slot_group: Sample collection and processing
-        slot_uri: GENEPIO:0001195
         comments: "Provide the GISAID EpiPox virus name, which should be written in\
           \ the format \u201ChMpxV/Canada/2 digit provincial ISO code-xxxxx/year\u201D\
           . If the province code cannot be shared for privacy reasons, put \"UN\"\
@@ -612,7 +611,7 @@ classes:
           specimens rather than sequencing data, please put the "National Microbiology
           Laboratory (NML)".
         any_of:
-        - range: SequenceSubmittedByMenu
+        - range: SequencedByMenu
         - range: NullValueMenu
         exact_mappings:
         - NML_LIMS:PH_SEQUENCING_CENTRE
@@ -805,7 +804,7 @@ classes:
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox_international.pdf
     annotations:
-      version: 9.0.0
+      version: 8.5.5
     slots:
     - specimen_collector_sample_id
     - case_id
@@ -828,7 +827,7 @@ classes:
     - geo_loc_latitude
     - geo_loc_longitude
     - organism
-    - isolate
+    - isolate_id
     - purpose_of_sampling
     - purpose_of_sampling_details
     - anatomical_material
@@ -1059,10 +1058,9 @@ classes:
         any_of:
         - range: OrganismInternationalMenu
         - range: NullValueMenu
-      isolate:
+      isolate_id:
         rank: 22
         slot_group: Sample collection and processing
-        slot_uri: GENEPIO:0001644
         comments: 'This identifier should be an unique, indexed, alpha-numeric ID
           within your laboratory. If submitted to the INSDC, the "isolate" name is
           propagated throughtout different databases. As such, structure the "isolate"
@@ -2094,10 +2092,11 @@ slots:
     exact_mappings:
     - NML_LIMS:HC_CURRENT_ID
     - NCBI_Pathogen_BIOSAMPLE:organism
-  isolate:
-    name: isolate
-    title: isolate
+  isolate_id:
+    name: isolate_id
+    title: isolate ID
     description: Identifier of the specific isolate.
+    slot_uri: GENEPIO:0001644
     required: true
     any_of:
     - range: WhitespaceMinimizedString
@@ -2398,7 +2397,7 @@ slots:
     comments: Provide the lineage/clade name.
     slot_uri: GENEPIO:0001500
     any_of:
-    - range: LineageCladeNameINternationalMenu
+    - range: LineageCladeNameInternationalMenu
     - range: NullValueMenu
     examples:
     - value: F.4
@@ -2473,7 +2472,7 @@ slots:
     title: host health outcome
     description: Disease outcome in the host.
     comments: If known, select a value from the pick list.
-    slot_uri: GENEPIO:0001389
+    slot_uri: GENEPIO:0001390
   host_disease:
     name: host_disease
     title: host disease
