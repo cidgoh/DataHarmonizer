@@ -2,7 +2,6 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-//const DirectoryTreePlugin = require('directory-tree-webpack-plugin');
 
 module.exports = (env, argv) => {
   var config = {
@@ -28,16 +27,6 @@ module.exports = (env, argv) => {
       schemas: 'schemas',
     },
     plugins: [
-      /* necessary for templates.js
-      new DirectoryTreePlugin({
-        dir: './web/templates',
-        path: './web/templates/manifest.json',
-        extensions: /\.md|\.json/,
-        enhance: (item, options) => {
-          item.path = item.path.replace('web', '');
-        },
-      }),
-      */
       new HtmlWebpackPlugin({
         template: './index.html',
       }),
@@ -48,6 +37,11 @@ module.exports = (env, argv) => {
             context: 'templates',
             from: '**/schema.json',
             to: 'templates/[path][name][ext]',
+          },   
+          {
+            context: 'images',
+            from: '**/*.gif',
+            to: 'images/[path][name][ext]',
           },
           {
             from: 'main.html',
@@ -116,7 +110,7 @@ module.exports = (env, argv) => {
             context: 'templates',
             from: '**/*.pdf',
             to: 'templates/[path][name][ext]',
-          },
+          },  
         ],
       })
     );
