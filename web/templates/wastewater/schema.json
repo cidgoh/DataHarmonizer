@@ -2,7 +2,7 @@
   "name": "Wastewater",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "4.2.2",
+  "version": "4.3.3",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -13987,7 +13987,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "4.2.2"
+          "value": "4.3.3"
         }
       },
       "description": "Specification for Wastewater SARS-CoV-2 virus biosample data gathering",
@@ -21542,7 +21542,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "4.2.2"
+          "value": "4.3.3"
         }
       },
       "description": "Specification for Wastewater AMR biosample data gathering",
@@ -29146,7 +29146,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "4.2.2"
+          "value": "4.3.3"
         }
       },
       "description": "Specification for Wastewater Pathogen Agnostic biosample data gathering",

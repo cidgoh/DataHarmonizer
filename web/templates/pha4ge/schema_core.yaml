@@ -1,7 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: PHA4GE
 description: ""
-version: 1.0.2
+version: 1.0.3
 imports:
   - 'linkml:types'
 prefixes:

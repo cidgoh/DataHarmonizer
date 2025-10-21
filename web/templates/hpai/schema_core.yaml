@@ -19,7 +19,7 @@ classes:
     is_a: dh_interface
     see_also: 
     annotations:
-      version: 1.0.0
+      version: 1.0.1
   'HPAIFood':
     name: 'HPAIFood'
     title: 'HPAI Food'
@@ -27,7 +27,7 @@ classes:
     is_a: dh_interface
     see_also: 
     annotations:
-      version: 1.0.0
+      version: 1.0.1
   'HPAIWW':
     name: 'HPAIWW'
     title: 'HPAI Wastewater'
@@ -35,7 +35,7 @@ classes:
     is_a: dh_interface
     see_also: 
     annotations:
-      version: 1.0.0
+      version: 1.0.1
   'HPAIEnviro':
     name: 'HPAIEnviro'
     title: 'HPAI Environmental'
@@ -43,7 +43,7 @@ classes:
     is_a: dh_interface
     see_also: 
     annotations:
-      version: 1.0.0
+      version: 1.0.1
   'HPAIHost':
     name: 'HPAIHost'
     title: 'HPAI Host'
@@ -51,7 +51,7 @@ classes:
     is_a: dh_interface
     see_also: 
     annotations:
-      version: 1.0.0
+      version: 1.0.1
 slots: {}
 enums: {}
 types:

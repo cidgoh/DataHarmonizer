@@ -15337,7 +15337,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.0"
+          "value": "1.0.1"
         }
       },
       "description": "Master specification (contains all fields/terms)",
@@ -24425,7 +24425,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.0"
+          "value": "1.0.1"
         }
       },
       "description": "Food-specific template for HPAI surveillance",
@@ -29203,7 +29203,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.0"
+          "value": "1.0.1"
         }
       },
       "description": "Wastewater-specific template for HPAI surveillance",
@@ -36712,7 +36712,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.0"
+          "value": "1.0.1"
         }
       },
       "description": "Environment-specific template for HPAI surveillance (wastewater template contains more specific fields)",
@@ -44221,7 +44221,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.0"
+          "value": "1.0.1"
         }
       },
       "description": "Host-specific template for HPAI surveillance",

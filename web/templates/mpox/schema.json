@@ -2,7 +2,7 @@
   "name": "Mpox",
   "description": "",
   "id": "https://example.com/mpox",
-  "version": "8.5.5",
+  "version": "9.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -15602,7 +15602,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "7.5.5"
+          "value": "7.6.6"
         }
       },
       "description": "Canadian specification for Mpox clinical virus biosample data gathering",
@@ -20697,7 +20697,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "8.5.5"
+          "value": "9.0.0"
         }
       },
       "description": "International specification for Mpox clinical virus biosample data gathering",

@@ -2,7 +2,7 @@
   "name": "GRDI",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "14.5.5",
+  "version": "15.1.1",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",

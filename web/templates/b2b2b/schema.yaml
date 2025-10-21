@@ -1,7 +1,7 @@
 id: https://example.com/B2B2B
 name: B2B2B
 description: B2B2B Schema which includes B2B2B template
-version: 1.0.0
+version: 1.1.1
 imports:
 - linkml:types
 prefixes:
@@ -351,10 +351,10 @@ slots:
       the original sample_ID is unknown or cannot be provided, leave blank or provide
       a null value.
     slot_uri: GENEPIO:0001123
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: ABCD123
   bioproject_accession:
@@ -369,10 +369,10 @@ slots:
       PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing
       project.
     slot_uri: GENEPIO:0001136
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: PRJNA608651
   biosample_accession:
@@ -382,10 +382,10 @@ slots:
     comments: Store the accession returned from the BioSample submission. NCBI BioSamples
       will have the prefix SAMN, while ENA BioSamples will have the prefix SAMEA.
     slot_uri: GENEPIO:0001139
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: SAMN14180202
   sample_collection_data_steward_contact_email:
@@ -398,10 +398,10 @@ slots:
       If the contact is the same, provide the same address as the "sample collector
       contact email".
     slot_uri: GENEPIO:0101107
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: bloggsj@aglab.ca
   sample_collected_by:
@@ -411,10 +411,10 @@ slots:
     comments: The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions.
     slot_uri: GENEPIO:0001153
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Public Health Agency of Canada
   sample_collection_name:
@@ -425,10 +425,10 @@ slots:
       name of the sample collection. Type culture collection names can be referenced
       here. Private collections and sample collection project names can also be included.
     slot_uri: GENEPIO:0100429
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: American Type Culture Collection (ATCC)
   sample_collection_ID:
@@ -438,10 +438,10 @@ slots:
     comments: If the sample is associated with a particular collection that can be
       refered to by an identifier, provide the identifier of the sample collection.
     slot_uri: OBIB:0000001
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: BCRCAMUAMR
   sample_collection_URL:
@@ -451,10 +451,10 @@ slots:
     comments: If the sample collection has online materials that may be useful for
       providing context, include the URL associated with the sample collection.
     slot_uri: GENEPIO:0102067
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: https://www.jpiamr.eu/projects/b2b2b-amrdx/
   sample_collector_contact_email:
@@ -465,10 +465,10 @@ slots:
     comments: The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca,
       or RespLab@lab.ca
     slot_uri: GENEPIO:0001156
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: WaterTester@facility.ca
   geo_loc_name_(country):
@@ -477,10 +477,10 @@ slots:
     description: The country of origin of the sample.
     comments: If known, select a value from the pick list.
     slot_uri: GENEPIO:0001181
+    required: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: null value menu
-    required: true
     examples:
     - value: Canada
   geo_loc_name_(state/province/territory):
@@ -490,10 +490,10 @@ slots:
     comments: 'Provide the state/province/territory name from the GAZ geography ontology.
       Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/ga'
     slot_uri: GENEPIO:0001185
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Western Cape
   geo_loc_name_(site):
@@ -504,10 +504,10 @@ slots:
     comments: Provide the name of the specific geographical site using a specific
       noun (a word that names a certain place, thing).
     slot_uri: GENEPIO:0100436
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Credit River
   organism:
@@ -516,10 +516,10 @@ slots:
     description: Taxonomic name of the organism.
     comments: Provide the official nomenclature for the organism present in the sample.
     slot_uri: GENEPIO:0001191
+    required: true
     any_of:
     - range: OrganismMenu
     - range: null value menu
-    required: true
     examples:
     - value: Salmonella enterica subsp. enterica [NCBITaxon:59201]
   purpose_of_sampling:
@@ -533,10 +533,10 @@ slots:
       why it was selected for sequencing, which should be indicated in the "purpose
       of sequencing" field.
     slot_uri: GENEPIO:0001198
+    required: true
     any_of:
     - range: PurposeOfSamplingMenu
     - range: null value menu
-    required: true
     examples:
     - value: Surveillance [GENEPIO:0100004]
   presampling_activity:
@@ -550,10 +550,10 @@ slots:
       information is unknown or cannot be provided, leave blank or provide a null
       value.
     slot_uri: GENEPIO:0100433
+    required: true
     any_of:
     - range: PresamplingActivityMenu
     - range: null value menu
-    required: true
     examples:
     - value: Antimicrobial pre-treatment [GENEPIO:0100537]
   presampling_activity_details:
@@ -563,10 +563,10 @@ slots:
       the sample collected.
     comments: Briefly describe the experimental details using free text.
     slot_uri: GENEPIO:0100434
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Chicken feed containing novobiocin was fed to chickens for 72 hours prior
         to collection of litter.
@@ -581,10 +581,10 @@ slots:
       or a replicate, select a role type from the picklist. If the sample was not
       a control, leave blank or select "Not Applicable".
     slot_uri: GENEPIO:0100921
+    required: true
     any_of:
     - range: ExperimentalSpecimenRoleTypeMenu
     - range: null value menu
-    required: true
     examples:
     - value: Positive experimental control [GENEPIO:0101018]
   experimental_control_details:
@@ -594,10 +594,10 @@ slots:
     comments: Provide details regarding the nature of the reference strain used as
       a control, or what is was used to monitor.
     slot_uri: GENEPIO:0100922
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
   specimen_processing:
     name: specimen_processing
     title: specimen_processing
@@ -607,10 +607,10 @@ slots:
       the template pick list. If the information is unknown or cannot be provided,
       leave blank or provide a null value.
     slot_uri: GENEPIO:0100435
+    required: true
     any_of:
     - range: SpecimenProcessingMenu
     - range: null value menu
-    required: true
     examples:
     - value: Samples pooled [OBI:0600016]
   specimen_processing_details:
@@ -620,10 +620,10 @@ slots:
       receiving the sample.
     comments: Briefly describe the processes applied to the sample.
     slot_uri: GENEPIO:0100311
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: 25 samples were pooled and further prepared as a single sample during
         library prep.
@@ -637,10 +637,10 @@ slots:
       cannot be provided, or is not applicable to the sample type, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100437
+    recommended: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: United States of America [GAZ:00002459]
   host_origin_geo_loc_name_(country):
@@ -653,10 +653,10 @@ slots:
       cannot be provided, or is not applicable to the sample type, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100438
+    recommended: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: South Africa [GAZ:00001094]
   sample_collection_date:
@@ -666,10 +666,10 @@ slots:
     comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0001174
+    required: true
     any_of:
     - range: date
     - range: null value menu
-    required: true
     examples:
     - value: '2020-10-30'
   environmental_site:
@@ -681,10 +681,10 @@ slots:
       environmental site from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     slot_uri: GENEPIO:0001232
+    recommended: true
     any_of:
     - range: EnvironmentalSiteMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Poultry hatchery [ENVO:01001874]
   environmental_material:
@@ -696,10 +696,10 @@ slots:
       environmental material from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     slot_uri: GENEPIO:0001223
+    recommended: true
     any_of:
     - range: EnvironmentalMaterialMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Wastewater [ENVO:00002001]
   anatomical_material:
@@ -711,10 +711,10 @@ slots:
       select the standardized term and ontology ID for the anatomical material from
       the picklist provided. Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001211
+    recommended: true
     any_of:
     - range: AnatomicalMaterialMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Tissue [UBERON:0000479]
     - value: Blood [UBERON:0000178]
@@ -728,10 +728,10 @@ slots:
       ontology ID for the body product from the picklist provided. Multiple values
       can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001216
+    recommended: true
     any_of:
     - range: BodyProductMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Feces [UBERON:0001988]
     - value: Urine [UBERON:0001088]
@@ -743,10 +743,10 @@ slots:
       select the standardized term and ontology ID for the anatomical material from
       the picklist provided. Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001214
+    recommended: true
     any_of:
     - range: AnatomicalPartMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Cloaca [UBERON:0000162]
   food_product:
@@ -757,10 +757,10 @@ slots:
       term and ontology ID for the anatomical material from the picklist provided.
       Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0100444
+    recommended: true
     any_of:
     - range: FoodProductMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Chicken breast [FOODON:00002703]
   food_product_properties:
@@ -773,10 +773,10 @@ slots:
       (e.g. raw, ready-to-eat), any known information about its containment (e.g.
       canned), and any information about a label claim (e.g. organic, fat-free).
     slot_uri: GENEPIO:0100445
+    recommended: true
     any_of:
     - range: FoodProductPropertiesMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Food (chopped) [FOODON:00002777]
   collection_device:
@@ -787,10 +787,10 @@ slots:
       term and ontology ID for the anatomical material from the picklist provided.
       Multiple values can be provided, separated by a semi-colon.
     slot_uri: GENEPIO:0001234
+    recommended: true
     any_of:
     - range: CollectionDeviceMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Vacutainer [OBIB:0000032]
   collection_method:
@@ -801,10 +801,10 @@ slots:
       anatomical material from the picklist provided. Multiple values can be provided,
       separated by a semi-colon.
     slot_uri: GENEPIO:0001241
+    recommended: true
     any_of:
     - range: CollectionMethodMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Necropsy [MMO:0000344]
   host_(common_name):
@@ -815,10 +815,10 @@ slots:
       can be provided, if known. Use terms from the pick lists in the template. Common
       name e.g. human, bat. If the sample was environmental, put "not applicable.
     slot_uri: GENEPIO:0001386
+    recommended: true
     any_of:
     - range: HostCommonNameMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Human [NCBITaxon:9606]
   host_(scientific_name):
@@ -829,10 +829,10 @@ slots:
       can be provided, if known. Use terms from the pick lists in the template. Scientific
       name e.g. Homo sapiens, If the sample was environmental, put "not applicable
     slot_uri: GENEPIO:0001387
+    recommended: true
     any_of:
     - range: HostScientificNameMenu
     - range: null value menu
-    recommended: true
     examples:
     - value: Homo sapiens [NCBITaxon:9606]
   host_disease:
@@ -846,10 +846,10 @@ slots:
       \ and the disease state is not known or the host appears healthy, put \u201C\
       not applicable\u201D."
     slot_uri: GENEPIO:0001391
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    recommended: true
     examples:
     - value: Mastitis [MONDO:0006849]
   host_age:
@@ -858,10 +858,10 @@ slots:
     description: Age of host at the time of sampling.
     comments: If there was a host and the host age is known, provide the age.
     slot_uri: GENEPIO:0001392
+    recommended: true
     any_of:
     - range: integer
     - range: null value menu
-    recommended: true
     examples:
     - value: '79'
   host_age_unit:
@@ -871,10 +871,10 @@ slots:
     comments: If known, provide the age units used to measure the host's age from
       the pick list.
     slot_uri: GENEPIO:0001393
+    recommended: true
     any_of:
     - range: HostAgeUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: year
   host_gender:
@@ -883,10 +883,10 @@ slots:
     description: The gender of the host at the time of sample collection.
     comments: If known, select a value from the pick list.
     slot_uri: GENEPIO:0001395
+    recommended: true
     any_of:
     - range: HostGenderMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Male
   isolate_ID:
@@ -900,10 +900,10 @@ slots:
       (e.g. the ID from your lab, if your lab did not isolate the isolate from the
       original sample), make asure to include it in the alternative_isolate_ID field.
     slot_uri: GENEPIO:0100456
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    recommended: true
     examples:
     - value: SA20131043
   isolated_by:
@@ -915,10 +915,10 @@ slots:
       the original isolate in full (avoid abbreviations). If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100461
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    recommended: true
     examples:
     - value: Public Health Agency of Canada
   isolated_by_contact_email:
@@ -932,10 +932,10 @@ slots:
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100464
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    recommended: true
     examples:
     - value: enterics@lab.ca
   sequencing_assay_type:
@@ -946,10 +946,10 @@ slots:
     comments: Provide the name of the DNA or RNA sequencing technology used in your
       study. If unsure refer to the protocol documentation, or provide a null value.
     slot_uri: GENEPIO:0100997
+    required: true
     any_of:
     - range: SequencingAssayTypeMenu
     - range: null value menu
-    required: true
     examples:
     - value: Whole genome sequencing assay [OBI:0002117]
   library_ID:
@@ -959,10 +959,10 @@ slots:
     comments: The library name should be unique, and can be an autogenerated ID from
       your LIMS, or modification of the isolate ID.
     slot_uri: GENEPIO:0001448
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: XYZ_123345
   nucleic_acid_extraction_method:
@@ -971,10 +971,10 @@ slots:
     description: The process used to extract genomic material from a sample.
     comments: Briefly describe the extraction method used.
     slot_uri: GENEPIO:0100939
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Direct wastewater RNA capture and purification via the "Sewage, Salt,
         Silica and SARS-CoV-2 (4S)" method v4 found at https://www.protocols.io/view/v-4-direct-wastewater-rna-capture-and-purification-36wgq581ygk5/v4
@@ -985,10 +985,10 @@ slots:
       regions of interest from a genome.
     comments: Provide the name of the enrichment method
     slot_uri: GENEPIO:0100966
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Hybrid selection method (bait-capture) [GENEPIO:0001950]
   library_preparation_kit:
@@ -998,10 +998,10 @@ slots:
       library being sequenced.
     comments: Provide the name of the library preparation kit used.
     slot_uri: GENEPIO:0001450
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Nextera XT
   sequencing_platform:
@@ -1012,10 +1012,10 @@ slots:
       by selecting a value from the template pick list. If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100473
+    required: true
     any_of:
     - range: SequencingPlatformMenu
     - range: null value menu
-    required: true
     examples:
     - value: Illumina [GENEPIO:0001923]
   sequencing_instrument:
@@ -1026,10 +1026,10 @@ slots:
       template pick list. If the information is unknown or cannot be provided, leave
       blank or provide a null value.
     slot_uri: GENEPIO:0001452
+    required: true
     any_of:
     - range: SequencingInstrumentMenu
     - range: null value menu
-    required: true
     examples:
     - value: Illumina HiSeq 2500 [GENEPIO:0100117]
   purpose_of_sequencing:
@@ -1042,10 +1042,10 @@ slots:
       the purpose of sequencing from the picklist in the template. The reason for
       sample collection should be indicated in the "purpose of sampling" field.
     slot_uri: GENEPIO:0001445
+    required: true
     any_of:
     - range: PurposeOfSequencingMenu
     - range: null value menu
-    required: true
     examples:
     - value: Cluster/Outbreak investigation [GENEPIO:0100001]
   purpose_of_sequencing_details:
@@ -1061,10 +1061,10 @@ slots:
       exposures, Investigating remote regions, Investigating health care workers,
       Investigating schools/universities.'
     slot_uri: GENEPIO:0001446
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Hospital outbreak
   sequenced_by:
@@ -1076,10 +1076,10 @@ slots:
       the sequencing in full (avoid abbreviations). If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100416
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Public Health Agency of Canada
   sequenced_by_contact_email:
@@ -1093,10 +1093,10 @@ slots:
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100471
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: enterics@lab.ca
   sequence_submitted_by:
@@ -1108,10 +1108,10 @@ slots:
       specimens rather than sequencing data, please put the "National Microbiology
       Laboratory (NML)".
     slot_uri: GENEPIO:0001159
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Public Health Ontario (PHO)
   sequence_submitter_contact_email:
@@ -1121,10 +1121,10 @@ slots:
       the sequence.
     comments: The email address can represent a specific individual or laboratory.
     slot_uri: GENEPIO:0001165
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: RespLab@lab.ca
   raw_sequence_data_processing_method:
@@ -1135,10 +1135,10 @@ slots:
     comments: Provide the software name followed by the version e.g. Trimmomatic v.
       0.38, Porechop v. 0.2.3
     slot_uri: GENEPIO:0001458
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Porechop 0.2.3
   dehosting_method:
@@ -1148,10 +1148,10 @@ slots:
     comments: Provide the name and version number of the software used to remove host
       reads.
     slot_uri: GENEPIO:0001459
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Nanostripper
   number_of_total_reads:
@@ -1161,10 +1161,10 @@ slots:
       process.
     comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0100827
+    required: true
     any_of:
     - range: integer
     - range: null value menu
-    required: true
     examples:
     - value: '423867'
   amr_testing_by:
@@ -1176,10 +1176,10 @@ slots:
       the AMR testing, in full (avoid abbreviations). If the information is unknown
       or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100511
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Canadian Food Inspection Agency
   amr_testing_by_laboratory_name:
@@ -1191,10 +1191,10 @@ slots:
       (avoid abbreviations). If the information is unknown or cannot be provided,
       leave blank or provide a null value.
     slot_uri: GENEPIO:0100512
+    required: true
     any_of:
     - range: AmrTestingByLaboratoryNameMenu
     - range: null value menu
-    required: true
     examples:
     - value: Topp Lab
   amr_testing_by_contact_name:
@@ -1208,10 +1208,10 @@ slots:
       information is unknown or cannot be provided, leave blank or provide a null
       value.
     slot_uri: GENEPIO:0100513
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Enterics Lab Manager
   amr_testing_by_contact_email:
@@ -1225,10 +1225,10 @@ slots:
       memory. If the information is unknown or cannot be provided, leave blank or
       provide a null value.
     slot_uri: GENEPIO:0100514
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: johnnyblogs@lab.ca
   amr_testing_date:
@@ -1238,10 +1238,10 @@ slots:
     comments: Provide the date according to the ISO 8601 standard "YYYY-MM-DD", "YYYY-MM"
       or "YYYY".
     slot_uri: GENEPIO:0100515
+    required: true
     any_of:
     - range: date
     - range: null value menu
-    required: true
     examples:
     - value: '2022-04-03'
   amr_agent_name:
@@ -1254,10 +1254,10 @@ slots:
       interest is not present. Use the Term Request System to request the addition
       of other agents.
     slot_uri: GENEPIO:0100521
+    required: true
     any_of:
     - range: AmrAgentNameMenu
     - range: null value menu
-    required: true
     examples:
     - value: Amoxicillin-clavulanic [ARO:3003997]
   amr_phenotype:
@@ -1267,10 +1267,10 @@ slots:
       susceptibility measurement and testing standard.
     comments: Select a phenotype from the pick list provided.
     slot_uri: GENEPIO:0100525
+    required: true
     any_of:
     - range: AmrPhenotypeMenu
     - range: null value menu
-    required: true
     examples:
     - value: Susceptible antimicrobial phenotype [ARO:3004302]
   amr_measurement_sign:
@@ -1280,10 +1280,10 @@ slots:
     comments: Select the comparator sign from the pick list provided. Use the Term
       Request System to request the addition of other signs if necessary.
     slot_uri: GENEPIO:0100524
+    required: true
     any_of:
     - range: AmrMeasurementSignMenu
     - range: null value menu
-    required: true
     examples:
     - value: greater than (>) [GENEPIO:0001006]
   amr_measurement:
@@ -1293,10 +1293,10 @@ slots:
     comments: This field should only contain a number (either an integer or a number
       with decimals).
     slot_uri: GENEPIO:0100522
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: '4'
   amr_measurement_units:
@@ -1306,10 +1306,10 @@ slots:
     comments: Select the units from the pick list provided. Use the Term Request System
       to request the addition of other units if necessary.
     slot_uri: GENEPIO:0100523
+    required: true
     any_of:
     - range: AmrMeasurementUnitsMenu
     - range: null value menu
-    required: true
     examples:
     - value: ug/mL [UO:0000274]
   amr_laboratory_typing_method:
@@ -1319,10 +1319,10 @@ slots:
     comments: Select a typing method from the pick list provided. Use the Term Request
       System to request the addition of other methods if necessary.
     slot_uri: GENEPIO:0100526
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: Broth dilution [ARO:3004397]
   amr_laboratory_typing_platform:
@@ -1332,10 +1332,10 @@ slots:
     comments: Select a typing platform from the pick list provided. Use the Term Request
       System to request the addition of other platforms if necessary.
     slot_uri: GENEPIO:0100527
+    required: true
     any_of:
     - range: AmrLaboratoryTypingPlatformMenu
     - range: null value menu
-    required: true
     examples:
     - value: Sensitire [ARO:3004402]
   amr_laboratory_typing_platform_version:
@@ -1346,10 +1346,10 @@ slots:
     comments: Include any additional information about the antimicrobial susceptibility
       test such as the drug panel details.
     slot_uri: GENEPIO:0100528
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: CMV3AGNF
   amr_vendor_name:
@@ -1358,10 +1358,10 @@ slots:
     description: The name of the vendor of the testing platform used.
     comments: Provide the full name of the company (avoid abbreviations).
     slot_uri: GENEPIO:0100529
+    required: true
     any_of:
     - range: AmrVendorNameMenu
     - range: null value menu
-    required: true
     examples:
     - value: Sensititre [ARO:3004402]
   amr_testing_standard:
@@ -1370,10 +1370,10 @@ slots:
     description: The testing standard used for determination of resistance phenotype
     comments: Select a testing standard from the pick list provided.
     slot_uri: GENEPIO:0100530
+    required: true
     any_of:
     - range: AmrTestingStandardMenu
     - range: null value menu
-    required: true
     examples:
     - value: Clinical Laboratory and Standards Institute (CLSI) [ARO:3004366]
   amr_testing_standard_version:
@@ -1383,10 +1383,10 @@ slots:
       determination of resistance phenotype
     comments: If applicable, include a version number for the testing standard used.
     slot_uri: GENEPIO:0100531
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: M100
   amr_testing_standard_details:
@@ -1397,10 +1397,10 @@ slots:
     comments: This information may include the year or location where the testing
       standard was published. If not applicable, leave blank.
     slot_uri: GENEPIO:0100520
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: '27th ed. Wayne, PA: Clinical and Laboratory Standards Institute'
     - value: '2017.'
@@ -1412,10 +1412,10 @@ slots:
     comments: "This field should only contain a number (either an integer or a number\
       \ with decimals), since the \u201C<=\u201D qualifier is implied."
     slot_uri: GENEPIO:0100516
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: '8'
   amr_testing_intermediate_breakpoint:
@@ -1427,10 +1427,10 @@ slots:
     comments: "This field should only contain a number (either an integer or a number\
       \ with decimals), since the \u201C>_<\u201D qualifier is implied."
     slot_uri: GENEPIO:0100517
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: '16'
   amr_testing_resistant_breakpoint:
@@ -1441,10 +1441,10 @@ slots:
     comments: "This field should only contain a number (either an integer or a number\
       \ with decimals), since the \u201C>=\u201D qualifier is implied."
     slot_uri: GENEPIO:0100518
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: null value menu
-    required: true
     examples:
     - value: '32'
   authors:
@@ -1455,8 +1455,8 @@ slots:
     comments: Include the first and last names of all individuals that should be attributed,
       separated by a semicolon.
     slot_uri: GENEPIO:0001517
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Tejinder Singh
     - value: Fei Hu

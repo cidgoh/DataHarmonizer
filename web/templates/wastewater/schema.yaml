@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
 name: Wastewater
 description: ''
-version: 4.2.2
+version: 4.3.3
 imports:
 - linkml:types
 prefixes:
@@ -17,7 +17,7 @@ classes:
     description: Specification for Wastewater SARS-CoV-2 virus biosample data gathering
     is_a: dh_interface
     annotations:
-      version: 4.2.2
+      version: 4.3.3
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id
@@ -904,7 +904,7 @@ classes:
     description: Specification for Wastewater AMR biosample data gathering
     is_a: dh_interface
     annotations:
-      version: 4.2.2
+      version: 4.3.3
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id
@@ -1803,7 +1803,7 @@ classes:
     description: Specification for Wastewater Pathogen Agnostic biosample data gathering
     is_a: dh_interface
     annotations:
-      version: 4.2.2
+      version: 4.3.3
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id

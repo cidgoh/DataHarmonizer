@@ -2,7 +2,7 @@ id: https://example.com/Influenza
 name: Influenza
 description: Draft template for harmonizing human influenza virus genomic surveillance
   contextual data.
-version: 1.0.2
+version: 1.1.3
 imports:
 - linkml:types
 prefixes:
@@ -365,8 +365,8 @@ slots:
       your lab.
     slot_uri: GENEPIO:0001123
     identifier: true
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: prov_rona_99
     exact_mappings:
@@ -406,8 +406,8 @@ slots:
       between laboratory and epidemiological data. The case ID may be considered identifiable
       information. Consult the data steward before sharing.
     slot_uri: GENEPIO:0100281
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: ABCD1234
     exact_mappings:
@@ -566,8 +566,8 @@ slots:
       format prescribed by the GISAID database.
     comments: 'Provide the GISAID virus name, which should be written in the format:
       A/Province/Country/SampleID/year'
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: A/Ontario/Canada/ABCD1234/2023
   sample_collected_by:
@@ -580,10 +580,10 @@ slots:
       sample collector specified is at the discretion of the data provider (i.e. may
       be hospital, provincial public health lab, or other).
     slot_uri: GENEPIO:0001153
+    required: true
     any_of:
     - range: SampleCollectedByMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: BC Centre for Disease Control
     exact_mappings:
@@ -614,10 +614,10 @@ slots:
       and be consistent across multiple submissions. If submitting specimens rather
       than sequencing data, please put the "National Microbiology Laboratory (NML)".
     slot_uri: GENEPIO:0100416
+    required: true
     any_of:
     - range: SequencedByMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Public Health Ontario (PHO)
     exact_mappings:
@@ -631,10 +631,10 @@ slots:
       and be consistent across multple submissions. If submitting specimens rather
       than sequencing data, please put the "National Microbiology Laboratory (NML)".
     slot_uri: GENEPIO:0001159
+    required: true
     any_of:
     - range: SequenceSubmittedByMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Public Health Ontario (PHO)
     exact_mappings:
@@ -654,13 +654,13 @@ slots:
       \ \u201Dreceived date\u201D may be used as a substitute. The date should be\
       \ provided in ISO 8601 standard format \"YYYY-MM-DD\"."
     slot_uri: GENEPIO:0001174
+    required: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - '>=2019-10-01'
     - <={today}
-    required: true
     examples:
     - value: '2020-03-16'
     exact_mappings:
@@ -678,10 +678,10 @@ slots:
       date" will be truncated to the precision specified upon export; "day" for "YYYY-MM-DD",
       "month" for "YYYY-MM", or "year" for "YYYY".
     slot_uri: GENEPIO:0001177
+    required: true
     any_of:
     - range: SampleCollectionDatePrecisionMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: year
     exact_mappings:
@@ -693,10 +693,10 @@ slots:
     description: The country where the sample was collected.
     comments: Provide the country name from the controlled vocabulary provided.
     slot_uri: GENEPIO:0001181
+    required: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Canada
     exact_mappings:
@@ -711,10 +711,10 @@ slots:
     description: The province/territory where the sample was collected.
     comments: Provide the province/territory name from the controlled vocabulary provided.
     slot_uri: GENEPIO:0001185
+    required: true
     any_of:
     - range: GeoLocNameStateProvinceTerritoryMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Saskatchewan
     exact_mappings:
@@ -728,10 +728,10 @@ slots:
     description: Taxonomic name of the organism.
     comments: Select the type of influenza virus from the picklist provided.
     slot_uri: GENEPIO:0001191
+    required: true
     any_of:
     - range: OrganismMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Influenza virus A virus (H1N1)
     exact_mappings:
@@ -744,10 +744,10 @@ slots:
     title: isolate
     description: Identifier of the specific isolate.
     slot_uri: GENEPIO:0001195
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     exact_mappings:
     - GISAID:Virus%20name
     - CNPHI:GISAID%20Virus%20Name
@@ -767,10 +767,10 @@ slots:
       why it was selected for sequencing, which should be indicated in the "purpose
       of sequencing" field.
     slot_uri: GENEPIO:0001198
+    required: true
     any_of:
     - range: PurposeOfSamplingMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Diagnostic testing
     exact_mappings:
@@ -788,10 +788,10 @@ slots:
       public health investigation/surveillance activity/research question. If details
       are not available, provide a null value.
     slot_uri: GENEPIO:0001200
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: The sample was collected to investigate the prevalence of variants associated
         with mink-to-human transmission in Canada.
@@ -810,8 +810,8 @@ slots:
       \ being submitted rather than a specimen for testing, select \u201CNot Applicable\u201D\
       ."
     slot_uri: GENEPIO:0001204
-    range: NmlSubmittedSpecimenTypeMenu
     required: true
+    range: NmlSubmittedSpecimenTypeMenu
     examples:
     - value: swab
     exact_mappings:
@@ -867,11 +867,11 @@ slots:
       contact emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose
       a null value.
     slot_uri: GENEPIO:0001211
+    multivalued: true
+    required: true
     any_of:
     - range: AnatomicalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Blood
     exact_mappings:
@@ -890,11 +890,11 @@ slots:
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value.
     slot_uri: GENEPIO:0001214
+    multivalued: true
+    required: true
     any_of:
     - range: AnatomicalPartMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Nasopharynx (NP)
     exact_mappings:
@@ -914,11 +914,11 @@ slots:
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value.
     slot_uri: GENEPIO:0001216
+    multivalued: true
+    required: true
     any_of:
     - range: BodyProductMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Urine
     exact_mappings:
@@ -937,11 +937,11 @@ slots:
       emma_griffiths@sfu.ca. If not applicable, do not leave blank. Choose a null
       value.
     slot_uri: GENEPIO:0001234
+    multivalued: true
+    required: true
     any_of:
     - range: CollectionDeviceMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Swab
     exact_mappings:
@@ -960,11 +960,11 @@ slots:
       picklist, contact emma_griffiths@sfu.ca. If not applicable, do not leave blank.
       Choose a null value.
     slot_uri: GENEPIO:0001241
+    multivalued: true
+    required: true
     any_of:
     - range: CollectionMethodMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Bronchoalveolar lavage (BAL)
     exact_mappings:
@@ -995,11 +995,11 @@ slots:
       "passage number", and "passage method" fields. If none of the processes in the
       pick list apply, put "not applicable".
     slot_uri: GENEPIO:0001253
+    multivalued: true
+    recommended: true
     any_of:
     - range: SpecimenProcessingMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Virus passage
     exact_mappings:
@@ -1054,10 +1054,10 @@ slots:
       can be provided, if known. Use terms from the pick lists in the template. Scientific
       name e.g. Homo sapiens, If the sample was environmental, put "not applicable
     slot_uri: GENEPIO:0001387
+    required: true
     any_of:
     - range: HostScientificNameMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Homo sapiens
     exact_mappings:
@@ -1116,10 +1116,10 @@ slots:
     description: The name of the disease experienced by the host.
     comments: Select "Influenza" from the pick list provided in the template.
     slot_uri: GENEPIO:0001391
+    required: true
     any_of:
     - range: HostDiseaseMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Influenza
     exact_mappings:
@@ -1134,12 +1134,12 @@ slots:
     comments: Enter the age of the host in years. If not available, provide a null
       value. If there is not host, put "Not Applicable".
     slot_uri: GENEPIO:0001392
+    required: true
     any_of:
     - range: decimal
     - range: NullValueMenu
     minimum_value: 0
     maximum_value: 130
-    required: true
     examples:
     - value: '79'
     exact_mappings:
@@ -1155,10 +1155,10 @@ slots:
     comments: Indicate whether the host age is in months or years. Age indicated in
       months will be binned to the 0 - 9 year age bin.
     slot_uri: GENEPIO:0001393
+    required: true
     any_of:
     - range: HostAgeUnitMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: years
     exact_mappings:
@@ -1172,10 +1172,10 @@ slots:
     comments: Select the corresponding host age bin from the pick list provided in
       the template. If not available, provide a null value.
     slot_uri: GENEPIO:0001394
+    required: true
     any_of:
     - range: HostAgeBinMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: 60 - 69
     exact_mappings:
@@ -1190,10 +1190,10 @@ slots:
       the template. If not available, provide a null value. If there is no host, put
       "Not Applicable".
     slot_uri: GENEPIO:0001395
+    required: true
     any_of:
     - range: HostGenderMenu
     - range: NullValueMenu
-    required: true
     structured_pattern:
       syntax: '{Title_Case}'
       partial_match: false
@@ -1280,8 +1280,8 @@ slots:
     comments: Select the host's personal role(s) from the pick list provided in the
       template. If the desired term is missing, contact the curation team.
     slot_uri: GENEPIO:0001419
-    range: HostRoleMenu
     multivalued: true
+    range: HostRoleMenu
     examples:
     - value: Inpatient
     exact_mappings:
@@ -1293,8 +1293,8 @@ slots:
     comments: Select the host exposure setting(s) from the pick list provided in the
       template. If a desired term is missing, contact the curation team.
     slot_uri: GENEPIO:0001428
-    range: ExposureSettingMenu
     multivalued: true
+    range: ExposureSettingMenu
     examples:
     - value: Healthcare Setting
     exact_mappings:
@@ -1320,11 +1320,11 @@ slots:
       the purpose of sequencing from the picklist in the template. The reason for
       sample collection should be indicated in the "purpose of sampling" field.
     slot_uri: GENEPIO:0001445
+    multivalued: true
+    required: true
     any_of:
     - range: PurposeOfSequencingMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Baseline surveillance (random sampling)
     exact_mappings:
@@ -1349,10 +1349,10 @@ slots:
       remote regions, Investigating health care workers, Investigating schools/universities,
       Investigating reinfection.'
     slot_uri: GENEPIO:0001446
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Seasonal flu research project
     exact_mappings:
@@ -1365,12 +1365,12 @@ slots:
     description: The date the sample was sequenced.
     comments: ISO 8601 standard "YYYY-MM-DD".
     slot_uri: GENEPIO:0001447
+    required: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - <={today}
-    required: true
     examples:
     - value: '2023-09-22'
     exact_mappings:
@@ -1404,11 +1404,11 @@ slots:
     description: The model of the sequencing instrument used.
     comments: Select a sequencing instrument from the picklist provided in the template.
     slot_uri: GENEPIO:0001452
+    multivalued: true
+    required: true
     any_of:
     - range: SequencingInstrumentMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Oxford Nanopore MinION
     exact_mappings:
@@ -1454,8 +1454,8 @@ slots:
     comments: Provide the software name followed by the version e.g. Trimmomatic v.
       0.38, Porechop v. 0.2.3
     slot_uri: GENEPIO:0001458
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Porechop 0.2.3
     exact_mappings:
@@ -1468,8 +1468,8 @@ slots:
     comments: Provide the name and version number of the software used to remove host
       reads.
     slot_uri: GENEPIO:0001459
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Nanostripper
     exact_mappings:
@@ -1481,8 +1481,8 @@ slots:
     description: The name of software used to generate the consensus sequence.
     comments: Provide the name of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001463
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: iVar
     exact_mappings:
@@ -1496,8 +1496,8 @@ slots:
     description: The version of the software used to generate the consensus sequence.
     comments: Provide the version of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001469
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: '1.3'
     exact_mappings:
@@ -1582,8 +1582,8 @@ slots:
       can be provided in an SOP or protocol or pipeline/workflow. Provide the name
       and version number of the protocol, or a GitHub link to a pipeline or workflow.
     slot_uri: GENEPIO:0001489
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     exact_mappings:
     - CNPHI:Bioinformatics%20Protocol
     - NML_LIMS:PH_BIOINFORMATICS_PROTOCOL
@@ -1688,8 +1688,8 @@ slots:
     comments: Include the first and last names of all individuals that should be attributed,
       separated by a comma.
     slot_uri: GENEPIO:0001517
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Tejinder Singh, Fei Hu, Joe Blogs
     exact_mappings:
