@@ -23,7 +23,6 @@ import io
 import os
 import sys
 import re
-import subprocess
 from oca_to_linkml import convert_oca_to_linkml;
 from tabular_to_schema import make_linkml_schema;
 
