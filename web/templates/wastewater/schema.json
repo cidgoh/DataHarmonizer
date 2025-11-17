@@ -2,7 +2,7 @@
   "name": "Wastewater",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "4.2.2",
+  "version": "4.4.3",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -9602,7 +9602,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0001644",
+      "slot_uri": "GENEPIO:0001195",
       "domain_of": [
         "WastewaterPathogenAgnostic"
       ],
@@ -29170,7 +29170,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "4.2.2"
+          "value": "4.4.3"
         }
       },
       "description": "Specification for Wastewater Pathogen Agnostic biosample data gathering",
@@ -32584,7 +32584,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 69,
-          "slot_uri": "GENEPIO:0001644",
+          "slot_uri": "GENEPIO:0001195",
           "alias": "isolate_id",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [

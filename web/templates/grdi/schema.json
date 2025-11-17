@@ -2,7 +2,7 @@
   "name": "GRDI",
   "description": "",
   "id": "https://example.com/GRDI",
-  "version": "15.1.1",
+  "version": "15.2.1",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -10177,7 +10177,7 @@
         "NCBI_BIOSAMPLE_Enterics:strain",
         "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
       ],
-      "slot_uri": "GENEPIO:0001644",
+      "slot_uri": "GENEPIO:0100456",
       "domain_of": [
         "GRDI"
       ],
@@ -34173,7 +34173,7 @@
             "NCBI_ANTIBIOGRAM:sample_name/biosample_accession"
           ],
           "rank": 90,
-          "slot_uri": "GENEPIO:0001644",
+          "slot_uri": "GENEPIO:0100456",
           "alias": "isolate_id",
           "owner": "GRDI",
           "domain_of": [
