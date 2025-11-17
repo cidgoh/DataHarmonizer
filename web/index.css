@@ -62,8 +62,7 @@ body {
 }
 
 td.hide {
-  display:none !important; 
-  border:1px solid red !important
+  display:none; 
 }
 
 .selectDepth_0 {padding-left:0px !important}
