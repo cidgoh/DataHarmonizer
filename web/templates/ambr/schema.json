@@ -2,7 +2,7 @@
   "name": "AMBR",
   "description": "",
   "id": "https://example.com/AMBR",
-  "version": "2.3.2",
+  "version": "2.4.2",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -3046,8 +3046,8 @@
         }
       ]
     },
-    "taxonomic_identification_method": {
-      "name": "taxonomic_identification_method",
+    "taxonomic_identification_process": {
+      "name": "taxonomic_identification_process",
       "description": "The type of planned process by which an organismal entity is associated with a taxon or taxa.",
       "title": "taxonomic identification method",
       "comments": [
@@ -3073,8 +3073,8 @@
         }
       ]
     },
-    "taxonomic_identification_method_details": {
-      "name": "taxonomic_identification_method_details",
+    "taxonomic_identification_process_details": {
+      "name": "taxonomic_identification_process_details",
       "description": "The details of the process used to determine the taxonomic identification of an organism.",
       "title": "taxonomic identification method details",
       "comments": [
@@ -4061,13 +4061,13 @@
           "rank": 28,
           "slot_group": "Strain and isolation information"
         },
-        "taxonomic_identification_method": {
-          "name": "taxonomic_identification_method",
+        "taxonomic_identification_process": {
+          "name": "taxonomic_identification_process",
           "rank": 29,
           "slot_group": "Strain and isolation information"
         },
-        "taxonomic_identification_method_details": {
-          "name": "taxonomic_identification_method_details",
+        "taxonomic_identification_process_details": {
+          "name": "taxonomic_identification_process_details",
           "rank": 30,
           "slot_group": "Strain and isolation information"
         },
@@ -5038,8 +5038,8 @@
             }
           ]
         },
-        "taxonomic_identification_method": {
-          "name": "taxonomic_identification_method",
+        "taxonomic_identification_process": {
+          "name": "taxonomic_identification_process",
           "description": "The type of planned process by which an organismal entity is associated with a taxon or taxa.",
           "title": "taxonomic identification method",
           "comments": [
@@ -5053,7 +5053,7 @@
           "from_schema": "https://example.com/AMBR",
           "rank": 29,
           "slot_uri": "GENEPIO:0100583",
-          "alias": "taxonomic_identification_method",
+          "alias": "taxonomic_identification_process",
           "owner": "AMBR",
           "domain_of": [
             "AMBR"
@@ -5069,8 +5069,8 @@
             }
           ]
         },
-        "taxonomic_identification_method_details": {
-          "name": "taxonomic_identification_method_details",
+        "taxonomic_identification_process_details": {
+          "name": "taxonomic_identification_process_details",
           "description": "The details of the process used to determine the taxonomic identification of an organism.",
           "title": "taxonomic identification method details",
           "comments": [
@@ -5084,7 +5084,7 @@
           "from_schema": "https://example.com/AMBR",
           "rank": 30,
           "slot_uri": "GENEPIO:0100584",
-          "alias": "taxonomic_identification_method_details",
+          "alias": "taxonomic_identification_process_details",
           "owner": "AMBR",
           "domain_of": [
             "AMBR"

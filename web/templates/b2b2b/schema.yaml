@@ -1,7 +1,7 @@
 id: https://example.com/B2B2B
 name: B2B2B
 description: B2B2B Schema which includes B2B2B template
-version: 1.0.0
+version: 1.2.1
 imports:
 - linkml:types
 prefixes:
@@ -899,7 +899,7 @@ slots:
       leave blank or provide a null value. If only an alternate isolate ID is known
       (e.g. the ID from your lab, if your lab did not isolate the isolate from the
       original sample), make asure to include it in the alternative_isolate_ID field.
-    slot_uri: GENEPIO:0001644
+    slot_uri: GENEPIO:0100456
     recommended: true
     any_of:
     - range: WhitespaceMinimizedString

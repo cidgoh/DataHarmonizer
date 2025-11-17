@@ -1,7 +1,7 @@
 id: https://example.com/GRDI
 name: Wastewater
 description: ''
-version: 4.2.2
+version: 4.4.3
 imports:
 - linkml:types
 prefixes:
@@ -1803,7 +1803,7 @@ classes:
     description: Specification for Wastewater Pathogen Agnostic biosample data gathering
     is_a: dh_interface
     annotations:
-      version: 4.2.2
+      version: 4.4.3
     slots:
     - specimen_collector_sample_id
     - specimen_collector_subsample_id
@@ -3805,7 +3805,7 @@ slots:
       leave blank or provide a null value. If only an alternate isolate ID is known
       (e.g. the ID from your lab, if your lab did not isolate the isolate from the
       original sample), make asure to include it in the alternative_isolate_ID field.
-    slot_uri: GENEPIO:0001644
+    slot_uri: GENEPIO:0001195
     required: true
     any_of:
     - range: WhitespaceMinimizedString

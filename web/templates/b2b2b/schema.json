@@ -2,7 +2,7 @@
   "name": "B2B2B",
   "description": "B2B2B Schema which includes B2B2B template",
   "id": "https://example.com/B2B2B",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -7925,7 +7925,7 @@
         }
       ],
       "from_schema": "https://example.com/B2B2B",
-      "slot_uri": "GENEPIO:0001644",
+      "slot_uri": "GENEPIO:0100456",
       "domain_of": [
         "B2B2B"
       ],
@@ -10623,7 +10623,7 @@
           ],
           "from_schema": "https://example.com/B2B2B",
           "rank": 39,
-          "slot_uri": "GENEPIO:0001644",
+          "slot_uri": "GENEPIO:0100456",
           "alias": "isolate_id",
           "owner": "B2B2B",
           "domain_of": [

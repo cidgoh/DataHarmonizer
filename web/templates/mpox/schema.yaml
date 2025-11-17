@@ -1,6 +1,6 @@
 id: https://example.com/mpox
 name: Mpox
-version: 8.5.5
+version: 9.1.0
 description: ''
 imports:
 - linkml:types
@@ -18,7 +18,7 @@ classes:
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox.pdf
     annotations:
-      version: 7.5.5
+      version: 7.7.6
     slots:
     - specimen_collector_sample_id
     - related_specimen_primary_id
@@ -804,7 +804,7 @@ classes:
     is_a: dh_interface
     see_also: templates/mpox/SOP_Mpox_international.pdf
     annotations:
-      version: 8.5.5
+      version: 9.1.0
     slots:
     - specimen_collector_sample_id
     - case_id
@@ -2096,7 +2096,7 @@ slots:
     name: isolate_id
     title: isolate ID
     description: Identifier of the specific isolate.
-    slot_uri: GENEPIO:0001644
+    slot_uri: GENEPIO:0001195
     required: true
     any_of:
     - range: WhitespaceMinimizedString

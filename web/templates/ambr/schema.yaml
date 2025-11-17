@@ -1,7 +1,7 @@
 id: https://example.com/AMBR
 name: AMBR
 description: ''
-version: 2.3.2
+version: 2.4.2
 imports:
 - linkml:types
 prefixes:
@@ -49,8 +49,8 @@ classes:
     - specimen_processing
     - specimen_processing_details
     - strain
-    - taxonomic_identification_method
-    - taxonomic_identification_method_details
+    - taxonomic_identification_process
+    - taxonomic_identification_process_details
     - incubation_temperature_value
     - incubation_temperature_unit
     - isolation_medium
@@ -169,10 +169,10 @@ classes:
       strain:
         rank: 28
         slot_group: Strain and isolation information
-      taxonomic_identification_method:
+      taxonomic_identification_process:
         rank: 29
         slot_group: Strain and isolation information
-      taxonomic_identification_method_details:
+      taxonomic_identification_process_details:
         rank: 30
         slot_group: Strain and isolation information
       incubation_temperature_value:
@@ -284,8 +284,8 @@ slots:
       This value maps to the "Strain ID#" in the Alberta Microbiota Repository (AMBR)
       Master file.
     slot_uri: GENEPIO:0100456
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: SA01
   alternative_isolate_id:
@@ -297,8 +297,8 @@ slots:
       and dilution factor as a single code. This value corresponds maps to the "Label
       ID" in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100457
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: '3411301'
   specimen_collector_sample_id:
@@ -324,10 +324,10 @@ slots:
       The sample collector specified is at the discretion of the data provider (i.e.
       may be hospital, provincial public health lab, or other).
     slot_uri: GENEPIO:0001153
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: University of Calgary
   sample_collection_project_name:
@@ -338,8 +338,8 @@ slots:
     comments: Provide the name of the project and/or the project ID here. If the information
       is unknown or cannot be provided, leave blank or provide a null value.
     slot_uri: GENEPIO:0100429
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Children's Hospital biofilm study (A3-701-01)
   sample_collector_contact_email:
@@ -370,13 +370,13 @@ slots:
     description: The date on which the sample was collected.
     comments: The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     slot_uri: GENEPIO:0001174
+    recommended: true
     any_of:
     - range: date
     - range: NullValueMenu
     todos:
     - '>=2019-10-01'
     - <={today}
-    recommended: true
     examples:
     - value: '2020-03-16'
   sample_received_date:
@@ -399,10 +399,10 @@ slots:
     description: The country where the sample was collected.
     comments: Provide the country name from the controlled vocabulary provided.
     slot_uri: GENEPIO:0001181
+    recommended: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Canada
   geo_loc_name_state_province_territory:
@@ -411,10 +411,10 @@ slots:
     description: The province/territory where the sample was collected.
     comments: Provide the province/territory name from the controlled vocabulary provided.
     slot_uri: GENEPIO:0001185
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Saskatchewan
   geo_loc_name_city:
@@ -446,10 +446,10 @@ slots:
       to the "Recommended identification" in the Alberta Microbiota Repository (AMBR)
       Master file.
     slot_uri: GENEPIO:0001191
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Staphylococcus aureus
   purpose_of_sampling:
@@ -464,10 +464,10 @@ slots:
       in the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
       Master file.
     slot_uri: GENEPIO:0001198
+    recommended: true
     any_of:
     - range: PurposeOfSamplingMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Targeted surveillance
   purpose_of_sampling_details:
@@ -481,10 +481,10 @@ slots:
       this field may be available in the "Source of Isolation" field in the Alberta
       Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001200
+    recommended: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: ProvLab/IPC routine monitoring
   original_sample_description:
@@ -512,11 +512,11 @@ slots:
       "Source of Isolation" field in the Alberta Microbiota Repository (AMBR) Master
       file.
     slot_uri: GENEPIO:0001211
+    multivalued: true
+    required: true
     any_of:
     - range: AnatomicalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Wound tissue (injury)
   anatomical_part:
@@ -529,11 +529,11 @@ slots:
       value. Information for populating this field may be available in the "Source
       of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001214
+    multivalued: true
+    required: true
     any_of:
     - range: AnatomicalPartMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Nasal cavity
   body_product:
@@ -547,11 +547,11 @@ slots:
       value. Information for populating this field may be available in the "Source
       of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001216
+    multivalued: true
+    required: true
     any_of:
     - range: BodyProductMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Feces
   environmental_material:
@@ -566,11 +566,11 @@ slots:
       "Source of Isolation" field in the Alberta Microbiota Repository (AMBR) Master
       file.
     slot_uri: GENEPIO:0001223
+    multivalued: true
+    required: true
     any_of:
     - range: EnvironmentalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Bandage
   environmental_site:
@@ -584,11 +584,11 @@ slots:
       value. Information for populating this field may be available in the "Source
       of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001232
+    multivalued: true
+    required: true
     any_of:
     - range: EnvironmentalSiteMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Hospital
   collection_device:
@@ -601,11 +601,11 @@ slots:
       value. Information for populating this field may be available in the "Source
       of Isolation" field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001234
+    multivalued: true
+    required: true
     any_of:
     - range: CollectionDeviceMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Swab
   collection_method:
@@ -619,11 +619,11 @@ slots:
       in the "Source of Isolation" field in the Alberta Microbiota Repository (AMBR)
       Master file.
     slot_uri: GENEPIO:0001241
+    multivalued: true
+    required: true
     any_of:
     - range: CollectionMethodMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Biopsy
   collection_protocol:
@@ -652,11 +652,11 @@ slots:
       Ribosomal Sequence" fields if there are multiple values for the same "Strain
       ID#" in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0001253
+    multivalued: true
+    recommended: true
     any_of:
     - range: SpecimenProcessingMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Biological replicate
   specimen_processing_details:
@@ -681,14 +681,14 @@ slots:
     comments: Provide the strain of the isolate. This value maps to the "Strain" in
       the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100455
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: CL10
-  taxonomic_identification_method:
-    name: taxonomic_identification_method
+  taxonomic_identification_process:
+    name: taxonomic_identification_process
     title: taxonomic identification method
     description: The type of planned process by which an organismal entity is associated
       with a taxon or taxa.
@@ -698,14 +698,14 @@ slots:
       If the information is unknown or cannot be provided, leave blank or provide
       a null value.
     slot_uri: GENEPIO:0100583
+    required: true
     any_of:
     - range: TaxonomicIdentificationMethodMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: 16S ribosomal gene sequencing assay
-  taxonomic_identification_method_details:
-    name: taxonomic_identification_method_details
+  taxonomic_identification_process_details:
+    name: taxonomic_identification_process_details
     title: taxonomic identification method details
     description: The details of the process used to determine the taxonomic identification
       of an organism.
@@ -717,10 +717,10 @@ slots:
       leave blank. This value maps to the information stored in the "ID Category*"
       field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100584
+    required: true
     any_of:
     - range: TaxonomicIdentificationMethodDetailsMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: 'Species-level ID: >99.3% identity and unambiguous match to one type
         (T) sequence in a curated database'
@@ -734,10 +734,10 @@ slots:
       maps to the information stored in the "Incubation temperature" field in the
       Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100617
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '37'
   incubation_temperature_unit:
@@ -750,10 +750,10 @@ slots:
       information stored in the "Incubation temperature" field in the Alberta Microbiota
       Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100618
+    required: true
     any_of:
     - range: IncubationTemperatureUnitMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Degree Celsius
   isolation_medium:
@@ -766,10 +766,10 @@ slots:
       information stored in the "Incubation media" field in the Alberta Microbiota
       Repository (AMBR) Master file.
     slot_uri: GENEPIO:0002107
+    required: true
     any_of:
     - range: IsolationMediumMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Brain heart infusion (BHI)
   isolate_storage_location:
@@ -782,8 +782,8 @@ slots:
       stored in the "Spot code" in the Alberta Microbiota Repository (AMBR) Master
       file.
     slot_uri: GENEPIO:0100619
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: FR1-R3-B1-S01
   cellular_respiration_type:
@@ -795,10 +795,10 @@ slots:
       information stored in the "Aerobic/Anaerobic" field in the Alberta Microbiota
       Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100620
+    required: true
     any_of:
     - range: CellularRespirationTypeMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Aerobic respiration
   host_common_name:
@@ -814,10 +814,10 @@ slots:
       \ populating this field may be available in the \"Source of Isolation\" field\
       \ in the Alberta Microbiota Repository (AMBR) Master file."
     slot_uri: GENEPIO:0001386
+    required: true
     any_of:
     - range: HostCommonNameMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Human
   host_scientific_name:
@@ -965,11 +965,11 @@ slots:
     description: The model of the sequencing instrument used.
     comments: Select a sequencing instrument from the picklist provided in the template.
     slot_uri: GENEPIO:0001452
+    multivalued: true
+    required: true
     any_of:
     - range: SequencingInstrumentMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Oxford Nanopore MinION
   sequencing_protocol_name:
@@ -978,8 +978,8 @@ slots:
     description: The name and version number of the sequencing protocol used.
     comments: Provide the name and version of the sequencing protocol e.g. 1D_DNA_MinION
     slot_uri: GENEPIO:0001453
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: https://www.protocols.io/view/covid-19-artic-v3-illumina-library-construction-an-bibtkann
   amplicon_pcr_primer_list:
@@ -992,11 +992,11 @@ slots:
       "Primers Used for sequencing" field Alberta Microbiota Repository (AMBR) Master
       file.
     slot_uri: GENEPIO:0100623
+    multivalued: true
+    required: true
     any_of:
     - range: AmpliconPcrPrimerListMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: 27F
     - value: 1492R
@@ -1018,10 +1018,10 @@ slots:
       being analyzed. This value maps to the information in the "Accession No(s)."
       field in the Alberta Microbiota Repository (AMBR) Master file.
     slot_uri: OBI:0002885
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: FR821777
   bioinformatics_protocol:
@@ -1041,10 +1041,10 @@ slots:
     comments: Select the reference database name from the pick list. For the AMBR
       Project, the reference database will be EZBioCloud.
     slot_uri: OBI:0002883
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: EZBioCloud
   reference_database_version:
@@ -1057,10 +1057,10 @@ slots:
       in the "Search date" field in the Alberta Microbiota Repository (AMBR) Master
       file.
     slot_uri: OBI:0002884
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '2021-05-23'
   coverage_percentage:
@@ -1072,10 +1072,10 @@ slots:
       value maps to "Completeness (%)" in the Alberta Microbiota Repository (AMBR)
       Master file.
     slot_uri: OBI:0002880
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '98.2'
   sequence_identity_percentage:
@@ -1087,10 +1087,10 @@ slots:
       maps to "Similarity (%)" in the Alberta Microbiota Repository (AMBR) Master
       file.
     slot_uri: OBI:0002882
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: '99'
   sequence_identity_variance_ratio:
@@ -1116,10 +1116,10 @@ slots:
       in the "Top-hit taxon (taxa)" field in the Alberta Microbiota Repository (AMBR)
       Master file.
     slot_uri: GENEPIO:0100625
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Staphylococcus argenteus
   tophit_strain_determination:
@@ -1131,10 +1131,10 @@ slots:
       in the "Top-hit strain(s)" field in the Alberta Microbiota Repository (AMBR)
       Master file.
     slot_uri: GENEPIO:0100648
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: MSHR1132(T)
   trimmed_ribosomal_gene_sequence:
@@ -1146,10 +1146,10 @@ slots:
       maps to the sequence in the "Trimmed Ribosomal Sequence" field in the Alberta
       Microbiota Repository (AMBR) Master file.
     slot_uri: GENEPIO:0100626
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: TGCAAGTCGAGCGAACGGACGAGAAGCTTGCTTCTCTGATGTTAGCGGCGGACGSGTGAGTAACACGTGGATAACCTACCTATAAGACTGGGATAACTTCGGGAAACCGGAGCTAATACCGGATAATATTTTGAACCGCATGGTTCAAAAGTGAAAGACGGTCTTGCTGTCACTTATAGATGGATCCGCGCTGCATTAGCTAGTTGGTAAGGTAACGGCTTACCAAGGCAACGATGCATAGCCGACCTGAGAGGGTGATCGGCCACACTGGAACTGAGACACGGTCCAGACTCCTACGGGAGGCAGCAGTAGGGAATCTTCCGCAATGGGCGAAAGCCTGACGGAGCAACGCCGCGTGAGTGATGAAGGTCTTCGGATCGTAAAACTCTGTTATTAGGGAAGAACATATGTGTAAGTAACTGTGCACATCTTGACGGTACCTAATCAGAAAGCCACGGCTAACTACGTGCCAGCAGCCGCGGTAATACGTAGGTGGCAAGCGTTATCCGGAATTATTGGGCGTAAAGCGCGCGTAGGCGGTTTTTTAAGTCTGATGTGAAAGCCCACGGCTCAACCGTGGAGGGTCATTGGAAACTGGAAAACTTGAGTGCAGAAGAGGAAAGTGGAATTCCATGTGTAGCGGTGAAATGCGCAGAGATATGGAGGAACACCAGTGGCGAAGGCGACTTTCTGGTCTGTAACTGACGCTGATGTGCGAAAGCGTGGGGATCAAACAGGATTAGATACCCTGGTAGTCCACGCCGTAAACGATGAGTGCTAAGTGTTAGGGGGTTTCCGCCCCTTAGTGCTGCAGCTAACGCATTAAGCACTCCGCCTGGGGAGTACGACCGCAAGGTTGAAACTCAAAGGAATTGACGGGGACCCGCACAAGCGGTGGAGCATGTGGTTTAATTCGAAGCAACGCGAAGAACCTTACCAAATCTTGACATCCTTTGACAACTCTAGAGATAGAGCCTTCCCCTTCGGGGGACAAAGTGACAGGTGGTGCATGGTTGTCGTCAGCTCGTGTCGTGAGATGTTGGGTTAAGTCCCGCAACGAGCGCAACCCTTAAGCTTAGTTGCCATCATTAAGTTGGGCACTCTAAGTTGACTGCCGGTGACAAACCGGAGGAAGGTGGGGATGACGTCAAATCATCATGCCCCTTATGATTTGGGCTACACACGTGCTACAATGGACAATACAAAGGGCAGCGAAACCGCGAGGTCAAGCAAATCCCATAAAGTTGTTCTCAGTTCGGATTGTAGTCTGCAACTCGACTACATGAAGCTGGAATCGCTAGTAATCGTAGATCAGCATGCTACGGTGAATACGTTCCCGGGTCTTGTACACACCGCCCGTCACACCACGAGAGTTTGTAACACCCGAAGCCGGTGGAGTAACCTTTTAGGAGCTAGCCGTCGAAG
   bioinformatics_analysis_details:
@@ -1171,8 +1171,8 @@ slots:
     comments: Include the first and last names of all individuals that should be attributed,
       separated by a comma.
     slot_uri: GENEPIO:0001517
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Rahgavi Poopalaraj, Shirin Afroj, Joe Harrison
   dataharmonizer_provenance:
