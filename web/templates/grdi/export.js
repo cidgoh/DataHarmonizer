@@ -8,7 +8,7 @@ export default {
    * @param {Object} xlsx SheetJS variable.
    */
 
-  BioSample: {
+  NCBI_BioSample_Pathogen: {
     fileType: 'xls',
     status: 'published',
     method: function (dh) {
@@ -78,7 +78,7 @@ export default {
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
-      dh.getHeaderMap(ExportHeaders, sourceFields, 'BIOSAMPLE');
+      dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_BIOSAMPLE_Pathogen');
 
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
@@ -94,7 +94,7 @@ export default {
             sourceFields,
             sourceFieldNameMap,
             ':',
-            'BIOSAMPLE'
+            'NCBI_BIOSAMPLE_Pathogen'
           );
           outputRow.push(value);
         }
@@ -615,5 +615,57 @@ export default {
 
       return outputMatrix;
     }
-  }
+  },
+    NCBI_SRA: {
+    fileType: 'xlsx',
+    status: 'published',
+    method: function(dh) {
+      const exportHeaders = new Map([
+        ["sample_name", []],
+        ["library_ID", []],
+        ["title", []],
+        ["library_strategy", []],
+        ["library_source", []],
+        ["library_selection", []],
+        ["library_layout", []],
+        ["platform", []],
+        ["instrument_model", []],
+        ["design_description", []],
+        ["filetype", []],
+        ["filename", []],
+        ["filename2", []],
+        ["filename3", []],
+        ["filename4", []],
+        ["assembly", []],
+        ["fasta_file", []],
+        ["quality_control_determination", []],
+        ["quality_control_issues", []],
+        ["quality_control_details", []],
+        ["raw_sequence_data_processing_method", []],
+        ["dehosting_method", []],
+      ]);
+      const outputMatrix = [[...exportHeaders.keys()]];
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
+      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRA');
+      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+        const outputRow = [];
+        let value;
+        for (const [headerName, sources] of exportHeaders) {
+          value = dh.getMappedField(
+              headerName,
+              inputRow,
+              sources,
+              sourceFields,
+              sourceFieldNameMap,
+              '; ',
+              'NCBI_SRA'
+            );
+          outputRow.push(value);
+        }
+        outputMatrix.push(outputRow);
+      }
+      return outputMatrix;
+    },
+  },
 };

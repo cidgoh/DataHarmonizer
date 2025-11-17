@@ -42,7 +42,7 @@ classes:
     - geo_loc_latitude
     - geo_loc_longitude
     - organism
-    - isolate
+    - isolate_id
     - culture_collection
     - purpose_of_sampling
     - purpose_of_sampling_details
@@ -237,7 +237,7 @@ classes:
       organism:
         rank: 24
         slot_group: Sample collection and processing
-      isolate:
+      isolate_id:
         rank: 25
         slot_group: Sample collection and processing
       culture_collection:
@@ -612,8 +612,8 @@ slots:
       any format, but we suggest that you make it concise, unique and consistent within
       your lab, and as informative as possible.
     slot_uri: GENEPIO:0001123
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
     examples:
     - value: prov_rona_99
     exact_mappings:
@@ -668,8 +668,8 @@ slots:
     comments: Store the accession returned from the BioSample submission. NCBI BioSamples
       will have the prefix SAMN, while ENA BioSamples will have the prefix SAMEA.
     slot_uri: GENEPIO:0001139
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     structured_pattern:
       syntax: '{UPPER_CASE}'
       partial_match: false
@@ -772,10 +772,10 @@ slots:
     comments: The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions.
     slot_uri: GENEPIO:0001153
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Public Health Agency of Canada
     exact_mappings:
@@ -810,10 +810,10 @@ slots:
     comments: The name of the agency should be written out in full, (with minor exceptions)
       and be consistent across multiple submissions.
     slot_uri: GENEPIO:0001159
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Centers for Disease Control and Prevention
     exact_mappings:
@@ -856,10 +856,10 @@ slots:
       \ data you share. The date should be provided in ISO 8601 standard format \"\
       YYYY-MM-DD\"."
     slot_uri: GENEPIO:0001174
+    required: true
     any_of:
     - range: date
     - range: NullValueMenu
-    required: true
     examples:
     - value: '2020-03-19'
     exact_mappings:
@@ -884,10 +884,10 @@ slots:
     description: The country of origin of the sample.
     comments: Provide the country name from the pick list in the template
     slot_uri: GENEPIO:0001181
+    required: true
     any_of:
     - range: GeoLocNameCountryMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: South Africa [GAZ:00001094]
     exact_mappings:
@@ -901,10 +901,10 @@ slots:
     comments: 'Provide the state/province/territory name from the GAZ geography ontology.
       Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz'
     slot_uri: GENEPIO:0001185
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Western Cape
     exact_mappings:
@@ -970,16 +970,16 @@ slots:
       SARS-CoV-2. If another Coronaviridae is being sequenced, provide the taxonomic
       name from NCBITaxon. Search for taxonomy terms at https://www.ebi.ac.uk/ols/ontologies/ncbitaxon.
     slot_uri: GENEPIO:0001191
+    required: true
     any_of:
     - range: OrganismMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Severe acute respiratory syndrome coronavirus 2 [NCBITaxon:2697049]
     exact_mappings:
     - NCBI_BIOSAMPLE:organism
-  isolate:
-    name: isolate
+  isolate_id:
+    name: isolate_id
     title: isolate
     description: Identifier of the specific isolate.
     comments: 'This identifier should be an unique, indexed, alpha-numeric ID within
@@ -987,10 +987,10 @@ slots:
       throughtout different databases. As such, structure the "isolate" name to be
       ICTV/INSDC compliant in the following format: "SARS-CoV-2/host/country/sampleID/date".'
     slot_uri: GENEPIO:0001644
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: SARS-CoV-2/human/USA/CA-CDPH-001/2020
     exact_mappings:
@@ -1012,10 +1012,10 @@ slots:
     description: The reason that the sample was collected.
     comments: Select a value from the pick list in the template.
     slot_uri: GENEPIO:0001198
+    recommended: true
     any_of:
     - range: PurposeOfSamplingMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Diagnostic testing [GENEPIO:0100002]
     exact_mappings:
@@ -1063,10 +1063,10 @@ slots:
       list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon.
       If not applicable, leave blank.'
     slot_uri: GENEPIO:0001211
+    multivalued: true
     any_of:
     - range: AnatomicalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Blood [UBERON:0000178]
     exact_mappings:
@@ -1083,10 +1083,10 @@ slots:
       use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon.
       If not applicable, leave blank.'
     slot_uri: GENEPIO:0001214
+    multivalued: true
     any_of:
     - range: AnatomicalPartMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Nasopharynx (NP) [UBERON:0001728]
     exact_mappings:
@@ -1104,10 +1104,10 @@ slots:
       this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/uberon.
       If not applicable, leave blank.'
     slot_uri: GENEPIO:0001216
+    multivalued: true
     any_of:
     - range: BodyProductMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Feces [UBERON:0001988]
     exact_mappings:
@@ -1125,10 +1125,10 @@ slots:
       pick list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo.
       If not applicable, leave blank.'
     slot_uri: GENEPIO:0001223
+    multivalued: true
     any_of:
     - range: EnvironmentalMaterialMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Face mask [OBI:0002787]
     exact_mappings:
@@ -1146,10 +1146,10 @@ slots:
       list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/envo.
       If not applicable, leave blank.'
     slot_uri: GENEPIO:0001232
+    multivalued: true
     any_of:
     - range: EnvironmentalSiteMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Hospital [ENVO:00002173]
     exact_mappings:
@@ -1166,10 +1166,10 @@ slots:
       the pick list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi.
       If not applicable, leave blank.'
     slot_uri: GENEPIO:0001234
+    multivalued: true
     any_of:
     - range: CollectionDeviceMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Swab [GENEPIO:0100027]
     exact_mappings:
@@ -1186,10 +1186,10 @@ slots:
       the pick list, use this look-up service to identify a standardized term: https://www.ebi.ac.uk/ols/ontologies/obi.
       If not applicable, leave blank.'
     slot_uri: GENEPIO:0001241
+    multivalued: true
     any_of:
     - range: CollectionMethodMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Bronchoalveolar lavage (BAL) [GENEPIO:0100032]
     exact_mappings:
@@ -1216,11 +1216,11 @@ slots:
       "passage number", and "passage method" fields. If none of the processes in the
       pick list apply, put "not applicable".
     slot_uri: GENEPIO:0001253
+    multivalued: true
+    recommended: true
     any_of:
     - range: SpecimenProcessingMenu
     - range: NullValueMenu
-    multivalued: true
-    recommended: true
     examples:
     - value: Virus passage [GENEPIO:0100039]
   specimen_processing_details:
@@ -1317,10 +1317,10 @@ slots:
       name examples e.g. Homo sapiens. Select a value from the pick list. If the sample
       was environmental, put "not applicable".
     slot_uri: GENEPIO:0001387
+    required: true
     any_of:
     - range: HostScientificNameMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: Homo sapiens [NCBITaxon:9606]
     exact_mappings:
@@ -1364,10 +1364,10 @@ slots:
       \ and the disease state is not known or the host appears healthy, put \u201C\
       not applicable\u201D."
     slot_uri: GENEPIO:0001391
+    required: true
     any_of:
     - range: HostDiseaseMenu
     - range: NullValueMenu
-    required: true
     examples:
     - value: COVID-19 [MONDO:0100096]
     exact_mappings:
@@ -1391,11 +1391,11 @@ slots:
     description: Age of host at the time of sampling.
     comments: If known, provide age. Age-binning is also acceptable.
     slot_uri: GENEPIO:0001392
+    recommended: true
     any_of:
     - range: decimal
     - range: NullValueMenu
     maximum_value: 130
-    recommended: true
     examples:
     - value: '79'
     exact_mappings:
@@ -1408,10 +1408,10 @@ slots:
     comments: If known, provide the age units used to measure the host's age from
       the pick list.
     slot_uri: GENEPIO:0001393
+    recommended: true
     any_of:
     - range: HostAgeUnitMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: year [UO:0000036]
   host_age_bin:
@@ -1421,10 +1421,10 @@ slots:
     comments: Age bins in 10 year intervals have been provided. If a host's age cannot
       be specified due to provacy concerns, an age bin can be used as an alternative.
     slot_uri: GENEPIO:0001394
+    recommended: true
     any_of:
     - range: HostAgeBinMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: 50 - 59 [GENEPIO:0100054]
   host_gender:
@@ -1433,10 +1433,10 @@ slots:
     description: The gender of the host at the time of sample collection.
     comments: If known, select a value from the pick list.
     slot_uri: GENEPIO:0001395
+    recommended: true
     any_of:
     - range: HostGenderMenu
     - range: NullValueMenu
-    recommended: true
     examples:
     - value: Male [NCIT:C46109]
     exact_mappings:
@@ -1510,10 +1510,10 @@ slots:
       appearance) indicative of a disease, reported by a patient.
     comments: Select all of the symptoms experienced by the host from the pick list.
     slot_uri: GENEPIO:0001400
+    multivalued: true
     any_of:
     - range: SignsAndSymptomsMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Cough [HP:0012735], Fever [HP:0001945],  Rigors (fever shakes) [HP:0025145]
   preexisting_conditions_and_risk_factors:
@@ -1529,10 +1529,10 @@ slots:
       by the host from the pick list. If the desired term is missing, contact the
       curation team.
     slot_uri: GENEPIO:0001401
+    multivalued: true
     any_of:
     - range: PreExistingConditionsAndRiskFactorsMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Asthma [HP:0002099]
   complications:
@@ -1543,10 +1543,10 @@ slots:
     comments: Select all of the complications experienced by the host from the pick
       list.
     slot_uri: GENEPIO:0001402
+    multivalued: true
     any_of:
     - range: ComplicationsMenu
     - range: NullValueMenu
-    multivalued: true
     examples:
     - value: Acute respiratory failure [MONDO:0001208]
   host_vaccination_status:
@@ -1802,8 +1802,8 @@ slots:
     comments: Select the host's personal role(s) from the pick list provided in the
       template. If the desired term is missing, contact the curation team.
     slot_uri: GENEPIO:0001419
-    range: HostRoleMenu
     multivalued: true
+    range: HostRoleMenu
     examples:
     - value: Patient [OMRSE:00000030]
     exact_mappings:
@@ -1815,8 +1815,8 @@ slots:
     comments: Select the host exposure setting(s) from the pick list provided in the
       template. If a desired term is missing, contact the curation team.
     slot_uri: GENEPIO:0001428
-    range: ExposureSettingMenu
     multivalued: true
+    range: ExposureSettingMenu
     examples:
     - value: Healthcare Setting [GENEPIO:0100201]
     exact_mappings:
@@ -1920,11 +1920,11 @@ slots:
       the purpose of sequencing from the picklist in the template. The reason for
       sample collection should be indicated in the "purpose of sampling" field.
     slot_uri: GENEPIO:0001445
+    multivalued: true
+    required: true
     any_of:
     - range: PurposeOfSequencingMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Baseline surveillance (random sampling) [GENEPIO:0100005]
     exact_mappings:
@@ -1947,10 +1947,10 @@ slots:
       remote regions, Investigating health care workers, Investigating schools/universities,
       Investigating reinfection.'
     slot_uri: GENEPIO:0001446
+    required: true
     any_of:
     - range: WhitespaceMinimizedString
     - range: NullValueMenu
-    required: true
     examples:
     - value: Screened for S gene target failure (S dropout)
   sequencing_date:
@@ -1973,8 +1973,8 @@ slots:
     comments: The library name should be unique, and can be an autogenerated ID from
       your LIMS, or modification of the isolate ID.
     slot_uri: GENEPIO:0001448
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: XYZ_123345
     exact_mappings:
@@ -2015,11 +2015,11 @@ slots:
     description: The model of the sequencing instrument used.
     comments: Select the sequencing instrument from the pick list.
     slot_uri: GENEPIO:0001452
+    multivalued: true
+    required: true
     any_of:
     - range: SequencingInstrumentMenu
     - range: NullValueMenu
-    multivalued: true
-    required: true
     examples:
     - value: Oxford Nanopore MinION [GENEPIO:0100142]
     exact_mappings:
@@ -2033,8 +2033,8 @@ slots:
     description: The name and version number of the sequencing protocol used.
     comments: Provide the name and version of the sequencing protocol.
     slot_uri: GENEPIO:0001453
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: 1D_DNA_MinION, ARTIC Network Protocol V3
     exact_mappings:
@@ -2082,133 +2082,225 @@ slots:
   raw_sequence_data_processing_method:
     name: raw_sequence_data_processing_method
     title: raw sequence data processing method
-    description: '#REF!'
+    description: The method used for raw data processing such as removing barcodes,
+      adapter trimming, filtering etc.
+    comments: Provide the name and version numbers of the software used to process
+      the raw data.
     slot_uri: GENEPIO:0001458
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
+    examples:
+    - value: Porechop 0.2.3
     exact_mappings:
     - NCBI_SRA:raw_sequence_data_processing_method
   dehosting_method:
     name: dehosting_method
     title: dehosting method
+    description: The method used to remove host reads from the pathogen sequence.
+    comments: Provide the name and version number of the software used to remove host
+      reads.
     slot_uri: GENEPIO:0001459
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
+    examples:
+    - value: Nanostripper 1.2.3
     exact_mappings:
     - NCBI_SRA:dehosting_method
   consensus_sequence_name:
     name: consensus_sequence_name
     title: consensus sequence name
+    description: The name of the consensus sequence.
+    comments: Provide the name and version number of the consensus sequence.
     slot_uri: GENEPIO:0001460
     range: WhitespaceMinimizedString
+    examples:
+    - value: ncov123assembly3
   consensus_sequence_filename:
     name: consensus_sequence_filename
     title: consensus sequence filename
+    description: The name of the consensus sequence file.
+    comments: Provide the name and version number of the consensus sequence FASTA
+      file.
     slot_uri: GENEPIO:0001461
     range: WhitespaceMinimizedString
+    examples:
+    - value: ncov123assembly.fasta
     exact_mappings:
     - NCBI_Genbank:filename
   consensus_sequence_filepath:
     name: consensus_sequence_filepath
     title: consensus sequence filepath
     description: The filepath of the consensus sequence file.
+    comments: Provide the filepath of the consensus sequence FASTA file.
     slot_uri: GENEPIO:0001462
     range: WhitespaceMinimizedString
+    examples:
+    - value: /User/Documents/RespLab/Data/ncov123assembly.fasta
   consensus_sequence_software_name:
     name: consensus_sequence_software_name
     title: consensus sequence software name
+    description: The name of software used to generate the consensus sequence.
+    comments: Provide the name of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001463
-    range: WhitespaceMinimizedString
     required: true
+    range: WhitespaceMinimizedString
+    examples:
+    - value: Ivar
     exact_mappings:
     - GISAID:Assembly%20method
     - NCBI_Genbank:assembly_method
   consensus_sequence_software_version:
     name: consensus_sequence_software_version
     title: consensus sequence software version
+    description: The version of the software used to generate the consensus sequence.
+    comments: Provide the version of the software used to generate the consensus sequence.
     slot_uri: GENEPIO:0001469
-    range: decimal
     required: true
+    range: decimal
+    examples:
+    - value: '1.3'
     exact_mappings:
     - GISAID:Assembly%20method
     - NCBI_Genbank:assembly_method_version
   breadth_of_coverage_value:
     name: breadth_of_coverage_value
     title: breadth of coverage value
+    description: The percentage of the reference genome covered by the sequenced data,
+      to a prescribed depth.
+    comments: Provide value as a percent.
     slot_uri: GENEPIO:0001472
     range: WhitespaceMinimizedString
+    examples:
+    - value: 95%
   depth_of_coverage_value:
     name: depth_of_coverage_value
     title: depth of coverage value
+    description: The average number of reads representing a given nucleotide in the
+      reconstructed sequence.
+    comments: Provide value as a fold of coverage.
     slot_uri: GENEPIO:0001474
     range: WhitespaceMinimizedString
+    examples:
+    - value: 400x
     exact_mappings:
     - GISAID:Depth%20of%20coverage
     - NCBI_Genbank:genome_coverage
   depth_of_coverage_threshold:
     name: depth_of_coverage_threshold
     title: depth of coverage threshold
+    description: The threshold used as a cut-off for the depth of coverage.
+    comments: Provide the threshold fold coverage.
     slot_uri: GENEPIO:0001475
     range: WhitespaceMinimizedString
+    examples:
+    - value: 100x
   r1_fastq_filename:
     name: r1_fastq_filename
     title: r1 fastq filename
+    description: The user-specified filename of the r1 FASTQ file.
+    comments: Provide the r1 FASTQ filename.
     slot_uri: GENEPIO:0001476
     range: WhitespaceMinimizedString
+    examples:
+    - value: ABC123_S1_L001_R1_001.fastq.gz
   r2_fastq_filename:
     name: r2_fastq_filename
     title: r2 fastq filename
+    description: The user-specified filename of the r2 FASTQ file.
+    comments: Provide the r2 FASTQ filename.
     slot_uri: GENEPIO:0001477
     range: WhitespaceMinimizedString
+    examples:
+    - value: ABC123_S1_L001_R2_001.fastq.gz
   r1_fastq_filepath:
     name: r1_fastq_filepath
     title: r1 fastq filepath
+    description: The filepath of the r1 FASTQ file.
+    comments: Provide the filepath of the r1 FASTQ file.
     slot_uri: GENEPIO:0001478
     range: WhitespaceMinimizedString
+    examples:
+    - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R1_001.fastq.gz
   r2_fastq_filepath:
     name: r2_fastq_filepath
     title: r2 fastq filepath
+    description: The filepath of the r2 FASTQ file.
+    comments: Provide the filepath of the r2 FASTQ file.
     slot_uri: GENEPIO:0001479
     range: WhitespaceMinimizedString
+    examples:
+    - value: /User/Documents/RespLab/Data/ABC123_S1_L001_R2_001.fastq.gz
   fast5_filename:
     name: fast5_filename
     title: fast5 filename
+    description: The user-specified filename of the FAST5 file.
+    comments: Provide the FAST5 filename.
     slot_uri: GENEPIO:0001480
     range: WhitespaceMinimizedString
+    examples:
+    - value: batch1a_sequences.fast5
   fast5_filepath:
     name: fast5_filepath
     title: fast5 filepath
+    description: The filepath of the FAST5 file.
+    comments: Provide the filepath of the FAST5 file.
     slot_uri: GENEPIO:0001481
     range: WhitespaceMinimizedString
+    examples:
+    - value: /User/Documents/RespLab/Data/batch1a_sequences.fast5
   number_of_base_pairs_sequenced:
     name: number_of_base_pairs_sequenced
     title: number of base pairs sequenced
+    description: The number of total base pairs generated by the sequencing process.
+    comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001482
     range: integer
     minimum_value: 0
+    examples:
+    - value: '387566'
   consensus_genome_length:
     name: consensus_genome_length
     title: consensus genome length
+    description: Size of the assembled genome described as the number of base pairs.
+    comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001483
     range: integer
     minimum_value: 0
+    examples:
+    - value: '38677'
   ns_per_100_kbp:
     name: ns_per_100_kbp
     title: Ns per 100 kbp
+    description: The number of N symbols present in the consensus fasta sequence,
+      per 100kbp of sequence.
+    comments: Provide a numerical value (no need to include units).
     slot_uri: GENEPIO:0001484
     range: decimal
+    examples:
+    - value: '300'
   reference_genome_accession:
     name: reference_genome_accession
     title: reference genome accession
+    description: A persistent, unique identifier of a genome database entry.
+    comments: Provide the accession number of the reference genome.
     slot_uri: GENEPIO:0001485
     range: WhitespaceMinimizedString
+    examples:
+    - value: NC_045512.2
     exact_mappings:
     - NCBI_Genbank:reference_genome
   bioinformatics_protocol:
     name: bioinformatics_protocol
     title: bioinformatics protocol
+    description: The name and version number of the bioinformatics protocol used.
+    comments: Further details regarding the methods used to process raw data, and/or
+      generate assemblies, and/or generate consensus sequences can be provided in
+      an SOP or protocol. Provide the name and version number of the protocol, or
+      a link if deposited in a protocol repository.
     slot_uri: GENEPIO:0001489
     range: WhitespaceMinimizedString
+    examples:
+    - value: https://www.protocols.io/groups/cphln-sarscov2-sequencing-consortium/members
   lineage_clade_name:
     name: lineage_clade_name
     title: lineage/clade name
@@ -2216,8 +2308,6 @@ slots:
     comments: Provide the Pangolin or Nextstrain lineage/clade name.
     slot_uri: GENEPIO:0001500
     range: WhitespaceMinimizedString
-    examples:
-    - value: B.1.1.7
   lineage_clade_analysis_software_name:
     name: lineage_clade_analysis_software_name
     title: lineage/clade analysis software name
@@ -2225,8 +2315,6 @@ slots:
     comments: Provide the name of the software used to determine the lineage/clade.
     slot_uri: GENEPIO:0001501
     range: WhitespaceMinimizedString
-    examples:
-    - value: Pangolin
   lineage_clade_analysis_software_version:
     name: lineage_clade_analysis_software_version
     title: lineage/clade analysis software version
@@ -2234,8 +2322,6 @@ slots:
     comments: Provide the version of the software used ot determine the lineage/clade.
     slot_uri: GENEPIO:0001502
     range: WhitespaceMinimizedString
-    examples:
-    - value: 2.1.10
   variant_designation:
     name: variant_designation
     title: variant designation
@@ -2250,8 +2336,6 @@ slots:
     any_of:
     - range: VariantDesignationMenu
     - range: NullValueMenu
-    examples:
-    - value: Variant of Concern (VOC) [GENEPIO:0100083]
   variant_evidence_details:
     name: variant_evidence_details
     title: variant evidence details
@@ -2261,8 +2345,6 @@ slots:
       to lineage-defining mutations, describe those here.
     slot_uri: GENEPIO:0001505
     range: WhitespaceMinimizedString
-    examples:
-    - value: 'RT-qPCR TaqPath assay: S gene target failure'
   gene_name_1:
     name: gene_name_1
     title: gene name 1
@@ -2435,8 +2517,8 @@ slots:
     comments: Include the first and last names of all individuals that should be attributed,
       separated by a comma.
     slot_uri: GENEPIO:0001517
-    range: WhitespaceMinimizedString
     recommended: true
+    range: WhitespaceMinimizedString
     examples:
     - value: Tejinder Singh, Fei Hu, Johnny Blogs
     exact_mappings:

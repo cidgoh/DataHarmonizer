@@ -1,6 +1,5 @@
 title	name	meaning	menu_1	menu_2	menu_3	menu_4	menu_5	description	EXPORT_GISAID	EXPORT_CNPHI	EXPORT_NML_LIMS	EXPORT_BIOSAMPLE	EXPORT_VirusSeq_Portal
 													
-umbrella bioproject accession menu	UmbrellaBioprojectAccessionMenu												
 													
 null value menu	NullValueMenu	GENEPIO:0001619	Not Applicable										
 		GENEPIO:0001618	Missing										
@@ -61,14 +60,7 @@ Related specimen relationship type menu	RelatedSpecimenRelationshipTypeMenu	HP:0
 			Specimen sampling methods testing										
 													
 presampling activity menu	PresamplingActivityMenu		Post-infection convalescence										
-			Vaccination										
-													
-													
-													
-vaccine name menu	VaccineNameMenu												
-													
-													
-													
+		NCIT:C15346	Vaccination										
 													
 													
 													

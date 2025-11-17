@@ -8,74 +8,49 @@ export default {
    * @param {Object} xlsx SheetJS variable.
    */
 
-  BioSample: {
+  NCBI_Pathogen_BIOSAMPLE: {
     fileType: 'xls',
     status: 'published',
     method: function (dh) {
       // Create an export table with template's headers (2nd row) and remaining rows of data
       const ExportHeaders = new Map([
         ['sample_name', []],
-				['bioproject_accession',[]],
-				['attribute_package',[]],				
-				['GISAID_accession',[]],
-				['GISAID_virus_name',[]],
-				['collection_date',[]],
-				['collected_by', []],
-				['sequenced_by',       []],
-				['sequence_submitted_by',       []],
-
-				//['sample collection date',[]],
-
-        [
-          'geo_loc_name',
-          ['geo_loc_name (country)', 'geo_loc_name (province/territory)'],
-        ],
+        ['sample_title', []],
+        ['bioproject_accession', []],
         ['organism', []],
+        ['strain', []],
         ['isolate', []],
-        [
-          'isolation_source',
-          [
-            'anatomical material',
-            'anatomical part',
-            'body product',
-            'environmental material',
-            'environmental site',
-            'collection device',
-            'collection method',
-          ],
-        ],
-        ['anatomical_material', []],
-        ['anatomical_part', []],
-        ['body_product', []],
-        ['environmental_material', []],
-        ['environmental_site', []],
-        ['collection_device', []],
-        ['collection_method', []],
-        ['lab_host', []],
-        ['passage_history', []],
-        ['passage_method', []],
+        ['collected_by', []],
+        ['collection_date', []],
+        ['geo_loc_name', []],
         ['host', []],
         ['host_disease', []],
-        ['host_health_state', []],
-        ['host_disease_outcome', []],
+        ['isolation_source', []],
+        ['lat_lon', []],
+        ['culture_collection', []],
+        ['genotype', []],
         ['host_age', []],
-        ['host_age_unit',   []],	
-				['host_age_bin',   []],	
+        ['host_description', []],
+        ['host_disease_outcome', []],
+        ['host_disease_stage', []],
+        ['host_health_state', []],
         ['host_sex', []],
         ['host_subject_id', []],
-        ['purpose_of_sampling',[]],
-        ['purpose_of_sequencing', []],
-        ['gene_name_1', []],
-        ['diagnostic_PCR_CT_value_1', []],
-        ['gene_name_2', []],
-        ['diagnostic_PCR_CT_value_2', []],
-        ['description',[]],
+        ['host_tissue_sampled', []],
+        ['passage_history', []],
+        ['pathotype', []],
+        ['serotype', []],
+        ['serovar', []],
+        ['specimen_voucher', []],
+        ['subgroup', []],
+        ['subtype', []],
+        ['description', []],
       ]);
 
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
-      dh.getHeaderMap(ExportHeaders, sourceFields, 'BIOSAMPLE');
+      dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_Pathogen_BIOSAMPLE');
 
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
@@ -83,16 +58,22 @@ export default {
       for (const inputRow of dh.getTrimmedData(dh.hot)) {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
-          // Otherwise apply source (many to one) to target field transform:
-          const value = dh.getMappedField(
-            headerName,
-            inputRow,
-            sources,
-            sourceFields,
-            sourceFieldNameMap,
-            ':',
-            'BIOSAMPLE'
-          );
+          let value;
+          if (headerName === 'host_description') {
+            // Custom text before the symptom onset date value
+            const onsetDate = inputRow[sourceFieldNameMap['symptom_onset_date']];
+            value = onsetDate ? `Symptom onset date: ${onsetDate}` : '';
+          } else {
+            value = dh.getMappedField(
+              headerName,
+              inputRow,
+              sources,
+              sourceFields,
+              sourceFieldNameMap,
+              ':',
+              'NCBI_Pathogen_BIOSAMPLE'
+            );
+          }
           outputRow.push(value);
         }
         outputMatrix.push(outputRow);
@@ -102,7 +83,267 @@ export default {
     },
   },
 
-  /**
+    NCBI_SRA: {
+    fileType: 'xlsx',
+    status: 'published',
+    method: function(dh) {
+      const exportHeaders = new Map([
+        ["sample_name", []],
+        ["library_ID", []],
+        ["title", []],
+        ["library_strategy", []],
+        ["library_source", []],
+        ["library_selection", []],
+        ["library_layout", []],
+        ["platform", []],
+        ["instrument_model", []],
+        ["design_description", []],
+        ["filetype", []],
+        ["filename", []],
+        ["filename2", []],
+        ["filename3", []],
+        ["filename4", []],
+        ["assembly", []],
+        ["fasta_file", []],
+      ]);
+      const outputMatrix = [[...exportHeaders.keys()]];
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
+      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_SRA');
+      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+        const outputRow = [];
+        let value;
+        for (const [headerName, sources] of exportHeaders) {
+          value = dh.getMappedField(
+              headerName,
+              inputRow,
+              sources,
+              sourceFields,
+              sourceFieldNameMap,
+              '; ',
+              'NCBI_SRA'
+            );
+          outputRow.push(value);
+        }
+        outputMatrix.push(outputRow);
+      }
+      return outputMatrix;
+    },
+  },
+
+    Pathoplexus_Mpox: {
+    fileType: 'xlsx',
+    status: 'published',
+    method: function(dh) {
+      const exportHeaders = new Map([
+        ["sample_name", []],
+        ["specimenCollectorSampleId", []],
+        ["bioprojectAccession", []],
+        ["biosampleAccession", []],
+        ["insdcRawReadsAccession", []],
+        ["sampleCollectionDate", []],
+        ["sampleReceivedDate", []],
+        ["geoLocCountry", []],
+        ["geoLocAdmin1", []],
+        ["geoLocAdmin2", []],
+        ["geoLocSite", []],
+        ["geoLocLatitude", []],
+        ["geoLocLongitude", []],
+        ["purposeOfSampling", []],
+        ["anatomicalMaterial", []],
+        ["anatomicalPart", []],
+        ["bodyProduct", []],
+        ["environmentalMaterial", []],
+        ["environmentalSite", []],
+        ["collectionDevice", []],
+        ["collectionMethod", []],
+        ["specimenProcessing", []],
+        ["specimenProcessingDetails", []],
+        ["cellLine", []],
+        ["passageNumber", []],
+        ["passageMethod", []],
+        ["experimentalSpecimenRoleType", []],
+        ["hostNameCommon", []],
+        ["hostNameCommon  (just label; put ID in hostTaxonId)", []],
+        ["hostNameScientific", []],
+        ["hostHealthState", []],
+        ["hostHealthOutcome", []],
+        ["hostDisease", []],
+        ["hostAge", []],
+        ["hostAgeBin", []],
+        ["hostGender", []],
+        ["hostOriginCountry", []],
+        ["signsAndSymptoms", []],
+        ["hostVaccinationStatus", []],
+        ["travelHistory", []],
+        ["exposureEvent", []],
+        ["hostRole", []],
+        ["exposureSetting", []],
+        ["exposureDetails", []],
+        ["previousInfectionDisease", []],
+        ["sequencedByOrganization", []],
+        ["sequencedByContactName", []],
+        ["sequencedByContactEmail", []],
+        ["purposeOfSequencing", []],
+        ["sequencingDate", []],
+        ["sequencingAssayType", []],
+        ["sequencingInstrument", []],
+        ["sequencingProtocol", []],
+        ["ampliconPcrPrimerScheme", []],
+        ["ampliconSize", []],
+        ["qualityControlMethodName", []],
+        ["qualityControlMethodVersion", []],
+        ["qualityControlDetermination", []],
+        ["qualityControlIssues", []],
+        ["qualityControlDetails", []],
+        ["rawSequenceDataProcessingMethod", []],
+        ["dehostingMethod", []],
+        ["submissionId", []],
+        ["consensusSequenceSoftwareName", []],
+        ["consensusSequenceSoftwareVersion", []],
+        ["breadthOfCoverage", []],
+        ["depthOfCoverage", []],
+        ["assemblyReferenceGenomeAccession", []],
+        ["diagnosticTargetGeneName", []],
+        ["diagnosticMeasurementValue", []],
+        ["authors", []],
+      ]);
+      const outputMatrix = [[...exportHeaders.keys()]];
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
+      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      dh.getHeaderMap(exportHeaders, sourceFields, 'Pathoplexus_Mpox');
+      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+        const outputRow = [];
+        let value;
+        for (const [headerName, sources] of exportHeaders) {
+          value = dh.getMappedField(
+              headerName,
+              inputRow,
+              sources,
+              sourceFields,
+              sourceFieldNameMap,
+              '; ',
+              'Pathoplexus_Mpox'
+            );
+          outputRow.push(value);
+        }
+        outputMatrix.push(outputRow);
+      }
+      return outputMatrix;
+    },
+  },
+
+  ENA_ERC000033_Virus_SAMPLE: {
+    fileType: 'xls',
+    status: 'published',
+    method: function (dh) {
+      // Create an export table with template's headers (2nd row) and remaining rows of data
+      const ExportHeaders = new Map([
+        ['sample storage conditions', []],
+        ['subject exposure', []],
+        ['type exposure', []],
+        ['personal protective equipment', []],
+        ['hospitalisation', []],
+        ['illness duration', []],
+        ['illness symptoms', []],
+        ['collection date', []],
+        ['geographic location (latitude)', []],
+        ['geographic location (longitude)', []],
+        ['geographic location (region and locality)', []],
+        ['subject exposure duration', []],
+        ['sample capture status', []],
+        ['geographic location (country and/or sea)', []],
+        ['host disease outcome', []],
+        ['host common name', []],
+        ['host subject id', []],
+        ['host age', []],
+        ['host health state', []],
+        ['host sex', []],
+        ['lab_host', []],
+        ['host scientific name', []],
+        ['virus identifier', []],
+        ['collector name', []],
+        ['collecting institution', []],
+        ['receipt date', []],
+        ['definition for seropositive sample', []],
+        ['serotype (required for a seropositive sample)', []],
+        ['isolate', []],
+        ['strain', []],
+        ['host habitat', []],
+        ['isolation source host-associated', []],
+        ['host description', []],
+        ['gravidity', []],
+        ['host behaviour', []],
+        ['isolation source non-host-associated', []],
+      ]);
+
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
+      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      // Fills in the above mapping (or just set manually above)
+      dh.getHeaderMap(ExportHeaders, sourceFields, 'ENA_ERC000033_Virus_SAMPLE');
+
+      // Copy headers to 1st row of new export table
+      const outputMatrix = [[...ExportHeaders.keys()]];
+
+for (const inputRow of dh.getTrimmedData(dh.hot)) {
+  const outputRow = [];
+  for (const [headerName, sources] of ExportHeaders) {
+    let value;
+    if (headerName === 'sample capture status') {
+      const purpose = inputRow[sourceFieldNameMap['purpose_of_sampling']];
+      const outbreakSet = new Set([
+        'Cluster/outbreak detection',
+        'Multi-jurisdictional outbreak investigation',
+        'Intra-jurisdictional outbreak investigation',
+      ]);
+      const nonOutbreakSet = new Set([
+        'Baseline surveillance (random sampling)',
+        'Targeted surveillance (non-random sampling)',
+        'Priority surveillance project',
+        'Longitudinal surveillance (repeat sampling of individuals)',
+        'Re-infection surveillance',
+        'Vaccine escape surveillance',
+        'Travel-associated surveillance',
+      ]);
+      if (outbreakSet.has(purpose)) {
+        value = 'active surveillance in response to outbreak';
+      } else if (nonOutbreakSet.has(purpose)) {
+        value = 'active surveillance not initiated by an outbreak';
+      } else {
+        value = 'other';
+      }
+    } else if (headerName === 'hospitalisation') {
+      // Custom logic for hospitalisation field
+      const hospVal = inputRow[sourceFieldNameMap['host health status details']];
+      const yesSet = new Set([
+        'Hospitalized',
+        'Hospitalized (Non-ICU)',
+        'Hospitalized (ICU)',
+        'Medically Isolated',
+        'Medically Isolated (Negative Pressure)',
+      ]);
+      value = yesSet.has(hospVal) ? 'yes' : '';  
+    } else {
+      value = dh.getMappedField(
+        headerName,
+        inputRow,
+        sources,
+        sourceFields,
+        sourceFieldNameMap,
+        ':',
+        'ENA_ERC000033_Virus_SAMPLE'
+      );
+    }
+    outputRow.push(value);
+  }
+  outputMatrix.push(outputRow);
+}
+
+      return outputMatrix;
+    },
+  },
+
+/**
    * Download grid mapped to GISAID format.
    * CODE IS IDENTICAL COPY OF canada_covid19/export.js
    *
@@ -264,7 +505,7 @@ export default {
    * @param {Object} xlsx SheetJS variable.
    */
 
-  'NML LIMS': {
+  NML_LIMS: {
     fileType: 'csv',
     pertains_to: ['Mpox'],
     status: 'published',
