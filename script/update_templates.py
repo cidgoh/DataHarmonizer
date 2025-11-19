@@ -41,6 +41,7 @@ import optparse
 import os
 from semver import VersionInfo # pip install python-semver
 import math
+import yaml
 
 DH_TEMPLATE_VERSION_CONTROL_FIELDS = "Pathogen Genomics Templates Release	DH Version	Release Date	Template Name	Template Version x.y.z	x changes (field)	y changes (values/IDs)	z changes (defs/formats/examples)".split("\t");
 DH_TEMPLATES_GOOGLENAME    = 'DataHarmonizer Templates';
@@ -150,17 +151,68 @@ def process_release(df):
 				old_templates = make_dict(df, previoius_row , latest_row, previous_release);
 				templates = make_dict(df, latest_row , df.index[-1]+1, latest_release);
 				#print('Old templates \n', old_templates);
-				#print('\nNew templates \n', templates);					
-				for key, value in templates.items():
+				#print('\nNew templates \n', templates);		
+
+				do_template_folders = {};			
+				for key, version in templates.items():
 
 					if key in old_templates:
-						old_value = old_templates[key];
-						if old_value != value:
-							print(f'Updated: {key} from {old_value} to {value}');
+						old_version = old_templates[key];
+						if old_version == version:
+							# Ignore template since no version change.
+							continue;
+						else:
+							print(f'Updated: {key} from {old_version} to {version}');
 					else: 
-						print(f'New: {key} template with version {value}');	
+						print(f'New: {key} template with version {version}');	
+					
+					template_folder = template_to_folder[key];
+					template_class = template_to_class[key];
 
+					do_template_folders[template_folder] = True;
 
+					# Adjust web/templates/schema_core to include version
+					yaml_file_path = f'../web/templates/{template_folder}/schema_core.yaml';
+					schema = None;
+					try:
+						with open(yaml_file_path, 'r') as file:
+							schema = yaml.safe_load(file);
+
+					except FileNotFoundError:
+						print(f"Error: The file '{yaml_file_path}' was not found.")
+						continue;
+					except yaml.YAMLError as e:
+						print(f"Error parsing YAML file: {e}")
+						continue;
+
+					# Update schema's appropriate template class with new version
+					print(key, template_class, schema, yaml_file_path);
+
+					if template_class in schema['classes']:
+						schema['classes'][template_class]['version'] = version;
+					else:
+						print(f"Unable to find {template_class} in {schema}/schema_core.yaml'.")
+						continue;
+
+					# For now, schema version always takes on highest class version
+					schema_version = schema['version'];
+					if not schema_version:
+						schema['version'] = str(version);
+					else:
+						if version > VersionInfo.parse(schema_version):	
+							schema['version'] = str(version);
+
+					try:
+						with open(yaml_file_path, 'w') as file:
+							yaml.dump(schema, file, sort_keys=False, default_flow_style=False);
+							print(f"Changes saved successfully to '{yaml_file_path}'.");
+
+					except Exception as e:
+						print(f"Error saving YAML file: {e}")
+
+				# Now for each todo template folder copy tabs to schema_
+				for key in do_template_folders:
+					pass
 				# Compare with existing template names and versions
 				#for row_ptr in range(previoius_row, latest_row):
 
