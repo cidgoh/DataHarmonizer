@@ -154,7 +154,7 @@ def process_release(df):
 				#print('Old templates \n', old_templates);
 				#print('\nNew templates \n', templates);		
 
-				do_template_folders = {};			
+				do_template_folders = {};		
 				for key, version in templates.items():
 
 					if key in old_templates:
@@ -215,7 +215,7 @@ def process_release(df):
 						print(f"Error saving YAML file: {e}")
 
 				# Now for each todo template folder copy tabs to schema_
-				for key in do_template_folders:
+				for template_folder in do_template_folders:
 					make_linkml_schema(f"../web/templates/{template_folder}/", 'schema');
 
 			else:
