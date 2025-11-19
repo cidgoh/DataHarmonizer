@@ -42,6 +42,7 @@ import os
 from semver import VersionInfo # pip install python-semver
 import math
 import yaml
+from tabular_to_schema import make_linkml_schema;
 
 DH_TEMPLATE_VERSION_CONTROL_FIELDS = "Pathogen Genomics Templates Release	DH Version	Release Date	Template Name	Template Version x.y.z	x changes (field)	y changes (values/IDs)	z changes (defs/formats/examples)".split("\t");
 DH_TEMPLATES_GOOGLENAME    = 'DataHarmonizer Templates';
@@ -186,10 +187,13 @@ def process_release(df):
 						continue;
 
 					# Update schema's appropriate template class with new version
-					print(key, template_class, schema, yaml_file_path);
+
 
 					if template_class in schema['classes']:
-						schema['classes'][template_class]['version'] = version;
+						if not 'annotations' in schema['classes'][template_class]:
+							schema['classes'][template_class]['annotations'] = {'version': str(version)}
+						else:
+							schema['classes'][template_class]['annotations']['version'] = str(version);
 					else:
 						print(f"Unable to find {template_class} in {schema}/schema_core.yaml'.")
 						continue;
@@ -204,7 +208,7 @@ def process_release(df):
 
 					try:
 						with open(yaml_file_path, 'w') as file:
-							yaml.dump(schema, file, sort_keys=False, default_flow_style=False);
+							yaml.safe_dump(schema, file, sort_keys=False);
 							print(f"Changes saved successfully to '{yaml_file_path}'.");
 
 					except Exception as e:
@@ -212,9 +216,7 @@ def process_release(df):
 
 				# Now for each todo template folder copy tabs to schema_
 				for key in do_template_folders:
-					pass
-				# Compare with existing template names and versions
-				#for row_ptr in range(previoius_row, latest_row):
+					make_linkml_schema(f"../web/templates/{template_folder}/", 'schema');
 
 			else:
 				print(f"PROBLEM: Semantic version of last release section {v1} is less or equal to previous one {v2}.")
