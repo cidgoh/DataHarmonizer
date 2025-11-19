@@ -37,6 +37,7 @@
 #	In the Google Cloud console, go to Menu menu > APIs & Services > Credentials 
 
 import pandas as pd
+import csv
 import optparse
 import os
 from semver import VersionInfo # pip install python-semver
@@ -117,6 +118,9 @@ def make_dict(df, row_start, row_end, iteration = ''):
 	return templates;
 
 
+def filter_unnamed_columns(col_name):
+    return 'Unnamed' not in col_name
+    
 def process_release(df):
 
 	# Provids lookup for Template Name,Tab,Folder
@@ -170,7 +174,7 @@ def process_release(df):
 					template_folder = template_to_folder[key];
 					template_class = template_to_class[key];
 
-					do_template_folders[template_folder] = True;
+					do_template_folders[template_folder] = template_to_tab[key];
 
 					# Adjust web/templates/schema_core to include version
 					yaml_file_path = f'../web/templates/{template_folder}/schema_core.yaml';
@@ -214,8 +218,20 @@ def process_release(df):
 					except Exception as e:
 						print(f"Error saving YAML file: {e}")
 
-				# Now for each todo template folder copy tabs to schema_
+				# Now for each todo template folder copy tabs to 
+				# schema_slots.tsv and schema_enums.tsv and then
+				# run the make_linkml_schema() script
+				# Currently there is no "menu" generation option.
 				for template_folder in do_template_folders:
+
+					tsv_filepath_prefix = f'../web/templates/{template_folder}/schema_';
+					# do_template_folders is a dictionary of template_folder -> tab name.
+					tab_prefix = do_template_folders[template_folder];
+					slots = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-slots',usecols=filter_unnamed_columns);
+					slots.to_csv(tsv_filepath_prefix + 'slots.tsv', sep='\t', index=False, quoting=csv.QUOTE_NONE, quotechar='"',escapechar='\\')
+					enums = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-enums',usecols=filter_unnamed_columns);
+					enums.to_csv(tsv_filepath_prefix + 'enums.tsv', sep='\t', index=False, quoting=csv.QUOTE_NONE,quotechar='"',escapechar='\\')
+
 					make_linkml_schema(f"../web/templates/{template_folder}/", 'schema');
 
 			else:
@@ -233,7 +249,7 @@ if __name__ == "__main__":
 		refresh_cache();
 
 	if os.path.isfile(DH_TEMPLATES_FILENAME):
-
+		# create a Pandas "df" dataframe
 		df = pd.read_excel(
 			DH_TEMPLATES_FILENAME, 
 			sheet_name = DH_TEMPLATES_TAB_RELEASES # Load by sheet name
