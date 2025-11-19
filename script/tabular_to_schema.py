@@ -134,7 +134,7 @@ def set_class_slot(schema_class, slot, slot_name, slot_group, warnings):
 # Parse example_string into slot.examples. Works for multilingual slot locale
 def set_examples (slot, example_string):
 				
-	if example_string > '':
+	if example_string and example_string > '':
 		examples = [];
 		for v in example_string.split(';'):
 			# A special trigger to create description is ":  " (2 spaces following)
