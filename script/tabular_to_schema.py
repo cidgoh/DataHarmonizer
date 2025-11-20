@@ -297,7 +297,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 
 				if len(class_name) > 0:
 					if not (class_name in schema['classes']): 
-						print ("ERROR: class (template) ", class_name, "is missing in schema_core.yaml");
+						print ("ERROR: class (template) ", class_name, "is missing in schema_core.yaml. Perhaps this is field with linefeed(s) that accidentally got parsed as first column content?");
 						sys.exit(0);
 
 					schema_class = schema['classes'][class_name];

@@ -99,6 +99,8 @@ def get_value(df, column_name, index):
 # Version Control tab rows.
 def make_dict(df, row_start, row_end, iteration = ''):
 	templates = {};
+	# print("COLUMNS", df.columns.tolist());
+
 	# Get previous template names and versions:
 	for row_ptr in range(row_start, row_end): # 
 		template_name = df.loc[row_ptr, "Template Name"];
@@ -120,7 +122,7 @@ def make_dict(df, row_start, row_end, iteration = ''):
 
 def filter_unnamed_columns(col_name):
     return 'Unnamed' not in col_name
-    
+
 def process_release(df):
 
 	# Provids lookup for Template Name,Tab,Folder
@@ -218,6 +220,9 @@ def process_release(df):
 					except Exception as e:
 						print(f"Error saving YAML file: {e}")
 
+					# TESTING SINGLE ITERATION
+					break;
+
 				# Now for each todo template folder copy tabs to 
 				# schema_slots.tsv and schema_enums.tsv and then
 				# run the make_linkml_schema() script
@@ -227,10 +232,22 @@ def process_release(df):
 					tsv_filepath_prefix = f'../web/templates/{template_folder}/schema_';
 					# do_template_folders is a dictionary of template_folder -> tab name.
 					tab_prefix = do_template_folders[template_folder];
-					slots = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-slots',usecols=filter_unnamed_columns);
-					slots.to_csv(tsv_filepath_prefix + 'slots.tsv', sep='\t', index=False, quoting=csv.QUOTE_NONE, quotechar='"',escapechar='\\')
-					enums = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-enums',usecols=filter_unnamed_columns);
-					enums.to_csv(tsv_filepath_prefix + 'enums.tsv', sep='\t', index=False, quoting=csv.QUOTE_NONE,quotechar='"',escapechar='\\')
+					# Pandas when reading excel file is supposed to view TRUE, FALSE as boolean
+					slots = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-slots', usecols=filter_unnamed_columns); # 
+					# However here boolean true is being saved as 1.0
+					# So replace 1.0 with TRUE.
+					for datatype in ['identifier','multivalued','required','recommended']:
+						slots[datatype] = slots[datatype].replace({1.0: 'TRUE'});
+						# Prevents dates in examples from being reformated:
+					
+					# slots['examples'] = slots['examples'].astype(str); #????
+
+					slots.to_csv(tsv_filepath_prefix + 'slots.tsv', sep='\t', index=False, lineterminator='\r\n') # , quotechar="'"
+
+					# , lineterminator='\n', quoting=csv.QUOTE_NONE, quotechar="'",escapechar='\\'
+					enums = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-enums',usecols=filter_unnamed_columns, parse_dates=False);
+					enums.to_csv(tsv_filepath_prefix + 'enums.tsv', sep='\t', index=False, lineterminator='\r\n') # , quotechar="'"
+					# quoting=csv.QUOTE_NONE,quotechar='"',escapechar='"'
 
 					make_linkml_schema(f"../web/templates/{template_folder}/", 'schema');
 
