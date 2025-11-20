@@ -221,7 +221,7 @@ def process_release(df):
 						print(f"Error saving YAML file: {e}")
 
 					# TESTING SINGLE ITERATION
-					break;
+					#break;
 
 				# Now for each todo template folder copy tabs to 
 				# schema_slots.tsv and schema_enums.tsv and then
@@ -232,15 +232,15 @@ def process_release(df):
 					tsv_filepath_prefix = f'../web/templates/{template_folder}/schema_';
 					# do_template_folders is a dictionary of template_folder -> tab name.
 					tab_prefix = do_template_folders[template_folder];
+					# TO PREVENT DATES in "examples" column from being 
+					# reformatted, ensure that the examples column in 
+					# google sheets is set to Format -> Number -> plain text
 					# Pandas when reading excel file is supposed to view TRUE, FALSE as boolean
 					slots = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-slots', usecols=filter_unnamed_columns); # 
 					# However here boolean true is being saved as 1.0
 					# So replace 1.0 with TRUE.
 					for datatype in ['identifier','multivalued','required','recommended']:
 						slots[datatype] = slots[datatype].replace({1.0: 'TRUE'});
-						# Prevents dates in examples from being reformated:
-					
-					# slots['examples'] = slots['examples'].astype(str); #????
 
 					slots.to_csv(tsv_filepath_prefix + 'slots.tsv', sep='\t', index=False, lineterminator='\r\n') # , quotechar="'"
 
