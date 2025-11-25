@@ -247,3 +247,4 @@ web/templates/manifest.json
 
 # deprecated modules
 lib/utils/1m_dep.js
+script/google_api_key.json
