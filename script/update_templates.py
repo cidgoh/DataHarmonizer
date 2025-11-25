@@ -242,12 +242,10 @@ def process_release(df):
 					for datatype in ['identifier','multivalued','required','recommended']:
 						slots[datatype] = slots[datatype].replace({1.0: 'TRUE'});
 
-					slots.to_csv(tsv_filepath_prefix + 'slots.tsv', sep='\t', index=False, lineterminator='\r\n') # , quotechar="'"
+					slots.to_csv(tsv_filepath_prefix + 'slots.tsv', sep='\t', index=False, lineterminator='\r\n')
 
-					# , lineterminator='\n', quoting=csv.QUOTE_NONE, quotechar="'",escapechar='\\'
 					enums = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-enums',usecols=filter_unnamed_columns, parse_dates=False);
-					enums.to_csv(tsv_filepath_prefix + 'enums.tsv', sep='\t', index=False, lineterminator='\r\n') # , quotechar="'"
-					# quoting=csv.QUOTE_NONE,quotechar='"',escapechar='"'
+					enums.to_csv(tsv_filepath_prefix + 'enums.tsv', sep='\t', index=False, lineterminator='\r\n')
 
 					make_linkml_schema(f"../web/templates/{template_folder}/", 'schema');
 
