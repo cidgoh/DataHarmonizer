@@ -4,6 +4,10 @@
   z-index: 1000;
 }
 
+.secondary-header-text:hover {
+  background-color: lightblue;
+}
+
 #specify-headers-comparison-row {
   overflow-x: auto;
 }
