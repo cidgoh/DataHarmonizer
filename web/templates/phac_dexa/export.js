@@ -1,7 +1,7 @@
 // Adds existing functions/methods to DataHarminizer.
 export default {
   // NOTE: FUTURE DEV: This has a mixture of sourceFieldNameMap AND sourceFieldTitleMap rules/lookups that should be just moved to sourceFieldNameMap. ALTERNATELY, a new LinkML based vision of converting from source to destination schema class.
-  'Dexa to GRDI': {
+  'GRDI': {
     fileType: 'xls',
     status: 'published',
     method: function (dh) {
@@ -170,8 +170,9 @@ export default {
             ';',
             'GRDI'
           );
-          // semicolon-separated list of values.  Issue is terms have come from other source fields.
-          outputRow.push(value);
+
+        // semicolon-separated list of values.  Issue is terms have come from other source fields.
+        outputRow.push(value);
         }
         outputMatrix.push(outputRow);
       }
@@ -269,6 +270,7 @@ export default {
       sourceFieldNameMap,
       normalize
     ) {
+      const self = this;
       // RuleDB is a holding bin of target fields/variables to populate with custom
       // rule content. None of these fields receive DEXA field content directly.
       let RuleDB = {
@@ -414,27 +416,50 @@ export default {
      */
     initLookup: function () {
       let normalize = {};
-      for (const line of this.LOOKUP.split('\n')) {
 
-        let [ontology_id, parent, label, normalization] = line
-          .split('\t')
-          .map(function (e) {
-            return e.trim();
-          });
+      for (const rawLine of this.LOOKUP.split('\n')) {
+        const line = rawLine.trim();
+        if (!line) continue; // skip blank lines
 
-        normalize[label] = {
-          ontology_id: ontology_id,
-          parent: parent,
+        // Split on tab; if your data is actually space-separated, you could
+        // change this to a regex like /\s{2,}|\t/ instead.
+        let parts = line.split('\t').map(function (e) {
+          return e.trim();
+        });
+
+        // Need at least ontology_id, parent, and label
+        if (parts.length < 3) {
+          // Optionally console.warn here
+          continue;
+        }
+
+        let [ontology_id, parent, label, normalization] = parts;
+
+        if (!label) {
+          // Nothing meaningful to index by; skip
+          continue;
+        }
+
+        // Store the canonical (normalized) label – I’d recommend lowercasing
+        const keyLabel = label.toLowerCase();
+        normalize[keyLabel] = {
+          ontology_id: ontology_id || '',
+          parent: parent || '',
           label: label,
         };
 
-        // Various other abnormal/synonym text strings point to normalized record.
-        let normalizations = normalization.split(';').map(function (e) {
-          return e.trim();
-        });
-        if (normalizations.length > 0)
-          for (const key of normalizations) normalize[key] = normalize[label];
+        // If there is a normalization column, process synonyms
+        if (normalization && normalization.length > 0) {
+          let normalizations = normalization.split(';').map(function (e) {
+            return e.trim();
+          }).filter(Boolean);
+
+          for (const key of normalizations) {
+            normalize[key.toLowerCase()] = normalize[keyLabel];
+          }
+        }
       }
+
       return normalize;
     },
 
