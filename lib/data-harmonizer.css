@@ -8,18 +8,70 @@
   background-color: lightblue;
 }
 
-#specify-headers-comparison-row {
-  overflow-x: auto;
-}
-
 #specify-headers-err-msg {
   display: none;
 }
 
 #field-mapping-container {
-  overflow-x: scroll;
+  overflow-y: scroll;
   padding-bottom: 1rem;
   scrollbar-width: 1rem;
+  height: 500px;
+}
+
+table#field-mapping-table {
+  border-spacing: 2px;
+  border-collapse: separate;
+  width: 100%;
+
+  text-align: left;
+}
+table#field-mapping-table th {
+  background-color: lightgray;
+  position: sticky;
+  top: 0;
+  padding: 3px 7px;
+  z-index: 1; 
+}
+tr.field-mapping-template td {
+  background-color:#30D0E0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+tr.field-mapping-section td {
+  background-color:#46D0EC;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+table#field-mapping-table tr td {
+  min-height:30px;
+}
+td.field-mismatch {
+  background-color:orange;
+}
+td.draggable-mapping-item {
+  min-width: 150px;
+  border: 1px solid lightgreen;
+  padding: 3px;
+  cursor: grab !important;
+
+}
+.ui-draggable-dragging {
+    background-color: lightblue;
+    border: 1px solid blue;
+    opacity: 0.8;
+    cursor: move !important;
+}
+/*
+.ui-state-active {
+  background-color: #ffe0b2; 
+  border-color: orange;
+}
+*/
+
+.ui-state-hover {
+  background-color: #c8e6c9; /* Lighter green for hover state */
+  border-color: green;
 }
 
 .handsontable.listbox th,
