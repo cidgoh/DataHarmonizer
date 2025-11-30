@@ -6,9 +6,10 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col" id="field-mapping-description">
-                <div data-i18n="field-mapping-mismatch">One or more template header field names do not exactly match those in the selected data file</div>
-                <div id="field-mapping-data-file-name"></div>
-                <div data-i18n=""></div>
+                <span data-i18n="field-mapping-mismatch"></span>: 
+                <strong><span id="field-mapping-data-file-name"></span></strong>.
+                <br>
+                <span data-i18n="field-mapping-explanation"></span>
               </div>
             </div>
             <div class="row my-3 border" id="specify-headers-comparison-row">
@@ -17,11 +18,11 @@
                   <table id="field-mapping-table">
                     <thead>
                       <tr>
-                        <th colspan="2" data-i18n="">template field</th>
-                        <th>data table field</th>
+                        <th data-i18n="field-mapping-template-field">template field</th>
+                        <th data-i18n="field-mapping-data-table-field">data table field</th>
                       </tr>
                     </thead>
-                    <tbody id="field-mapping"></tbody>
+                    <tfoot></tfoot>
                   </table>
                 </div>
               </div>
@@ -29,7 +30,7 @@
  
             <div class="row mt-3">
               <div class="col">
-                <input type = "checkbox" checked="checked" id="field-mapping-mismatched-checkbox">
+                <input type = "checkbox" id="field-mapping-mismatched-checkbox">
                 <label for="field-mapping-show-mismatched" data-i18n="field-mapping-mismatched-label"> Only show mismatched columns.</label>
               </div>
               <div class="col d-flex justify-content-end">

@@ -75,8 +75,8 @@
     "fr": "Un ou plusieurs noms de champs d'en-tête du modèle ne correspondent pas exactement à ceux du fichier de données sélectionné."
   },
   "field-mapping-explanation": {
-    "en": "Unmatched field(s) - shown in orange - can be remedied by dragging the appropriate data field to the matching template field row.<br>(Field ordering of matching fields is automatically handled.)",
-    "fr": "Les champs non appariés (affichés en orange) peuvent être corrigés en faisant glisser le champ de données approprié vers la ligne du champ de modèle correspondant.<br>(L'ordre des champs correspondants est géré automatiquement.)"
+    "en": "Unmatched field(s) - shown in orange - can be remedied by dragging the appropriate data field to the matching template field row. Field ordering of matching fields (marked in yellow) is automatically handled.",
+    "fr": "Les champs non appariés (affichés en orange) peuvent être corrigés en faisant glisser le champ de données approprié vers la ligne du champ de modèle correspondant. L'ordre des champs correspondants (marqués en jaune) est géré automatiquement."
   },
   "field-mapping-template-field": {
     "en": "template field",

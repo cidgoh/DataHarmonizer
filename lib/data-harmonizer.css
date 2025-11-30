@@ -16,14 +16,14 @@
   overflow-y: scroll;
   padding-bottom: 1rem;
   scrollbar-width: 1rem;
-  height: 500px;
+  max-height: 500px;
 }
 
 table#field-mapping-table {
   border-spacing: 2px;
   border-collapse: separate;
   width: 100%;
-
+  height:auto;
   text-align: left;
 }
 table#field-mapping-table th {
@@ -33,22 +33,44 @@ table#field-mapping-table th {
   padding: 3px 7px;
   z-index: 1; 
 }
-tr.field-mapping-template td {
+tbody.field-mapping-template tr {
   background-color:#30D0E0;
   font-size: 1.3rem;
   font-weight: bold;
 }
-tr.field-mapping-section td {
-  background-color:#46D0EC;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
+
 table#field-mapping-table tr td {
   min-height:30px;
+}
+
+table#field-mapping-table .hidden {
+  display:none;
+}
+
+.reordered {
+  background-color: yellow;
 }
 td.field-mismatch {
   background-color:orange;
 }
+
+tbody.field-mapping-section > tr:first-child td {
+  background-color:#46D0EC;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+/*
+tbody.field-mapping-section {
+  display: none;
+}
+tbody.field-mapping-section:has(td.field-mismatch) {
+  display: revert;
+}
+
+tbody.field-mapping-section:has(td.field-mismatch) > tr:first-child {
+  background-color:orange !important;
+}
+*/
 td.draggable-mapping-item {
   min-width: 150px;
   border: 1px solid lightgreen;
