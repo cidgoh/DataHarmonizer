@@ -975,5 +975,105 @@
     </div>
   </div>
 
+  <div class="modal" id="specify-headers-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="max-width:800px !important">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col" id="field-mapping-description">
+                <span data-i18n="field-mapping-mismatch"></span>: 
+                <strong><span id="field-mapping-data-file-name"></span></strong>.
+                <br>
+                <span data-i18n="field-mapping-explanation"></span>
+              </div>
+            </div>
+            <div class="row my-3 border" id="specify-headers-comparison-row">
+              <div class="col">
+                <div class="row" id="field-mapping-container">
+                  <table id="field-mapping-table">
+                    <thead>
+                      <tr>
+                        <th data-i18n="field-mapping-template-field">template field</th>
+                        <th data-i18n="field-mapping-data-table-field">data table field</th>
+                      </tr>
+                    </thead>
+                    <!-- TBODYs are dynamically written for each tab and its sections -->
+                    <tfoot></tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col">
+                <input type = "checkbox" id="field-mapping-mismatched-checkbox" style="width:1.3rem; height:1.3rem">
+                <label for="field-mapping-mismatched-checkbox" data-i18n="field-mapping-mismatched-label">Only show mismatched<br>items.</label>
+              </div>
+              <div class="col">
+
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="float:left"
+                  id="specify-headers-reset-btn"
+                  data-i18n="field-mapping-reset"
+                >
+                  Reset form
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="float:right"
+                  id="specify-headers-confirm-btn"
+                  data-i18n="field-mapping-complete"
+                >
+                  Completed mapping
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid" id="field-mapping-profiles">
+            <div class="row">
+              <div class="col">
+                Save the above profile to browser long-term memory by specifying a name and pressing "Store", or load a given profile into form above by selecting it from the profile menu. A profile contains your customized mappings from unmatched template fields to data file fields.
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                Profile menu: <select id="field-mapping-select" style="width:50%">
+                  <option readonly value="" data-i18n="field-mapping-select-prompt">Apply a mapping profile</option>
+                </select>
+                <button
+                  type="button"
+                  class="btn btn-secondary right small"
+                  id="field-mapping-forget-btn"
+                >
+                  Delete
+                </button> 
+
+                <input type = "text" id="field-mapping-name" placeholder="Store a mapping profile in browser" size="32">
+                <button
+                  type="button"
+                  class="btn btn-secondary right small"
+                  id="field-mapping-store-btn"
+                >
+                  Store
+                </button> 
+
+              </div>
+              <div class="col">
+                <textarea id="field-mapping-display" placeholder="The selected profile's mapping rules will be displayed here." style="width:100%; height:100%;white-space:nowrap;font-size:.8rem" readonly></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 

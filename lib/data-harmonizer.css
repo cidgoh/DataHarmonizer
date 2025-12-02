@@ -47,6 +47,12 @@ table#field-mapping-table .hidden {
   display:none;
 }
 
+#field-mapping-profiles {
+  background-color:lightgray;
+  margin-top: 4px;
+  padding-bottom:5px;
+}
+
 .reordered {
   background-color: yellow;
 }
@@ -83,6 +89,7 @@ td.draggable-mapping-item {
     border: 1px solid blue;
     opacity: 0.8;
     cursor: move !important;
+    height: 25px;
 }
 /*
 .ui-state-active {
@@ -101,21 +108,3 @@ td.draggable-mapping-item {
   white-space: pre;
 }
 
-#field-mapping {
-  white-space: nowrap;
-}
-
-#field-mapping col {
-  border-left: 2px solid black;
-}
-#field-mapping col:first-child {
-  background: #ff0;
-}
-#field-mapping col:nth-child(2n + 3) {
-  background: #ccc;
-}
-
-#field-mapping tr td,
-#field-mapping tr th {
-  padding: 3px;
-}

@@ -70,6 +70,7 @@
     "en": "Export To",
     "fr": "Exporter vers"
   },
+
   "field-mapping-mismatch": {
     "en": "One or more template header field names do not exactly match those in the selected data file",
     "fr": "Un ou plusieurs noms de champs d'en-tête du modèle ne correspondent pas exactement à ceux du fichier de données sélectionné."
@@ -89,6 +90,10 @@
   "field-mapping-mismatched-label": {
     "en": "Only show mismatched columns.",
     "fr": "Afficher uniquement les colonnes non appariées."
+  },
+  "field-mapping-complete": {
+    "en": "Completed mapping",
+    "fr": "Mappage terminé"
   },
 
   "settings-menu-button": {
