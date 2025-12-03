@@ -121,6 +121,8 @@ export default {
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
 
+      console.log("outputMatrix", sourceFieldTitleMap, sourceFieldNameMap, outputMatrix);
+
       let normalize = self.initLookup();
 
       const inputMatrix = dh.getTrimmedData(dh.hot);
@@ -130,12 +132,13 @@ export default {
           dh,
           inputRow,
           sourceFields,
+          //sourceFieldNameMap,
           sourceFieldTitleMap, // TITLE Map
           normalize,
           preserveCapsFields
         );
 
-
+        //console.log("RULES",RuleDB)
         const outputRow = [];
         for (const headerName of ExportHeaders.keys()) {
 
@@ -292,6 +295,8 @@ export default {
       let ruleSourceFieldNames = [
         'STTYPE',
         'STYPE',
+        'COUNTRY_1',
+        'PROVINCE_1',
         'SPECIMENSUBSOURCE_1',
         'SUBJECT_DESCRIPTIONS',
         'SPECIES',

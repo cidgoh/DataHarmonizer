@@ -12,8 +12,8 @@ PHACDexa	Database Identifiers
 	Fields to put in sections		SUBMITTINGORG_1	submittingorg_1	WhitespaceMinimizedString													sample_collected_by
 	Fields to put in sections		SUBMITTINGLAB_1	submittinglab_1	WhitespaceMinimizedString													sample_collected_by_laboratory_name
 	Fields to put in sections		PROJECT_1	project_1	WhitespaceMinimizedString													
-	Fields to put in sections		COUNTRY_1	country_1	WhitespaceMinimizedString													geo_loc_name (country)
-	Fields to put in sections		PROVINCE_1	province_1	WhitespaceMinimizedString													geo_loc_name (state/province/region)
+	Fields to put in sections		COUNTRY_1	country_1	CountryMenu													geo_loc_name (country)
+	Fields to put in sections		PROVINCE_1	province_1	ProvinceMenu													geo_loc_name (state/province/region)
 	Fields to put in sections		CENSUSDIVISION_1	censusdivision_1	WhitespaceMinimizedString													
 	Fields to put in sections		REGION	region	WhitespaceMinimizedString													
 	Fields to put in sections		YEAR	year	WhitespaceMinimizedString													
