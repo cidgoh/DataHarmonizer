@@ -57,7 +57,9 @@ table#field-mapping-table .hidden {
   background-color: yellow;
 }
 td.field-mismatch {
-  background-color:orange;
+  border-radius: 10px;
+  padding-left: 8px;
+  background-color: orange;
 }
 
 tbody.field-mapping-section > tr:first-child td {
@@ -79,14 +81,13 @@ tbody.field-mapping-section:has(td.field-mismatch) > tr:first-child {
 */
 td.draggable-mapping-item {
   min-width: 150px;
-  border: 1px solid lightgreen;
-  padding: 3px;
+  padding: 3px 8px;
   cursor: grab !important;
 
 }
 .ui-draggable-dragging {
     background-color: lightblue;
-    border: 1px solid blue;
+    border: 1px solid lightbrown;
     opacity: 0.8;
     cursor: move !important;
     height: 25px;
