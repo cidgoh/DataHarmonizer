@@ -249,11 +249,16 @@ tr.translate_key td {
   font-weight:bold;
 }
 
-td.schemaSlot {
+/* Handsontable assigns .htDimmed to any cell with .readOnly = true */
+td.tabFieldTd_slot {
   border-top:2px solid green;
   background-color: #EFE;
 }
 
+td.tabFieldTd_attribute {
+  border-top:2px solid green;
+  background-color: lightyellow;
+}
 /* Not sure how to display frozen column right side in header area
 .data-harmonizer-grid th.overlayEdge {
   border-right: 2px solid black !important;
@@ -273,7 +278,7 @@ td.schemaSlot {
 
 .coding_name {font-size: .8rem} /* Used where slot.name is shown */
 
-/* Handsontable class for readOnly fields */
+/* Handsontable class for readOnly fields 
 .handsontable td.hatched {
   background: repeating-linear-gradient(
     -45deg,
@@ -282,6 +287,7 @@ td.schemaSlot {
     lightsilver 1px,
     lightsilver 8px);
 }
+*/
 
 td.hide {
   display:none; 
