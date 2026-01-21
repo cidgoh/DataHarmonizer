@@ -259,6 +259,18 @@ td.tabFieldTd_attribute {
   border-top:2px solid green;
   background-color: lightyellow;
 }
+
+td.tabFieldTd_slot_usage.inherited::before { 
+  position:relative; 
+  content: "inherited";
+  color: black;
+  border:1px solid green;
+  background-color: #edffed;
+  border-radius: 3px;
+  top:2px;
+  padding: 4px;
+}
+
 /* Not sure how to display frozen column right side in header area
 .data-harmonizer-grid th.overlayEdge {
   border-right: 2px solid black !important;
@@ -277,17 +289,6 @@ td.tabFieldTd_attribute {
 }
 
 .coding_name {font-size: .8rem} /* Used where slot.name is shown */
-
-/* Handsontable class for readOnly fields 
-.handsontable td.hatched {
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 7px,
-    lightsilver 1px,
-    lightsilver 8px);
-}
-*/
 
 td.hide {
   display:none; 
