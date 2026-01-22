@@ -1,11 +1,9 @@
 {
-  "id": "https://example.com/DH_LinkML",
   "name": "DH_LinkML",
   "description": "The DataHarmonizer template for editing a schema.",
-  "version": "1.0.0",
   "in_language": "en",
-  "default_prefix": "https://example.com/DH_LinkML/",
-  "imports": [],
+  "id": "https://example.com/DH_LinkML",
+  "version": "1.0.0",
   "prefixes": {
     "linkml": {
       "prefix_prefix": "linkml",
@@ -26,6 +24,1887 @@
     "schema": {
       "prefix_prefix": "schema",
       "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/DH_LinkML/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/DH_LinkML",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/DH_LinkML",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:time",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    },
+    "jsonpointer": {
+      "name": "jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "jsonpath": {
+      "name": "jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "sparqlpath": {
+      "name": "sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "base": "str",
+      "uri": "xsd:string",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "SchemaSlotTypeMenu": {
+      "name": "SchemaSlotTypeMenu",
+      "title": "Slot Type",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "slot": {
+          "text": "slot",
+          "description": "A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (LinkML class).  Note however that its attributes which have values cannot be overriden when reused.",
+          "title": "Schema field"
+        },
+        "slot_usage": {
+          "text": "slot_usage",
+          "description": "A table field whose name and source attributes come from a schema library field. It can add its own attributes, but cannot overwrite the schema field ones.  (A LinkML schema slot referenced within a class's slot_usage list of slots.)",
+          "title": "Table field (from schema)"
+        },
+        "attribute": {
+          "text": "attribute",
+          "description": "A table field which is not reused from the schema.  The field can impose its own attribute values.",
+          "title": "Table field (stand-alone)"
+        }
+      }
+    },
+    "SchemaAnnotationTypeMenu": {
+      "name": "SchemaAnnotationTypeMenu",
+      "title": "Annotation Type",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "schema": {
+          "text": "schema",
+          "title": "Schema"
+        },
+        "class": {
+          "text": "class",
+          "title": "Table"
+        },
+        "slot": {
+          "text": "slot",
+          "description": "A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (LinkML class).  Note however that its attributes which have values cannot be overriden when reused.",
+          "title": "Schema field"
+        },
+        "slot_usage": {
+          "text": "slot_usage",
+          "description": "A table field whose name and source attributes come from a schema library field. It can add its own attributes, but cannot overwrite the schema field ones.  (A LinkML schema slot referenced within a class's slot_usage list of slots.)",
+          "title": "Table field (from schema)"
+        },
+        "attribute": {
+          "text": "attribute",
+          "description": "A table field which is not reused from the schema.  The field can impose its own attribute values.",
+          "title": "Table field (independent)"
+        }
+      }
+    },
+    "EnumCriteriaMenu": {
+      "name": "EnumCriteriaMenu",
+      "title": "Criteria Menu",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "include": {
+          "text": "include",
+          "title": "include"
+        },
+        "exclude": {
+          "text": "exclude",
+          "title": "exclude"
+        }
+      }
+    },
+    "TrueFalseMenu": {
+      "name": "TrueFalseMenu",
+      "title": "True/False Menu",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "TRUE": {
+          "text": "TRUE",
+          "title": "TRUE"
+        },
+        "FALSE": {
+          "text": "FALSE",
+          "title": "FALSE"
+        }
+      }
+    },
+    "LanguagesMenu": {
+      "name": "LanguagesMenu",
+      "title": "Languages Menu",
+      "from_schema": "https://example.com/DH_LinkML",
+      "permissible_values": {
+        "ab": {
+          "text": "ab",
+          "title": "Abkhazian (ab)"
+        },
+        "aa": {
+          "text": "aa",
+          "title": "Afar (aa)"
+        },
+        "af": {
+          "text": "af",
+          "title": "Afrikaans (af)"
+        },
+        "ak": {
+          "text": "ak",
+          "title": "Akan (ak)"
+        },
+        "sq": {
+          "text": "sq",
+          "title": "Albanian (sq)"
+        },
+        "am": {
+          "text": "am",
+          "title": "Amharic (am)"
+        },
+        "ar": {
+          "text": "ar",
+          "title": "Arabic (ar)"
+        },
+        "an": {
+          "text": "an",
+          "title": "Aragonese (an)"
+        },
+        "hy": {
+          "text": "hy",
+          "title": "Armenian (hy)"
+        },
+        "as": {
+          "text": "as",
+          "title": "Assamese (as)"
+        },
+        "av": {
+          "text": "av",
+          "title": "Avaric (av)"
+        },
+        "ae": {
+          "text": "ae",
+          "title": "Avestan (ae)"
+        },
+        "ay": {
+          "text": "ay",
+          "title": "Aymara (ay)"
+        },
+        "az": {
+          "text": "az",
+          "title": "Azerbaijani (az)"
+        },
+        "bm": {
+          "text": "bm",
+          "title": "Bambara (bm)"
+        },
+        "ba": {
+          "text": "ba",
+          "title": "Bashkir (ba)"
+        },
+        "eu": {
+          "text": "eu",
+          "title": "Basque (eu)"
+        },
+        "be": {
+          "text": "be",
+          "title": "Belarusian (be)"
+        },
+        "bn": {
+          "text": "bn",
+          "title": "Bengali (bn)"
+        },
+        "bi": {
+          "text": "bi",
+          "title": "Bislama (bi)"
+        },
+        "bs": {
+          "text": "bs",
+          "title": "Bosnian (bs)"
+        },
+        "br": {
+          "text": "br",
+          "title": "Breton (br)"
+        },
+        "bg": {
+          "text": "bg",
+          "title": "Bulgarian (bg)"
+        },
+        "my": {
+          "text": "my",
+          "title": "Burmese (my)"
+        },
+        "ca": {
+          "text": "ca",
+          "title": "Catalan, Valencian (ca)"
+        },
+        "ch": {
+          "text": "ch",
+          "title": "Chamorro (ch)"
+        },
+        "ce": {
+          "text": "ce",
+          "title": "Chechen (ce)"
+        },
+        "ny": {
+          "text": "ny",
+          "title": "Chichewa, Chewa, Nyanja (ny)"
+        },
+        "zh": {
+          "text": "zh",
+          "title": "Chinese (zh)"
+        },
+        "cv": {
+          "text": "cv",
+          "title": "Chuvash (cv)"
+        },
+        "kw": {
+          "text": "kw",
+          "title": "Cornish (kw)"
+        },
+        "co": {
+          "text": "co",
+          "title": "Corsican (co)"
+        },
+        "cr": {
+          "text": "cr",
+          "title": "Cree (cr)"
+        },
+        "hr": {
+          "text": "hr",
+          "title": "Croatian (hr)"
+        },
+        "cs": {
+          "text": "cs",
+          "title": "Czech (cs)"
+        },
+        "da": {
+          "text": "da",
+          "title": "Danish (da)"
+        },
+        "dv": {
+          "text": "dv",
+          "title": "Divehi, Dhivehi, Maldivian (dv)"
+        },
+        "nl": {
+          "text": "nl",
+          "title": "Dutch, Flemish (nl)"
+        },
+        "dz": {
+          "text": "dz",
+          "title": "Dzongkha (dz)"
+        },
+        "en": {
+          "text": "en",
+          "title": "English (en)"
+        },
+        "eo": {
+          "text": "eo",
+          "title": "Esperanto (eo)"
+        },
+        "et": {
+          "text": "et",
+          "title": "Estonian (et)"
+        },
+        "ee": {
+          "text": "ee",
+          "title": "Ewe (ee)"
+        },
+        "fo": {
+          "text": "fo",
+          "title": "Faroese (fo)"
+        },
+        "fj": {
+          "text": "fj",
+          "title": "Fijian (fj)"
+        },
+        "fi": {
+          "text": "fi",
+          "title": "Finnish (fi)"
+        },
+        "fr": {
+          "text": "fr",
+          "title": "French (fr)"
+        },
+        "fy": {
+          "text": "fy",
+          "title": "Western Frisian (fy)"
+        },
+        "ff": {
+          "text": "ff",
+          "title": "Fulah (ff)"
+        },
+        "gd": {
+          "text": "gd",
+          "title": "Gaelic, Scottish Gaelic (gd)"
+        },
+        "gl": {
+          "text": "gl",
+          "title": "Galician (gl)"
+        },
+        "lg": {
+          "text": "lg",
+          "title": "Ganda (lg)"
+        },
+        "ka": {
+          "text": "ka",
+          "title": "Georgian (ka)"
+        },
+        "de": {
+          "text": "de",
+          "title": "German (de)"
+        },
+        "el": {
+          "text": "el",
+          "title": "Greek, Modern (1453–) (el)"
+        },
+        "kl": {
+          "text": "kl",
+          "title": "Kalaallisut, Greenlandic (kl)"
+        },
+        "gn": {
+          "text": "gn",
+          "title": "Guarani (gn)"
+        },
+        "gu": {
+          "text": "gu",
+          "title": "Gujarati (gu)"
+        },
+        "ht": {
+          "text": "ht",
+          "title": "Haitian, Haitian Creole (ht)"
+        },
+        "ha": {
+          "text": "ha",
+          "title": "Hausa (ha)"
+        },
+        "he": {
+          "text": "he",
+          "title": "Hebrew (he)"
+        },
+        "hz": {
+          "text": "hz",
+          "title": "Herero (hz)"
+        },
+        "hi": {
+          "text": "hi",
+          "title": "Hindi (hi)"
+        },
+        "ho": {
+          "text": "ho",
+          "title": "Hiri Motu (ho)"
+        },
+        "hu": {
+          "text": "hu",
+          "title": "Hungarian (hu)"
+        },
+        "is": {
+          "text": "is",
+          "title": "Icelandic (is)"
+        },
+        "io": {
+          "text": "io",
+          "title": "Ido (io)"
+        },
+        "ig": {
+          "text": "ig",
+          "title": "Igbo (ig)"
+        },
+        "id": {
+          "text": "id",
+          "title": "Indonesian (id)"
+        },
+        "iu": {
+          "text": "iu",
+          "title": "Inuktitut (iu)"
+        },
+        "ik": {
+          "text": "ik",
+          "title": "Inupiaq (ik)"
+        },
+        "ga": {
+          "text": "ga",
+          "title": "Irish (ga)"
+        },
+        "it": {
+          "text": "it",
+          "title": "Italian (it)"
+        },
+        "ja": {
+          "text": "ja",
+          "title": "Japanese (ja)"
+        },
+        "jv": {
+          "text": "jv",
+          "title": "Javanese (jv)"
+        },
+        "kn": {
+          "text": "kn",
+          "title": "Kannada (kn)"
+        },
+        "kr": {
+          "text": "kr",
+          "title": "Kanuri (kr)"
+        },
+        "ks": {
+          "text": "ks",
+          "title": "Kashmiri (ks)"
+        },
+        "kk": {
+          "text": "kk",
+          "title": "Kazakh (kk)"
+        },
+        "km": {
+          "text": "km",
+          "title": "Central Khmer (km)"
+        },
+        "ki": {
+          "text": "ki",
+          "title": "Kikuyu, Gikuyu (ki)"
+        },
+        "rw": {
+          "text": "rw",
+          "title": "Kinyarwanda (rw)"
+        },
+        "ky": {
+          "text": "ky",
+          "title": "Kyrgyz, Kirghiz (ky)"
+        },
+        "kv": {
+          "text": "kv",
+          "title": "Komi (kv)"
+        },
+        "kg": {
+          "text": "kg",
+          "title": "Kongo (kg)"
+        },
+        "ko": {
+          "text": "ko",
+          "title": "Korean (ko)"
+        },
+        "kj": {
+          "text": "kj",
+          "title": "Kuanyama, Kwanyama (kj)"
+        },
+        "ku": {
+          "text": "ku",
+          "title": "Kurdish (ku)"
+        },
+        "lo": {
+          "text": "lo",
+          "title": "Lao (lo)"
+        },
+        "la": {
+          "text": "la",
+          "title": "Latin (la)"
+        },
+        "lv": {
+          "text": "lv",
+          "title": "Latvian (lv)"
+        },
+        "li": {
+          "text": "li",
+          "title": "Limburgan, Limburger, Limburgish (li)"
+        },
+        "ln": {
+          "text": "ln",
+          "title": "Lingala (ln)"
+        },
+        "lt": {
+          "text": "lt",
+          "title": "Lithuanian (lt)"
+        },
+        "lu": {
+          "text": "lu",
+          "title": "Luba-Katanga (lu)"
+        },
+        "lb": {
+          "text": "lb",
+          "title": "Luxembourgish, Letzeburgesch (lb)"
+        },
+        "mk": {
+          "text": "mk",
+          "title": "Macedonian (mk)"
+        },
+        "mg": {
+          "text": "mg",
+          "title": "Malagasy (mg)"
+        },
+        "ms": {
+          "text": "ms",
+          "title": "Malay (ms)"
+        },
+        "ml": {
+          "text": "ml",
+          "title": "Malayalam (ml)"
+        },
+        "mt": {
+          "text": "mt",
+          "title": "Maltese (mt)"
+        },
+        "gv": {
+          "text": "gv",
+          "title": "Manx (gv)"
+        },
+        "mi": {
+          "text": "mi",
+          "title": "Maori (mi)"
+        },
+        "mr": {
+          "text": "mr",
+          "title": "Marathi (mr)"
+        },
+        "mh": {
+          "text": "mh",
+          "title": "Marshallese (mh)"
+        },
+        "mn": {
+          "text": "mn",
+          "title": "Mongolian (mn)"
+        },
+        "na": {
+          "text": "na",
+          "title": "Nauru (na)"
+        },
+        "nv": {
+          "text": "nv",
+          "title": "Navajo, Navaho (nv)"
+        },
+        "nd": {
+          "text": "nd",
+          "title": "North Ndebele (nd)"
+        },
+        "nr": {
+          "text": "nr",
+          "title": "South Ndebele (nr)"
+        },
+        "ng": {
+          "text": "ng",
+          "title": "Ndonga (ng)"
+        },
+        "ne": {
+          "text": "ne",
+          "title": "Nepali (ne)"
+        },
+        "False": {
+          "text": "False",
+          "title": "Norwegian (no)"
+        },
+        "nb": {
+          "text": "nb",
+          "title": "Norwegian Bokmål (nb)"
+        },
+        "nn": {
+          "text": "nn",
+          "title": "Norwegian Nynorsk (nn)"
+        },
+        "oc": {
+          "text": "oc",
+          "title": "Occitan (oc)"
+        },
+        "oj": {
+          "text": "oj",
+          "title": "Ojibwa (oj)"
+        },
+        "or": {
+          "text": "or",
+          "title": "Oriya (or)"
+        },
+        "om": {
+          "text": "om",
+          "title": "Oromo (om)"
+        },
+        "os": {
+          "text": "os",
+          "title": "Ossetian, Ossetic (os)"
+        },
+        "pi": {
+          "text": "pi",
+          "title": "Pali (pi)"
+        },
+        "ps": {
+          "text": "ps",
+          "title": "Pashto, Pushto (ps)"
+        },
+        "fa": {
+          "text": "fa",
+          "title": "Persian (fa)"
+        },
+        "pl": {
+          "text": "pl",
+          "title": "Polish (pl)"
+        },
+        "pt": {
+          "text": "pt",
+          "title": "Portuguese (pt)"
+        },
+        "pa": {
+          "text": "pa",
+          "title": "Punjabi, Panjabi (pa)"
+        },
+        "qu": {
+          "text": "qu",
+          "title": "Quechua (qu)"
+        },
+        "ro": {
+          "text": "ro",
+          "title": "Romanian, Moldavian, Moldovan (ro)"
+        },
+        "rm": {
+          "text": "rm",
+          "title": "Romansh (rm)"
+        },
+        "rn": {
+          "text": "rn",
+          "title": "Rundi (rn)"
+        },
+        "ru": {
+          "text": "ru",
+          "title": "Russian (ru)"
+        },
+        "se": {
+          "text": "se",
+          "title": "Northern Sami (se)"
+        },
+        "sm": {
+          "text": "sm",
+          "title": "Samoan (sm)"
+        },
+        "sg": {
+          "text": "sg",
+          "title": "Sango (sg)"
+        },
+        "sa": {
+          "text": "sa",
+          "title": "Sanskrit (sa)"
+        },
+        "sc": {
+          "text": "sc",
+          "title": "Sardinian (sc)"
+        },
+        "sr": {
+          "text": "sr",
+          "title": "Serbian (sr)"
+        },
+        "sn": {
+          "text": "sn",
+          "title": "Shona (sn)"
+        },
+        "sd": {
+          "text": "sd",
+          "title": "Sindhi (sd)"
+        },
+        "si": {
+          "text": "si",
+          "title": "Sinhala, Sinhalese (si)"
+        },
+        "sk": {
+          "text": "sk",
+          "title": "Slovak (sk)"
+        },
+        "sl": {
+          "text": "sl",
+          "title": "Slovenian (sl)"
+        },
+        "so": {
+          "text": "so",
+          "title": "Somali (so)"
+        },
+        "st": {
+          "text": "st",
+          "title": "Southern Sotho (st)"
+        },
+        "es": {
+          "text": "es",
+          "title": "Spanish, Castilian (es)"
+        },
+        "su": {
+          "text": "su",
+          "title": "Sundanese (su)"
+        },
+        "sw": {
+          "text": "sw",
+          "title": "Swahili (sw)"
+        },
+        "ss": {
+          "text": "ss",
+          "title": "Swati (ss)"
+        },
+        "sv": {
+          "text": "sv",
+          "title": "Swedish (sv)"
+        },
+        "tl": {
+          "text": "tl",
+          "title": "Tagalog (tl)"
+        },
+        "ty": {
+          "text": "ty",
+          "title": "Tahitian (ty)"
+        },
+        "tg": {
+          "text": "tg",
+          "title": "Tajik (tg)"
+        },
+        "ta": {
+          "text": "ta",
+          "title": "Tamil (ta)"
+        },
+        "tt": {
+          "text": "tt",
+          "title": "Tatar (tt)"
+        },
+        "te": {
+          "text": "te",
+          "title": "Telugu (te)"
+        },
+        "th": {
+          "text": "th",
+          "title": "Thai (th)"
+        },
+        "bo": {
+          "text": "bo",
+          "title": "Tibetan (bo)"
+        },
+        "ti": {
+          "text": "ti",
+          "title": "Tigrinya (ti)"
+        },
+        "to": {
+          "text": "to",
+          "title": "Tonga (Tonga Islands) (to)"
+        },
+        "ts": {
+          "text": "ts",
+          "title": "Tsonga (ts)"
+        },
+        "tn": {
+          "text": "tn",
+          "title": "Tswana (tn)"
+        },
+        "tr": {
+          "text": "tr",
+          "title": "Turkish (tr)"
+        },
+        "tk": {
+          "text": "tk",
+          "title": "Turkmen (tk)"
+        },
+        "tw": {
+          "text": "tw",
+          "title": "Twi (tw)"
+        },
+        "ug": {
+          "text": "ug",
+          "title": "Uighur, Uyghur (ug)"
+        },
+        "uk": {
+          "text": "uk",
+          "title": "Ukrainian (uk)"
+        },
+        "ur": {
+          "text": "ur",
+          "title": "Urdu (ur)"
+        },
+        "uz": {
+          "text": "uz",
+          "title": "Uzbek (uz)"
+        },
+        "ve": {
+          "text": "ve",
+          "title": "Venda (ve)"
+        },
+        "vi": {
+          "text": "vi",
+          "title": "Vietnamese (vi)"
+        },
+        "vo": {
+          "text": "vo",
+          "title": "Volapük (vo)"
+        },
+        "wa": {
+          "text": "wa",
+          "title": "Walloon (wa)"
+        },
+        "cy": {
+          "text": "cy",
+          "title": "Welsh (cy)"
+        },
+        "wo": {
+          "text": "wo",
+          "title": "Wolof (wo)"
+        },
+        "xh": {
+          "text": "xh",
+          "title": "Xhosa (xh)"
+        },
+        "ii": {
+          "text": "ii",
+          "title": "Sichuan Yi, Nuosu (ii)"
+        },
+        "yi": {
+          "text": "yi",
+          "title": "Yiddish (yi)"
+        },
+        "yo": {
+          "text": "yo",
+          "title": "Yoruba (yo)"
+        },
+        "za": {
+          "text": "za",
+          "title": "Zhuang, Chuang (za)"
+        },
+        "zu": {
+          "text": "zu",
+          "title": "Zulu (zu)"
+        }
+      }
+    }
+  },
+  "slots": {
+    "schema_id": {
+      "name": "schema_id",
+      "annotations": {
+        "foreign_key": {
+          "tag": "foreign_key",
+          "value": "Schema.name"
+        }
+      },
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Prefix",
+        "Class",
+        "UniqueKey",
+        "Slot",
+        "Annotation",
+        "Enum",
+        "PermissibleValue",
+        "EnumSource",
+        "Setting",
+        "Extension"
+      ],
+      "range": "SchemaMenu",
+      "required": true
+    },
+    "class_id": {
+      "name": "class_id",
+      "annotations": {
+        "foreign_key": {
+          "tag": "foreign_key",
+          "value": "Class.name"
+        }
+      },
+      "description": "The class name that this table is linked to.",
+      "title": "Class",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "SchemaClassMenu"
+    },
+    "slot_id": {
+      "name": "slot_id",
+      "annotations": {
+        "foreign_key": {
+          "tag": "foreign_key",
+          "value": "Slot.name"
+        }
+      },
+      "description": "The class name that this table is linked to.",
+      "title": "Slot",
+      "from_schema": "https://example.com/DH_LinkML",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "enum_id": {
+      "name": "enum_id",
+      "annotations": {
+        "foreign_key": {
+          "tag": "foreign_key",
+          "value": "Enum.name"
+        }
+      },
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "PermissibleValue",
+        "EnumSource"
+      ],
+      "required": true
+    },
+    "name": {
+      "name": "name",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema",
+        "Class",
+        "UniqueKey",
+        "Slot",
+        "Annotation",
+        "Enum",
+        "Setting",
+        "Extension"
+      ],
+      "required": true
+    },
+    "id": {
+      "name": "id",
+      "description": "The unique URI for identifying this LinkML schema.",
+      "title": "ID",
+      "comments": [
+        "Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development. This semantic metadata helps in the comparison of datasets."
+      ],
+      "examples": [
+        {
+          "value": "https://example.com/GRDI"
+        }
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "identifier": true,
+      "domain_of": [
+        "Schema"
+      ],
+      "range": "uri",
+      "required": true
+    },
+    "description": {
+      "name": "description",
+      "title": "Description",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema",
+        "Class",
+        "UniqueKey",
+        "Slot",
+        "Enum",
+        "PermissibleValue",
+        "Setting",
+        "Extension"
+      ]
+    },
+    "version": {
+      "name": "version",
+      "title": "Version",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema",
+        "Class",
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "in_language": {
+      "name": "in_language",
+      "description": "This is the default language (ISO 639-1 Code) that the schema’s table, field and picklist (LinkML class, slot, and enumeration) titles, descriptions and other textual items are in.",
+      "title": "Default language",
+      "comments": [
+        "This is often “en” for English."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema"
+      ],
+      "range": "LanguagesMenu"
+    },
+    "locales": {
+      "name": "locales",
+      "description": "For multilingual schemas, a list of (ISO 639-1) languages (codes) which translations can be provided for.",
+      "title": "Translations",
+      "comments": [
+        "Language translations are held in the schema’s extensions.locales data structure."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema"
+      ],
+      "range": "LanguagesMenu",
+      "multivalued": true
+    },
+    "default_prefix": {
+      "name": "default_prefix",
+      "description": "A prefix to assume all classes and slots can be addressed by.",
+      "title": "Default prefix",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema"
+      ],
+      "range": "uri",
+      "required": true
+    },
+    "imports": {
+      "name": "imports",
+      "description": "A list of linkml:[import name] schemas to import and reuse.",
+      "title": "Imports",
+      "comments": [
+        "Currently only the default linkml:types is implemented."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
+    },
+    "see_also": {
+      "name": "see_also",
+      "title": "See Also",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema",
+        "Class"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
+    },
+    "prefix": {
+      "name": "prefix",
+      "description": "The namespace prefix string.",
+      "title": "Prefix",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Prefix"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "reference": {
+      "name": "reference",
+      "description": "The URI the prefix expands to.",
+      "title": "Reference",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Prefix"
+      ],
+      "range": "uri",
+      "required": true
+    },
+    "title": {
+      "name": "title",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Class",
+        "Slot",
+        "Enum",
+        "PermissibleValue"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "class_uri": {
+      "name": "class_uri",
+      "description": "A URI for identifying this table's semantic type.",
+      "title": "Table URI",
+      "comments": [
+        "This semantic metadata helps in the comparison of datasets."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Class"
+      ],
+      "range": "uri"
+    },
+    "is_a": {
+      "name": "is_a",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Class",
+        "PermissibleValue"
+      ]
+    },
+    "tree_root": {
+      "name": "tree_root",
+      "description": "A boolean indicating whether this is a specification for a top-level data container on which serializations are based.",
+      "title": "Root Table",
+      "comments": [
+        "Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Class"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "class_name": {
+      "name": "class_name",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "UniqueKey",
+        "Slot",
+        "Annotation"
+      ],
+      "range": "SchemaClassMenu"
+    },
+    "unique_key_slots": {
+      "name": "unique_key_slots",
+      "description": "A list of a table’s fields (LinkML class’s slots) that make up this unique key",
+      "title": "Unique key slots",
+      "comments": [
+        "See https://linkml.io/linkml/schemas/constraints.html"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "UniqueKey"
+      ],
+      "range": "SchemaSlotMenu",
+      "required": true,
+      "multivalued": true
+    },
+    "notes": {
+      "name": "notes",
+      "title": "Notes",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "UniqueKey",
+        "Slot",
+        "PermissibleValue"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "slot_type": {
+      "name": "slot_type",
+      "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
+      "title": "Type",
+      "comments": [
+        "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "SchemaSlotTypeMenu",
+      "required": true
+    },
+    "rank": {
+      "name": "rank",
+      "description": "An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.",
+      "title": "Ordering",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "integer"
+    },
+    "inlined": {
+      "name": "inlined",
+      "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.",
+      "title": "Inlined",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "inlined_as_list": {
+      "name": "inlined_as_list",
+      "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.",
+      "title": "Inlined as list",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "slot_group": {
+      "name": "slot_group",
+      "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
+      "title": "Field group",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "SchemaSlotGroupMenu"
+    },
+    "slot_uri": {
+      "name": "slot_uri",
+      "description": "A URI for identifying this field’s (LinkML slot’s) semantic type.",
+      "title": "Slot URI",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "uri"
+    },
+    "range": {
+      "name": "range",
+      "description": "The data type or pick list range or ranges that a field’s (LinkML slot’s) value can be validated by.  If more than one, this appears in the field’s specification as a list of \"any of\" ranges.",
+      "title": "Range",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "required": true,
+      "multivalued": true,
+      "any_of": [
+        {
+          "range": "SchemaSlotTypeMenu"
+        },
+        {
+          "range": "SchemaClassMenu"
+        },
+        {
+          "range": "SchemaEnumMenu"
+        }
+      ]
+    },
+    "unit": {
+      "name": "unit",
+      "description": "A unit for a numeric field, expressed in the Unified Code for Units of Measure (UCUM, https://ucum.org/) codes.  A UCUM code can be looked up at https://units-of-measurement.org/",
+      "title": "Unit",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "required": {
+      "name": "required",
+      "description": "A boolean TRUE indicates this field (LinkML slot) is a mandatory data field.",
+      "title": "Required",
+      "comments": [
+        "A mandatory data field will fail validation if empty."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "recommended": {
+      "name": "recommended",
+      "description": "A boolean TRUE indicates this field (LinkML slot) is a recommended data field.",
+      "title": "Recommended",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "identifier": {
+      "name": "identifier",
+      "description": "A boolean TRUE indicates this field (LinkML slot) is an identifier such that each of its row values must be unique within the table.  In LinkML, “If a slot is declared as an identifier then it serves as a unique key for members of that class. It can also be used for inlining as a dict in JSON serializations.”",
+      "title": "Identifier",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "multivalued": {
+      "name": "multivalued",
+      "description": "A boolean TRUE indicates this field (LinkML slot) can hold more than one values taken from its range.",
+      "title": "Multivalued",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "minimum_value": {
+      "name": "minimum_value",
+      "description": "A minimum value which is appropriate for the range data type of the field (LinkML slot).",
+      "title": "Minimum value",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "integer"
+    },
+    "maximum_value": {
+      "name": "maximum_value",
+      "description": "A maximum value which is appropriate for the range data type of the field (LinkML slot).",
+      "title": "Maximum value",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "integer"
+    },
+    "minimum_cardinality": {
+      "name": "minimum_cardinality",
+      "description": "For a multivalued field (LinkML slot), a minimum count of values required.",
+      "title": "Minimum cardinality",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "integer"
+    },
+    "maximum_cardinality": {
+      "name": "maximum_cardinality",
+      "description": "For a multivalued field (LinkML slot), a maximum count of values required.",
+      "title": "Maximum cardinality",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "integer"
+    },
+    "todos": {
+      "name": "todos",
+      "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
+      "title": "Conditional",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
+    },
+    "pattern": {
+      "name": "pattern",
+      "description": "A regular expression pattern used to validate a string field’s (LinkML slot)’s value content.",
+      "title": "Pattern",
+      "comments": [
+        "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "structured_pattern": {
+      "name": "structured_pattern",
+      "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
+      "title": "Structured pattern",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "ifabsent": {
+      "name": "ifabsent",
+      "description": "Specify a default value for a field (LinkML slot) using the syntax shown in the examples.",
+      "title": "Default value",
+      "examples": [
+        {
+          "value": "For strings: string(default value)"
+        },
+        {
+          "value": "For integer: int(42)"
+        },
+        {
+          "value": "For float: float(0.5)"
+        },
+        {
+          "value": "For boolean: True"
+        },
+        {
+          "value": "For dates: date(\"2020-01-31\")"
+        },
+        {
+          "value": "For datetime: datetime(\"2020-01-31T12:00:00Z\")"
+        }
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "equals_expression": {
+      "name": "equals_expression",
+      "description": "Enables inferring (calculating) value based on other field (LinkML slot) values. This is a LinkML-script-processed expression, having the syntax of a python expression.",
+      "title": "Calculated value",
+      "comments": [
+        "See https://linkml.io/linkml/schemas/advanced.html#equals-expression"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "aliases": {
+      "name": "aliases",
+      "description": "A list of other names that slot can be known by.",
+      "title": "Aliases",
+      "comments": [
+        "See https://linkml.io/linkml/schemas/metadata.html#providing-aliases"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
+    },
+    "comments": {
+      "name": "comments",
+      "description": "A free text field for adding other comments to guide usage of this field (LinkML slot).",
+      "title": "Comments",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "examples": {
+      "name": "examples",
+      "description": "A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.",
+      "title": "Examples",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "exact_mappings": {
+      "name": "exact_mappings",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot",
+        "PermissibleValue"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
+    },
+    "annotation_type": {
+      "name": "annotation_type",
+      "description": "A menu of schema element types this annotation could pertain to (Schema, Class, Slot; in future Enumeration …)",
+      "title": "Annotation on",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Annotation"
+      ],
+      "range": "SchemaAnnotationTypeMenu",
+      "required": true
+    },
+    "slot_name": {
+      "name": "slot_name",
+      "description": "If this annotation is attached to a field (LinkML slot), provide the name of the field.",
+      "title": "On field",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Annotation"
+      ],
+      "range": "SchemaSlotMenu"
+    },
+    "value": {
+      "name": "value",
+      "title": "Value",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Annotation",
+        "Setting",
+        "Extension"
+      ],
+      "range": "string"
+    },
+    "enum_uri": {
+      "name": "enum_uri",
+      "description": "A URI for identifying this pick list’s (LinkML enum) semantic type.",
+      "title": "Enum URI",
+      "comments": [
+        "This semantic metadata helps in the comparison of datasets."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Enum"
+      ],
+      "range": "uri"
+    },
+    "inherits": {
+      "name": "inherits",
+      "description": "Indicates that this menu inherits choices from another menu, and includes or excludes other values (for selection and validation).",
+      "title": "Inherits",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Enum"
+      ],
+      "range": "SchemaEnumMenu"
+    },
+    "text": {
+      "name": "text",
+      "description": "The code (LinkML permissible_value key) for the menu item choice.",
+      "title": "Code",
+      "comments": [
+        "A picklist's codes must be unique.  Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice."
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "PermissibleValue"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "meaning": {
+      "name": "meaning",
+      "description": "A URI for identifying this choice's semantic type.",
+      "title": "Meaning",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "PermissibleValue"
+      ],
+      "range": "uri"
+    },
+    "criteria": {
+      "name": "criteria",
+      "description": "Whether to include or exclude (minus) the source ontology’s given terms (and their underlying terms, if any).",
+      "title": "Criteria",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "EnumCriteriaMenu",
+      "required": true
+    },
+    "source_ontology": {
+      "name": "source_ontology",
+      "description": "The URI of the source ontology to trust and fetch terms from.",
+      "title": "Source ontology",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "uri"
+    },
+    "is_direct": {
+      "name": "is_direct",
+      "description": "Can the vocabulary source be automatically downloaded and processed, or is a manual process involved?",
+      "title": "Directly downloadable",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "source_nodes": {
+      "name": "source_nodes",
+      "description": "The selection of term nodes (and their underlying terms) to allow or exclude selections from, and to validate data by.",
+      "title": "Top level term ids",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "uriorcurie",
+      "multivalued": true
+    },
+    "include_self": {
+      "name": "include_self",
+      "description": "Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.",
+      "title": "Include top level terms",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "any_of": [
+        {
+          "range": "boolean"
+        },
+        {
+          "range": "TrueFalseMenu"
+        }
+      ]
+    },
+    "relationship_types": {
+      "name": "relationship_types",
+      "description": "The relations (usually owl:SubClassOf) that compose the hierarchy of terms.",
+      "title": "Relations",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "EnumSource"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
     }
   },
   "classes": {
@@ -1318,7 +3197,7 @@
           "multivalued": true,
           "any_of": [
             {
-              "range": "SchemaTypeMenu"
+              "range": "SchemaSlotTypeMenu"
             },
             {
               "range": "SchemaClassMenu"
@@ -2973,1885 +4852,6 @@
       "tree_root": true
     }
   },
-  "slots": {
-    "schema_id": {
-      "name": "schema_id",
-      "annotations": {
-        "foreign_key": {
-          "tag": "foreign_key",
-          "value": "Schema.name"
-        }
-      },
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Prefix",
-        "Class",
-        "UniqueKey",
-        "Slot",
-        "Annotation",
-        "Enum",
-        "PermissibleValue",
-        "EnumSource",
-        "Setting",
-        "Extension"
-      ],
-      "required": true
-    },
-    "class_id": {
-      "name": "class_id",
-      "annotations": {
-        "foreign_key": {
-          "tag": "foreign_key",
-          "value": "Class.name"
-        }
-      },
-      "description": "The class name that this table is linked to.",
-      "title": "Class",
-      "from_schema": "https://example.com/DH_LinkML",
-      "range": "SchemaClassMenu"
-    },
-    "slot_id": {
-      "name": "slot_id",
-      "annotations": {
-        "foreign_key": {
-          "tag": "foreign_key",
-          "value": "Slot.name"
-        }
-      },
-      "description": "The class name that this table is linked to.",
-      "title": "Slot",
-      "from_schema": "https://example.com/DH_LinkML",
-      "range": "WhitespaceMinimizedString",
-      "required": true
-    },
-    "enum_id": {
-      "name": "enum_id",
-      "annotations": {
-        "foreign_key": {
-          "tag": "foreign_key",
-          "value": "Enum.name"
-        }
-      },
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "PermissibleValue",
-        "EnumSource"
-      ],
-      "required": true
-    },
-    "name": {
-      "name": "name",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Schema",
-        "Class",
-        "UniqueKey",
-        "Slot",
-        "Annotation",
-        "Enum",
-        "Setting",
-        "Extension"
-      ],
-      "required": true
-    },
-    "id": {
-      "name": "id",
-      "description": "The unique URI for identifying this LinkML schema.",
-      "title": "ID",
-      "comments": [
-        "Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development. This semantic metadata helps in the comparison of datasets."
-      ],
-      "examples": [
-        {
-          "value": "https://example.com/GRDI"
-        }
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "identifier": true,
-      "domain_of": [
-        "Schema"
-      ],
-      "range": "uri",
-      "required": true
-    },
-    "description": {
-      "name": "description",
-      "title": "Description",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Schema",
-        "Class",
-        "UniqueKey",
-        "Slot",
-        "Enum",
-        "PermissibleValue",
-        "Setting",
-        "Extension"
-      ]
-    },
-    "version": {
-      "name": "version",
-      "title": "Version",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Schema",
-        "Class",
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "in_language": {
-      "name": "in_language",
-      "description": "This is the default language (ISO 639-1 Code) that the schema’s table, field and picklist (LinkML class, slot, and enumeration) titles, descriptions and other textual items are in.",
-      "title": "Default language",
-      "comments": [
-        "This is often “en” for English."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Schema"
-      ],
-      "range": "LanguagesMenu"
-    },
-    "locales": {
-      "name": "locales",
-      "description": "For multilingual schemas, a list of (ISO 639-1) languages (codes) which translations can be provided for.",
-      "title": "Translations",
-      "comments": [
-        "Language translations are held in the schema’s extensions.locales data structure."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Schema"
-      ],
-      "range": "LanguagesMenu",
-      "multivalued": true
-    },
-    "default_prefix": {
-      "name": "default_prefix",
-      "description": "A prefix to assume all classes and slots can be addressed by.",
-      "title": "Default prefix",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Schema"
-      ],
-      "range": "uri",
-      "required": true
-    },
-    "imports": {
-      "name": "imports",
-      "description": "A list of linkml:[import name] schemas to import and reuse.",
-      "title": "Imports",
-      "comments": [
-        "Currently only the default linkml:types is implemented."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Schema"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "multivalued": true
-    },
-    "see_also": {
-      "name": "see_also",
-      "title": "See Also",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Schema",
-        "Class"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "multivalued": true
-    },
-    "prefix": {
-      "name": "prefix",
-      "description": "The namespace prefix string.",
-      "title": "Prefix",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Prefix"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "required": true
-    },
-    "reference": {
-      "name": "reference",
-      "description": "The URI the prefix expands to.",
-      "title": "Reference",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Prefix"
-      ],
-      "range": "uri",
-      "required": true
-    },
-    "title": {
-      "name": "title",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Class",
-        "Slot",
-        "Enum",
-        "PermissibleValue"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "class_uri": {
-      "name": "class_uri",
-      "description": "A URI for identifying this table's semantic type.",
-      "title": "Table URI",
-      "comments": [
-        "This semantic metadata helps in the comparison of datasets."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Class"
-      ],
-      "range": "uri"
-    },
-    "is_a": {
-      "name": "is_a",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Class",
-        "PermissibleValue"
-      ]
-    },
-    "tree_root": {
-      "name": "tree_root",
-      "description": "A boolean indicating whether this is a specification for a top-level data container on which serializations are based.",
-      "title": "Root Table",
-      "comments": [
-        "Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html"
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Class"
-      ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
-    },
-    "class_name": {
-      "name": "class_name",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "UniqueKey",
-        "Slot",
-        "Annotation"
-      ],
-      "range": "SchemaClassMenu"
-    },
-    "unique_key_slots": {
-      "name": "unique_key_slots",
-      "description": "A list of a table’s fields (LinkML class’s slots) that make up this unique key",
-      "title": "Unique key slots",
-      "comments": [
-        "See https://linkml.io/linkml/schemas/constraints.html"
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "UniqueKey"
-      ],
-      "range": "SchemaSlotMenu",
-      "required": true,
-      "multivalued": true
-    },
-    "notes": {
-      "name": "notes",
-      "title": "Notes",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "UniqueKey",
-        "Slot",
-        "PermissibleValue"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "slot_type": {
-      "name": "slot_type",
-      "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
-      "title": "Type",
-      "comments": [
-        "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "SchemaSlotTypeMenu",
-      "required": true
-    },
-    "rank": {
-      "name": "rank",
-      "description": "An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.",
-      "title": "Ordering",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "integer"
-    },
-    "inlined": {
-      "name": "inlined",
-      "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.",
-      "title": "Inlined",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
-    },
-    "inlined_as_list": {
-      "name": "inlined_as_list",
-      "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.",
-      "title": "Inlined as list",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
-    },
-    "slot_group": {
-      "name": "slot_group",
-      "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
-      "title": "Field group",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "SchemaSlotGroupMenu"
-    },
-    "slot_uri": {
-      "name": "slot_uri",
-      "description": "A URI for identifying this field’s (LinkML slot’s) semantic type.",
-      "title": "Slot URI",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "uri"
-    },
-    "range": {
-      "name": "range",
-      "description": "The data type or pick list range or ranges that a field’s (LinkML slot’s) value can be validated by.  If more than one, this appears in the field’s specification as a list of \"any of\" ranges.",
-      "title": "Range",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "required": true,
-      "multivalued": true,
-      "any_of": [
-        {
-          "range": "SchemaTypeMenu"
-        },
-        {
-          "range": "SchemaClassMenu"
-        },
-        {
-          "range": "SchemaEnumMenu"
-        }
-      ]
-    },
-    "unit": {
-      "name": "unit",
-      "description": "A unit for a numeric field, expressed in the Unified Code for Units of Measure (UCUM, https://ucum.org/) codes.  A UCUM code can be looked up at https://units-of-measurement.org/",
-      "title": "Unit",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "required": {
-      "name": "required",
-      "description": "A boolean TRUE indicates this field (LinkML slot) is a mandatory data field.",
-      "title": "Required",
-      "comments": [
-        "A mandatory data field will fail validation if empty."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
-    },
-    "recommended": {
-      "name": "recommended",
-      "description": "A boolean TRUE indicates this field (LinkML slot) is a recommended data field.",
-      "title": "Recommended",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
-    },
-    "identifier": {
-      "name": "identifier",
-      "description": "A boolean TRUE indicates this field (LinkML slot) is an identifier such that each of its row values must be unique within the table.  In LinkML, “If a slot is declared as an identifier then it serves as a unique key for members of that class. It can also be used for inlining as a dict in JSON serializations.”",
-      "title": "Identifier",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
-    },
-    "multivalued": {
-      "name": "multivalued",
-      "description": "A boolean TRUE indicates this field (LinkML slot) can hold more than one values taken from its range.",
-      "title": "Multivalued",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
-    },
-    "minimum_value": {
-      "name": "minimum_value",
-      "description": "A minimum value which is appropriate for the range data type of the field (LinkML slot).",
-      "title": "Minimum value",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "integer"
-    },
-    "maximum_value": {
-      "name": "maximum_value",
-      "description": "A maximum value which is appropriate for the range data type of the field (LinkML slot).",
-      "title": "Maximum value",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "integer"
-    },
-    "minimum_cardinality": {
-      "name": "minimum_cardinality",
-      "description": "For a multivalued field (LinkML slot), a minimum count of values required.",
-      "title": "Minimum cardinality",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "integer"
-    },
-    "maximum_cardinality": {
-      "name": "maximum_cardinality",
-      "description": "For a multivalued field (LinkML slot), a maximum count of values required.",
-      "title": "Maximum cardinality",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "integer"
-    },
-    "todos": {
-      "name": "todos",
-      "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
-      "title": "Conditional",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "multivalued": true
-    },
-    "pattern": {
-      "name": "pattern",
-      "description": "A regular expression pattern used to validate a string field’s (LinkML slot)’s value content.",
-      "title": "Pattern",
-      "comments": [
-        "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "structured_pattern": {
-      "name": "structured_pattern",
-      "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
-      "title": "Structured pattern",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "ifabsent": {
-      "name": "ifabsent",
-      "description": "Specify a default value for a field (LinkML slot) using the syntax shown in the examples.",
-      "title": "Default value",
-      "examples": [
-        {
-          "value": "For strings: string(default value)"
-        },
-        {
-          "value": "For integer: int(42)"
-        },
-        {
-          "value": "For float: float(0.5)"
-        },
-        {
-          "value": "For boolean: True"
-        },
-        {
-          "value": "For dates: date(\"2020-01-31\")"
-        },
-        {
-          "value": "For datetime: datetime(\"2020-01-31T12:00:00Z\")"
-        }
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "equals_expression": {
-      "name": "equals_expression",
-      "description": "Enables inferring (calculating) value based on other field (LinkML slot) values. This is a LinkML-script-processed expression, having the syntax of a python expression.",
-      "title": "Calculated value",
-      "comments": [
-        "See https://linkml.io/linkml/schemas/advanced.html#equals-expression"
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "aliases": {
-      "name": "aliases",
-      "description": "A list of other names that slot can be known by.",
-      "title": "Aliases",
-      "comments": [
-        "See https://linkml.io/linkml/schemas/metadata.html#providing-aliases"
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "multivalued": true
-    },
-    "comments": {
-      "name": "comments",
-      "description": "A free text field for adding other comments to guide usage of this field (LinkML slot).",
-      "title": "Comments",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "examples": {
-      "name": "examples",
-      "description": "A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.",
-      "title": "Examples",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "exact_mappings": {
-      "name": "exact_mappings",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot",
-        "PermissibleValue"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "multivalued": true
-    },
-    "annotation_type": {
-      "name": "annotation_type",
-      "description": "A menu of schema element types this annotation could pertain to (Schema, Class, Slot; in future Enumeration …)",
-      "title": "Annotation on",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Annotation"
-      ],
-      "range": "SchemaAnnotationTypeMenu",
-      "required": true
-    },
-    "slot_name": {
-      "name": "slot_name",
-      "description": "If this annotation is attached to a field (LinkML slot), provide the name of the field.",
-      "title": "On field",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Annotation"
-      ],
-      "range": "SchemaSlotMenu"
-    },
-    "value": {
-      "name": "value",
-      "title": "Value",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Annotation",
-        "Setting",
-        "Extension"
-      ],
-      "range": "string"
-    },
-    "enum_uri": {
-      "name": "enum_uri",
-      "description": "A URI for identifying this pick list’s (LinkML enum) semantic type.",
-      "title": "Enum URI",
-      "comments": [
-        "This semantic metadata helps in the comparison of datasets."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Enum"
-      ],
-      "range": "uri"
-    },
-    "inherits": {
-      "name": "inherits",
-      "description": "Indicates that this menu inherits choices from another menu, and includes or excludes other values (for selection and validation).",
-      "title": "Inherits",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Enum"
-      ],
-      "range": "SchemaEnumMenu"
-    },
-    "text": {
-      "name": "text",
-      "description": "The code (LinkML permissible_value key) for the menu item choice.",
-      "title": "Code",
-      "comments": [
-        "A picklist's codes must be unique.  Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "PermissibleValue"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "required": true
-    },
-    "meaning": {
-      "name": "meaning",
-      "description": "A URI for identifying this choice's semantic type.",
-      "title": "Meaning",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "PermissibleValue"
-      ],
-      "range": "uri"
-    },
-    "criteria": {
-      "name": "criteria",
-      "description": "Whether to include or exclude (minus) the source ontology’s given terms (and their underlying terms, if any).",
-      "title": "Criteria",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "EnumSource"
-      ],
-      "range": "EnumCriteriaMenu",
-      "required": true
-    },
-    "source_ontology": {
-      "name": "source_ontology",
-      "description": "The URI of the source ontology to trust and fetch terms from.",
-      "title": "Source ontology",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "EnumSource"
-      ],
-      "range": "uri"
-    },
-    "is_direct": {
-      "name": "is_direct",
-      "description": "Can the vocabulary source be automatically downloaded and processed, or is a manual process involved?",
-      "title": "Directly downloadable",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "EnumSource"
-      ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
-    },
-    "source_nodes": {
-      "name": "source_nodes",
-      "description": "The selection of term nodes (and their underlying terms) to allow or exclude selections from, and to validate data by.",
-      "title": "Top level term ids",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "EnumSource"
-      ],
-      "range": "uriorcurie",
-      "multivalued": true
-    },
-    "include_self": {
-      "name": "include_self",
-      "description": "Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.",
-      "title": "Include top level terms",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "EnumSource"
-      ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
-    },
-    "relationship_types": {
-      "name": "relationship_types",
-      "description": "The relations (usually owl:SubClassOf) that compose the hierarchy of terms.",
-      "title": "Relations",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "EnumSource"
-      ],
-      "range": "WhitespaceMinimizedString",
-      "multivalued": true
-    }
-  },
-  "enums": {
-    "SchemaSlotTypeMenu": {
-      "name": "SchemaSlotTypeMenu",
-      "title": "Slot Type",
-      "from_schema": "https://example.com/DH_LinkML",
-      "permissible_values": {
-        "slot": {
-          "text": "slot",
-          "description": "A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (LinkML class).  Note however that its attributes which have values cannot be overriden when reused.",
-          "title": "Schema field"
-        },
-        "slot_usage": {
-          "text": "slot_usage",
-          "description": "A table field whose name and source attributes come from a schema library field. It can add its own attributes, but cannot overwrite the schema field ones.  (A LinkML schema slot referenced within a class's slot_usage list of slots.)",
-          "title": "Table field (from schema)"
-        },
-        "attribute": {
-          "text": "attribute",
-          "description": "A table field which is not reused from the schema.  The field can impose its own attribute values.",
-          "title": "Table field (stand-alone)"
-        }
-      }
-    },
-    "SchemaAnnotationTypeMenu": {
-      "name": "SchemaAnnotationTypeMenu",
-      "title": "Annotation Type",
-      "from_schema": "https://example.com/DH_LinkML",
-      "permissible_values": {
-        "schema": {
-          "text": "schema",
-          "title": "Schema"
-        },
-        "class": {
-          "text": "class",
-          "title": "Table"
-        },
-        "slot": {
-          "text": "slot",
-          "description": "A field (LinkML slot) that is stored in the schema's field (slot) library.  This field specification is available for customizable reuse in any table (LinkML class).  Note however that its attributes which have values cannot be overriden when reused.",
-          "title": "Schema field"
-        },
-        "slot_usage": {
-          "text": "slot_usage",
-          "description": "A table field whose name and source attributes come from a schema library field. It can add its own attributes, but cannot overwrite the schema field ones.  (A LinkML schema slot referenced within a class's slot_usage list of slots.)",
-          "title": "Table field (from schema)"
-        },
-        "attribute": {
-          "text": "attribute",
-          "description": "A table field which is not reused from the schema.  The field can impose its own attribute values.",
-          "title": "Table field (independent)"
-        }
-      }
-    },
-    "EnumCriteriaMenu": {
-      "name": "EnumCriteriaMenu",
-      "title": "Criteria Menu",
-      "from_schema": "https://example.com/DH_LinkML",
-      "permissible_values": {
-        "include": {
-          "text": "include",
-          "title": "include"
-        },
-        "exclude": {
-          "text": "exclude",
-          "title": "exclude"
-        }
-      }
-    },
-    "TrueFalseMenu": {
-      "name": "TrueFalseMenu",
-      "title": "True/False Menu",
-      "from_schema": "https://example.com/DH_LinkML",
-      "permissible_values": {
-        "TRUE": {
-          "text": "TRUE",
-          "title": "TRUE"
-        },
-        "FALSE": {
-          "text": "FALSE",
-          "title": "FALSE"
-        }
-      }
-    },
-    "LanguagesMenu": {
-      "name": "LanguagesMenu",
-      "title": "Languages Menu",
-      "from_schema": "https://example.com/DH_LinkML",
-      "permissible_values": {
-        "ab": {
-          "text": "ab",
-          "title": "Abkhazian (ab)"
-        },
-        "aa": {
-          "text": "aa",
-          "title": "Afar (aa)"
-        },
-        "af": {
-          "text": "af",
-          "title": "Afrikaans (af)"
-        },
-        "ak": {
-          "text": "ak",
-          "title": "Akan (ak)"
-        },
-        "sq": {
-          "text": "sq",
-          "title": "Albanian (sq)"
-        },
-        "am": {
-          "text": "am",
-          "title": "Amharic (am)"
-        },
-        "ar": {
-          "text": "ar",
-          "title": "Arabic (ar)"
-        },
-        "an": {
-          "text": "an",
-          "title": "Aragonese (an)"
-        },
-        "hy": {
-          "text": "hy",
-          "title": "Armenian (hy)"
-        },
-        "as": {
-          "text": "as",
-          "title": "Assamese (as)"
-        },
-        "av": {
-          "text": "av",
-          "title": "Avaric (av)"
-        },
-        "ae": {
-          "text": "ae",
-          "title": "Avestan (ae)"
-        },
-        "ay": {
-          "text": "ay",
-          "title": "Aymara (ay)"
-        },
-        "az": {
-          "text": "az",
-          "title": "Azerbaijani (az)"
-        },
-        "bm": {
-          "text": "bm",
-          "title": "Bambara (bm)"
-        },
-        "ba": {
-          "text": "ba",
-          "title": "Bashkir (ba)"
-        },
-        "eu": {
-          "text": "eu",
-          "title": "Basque (eu)"
-        },
-        "be": {
-          "text": "be",
-          "title": "Belarusian (be)"
-        },
-        "bn": {
-          "text": "bn",
-          "title": "Bengali (bn)"
-        },
-        "bi": {
-          "text": "bi",
-          "title": "Bislama (bi)"
-        },
-        "bs": {
-          "text": "bs",
-          "title": "Bosnian (bs)"
-        },
-        "br": {
-          "text": "br",
-          "title": "Breton (br)"
-        },
-        "bg": {
-          "text": "bg",
-          "title": "Bulgarian (bg)"
-        },
-        "my": {
-          "text": "my",
-          "title": "Burmese (my)"
-        },
-        "ca": {
-          "text": "ca",
-          "title": "Catalan, Valencian (ca)"
-        },
-        "ch": {
-          "text": "ch",
-          "title": "Chamorro (ch)"
-        },
-        "ce": {
-          "text": "ce",
-          "title": "Chechen (ce)"
-        },
-        "ny": {
-          "text": "ny",
-          "title": "Chichewa, Chewa, Nyanja (ny)"
-        },
-        "zh": {
-          "text": "zh",
-          "title": "Chinese (zh)"
-        },
-        "cv": {
-          "text": "cv",
-          "title": "Chuvash (cv)"
-        },
-        "kw": {
-          "text": "kw",
-          "title": "Cornish (kw)"
-        },
-        "co": {
-          "text": "co",
-          "title": "Corsican (co)"
-        },
-        "cr": {
-          "text": "cr",
-          "title": "Cree (cr)"
-        },
-        "hr": {
-          "text": "hr",
-          "title": "Croatian (hr)"
-        },
-        "cs": {
-          "text": "cs",
-          "title": "Czech (cs)"
-        },
-        "da": {
-          "text": "da",
-          "title": "Danish (da)"
-        },
-        "dv": {
-          "text": "dv",
-          "title": "Divehi, Dhivehi, Maldivian (dv)"
-        },
-        "nl": {
-          "text": "nl",
-          "title": "Dutch, Flemish (nl)"
-        },
-        "dz": {
-          "text": "dz",
-          "title": "Dzongkha (dz)"
-        },
-        "en": {
-          "text": "en",
-          "title": "English (en)"
-        },
-        "eo": {
-          "text": "eo",
-          "title": "Esperanto (eo)"
-        },
-        "et": {
-          "text": "et",
-          "title": "Estonian (et)"
-        },
-        "ee": {
-          "text": "ee",
-          "title": "Ewe (ee)"
-        },
-        "fo": {
-          "text": "fo",
-          "title": "Faroese (fo)"
-        },
-        "fj": {
-          "text": "fj",
-          "title": "Fijian (fj)"
-        },
-        "fi": {
-          "text": "fi",
-          "title": "Finnish (fi)"
-        },
-        "fr": {
-          "text": "fr",
-          "title": "French (fr)"
-        },
-        "fy": {
-          "text": "fy",
-          "title": "Western Frisian (fy)"
-        },
-        "ff": {
-          "text": "ff",
-          "title": "Fulah (ff)"
-        },
-        "gd": {
-          "text": "gd",
-          "title": "Gaelic, Scottish Gaelic (gd)"
-        },
-        "gl": {
-          "text": "gl",
-          "title": "Galician (gl)"
-        },
-        "lg": {
-          "text": "lg",
-          "title": "Ganda (lg)"
-        },
-        "ka": {
-          "text": "ka",
-          "title": "Georgian (ka)"
-        },
-        "de": {
-          "text": "de",
-          "title": "German (de)"
-        },
-        "el": {
-          "text": "el",
-          "title": "Greek, Modern (1453–) (el)"
-        },
-        "kl": {
-          "text": "kl",
-          "title": "Kalaallisut, Greenlandic (kl)"
-        },
-        "gn": {
-          "text": "gn",
-          "title": "Guarani (gn)"
-        },
-        "gu": {
-          "text": "gu",
-          "title": "Gujarati (gu)"
-        },
-        "ht": {
-          "text": "ht",
-          "title": "Haitian, Haitian Creole (ht)"
-        },
-        "ha": {
-          "text": "ha",
-          "title": "Hausa (ha)"
-        },
-        "he": {
-          "text": "he",
-          "title": "Hebrew (he)"
-        },
-        "hz": {
-          "text": "hz",
-          "title": "Herero (hz)"
-        },
-        "hi": {
-          "text": "hi",
-          "title": "Hindi (hi)"
-        },
-        "ho": {
-          "text": "ho",
-          "title": "Hiri Motu (ho)"
-        },
-        "hu": {
-          "text": "hu",
-          "title": "Hungarian (hu)"
-        },
-        "is": {
-          "text": "is",
-          "title": "Icelandic (is)"
-        },
-        "io": {
-          "text": "io",
-          "title": "Ido (io)"
-        },
-        "ig": {
-          "text": "ig",
-          "title": "Igbo (ig)"
-        },
-        "id": {
-          "text": "id",
-          "title": "Indonesian (id)"
-        },
-        "iu": {
-          "text": "iu",
-          "title": "Inuktitut (iu)"
-        },
-        "ik": {
-          "text": "ik",
-          "title": "Inupiaq (ik)"
-        },
-        "ga": {
-          "text": "ga",
-          "title": "Irish (ga)"
-        },
-        "it": {
-          "text": "it",
-          "title": "Italian (it)"
-        },
-        "ja": {
-          "text": "ja",
-          "title": "Japanese (ja)"
-        },
-        "jv": {
-          "text": "jv",
-          "title": "Javanese (jv)"
-        },
-        "kn": {
-          "text": "kn",
-          "title": "Kannada (kn)"
-        },
-        "kr": {
-          "text": "kr",
-          "title": "Kanuri (kr)"
-        },
-        "ks": {
-          "text": "ks",
-          "title": "Kashmiri (ks)"
-        },
-        "kk": {
-          "text": "kk",
-          "title": "Kazakh (kk)"
-        },
-        "km": {
-          "text": "km",
-          "title": "Central Khmer (km)"
-        },
-        "ki": {
-          "text": "ki",
-          "title": "Kikuyu, Gikuyu (ki)"
-        },
-        "rw": {
-          "text": "rw",
-          "title": "Kinyarwanda (rw)"
-        },
-        "ky": {
-          "text": "ky",
-          "title": "Kyrgyz, Kirghiz (ky)"
-        },
-        "kv": {
-          "text": "kv",
-          "title": "Komi (kv)"
-        },
-        "kg": {
-          "text": "kg",
-          "title": "Kongo (kg)"
-        },
-        "ko": {
-          "text": "ko",
-          "title": "Korean (ko)"
-        },
-        "kj": {
-          "text": "kj",
-          "title": "Kuanyama, Kwanyama (kj)"
-        },
-        "ku": {
-          "text": "ku",
-          "title": "Kurdish (ku)"
-        },
-        "lo": {
-          "text": "lo",
-          "title": "Lao (lo)"
-        },
-        "la": {
-          "text": "la",
-          "title": "Latin (la)"
-        },
-        "lv": {
-          "text": "lv",
-          "title": "Latvian (lv)"
-        },
-        "li": {
-          "text": "li",
-          "title": "Limburgan, Limburger, Limburgish (li)"
-        },
-        "ln": {
-          "text": "ln",
-          "title": "Lingala (ln)"
-        },
-        "lt": {
-          "text": "lt",
-          "title": "Lithuanian (lt)"
-        },
-        "lu": {
-          "text": "lu",
-          "title": "Luba-Katanga (lu)"
-        },
-        "lb": {
-          "text": "lb",
-          "title": "Luxembourgish, Letzeburgesch (lb)"
-        },
-        "mk": {
-          "text": "mk",
-          "title": "Macedonian (mk)"
-        },
-        "mg": {
-          "text": "mg",
-          "title": "Malagasy (mg)"
-        },
-        "ms": {
-          "text": "ms",
-          "title": "Malay (ms)"
-        },
-        "ml": {
-          "text": "ml",
-          "title": "Malayalam (ml)"
-        },
-        "mt": {
-          "text": "mt",
-          "title": "Maltese (mt)"
-        },
-        "gv": {
-          "text": "gv",
-          "title": "Manx (gv)"
-        },
-        "mi": {
-          "text": "mi",
-          "title": "Maori (mi)"
-        },
-        "mr": {
-          "text": "mr",
-          "title": "Marathi (mr)"
-        },
-        "mh": {
-          "text": "mh",
-          "title": "Marshallese (mh)"
-        },
-        "mn": {
-          "text": "mn",
-          "title": "Mongolian (mn)"
-        },
-        "na": {
-          "text": "na",
-          "title": "Nauru (na)"
-        },
-        "nv": {
-          "text": "nv",
-          "title": "Navajo, Navaho (nv)"
-        },
-        "nd": {
-          "text": "nd",
-          "title": "North Ndebele (nd)"
-        },
-        "nr": {
-          "text": "nr",
-          "title": "South Ndebele (nr)"
-        },
-        "ng": {
-          "text": "ng",
-          "title": "Ndonga (ng)"
-        },
-        "ne": {
-          "text": "ne",
-          "title": "Nepali (ne)"
-        },
-        "no": {
-          "text": "no",
-          "title": "Norwegian (no)"
-        },
-        "nb": {
-          "text": "nb",
-          "title": "Norwegian Bokmål (nb)"
-        },
-        "nn": {
-          "text": "nn",
-          "title": "Norwegian Nynorsk (nn)"
-        },
-        "oc": {
-          "text": "oc",
-          "title": "Occitan (oc)"
-        },
-        "oj": {
-          "text": "oj",
-          "title": "Ojibwa (oj)"
-        },
-        "or": {
-          "text": "or",
-          "title": "Oriya (or)"
-        },
-        "om": {
-          "text": "om",
-          "title": "Oromo (om)"
-        },
-        "os": {
-          "text": "os",
-          "title": "Ossetian, Ossetic (os)"
-        },
-        "pi": {
-          "text": "pi",
-          "title": "Pali (pi)"
-        },
-        "ps": {
-          "text": "ps",
-          "title": "Pashto, Pushto (ps)"
-        },
-        "fa": {
-          "text": "fa",
-          "title": "Persian (fa)"
-        },
-        "pl": {
-          "text": "pl",
-          "title": "Polish (pl)"
-        },
-        "pt": {
-          "text": "pt",
-          "title": "Portuguese (pt)"
-        },
-        "pa": {
-          "text": "pa",
-          "title": "Punjabi, Panjabi (pa)"
-        },
-        "qu": {
-          "text": "qu",
-          "title": "Quechua (qu)"
-        },
-        "ro": {
-          "text": "ro",
-          "title": "Romanian, Moldavian, Moldovan (ro)"
-        },
-        "rm": {
-          "text": "rm",
-          "title": "Romansh (rm)"
-        },
-        "rn": {
-          "text": "rn",
-          "title": "Rundi (rn)"
-        },
-        "ru": {
-          "text": "ru",
-          "title": "Russian (ru)"
-        },
-        "se": {
-          "text": "se",
-          "title": "Northern Sami (se)"
-        },
-        "sm": {
-          "text": "sm",
-          "title": "Samoan (sm)"
-        },
-        "sg": {
-          "text": "sg",
-          "title": "Sango (sg)"
-        },
-        "sa": {
-          "text": "sa",
-          "title": "Sanskrit (sa)"
-        },
-        "sc": {
-          "text": "sc",
-          "title": "Sardinian (sc)"
-        },
-        "sr": {
-          "text": "sr",
-          "title": "Serbian (sr)"
-        },
-        "sn": {
-          "text": "sn",
-          "title": "Shona (sn)"
-        },
-        "sd": {
-          "text": "sd",
-          "title": "Sindhi (sd)"
-        },
-        "si": {
-          "text": "si",
-          "title": "Sinhala, Sinhalese (si)"
-        },
-        "sk": {
-          "text": "sk",
-          "title": "Slovak (sk)"
-        },
-        "sl": {
-          "text": "sl",
-          "title": "Slovenian (sl)"
-        },
-        "so": {
-          "text": "so",
-          "title": "Somali (so)"
-        },
-        "st": {
-          "text": "st",
-          "title": "Southern Sotho (st)"
-        },
-        "es": {
-          "text": "es",
-          "title": "Spanish, Castilian (es)"
-        },
-        "su": {
-          "text": "su",
-          "title": "Sundanese (su)"
-        },
-        "sw": {
-          "text": "sw",
-          "title": "Swahili (sw)"
-        },
-        "ss": {
-          "text": "ss",
-          "title": "Swati (ss)"
-        },
-        "sv": {
-          "text": "sv",
-          "title": "Swedish (sv)"
-        },
-        "tl": {
-          "text": "tl",
-          "title": "Tagalog (tl)"
-        },
-        "ty": {
-          "text": "ty",
-          "title": "Tahitian (ty)"
-        },
-        "tg": {
-          "text": "tg",
-          "title": "Tajik (tg)"
-        },
-        "ta": {
-          "text": "ta",
-          "title": "Tamil (ta)"
-        },
-        "tt": {
-          "text": "tt",
-          "title": "Tatar (tt)"
-        },
-        "te": {
-          "text": "te",
-          "title": "Telugu (te)"
-        },
-        "th": {
-          "text": "th",
-          "title": "Thai (th)"
-        },
-        "bo": {
-          "text": "bo",
-          "title": "Tibetan (bo)"
-        },
-        "ti": {
-          "text": "ti",
-          "title": "Tigrinya (ti)"
-        },
-        "to": {
-          "text": "to",
-          "title": "Tonga (Tonga Islands) (to)"
-        },
-        "ts": {
-          "text": "ts",
-          "title": "Tsonga (ts)"
-        },
-        "tn": {
-          "text": "tn",
-          "title": "Tswana (tn)"
-        },
-        "tr": {
-          "text": "tr",
-          "title": "Turkish (tr)"
-        },
-        "tk": {
-          "text": "tk",
-          "title": "Turkmen (tk)"
-        },
-        "tw": {
-          "text": "tw",
-          "title": "Twi (tw)"
-        },
-        "ug": {
-          "text": "ug",
-          "title": "Uighur, Uyghur (ug)"
-        },
-        "uk": {
-          "text": "uk",
-          "title": "Ukrainian (uk)"
-        },
-        "ur": {
-          "text": "ur",
-          "title": "Urdu (ur)"
-        },
-        "uz": {
-          "text": "uz",
-          "title": "Uzbek (uz)"
-        },
-        "ve": {
-          "text": "ve",
-          "title": "Venda (ve)"
-        },
-        "vi": {
-          "text": "vi",
-          "title": "Vietnamese (vi)"
-        },
-        "vo": {
-          "text": "vo",
-          "title": "Volapük (vo)"
-        },
-        "wa": {
-          "text": "wa",
-          "title": "Walloon (wa)"
-        },
-        "cy": {
-          "text": "cy",
-          "title": "Welsh (cy)"
-        },
-        "wo": {
-          "text": "wo",
-          "title": "Wolof (wo)"
-        },
-        "xh": {
-          "text": "xh",
-          "title": "Xhosa (xh)"
-        },
-        "ii": {
-          "text": "ii",
-          "title": "Sichuan Yi, Nuosu (ii)"
-        },
-        "yi": {
-          "text": "yi",
-          "title": "Yiddish (yi)"
-        },
-        "yo": {
-          "text": "yo",
-          "title": "Yoruba (yo)"
-        },
-        "za": {
-          "text": "za",
-          "title": "Zhuang, Chuang (za)"
-        },
-        "zu": {
-          "text": "zu",
-          "title": "Zulu (zu)"
-        }
-      }
-    }
-  },
-  "types": {
-    "WhitespaceMinimizedString": {
-      "name": "WhitespaceMinimizedString",
-      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
-      "from_schema": "https://example.com/DH_LinkML",
-      "typeof": "string",
-      "base": "str",
-      "uri": "xsd:token"
-    },
-    "Provenance": {
-      "name": "Provenance",
-      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
-      "from_schema": "https://example.com/DH_LinkML",
-      "typeof": "string",
-      "base": "str",
-      "uri": "xsd:token"
-    },
-    "string": {
-      "name": "string",
-      "description": "A character string",
-      "notes": [
-        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "exact_mappings": [
-        "schema:Text"
-      ],
-      "base": "str",
-      "uri": "xsd:string"
-    },
-    "integer": {
-      "name": "integer",
-      "description": "An integer",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "exact_mappings": [
-        "schema:Integer"
-      ],
-      "base": "int",
-      "uri": "xsd:integer"
-    },
-    "boolean": {
-      "name": "boolean",
-      "description": "A binary (true or false) value",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "exact_mappings": [
-        "schema:Boolean"
-      ],
-      "base": "Bool",
-      "uri": "xsd:boolean",
-      "repr": "bool"
-    },
-    "float": {
-      "name": "float",
-      "description": "A real number that conforms to the xsd:float specification",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "exact_mappings": [
-        "schema:Float"
-      ],
-      "base": "float",
-      "uri": "xsd:float"
-    },
-    "double": {
-      "name": "double",
-      "description": "A real number that conforms to the xsd:double specification",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "close_mappings": [
-        "schema:Float"
-      ],
-      "base": "float",
-      "uri": "xsd:double"
-    },
-    "decimal": {
-      "name": "decimal",
-      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "broad_mappings": [
-        "schema:Number"
-      ],
-      "base": "Decimal",
-      "uri": "xsd:decimal"
-    },
-    "time": {
-      "name": "time",
-      "description": "A time object represents a (local) time of day, independent of any particular day",
-      "notes": [
-        "URI is dateTime because OWL reasoners do not work with straight date or time",
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "exact_mappings": [
-        "schema:Time"
-      ],
-      "base": "XSDTime",
-      "uri": "xsd:time",
-      "repr": "str"
-    },
-    "date": {
-      "name": "date",
-      "description": "a date (year, month and day) in an idealized calendar",
-      "notes": [
-        "URI is dateTime because OWL reasoners don't work with straight date or time",
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "exact_mappings": [
-        "schema:Date"
-      ],
-      "base": "XSDDate",
-      "uri": "xsd:date",
-      "repr": "str"
-    },
-    "datetime": {
-      "name": "datetime",
-      "description": "The combination of a date and time",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "exact_mappings": [
-        "schema:DateTime"
-      ],
-      "base": "XSDDateTime",
-      "uri": "xsd:dateTime",
-      "repr": "str"
-    },
-    "date_or_datetime": {
-      "name": "date_or_datetime",
-      "description": "Either a date or a datetime",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "base": "str",
-      "uri": "linkml:DateOrDatetime",
-      "repr": "str"
-    },
-    "uriorcurie": {
-      "name": "uriorcurie",
-      "description": "a URI or a CURIE",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "base": "URIorCURIE",
-      "uri": "xsd:anyURI",
-      "repr": "str"
-    },
-    "curie": {
-      "name": "curie",
-      "conforms_to": "https://www.w3.org/TR/curie/",
-      "description": "a compact URI",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
-      ],
-      "comments": [
-        "in RDF serializations this MUST be expanded to a URI",
-        "in non-RDF serializations MAY be serialized as the compact representation"
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "base": "Curie",
-      "uri": "xsd:string",
-      "repr": "str"
-    },
-    "uri": {
-      "name": "uri",
-      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
-      "description": "a complete URI",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
-      ],
-      "comments": [
-        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "close_mappings": [
-        "schema:URL"
-      ],
-      "base": "URI",
-      "uri": "xsd:anyURI",
-      "repr": "str"
-    },
-    "ncname": {
-      "name": "ncname",
-      "description": "Prefix part of CURIE",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "base": "NCName",
-      "uri": "xsd:string",
-      "repr": "str"
-    },
-    "objectidentifier": {
-      "name": "objectidentifier",
-      "description": "A URI or CURIE that represents an object in the model.",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
-      ],
-      "comments": [
-        "Used for inheritance and type checking"
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "base": "ElementIdentifier",
-      "uri": "shex:iri",
-      "repr": "str"
-    },
-    "nodeidentifier": {
-      "name": "nodeidentifier",
-      "description": "A URI, CURIE or BNODE that represents a node in a model.",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "base": "NodeIdentifier",
-      "uri": "shex:nonLiteral",
-      "repr": "str"
-    },
-    "jsonpointer": {
-      "name": "jsonpointer",
-      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
-      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "base": "str",
-      "uri": "xsd:string",
-      "repr": "str"
-    },
-    "jsonpath": {
-      "name": "jsonpath",
-      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
-      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "base": "str",
-      "uri": "xsd:string",
-      "repr": "str"
-    },
-    "sparqlpath": {
-      "name": "sparqlpath",
-      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
-      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
-      "notes": [
-        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
-      ],
-      "from_schema": "https://example.com/DH_LinkML",
-      "base": "str",
-      "uri": "xsd:string",
-      "repr": "str"
-    }
-  },
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",
@@ -4866,6 +4866,5 @@
       "setting_value": "[a-z\\W\\d_]*"
     }
   },
-  "extensions": {},
-  "@type": "OrderedDict"
+  "@type": "SchemaDefinition"
 }

@@ -837,6 +837,7 @@ slots:
   schema_id:
     name: schema_id
     required: true
+    range: SchemaMenu
     annotations:
       foreign_key:
         tag: foreign_key

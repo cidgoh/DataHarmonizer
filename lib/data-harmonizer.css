@@ -262,13 +262,13 @@ td.tabFieldTd_attribute {
 
 td.tabFieldTd_slot_usage.inherited::before { 
   position:relative; 
-  content: "inherited";
-  color: black;
-  border:1px solid green;
+  content: "as above";
+  color: grey;
+  border:1px solid grey;
   background-color: #edffed;
   border-radius: 3px;
-  top:2px;
-  padding: 4px;
+  top:1px;
+  padding: 2px 5px;
 }
 
 /* Not sure how to display frozen column right side in header area
