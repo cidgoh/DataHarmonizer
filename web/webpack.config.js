@@ -44,7 +44,7 @@ module.exports = (env, argv) => {
             to: 'images/[path][name][ext]',
           },
           {
-            from: 'main.html',
+            from: 'main.html', // OUTDATED???
           },
         ],
       }),
