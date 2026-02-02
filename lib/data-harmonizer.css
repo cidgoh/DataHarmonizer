@@ -249,18 +249,30 @@ tr.translate_key td {
   font-weight:bold;
 }
 
+.handsontable td.tabFieldTd.htDimmed {
+  /* height:20px !important; 
+  overflow-y:hidden !important; */
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-overflow: ellipsis; /* Add ellipsis for truncated text */
+}
+
+.handsontable td.tabFieldTd.htDimmed.current {
+  white-space: normal; /* Prevent text from wrapping */
+  text-overflow: unset; /* Add ellipsis for truncated text */
+}
+
 /* Handsontable assigns .htDimmed to any cell with .readOnly = true */
-td.tabFieldTd_slot {
+td.tabFieldTd.slot {
   border-top:2px solid green;
   background-color: #EFE;
 }
 
-td.tabFieldTd_attribute {
+td.tabFieldTd.attribute {
   border-top:2px solid green;
   background-color: lightyellow;
 }
 
-td.tabFieldTd_slot_usage.inherited::before { 
+td.tabFieldTd.slot_usage.inherited::before { 
   position:relative; 
   content: "as above";
   color: grey;
