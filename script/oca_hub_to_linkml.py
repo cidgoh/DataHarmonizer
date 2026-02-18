@@ -48,14 +48,17 @@ Cell_cultured	Lactate	Lactate_OCA_schema.md	Lactate_OCA_package.json
 Cell_cultured	Lactate_Spec	Lactate_Spec_OCA_schema.md	Lactate_Spec_OCA_package.json
 Cell_cultured	qRT-PCR	qRT-PCR_OCA_schema.md	qRT-PCR_OCA_package.json
 GG4GHG	Community	Community_OCA_schema.md	Community_OCA_package.json
+GG4GHG	Soil	Soil_OCA_schema.md	Soil_OCA_package.json
 loop	environmental_DNA	environmental_DNA.md	environmental_DNA.json
-NDGP	Calving	Calving_OCA_schema.md	Calving_OCA_package.json
-NDGP	Genotype	Genotype_OCA_schema.md
-NDGP	Milk	Milk_OCA_schema.md	Milk_OCA_package.json
-NDGP	MIR	MIR_OCA_schema.md	MIR_OCA_package.json
-NDGP	Pedigree	Pedigree_OCA_schema.md	Pedigree_OCA_package.json
+NDGP	Genotype	Genotype_OCA_schema.md	Genotype_OCA_package.json
+NDGP	Calving	Updated_Calving_OCA_schema.md	Updated_Calving_OCA_package.json
+NDGP	Events	Updated_Events_OCA_schema.md	Updated_Events_OCA_package.json
+NDGP	Milk	Updated_Milk_OCA_schema.md	Updated_Milk_OCA_package.json
+NDGP	MIR	Updated_MIR_OCA_schema.md	Updated_MIR_OCA_package.json
+NDGP	Pedigree	Updated_Pedigree_OCA_schema.md	Updated_Pedigree_OCA_package.json
 peACE	PeaCE	PeaCE_OCA_schema-Final-1.md	PeaCE_OCA_package_Final.json
-JT	GENOME	GENOME_OCA_schema.md	GENOME_OCA_package.json
+JT	GENOME	Agri-genomics_Option_Survey_OCA_schema.md	Agri-genomics_Option_Survey_OCA_package.json
+
 '''
 
 def process_markdown(row, first_call):
