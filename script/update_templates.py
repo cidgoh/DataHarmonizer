@@ -35,6 +35,9 @@
 #	https://console.cloud.google.com/marketplace/product/google/sheets.googleapis.com
 # 4: setup credentials (
 #	In the Google Cloud console, go to Menu menu > APIs & Services > Credentials 
+# 5: Under google menu in upper right, go to "project settings > service accounts"
+# 
+
 
 import pandas as pd
 import csv
