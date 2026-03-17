@@ -149,7 +149,7 @@ food_product menu	FoodProductMenu		ENVO:02000047	Animal feed [ENVO:02000047]				
 			FOODON:03000384				Turkey upper thigh (with skin) [FOODON:03000384]			Turkey's upper thigh that contains the skin.
 			FOODON:03000371		Turkey wing [FOODON:03000371]					
 			FOODON:00003083		Veal [FOODON:00003083]					Veal is the meat of calves, in contrast to the beef from older cattle. Veal can be produced from a calf of either sex and any breed; however, most veal comes from young males of dairy breeds which are not used for breeding.
-			FOODON:000039111			Formula fed veal [FOODON:000039111]				
+			FOODON:00003911			Formula fed veal [FOODON:00003911]				
 			FOODON:00004280			Grain-fed veal [FOODON:00004280]				Meat from a calf that is raised on grain, hay, or other solid food, in addition to milk
 										
 										
@@ -1000,7 +1000,7 @@ influenza_antiviral_treatment_administration menu	InfluenzaAntiviralTreatmentAdm
 										
 water_catchment_area_human_population_range menu	WaterCatchmentAreaHumanPopulationRangeMenu			<10 people						An estimation of population size for a group smaller than 10 people.
 				10 - 100 people						An estimation of population size for a group smaller than 100 people and larger than 10 people.
-				100 - 1,000 people						An estimation of population size for a group smaller than 1,000 people and larger than 100 people.
+				100 - 1,000 people			0			An estimation of population size for a group smaller than 1,000 people and larger than 100 people.
 				1,000 - 10,000 people						An estimation of population size for a group smaller than 10,000 people and larger than 1,000 people.
 				10,000 - 100,000 people						An estimation of population size for a group smaller than 100,000 people and larger than 10,000 people.
 				100,000 -  1,000,000 people						An estimation of population size for a group smaller than 1,000,000 people and larger than 100,000 people.

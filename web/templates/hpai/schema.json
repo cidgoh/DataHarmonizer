@@ -42363,11 +42363,11 @@
           "is_a": "Meat, poultry and fish (organizational term)",
           "title": "Veal [FOODON:00003083]"
         },
-        "Formula fed veal [FOODON:000039111]": {
-          "text": "Formula fed veal [FOODON:000039111]",
-          "meaning": "FOODON:000039111",
+        "Formula fed veal [FOODON:00003911]": {
+          "text": "Formula fed veal [FOODON:00003911]",
+          "meaning": "FOODON:00003911",
           "is_a": "Veal [FOODON:00003083]",
-          "title": "Formula fed veal [FOODON:000039111]"
+          "title": "Formula fed veal [FOODON:00003911]"
         },
         "Grain-fed veal [FOODON:00004280]": {
           "text": "Grain-fed veal [FOODON:00004280]",

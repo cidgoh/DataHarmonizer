@@ -995,7 +995,7 @@
           "description": "The date on which the sample was collected.",
           "title": "sample collection date",
           "todos": [
-            ">=2019-10-01 00:00:00",
+            ">=2019-10-01",
             "<={today}"
           ],
           "comments": [
@@ -3564,7 +3564,7 @@
       "description": "The date on which the sample was collected.",
       "title": "sample collection date",
       "todos": [
-        ">=2019-10-01 00:00:00",
+        ">=2019-10-01",
         "<={today}"
       ],
       "comments": [

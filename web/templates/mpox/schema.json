@@ -1623,7 +1623,7 @@
           "description": "The date on which the sample was collected.",
           "title": "sample collection date",
           "todos": [
-            ">=2019-10-01 00:00:00",
+            ">=2019-10-01",
             "<={today}"
           ],
           "comments": [
@@ -2791,7 +2791,7 @@
           "description": "The date on which the symptoms began or were first noted.",
           "title": "symptom onset date",
           "todos": [
-            ">=2019-10-01 00:00:00",
+            ">=2019-10-01",
             "<={sample_collection_date}"
           ],
           "comments": [
@@ -3060,7 +3060,7 @@
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
           "todos": [
-            ">=2019-10-01 00:00:00",
+            ">=2019-10-01",
             "<={today}"
           ],
           "comments": [
@@ -6898,7 +6898,7 @@
           "description": "The date on which the sample was collected.",
           "title": "sample collection date",
           "todos": [
-            ">=2019-10-01 00:00:00",
+            ">=2019-10-01",
             "<={today}"
           ],
           "comments": [
@@ -8346,7 +8346,7 @@
           "description": "The date on which the symptoms began or were first noted.",
           "title": "symptom onset date",
           "todos": [
-            ">=2019-10-01 00:00:00",
+            ">=2019-10-01",
             "<={sample_collection_date}"
           ],
           "comments": [
@@ -8611,7 +8611,7 @@
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
           "todos": [
-            ">=2019-10-01 00:00:00",
+            ">=2019-10-01",
             "<={today}"
           ],
           "comments": [
@@ -11850,7 +11850,7 @@
       "description": "The date on which the sample was collected.",
       "title": "sample collection date",
       "todos": [
-        ">=2019-10-01 00:00:00",
+        ">=2019-10-01",
         "<={today}"
       ],
       "comments": [
@@ -12908,7 +12908,7 @@
       "description": "The date on which the symptoms began or were first noted.",
       "title": "symptom onset date",
       "todos": [
-        ">=2019-10-01 00:00:00",
+        ">=2019-10-01",
         "<={sample_collection_date}"
       ],
       "comments": [
@@ -13089,7 +13089,7 @@
       "description": "The date the first dose of a vaccine was administered.",
       "title": "vaccination dose 1 vaccination date",
       "todos": [
-        ">=2019-10-01 00:00:00",
+        ">=2019-10-01",
         "<={today}"
       ],
       "comments": [

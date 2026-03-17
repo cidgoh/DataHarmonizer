@@ -2187,7 +2187,7 @@ slots:
     required: true
     description: The date on which the sample was collected.
     todos:
-      - '>=2019-10-01 00:00:00'
+      - '>=2019-10-01'
       - <={today}
     exact_mappings:
       - NML_LIMS:HC_COLLECT_DATE
@@ -2758,7 +2758,7 @@ slots:
       - range: NullValueMenu
     description: The date on which the symptoms began or were first noted.
     todos:
-      - '>=2019-10-01 00:00:00'
+      - '>=2019-10-01'
       - <={sample_collection_date}
     exact_mappings:
       - NML_LIMS:HC_ONSET_DATE
@@ -2852,7 +2852,7 @@ slots:
       - range: NullValueMenu
     description: The date the first dose of a vaccine was administered.
     todos:
-      - '>=2019-10-01 00:00:00'
+      - '>=2019-10-01'
       - <={today}
     exact_mappings:
       - NML_LIMS:PH_VACCINATION_HISTORY
