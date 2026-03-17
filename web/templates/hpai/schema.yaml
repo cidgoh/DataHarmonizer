@@ -8939,10 +8939,10 @@ enums:
         meaning: FOODON:00003083
         description: Veal is the meat of calves, in contrast to the beef from older cattle. Veal can be produced from a calf of either sex and any breed; however, most veal comes from young males of dairy breeds which are not used for breeding.
         is_a: Meat, poultry and fish (organizational term)
-      Formula fed veal [FOODON:000039111]:
-        text: Formula fed veal [FOODON:000039111]
-        title: Formula fed veal [FOODON:000039111]
-        meaning: FOODON:000039111
+      Formula fed veal [FOODON:00003911]:
+        text: Formula fed veal [FOODON:00003911]
+        title: Formula fed veal [FOODON:00003911]
+        meaning: FOODON:00003911
         is_a: Veal [FOODON:00003083]
       Grain-fed veal [FOODON:00004280]:
         text: Grain-fed veal [FOODON:00004280]
