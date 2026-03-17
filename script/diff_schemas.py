@@ -9,6 +9,9 @@ Usage:
     python3 script/diff_schemas.py [old_ref [new_ref]]
 
 Defaults: old_ref=HEAD~1, new_ref=HEAD (working tree)
+Example: python3 script/diff_schemas.py HEAD~5 # Means compare five commits ago with now.
+
+Authored by Damion Dooley and Claude
 """
 
 import argparse
