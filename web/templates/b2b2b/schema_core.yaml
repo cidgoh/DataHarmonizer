@@ -1,6 +1,6 @@
 id: https://example.com/B2B2B
 name: B2B2B
-description: "B2B2B Schema which includes B2B2B template"
+description: B2B2B Schema which includes B2B2B template
 version: 1.2.1
 imports:
 - linkml:types
@@ -14,24 +14,35 @@ classes:
   B2B2B:
     name: B2B2B
     title: B2B2B
-    description: "The B2B2B template is a One Health contextual data specification designed for gold standard benchmark datasets for microbial AMR analyses. The specification was developed as part of the JPIAMR’s Bench, Bedside, Business, and Beyond: innovative solutions for AMR diagnostics (B2B2B AMRDx) project, and represents a subset of Canada’s GRDI-AMR-One-Health vocabulary (see GRDI template). The specification provides standardized (ontology-based) fields and terms which are implemented via a spreadsheet collection template, supported by field and reference guides, as well as a new term request SOP."
+    description: "The B2B2B template is a One Health contextual data specification\
+      \ designed for gold standard benchmark datasets for microbial AMR analyses.\
+      \ The specification was developed as part of the JPIAMR\u2019s Bench, Bedside,\
+      \ Business, and Beyond: innovative solutions for AMR diagnostics (B2B2B AMRDx)\
+      \ project, and represents a subset of Canada\u2019s GRDI-AMR-One-Health vocabulary\
+      \ (see GRDI template). The specification provides standardized (ontology-based)\
+      \ fields and terms which are implemented via a spreadsheet collection template,\
+      \ supported by field and reference guides, as well as a new term request SOP."
     is_a: dh_interface
+    annotations:
+      version: 1.2.1
 slots: {}
 enums: {}
 types:
   WhitespaceMinimizedString:
-    name: 'WhitespaceMinimizedString'
+    name: WhitespaceMinimizedString
     typeof: string
-    description: A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).
+    description: A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
     base: str
     uri: xsd:token
   Provenance:
-    name: 'Provenance'
+    name: Provenance
     typeof: string
-    description: 'A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.'
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
     base: str
     uri: xsd:token
 settings:
-  Title_Case: "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
-  UPPER_CASE: "[A-Z\\W\\d_]*"
-  lower_case: "[a-z\\W\\d_]*"
+  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'

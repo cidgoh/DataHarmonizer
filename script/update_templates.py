@@ -36,6 +36,10 @@
 # 4: setup credentials (
 #	In the Google Cloud console, go to Menu menu > APIs & Services > Credentials 
 # 5: Under google menu in upper right, go to "project settings > service accounts"
+# 6: press +Create Service Account
+# 7: Click on account after it is set up
+# 8: press Keys tab
+# 9: "Add key" 
 # 
 
 
@@ -46,9 +50,11 @@ import os
 from semver import VersionInfo # pip install python-semver
 import math
 import yaml
+import requests
+
 from tabular_to_schema import make_linkml_schema;
 
-DH_TEMPLATE_VERSION_CONTROL_FIELDS = "Pathogen Genomics Templates Release	DH Version	Release Date	Template Name	Template Version x.y.z	x changes (field)	y changes (values/IDs)	z changes (defs/formats/examples)".split("\t");
+DH_TEMPLATE_VERSION_CONTROL_FIELDS = "PGP Release	DH Version	Release Date	Template Name	Template Version x.y.z	x changes (field)	y changes (values/IDs)	z changes (defs/formats/examples)".split("\t");
 DH_TEMPLATES_GOOGLENAME    = 'DataHarmonizer Templates';
 DH_TEMPLATES_FILENAME      = 'dataharmonizer_templates.xlsx';
 DH_TEMPLATES_TAB_RELEASES  = 'Version Control';
@@ -75,6 +81,35 @@ def init_parser():
 	)
 
 	return parser.parse_args();
+
+
+def download_google_sheet_as_xlsx(file_id, output_filename="downloaded_sheet.xlsx"):
+    """
+    Downloads a public Google Sheet as an XLSX file using a direct export URL.
+
+    Args:
+        file_id (str): The Google Sheets file ID from the URL.
+        output_filename (str): The name for the local XLSX file.
+    """
+    # The export URL for XLSX format
+    url = f"https://docs.google.com/spreadsheets/d/{file_id}/export?format=xlsx";
+
+    try:
+        # Make the GET request
+        response = requests.get(url)
+        response.raise_for_status() # Raise an exception for bad status codes
+
+        # Save the content to a local file
+        with open(output_filename, 'wb') as f:
+            f.write(response.content)
+
+        print(f"Successfully downloaded the spreadsheet to {output_filename}")
+        return True
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error downloading the file: {e}")
+        return False
+
 
 def refresh_cache():
 	import gspread # pip3 install gspread
@@ -264,7 +299,8 @@ if __name__ == "__main__":
 	options, args = init_parser();
 
 	if options.download:
-		refresh_cache();
+		# refresh_cache();
+		download_google_sheet_as_xlsx('1jPQAIJcL_xa3oBVFEsYRGLGf7ESTOwzsTSjKZ-0CTYE', 'dataharmonizer_templates.xlsx')
 
 	if os.path.isfile(DH_TEMPLATES_FILENAME):
 		# create a Pandas "df" dataframe

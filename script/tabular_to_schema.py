@@ -232,6 +232,8 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 		else:
 			if not 'todos' in slot:
 				slot['todos'] = [];
+			if isISO8601(slot_minimum_value):  # for now just yyyy-mm-dd
+				slot_minimum_value = isISO8601(slot_minimum_value).strftime("%Y-%m-%d")
 			slot['todos'] = [doubleQuoted('>=' + slot_minimum_value)];
 	if slot_maximum_value > '':
 		if isInteger(slot_maximum_value):
@@ -241,6 +243,8 @@ def set_min_max(slot, slot_minimum_value, slot_maximum_value):
 		else:
 			if not 'todos' in slot:
 				slot['todos'] = [];
+			if isISO8601(slot_maximum_value):	# for now just yyyy-mm-dd
+				slot_maximum_value = isISO8601(slot_maximum_value).strftime("%Y-%m-%d")
 			slot['todos'].append(doubleQuoted('<=' + slot_maximum_value));
 
 def isDecimal(x):
@@ -257,6 +261,12 @@ def isInteger(x):
         return False
     else:
         return True
+
+def isISO8601(dt_str):
+    try:
+        return datetime.fromisoformat(dt_str)
+    except ValueError:
+        return False
 
 def set_classes(schema_slot_path, schema, locale_schemas, export_format, warnings):
 
