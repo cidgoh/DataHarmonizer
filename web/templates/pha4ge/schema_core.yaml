@@ -1,7 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: PHA4GE
 description: ''
-version: 1.0.4
+version: 1.0.5
 imports:
 - linkml:types
 prefixes:
@@ -18,7 +18,7 @@ classes:
     is_a: dh_interface
     see_also: templates/pha4ge/SOP.pdf
     annotations:
-      version: 1.0.4
+      version: 1.0.5
 slots: {}
 enums: {}
 types:

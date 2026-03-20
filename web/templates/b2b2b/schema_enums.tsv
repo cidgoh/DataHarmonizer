@@ -352,8 +352,8 @@ food_product menu	FoodProductMenu		ENVO:02000047	Animal feed [ENVO:02000047]				
 			FOODON:00002716		Chicken drumstick [FOODON:00002716]					The segment of a chicken's leg between the thigh and tarsus (ankle).
 			FOODON:02020237			Chicken drumstick (skinless) [FOODON:02020237]				A chicken drumstick after the skin has been removed.
 			FOODON:02020239			Chicken drumstick(with skin) [FOODON:02020239]				A chicken drumstick that still contains the skin.
-			FOODON:00004239		Chicken meat [FOODON:00001040]					Meat from a chicken
-			FOODON:03311826			Chicken meat (ground) [FOODON:02020311]				A food product made of ground or minced chicken meat.
+			FOODON:00001040		Chicken meat [FOODON:00001040]					Meat from a chicken
+			FOODON:02020311			Chicken meat (ground) [FOODON:02020311]				A food product made of ground or minced chicken meat.
 			FOODON:03000392				Chicken meat (ground or minced, lean) [FOODON:03000392]			A food product made of lean, ground or minced chicken meat.
 			FOODON:03000396				Chicken meat (ground or minced, extra lean) [FOODON:03000396]			A food product made of extra lean, ground or minced chicken meat.
 			FOODON:03000400				Chicken meat (ground or minced, medium) [FOODON:03000400]			A food product made of medium, ground or minced chicken meat.
@@ -377,8 +377,8 @@ food_product menu	FoodProductMenu		ENVO:02000047	Animal feed [ENVO:02000047]				
 			FOODON:00004285		Meat strip [FOODON:00004285]					A cut of meat which is long, narrow and boneless.
 			FOODON:00002912		Mutton [FOODON:00002912]					The meat of an adult sheep is mutton, a term only used for the meat, not the living animals.
 			FOODON:00001049		Pork chop [FOODON:00001049]					A cut of meat (a meat chop) cut perpendicularly to the spine of the pig and usually containing a rib or part of a vertebra, served as an individual portion.
-			FOODON:03309969		pork meat (ground) [FOODON:02021718]					Meat from a pig that has been ground or minced.
-			FOODON:02021718			Pork meat (ground or minced, boneless) [FOODON:03000413]				Ground or minced pork meat that has had no bone material in it.
+			FOODON:02021718		pork meat (ground) [FOODON:02021718]					Meat from a pig that has been ground or minced.
+			FOODON:03000413			Pork meat (ground or minced, boneless) [FOODON:03000413]				Ground or minced pork meat that has had no bone material in it.
 			FOODON:03000399			Pork meat (ground or minced, extra lean) [FOODON:03000399]				A food product made of extra-lean, ground or minced pork meat.
 			FOODON:03000395			Pork meat (ground or minced, lean) [FOODON:03000395]				A food product made of lean, ground or minced pork meat.
 			FOODON:03000403			Pork meat (ground or minced, medium) [FOODON:03000403]				A food product made of medium, ground or minced pork meat.
@@ -413,12 +413,12 @@ food_product menu	FoodProductMenu		ENVO:02000047	Animal feed [ENVO:02000047]				
 			FOODON:02020501			Turkey drumstick (skinless) [FOODON:02020501]				A turkey drumstick after the skin has been removed.
 			FOODON:02020503			Turkey drumstick (with skin) [FOODON:02020503]				A turkey drumstick that still contains the skin.
 			FOODON:00001286		Turkey meat [FOODON:00001286]					A turkey meat food product is any food product made predominantly of turkey parts.
-			FOODON:00002714			Turkey meat (ground) [FOODON:02020577]				A food product made of ground or minced turkey meat.
+			FOODON:02020577			Turkey meat (ground) [FOODON:02020577]				A food product made of ground or minced turkey meat.
 			FOODON:03000393			Turkey meat (ground or minced, lean) [FOODON:03000393]				A food product made of lean, ground or minced turkey meat.
 			FOODON:03000397			Turkey meat (ground or minced, extra lean) [FOODON:03000397]				A food product made of extra-lean, ground or minced turkey meat.
 			FOODON:03000401			Turkey meat (ground or minced, medium) [FOODON:03000401]				A food product made of medium, ground or minced turkey meat.
 			FOODON:03000405			Turkey meat (ground or minced, regular) [FOODON:03000405]				A food product made of regular, ground or minced turkey meat.
-			FOODON:02020577			Turkey meat (ground or minced, boneless) [FOODON:03000411]				Ground or minced turkey meat that has had no bone material in it.
+			FOODON:03000411			Turkey meat (ground or minced, boneless) [FOODON:03000411]				Ground or minced turkey meat that has had no bone material in it.
 			FOODON:00003325		Turkey thigh [FOODON:00003325]					A thigh poultry cut of turkey.
 			FOODON:00003329			Turkey thigh (skinless) [FOODON:00003329]				A turkey thigh after the skin has been removed.
 			FOODON:02020491			Turkey thigh (skinless, boneless) [FOODON:02020491]				A turkey thigh that has had skin and bone material removed.
@@ -594,8 +594,8 @@ host_(common_name) menu	HostCommonNameMenu		NCBITaxon:8782	Bird [NCBITaxon:8782]
 			NCBITaxon:229290		Sablefish [NCBITaxon:229290]					One of two members of the fish family Anoplopomatidae and the only species in the genus Anoplopoma.
 			FOODON:00003473		Salmon [FOODON:00003473]					A group of euryhaline ray-finned fish from the family Salmonidae, which are native to tributaries of the North Atlantic (genus Salmo) and North Pacific (genus Oncorhynchus) basin.
 			NCBITaxon:8030			Atlantic Salmon [NCBITaxon:8030]				A species of ray-finned fish in the family Salmonidae (Salmo salar).
-			NCBITaxon:8019			Chinook salmon [NCBITaxon:74940]				A species of pacific salmon in North America, that is commonly called as coho salmon.
-			NCBITaxon:74940			Coho Salmon [NCBITaxon:8019]				 The largest species of pacific salmon in North America (Oncorhynchus tshawytscha).
+			NCBITaxon:74940			Chinook salmon [NCBITaxon:74940]				A species of pacific salmon in North America, that is commonly called as coho salmon.
+			NCBITaxon:8019			Coho Salmon [NCBITaxon:8019]				 The largest species of pacific salmon in North America (Oncorhynchus tshawytscha).
 			FOODON:03411134	Mammal [FOODON:03411134]						"Mammals (from Latin mamma ""breast"") are vertebrate animals constituting the class Mammalia, and characterized by the presence of mammary glands which in females produce milk for feeding (nursing) their young, a neocortex (a region of the brain), fur or hair, and three middle ear bones."
 			FOODON:03000300		Companion animal [FOODON:03000300]					An animal that is kept as a companion. 
 			NCBITaxon:9913		Cow [NCBITaxon:9913]					A large, domesticated, cloven-hooved, herbivore of the species Bos taurus.
@@ -747,9 +747,9 @@ organism menu	OrganismMenu		NCBITaxon:469	Acinetobacter [NCBITaxon:469]						A M
 			NCBITaxon:59203		Salmonella enterica subsp. arizonae [NCBITaxon:59203]					A subspecies of aerobic, Gram negative, rod shaped bacteria assigned to the phylum Proteobacteria and the species Salmonella enterica. S. enterica subsp. arizonae is an inhabitant of the gut of reptiles and is pathogenic in humans, although is rarely isolated from clinical specimens. [http://purl.obolibrary.org/obo/NCIT_C86910]
 			NCBITaxon:613	Serratia [NCBITaxon:613]						A genus of small motile peritrichous bacteria in the Enterobacteriacaea family consisting of Gram-negative rods. [NCIT:C86010]
 			NCBITaxon:22	Shewanella [NCBITaxon:22]						A genus of facultatively anaerobic, Gram negative, rod shaped bacterium assigned to the phylum Proteobacteria and the family Shewanellaceae. http://purl.obolibrary.org/obo/NCIT_C867422]
-			NCBITaxon:2726434		Shewanella pealeana [NCBITaxon:70864]					A species of Gram-negative, mesophilic, facultatively anaerobic, psychrotolerant, motile and rod-shaped bacteria that are assigned to the genus Shewanella. https://www.microbiologyresearch.org/content/journal/ijsem/10.1099/00207713-49-4-13411]
-			NCBITaxon:70864		Shewanella putrefaciens [NCBITaxon:24]					A species of Gram-negative, mesophilic, facultatively anaerobic, psychrotolerant, motile and rod-shaped bacteria that are assigned to the genus Shewanella. https://www.microbiologyresearch.org/content/journal/ijsem/10.1099/00207713-49-4-13411]
-			NCBITaxon:24		Shewanella oncorhynchi [NCBITaxon:2726434]					A species of facultatively anaerobic, Gram negative, rod shaped bacteria assigned to the phylum Proteobacteria. This species can reduce metals including iron, manganese and uranium to produce energy. S. putrefaciens is found in marine environments and is a pathogen that can cause bacteremia, biliary tract infection, peritonitis, empyema, and various skin and soft tissue infections. [http://purl.obolibrary.org/obo/NCIT_C86743]
+			NCBITaxon:70864		Shewanella pealeana [NCBITaxon:70864]					A species of Gram-negative, mesophilic, facultatively anaerobic, psychrotolerant, motile and rod-shaped bacteria that are assigned to the genus Shewanella. https://www.microbiologyresearch.org/content/journal/ijsem/10.1099/00207713-49-4-13411]
+			NCBITaxon:24		Shewanella putrefaciens [NCBITaxon:24]					A species of Gram-negative, mesophilic, facultatively anaerobic, psychrotolerant, motile and rod-shaped bacteria that are assigned to the genus Shewanella. https://www.microbiologyresearch.org/content/journal/ijsem/10.1099/00207713-49-4-13411]
+			NCBITaxon:2726434		Shewanella oncorhynchi [NCBITaxon:2726434]					A species of facultatively anaerobic, Gram negative, rod shaped bacteria assigned to the phylum Proteobacteria. This species can reduce metals including iron, manganese and uranium to produce energy. S. putrefaciens is found in marine environments and is a pathogen that can cause bacteremia, biliary tract infection, peritonitis, empyema, and various skin and soft tissue infections. [http://purl.obolibrary.org/obo/NCIT_C86743]
 			NCBITaxon:50422		Shewanella sp. [NCBITaxon:50422]					A species of the genus Shewanella.
 			NCBITaxon:1279	Staphylococcus [NCBITaxon:1279]						A genus of nonmotile, nonspore-forming, aerobic to facultatively anaerobic bacteria containing Gram-positive, spherical cells, 0.5-1.5 microns in diameter, which divide in more than one plane to form irregular clusters. Coagulase-positive strains produce a variety of toxins and are therefore potentially pathogenic and may cause food poisoning. They are found on the skin, in skin glands, on the nasal and other mucous membranes of warm-blooded animals, and in various food products. The type species is Staphylococcus aureus [http://purl.obolibrary.org/obo/NCIT_C62583]
 			NCBITaxon:1280		Staphylococcus aureus [NCBITaxon:1280]					A common bacterial species found especially on nasal mucous membrane and skin (hair follicles); bacterial species that produces exotoxins including those that cause toxic shock syndrome, with resulting skin rash, and renal, hepatic, and central nervous system disease, and an enterotoxin associated with food poisoning; it causes furunculosis, cellulitis, pyemia, pneumonia, osteomyelitis, endocarditis, suppuration of wounds, other infections; also a cause of infection in burn patients; humans are the chief reservoir. [http://purl.obolibrary.org/obo/NCIT_C50921]

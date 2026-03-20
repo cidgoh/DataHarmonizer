@@ -45,8 +45,8 @@
       "from_schema": "https://example.com/Influenza",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
@@ -95,8 +95,8 @@
           "rank": 10,
           "slot_group": "Database Identifiers"
         },
-        "genbank_accession": {
-          "name": "genbank_accession",
+        "genbank_ena_ddbj_accession": {
+          "name": "genbank_ena_ddbj_accession",
           "rank": 11,
           "slot_group": "Database Identifiers"
         },
@@ -145,8 +145,8 @@
           "rank": 20,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 21,
           "slot_group": "Sample collection and processing"
         },
@@ -462,8 +462,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "comments": [
@@ -485,7 +485,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "Influenza",
           "domain_of": [
             "Influenza"
@@ -762,8 +762,8 @@
             "partial_match": false
           }
         },
-        "genbank_accession": {
-          "name": "genbank_accession",
+        "genbank_ena_ddbj_accession": {
+          "name": "genbank_ena_ddbj_accession",
           "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
           "title": "GenBank accession",
           "comments": [
@@ -781,7 +781,7 @@
           ],
           "rank": 11,
           "slot_uri": "GENEPIO:0001145",
-          "alias": "genbank_accession",
+          "alias": "genbank_ena_ddbj_accession",
           "owner": "Influenza",
           "domain_of": [
             "Influenza"
@@ -1105,8 +1105,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The province/territory where the sample was collected.",
           "title": "geo_loc_name (state/province/territory)",
           "comments": [
@@ -1126,7 +1126,7 @@
           ],
           "rank": 21,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "Influenza",
           "domain_of": [
             "Influenza"
@@ -1135,7 +1135,7 @@
           "required": true,
           "any_of": [
             {
-              "range": "GeoLocNameStateProvinceTerritoryMenu"
+              "range": "GeoLocNameStateProvinceTerritoryRegionMenu"
             },
             {
               "range": "NullValueMenu"
@@ -3099,8 +3099,8 @@
     }
   },
   "slots": {
-    "specimen_collector_sample_id": {
-      "name": "specimen_collector_sample_id",
+    "specimen_sample_collector_sample_id": {
+      "name": "specimen_sample_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "specimen collector sample ID",
       "comments": [
@@ -3359,8 +3359,8 @@
         "partial_match": false
       }
     },
-    "genbank_accession": {
-      "name": "genbank_accession",
+    "genbank_ena_ddbj_accession": {
+      "name": "genbank_ena_ddbj_accession",
       "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
       "title": "GenBank accession",
       "comments": [
@@ -3662,8 +3662,8 @@
         }
       ]
     },
-    "geo_loc_name_state_province_territory": {
-      "name": "geo_loc_name_state_province_territory",
+    "geo_loc_name_state_province_territory_region": {
+      "name": "geo_loc_name_state_province_territory_region",
       "description": "The province/territory where the sample was collected.",
       "title": "geo_loc_name (state/province/territory)",
       "comments": [
@@ -3688,7 +3688,7 @@
       "required": true,
       "any_of": [
         {
-          "range": "GeoLocNameStateProvinceTerritoryMenu"
+          "range": "GeoLocNameStateProvinceTerritoryRegionMenu"
         },
         {
           "range": "NullValueMenu"

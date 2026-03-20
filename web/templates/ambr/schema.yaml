@@ -21,7 +21,7 @@ classes:
     slots:
       - isolate_id
       - alternative_isolate_id
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - sample_collected_by
       - sample_collection_project_name
       - sample_collector_contact_email
@@ -29,7 +29,7 @@ classes:
       - sample_collection_date
       - sample_received_date
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_city
       - geo_loc_name_site
       - organism
@@ -91,8 +91,8 @@ classes:
         name: alternative_isolate_id
         rank: 2
         slot_group: Database Identifiers
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 3
         slot_group: Database Identifiers
       sample_collected_by:
@@ -123,8 +123,8 @@ classes:
         name: geo_loc_name_country
         rank: 10
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 11
         slot_group: Sample collection and processing
       geo_loc_name_city:
@@ -358,8 +358,8 @@ slots:
       - Provide the identifier that represents the site code, source and/or patient identifier, media type, strain identifier, colony number, growth condition and dilution factor as a single code. This value corresponds maps to the "Label ID" in the Alberta Microbiota Repository (AMBR) Master file.
     examples:
       - value: '3411301'
-  specimen_collector_sample_id:
-    name: specimen_collector_sample_id
+  specimen_sample_collector_sample_id:
+    name: specimen_sample_collector_sample_id
     slot_uri: GENEPIO:0001123
     title: specimen collector sample ID
     range: WhitespaceMinimizedString
@@ -458,8 +458,8 @@ slots:
       - Provide the country name from the controlled vocabulary provided.
     examples:
       - value: Canada
-  geo_loc_name_state_province_territory:
-    name: geo_loc_name_state_province_territory
+  geo_loc_name_state_province_territory_region:
+    name: geo_loc_name_state_province_territory_region
     slot_uri: GENEPIO:0001185
     title: geo_loc_name (state/province/territory)
     any_of:

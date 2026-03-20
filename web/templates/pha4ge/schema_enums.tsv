@@ -112,7 +112,7 @@ host vaccination status menu	HostVaccinationStatusMenu		GENEPIO:0100100	Covid-19
 			GENEPIO:0100102	Covid-19	Not Vaccinated [GENEPIO:0100102]								prior_sars_cov_2_vaccination:No			
 																
 																
-prior SARS-CoV-2 antiviral treatment menu	PriorSarsCov2AntiviralTreatmentMenu		GENEPIO:0100237	Covid-19	Prior antiviral treatment [GENEPIO:0100037]								prior_sars_cov_2_antiviral_treatment:Yes			
+prior SARS-CoV-2 antiviral treatment menu	PriorSarsCov2AntiviralTreatmentMenu		GENEPIO:0100037	Covid-19	Prior antiviral treatment [GENEPIO:0100037]								prior_sars_cov_2_antiviral_treatment:Yes			
 			GENEPIO:0100233	Covid-19	No prior antiviral treatment [GENEPIO:0100233]								prior_sars_cov_2_antiviral_treatment:No			
 																
 																
@@ -201,8 +201,8 @@ pre-existing conditions and risk factors menu	PreExistingConditionsAndRiskFactor
 			NCIT:C173621	Covid-19		Vaping [NCIT:C173621]										
 			HP:0002789	Covid-19	Tachypnea (accelerated respiratory rate) [HP:0002789]											
 			NCIT:C159659	Covid-19	Transplant [NCIT:C159659]											
-			GENEPIO:0100080	Covid-19		Cardiac transplant [NCIT:C131759]										
-			NCIT:C131759	Covid-19		Hematopoietic stem cell transplant (bone marrow transplant) [GENEPIO:0100080]										
+			GENEPIO:0100080	Covid-19		Cardiac transplant [NCIT:C131759]					EDITOR NOTE: Both the meaning ID and NCIT ID should be updated to EFO:0010673. https://github.com/pha4ge/sars-cov-2-contextual-data-specification/issues/23 					
+			NCIT:C131759	Covid-19		Hematopoietic stem cell transplant (bone marrow transplant) [GENEPIO:0100080]					EDITOR NOTE: Both the meaning ID and NCIT ID should be updated to EFO:0020989. https://github.com/pha4ge/sars-cov-2-contextual-data-specification/issues/23 					
 			NCIT:C157332	Covid-19		Kidney transplant [NCIT:C157332]										
 			GENEPIO:0100081	Covid-19		Liver transplant [GENEPIO:0100081]										
 																
@@ -221,7 +221,7 @@ complications menu	ComplicationsMenu		HP:0500165	Covid-19	Abnormal blood oxygen 
 			HP:0001649	Covid-19		Tachycardia [HP:0001649]										
 			HP:0031677	Covid-19			Polymorphic ventricular tachycardia (VT) [HP:0031677]									
 			GENEPIO:0100084	Covid-19			Tachyarrhythmia [GENEPIO:0100084]									
-			GENEPIO:0100087	Covid-19	Cardiac injury [GENEPIO:0100074]											
+			GENEPIO:0100074	Covid-19	Cardiac injury [GENEPIO:0100074]											
 			HP:0001695	Covid-19	Cardiac arrest [HP:0001695]											
 			HP:0030149	Covid-19	Cardiogenic shock [HP:0030149]											
 			HP:0001977	Covid-19	Blood clot [HP:0001977]											
@@ -446,13 +446,13 @@ collection device menu	CollectionDeviceMenu		ENVO:00003968	Covid-19	Air filter [
 			OBI:0002866	Covid-19	Virus Transport Medium [OBI:0002866]											
 																
 																
-host (scientific name) menu	HostScientificNameMenu		NCBITaxon:9913	Covid-19	Homo sapiens [NCBITaxon:9606]											
-			NCBITaxon:9615	Covid-19	Bos taurus [NCBITaxon:9913]											
-			NCBITaxon:9397	Covid-19	Canis lupus familiaris [NCBITaxon:9615]											
-			NCBITaxon:8930	Covid-19	Chiroptera [NCBITaxon:9397]											
-			NCBITaxon:9685	Covid-19	Columbidae [NCBITaxon:8930]											
-			NCBITaxon:9031	Covid-19	Felis catus [NCBITaxon:9685]											
-			NCBITaxon:9606	Covid-19	Gallus gallus [NCBITaxon:9031]											
+host (scientific name) menu	HostScientificNameMenu		NCBITaxon:9606	Covid-19	Homo sapiens [NCBITaxon:9606]											
+			NCBITaxon:9913	Covid-19	Bos taurus [NCBITaxon:9913]											
+			NCBITaxon:9615	Covid-19	Canis lupus familiaris [NCBITaxon:9615]											
+			NCBITaxon:9397	Covid-19	Chiroptera [NCBITaxon:9397]											
+			NCBITaxon:8930	Covid-19	Columbidae [NCBITaxon:8930]											
+			NCBITaxon:9685	Covid-19	Felis catus [NCBITaxon:9685]											
+			NCBITaxon:9031	Covid-19	Gallus gallus [NCBITaxon:9031]											
 			NCBITaxon:9973	Covid-19	Manis [NCBITaxon:9973]											
 			NCBITaxon:9974	Covid-19	Manis javanica [NCBITaxon:9974]											
 			NCBITaxon:452646	Covid-19	Neovison vison [NCBITaxon:452646]											
@@ -464,7 +464,7 @@ host (scientific name) menu	HostScientificNameMenu		NCBITaxon:9913	Covid-19	Homo
 			NCBITaxon:9673	Covid-19	Viverridae [NCBITaxon:9673]											
 																
 																
-host (common name) menu	HostCommonNameMenu		NCBITaxon:9605	Covid-19	Human [NCBITaxon:9606]											
+host (common name) menu	HostCommonNameMenu		NCBITaxon:9606	Covid-19	Human [NCBITaxon:9606]											
 			NCBITaxon:9397	Covid-19	Bat [NCBITaxon:9397]											
 			NCBITaxon:9685	Covid-19	Cat [NCBITaxon:9685]											
 			NCBITaxon:9031	Covid-19	Chicken [NCBITaxon:9031]											

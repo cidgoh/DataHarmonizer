@@ -19,9 +19,9 @@ classes:
     is_a: dh_interface
     see_also:
     annotations:
-      version: 1.1.1
+      version: 1.1.2
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - specimen_collector_subsample_id
       - pooled_sample_id
       - sampling_site_id
@@ -35,7 +35,7 @@ classes:
       - sample_collected_by
       - sample_collector_contact_email
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_city
       - geo_loc_name_site
@@ -112,10 +112,10 @@ classes:
       - exposure_details
       - host_vaccination_status
       - number_of_vaccine_doses_received
-      - vaccination_dose_1_vaccine_name
-      - vaccination_dose_1_vaccination_date
-      - vaccination_dose_2_vaccine_name
-      - vaccination_dose_2_vaccination_date
+      - vaccine_name_dose_1
+      - vaccination_date_dose_1
+      - vaccine_name_dose_2
+      - vaccination_date_dose_2
       - vaccination_history
       - influenza_antiviral_treatment_administration
       - influenza_antiviral_agent
@@ -213,7 +213,7 @@ classes:
       - sequenced_by_contact_name
       - sequenced_by_contact_email
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - nucleic_acid_extraction_method
       - nucleic_acid_extraction_kit
       - endogenous_control_details
@@ -285,8 +285,8 @@ classes:
       - experimental_intervention
       - experiment_intervention_details
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database identifiers
       specimen_collector_subsample_id:
@@ -341,8 +341,8 @@ classes:
         name: geo_loc_name_country
         rank: 14
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 15
         slot_group: Sample collection and processing
       geo_loc_name_county_region:
@@ -649,20 +649,20 @@ classes:
         name: number_of_vaccine_doses_received
         rank: 91
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccine_name:
-        name: vaccination_dose_1_vaccine_name
+      vaccine_name_dose_1:
+        name: vaccine_name_dose_1
         rank: 92
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccination_date:
-        name: vaccination_dose_1_vaccination_date
+      vaccination_date_dose_1:
+        name: vaccination_date_dose_1
         rank: 93
         slot_group: Host vaccination information
-      vaccination_dose_2_vaccine_name:
-        name: vaccination_dose_2_vaccine_name
+      vaccine_name_dose_2:
+        name: vaccine_name_dose_2
         rank: 94
         slot_group: Host vaccination information
-      vaccination_dose_2_vaccination_date:
-        name: vaccination_dose_2_vaccination_date
+      vaccination_date_dose_2:
+        name: vaccination_date_dose_2
         rank: 95
         slot_group: Host vaccination information
       vaccination_history:
@@ -1053,8 +1053,8 @@ classes:
         name: sequence_submitted_by
         rank: 192
         slot_group: Sequence information
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 193
         slot_group: Sequence information
       nucleic_acid_extraction_method:
@@ -1346,7 +1346,7 @@ classes:
     annotations:
       version: 1.1.1
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - specimen_collector_subsample_id
       - pooled_sample_id
       - sampling_site_id
@@ -1360,7 +1360,7 @@ classes:
       - sample_collected_by
       - sample_collector_contact_email
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_city
       - geo_loc_name_site
@@ -1412,7 +1412,7 @@ classes:
       - sequenced_by_contact_name
       - sequenced_by_contact_email
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - nucleic_acid_extraction_method
       - nucleic_acid_extraction_kit
       - endogenous_control_details
@@ -1484,8 +1484,8 @@ classes:
       - experimental_intervention
       - experiment_intervention_details
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database identifiers
       specimen_collector_subsample_id:
@@ -1540,8 +1540,8 @@ classes:
         name: geo_loc_name_country
         rank: 14
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 15
         slot_group: Sample collection and processing
       geo_loc_name_county_region:
@@ -1748,8 +1748,8 @@ classes:
         name: sequence_submitted_by
         rank: 66
         slot_group: Sequence information
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 67
         slot_group: Sequence information
       nucleic_acid_extraction_method:
@@ -2041,7 +2041,7 @@ classes:
     annotations:
       version: 1.0.0
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - specimen_collector_subsample_id
       - pooled_sample_id
       - sampling_site_id
@@ -2055,7 +2055,7 @@ classes:
       - sample_collected_by
       - sample_collector_contact_email
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_city
       - geo_loc_name_site
@@ -2190,7 +2190,7 @@ classes:
       - sequenced_by_contact_name
       - sequenced_by_contact_email
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - nucleic_acid_extraction_method
       - nucleic_acid_extraction_kit
       - endogenous_control_details
@@ -2262,8 +2262,8 @@ classes:
       - experimental_intervention
       - experiment_intervention_details
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database identifiers
       specimen_collector_subsample_id:
@@ -2318,8 +2318,8 @@ classes:
         name: geo_loc_name_country
         rank: 14
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 15
         slot_group: Sample collection and processing
       geo_loc_name_county_region:
@@ -2858,8 +2858,8 @@ classes:
         name: sequence_submitted_by
         rank: 149
         slot_group: Sequence information
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 150
         slot_group: Sequence information
       nucleic_acid_extraction_method:
@@ -3151,7 +3151,7 @@ classes:
     annotations:
       version: 1.0.0
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - specimen_collector_subsample_id
       - pooled_sample_id
       - sampling_site_id
@@ -3165,7 +3165,7 @@ classes:
       - sample_collected_by
       - sample_collector_contact_email
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_city
       - geo_loc_name_site
@@ -3300,7 +3300,7 @@ classes:
       - sequenced_by_contact_name
       - sequenced_by_contact_email
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - nucleic_acid_extraction_method
       - nucleic_acid_extraction_kit
       - endogenous_control_details
@@ -3372,8 +3372,8 @@ classes:
       - experimental_intervention
       - experiment_intervention_details
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database identifiers
       specimen_collector_subsample_id:
@@ -3428,8 +3428,8 @@ classes:
         name: geo_loc_name_country
         rank: 14
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 15
         slot_group: Sample collection and processing
       geo_loc_name_county_region:
@@ -3968,8 +3968,8 @@ classes:
         name: sequence_submitted_by
         rank: 149
         slot_group: Sequence information
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 150
         slot_group: Sequence information
       nucleic_acid_extraction_method:
@@ -4259,9 +4259,9 @@ classes:
     is_a: dh_interface
     see_also:
     annotations:
-      version: 1.1.1
+      version: 1.1.2
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - specimen_collector_subsample_id
       - pooled_sample_id
       - sampling_site_id
@@ -4275,7 +4275,7 @@ classes:
       - sample_collected_by
       - sample_collector_contact_email
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_city
       - geo_loc_name_site
@@ -4338,10 +4338,10 @@ classes:
       - exposure_details
       - host_vaccination_status
       - number_of_vaccine_doses_received
-      - vaccination_dose_1_vaccine_name
-      - vaccination_dose_1_vaccination_date
-      - vaccination_dose_2_vaccine_name
-      - vaccination_dose_2_vaccination_date
+      - vaccine_name_dose_1
+      - vaccination_date_dose_1
+      - vaccine_name_dose_2
+      - vaccination_date_dose_2
       - vaccination_history
       - influenza_antiviral_treatment_administration
       - influenza_antiviral_agent
@@ -4356,7 +4356,7 @@ classes:
       - sequenced_by_contact_name
       - sequenced_by_contact_email
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - nucleic_acid_extraction_method
       - nucleic_acid_extraction_kit
       - endogenous_control_details
@@ -4428,8 +4428,8 @@ classes:
       - experimental_intervention
       - experiment_intervention_details
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database identifiers
       specimen_collector_subsample_id:
@@ -4484,8 +4484,8 @@ classes:
         name: geo_loc_name_country
         rank: 14
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 15
         slot_group: Sample collection and processing
       geo_loc_name_county_region:
@@ -4736,20 +4736,20 @@ classes:
         name: number_of_vaccine_doses_received
         rank: 77
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccine_name:
-        name: vaccination_dose_1_vaccine_name
+      vaccine_name_dose_1:
+        name: vaccine_name_dose_1
         rank: 78
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccination_date:
-        name: vaccination_dose_1_vaccination_date
+      vaccination_date_dose_1:
+        name: vaccination_date_dose_1
         rank: 79
         slot_group: Host vaccination information
-      vaccination_dose_2_vaccine_name:
-        name: vaccination_dose_2_vaccine_name
+      vaccine_name_dose_2:
+        name: vaccine_name_dose_2
         rank: 80
         slot_group: Host vaccination information
-      vaccination_dose_2_vaccination_date:
-        name: vaccination_dose_2_vaccination_date
+      vaccination_date_dose_2:
+        name: vaccination_date_dose_2
         rank: 81
         slot_group: Host vaccination information
       vaccination_history:
@@ -4808,8 +4808,8 @@ classes:
         name: sequence_submitted_by
         rank: 95
         slot_group: Sequence information
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 96
         slot_group: Sequence information
       nucleic_acid_extraction_method:
@@ -5093,8 +5093,8 @@ classes:
         rank: 166
         slot_group: Risk assessment information
 slots:
-  specimen_collector_sample_id:
-    name: specimen_collector_sample_id
+  specimen_sample_collector_sample_id:
+    name: specimen_sample_collector_sample_id
     slot_uri: GENEPIO:0001123
     title: specimen_collector_sample_ID
     range: WhitespaceMinimizedString
@@ -5273,8 +5273,8 @@ slots:
       - If known, select a value from the pick list.
     examples:
       - value: Canada
-  geo_loc_name_state_province_territory:
-    name: geo_loc_name_state_province_territory
+  geo_loc_name_state_province_territory_region:
+    name: geo_loc_name_state_province_territory_region
     slot_uri: GENEPIO:0001185
     title: geo_loc_name_(state/province/territory)
     any_of:
@@ -6276,8 +6276,8 @@ slots:
       - Record how many doses of the vaccine the host has received.
     examples:
       - value: '2'
-  vaccination_dose_1_vaccine_name:
-    name: vaccination_dose_1_vaccine_name
+  vaccine_name_dose_1:
+    name: vaccine_name_dose_1
     slot_uri: GENEPIO:0100313
     title: vaccination_dose_1_vaccine_name
     range: WhitespaceMinimizedString
@@ -6286,8 +6286,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the first dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_1_vaccination_date:
-    name: vaccination_dose_1_vaccination_date
+  vaccination_date_dose_1:
+    name: vaccination_date_dose_1
     slot_uri: GENEPIO:0100314
     title: vaccination_dose_1_vaccination_date
     range: date
@@ -6298,8 +6298,8 @@ slots:
       - Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     examples:
       - value: '2021-03-01'
-  vaccination_dose_2_vaccine_name:
-    name: vaccination_dose_2_vaccine_name
+  vaccine_name_dose_2:
+    name: vaccine_name_dose_2
     slot_uri: GENEPIO:0100315
     title: vaccination_dose_2_vaccine_name
     range: WhitespaceMinimizedString
@@ -6308,8 +6308,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the second dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_2_vaccination_date:
-    name: vaccination_dose_2_vaccination_date
+  vaccination_date_dose_2:
+    name: vaccination_date_dose_2
     slot_uri: GENEPIO:0100316
     title: vaccination_dose_2_vaccination_date
     range: date
@@ -7393,8 +7393,8 @@ slots:
       - The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions. For Canadian institutions submitting specimens rather than sequencing data, please put the "National Microbiology Laboratory (NML)".
     examples:
       - value: Public Health Ontario (PHO)
-  sequence_submitter_contact_email:
-    name: sequence_submitter_contact_email
+  sequence_submitted_by_contact_email:
+    name: sequence_submitted_by_contact_email
     slot_uri: GENEPIO:0001165
     title: sequence_submitter_contact_email
     any_of:
@@ -10223,7 +10223,7 @@ enums:
       Spatula [NCIT:C149941]:
         text: Spatula [NCIT:C149941]
         title: Spatula [NCIT:C149941]
-        meaning: CIT:C149941
+        meaning: NCIT:C149941
       Sponge [OBI:0002819]:
         text: Sponge [OBI:0002819]
         title: Sponge [OBI:0002819]
@@ -11555,7 +11555,7 @@ enums:
       Undeclared [NCIT:C110959]:
         text: Undeclared [NCIT:C110959]
         title: Undeclared [NCIT:C110959]
-        meaning: CIT:C110959
+        meaning: NCIT:C110959
   HostDiseaseMenu:
     name: HostDiseaseMenu
     title: host_disease menu
@@ -11580,7 +11580,7 @@ enums:
       Healthy [NCIT:C115935]:
         text: Healthy [NCIT:C115935]
         title: Healthy [NCIT:C115935]
-        meaning: CIT:C115935
+        meaning: NCIT:C115935
       Recovered [NCIT:C49498]:
         text: Recovered [NCIT:C49498]
         title: Recovered [NCIT:C49498]
@@ -11630,7 +11630,7 @@ enums:
       Self-quarantining [NCIT:C173768]:
         text: Self-quarantining [NCIT:C173768]
         title: Self-quarantining [NCIT:C173768]
-        meaning: CIT:C173768
+        meaning: NCIT:C173768
   HostHealthOutcomeMenu:
     name: HostHealthOutcomeMenu
     title: host_health_outcome menu
@@ -12258,7 +12258,7 @@ enums:
       Transplant [NCIT:C159659]:
         text: Transplant [NCIT:C159659]
         title: Transplant [NCIT:C159659]
-        meaning: CIT:C159659
+        meaning: NCIT:C159659
       Cardiac transplant [NCIT:C131759]:
         text: Cardiac transplant [NCIT:C131759]
         title: Cardiac transplant [NCIT:C131759]
@@ -12465,7 +12465,7 @@ enums:
       Neonatal complications [NCIT:C168498]:
         text: Neonatal complications [NCIT:C168498]
         title: Neonatal complications [NCIT:C168498]
-        meaning: CIT:C168498
+        meaning: NCIT:C168498
       Noncardiogenic pulmonary edema [GENEPIO:0100085]:
         text: Noncardiogenic pulmonary edema [GENEPIO:0100085]
         title: Noncardiogenic pulmonary edema [GENEPIO:0100085]

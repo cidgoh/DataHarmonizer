@@ -20,7 +20,7 @@ classes:
     annotations:
       version: 7.7.7
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - related_specimen_primary_id
       - case_id
       - bioproject_accession
@@ -35,7 +35,7 @@ classes:
       - sample_collection_date_precision
       - sample_received_date
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - organism
       - isolate_id
       - purpose_of_sampling
@@ -70,8 +70,8 @@ classes:
       - antiviral_therapy
       - host_vaccination_status
       - number_of_vaccine_doses_received
-      - vaccination_dose_1_vaccine_name
-      - vaccination_dose_1_vaccination_date
+      - vaccine_name_dose_1
+      - vaccination_date_dose_1
       - vaccination_history
       - location_of_exposure_geo_loc_name_country
       - destination_of_most_recent_travel_city
@@ -93,7 +93,7 @@ classes:
       - sequenced_by_contact_email
       - sequenced_by_contact_address
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - sequence_submitter_contact_address
       - purpose_of_sequencing
       - purpose_of_sequencing_details
@@ -138,8 +138,8 @@ classes:
       - authors
       - dataharmonizer_provenance
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database Identifiers
       related_specimen_primary_id:
@@ -211,8 +211,8 @@ classes:
         any_of:
           - range: GeoLocNameCountryMenu
           - range: NullValueMenu
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 16
         slot_group: Sample collection and processing
         comments:
@@ -539,12 +539,12 @@ classes:
         name: number_of_vaccine_doses_received
         rank: 50
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccine_name:
-        name: vaccination_dose_1_vaccine_name
+      vaccine_name_dose_1:
+        name: vaccine_name_dose_1
         rank: 51
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccination_date:
-        name: vaccination_dose_1_vaccination_date
+      vaccination_date_dose_1:
+        name: vaccination_date_dose_1
         rank: 52
         slot_group: Host vaccination information
       vaccination_history:
@@ -699,8 +699,8 @@ classes:
         exact_mappings:
           - NML_LIMS:PH_SEQUENCE_SUBMITTER
           - GISAID_EpiPox:Submitting%20lab
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 74
         slot_group: Sequencing
       sequence_submitter_contact_address:
@@ -911,7 +911,7 @@ classes:
     annotations:
       version: 9.1.1
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - case_id
       - bioproject_accession
       - biosample_accession
@@ -926,7 +926,7 @@ classes:
       - sample_collection_date
       - sample_received_date
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_site
       - geo_loc_latitude
@@ -971,8 +971,8 @@ classes:
       - antiviral_therapy
       - host_vaccination_status
       - number_of_vaccine_doses_received
-      - vaccination_dose_1_vaccine_name
-      - vaccination_dose_1_vaccination_date
+      - vaccine_name_dose_1
+      - vaccination_date_dose_1
       - vaccination_history
       - location_of_exposure_geo_loc_name_country
       - destination_of_most_recent_travel_city
@@ -997,7 +997,7 @@ classes:
       - sequenced_by_contact_email
       - sequenced_by_contact_address
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - sequence_submitter_contact_address
       - purpose_of_sequencing
       - purpose_of_sequencing_details
@@ -1022,7 +1022,7 @@ classes:
       - raw_sequence_data_processing_method
       - dehosting_method
       - deduplication_method
-      - genome_sequence_file_name
+      - genome_sequence_filename
       - genome_sequence_file_path
       - consensus_sequence_software_name
       - consensus_sequence_software_version
@@ -1075,8 +1075,8 @@ classes:
       - authors
       - dataharmonizer_provenance
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database Identifiers
       case_id:
@@ -1147,8 +1147,8 @@ classes:
         any_of:
           - range: GeoLocNameCountryInternationalMenu
           - range: NullValueMenu
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 16
         slot_group: Sample collection and processing
         comments:
@@ -1501,12 +1501,12 @@ classes:
         name: number_of_vaccine_doses_received
         rank: 60
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccine_name:
-        name: vaccination_dose_1_vaccine_name
+      vaccine_name_dose_1:
+        name: vaccine_name_dose_1
         rank: 61
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccination_date:
-        name: vaccination_dose_1_vaccination_date
+      vaccination_date_dose_1:
+        name: vaccination_date_dose_1
         rank: 62
         slot_group: Host vaccination information
       vaccination_history:
@@ -1660,8 +1660,8 @@ classes:
           - range: NullValueMenu
         exact_mappings:
           - GISAID_EpiPox:Submitting%20lab
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 87
         slot_group: Sequencing
       sequence_submitter_contact_address:
@@ -1773,8 +1773,8 @@ classes:
         name: deduplication_method
         rank: 111
         slot_group: Bioinformatics and QC metrics
-      genome_sequence_file_name:
-        name: genome_sequence_file_name
+      genome_sequence_filename:
+        name: genome_sequence_filename
         rank: 112
         slot_group: Bioinformatics and QC metrics
       genome_sequence_file_path:
@@ -1982,8 +1982,8 @@ classes:
         rank: 163
         slot_group: Contributor acknowledgement
 slots:
-  specimen_collector_sample_id:
-    name: specimen_collector_sample_id
+  specimen_sample_collector_sample_id:
+    name: specimen_sample_collector_sample_id
     slot_uri: GENEPIO:0001123
     title: specimen collector sample ID
     range: WhitespaceMinimizedString
@@ -2247,8 +2247,8 @@ slots:
       - GISAID_EpiPox:Location
     comments:
       - Provide the country name from the controlled vocabulary provided.
-  geo_loc_name_state_province_territory:
-    name: geo_loc_name_state_province_territory
+  geo_loc_name_state_province_territory_region:
+    name: geo_loc_name_state_province_territory_region
     slot_uri: GENEPIO:0001185
     title: geo_loc_name (state/province/territory)
     required: true
@@ -2829,8 +2829,8 @@ slots:
       - Record how many doses of the vaccine the host has received.
     examples:
       - value: '1'
-  vaccination_dose_1_vaccine_name:
-    name: vaccination_dose_1_vaccine_name
+  vaccine_name_dose_1:
+    name: vaccine_name_dose_1
     slot_uri: GENEPIO:0100313
     title: vaccination dose 1 vaccine name
     any_of:
@@ -2843,8 +2843,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the Smallpox vaccine administered as the first dose.
     examples:
       - value: IMVAMUNE (Bavarian Nordic)
-  vaccination_dose_1_vaccination_date:
-    name: vaccination_dose_1_vaccination_date
+  vaccination_date_dose_1:
+    name: vaccination_date_dose_1
     slot_uri: GENEPIO:0100314
     title: vaccination dose 1 vaccination date
     any_of:
@@ -3131,15 +3131,15 @@ slots:
       - The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions. If submitting specimens rather than sequencing data, please put the "National Microbiology Laboratory (NML)".
     examples:
       - value: Public Health Ontario (PHO)
-  sequence_submitter_contact_email:
-    name: sequence_submitter_contact_email
+  sequence_submitted_by_contact_email:
+    name: sequence_submitted_by_contact_email
     slot_uri: GENEPIO:0001165
     title: sequence submitter contact email
     range: WhitespaceMinimizedString
     description: The email address of the agency responsible for submission of the sequence.
     exact_mappings:
       - NML_LIMS:sequence%20submitter%20contact%20email
-      - NCBI_SRA:sequence_submitter_contact_email
+      - NCBI_SRA:sequence_submitted_by_contact_email
     comments:
       - The email address can represent a specific individual or lab e.g. johnnyblogs@lab.ca, or RespLab@lab.ca
     examples:
@@ -3490,8 +3490,8 @@ slots:
       - Provide the filepath of the consensus sequence FASTA file.
     examples:
       - value: /User/Documents/STILab/Data/mpox123assembly.fasta
-  genome_sequence_file_name:
-    name: genome_sequence_file_name
+  genome_sequence_filename:
+    name: genome_sequence_filename
     slot_uri: GENEPIO:0101715
     title: genome sequence file name
     range: WhitespaceMinimizedString

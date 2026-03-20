@@ -157,8 +157,8 @@
       ],
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
@@ -207,8 +207,8 @@
           "rank": 10,
           "slot_group": "Database Identifiers"
         },
-        "genbank_accession": {
-          "name": "genbank_accession",
+        "genbank_ena_ddbj_accession": {
+          "name": "genbank_ena_ddbj_accession",
           "rank": 11,
           "slot_group": "Database Identifiers"
         },
@@ -237,8 +237,8 @@
           "rank": 16,
           "slot_group": "Sample collection and processing"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 17,
           "slot_group": "Sample collection and processing"
         },
@@ -267,8 +267,8 @@
           "rank": 22,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 23,
           "slot_group": "Sample collection and processing"
         },
@@ -472,43 +472,43 @@
           "rank": 63,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "rank": 64,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "rank": 65,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_2_vaccine_name": {
-          "name": "vaccination_dose_2_vaccine_name",
+        "vaccine_name_dose_2": {
+          "name": "vaccine_name_dose_2",
           "rank": 66,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_2_vaccination_date": {
-          "name": "vaccination_dose_2_vaccination_date",
+        "vaccination_date_dose_2": {
+          "name": "vaccination_date_dose_2",
           "rank": 67,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_3_vaccine_name": {
-          "name": "vaccination_dose_3_vaccine_name",
+        "vaccine_name_dose_3": {
+          "name": "vaccine_name_dose_3",
           "rank": 68,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_3_vaccination_date": {
-          "name": "vaccination_dose_3_vaccination_date",
+        "vaccination_date_dose_3": {
+          "name": "vaccination_date_dose_3",
           "rank": 69,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_4_vaccine_name": {
-          "name": "vaccination_dose_4_vaccine_name",
+        "vaccine_name_dose_4": {
+          "name": "vaccine_name_dose_4",
           "rank": 70,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_4_vaccination_date": {
-          "name": "vaccination_dose_4_vaccination_date",
+        "vaccination_date_dose_4": {
+          "name": "vaccination_date_dose_4",
           "rank": 71,
           "slot_group": "Host vaccination information"
         },
@@ -874,8 +874,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "comments": [
@@ -897,7 +897,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -1174,8 +1174,8 @@
             "partial_match": false
           }
         },
-        "genbank_accession": {
-          "name": "genbank_accession",
+        "genbank_ena_ddbj_accession": {
+          "name": "genbank_ena_ddbj_accession",
           "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
           "title": "GenBank accession",
           "comments": [
@@ -1193,7 +1193,7 @@
           ],
           "rank": 11,
           "slot_uri": "GENEPIO:0001145",
-          "alias": "genbank_accession",
+          "alias": "genbank_ena_ddbj_accession",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -1370,8 +1370,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence submitter contact email",
           "comments": [
@@ -1388,7 +1388,7 @@
           ],
           "rank": 17,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -1575,8 +1575,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The province/territory where the sample was collected.",
           "title": "geo_loc_name (state/province/territory)",
           "comments": [
@@ -1596,7 +1596,7 @@
           ],
           "rank": 23,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -3022,8 +3022,8 @@
           "slot_group": "Host vaccination information",
           "range": "integer"
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
           "title": "vaccination dose 1 vaccine name",
           "comments": [
@@ -3040,7 +3040,7 @@
           ],
           "rank": 64,
           "slot_uri": "GENEPIO:0100313",
-          "alias": "vaccination_dose_1_vaccine_name",
+          "alias": "vaccine_name_dose_1",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -3055,8 +3055,8 @@
             }
           ]
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
           "todos": [
@@ -3076,7 +3076,7 @@
           ],
           "rank": 65,
           "slot_uri": "GENEPIO:0100314",
-          "alias": "vaccination_dose_1_vaccination_date",
+          "alias": "vaccination_date_dose_1",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -3091,8 +3091,8 @@
             }
           ]
         },
-        "vaccination_dose_2_vaccine_name": {
-          "name": "vaccination_dose_2_vaccine_name",
+        "vaccine_name_dose_2": {
+          "name": "vaccine_name_dose_2",
           "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
           "title": "vaccination dose 2 vaccine name",
           "comments": [
@@ -3109,7 +3109,7 @@
           ],
           "rank": 66,
           "slot_uri": "GENEPIO:0100315",
-          "alias": "vaccination_dose_2_vaccine_name",
+          "alias": "vaccine_name_dose_2",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -3124,8 +3124,8 @@
             }
           ]
         },
-        "vaccination_dose_2_vaccination_date": {
-          "name": "vaccination_dose_2_vaccination_date",
+        "vaccination_date_dose_2": {
+          "name": "vaccination_date_dose_2",
           "description": "The date the second dose of a vaccine was administered.",
           "title": "vaccination dose 2 vaccination date",
           "todos": [
@@ -3145,7 +3145,7 @@
           ],
           "rank": 67,
           "slot_uri": "GENEPIO:0100316",
-          "alias": "vaccination_dose_2_vaccination_date",
+          "alias": "vaccination_date_dose_2",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -3160,8 +3160,8 @@
             }
           ]
         },
-        "vaccination_dose_3_vaccine_name": {
-          "name": "vaccination_dose_3_vaccine_name",
+        "vaccine_name_dose_3": {
+          "name": "vaccine_name_dose_3",
           "description": "The name of the vaccine administered as the third dose of a vaccine regimen.",
           "title": "vaccination dose 3 vaccine name",
           "comments": [
@@ -3178,7 +3178,7 @@
           ],
           "rank": 68,
           "slot_uri": "GENEPIO:0100317",
-          "alias": "vaccination_dose_3_vaccine_name",
+          "alias": "vaccine_name_dose_3",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -3193,8 +3193,8 @@
             }
           ]
         },
-        "vaccination_dose_3_vaccination_date": {
-          "name": "vaccination_dose_3_vaccination_date",
+        "vaccination_date_dose_3": {
+          "name": "vaccination_date_dose_3",
           "description": "The date the third dose of a vaccine was administered.",
           "title": "vaccination dose 3 vaccination date",
           "todos": [
@@ -3214,7 +3214,7 @@
           ],
           "rank": 69,
           "slot_uri": "GENEPIO:0100318",
-          "alias": "vaccination_dose_3_vaccination_date",
+          "alias": "vaccination_date_dose_3",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -3229,8 +3229,8 @@
             }
           ]
         },
-        "vaccination_dose_4_vaccine_name": {
-          "name": "vaccination_dose_4_vaccine_name",
+        "vaccine_name_dose_4": {
+          "name": "vaccine_name_dose_4",
           "description": "The name of the vaccine administered as the fourth dose of a vaccine regimen.",
           "title": "vaccination dose 4 vaccine name",
           "comments": [
@@ -3247,7 +3247,7 @@
           ],
           "rank": 70,
           "slot_uri": "GENEPIO:0100319",
-          "alias": "vaccination_dose_4_vaccine_name",
+          "alias": "vaccine_name_dose_4",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -3262,8 +3262,8 @@
             }
           ]
         },
-        "vaccination_dose_4_vaccination_date": {
-          "name": "vaccination_dose_4_vaccination_date",
+        "vaccination_date_dose_4": {
+          "name": "vaccination_date_dose_4",
           "description": "The date the fourth dose of a vaccine was administered.",
           "title": "vaccination dose 4 vaccination date",
           "todos": [
@@ -3283,7 +3283,7 @@
           ],
           "rank": 71,
           "slot_uri": "GENEPIO:0100320",
-          "alias": "vaccination_dose_4_vaccination_date",
+          "alias": "vaccination_date_dose_4",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -5459,8 +5459,8 @@
     }
   },
   "slots": {
-    "specimen_collector_sample_id": {
-      "name": "specimen_collector_sample_id",
+    "specimen_sample_collector_sample_id": {
+      "name": "specimen_sample_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "specimen collector sample ID",
       "comments": [
@@ -5719,8 +5719,8 @@
         "partial_match": false
       }
     },
-    "genbank_accession": {
-      "name": "genbank_accession",
+    "genbank_ena_ddbj_accession": {
+      "name": "genbank_ena_ddbj_accession",
       "description": "The GenBank identifier assigned to the sequence in the INSDC archives.",
       "title": "GenBank accession",
       "comments": [
@@ -5891,8 +5891,8 @@
         }
       ]
     },
-    "sequence_submitter_contact_email": {
-      "name": "sequence_submitter_contact_email",
+    "sequence_submitted_by_contact_email": {
+      "name": "sequence_submitted_by_contact_email",
       "description": "The email address of the contact responsible for follow-up regarding the sequence.",
       "title": "sequence submitter contact email",
       "comments": [
@@ -6072,8 +6072,8 @@
         }
       ]
     },
-    "geo_loc_name_state_province_territory": {
-      "name": "geo_loc_name_state_province_territory",
+    "geo_loc_name_state_province_territory_region": {
+      "name": "geo_loc_name_state_province_territory_region",
       "description": "The province/territory where the sample was collected.",
       "title": "geo_loc_name (state/province/territory)",
       "comments": [
@@ -7355,8 +7355,8 @@
       ],
       "range": "integer"
     },
-    "vaccination_dose_1_vaccine_name": {
-      "name": "vaccination_dose_1_vaccine_name",
+    "vaccine_name_dose_1": {
+      "name": "vaccine_name_dose_1",
       "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
       "title": "vaccination dose 1 vaccine name",
       "comments": [
@@ -7384,8 +7384,8 @@
         }
       ]
     },
-    "vaccination_dose_1_vaccination_date": {
-      "name": "vaccination_dose_1_vaccination_date",
+    "vaccination_date_dose_1": {
+      "name": "vaccination_date_dose_1",
       "description": "The date the first dose of a vaccine was administered.",
       "title": "vaccination dose 1 vaccination date",
       "todos": [
@@ -7416,8 +7416,8 @@
         }
       ]
     },
-    "vaccination_dose_2_vaccine_name": {
-      "name": "vaccination_dose_2_vaccine_name",
+    "vaccine_name_dose_2": {
+      "name": "vaccine_name_dose_2",
       "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
       "title": "vaccination dose 2 vaccine name",
       "comments": [
@@ -7445,8 +7445,8 @@
         }
       ]
     },
-    "vaccination_dose_2_vaccination_date": {
-      "name": "vaccination_dose_2_vaccination_date",
+    "vaccination_date_dose_2": {
+      "name": "vaccination_date_dose_2",
       "description": "The date the second dose of a vaccine was administered.",
       "title": "vaccination dose 2 vaccination date",
       "todos": [
@@ -7477,8 +7477,8 @@
         }
       ]
     },
-    "vaccination_dose_3_vaccine_name": {
-      "name": "vaccination_dose_3_vaccine_name",
+    "vaccine_name_dose_3": {
+      "name": "vaccine_name_dose_3",
       "description": "The name of the vaccine administered as the third dose of a vaccine regimen.",
       "title": "vaccination dose 3 vaccine name",
       "comments": [
@@ -7506,8 +7506,8 @@
         }
       ]
     },
-    "vaccination_dose_3_vaccination_date": {
-      "name": "vaccination_dose_3_vaccination_date",
+    "vaccination_date_dose_3": {
+      "name": "vaccination_date_dose_3",
       "description": "The date the third dose of a vaccine was administered.",
       "title": "vaccination dose 3 vaccination date",
       "todos": [
@@ -7538,8 +7538,8 @@
         }
       ]
     },
-    "vaccination_dose_4_vaccine_name": {
-      "name": "vaccination_dose_4_vaccine_name",
+    "vaccine_name_dose_4": {
+      "name": "vaccine_name_dose_4",
       "description": "The name of the vaccine administered as the fourth dose of a vaccine regimen.",
       "title": "vaccination dose 4 vaccine name",
       "comments": [
@@ -7567,8 +7567,8 @@
         }
       ]
     },
-    "vaccination_dose_4_vaccination_date": {
-      "name": "vaccination_dose_4_vaccination_date",
+    "vaccination_date_dose_4": {
+      "name": "vaccination_date_dose_4",
       "description": "The date the fourth dose of a vaccine was administered.",
       "title": "vaccination dose 4 vaccination date",
       "todos": [

@@ -50,7 +50,7 @@ classes:
     annotations:
       version: 3.0.1
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - third_party_lab_service_provider_name
       - third_party_lab_sample_id
       - case_id
@@ -60,19 +60,19 @@ classes:
       - bioproject_accession
       - biosample_accession
       - sra_accession
-      - genbank_accession
+      - genbank_ena_ddbj_accession
       - gisaid_accession
       - sample_collected_by
       - sample_collector_contact_email
       - sample_collector_contact_address
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - sequence_submitter_contact_address
       - sample_collection_date
       - sample_collection_date_precision
       - sample_received_date
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_city
       - organism
       - isolate_id
@@ -113,14 +113,14 @@ classes:
       - complications
       - host_vaccination_status
       - number_of_vaccine_doses_received
-      - vaccination_dose_1_vaccine_name
-      - vaccination_dose_1_vaccination_date
-      - vaccination_dose_2_vaccine_name
-      - vaccination_dose_2_vaccination_date
-      - vaccination_dose_3_vaccine_name
-      - vaccination_dose_3_vaccination_date
-      - vaccination_dose_4_vaccine_name
-      - vaccination_dose_4_vaccination_date
+      - vaccine_name_dose_1
+      - vaccination_date_dose_1
+      - vaccine_name_dose_2
+      - vaccination_date_dose_2
+      - vaccine_name_dose_3
+      - vaccination_date_dose_3
+      - vaccine_name_dose_4
+      - vaccination_date_dose_4
       - vaccination_history
       - location_of_exposure_geo_loc_name_country
       - destination_of_most_recent_travel_city
@@ -194,8 +194,8 @@ classes:
       - authors
       - dataharmonizer_provenance
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database Identifiers
       third_party_lab_service_provider_name:
@@ -234,8 +234,8 @@ classes:
         name: sra_accession
         rank: 10
         slot_group: Database Identifiers
-      genbank_accession:
-        name: genbank_accession
+      genbank_ena_ddbj_accession:
+        name: genbank_ena_ddbj_accession
         rank: 11
         slot_group: Database Identifiers
       gisaid_accession:
@@ -258,8 +258,8 @@ classes:
         name: sequence_submitted_by
         rank: 16
         slot_group: Sample collection and processing
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 17
         slot_group: Sample collection and processing
       sequence_submitter_contact_address:
@@ -282,8 +282,8 @@ classes:
         name: geo_loc_name_country
         rank: 22
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 23
         slot_group: Sample collection and processing
       geo_loc_name_city:
@@ -446,36 +446,36 @@ classes:
         name: number_of_vaccine_doses_received
         rank: 63
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccine_name:
-        name: vaccination_dose_1_vaccine_name
+      vaccine_name_dose_1:
+        name: vaccine_name_dose_1
         rank: 64
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccination_date:
-        name: vaccination_dose_1_vaccination_date
+      vaccination_date_dose_1:
+        name: vaccination_date_dose_1
         rank: 65
         slot_group: Host vaccination information
-      vaccination_dose_2_vaccine_name:
-        name: vaccination_dose_2_vaccine_name
+      vaccine_name_dose_2:
+        name: vaccine_name_dose_2
         rank: 66
         slot_group: Host vaccination information
-      vaccination_dose_2_vaccination_date:
-        name: vaccination_dose_2_vaccination_date
+      vaccination_date_dose_2:
+        name: vaccination_date_dose_2
         rank: 67
         slot_group: Host vaccination information
-      vaccination_dose_3_vaccine_name:
-        name: vaccination_dose_3_vaccine_name
+      vaccine_name_dose_3:
+        name: vaccine_name_dose_3
         rank: 68
         slot_group: Host vaccination information
-      vaccination_dose_3_vaccination_date:
-        name: vaccination_dose_3_vaccination_date
+      vaccination_date_dose_3:
+        name: vaccination_date_dose_3
         rank: 69
         slot_group: Host vaccination information
-      vaccination_dose_4_vaccine_name:
-        name: vaccination_dose_4_vaccine_name
+      vaccine_name_dose_4:
+        name: vaccine_name_dose_4
         rank: 70
         slot_group: Host vaccination information
-      vaccination_dose_4_vaccination_date:
-        name: vaccination_dose_4_vaccination_date
+      vaccination_date_dose_4:
+        name: vaccination_date_dose_4
         rank: 71
         slot_group: Host vaccination information
       vaccination_history:
@@ -767,8 +767,8 @@ classes:
         rank: 143
         slot_group: Contributor acknowledgement
 slots:
-  specimen_collector_sample_id:
-    name: specimen_collector_sample_id
+  specimen_sample_collector_sample_id:
+    name: specimen_sample_collector_sample_id
     slot_uri: GENEPIO:0001123
     title: specimen collector sample ID
     range: WhitespaceMinimizedString
@@ -918,8 +918,8 @@ slots:
       - Store the accession assigned to the submitted "run". NCBI-SRA accessions start with SRR.
     examples:
       - value: SRR11177792
-  genbank_accession:
-    name: genbank_accession
+  genbank_ena_ddbj_accession:
+    name: genbank_ena_ddbj_accession
     slot_uri: GENEPIO:0001145
     title: GenBank accession
     range: WhitespaceMinimizedString
@@ -1018,8 +1018,8 @@ slots:
       - The name of the agency should be written out in full, (with minor exceptions) and be consistent across multple submissions. If submitting specimens rather than sequencing data, please put the "National Microbiology Laboratory (NML)".
     examples:
       - value: Public Health Ontario (PHO)
-  sequence_submitter_contact_email:
-    name: sequence_submitter_contact_email
+  sequence_submitted_by_contact_email:
+    name: sequence_submitted_by_contact_email
     slot_uri: GENEPIO:0001165
     title: sequence submitter contact email
     range: WhitespaceMinimizedString
@@ -1117,8 +1117,8 @@ slots:
       - Provide the country name from the controlled vocabulary provided.
     examples:
       - value: Canada
-  geo_loc_name_state_province_territory:
-    name: geo_loc_name_state_province_territory
+  geo_loc_name_state_province_territory_region:
+    name: geo_loc_name_state_province_territory_region
     slot_uri: GENEPIO:0001185
     title: geo_loc_name (state/province/territory)
     any_of:
@@ -1809,8 +1809,8 @@ slots:
       - Record how many doses of the vaccine the host has received.
     examples:
       - value: '2'
-  vaccination_dose_1_vaccine_name:
-    name: vaccination_dose_1_vaccine_name
+  vaccine_name_dose_1:
+    name: vaccine_name_dose_1
     slot_uri: GENEPIO:0100313
     title: vaccination dose 1 vaccine name
     any_of:
@@ -1823,8 +1823,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the first dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_1_vaccination_date:
-    name: vaccination_dose_1_vaccination_date
+  vaccination_date_dose_1:
+    name: vaccination_date_dose_1
     slot_uri: GENEPIO:0100314
     title: vaccination dose 1 vaccination date
     any_of:
@@ -1839,8 +1839,8 @@ slots:
       - Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     examples:
       - value: '2021-03-01'
-  vaccination_dose_2_vaccine_name:
-    name: vaccination_dose_2_vaccine_name
+  vaccine_name_dose_2:
+    name: vaccine_name_dose_2
     slot_uri: GENEPIO:0100315
     title: vaccination dose 2 vaccine name
     any_of:
@@ -1853,8 +1853,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the second dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_2_vaccination_date:
-    name: vaccination_dose_2_vaccination_date
+  vaccination_date_dose_2:
+    name: vaccination_date_dose_2
     slot_uri: GENEPIO:0100316
     title: vaccination dose 2 vaccination date
     any_of:
@@ -1869,8 +1869,8 @@ slots:
       - Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     examples:
       - value: '2021-09-01'
-  vaccination_dose_3_vaccine_name:
-    name: vaccination_dose_3_vaccine_name
+  vaccine_name_dose_3:
+    name: vaccine_name_dose_3
     slot_uri: GENEPIO:0100317
     title: vaccination dose 3 vaccine name
     any_of:
@@ -1883,8 +1883,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the third dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_3_vaccination_date:
-    name: vaccination_dose_3_vaccination_date
+  vaccination_date_dose_3:
+    name: vaccination_date_dose_3
     slot_uri: GENEPIO:0100318
     title: vaccination dose 3 vaccination date
     any_of:
@@ -1899,8 +1899,8 @@ slots:
       - Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     examples:
       - value: '2021-12-30'
-  vaccination_dose_4_vaccine_name:
-    name: vaccination_dose_4_vaccine_name
+  vaccine_name_dose_4:
+    name: vaccine_name_dose_4
     slot_uri: GENEPIO:0100319
     title: vaccination dose 4 vaccine name
     any_of:
@@ -1913,8 +1913,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the fourth dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_4_vaccination_date:
-    name: vaccination_dose_4_vaccination_date
+  vaccination_date_dose_4:
+    name: vaccination_date_dose_4
     slot_uri: GENEPIO:0100320
     title: vaccination dose 4 vaccination date
     any_of:

@@ -19,7 +19,7 @@ classes:
     annotations:
       version: 1.2.1
     slots:
-      - sample_collector_sample_id
+      - specimen_specimen_sample_collector_sample_id
       - bioproject_accession
       - biosample_accession
       - sample_collection_data_steward_contact_email
@@ -29,7 +29,7 @@ classes:
       - sample_collection_url
       - sample_collector_contact_email
       - geo_loc_name_country
-      - geo_loc_name_state/province/territory
+      - geo_loc_name_state_province_territory_region_region
       - geo_loc_name_site
       - organism
       - purpose_of_sampling
@@ -72,7 +72,7 @@ classes:
       - sequenced_by
       - sequenced_by_contact_email
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - raw_sequence_data_processing_method
       - dehosting_method
       - number_of_total_reads
@@ -99,8 +99,8 @@ classes:
       - authors
       - dataharmonizer_provenance
     slot_usage:
-      sample_collector_sample_id:
-        name: sample_collector_sample_id
+      specimen_specimen_sample_collector_sample_id:
+        name: specimen_specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database Identifiers
       bioproject_accession:
@@ -139,8 +139,8 @@ classes:
         name: geo_loc_name_country
         rank: 10
         slot_group: Sample collection and processing
-      geo_loc_name_state/province/territory:
-        name: geo_loc_name_state/province/territory
+      geo_loc_name_state_province_territory_region_region:
+        name: geo_loc_name_state_province_territory_region_region
         rank: 11
         slot_group: Sample collection and processing
       geo_loc_name_site:
@@ -311,8 +311,8 @@ classes:
         name: sequence_submitted_by
         rank: 53
         slot_group: Sequence information
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 54
         slot_group: Sequence information
       raw_sequence_data_processing_method:
@@ -416,8 +416,8 @@ classes:
         rank: 79
         slot_group: Contributor acknowledgement
 slots:
-  sample_collector_sample_id:
-    name: sample_collector_sample_id
+  specimen_specimen_sample_collector_sample_id:
+    name: specimen_specimen_sample_collector_sample_id
     slot_uri: GENEPIO:0001123
     title: sample_collector_sample_ID
     any_of:
@@ -546,8 +546,8 @@ slots:
       - If known, select a value from the pick list.
     examples:
       - value: Canada
-  geo_loc_name_state/province/territory:
-    name: geo_loc_name_state/province/territory
+  geo_loc_name_state_province_territory_region_region:
+    name: geo_loc_name_state_province_territory_region_region
     slot_uri: GENEPIO:0001185
     title: geo_loc_name_(state/province/territory)
     any_of:
@@ -1105,8 +1105,8 @@ slots:
       - The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions. For Canadian institutions submitting specimens rather than sequencing data, please put the "National Microbiology Laboratory (NML)".
     examples:
       - value: Public Health Ontario (PHO)
-  sequence_submitter_contact_email:
-    name: sequence_submitter_contact_email
+  sequence_submitted_by_contact_email:
+    name: sequence_submitted_by_contact_email
     slot_uri: GENEPIO:0001165
     title: sequence_submitter_contact_email
     any_of:
@@ -3394,13 +3394,13 @@ enums:
       Chicken meat [FOODON:00001040]:
         text: Chicken meat [FOODON:00001040]
         title: Chicken meat [FOODON:00001040]
-        meaning: FOODON:00004239
+        meaning: FOODON:00001040
         description: Meat from a chicken
         is_a: Meat, poultry and fish (organizational term)
       Chicken meat (ground) [FOODON:02020311]:
         text: Chicken meat (ground) [FOODON:02020311]
         title: Chicken meat (ground) [FOODON:02020311]
-        meaning: FOODON:03311826
+        meaning: FOODON:02020311
         description: A food product made of ground or minced chicken meat.
         is_a: Chicken meat [FOODON:00001040]
       Chicken meat (ground or minced, lean) [FOODON:03000392]:
@@ -3544,13 +3544,13 @@ enums:
       pork meat (ground) [FOODON:02021718]:
         text: pork meat (ground) [FOODON:02021718]
         title: pork meat (ground) [FOODON:02021718]
-        meaning: FOODON:03309969
+        meaning: FOODON:02021718
         description: Meat from a pig that has been ground or minced.
         is_a: Meat, poultry and fish (organizational term)
       Pork meat (ground or minced, boneless) [FOODON:03000413]:
         text: Pork meat (ground or minced, boneless) [FOODON:03000413]
         title: Pork meat (ground or minced, boneless) [FOODON:03000413]
-        meaning: FOODON:02021718
+        meaning: FOODON:03000413
         description: Ground or minced pork meat that has had no bone material in it.
         is_a: pork meat (ground) [FOODON:02021718]
       Pork meat (ground or minced, extra lean) [FOODON:03000399]:
@@ -3760,7 +3760,7 @@ enums:
       Turkey meat (ground) [FOODON:02020577]:
         text: Turkey meat (ground) [FOODON:02020577]
         title: Turkey meat (ground) [FOODON:02020577]
-        meaning: FOODON:00002714
+        meaning: FOODON:02020577
         description: A food product made of ground or minced turkey meat.
         is_a: Turkey meat [FOODON:00001286]
       Turkey meat (ground or minced, lean) [FOODON:03000393]:
@@ -3790,7 +3790,7 @@ enums:
       Turkey meat (ground or minced, boneless) [FOODON:03000411]:
         text: Turkey meat (ground or minced, boneless) [FOODON:03000411]
         title: Turkey meat (ground or minced, boneless) [FOODON:03000411]
-        meaning: FOODON:02020577
+        meaning: FOODON:03000411
         description: Ground or minced turkey meat that has had no bone material in it.
         is_a: Turkey meat [FOODON:00001286]
       Turkey thigh [FOODON:00003325]:
@@ -4791,13 +4791,13 @@ enums:
       Chinook salmon [NCBITaxon:74940]:
         text: Chinook salmon [NCBITaxon:74940]
         title: Chinook salmon [NCBITaxon:74940]
-        meaning: NCBITaxon:8019
+        meaning: NCBITaxon:74940
         description: A species of pacific salmon in North America, that is commonly called as coho salmon.
         is_a: Salmon [FOODON:00003473]
       Coho Salmon [NCBITaxon:8019]:
         text: Coho Salmon [NCBITaxon:8019]
         title: Coho Salmon [NCBITaxon:8019]
-        meaning: NCBITaxon:74940
+        meaning: NCBITaxon:8019
         description: The largest species of pacific salmon in North America (Oncorhynchus tshawytscha).
         is_a: Salmon [FOODON:00003473]
       Mammal [FOODON:03411134]:
@@ -5630,19 +5630,19 @@ enums:
       Shewanella pealeana [NCBITaxon:70864]:
         text: Shewanella pealeana [NCBITaxon:70864]
         title: Shewanella pealeana [NCBITaxon:70864]
-        meaning: NCBITaxon:2726434
+        meaning: NCBITaxon:70864
         description: A species of Gram-negative, mesophilic, facultatively anaerobic, psychrotolerant, motile and rod-shaped bacteria that are assigned to the genus Shewanella. https://www.microbiologyresearch.org/content/journal/ijsem/10.1099/00207713-49-4-13411]
         is_a: Shewanella [NCBITaxon:22]
       Shewanella putrefaciens [NCBITaxon:24]:
         text: Shewanella putrefaciens [NCBITaxon:24]
         title: Shewanella putrefaciens [NCBITaxon:24]
-        meaning: NCBITaxon:70864
+        meaning: NCBITaxon:24
         description: A species of Gram-negative, mesophilic, facultatively anaerobic, psychrotolerant, motile and rod-shaped bacteria that are assigned to the genus Shewanella. https://www.microbiologyresearch.org/content/journal/ijsem/10.1099/00207713-49-4-13411]
         is_a: Shewanella [NCBITaxon:22]
       Shewanella oncorhynchi [NCBITaxon:2726434]:
         text: Shewanella oncorhynchi [NCBITaxon:2726434]
         title: Shewanella oncorhynchi [NCBITaxon:2726434]
-        meaning: NCBITaxon:24
+        meaning: NCBITaxon:2726434
         description: A species of facultatively anaerobic, Gram negative, rod shaped bacteria assigned to the phylum Proteobacteria. This species can reduce metals including iron, manganese and uranium to produce energy. S. putrefaciens is found in marine environments and is a pathogen that can cause bacteremia, biliary tract infection, peritonitis, empyema, and various skin and soft tissue infections. [http://purl.obolibrary.org/obo/NCIT_C86743]
         is_a: Shewanella [NCBITaxon:22]
       Shewanella sp. [NCBITaxon:50422]:

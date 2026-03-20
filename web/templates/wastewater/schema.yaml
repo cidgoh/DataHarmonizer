@@ -19,7 +19,7 @@ classes:
     annotations:
       version: 4.2.2
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - specimen_collector_subsample_id
       - pooled_sample_id
       - specimen_collector_project_id
@@ -38,7 +38,7 @@ classes:
       - sample_collector_contact_name
       - sample_collector_contact_email
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_city
       - geo_loc_name_site
@@ -50,7 +50,7 @@ classes:
       - purpose_of_sampling
       - scale_of_sampling
       - sample_received_date
-      - sample_collection_start_date
+      - sample_collection_date
       - sample_collection_end_date
       - sample_processing_date
       - sample_collection_start_time
@@ -68,7 +68,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol_name
+      - experimental_protocol
       - experimental_protocol_url
       - environmental_site
       - proximal_environmental_site
@@ -166,7 +166,7 @@ classes:
       - sequenced_by_contact_name
       - sequenced_by_contact_email
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - sequencing_date
       - library_id
       - sequencing_platform
@@ -232,8 +232,8 @@ classes:
       - diagnostic_measurement_unit_3
       - diagnostic_measurement_method_3
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database identifiers
       specimen_collector_subsample_id:
@@ -308,8 +308,8 @@ classes:
         name: geo_loc_name_country
         rank: 19
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 20
         slot_group: Sample collection and processing
       geo_loc_name_county_region:
@@ -364,8 +364,8 @@ classes:
         name: sample_received_date
         rank: 31
         slot_group: Sample collection and processing
-      sample_collection_start_date:
-        name: sample_collection_start_date
+      sample_collection_date:
+        name: sample_collection_date
         rank: 32
         slot_group: Sample collection and processing
       sample_collection_end_date:
@@ -436,8 +436,8 @@ classes:
         name: specimen_processing_details
         rank: 49
         slot_group: Sample collection and processing
-      experimental_protocol_name:
-        name: experimental_protocol_name
+      experimental_protocol:
+        name: experimental_protocol
         rank: 50
         slot_group: Sample collection and processing
       experimental_protocol_url:
@@ -828,8 +828,8 @@ classes:
         name: sequence_submitted_by
         rank: 147
         slot_group: Sequence information
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 148
         slot_group: Sequence information
       sequencing_date:
@@ -1120,7 +1120,7 @@ classes:
     annotations:
       version: 4.2.2
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - specimen_collector_subsample_id
       - pooled_sample_id
       - metagenomeassembled_genome_mag_id
@@ -1140,7 +1140,7 @@ classes:
       - sample_collector_contact_name
       - sample_collector_contact_email
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_city
       - geo_loc_name_site
@@ -1152,7 +1152,7 @@ classes:
       - purpose_of_sampling
       - scale_of_sampling
       - sample_received_date
-      - sample_collection_start_date
+      - sample_collection_date
       - sample_collection_end_date
       - sample_processing_date
       - sample_collection_start_time
@@ -1170,7 +1170,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol_name
+      - experimental_protocol
       - experimental_protocol_url
       - environmental_site
       - proximal_environmental_site
@@ -1268,7 +1268,7 @@ classes:
       - sequenced_by_contact_name
       - sequenced_by_contact_email
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - sequencing_date
       - library_id
       - sequencing_platform
@@ -1334,8 +1334,8 @@ classes:
       - diagnostic_measurement_unit_3
       - diagnostic_measurement_method_3
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database identifiers
       specimen_collector_subsample_id:
@@ -1414,8 +1414,8 @@ classes:
         name: geo_loc_name_country
         rank: 20
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 21
         slot_group: Sample collection and processing
       geo_loc_name_county_region:
@@ -1470,8 +1470,8 @@ classes:
         name: sample_received_date
         rank: 32
         slot_group: Sample collection and processing
-      sample_collection_start_date:
-        name: sample_collection_start_date
+      sample_collection_date:
+        name: sample_collection_date
         rank: 33
         slot_group: Sample collection and processing
       sample_collection_end_date:
@@ -1542,8 +1542,8 @@ classes:
         name: specimen_processing_details
         rank: 50
         slot_group: Sample collection and processing
-      experimental_protocol_name:
-        name: experimental_protocol_name
+      experimental_protocol:
+        name: experimental_protocol
         rank: 51
         slot_group: Sample collection and processing
       experimental_protocol_url:
@@ -1934,8 +1934,8 @@ classes:
         name: sequence_submitted_by
         rank: 148
         slot_group: Sequence information
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 149
         slot_group: Sequence information
       sequencing_date:
@@ -2227,7 +2227,7 @@ classes:
     annotations:
       version: 4.4.3
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - specimen_collector_subsample_id
       - pooled_sample_id
       - metagenomeassembled_genome_mag_id
@@ -2247,7 +2247,7 @@ classes:
       - sample_collector_contact_name
       - sample_collector_contact_email
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_city
       - geo_loc_name_site
@@ -2259,7 +2259,7 @@ classes:
       - purpose_of_sampling
       - scale_of_sampling
       - sample_received_date
-      - sample_collection_start_date
+      - sample_collection_date
       - sample_collection_end_date
       - sample_processing_date
       - sample_collection_start_time
@@ -2277,7 +2277,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol_name
+      - experimental_protocol
       - experimental_protocol_url
       - environmental_site
       - proximal_environmental_site
@@ -2389,7 +2389,7 @@ classes:
       - sequenced_by_contact_name
       - sequenced_by_contact_email
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - sequencing_date
       - library_id
       - sequencing_platform
@@ -2460,8 +2460,8 @@ classes:
       - diagnostic_measurement_unit_3
       - diagnostic_measurement_method_3
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database identifiers
       specimen_collector_subsample_id:
@@ -2540,8 +2540,8 @@ classes:
         name: geo_loc_name_country
         rank: 20
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 21
         slot_group: Sample collection and processing
       geo_loc_name_county_region:
@@ -2596,8 +2596,8 @@ classes:
         name: sample_received_date
         rank: 32
         slot_group: Sample collection and processing
-      sample_collection_start_date:
-        name: sample_collection_start_date
+      sample_collection_date:
+        name: sample_collection_date
         rank: 33
         slot_group: Sample collection and processing
       sample_collection_end_date:
@@ -2668,8 +2668,8 @@ classes:
         name: specimen_processing_details
         rank: 50
         slot_group: Sample collection and processing
-      experimental_protocol_name:
-        name: experimental_protocol_name
+      experimental_protocol:
+        name: experimental_protocol
         rank: 51
         slot_group: Sample collection and processing
       experimental_protocol_url:
@@ -3116,8 +3116,8 @@ classes:
         name: sequence_submitted_by
         rank: 162
         slot_group: Sequence information
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 163
         slot_group: Sequence information
       sequencing_date:
@@ -3423,8 +3423,8 @@ classes:
         rank: 232
         slot_group: Pathogen diagnostic testing
 slots:
-  specimen_collector_sample_id:
-    name: specimen_collector_sample_id
+  specimen_sample_collector_sample_id:
+    name: specimen_sample_collector_sample_id
     slot_uri: GENEPIO:0001123
     title: specimen collector sample ID
     range: WhitespaceMinimizedString
@@ -3691,8 +3691,8 @@ slots:
       - If known, select a value from the pick list.
     examples:
       - value: Canada
-  geo_loc_name_state_province_territory:
-    name: geo_loc_name_state_province_territory
+  geo_loc_name_state_province_territory_region:
+    name: geo_loc_name_state_province_territory_region
     slot_uri: GENEPIO:0001185
     title: geo loc name (state/province/territory)
     any_of:
@@ -3860,8 +3860,8 @@ slots:
       - Provide the sample received date in ISO 8601 format, i.e. "YYYY-MM-DD".
     examples:
       - value: '2020-03-28'
-  sample_collection_start_date:
-    name: sample_collection_start_date
+  sample_collection_date:
+    name: sample_collection_date
     slot_uri: GENEPIO:0001174
     title: sample collection start date
     any_of:
@@ -3892,7 +3892,7 @@ slots:
     recommended: true
     description: The date on which sample collection ended for a continuous sample.
     todos:
-      - '>={sample_collection_start_date}'
+      - '>={sample_collection_date}'
       - <={today}
     comments:
       - Provide the date that sample collection ended in ISO 8601 format i.e. YYYY-MM-DD
@@ -4126,8 +4126,8 @@ slots:
       - Briefly describe the processes applied to the sample.
     examples:
       - value: 25 samples were pooled and further prepared as a single sample during library prep.
-  experimental_protocol_name:
-    name: experimental_protocol_name
+  experimental_protocol:
+    name: experimental_protocol
     slot_uri: GENEPIO:0101029
     title: experimental protocol name
     range: WhitespaceMinimizedString
@@ -5503,8 +5503,8 @@ slots:
       - The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions. For Canadian institutions submitting specimens rather than sequencing data, please put the "National Microbiology Laboratory (NML)".
     examples:
       - value: Public Health Ontario (PHO)
-  sequence_submitter_contact_email:
-    name: sequence_submitter_contact_email
+  sequence_submitted_by_contact_email:
+    name: sequence_submitted_by_contact_email
     slot_uri: GENEPIO:0001165
     title: sequence submitter contact email
     any_of:
@@ -5514,8 +5514,8 @@ slots:
     description: The email address of the contact responsible for follow-up regarding the sequence.
     pattern: ^\S+@\S+\.\S+$
     exact_mappings:
-      - NCBI_SRAGenomeTrakr:sequence_submitter_contact_email
-      - NCBI_SRA:sequence_submitter_contact_email
+      - NCBI_SRAGenomeTrakr:sequence_submitted_by_contact_email
+      - NCBI_SRA:sequence_submitted_by_contact_email
     comments:
       - The email address can represent a specific individual or laboratory.
     examples:
@@ -5528,7 +5528,7 @@ slots:
     recommended: true
     description: The date the sample was sequenced.
     todos:
-      - '>={sample_collection_start_date}'
+      - '>={sample_collection_date}'
       - <={today}
     comments:
       - ISO 8601 standard "YYYY-MM-DD".

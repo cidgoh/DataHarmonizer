@@ -38,7 +38,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.1.1"
+          "value": "1.1.2"
         }
       },
       "description": "Master specification (contains all fields/terms)",
@@ -46,8 +46,8 @@
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database identifiers"
         },
@@ -116,8 +116,8 @@
           "rank": 14,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 15,
           "slot_group": "Sample collection and processing"
         },
@@ -501,23 +501,23 @@
           "rank": 91,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "rank": 92,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "rank": 93,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_2_vaccine_name": {
-          "name": "vaccination_dose_2_vaccine_name",
+        "vaccine_name_dose_2": {
+          "name": "vaccine_name_dose_2",
           "rank": 94,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_2_vaccination_date": {
-          "name": "vaccination_dose_2_vaccination_date",
+        "vaccination_date_dose_2": {
+          "name": "vaccination_date_dose_2",
           "rank": 95,
           "slot_group": "Host vaccination information"
         },
@@ -1006,8 +1006,8 @@
           "rank": 192,
           "slot_group": "Sequence information"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 193,
           "slot_group": "Sequence information"
         },
@@ -1363,8 +1363,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen_collector_sample_ID",
           "comments": [
@@ -1382,7 +1382,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -1799,8 +1799,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo_loc_name_(state/province/territory)",
           "comments": [
@@ -1817,7 +1817,7 @@
           ],
           "rank": 15,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -4259,8 +4259,8 @@
           "range": "integer",
           "minimum_value": 0
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
           "title": "vaccination_dose_1_vaccine_name",
           "comments": [
@@ -4274,7 +4274,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 92,
           "slot_uri": "GENEPIO:0100313",
-          "alias": "vaccination_dose_1_vaccine_name",
+          "alias": "vaccine_name_dose_1",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -4283,8 +4283,8 @@
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination_dose_1_vaccination_date",
           "todos": [
@@ -4301,7 +4301,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 93,
           "slot_uri": "GENEPIO:0100314",
-          "alias": "vaccination_dose_1_vaccination_date",
+          "alias": "vaccination_date_dose_1",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -4310,8 +4310,8 @@
           "slot_group": "Host vaccination information",
           "range": "date"
         },
-        "vaccination_dose_2_vaccine_name": {
-          "name": "vaccination_dose_2_vaccine_name",
+        "vaccine_name_dose_2": {
+          "name": "vaccine_name_dose_2",
           "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
           "title": "vaccination_dose_2_vaccine_name",
           "comments": [
@@ -4325,7 +4325,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 94,
           "slot_uri": "GENEPIO:0100315",
-          "alias": "vaccination_dose_2_vaccine_name",
+          "alias": "vaccine_name_dose_2",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -4334,8 +4334,8 @@
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
-        "vaccination_dose_2_vaccination_date": {
-          "name": "vaccination_dose_2_vaccination_date",
+        "vaccination_date_dose_2": {
+          "name": "vaccination_date_dose_2",
           "description": "The date the second dose of a vaccine was administered.",
           "title": "vaccination_dose_2_vaccination_date",
           "todos": [
@@ -4352,7 +4352,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 95,
           "slot_uri": "GENEPIO:0100316",
-          "alias": "vaccination_dose_2_vaccination_date",
+          "alias": "vaccination_date_dose_2",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -7112,8 +7112,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence_submitter_contact_email",
           "comments": [
@@ -7127,7 +7127,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 193,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -9134,8 +9134,8 @@
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database identifiers"
         },
@@ -9204,8 +9204,8 @@
           "rank": 14,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 15,
           "slot_group": "Sample collection and processing"
         },
@@ -9464,8 +9464,8 @@
           "rank": 66,
           "slot_group": "Sequence information"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 67,
           "slot_group": "Sequence information"
         },
@@ -9821,8 +9821,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen_collector_sample_ID",
           "comments": [
@@ -9840,7 +9840,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "HPAIFood",
           "domain_of": [
             "HPAI",
@@ -10257,8 +10257,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo_loc_name_(state/province/territory)",
           "comments": [
@@ -10275,7 +10275,7 @@
           ],
           "rank": 15,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "HPAIFood",
           "domain_of": [
             "HPAI",
@@ -11890,8 +11890,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence_submitter_contact_email",
           "comments": [
@@ -11905,7 +11905,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 67,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "HPAIFood",
           "domain_of": [
             "HPAI",
@@ -13912,8 +13912,8 @@
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database identifiers"
         },
@@ -13982,8 +13982,8 @@
           "rank": 14,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 15,
           "slot_group": "Sample collection and processing"
         },
@@ -14657,8 +14657,8 @@
           "rank": 149,
           "slot_group": "Sequence information"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 150,
           "slot_group": "Sequence information"
         },
@@ -15014,8 +15014,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen_collector_sample_ID",
           "comments": [
@@ -15033,7 +15033,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -15450,8 +15450,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo_loc_name_(state/province/territory)",
           "comments": [
@@ -15468,7 +15468,7 @@
           ],
           "rank": 15,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -19399,8 +19399,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence_submitter_contact_email",
           "comments": [
@@ -19414,7 +19414,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 150,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -21421,8 +21421,8 @@
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database identifiers"
         },
@@ -21491,8 +21491,8 @@
           "rank": 14,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 15,
           "slot_group": "Sample collection and processing"
         },
@@ -22166,8 +22166,8 @@
           "rank": 149,
           "slot_group": "Sequence information"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 150,
           "slot_group": "Sequence information"
         },
@@ -22523,8 +22523,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen_collector_sample_ID",
           "comments": [
@@ -22542,7 +22542,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -22959,8 +22959,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo_loc_name_(state/province/territory)",
           "comments": [
@@ -22977,7 +22977,7 @@
           ],
           "rank": 15,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -26908,8 +26908,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence_submitter_contact_email",
           "comments": [
@@ -26923,7 +26923,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 150,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -28922,7 +28922,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.1.1"
+          "value": "1.1.2"
         }
       },
       "description": "Host-specific template for HPAI surveillance",
@@ -28930,8 +28930,8 @@
       "from_schema": "https://example.com/hpai",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database identifiers"
         },
@@ -29000,8 +29000,8 @@
           "rank": 14,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 15,
           "slot_group": "Sample collection and processing"
         },
@@ -29315,23 +29315,23 @@
           "rank": 77,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "rank": 78,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "rank": 79,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_2_vaccine_name": {
-          "name": "vaccination_dose_2_vaccine_name",
+        "vaccine_name_dose_2": {
+          "name": "vaccine_name_dose_2",
           "rank": 80,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_2_vaccination_date": {
-          "name": "vaccination_dose_2_vaccination_date",
+        "vaccination_date_dose_2": {
+          "name": "vaccination_date_dose_2",
           "rank": 81,
           "slot_group": "Host vaccination information"
         },
@@ -29405,8 +29405,8 @@
           "rank": 95,
           "slot_group": "Sequence information"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 96,
           "slot_group": "Sequence information"
         },
@@ -29762,8 +29762,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen_collector_sample_ID",
           "comments": [
@@ -29781,7 +29781,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -30198,8 +30198,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo_loc_name_(state/province/territory)",
           "comments": [
@@ -30216,7 +30216,7 @@
           ],
           "rank": 15,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -32152,8 +32152,8 @@
           "range": "integer",
           "minimum_value": 0
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
           "title": "vaccination_dose_1_vaccine_name",
           "comments": [
@@ -32167,7 +32167,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 78,
           "slot_uri": "GENEPIO:0100313",
-          "alias": "vaccination_dose_1_vaccine_name",
+          "alias": "vaccine_name_dose_1",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -32176,8 +32176,8 @@
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination_dose_1_vaccination_date",
           "todos": [
@@ -32194,7 +32194,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 79,
           "slot_uri": "GENEPIO:0100314",
-          "alias": "vaccination_dose_1_vaccination_date",
+          "alias": "vaccination_date_dose_1",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -32203,8 +32203,8 @@
           "slot_group": "Host vaccination information",
           "range": "date"
         },
-        "vaccination_dose_2_vaccine_name": {
-          "name": "vaccination_dose_2_vaccine_name",
+        "vaccine_name_dose_2": {
+          "name": "vaccine_name_dose_2",
           "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
           "title": "vaccination_dose_2_vaccine_name",
           "comments": [
@@ -32218,7 +32218,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 80,
           "slot_uri": "GENEPIO:0100315",
-          "alias": "vaccination_dose_2_vaccine_name",
+          "alias": "vaccine_name_dose_2",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -32227,8 +32227,8 @@
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
-        "vaccination_dose_2_vaccination_date": {
-          "name": "vaccination_dose_2_vaccination_date",
+        "vaccination_date_dose_2": {
+          "name": "vaccination_date_dose_2",
           "description": "The date the second dose of a vaccine was administered.",
           "title": "vaccination_dose_2_vaccination_date",
           "todos": [
@@ -32245,7 +32245,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 81,
           "slot_uri": "GENEPIO:0100316",
-          "alias": "vaccination_dose_2_vaccination_date",
+          "alias": "vaccination_date_dose_2",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -32675,8 +32675,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence_submitter_contact_email",
           "comments": [
@@ -32690,7 +32690,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 96,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -34686,8 +34686,8 @@
     }
   },
   "slots": {
-    "specimen_collector_sample_id": {
-      "name": "specimen_collector_sample_id",
+    "specimen_sample_collector_sample_id": {
+      "name": "specimen_sample_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "specimen_collector_sample_ID",
       "comments": [
@@ -35066,8 +35066,8 @@
         }
       ]
     },
-    "geo_loc_name_state_province_territory": {
-      "name": "geo_loc_name_state_province_territory",
+    "geo_loc_name_state_province_territory_region": {
+      "name": "geo_loc_name_state_province_territory_region",
       "description": "The state/province/territory of origin of the sample.",
       "title": "geo_loc_name_(state/province/territory)",
       "comments": [
@@ -37218,8 +37218,8 @@
       "range": "integer",
       "minimum_value": 0
     },
-    "vaccination_dose_1_vaccine_name": {
-      "name": "vaccination_dose_1_vaccine_name",
+    "vaccine_name_dose_1": {
+      "name": "vaccine_name_dose_1",
       "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
       "title": "vaccination_dose_1_vaccine_name",
       "comments": [
@@ -37238,8 +37238,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "vaccination_dose_1_vaccination_date": {
-      "name": "vaccination_dose_1_vaccination_date",
+    "vaccination_date_dose_1": {
+      "name": "vaccination_date_dose_1",
       "description": "The date the first dose of a vaccine was administered.",
       "title": "vaccination_dose_1_vaccination_date",
       "todos": [
@@ -37261,8 +37261,8 @@
       ],
       "range": "date"
     },
-    "vaccination_dose_2_vaccine_name": {
-      "name": "vaccination_dose_2_vaccine_name",
+    "vaccine_name_dose_2": {
+      "name": "vaccine_name_dose_2",
       "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
       "title": "vaccination_dose_2_vaccine_name",
       "comments": [
@@ -37281,8 +37281,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "vaccination_dose_2_vaccination_date": {
-      "name": "vaccination_dose_2_vaccination_date",
+    "vaccination_date_dose_2": {
+      "name": "vaccination_date_dose_2",
       "description": "The date the second dose of a vaccine was administered.",
       "title": "vaccination_dose_2_vaccination_date",
       "todos": [
@@ -39667,8 +39667,8 @@
         }
       ]
     },
-    "sequence_submitter_contact_email": {
-      "name": "sequence_submitter_contact_email",
+    "sequence_submitted_by_contact_email": {
+      "name": "sequence_submitted_by_contact_email",
       "description": "The email address of the contact responsible for follow-up regarding the sequence.",
       "title": "sequence_submitter_contact_email",
       "comments": [
@@ -43898,7 +43898,7 @@
         },
         "Spatula [NCIT:C149941]": {
           "text": "Spatula [NCIT:C149941]",
-          "meaning": "CIT:C149941",
+          "meaning": "NCIT:C149941",
           "title": "Spatula [NCIT:C149941]"
         },
         "Sponge [OBI:0002819]": {
@@ -45510,7 +45510,7 @@
         },
         "Undeclared [NCIT:C110959]": {
           "text": "Undeclared [NCIT:C110959]",
-          "meaning": "CIT:C110959",
+          "meaning": "NCIT:C110959",
           "title": "Undeclared [NCIT:C110959]"
         }
       }
@@ -45545,7 +45545,7 @@
         },
         "Healthy [NCIT:C115935]": {
           "text": "Healthy [NCIT:C115935]",
-          "meaning": "CIT:C115935",
+          "meaning": "NCIT:C115935",
           "title": "Healthy [NCIT:C115935]"
         },
         "Recovered [NCIT:C49498]": {
@@ -45607,7 +45607,7 @@
         },
         "Self-quarantining [NCIT:C173768]": {
           "text": "Self-quarantining [NCIT:C173768]",
-          "meaning": "CIT:C173768",
+          "meaning": "NCIT:C173768",
           "title": "Self-quarantining [NCIT:C173768]"
         }
       }
@@ -46376,7 +46376,7 @@
         },
         "Transplant [NCIT:C159659]": {
           "text": "Transplant [NCIT:C159659]",
-          "meaning": "CIT:C159659",
+          "meaning": "NCIT:C159659",
           "title": "Transplant [NCIT:C159659]"
         },
         "Cardiac transplant [NCIT:C131759]": {
@@ -46633,7 +46633,7 @@
         },
         "Neonatal complications [NCIT:C168498]": {
           "text": "Neonatal complications [NCIT:C168498]",
-          "meaning": "CIT:C168498",
+          "meaning": "NCIT:C168498",
           "title": "Neonatal complications [NCIT:C168498]"
         },
         "Noncardiogenic pulmonary edema [GENEPIO:0100085]": {

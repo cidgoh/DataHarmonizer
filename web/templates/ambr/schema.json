@@ -55,8 +55,8 @@
           "rank": 2,
           "slot_group": "Database Identifiers"
         },
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 3,
           "slot_group": "Database Identifiers"
         },
@@ -95,8 +95,8 @@
           "rank": 10,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 11,
           "slot_group": "Sample collection and processing"
         },
@@ -410,8 +410,8 @@
           "range": "WhitespaceMinimizedString",
           "recommended": true
         },
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "comments": [
@@ -426,7 +426,7 @@
           "rank": 3,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "AMBR",
           "domain_of": [
             "AMBR"
@@ -636,8 +636,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The province/territory where the sample was collected.",
           "title": "geo_loc_name (state/province/territory)",
           "comments": [
@@ -651,7 +651,7 @@
           "from_schema": "https://example.com/AMBR",
           "rank": 11,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "AMBR",
           "domain_of": [
             "AMBR"
@@ -2208,8 +2208,8 @@
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
-    "specimen_collector_sample_id": {
-      "name": "specimen_collector_sample_id",
+    "specimen_sample_collector_sample_id": {
+      "name": "specimen_sample_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "specimen collector sample ID",
       "comments": [
@@ -2403,8 +2403,8 @@
         }
       ]
     },
-    "geo_loc_name_state_province_territory": {
-      "name": "geo_loc_name_state_province_territory",
+    "geo_loc_name_state_province_territory_region": {
+      "name": "geo_loc_name_state_province_territory_region",
       "description": "The province/territory where the sample was collected.",
       "title": "geo_loc_name (state/province/territory)",
       "comments": [

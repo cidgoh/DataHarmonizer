@@ -19,7 +19,7 @@ classes:
     annotations:
       version: 1.2.3
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - third_party_lab_service_provider_name
       - third_party_lab_sample_id
       - case_id
@@ -29,7 +29,7 @@ classes:
       - bioproject_accession
       - biosample_accession
       - sra_accession
-      - genbank_accession
+      - genbank_ena_ddbj_accession
       - gisaid_accession
       - gisaid_virus_name
       - sample_collected_by
@@ -39,7 +39,7 @@ classes:
       - sample_collection_date
       - sample_collection_date_precision
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - organism
       - isolate_id
       - purpose_of_sampling
@@ -103,8 +103,8 @@ classes:
       - authors
       - dataharmonizer_provenance
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database Identifiers
       third_party_lab_service_provider_name:
@@ -143,8 +143,8 @@ classes:
         name: sra_accession
         rank: 10
         slot_group: Database Identifiers
-      genbank_accession:
-        name: genbank_accession
+      genbank_ena_ddbj_accession:
+        name: genbank_ena_ddbj_accession
         rank: 11
         slot_group: Database Identifiers
       gisaid_accession:
@@ -183,8 +183,8 @@ classes:
         name: geo_loc_name_country
         rank: 20
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 21
         slot_group: Sample collection and processing
       organism:
@@ -436,8 +436,8 @@ classes:
         rank: 83
         slot_group: Contributor acknowledgement
 slots:
-  specimen_collector_sample_id:
-    name: specimen_collector_sample_id
+  specimen_sample_collector_sample_id:
+    name: specimen_sample_collector_sample_id
     slot_uri: GENEPIO:0001123
     title: specimen collector sample ID
     range: WhitespaceMinimizedString
@@ -587,8 +587,8 @@ slots:
       - Store the accession assigned to the submitted "run". NCBI-SRA accessions start with SRR.
     examples:
       - value: SRR11177792
-  genbank_accession:
-    name: genbank_accession
+  genbank_ena_ddbj_accession:
+    name: genbank_ena_ddbj_accession
     slot_uri: GENEPIO:0001145
     title: GenBank accession
     range: WhitespaceMinimizedString
@@ -758,12 +758,12 @@ slots:
       - Provide the country name from the controlled vocabulary provided.
     examples:
       - value: Canada
-  geo_loc_name_state_province_territory:
-    name: geo_loc_name_state_province_territory
+  geo_loc_name_state_province_territory_region:
+    name: geo_loc_name_state_province_territory_region
     slot_uri: GENEPIO:0001185
     title: geo_loc_name (state/province/territory)
     any_of:
-      - range: GeoLocNameStateProvinceTerritoryMenu
+      - range: GeoLocNameStateProvinceTerritoryRegionMenu
       - range: NullValueMenu
     required: true
     description: The province/territory where the sample was collected.

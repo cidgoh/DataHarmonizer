@@ -2,7 +2,7 @@
   "id": "https://example.com/CanCOGeN_Covid-19",
   "name": "PHA4GE",
   "description": "",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "default_prefix": "https://example.com/CanCOGeN_Covid-19/",
   "imports": [],
   "prefixes": {
@@ -38,7 +38,7 @@
       "annotations": {
         "version": {
           "tag": "version",
-          "value": "1.0.4"
+          "value": "1.0.5"
         }
       },
       "description": "Public Health Alliance for Genomic Epidemiology biosample specification",
@@ -48,8 +48,8 @@
       ],
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
@@ -113,8 +113,8 @@
           "rank": 13,
           "slot_group": "Sample collection and processing"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 14,
           "slot_group": "Sample collection and processing"
         },
@@ -138,8 +138,8 @@
           "rank": 18,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 19,
           "slot_group": "Sample collection and processing"
         },
@@ -373,43 +373,43 @@
           "rank": 65,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "rank": 66,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "rank": 67,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_2_vaccine_name": {
-          "name": "vaccination_dose_2_vaccine_name",
+        "vaccine_name_dose_2": {
+          "name": "vaccine_name_dose_2",
           "rank": 68,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_2_vaccination_date": {
-          "name": "vaccination_dose_2_vaccination_date",
+        "vaccination_date_dose_2": {
+          "name": "vaccination_date_dose_2",
           "rank": 69,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_3_vaccine_name": {
-          "name": "vaccination_dose_3_vaccine_name",
+        "vaccine_name_dose_3": {
+          "name": "vaccine_name_dose_3",
           "rank": 70,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_3_vaccination_date": {
-          "name": "vaccination_dose_3_vaccination_date",
+        "vaccination_date_dose_3": {
+          "name": "vaccination_date_dose_3",
           "rank": 71,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_4_vaccine_name": {
-          "name": "vaccination_dose_4_vaccine_name",
+        "vaccine_name_dose_4": {
+          "name": "vaccine_name_dose_4",
           "rank": 72,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_4_vaccination_date": {
-          "name": "vaccination_dose_4_vaccination_date",
+        "vaccination_date_dose_4": {
+          "name": "vaccination_date_dose_4",
           "rank": 73,
           "slot_group": "Host vaccination information"
         },
@@ -728,43 +728,43 @@
           "rank": 136,
           "slot_group": "Pathogen diagnostic testing"
         },
-        "title": {
-          "name": "title",
+        "ncbi_sra_title": {
+          "name": "ncbi_sra_title",
           "rank": 137,
           "slot_group": "NCBI SRA information"
         },
-        "library_strategy": {
-          "name": "library_strategy",
+        "ncbi_sra_library_strategy": {
+          "name": "ncbi_sra_library_strategy",
           "rank": 138,
           "slot_group": "NCBI SRA information"
         },
-        "library_source": {
-          "name": "library_source",
+        "ncbi_sra_library_source": {
+          "name": "ncbi_sra_library_source",
           "rank": 139,
           "slot_group": "NCBI SRA information"
         },
-        "library_selection": {
-          "name": "library_selection",
+        "ncbi_sra_library_selection": {
+          "name": "ncbi_sra_library_selection",
           "rank": 140,
           "slot_group": "NCBI SRA information"
         },
-        "library_layout": {
-          "name": "library_layout",
+        "ncbi_sra_library_layout": {
+          "name": "ncbi_sra_library_layout",
           "rank": 141,
           "slot_group": "NCBI SRA information"
         },
-        "filetype": {
-          "name": "filetype",
+        "ncbi_sra_filetype": {
+          "name": "ncbi_sra_filetype",
           "rank": 142,
           "slot_group": "NCBI SRA information"
         },
-        "filename": {
-          "name": "filename",
+        "ncbi_sra_filename": {
+          "name": "ncbi_sra_filename",
           "rank": 143,
           "slot_group": "NCBI SRA information"
         },
-        "filename2": {
-          "name": "filename2",
+        "ncbi_sra_filename2": {
+          "name": "ncbi_sra_filename2",
           "rank": 144,
           "slot_group": "NCBI SRA information"
         },
@@ -780,8 +780,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "comments": [
@@ -803,7 +803,7 @@
           ],
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -1176,8 +1176,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence submitter contact email",
           "comments": [
@@ -1190,11 +1190,11 @@
           ],
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "exact_mappings": [
-            "NCBI_SRA:sequence_submitter_contact_email"
+            "NCBI_SRA:sequence_submitted_by_contact_email"
           ],
           "rank": 14,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -1330,8 +1330,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo_loc name (state/province/territory)",
           "comments": [
@@ -1348,7 +1348,7 @@
           ],
           "rank": 19,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -2762,8 +2762,8 @@
           "range": "integer",
           "minimum_value": 0.0
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
           "title": "vaccination dose 1 vaccine name",
           "comments": [
@@ -2777,7 +2777,7 @@
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 66,
           "slot_uri": "GENEPIO:0100313",
-          "alias": "vaccination_dose_1_vaccine_name",
+          "alias": "vaccine_name_dose_1",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -2785,8 +2785,8 @@
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
           "comments": [
@@ -2800,7 +2800,7 @@
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 67,
           "slot_uri": "GENEPIO:0100314",
-          "alias": "vaccination_dose_1_vaccination_date",
+          "alias": "vaccination_date_dose_1",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -2808,8 +2808,8 @@
           "slot_group": "Host vaccination information",
           "range": "date"
         },
-        "vaccination_dose_2_vaccine_name": {
-          "name": "vaccination_dose_2_vaccine_name",
+        "vaccine_name_dose_2": {
+          "name": "vaccine_name_dose_2",
           "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
           "title": "vaccination dose 2 vaccine name",
           "comments": [
@@ -2823,7 +2823,7 @@
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 68,
           "slot_uri": "GENEPIO:0100315",
-          "alias": "vaccination_dose_2_vaccine_name",
+          "alias": "vaccine_name_dose_2",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -2831,8 +2831,8 @@
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
-        "vaccination_dose_2_vaccination_date": {
-          "name": "vaccination_dose_2_vaccination_date",
+        "vaccination_date_dose_2": {
+          "name": "vaccination_date_dose_2",
           "description": "The date the second dose of a vaccine was administered.",
           "title": "vaccination dose 2 vaccination date",
           "comments": [
@@ -2846,7 +2846,7 @@
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 69,
           "slot_uri": "GENEPIO:0100316",
-          "alias": "vaccination_dose_2_vaccination_date",
+          "alias": "vaccination_date_dose_2",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -2854,8 +2854,8 @@
           "slot_group": "Host vaccination information",
           "range": "date"
         },
-        "vaccination_dose_3_vaccine_name": {
-          "name": "vaccination_dose_3_vaccine_name",
+        "vaccine_name_dose_3": {
+          "name": "vaccine_name_dose_3",
           "description": "The name of the vaccine administered as the third dose of a vaccine regimen.",
           "title": "vaccination dose 3 vaccine name",
           "comments": [
@@ -2869,7 +2869,7 @@
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 70,
           "slot_uri": "GENEPIO:0100317",
-          "alias": "vaccination_dose_3_vaccine_name",
+          "alias": "vaccine_name_dose_3",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -2877,8 +2877,8 @@
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
-        "vaccination_dose_3_vaccination_date": {
-          "name": "vaccination_dose_3_vaccination_date",
+        "vaccination_date_dose_3": {
+          "name": "vaccination_date_dose_3",
           "description": "The date the third dose of a vaccine was administered.",
           "title": "vaccination dose 3 vaccination date",
           "comments": [
@@ -2895,7 +2895,7 @@
           ],
           "rank": 71,
           "slot_uri": "GENEPIO:0100318",
-          "alias": "vaccination_dose_3_vaccination_date",
+          "alias": "vaccination_date_dose_3",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -2903,8 +2903,8 @@
           "slot_group": "Host vaccination information",
           "range": "date"
         },
-        "vaccination_dose_4_vaccine_name": {
-          "name": "vaccination_dose_4_vaccine_name",
+        "vaccine_name_dose_4": {
+          "name": "vaccine_name_dose_4",
           "description": "The name of the vaccine administered as the fourth dose of a vaccine regimen.",
           "title": "vaccination dose 4 vaccine name",
           "comments": [
@@ -2918,7 +2918,7 @@
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 72,
           "slot_uri": "GENEPIO:0100319",
-          "alias": "vaccination_dose_4_vaccine_name",
+          "alias": "vaccine_name_dose_4",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -2926,8 +2926,8 @@
           "slot_group": "Host vaccination information",
           "range": "WhitespaceMinimizedString"
         },
-        "vaccination_dose_4_vaccination_date": {
-          "name": "vaccination_dose_4_vaccination_date",
+        "vaccination_date_dose_4": {
+          "name": "vaccination_date_dose_4",
           "description": "The date the fourth dose of a vaccine was administered.",
           "title": "vaccination dose 4 vaccination date",
           "comments": [
@@ -2941,7 +2941,7 @@
           "from_schema": "https://example.com/CanCOGeN_Covid-19",
           "rank": 73,
           "slot_uri": "GENEPIO:0100320",
-          "alias": "vaccination_dose_4_vaccination_date",
+          "alias": "vaccination_date_dose_4",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -4618,8 +4618,8 @@
           "slot_group": "Pathogen diagnostic testing",
           "range": "WhitespaceMinimizedString"
         },
-        "title": {
-          "name": "title",
+        "ncbi_sra_title": {
+          "name": "ncbi_sra_title",
           "description": "Short description that will identify the dataset on public pages.",
           "title": "title",
           "comments": [
@@ -4636,7 +4636,7 @@
           ],
           "rank": 137,
           "slot_uri": "GENEPIO:0100323",
-          "alias": "title",
+          "alias": "ncbi_sra_title",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -4644,8 +4644,8 @@
           "slot_group": "NCBI SRA information",
           "range": "WhitespaceMinimizedString"
         },
-        "library_strategy": {
-          "name": "library_strategy",
+        "ncbi_sra_library_strategy": {
+          "name": "ncbi_sra_library_strategy",
           "description": "See NCBI SRA template for details.",
           "title": "library_strategy",
           "comments": [
@@ -4657,7 +4657,7 @@
           ],
           "rank": 138,
           "slot_uri": "GENEPIO:0100324",
-          "alias": "library_strategy",
+          "alias": "ncbi_sra_library_strategy",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -4665,8 +4665,8 @@
           "slot_group": "NCBI SRA information",
           "range": "LibraryStrategyMenu"
         },
-        "library_source": {
-          "name": "library_source",
+        "ncbi_sra_library_source": {
+          "name": "ncbi_sra_library_source",
           "description": "See NCBI SRA template for details.",
           "title": "library_source",
           "comments": [
@@ -4678,7 +4678,7 @@
           ],
           "rank": 139,
           "slot_uri": "GENEPIO:0100325",
-          "alias": "library_source",
+          "alias": "ncbi_sra_library_source",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -4686,8 +4686,8 @@
           "slot_group": "NCBI SRA information",
           "range": "LibrarySourceMenu"
         },
-        "library_selection": {
-          "name": "library_selection",
+        "ncbi_sra_library_selection": {
+          "name": "ncbi_sra_library_selection",
           "description": "See NCBI SRA template for details.",
           "title": "library_selection",
           "comments": [
@@ -4699,7 +4699,7 @@
           ],
           "rank": 140,
           "slot_uri": "GENEPIO:0100326",
-          "alias": "library_selection",
+          "alias": "ncbi_sra_library_selection",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -4707,8 +4707,8 @@
           "slot_group": "NCBI SRA information",
           "range": "LibrarySelectionMenu"
         },
-        "library_layout": {
-          "name": "library_layout",
+        "ncbi_sra_library_layout": {
+          "name": "ncbi_sra_library_layout",
           "description": "See NCBI SRA template for details.",
           "title": "library_layout",
           "comments": [
@@ -4720,7 +4720,7 @@
           ],
           "rank": 141,
           "slot_uri": "GENEPIO:0100327",
-          "alias": "library_layout",
+          "alias": "ncbi_sra_library_layout",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -4728,8 +4728,8 @@
           "slot_group": "NCBI SRA information",
           "range": "LibraryLayoutMenu"
         },
-        "filetype": {
-          "name": "filetype",
+        "ncbi_sra_filetype": {
+          "name": "ncbi_sra_filetype",
           "description": "See NCBI SRA template for details.",
           "title": "filetype",
           "comments": [
@@ -4741,7 +4741,7 @@
           ],
           "rank": 142,
           "slot_uri": "GENEPIO:0100328",
-          "alias": "filetype",
+          "alias": "ncbi_sra_filetype",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -4749,8 +4749,8 @@
           "slot_group": "NCBI SRA information",
           "range": "FiletypeMenu"
         },
-        "filename": {
-          "name": "filename",
+        "ncbi_sra_filename": {
+          "name": "ncbi_sra_filename",
           "description": "See NCBI SRA template for details.",
           "title": "filename",
           "comments": [
@@ -4762,7 +4762,7 @@
           ],
           "rank": 143,
           "slot_uri": "GENEPIO:0100329",
-          "alias": "filename",
+          "alias": "ncbi_sra_filename",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -4770,8 +4770,8 @@
           "slot_group": "NCBI SRA information",
           "range": "WhitespaceMinimizedString"
         },
-        "filename2": {
-          "name": "filename2",
+        "ncbi_sra_filename2": {
+          "name": "ncbi_sra_filename2",
           "description": "See NCBI SRA template for details.",
           "title": "filename2",
           "comments": [
@@ -4783,7 +4783,7 @@
           ],
           "rank": 144,
           "slot_uri": "GENEPIO:0100330",
-          "alias": "filename2",
+          "alias": "ncbi_sra_filename2",
           "owner": "PHA4GE",
           "domain_of": [
             "PHA4GE"
@@ -4845,8 +4845,8 @@
     }
   },
   "slots": {
-    "specimen_collector_sample_id": {
-      "name": "specimen_collector_sample_id",
+    "specimen_sample_collector_sample_id": {
+      "name": "specimen_sample_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "specimen collector sample ID",
       "comments": [
@@ -5189,8 +5189,8 @@
         }
       ]
     },
-    "sequence_submitter_contact_email": {
-      "name": "sequence_submitter_contact_email",
+    "sequence_submitted_by_contact_email": {
+      "name": "sequence_submitted_by_contact_email",
       "description": "The email address of the contact responsible for follow-up regarding the sequence.",
       "title": "sequence submitter contact email",
       "comments": [
@@ -5203,7 +5203,7 @@
       ],
       "from_schema": "https://example.com/CanCOGeN_Covid-19",
       "exact_mappings": [
-        "NCBI_SRA:sequence_submitter_contact_email"
+        "NCBI_SRA:sequence_submitted_by_contact_email"
       ],
       "slot_uri": "GENEPIO:0001165",
       "domain_of": [
@@ -5323,8 +5323,8 @@
         }
       ]
     },
-    "geo_loc_name_state_province_territory": {
-      "name": "geo_loc_name_state_province_territory",
+    "geo_loc_name_state_province_territory_region": {
+      "name": "geo_loc_name_state_province_territory_region",
       "description": "The state/province/territory of origin of the sample.",
       "title": "geo_loc name (state/province/territory)",
       "comments": [
@@ -6567,8 +6567,8 @@
       "range": "integer",
       "minimum_value": 0.0
     },
-    "vaccination_dose_1_vaccine_name": {
-      "name": "vaccination_dose_1_vaccine_name",
+    "vaccine_name_dose_1": {
+      "name": "vaccine_name_dose_1",
       "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
       "title": "vaccination dose 1 vaccine name",
       "comments": [
@@ -6586,8 +6586,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "vaccination_dose_1_vaccination_date": {
-      "name": "vaccination_dose_1_vaccination_date",
+    "vaccination_date_dose_1": {
+      "name": "vaccination_date_dose_1",
       "description": "The date the first dose of a vaccine was administered.",
       "title": "vaccination dose 1 vaccination date",
       "comments": [
@@ -6605,8 +6605,8 @@
       ],
       "range": "date"
     },
-    "vaccination_dose_2_vaccine_name": {
-      "name": "vaccination_dose_2_vaccine_name",
+    "vaccine_name_dose_2": {
+      "name": "vaccine_name_dose_2",
       "description": "The name of the vaccine administered as the second dose of a vaccine regimen.",
       "title": "vaccination dose 2 vaccine name",
       "comments": [
@@ -6624,8 +6624,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "vaccination_dose_2_vaccination_date": {
-      "name": "vaccination_dose_2_vaccination_date",
+    "vaccination_date_dose_2": {
+      "name": "vaccination_date_dose_2",
       "description": "The date the second dose of a vaccine was administered.",
       "title": "vaccination dose 2 vaccination date",
       "comments": [
@@ -6643,8 +6643,8 @@
       ],
       "range": "date"
     },
-    "vaccination_dose_3_vaccine_name": {
-      "name": "vaccination_dose_3_vaccine_name",
+    "vaccine_name_dose_3": {
+      "name": "vaccine_name_dose_3",
       "description": "The name of the vaccine administered as the third dose of a vaccine regimen.",
       "title": "vaccination dose 3 vaccine name",
       "comments": [
@@ -6662,8 +6662,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "vaccination_dose_3_vaccination_date": {
-      "name": "vaccination_dose_3_vaccination_date",
+    "vaccination_date_dose_3": {
+      "name": "vaccination_date_dose_3",
       "description": "The date the third dose of a vaccine was administered.",
       "title": "vaccination dose 3 vaccination date",
       "comments": [
@@ -6684,8 +6684,8 @@
       ],
       "range": "date"
     },
-    "vaccination_dose_4_vaccine_name": {
-      "name": "vaccination_dose_4_vaccine_name",
+    "vaccine_name_dose_4": {
+      "name": "vaccine_name_dose_4",
       "description": "The name of the vaccine administered as the fourth dose of a vaccine regimen.",
       "title": "vaccination dose 4 vaccine name",
       "comments": [
@@ -6703,8 +6703,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "vaccination_dose_4_vaccination_date": {
-      "name": "vaccination_dose_4_vaccination_date",
+    "vaccination_date_dose_4": {
+      "name": "vaccination_date_dose_4",
       "description": "The date the fourth dose of a vaccine was administered.",
       "title": "vaccination dose 4 vaccination date",
       "comments": [
@@ -8139,8 +8139,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "title": {
-      "name": "title",
+    "ncbi_sra_title": {
+      "name": "ncbi_sra_title",
       "description": "Short description that will identify the dataset on public pages.",
       "title": "title",
       "comments": [
@@ -8161,8 +8161,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "library_strategy": {
-      "name": "library_strategy",
+    "ncbi_sra_library_strategy": {
+      "name": "ncbi_sra_library_strategy",
       "description": "See NCBI SRA template for details.",
       "title": "library_strategy",
       "comments": [
@@ -8178,8 +8178,8 @@
       ],
       "range": "LibraryStrategyMenu"
     },
-    "library_source": {
-      "name": "library_source",
+    "ncbi_sra_library_source": {
+      "name": "ncbi_sra_library_source",
       "description": "See NCBI SRA template for details.",
       "title": "library_source",
       "comments": [
@@ -8195,8 +8195,8 @@
       ],
       "range": "LibrarySourceMenu"
     },
-    "library_selection": {
-      "name": "library_selection",
+    "ncbi_sra_library_selection": {
+      "name": "ncbi_sra_library_selection",
       "description": "See NCBI SRA template for details.",
       "title": "library_selection",
       "comments": [
@@ -8212,8 +8212,8 @@
       ],
       "range": "LibrarySelectionMenu"
     },
-    "library_layout": {
-      "name": "library_layout",
+    "ncbi_sra_library_layout": {
+      "name": "ncbi_sra_library_layout",
       "description": "See NCBI SRA template for details.",
       "title": "library_layout",
       "comments": [
@@ -8229,8 +8229,8 @@
       ],
       "range": "LibraryLayoutMenu"
     },
-    "filetype": {
-      "name": "filetype",
+    "ncbi_sra_filetype": {
+      "name": "ncbi_sra_filetype",
       "description": "See NCBI SRA template for details.",
       "title": "filetype",
       "comments": [
@@ -8246,8 +8246,8 @@
       ],
       "range": "FiletypeMenu"
     },
-    "filename": {
-      "name": "filename",
+    "ncbi_sra_filename": {
+      "name": "ncbi_sra_filename",
       "description": "See NCBI SRA template for details.",
       "title": "filename",
       "comments": [
@@ -8263,8 +8263,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "filename2": {
-      "name": "filename2",
+    "ncbi_sra_filename2": {
+      "name": "ncbi_sra_filename2",
       "description": "See NCBI SRA template for details.",
       "title": "filename2",
       "comments": [
@@ -8916,7 +8916,7 @@
       "permissible_values": {
         "Prior antiviral treatment [GENEPIO:0100037]": {
           "text": "Prior antiviral treatment [GENEPIO:0100037]",
-          "meaning": "GENEPIO:0100237",
+          "meaning": "GENEPIO:0100037",
           "title": "Prior antiviral treatment [GENEPIO:0100037]",
           "exact_mappings": [
             "NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treatment%3AYes"
@@ -9413,12 +9413,14 @@
         },
         "Cardiac transplant [NCIT:C131759]": {
           "text": "Cardiac transplant [NCIT:C131759]",
+          "description": "EDITOR NOTE: Both the meaning ID and NCIT ID should be updated to EFO:0010673. https://github.com/pha4ge/sars-cov-2-contextual-data-specification/issues/23",
           "meaning": "GENEPIO:0100080",
           "is_a": "Transplant [NCIT:C159659]",
           "title": "Cardiac transplant [NCIT:C131759]"
         },
         "Hematopoietic stem cell transplant (bone marrow transplant) [GENEPIO:0100080]": {
           "text": "Hematopoietic stem cell transplant (bone marrow transplant) [GENEPIO:0100080]",
+          "description": "EDITOR NOTE: Both the meaning ID and NCIT ID should be updated to EFO:0020989. https://github.com/pha4ge/sars-cov-2-contextual-data-specification/issues/23",
           "meaning": "NCIT:C131759",
           "is_a": "Transplant [NCIT:C159659]",
           "title": "Hematopoietic stem cell transplant (bone marrow transplant) [GENEPIO:0100080]"
@@ -9515,7 +9517,7 @@
         },
         "Cardiac injury [GENEPIO:0100074]": {
           "text": "Cardiac injury [GENEPIO:0100074]",
-          "meaning": "GENEPIO:0100087",
+          "meaning": "GENEPIO:0100074",
           "title": "Cardiac injury [GENEPIO:0100074]"
         },
         "Cardiac arrest [HP:0001695]": {
@@ -10672,37 +10674,37 @@
       "permissible_values": {
         "Homo sapiens [NCBITaxon:9606]": {
           "text": "Homo sapiens [NCBITaxon:9606]",
-          "meaning": "NCBITaxon:9913",
+          "meaning": "NCBITaxon:9606",
           "title": "Homo sapiens [NCBITaxon:9606]"
         },
         "Bos taurus [NCBITaxon:9913]": {
           "text": "Bos taurus [NCBITaxon:9913]",
-          "meaning": "NCBITaxon:9615",
+          "meaning": "NCBITaxon:9913",
           "title": "Bos taurus [NCBITaxon:9913]"
         },
         "Canis lupus familiaris [NCBITaxon:9615]": {
           "text": "Canis lupus familiaris [NCBITaxon:9615]",
-          "meaning": "NCBITaxon:9397",
+          "meaning": "NCBITaxon:9615",
           "title": "Canis lupus familiaris [NCBITaxon:9615]"
         },
         "Chiroptera [NCBITaxon:9397]": {
           "text": "Chiroptera [NCBITaxon:9397]",
-          "meaning": "NCBITaxon:8930",
+          "meaning": "NCBITaxon:9397",
           "title": "Chiroptera [NCBITaxon:9397]"
         },
         "Columbidae [NCBITaxon:8930]": {
           "text": "Columbidae [NCBITaxon:8930]",
-          "meaning": "NCBITaxon:9685",
+          "meaning": "NCBITaxon:8930",
           "title": "Columbidae [NCBITaxon:8930]"
         },
         "Felis catus [NCBITaxon:9685]": {
           "text": "Felis catus [NCBITaxon:9685]",
-          "meaning": "NCBITaxon:9031",
+          "meaning": "NCBITaxon:9685",
           "title": "Felis catus [NCBITaxon:9685]"
         },
         "Gallus gallus [NCBITaxon:9031]": {
           "text": "Gallus gallus [NCBITaxon:9031]",
-          "meaning": "NCBITaxon:9606",
+          "meaning": "NCBITaxon:9031",
           "title": "Gallus gallus [NCBITaxon:9031]"
         },
         "Manis [NCBITaxon:9973]": {
@@ -10759,7 +10761,7 @@
       "permissible_values": {
         "Human [NCBITaxon:9606]": {
           "text": "Human [NCBITaxon:9606]",
-          "meaning": "NCBITaxon:9605",
+          "meaning": "NCBITaxon:9606",
           "title": "Human [NCBITaxon:9606]"
         },
         "Bat [NCBITaxon:9397]": {

@@ -45,8 +45,8 @@
       "from_schema": "https://example.com/GRDI",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database identifiers"
         },
@@ -140,8 +140,8 @@
           "rank": 19,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 20,
           "slot_group": "Sample collection and processing"
         },
@@ -217,8 +217,8 @@
           "rank": 31,
           "slot_group": "Sample collection and processing"
         },
-        "sample_collection_start_date": {
-          "name": "sample_collection_start_date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "rank": 32,
           "slot_group": "Sample collection and processing"
         },
@@ -307,8 +307,8 @@
           "rank": 49,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol_name": {
-          "name": "experimental_protocol_name",
+        "experimental_protocol": {
+          "name": "experimental_protocol",
           "rank": 50,
           "slot_group": "Sample collection and processing"
         },
@@ -797,8 +797,8 @@
           "rank": 147,
           "slot_group": "Sequence information"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 148,
           "slot_group": "Sequence information"
         },
@@ -1177,8 +1177,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "comments": [
@@ -1202,7 +1202,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -1741,8 +1741,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo loc name (state/province/territory)",
           "comments": [
@@ -1763,7 +1763,7 @@
           ],
           "rank": 20,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -2139,8 +2139,8 @@
             }
           ]
         },
-        "sample_collection_start_date": {
-          "name": "sample_collection_start_date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
           "title": "sample collection start date",
           "todos": [
@@ -2165,7 +2165,7 @@
           ],
           "rank": 32,
           "slot_uri": "GENEPIO:0001174",
-          "alias": "sample_collection_start_date",
+          "alias": "sample_collection_date",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -2188,7 +2188,7 @@
           "description": "The date on which sample collection ended for a continuous sample.",
           "title": "sample collection end date",
           "todos": [
-            ">={sample_collection_start_date}",
+            ">={sample_collection_date}",
             "<={today}"
           ],
           "comments": [
@@ -2755,8 +2755,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol_name": {
-          "name": "experimental_protocol_name",
+        "experimental_protocol": {
+          "name": "experimental_protocol",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental protocol name",
           "comments": [
@@ -2769,7 +2769,7 @@
           ],
           "rank": 50,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol_name",
+          "alias": "experimental_protocol",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -5685,8 +5685,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence submitter contact email",
           "comments": [
@@ -5699,12 +5699,12 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:sequence_submitter_contact_email",
-            "NCBI_SRA:sequence_submitter_contact_email"
+            "NCBI_SRAGenomeTrakr:sequence_submitted_by_contact_email",
+            "NCBI_SRA:sequence_submitted_by_contact_email"
           ],
           "rank": 148,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -5728,7 +5728,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_start_date}",
+            ">={sample_collection_date}",
             "<={today}"
           ],
           "comments": [
@@ -7608,8 +7608,8 @@
       "from_schema": "https://example.com/GRDI",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database identifiers"
         },
@@ -7708,8 +7708,8 @@
           "rank": 20,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 21,
           "slot_group": "Sample collection and processing"
         },
@@ -7785,8 +7785,8 @@
           "rank": 32,
           "slot_group": "Sample collection and processing"
         },
-        "sample_collection_start_date": {
-          "name": "sample_collection_start_date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "rank": 33,
           "slot_group": "Sample collection and processing"
         },
@@ -7875,8 +7875,8 @@
           "rank": 50,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol_name": {
-          "name": "experimental_protocol_name",
+        "experimental_protocol": {
+          "name": "experimental_protocol",
           "rank": 51,
           "slot_group": "Sample collection and processing"
         },
@@ -8365,8 +8365,8 @@
           "rank": 148,
           "slot_group": "Sequence information"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 149,
           "slot_group": "Sequence information"
         },
@@ -8746,8 +8746,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "comments": [
@@ -8771,7 +8771,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "WastewaterAMR",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -9334,8 +9334,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo loc name (state/province/territory)",
           "comments": [
@@ -9356,7 +9356,7 @@
           ],
           "rank": 21,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "WastewaterAMR",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -9732,8 +9732,8 @@
             }
           ]
         },
-        "sample_collection_start_date": {
-          "name": "sample_collection_start_date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
           "title": "sample collection start date",
           "todos": [
@@ -9758,7 +9758,7 @@
           ],
           "rank": 33,
           "slot_uri": "GENEPIO:0001174",
-          "alias": "sample_collection_start_date",
+          "alias": "sample_collection_date",
           "owner": "WastewaterAMR",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -9781,7 +9781,7 @@
           "description": "The date on which sample collection ended for a continuous sample.",
           "title": "sample collection end date",
           "todos": [
-            ">={sample_collection_start_date}",
+            ">={sample_collection_date}",
             "<={today}"
           ],
           "comments": [
@@ -10348,8 +10348,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol_name": {
-          "name": "experimental_protocol_name",
+        "experimental_protocol": {
+          "name": "experimental_protocol",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental protocol name",
           "comments": [
@@ -10362,7 +10362,7 @@
           ],
           "rank": 51,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol_name",
+          "alias": "experimental_protocol",
           "owner": "WastewaterAMR",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -13278,8 +13278,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence submitter contact email",
           "comments": [
@@ -13292,12 +13292,12 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:sequence_submitter_contact_email",
-            "NCBI_SRA:sequence_submitter_contact_email"
+            "NCBI_SRAGenomeTrakr:sequence_submitted_by_contact_email",
+            "NCBI_SRA:sequence_submitted_by_contact_email"
           ],
           "rank": 149,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "WastewaterAMR",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -13321,7 +13321,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_start_date}",
+            ">={sample_collection_date}",
             "<={today}"
           ],
           "comments": [
@@ -15220,8 +15220,8 @@
       "from_schema": "https://example.com/GRDI",
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database identifiers"
         },
@@ -15320,8 +15320,8 @@
           "rank": 20,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "rank": 21,
           "slot_group": "Sample collection and processing"
         },
@@ -15397,8 +15397,8 @@
           "rank": 32,
           "slot_group": "Sample collection and processing"
         },
-        "sample_collection_start_date": {
-          "name": "sample_collection_start_date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "rank": 33,
           "slot_group": "Sample collection and processing"
         },
@@ -15487,8 +15487,8 @@
           "rank": 50,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol_name": {
-          "name": "experimental_protocol_name",
+        "experimental_protocol": {
+          "name": "experimental_protocol",
           "rank": 51,
           "slot_group": "Sample collection and processing"
         },
@@ -16047,8 +16047,8 @@
           "rank": 162,
           "slot_group": "Sequence information"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 163,
           "slot_group": "Sequence information"
         },
@@ -16453,8 +16453,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "comments": [
@@ -16478,7 +16478,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -17041,8 +17041,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo loc name (state/province/territory)",
           "comments": [
@@ -17063,7 +17063,7 @@
           ],
           "rank": 21,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -17439,8 +17439,8 @@
             }
           ]
         },
-        "sample_collection_start_date": {
-          "name": "sample_collection_start_date",
+        "sample_collection_date": {
+          "name": "sample_collection_date",
           "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
           "title": "sample collection start date",
           "todos": [
@@ -17465,7 +17465,7 @@
           ],
           "rank": 33,
           "slot_uri": "GENEPIO:0001174",
-          "alias": "sample_collection_start_date",
+          "alias": "sample_collection_date",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -17488,7 +17488,7 @@
           "description": "The date on which sample collection ended for a continuous sample.",
           "title": "sample collection end date",
           "todos": [
-            ">={sample_collection_start_date}",
+            ">={sample_collection_date}",
             "<={today}"
           ],
           "comments": [
@@ -18055,8 +18055,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol_name": {
-          "name": "experimental_protocol_name",
+        "experimental_protocol": {
+          "name": "experimental_protocol",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental protocol name",
           "comments": [
@@ -18069,7 +18069,7 @@
           ],
           "rank": 51,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol_name",
+          "alias": "experimental_protocol",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -21332,8 +21332,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence submitter contact email",
           "comments": [
@@ -21346,12 +21346,12 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:sequence_submitter_contact_email",
-            "NCBI_SRA:sequence_submitter_contact_email"
+            "NCBI_SRAGenomeTrakr:sequence_submitted_by_contact_email",
+            "NCBI_SRA:sequence_submitted_by_contact_email"
           ],
           "rank": 163,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -21375,7 +21375,7 @@
           "description": "The date the sample was sequenced.",
           "title": "sequencing date",
           "todos": [
-            ">={sample_collection_start_date}",
+            ">={sample_collection_date}",
             "<={today}"
           ],
           "comments": [
@@ -23404,8 +23404,8 @@
     }
   },
   "slots": {
-    "specimen_collector_sample_id": {
-      "name": "specimen_collector_sample_id",
+    "specimen_sample_collector_sample_id": {
+      "name": "specimen_sample_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "specimen collector sample ID",
       "comments": [
@@ -23912,8 +23912,8 @@
         }
       ]
     },
-    "geo_loc_name_state_province_territory": {
-      "name": "geo_loc_name_state_province_territory",
+    "geo_loc_name_state_province_territory_region": {
+      "name": "geo_loc_name_state_province_territory_region",
       "description": "The state/province/territory of origin of the sample.",
       "title": "geo loc name (state/province/territory)",
       "comments": [
@@ -24245,8 +24245,8 @@
         }
       ]
     },
-    "sample_collection_start_date": {
-      "name": "sample_collection_start_date",
+    "sample_collection_date": {
+      "name": "sample_collection_date",
       "description": "The date on which the sample was collected, or sampling began for a continuous sample.",
       "title": "sample collection start date",
       "todos": [
@@ -24290,7 +24290,7 @@
       "description": "The date on which sample collection ended for a continuous sample.",
       "title": "sample collection end date",
       "todos": [
-        ">={sample_collection_start_date}",
+        ">={sample_collection_date}",
         "<={today}"
       ],
       "comments": [
@@ -24789,8 +24789,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "experimental_protocol_name": {
-      "name": "experimental_protocol_name",
+    "experimental_protocol": {
+      "name": "experimental_protocol",
       "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
       "title": "experimental protocol name",
       "comments": [
@@ -27618,8 +27618,8 @@
         }
       ]
     },
-    "sequence_submitter_contact_email": {
-      "name": "sequence_submitter_contact_email",
+    "sequence_submitted_by_contact_email": {
+      "name": "sequence_submitted_by_contact_email",
       "description": "The email address of the contact responsible for follow-up regarding the sequence.",
       "title": "sequence submitter contact email",
       "comments": [
@@ -27632,8 +27632,8 @@
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
-        "NCBI_SRAGenomeTrakr:sequence_submitter_contact_email",
-        "NCBI_SRA:sequence_submitter_contact_email"
+        "NCBI_SRAGenomeTrakr:sequence_submitted_by_contact_email",
+        "NCBI_SRA:sequence_submitted_by_contact_email"
       ],
       "slot_uri": "GENEPIO:0001165",
       "domain_of": [
@@ -27657,7 +27657,7 @@
       "description": "The date the sample was sequenced.",
       "title": "sequencing date",
       "todos": [
-        ">={sample_collection_start_date}",
+        ">={sample_collection_date}",
         "<={today}"
       ],
       "comments": [

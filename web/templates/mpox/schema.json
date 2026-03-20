@@ -48,8 +48,8 @@
       ],
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
@@ -150,8 +150,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "comments": [
             "Provide the province/territory name from the controlled vocabulary provided."
           ],
@@ -716,13 +716,13 @@
           "rank": 50,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "rank": 51,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "rank": 52,
           "slot_group": "Host vaccination information"
         },
@@ -980,8 +980,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 74,
           "slot_group": "Sequencing"
         },
@@ -1263,8 +1263,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "comments": [
@@ -1287,7 +1287,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "Mpox",
           "domain_of": [
             "Mpox",
@@ -1774,8 +1774,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory where the sample was collected.",
           "title": "geo_loc_name (state/province/territory)",
           "comments": [
@@ -1795,7 +1795,7 @@
           ],
           "rank": 16,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "Mpox",
           "domain_of": [
             "Mpox",
@@ -3021,8 +3021,8 @@
           "slot_group": "Host vaccination information",
           "range": "integer"
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
           "title": "vaccination dose 1 vaccine name",
           "comments": [
@@ -3039,7 +3039,7 @@
           ],
           "rank": 51,
           "slot_uri": "GENEPIO:0100313",
-          "alias": "vaccination_dose_1_vaccine_name",
+          "alias": "vaccine_name_dose_1",
           "owner": "Mpox",
           "domain_of": [
             "Mpox",
@@ -3055,8 +3055,8 @@
             }
           ]
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
           "todos": [
@@ -3077,7 +3077,7 @@
           ],
           "rank": 52,
           "slot_uri": "GENEPIO:0100314",
-          "alias": "vaccination_dose_1_vaccination_date",
+          "alias": "vaccination_date_dose_1",
           "owner": "Mpox",
           "domain_of": [
             "Mpox",
@@ -3779,8 +3779,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the agency responsible for submission of the sequence.",
           "title": "sequence submitter contact email",
           "comments": [
@@ -3794,11 +3794,11 @@
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
             "NML_LIMS:sequence%20submitter%20contact%20email",
-            "NCBI_SRA:sequence_submitter_contact_email"
+            "NCBI_SRA:sequence_submitted_by_contact_email"
           ],
           "rank": 74,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "Mpox",
           "domain_of": [
             "Mpox",
@@ -5142,8 +5142,8 @@
       ],
       "is_a": "dh_interface",
       "slot_usage": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
@@ -5243,8 +5243,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "comments": [
             "Provide the state/province/territory name from the controlled vocabulary provided."
           ],
@@ -5844,13 +5844,13 @@
           "rank": 60,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "rank": 61,
           "slot_group": "Host vaccination information"
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "rank": 62,
           "slot_group": "Host vaccination information"
         },
@@ -6101,8 +6101,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 87,
           "slot_group": "Sequencing"
         },
@@ -6256,8 +6256,8 @@
           "rank": 111,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "rank": 112,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -6518,8 +6518,8 @@
         }
       },
       "attributes": {
-        "specimen_collector_sample_id": {
-          "name": "specimen_collector_sample_id",
+        "specimen_sample_collector_sample_id": {
+          "name": "specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "specimen collector sample ID",
           "comments": [
@@ -6542,7 +6542,7 @@
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
           "identifier": true,
-          "alias": "specimen_collector_sample_id",
+          "alias": "specimen_sample_collector_sample_id",
           "owner": "MpoxInternational",
           "domain_of": [
             "Mpox",
@@ -7015,8 +7015,8 @@
             }
           ]
         },
-        "geo_loc_name_state_province_territory": {
-          "name": "geo_loc_name_state_province_territory",
+        "geo_loc_name_state_province_territory_region": {
+          "name": "geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory where the sample was collected.",
           "title": "geo_loc_name (state/province/territory)",
           "comments": [
@@ -7036,7 +7036,7 @@
           ],
           "rank": 16,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state_province_territory",
+          "alias": "geo_loc_name_state_province_territory_region",
           "owner": "MpoxInternational",
           "domain_of": [
             "Mpox",
@@ -8572,8 +8572,8 @@
           "slot_group": "Host vaccination information",
           "range": "integer"
         },
-        "vaccination_dose_1_vaccine_name": {
-          "name": "vaccination_dose_1_vaccine_name",
+        "vaccine_name_dose_1": {
+          "name": "vaccine_name_dose_1",
           "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
           "title": "vaccination dose 1 vaccine name",
           "comments": [
@@ -8590,7 +8590,7 @@
           ],
           "rank": 61,
           "slot_uri": "GENEPIO:0100313",
-          "alias": "vaccination_dose_1_vaccine_name",
+          "alias": "vaccine_name_dose_1",
           "owner": "MpoxInternational",
           "domain_of": [
             "Mpox",
@@ -8606,8 +8606,8 @@
             }
           ]
         },
-        "vaccination_dose_1_vaccination_date": {
-          "name": "vaccination_dose_1_vaccination_date",
+        "vaccination_date_dose_1": {
+          "name": "vaccination_date_dose_1",
           "description": "The date the first dose of a vaccine was administered.",
           "title": "vaccination dose 1 vaccination date",
           "todos": [
@@ -8628,7 +8628,7 @@
           ],
           "rank": 62,
           "slot_uri": "GENEPIO:0100314",
-          "alias": "vaccination_dose_1_vaccination_date",
+          "alias": "vaccination_date_dose_1",
           "owner": "MpoxInternational",
           "domain_of": [
             "Mpox",
@@ -9395,8 +9395,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the agency responsible for submission of the sequence.",
           "title": "sequence submitter contact email",
           "comments": [
@@ -9410,11 +9410,11 @@
           "from_schema": "https://example.com/mpox",
           "exact_mappings": [
             "NML_LIMS:sequence%20submitter%20contact%20email",
-            "NCBI_SRA:sequence_submitter_contact_email"
+            "NCBI_SRA:sequence_submitted_by_contact_email"
           ],
           "rank": 87,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "MpoxInternational",
           "domain_of": [
             "Mpox",
@@ -10116,8 +10116,8 @@
           "slot_group": "Bioinformatics and QC metrics",
           "range": "WhitespaceMinimizedString"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "description": "The name of the consensus sequence file.",
           "title": "genome sequence file name",
           "comments": [
@@ -10134,7 +10134,7 @@
           ],
           "rank": 112,
           "slot_uri": "GENEPIO:0101715",
-          "alias": "genome_sequence_file_name",
+          "alias": "genome_sequence_filename",
           "owner": "MpoxInternational",
           "domain_of": [
             "MpoxInternational"
@@ -11501,8 +11501,8 @@
     }
   },
   "slots": {
-    "specimen_collector_sample_id": {
-      "name": "specimen_collector_sample_id",
+    "specimen_sample_collector_sample_id": {
+      "name": "specimen_sample_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "specimen collector sample ID",
       "comments": [
@@ -11972,8 +11972,8 @@
       ],
       "required": true
     },
-    "geo_loc_name_state_province_territory": {
-      "name": "geo_loc_name_state_province_territory",
+    "geo_loc_name_state_province_territory_region": {
+      "name": "geo_loc_name_state_province_territory_region",
       "description": "The state/province/territory where the sample was collected.",
       "title": "geo_loc_name (state/province/territory)",
       "examples": [
@@ -13054,8 +13054,8 @@
       ],
       "range": "integer"
     },
-    "vaccination_dose_1_vaccine_name": {
-      "name": "vaccination_dose_1_vaccine_name",
+    "vaccine_name_dose_1": {
+      "name": "vaccine_name_dose_1",
       "description": "The name of the vaccine administered as the first dose of a vaccine regimen.",
       "title": "vaccination dose 1 vaccine name",
       "comments": [
@@ -13084,8 +13084,8 @@
         }
       ]
     },
-    "vaccination_dose_1_vaccination_date": {
-      "name": "vaccination_dose_1_vaccination_date",
+    "vaccination_date_dose_1": {
+      "name": "vaccination_date_dose_1",
       "description": "The date the first dose of a vaccine was administered.",
       "title": "vaccination dose 1 vaccination date",
       "todos": [
@@ -13646,8 +13646,8 @@
       ],
       "required": true
     },
-    "sequence_submitter_contact_email": {
-      "name": "sequence_submitter_contact_email",
+    "sequence_submitted_by_contact_email": {
+      "name": "sequence_submitted_by_contact_email",
       "description": "The email address of the agency responsible for submission of the sequence.",
       "title": "sequence submitter contact email",
       "comments": [
@@ -13661,7 +13661,7 @@
       "from_schema": "https://example.com/mpox",
       "exact_mappings": [
         "NML_LIMS:sequence%20submitter%20contact%20email",
-        "NCBI_SRA:sequence_submitter_contact_email"
+        "NCBI_SRA:sequence_submitted_by_contact_email"
       ],
       "slot_uri": "GENEPIO:0001165",
       "domain_of": [
@@ -14304,8 +14304,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "genome_sequence_file_name": {
-      "name": "genome_sequence_file_name",
+    "genome_sequence_filename": {
+      "name": "genome_sequence_filename",
       "description": "The name of the consensus sequence file.",
       "title": "genome sequence file name",
       "comments": [

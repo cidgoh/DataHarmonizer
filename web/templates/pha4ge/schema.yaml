@@ -1,7 +1,7 @@
 id: https://example.com/CanCOGeN_Covid-19
 name: PHA4GE
 description: ''
-version: 1.0.4
+version: 1.0.5
 imports:
   - linkml:types
 prefixes:
@@ -18,9 +18,9 @@ classes:
     is_a: dh_interface
     see_also: templates/pha4ge/SOP.pdf
     annotations:
-      version: 1.0.4
+      version: 1.0.5
     slots:
-      - specimen_collector_sample_id
+      - specimen_sample_collector_sample_id
       - umbrella_bioproject_accession
       - bioproject_accession
       - biosample_accession
@@ -33,12 +33,12 @@ classes:
       - sample_collector_contact_email
       - sample_collector_contact_address
       - sequence_submitted_by
-      - sequence_submitter_contact_email
+      - sequence_submitted_by_contact_email
       - sequence_submitter_contact_address
       - sample_collection_date
       - sample_received_date
       - geo_loc_name_country
-      - geo_loc_name_state_province_territory
+      - geo_loc_name_state_province_territory_region
       - geo_loc_name_county_region
       - geo_loc_name_city
       - geo_loc_latitude
@@ -85,14 +85,14 @@ classes:
       - complications
       - host_vaccination_status
       - number_of_vaccine_doses_received
-      - vaccination_dose_1_vaccine_name
-      - vaccination_dose_1_vaccination_date
-      - vaccination_dose_2_vaccine_name
-      - vaccination_dose_2_vaccination_date
-      - vaccination_dose_3_vaccine_name
-      - vaccination_dose_3_vaccination_date
-      - vaccination_dose_4_vaccine_name
-      - vaccination_dose_4_vaccination_date
+      - vaccine_name_dose_1
+      - vaccination_date_dose_1
+      - vaccine_name_dose_2
+      - vaccination_date_dose_2
+      - vaccine_name_dose_3
+      - vaccination_date_dose_3
+      - vaccine_name_dose_4
+      - vaccination_date_dose_4
       - vaccination_history
       - location_of_exposure_geo_loc_name_country
       - destination_of_most_recent_travel_city
@@ -156,19 +156,19 @@ classes:
       - gene_name_2
       - diagnostic_pcr_protocol_2
       - diagnostic_pcr_ct_value_2
-      - title
-      - library_strategy
-      - library_source
-      - library_selection
-      - library_layout
-      - filetype
-      - filename
-      - filename2
+      - ncbi_sra_title
+      - ncbi_sra_library_strategy
+      - ncbi_sra_library_source
+      - ncbi_sra_library_selection
+      - ncbi_sra_library_layout
+      - ncbi_sra_filetype
+      - ncbi_sra_filename
+      - ncbi_sra_filename2
       - authors
       - dataharmonizer_provenance
     slot_usage:
-      specimen_collector_sample_id:
-        name: specimen_collector_sample_id
+      specimen_sample_collector_sample_id:
+        name: specimen_sample_collector_sample_id
         rank: 1
         slot_group: Database Identifiers
       umbrella_bioproject_accession:
@@ -219,8 +219,8 @@ classes:
         name: sequence_submitted_by
         rank: 13
         slot_group: Sample collection and processing
-      sequence_submitter_contact_email:
-        name: sequence_submitter_contact_email
+      sequence_submitted_by_contact_email:
+        name: sequence_submitted_by_contact_email
         rank: 14
         slot_group: Sample collection and processing
       sequence_submitter_contact_address:
@@ -239,8 +239,8 @@ classes:
         name: geo_loc_name_country
         rank: 18
         slot_group: Sample collection and processing
-      geo_loc_name_state_province_territory:
-        name: geo_loc_name_state_province_territory
+      geo_loc_name_state_province_territory_region:
+        name: geo_loc_name_state_province_territory_region
         rank: 19
         slot_group: Sample collection and processing
       geo_loc_name_county_region:
@@ -427,36 +427,36 @@ classes:
         name: number_of_vaccine_doses_received
         rank: 65
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccine_name:
-        name: vaccination_dose_1_vaccine_name
+      vaccine_name_dose_1:
+        name: vaccine_name_dose_1
         rank: 66
         slot_group: Host vaccination information
-      vaccination_dose_1_vaccination_date:
-        name: vaccination_dose_1_vaccination_date
+      vaccination_date_dose_1:
+        name: vaccination_date_dose_1
         rank: 67
         slot_group: Host vaccination information
-      vaccination_dose_2_vaccine_name:
-        name: vaccination_dose_2_vaccine_name
+      vaccine_name_dose_2:
+        name: vaccine_name_dose_2
         rank: 68
         slot_group: Host vaccination information
-      vaccination_dose_2_vaccination_date:
-        name: vaccination_dose_2_vaccination_date
+      vaccination_date_dose_2:
+        name: vaccination_date_dose_2
         rank: 69
         slot_group: Host vaccination information
-      vaccination_dose_3_vaccine_name:
-        name: vaccination_dose_3_vaccine_name
+      vaccine_name_dose_3:
+        name: vaccine_name_dose_3
         rank: 70
         slot_group: Host vaccination information
-      vaccination_dose_3_vaccination_date:
-        name: vaccination_dose_3_vaccination_date
+      vaccination_date_dose_3:
+        name: vaccination_date_dose_3
         rank: 71
         slot_group: Host vaccination information
-      vaccination_dose_4_vaccine_name:
-        name: vaccination_dose_4_vaccine_name
+      vaccine_name_dose_4:
+        name: vaccine_name_dose_4
         rank: 72
         slot_group: Host vaccination information
-      vaccination_dose_4_vaccination_date:
-        name: vaccination_dose_4_vaccination_date
+      vaccination_date_dose_4:
+        name: vaccination_date_dose_4
         rank: 73
         slot_group: Host vaccination information
       vaccination_history:
@@ -711,36 +711,36 @@ classes:
         name: diagnostic_pcr_ct_value_2
         rank: 136
         slot_group: Pathogen diagnostic testing
-      title:
-        name: title
+      ncbi_sra_title:
+        name: ncbi_sra_title
         rank: 137
         slot_group: NCBI SRA information
-      library_strategy:
-        name: library_strategy
+      ncbi_sra_library_strategy:
+        name: ncbi_sra_library_strategy
         rank: 138
         slot_group: NCBI SRA information
-      library_source:
-        name: library_source
+      ncbi_sra_library_source:
+        name: ncbi_sra_library_source
         rank: 139
         slot_group: NCBI SRA information
-      library_selection:
-        name: library_selection
+      ncbi_sra_library_selection:
+        name: ncbi_sra_library_selection
         rank: 140
         slot_group: NCBI SRA information
-      library_layout:
-        name: library_layout
+      ncbi_sra_library_layout:
+        name: ncbi_sra_library_layout
         rank: 141
         slot_group: NCBI SRA information
-      filetype:
-        name: filetype
+      ncbi_sra_filetype:
+        name: ncbi_sra_filetype
         rank: 142
         slot_group: NCBI SRA information
-      filename:
-        name: filename
+      ncbi_sra_filename:
+        name: ncbi_sra_filename
         rank: 143
         slot_group: NCBI SRA information
-      filename2:
-        name: filename2
+      ncbi_sra_filename2:
+        name: ncbi_sra_filename2
         rank: 144
         slot_group: NCBI SRA information
       authors:
@@ -752,8 +752,8 @@ classes:
         rank: 146
         slot_group: Contributor acknowledgement
 slots:
-  specimen_collector_sample_id:
-    name: specimen_collector_sample_id
+  specimen_sample_collector_sample_id:
+    name: specimen_sample_collector_sample_id
     slot_uri: GENEPIO:0001123
     title: specimen collector sample ID
     range: WhitespaceMinimizedString
@@ -952,14 +952,14 @@ slots:
       - The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions.
     examples:
       - value: Centers for Disease Control and Prevention
-  sequence_submitter_contact_email:
-    name: sequence_submitter_contact_email
+  sequence_submitted_by_contact_email:
+    name: sequence_submitted_by_contact_email
     slot_uri: GENEPIO:0001165
     title: sequence submitter contact email
     range: WhitespaceMinimizedString
     description: The email address of the contact responsible for follow-up regarding the sequence.
     exact_mappings:
-      - NCBI_SRA:sequence_submitter_contact_email
+      - NCBI_SRA:sequence_submitted_by_contact_email
     comments:
       - The email address can represent a specific individual or laboratory.
     examples:
@@ -1022,8 +1022,8 @@ slots:
       - Provide the country name from the pick list in the template
     examples:
       - value: South Africa [GAZ:00001094]
-  geo_loc_name_state_province_territory:
-    name: geo_loc_name_state_province_territory
+  geo_loc_name_state_province_territory_region:
+    name: geo_loc_name_state_province_territory_region
     slot_uri: GENEPIO:0001185
     title: geo_loc name (state/province/territory)
     any_of:
@@ -1658,8 +1658,8 @@ slots:
       - Record how many doses of the vaccine the host has received.
     examples:
       - value: '2'
-  vaccination_dose_1_vaccine_name:
-    name: vaccination_dose_1_vaccine_name
+  vaccine_name_dose_1:
+    name: vaccine_name_dose_1
     slot_uri: GENEPIO:0100313
     title: vaccination dose 1 vaccine name
     range: WhitespaceMinimizedString
@@ -1668,8 +1668,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the first dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_1_vaccination_date:
-    name: vaccination_dose_1_vaccination_date
+  vaccination_date_dose_1:
+    name: vaccination_date_dose_1
     slot_uri: GENEPIO:0100314
     title: vaccination dose 1 vaccination date
     range: date
@@ -1678,8 +1678,8 @@ slots:
       - Provide the date the first dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     examples:
       - value: '2021-03-01'
-  vaccination_dose_2_vaccine_name:
-    name: vaccination_dose_2_vaccine_name
+  vaccine_name_dose_2:
+    name: vaccine_name_dose_2
     slot_uri: GENEPIO:0100315
     title: vaccination dose 2 vaccine name
     range: WhitespaceMinimizedString
@@ -1688,8 +1688,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the second dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_2_vaccination_date:
-    name: vaccination_dose_2_vaccination_date
+  vaccination_date_dose_2:
+    name: vaccination_date_dose_2
     slot_uri: GENEPIO:0100316
     title: vaccination dose 2 vaccination date
     range: date
@@ -1698,8 +1698,8 @@ slots:
       - Provide the date the second dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     examples:
       - value: '2021-09-01'
-  vaccination_dose_3_vaccine_name:
-    name: vaccination_dose_3_vaccine_name
+  vaccine_name_dose_3:
+    name: vaccine_name_dose_3
     slot_uri: GENEPIO:0100317
     title: vaccination dose 3 vaccine name
     range: WhitespaceMinimizedString
@@ -1708,8 +1708,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the third dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_3_vaccination_date:
-    name: vaccination_dose_3_vaccination_date
+  vaccination_date_dose_3:
+    name: vaccination_date_dose_3
     slot_uri: GENEPIO:0100318
     title: vaccination dose 3 vaccination date
     range: date
@@ -1720,8 +1720,8 @@ slots:
       - Provide the date the third dose of COVID-19 vaccine was administered. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     examples:
       - value: '2021-12-30'
-  vaccination_dose_4_vaccine_name:
-    name: vaccination_dose_4_vaccine_name
+  vaccine_name_dose_4:
+    name: vaccine_name_dose_4
     slot_uri: GENEPIO:0100319
     title: vaccination dose 4 vaccine name
     range: WhitespaceMinimizedString
@@ -1730,8 +1730,8 @@ slots:
       - Provide the name and the corresponding manufacturer of the COVID-19 vaccine administered as the fourth dose by selecting a value from the pick list
     examples:
       - value: Pfizer-BioNTech (Comirnaty)
-  vaccination_dose_4_vaccination_date:
-    name: vaccination_dose_4_vaccination_date
+  vaccination_date_dose_4:
+    name: vaccination_date_dose_4
     slot_uri: GENEPIO:0100320
     title: vaccination dose 4 vaccination date
     range: date
@@ -2486,8 +2486,8 @@ slots:
       - Provide the cycle threshold (Ct) value of the sample from the second diagnostic RT-PCR test.
     examples:
       - value: '36'
-  title:
-    name: title
+  ncbi_sra_title:
+    name: ncbi_sra_title
     slot_uri: GENEPIO:0100323
     title: title
     range: WhitespaceMinimizedString
@@ -2498,8 +2498,8 @@ slots:
       - 'Format: {methodology} of {organism}: {sample info}'
     examples:
       - value: 'Genomic sequencing of SARS-CoV-2: Nasopharynx (NP), Swab'
-  library_strategy:
-    name: library_strategy
+  ncbi_sra_library_strategy:
+    name: ncbi_sra_library_strategy
     slot_uri: GENEPIO:0100324
     title: library_strategy
     range: LibraryStrategyMenu
@@ -2508,8 +2508,8 @@ slots:
       - NCBI_SRA:library_strategy
     comments:
       - Provide the library strategy by selecting a value from the pick list. For amplicon sequencing select "AMPLICON".
-  library_source:
-    name: library_source
+  ncbi_sra_library_source:
+    name: ncbi_sra_library_source
     slot_uri: GENEPIO:0100325
     title: library_source
     range: LibrarySourceMenu
@@ -2518,8 +2518,8 @@ slots:
       - NCBI_SRA:library_source
     comments:
       - Provide the library source by selecting a value from the pick list. For amplicon sequencing select "Viral RNA".
-  library_selection:
-    name: library_selection
+  ncbi_sra_library_selection:
+    name: ncbi_sra_library_selection
     slot_uri: GENEPIO:0100326
     title: library_selection
     range: LibrarySelectionMenu
@@ -2528,8 +2528,8 @@ slots:
       - NCBI_SRA:library_selection
     comments:
       - Provide the library selection by selecting a value from the pick list. For amplicon sequencing select "PCR".
-  library_layout:
-    name: library_layout
+  ncbi_sra_library_layout:
+    name: ncbi_sra_library_layout
     slot_uri: GENEPIO:0100327
     title: library_layout
     range: LibraryLayoutMenu
@@ -2538,8 +2538,8 @@ slots:
       - NCBI_SRA:library_layout
     comments:
       - Provide the library layout by selecting a value from the pick list. For Illumina instruments, select "PAIRED". For Oxford Nanopore instruments, select "SINGLE".
-  filetype:
-    name: filetype
+  ncbi_sra_filetype:
+    name: ncbi_sra_filetype
     slot_uri: GENEPIO:0100328
     title: filetype
     range: FiletypeMenu
@@ -2548,8 +2548,8 @@ slots:
       - NCBI_SRA:filetype
     comments:
       - Provide the filetype by selecting a value from the pick list.
-  filename:
-    name: filename
+  ncbi_sra_filename:
+    name: ncbi_sra_filename
     slot_uri: GENEPIO:0100329
     title: filename
     range: WhitespaceMinimizedString
@@ -2558,8 +2558,8 @@ slots:
       - NCBI_SRA:filename
     comments:
       - Provide the appropriate filename recorded in the Bioinformatics and QC metrics section. If sequence data is "paired", provide the second filename under "Filename 2".
-  filename2:
-    name: filename2
+  ncbi_sra_filename2:
+    name: ncbi_sra_filename2
     slot_uri: GENEPIO:0100330
     title: filename2
     range: WhitespaceMinimizedString
@@ -3064,7 +3064,7 @@ enums:
       Prior antiviral treatment [GENEPIO:0100037]:
         text: Prior antiviral treatment [GENEPIO:0100037]
         title: Prior antiviral treatment [GENEPIO:0100037]
-        meaning: GENEPIO:0100237
+        meaning: GENEPIO:0100037
         exact_mappings:
           - NCBI_BIOSAMPLE:prior_sars_cov_2_antiviral_treatment%3AYes
       No prior antiviral treatment [GENEPIO:0100233]:
@@ -3470,11 +3470,13 @@ enums:
         text: Cardiac transplant [NCIT:C131759]
         title: Cardiac transplant [NCIT:C131759]
         meaning: GENEPIO:0100080
+        description: 'EDITOR NOTE: Both the meaning ID and NCIT ID should be updated to EFO:0010673. https://github.com/pha4ge/sars-cov-2-contextual-data-specification/issues/23'
         is_a: Transplant [NCIT:C159659]
       Hematopoietic stem cell transplant (bone marrow transplant) [GENEPIO:0100080]:
         text: Hematopoietic stem cell transplant (bone marrow transplant) [GENEPIO:0100080]
         title: Hematopoietic stem cell transplant (bone marrow transplant) [GENEPIO:0100080]
         meaning: NCIT:C131759
+        description: 'EDITOR NOTE: Both the meaning ID and NCIT ID should be updated to EFO:0020989. https://github.com/pha4ge/sars-cov-2-contextual-data-specification/issues/23'
         is_a: Transplant [NCIT:C159659]
       Kidney transplant [NCIT:C157332]:
         text: Kidney transplant [NCIT:C157332]
@@ -3549,7 +3551,7 @@ enums:
       Cardiac injury [GENEPIO:0100074]:
         text: Cardiac injury [GENEPIO:0100074]
         title: Cardiac injury [GENEPIO:0100074]
-        meaning: GENEPIO:0100087
+        meaning: GENEPIO:0100074
       Cardiac arrest [HP:0001695]:
         text: Cardiac arrest [HP:0001695]
         title: Cardiac arrest [HP:0001695]
@@ -4472,31 +4474,31 @@ enums:
       Homo sapiens [NCBITaxon:9606]:
         text: Homo sapiens [NCBITaxon:9606]
         title: Homo sapiens [NCBITaxon:9606]
-        meaning: NCBITaxon:9913
+        meaning: NCBITaxon:9606
       Bos taurus [NCBITaxon:9913]:
         text: Bos taurus [NCBITaxon:9913]
         title: Bos taurus [NCBITaxon:9913]
-        meaning: NCBITaxon:9615
+        meaning: NCBITaxon:9913
       Canis lupus familiaris [NCBITaxon:9615]:
         text: Canis lupus familiaris [NCBITaxon:9615]
         title: Canis lupus familiaris [NCBITaxon:9615]
-        meaning: NCBITaxon:9397
+        meaning: NCBITaxon:9615
       Chiroptera [NCBITaxon:9397]:
         text: Chiroptera [NCBITaxon:9397]
         title: Chiroptera [NCBITaxon:9397]
-        meaning: NCBITaxon:8930
+        meaning: NCBITaxon:9397
       Columbidae [NCBITaxon:8930]:
         text: Columbidae [NCBITaxon:8930]
         title: Columbidae [NCBITaxon:8930]
-        meaning: NCBITaxon:9685
+        meaning: NCBITaxon:8930
       Felis catus [NCBITaxon:9685]:
         text: Felis catus [NCBITaxon:9685]
         title: Felis catus [NCBITaxon:9685]
-        meaning: NCBITaxon:9031
+        meaning: NCBITaxon:9685
       Gallus gallus [NCBITaxon:9031]:
         text: Gallus gallus [NCBITaxon:9031]
         title: Gallus gallus [NCBITaxon:9031]
-        meaning: NCBITaxon:9606
+        meaning: NCBITaxon:9031
       Manis [NCBITaxon:9973]:
         text: Manis [NCBITaxon:9973]
         title: Manis [NCBITaxon:9973]
@@ -4540,7 +4542,7 @@ enums:
       Human [NCBITaxon:9606]:
         text: Human [NCBITaxon:9606]
         title: Human [NCBITaxon:9606]
-        meaning: NCBITaxon:9605
+        meaning: NCBITaxon:9606
       Bat [NCBITaxon:9397]:
         text: Bat [NCBITaxon:9397]
         title: Bat [NCBITaxon:9397]

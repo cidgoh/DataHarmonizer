@@ -42,8 +42,8 @@
       "from_schema": "https://example.com/B2B2B",
       "is_a": "dh_interface",
       "slot_usage": {
-        "sample_collector_sample_id": {
-          "name": "sample_collector_sample_id",
+        "specimen_specimen_sample_collector_sample_id": {
+          "name": "specimen_specimen_sample_collector_sample_id",
           "rank": 1,
           "slot_group": "Database Identifiers"
         },
@@ -92,8 +92,8 @@
           "rank": 10,
           "slot_group": "Sample collection and processing"
         },
-        "geo_loc_name_state/province/territory": {
-          "name": "geo_loc_name_state/province/territory",
+        "geo_loc_name_state_province_territory_region_region": {
+          "name": "geo_loc_name_state_province_territory_region_region",
           "rank": 11,
           "slot_group": "Sample collection and processing"
         },
@@ -307,8 +307,8 @@
           "rank": 53,
           "slot_group": "Sequence information"
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "rank": 54,
           "slot_group": "Sequence information"
         },
@@ -439,8 +439,8 @@
         }
       },
       "attributes": {
-        "sample_collector_sample_id": {
-          "name": "sample_collector_sample_id",
+        "specimen_specimen_sample_collector_sample_id": {
+          "name": "specimen_specimen_sample_collector_sample_id",
           "description": "The user-defined name for the sample.",
           "title": "sample_collector_sample_ID",
           "comments": [
@@ -454,7 +454,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 1,
           "slot_uri": "GENEPIO:0001123",
-          "alias": "sample_collector_sample_id",
+          "alias": "specimen_specimen_sample_collector_sample_id",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -749,8 +749,8 @@
             }
           ]
         },
-        "geo_loc_name_state/province/territory": {
-          "name": "geo_loc_name_state/province/territory",
+        "geo_loc_name_state_province_territory_region_region": {
+          "name": "geo_loc_name_state_province_territory_region_region",
           "description": "The state/province/territory of origin of the sample.",
           "title": "geo_loc_name_(state/province/territory)",
           "comments": [
@@ -764,7 +764,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 11,
           "slot_uri": "GENEPIO:0001185",
-          "alias": "geo_loc_name_state/province/territory",
+          "alias": "geo_loc_name_state_province_territory_region_region",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -2083,8 +2083,8 @@
             }
           ]
         },
-        "sequence_submitter_contact_email": {
-          "name": "sequence_submitter_contact_email",
+        "sequence_submitted_by_contact_email": {
+          "name": "sequence_submitted_by_contact_email",
           "description": "The email address of the contact responsible for follow-up regarding the sequence.",
           "title": "sequence_submitter_contact_email",
           "comments": [
@@ -2098,7 +2098,7 @@
           "from_schema": "https://example.com/B2B2B",
           "rank": 54,
           "slot_uri": "GENEPIO:0001165",
-          "alias": "sequence_submitter_contact_email",
+          "alias": "sequence_submitted_by_contact_email",
           "owner": "B2B2B",
           "domain_of": [
             "B2B2B"
@@ -2893,8 +2893,8 @@
     }
   },
   "slots": {
-    "sample_collector_sample_id": {
-      "name": "sample_collector_sample_id",
+    "specimen_specimen_sample_collector_sample_id": {
+      "name": "specimen_specimen_sample_collector_sample_id",
       "description": "The user-defined name for the sample.",
       "title": "sample_collector_sample_ID",
       "comments": [
@@ -3163,8 +3163,8 @@
         }
       ]
     },
-    "geo_loc_name_state/province/territory": {
-      "name": "geo_loc_name_state/province/territory",
+    "geo_loc_name_state_province_territory_region_region": {
+      "name": "geo_loc_name_state_province_territory_region_region",
       "description": "The state/province/territory of origin of the sample.",
       "title": "geo_loc_name_(state/province/territory)",
       "comments": [
@@ -4325,8 +4325,8 @@
         }
       ]
     },
-    "sequence_submitter_contact_email": {
-      "name": "sequence_submitter_contact_email",
+    "sequence_submitted_by_contact_email": {
+      "name": "sequence_submitted_by_contact_email",
       "description": "The email address of the contact responsible for follow-up regarding the sequence.",
       "title": "sequence_submitter_contact_email",
       "comments": [
@@ -7347,14 +7347,14 @@
         "Chicken meat [FOODON:00001040]": {
           "text": "Chicken meat [FOODON:00001040]",
           "description": "Meat from a chicken",
-          "meaning": "FOODON:00004239",
+          "meaning": "FOODON:00001040",
           "is_a": "Meat, poultry and fish (organizational term)",
           "title": "Chicken meat [FOODON:00001040]"
         },
         "Chicken meat (ground) [FOODON:02020311]": {
           "text": "Chicken meat (ground) [FOODON:02020311]",
           "description": "A food product made of ground or minced chicken meat.",
-          "meaning": "FOODON:03311826",
+          "meaning": "FOODON:02020311",
           "is_a": "Chicken meat [FOODON:00001040]",
           "title": "Chicken meat (ground) [FOODON:02020311]"
         },
@@ -7522,14 +7522,14 @@
         "pork meat (ground) [FOODON:02021718]": {
           "text": "pork meat (ground) [FOODON:02021718]",
           "description": "Meat from a pig that has been ground or minced.",
-          "meaning": "FOODON:03309969",
+          "meaning": "FOODON:02021718",
           "is_a": "Meat, poultry and fish (organizational term)",
           "title": "pork meat (ground) [FOODON:02021718]"
         },
         "Pork meat (ground or minced, boneless) [FOODON:03000413]": {
           "text": "Pork meat (ground or minced, boneless) [FOODON:03000413]",
           "description": "Ground or minced pork meat that has had no bone material in it.",
-          "meaning": "FOODON:02021718",
+          "meaning": "FOODON:03000413",
           "is_a": "pork meat (ground) [FOODON:02021718]",
           "title": "Pork meat (ground or minced, boneless) [FOODON:03000413]"
         },
@@ -7774,7 +7774,7 @@
         "Turkey meat (ground) [FOODON:02020577]": {
           "text": "Turkey meat (ground) [FOODON:02020577]",
           "description": "A food product made of ground or minced turkey meat.",
-          "meaning": "FOODON:00002714",
+          "meaning": "FOODON:02020577",
           "is_a": "Turkey meat [FOODON:00001286]",
           "title": "Turkey meat (ground) [FOODON:02020577]"
         },
@@ -7809,7 +7809,7 @@
         "Turkey meat (ground or minced, boneless) [FOODON:03000411]": {
           "text": "Turkey meat (ground or minced, boneless) [FOODON:03000411]",
           "description": "Ground or minced turkey meat that has had no bone material in it.",
-          "meaning": "FOODON:02020577",
+          "meaning": "FOODON:03000411",
           "is_a": "Turkey meat [FOODON:00001286]",
           "title": "Turkey meat (ground or minced, boneless) [FOODON:03000411]"
         },
@@ -8994,14 +8994,14 @@
         "Chinook salmon [NCBITaxon:74940]": {
           "text": "Chinook salmon [NCBITaxon:74940]",
           "description": "A species of pacific salmon in North America, that is commonly called as coho salmon.",
-          "meaning": "NCBITaxon:8019",
+          "meaning": "NCBITaxon:74940",
           "is_a": "Salmon [FOODON:00003473]",
           "title": "Chinook salmon [NCBITaxon:74940]"
         },
         "Coho Salmon [NCBITaxon:8019]": {
           "text": "Coho Salmon [NCBITaxon:8019]",
           "description": "The largest species of pacific salmon in North America (Oncorhynchus tshawytscha).",
-          "meaning": "NCBITaxon:74940",
+          "meaning": "NCBITaxon:8019",
           "is_a": "Salmon [FOODON:00003473]",
           "title": "Coho Salmon [NCBITaxon:8019]"
         },
@@ -9992,21 +9992,21 @@
         "Shewanella pealeana [NCBITaxon:70864]": {
           "text": "Shewanella pealeana [NCBITaxon:70864]",
           "description": "A species of Gram-negative, mesophilic, facultatively anaerobic, psychrotolerant, motile and rod-shaped bacteria that are assigned to the genus Shewanella. https://www.microbiologyresearch.org/content/journal/ijsem/10.1099/00207713-49-4-13411]",
-          "meaning": "NCBITaxon:2726434",
+          "meaning": "NCBITaxon:70864",
           "is_a": "Shewanella [NCBITaxon:22]",
           "title": "Shewanella pealeana [NCBITaxon:70864]"
         },
         "Shewanella putrefaciens [NCBITaxon:24]": {
           "text": "Shewanella putrefaciens [NCBITaxon:24]",
           "description": "A species of Gram-negative, mesophilic, facultatively anaerobic, psychrotolerant, motile and rod-shaped bacteria that are assigned to the genus Shewanella. https://www.microbiologyresearch.org/content/journal/ijsem/10.1099/00207713-49-4-13411]",
-          "meaning": "NCBITaxon:70864",
+          "meaning": "NCBITaxon:24",
           "is_a": "Shewanella [NCBITaxon:22]",
           "title": "Shewanella putrefaciens [NCBITaxon:24]"
         },
         "Shewanella oncorhynchi [NCBITaxon:2726434]": {
           "text": "Shewanella oncorhynchi [NCBITaxon:2726434]",
           "description": "A species of facultatively anaerobic, Gram negative, rod shaped bacteria assigned to the phylum Proteobacteria. This species can reduce metals including iron, manganese and uranium to produce energy. S. putrefaciens is found in marine environments and is a pathogen that can cause bacteremia, biliary tract infection, peritonitis, empyema, and various skin and soft tissue infections. [http://purl.obolibrary.org/obo/NCIT_C86743]",
-          "meaning": "NCBITaxon:24",
+          "meaning": "NCBITaxon:2726434",
           "is_a": "Shewanella [NCBITaxon:22]",
           "title": "Shewanella oncorhynchi [NCBITaxon:2726434]"
         },
