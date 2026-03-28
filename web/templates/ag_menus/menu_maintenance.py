@@ -42,6 +42,7 @@ import os
 import re
 import sys
 import tempfile
+import urllib.parse
 import urllib.request
 from collections import defaultdict
 import yaml
@@ -161,7 +162,8 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
         "prefixes": {},
         "default_prefix": "menu",
         "imports": ["linkml:types"],
-        "enums": {},
+        "slots": {},
+        "enums": {}
     }
 
     if os.path.exists(schema_file):
@@ -409,6 +411,7 @@ def add_source(urls, config_file=MENU_CONFIG):
     """Add sources from URLs to menu_config.yaml and process them.
 
     For each URL, downloads the file and detects its type:
+    - URL matching https://sis.agr.gc.ca/cansis/nsdb/soil -> content_type: NSDB
     - JSON with resourceType CodeSystem  -> content_type: LOINCCodeSystem
     - JSON with resourceType ValueSet    -> content_type: LOINCValueSet
     - YAML with LinkML schema structure  -> content_type: LinkML
@@ -427,6 +430,63 @@ def add_source(urls, config_file=MENU_CONFIG):
         except Exception as e:
             print(f"  Error fetching {url}: {e}", file=sys.stderr)
             os.unlink(tmp_path)
+            continue
+
+        # URL-pattern detection: NSDB Soil database
+        if url.startswith("https://sis.agr.gc.ca/cansis/nsdb/soil"):
+            url_no_query = url.split("?")[0].rstrip("/")
+            parts = url_no_query.split("/")
+            if "index.html" in parts:
+                version_label = parts[parts.index("index.html") - 1]
+                base_url = url_no_query[: url_no_query.rfind("/index.html") + 1]
+            else:
+                version_label = parts[-1]
+                base_url = url_no_query + "/"
+            version_num = re.sub(r"^[vV]", "", version_label)
+            key = f"NSDBSoilNameAndLayerV{version_num}"
+
+            with open(config_file) as f:
+                config = yaml.safe_load(f) or {}
+            if key in config.get("sources", {}):
+                print(f"  Skipping {url}: source key '{key}' already exists in {config_file}", file=sys.stderr)
+                os.unlink(tmp_path)
+                continue
+
+            output_path = f"sources/{key}.html"
+            os.rename(tmp_path, output_path)
+            print(f"Saved to {output_path}")
+
+            entry = {
+                "title": "NSDB Soil Name and Layer Tables",
+                "name": key,
+                "version": version_label,
+                "content_type": "NSDB",
+                "file_format": "html",
+                "menu_uri": url,
+                "download_date": datetime.date.today().isoformat(),
+                "description": "This schema contains summary information for named soils within the Canadian soil surveys NSDB database",
+            }
+            config.setdefault("sources", {})[key] = entry
+            with open(config_file, "w") as f:
+                yaml.dump(config, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+            print(f"Added source '{key}' to {config_file}")
+
+            # Create skeleton LinkML YAML for this source
+            yaml_path = f"sources/{key}.yaml"
+            schema = {
+                "id": base_url,
+                "name": key,
+                "title": entry["title"],
+                "description": entry["description"],
+                "license": "CC0",
+                "prefixes": {},
+                "default_prefix": "menu",
+                "imports": ["linkml:types"],
+                "enums": {},
+            }
+            with open(yaml_path, "w") as f:
+                yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+            print(f"Created {yaml_path}")
             continue
 
         content_type = file_format = key = None
@@ -516,8 +576,9 @@ def add_source(urls, config_file=MENU_CONFIG):
 def process_sources(source_keys=None, config_file=MENU_CONFIG):
     """Store per-source prefix dicts into menu_config.yaml from fetched source files.
 
-    For LOINCCodeSystem sources: converts the fetched JSON to a LinkML YAML file and
-    stores the resulting prefix dict in menu_config.yaml.
+    For NSDB sources: runs process_nsdb_source to fetch and parse HTML attribute pages.
+    For LOINCCodeSystem/LOINCValueSet sources: converts the fetched JSON to a LinkML
+    YAML file and stores the resulting prefix dict in menu_config.yaml.
     For yaml sources: reads the source file and stores its prefix dict in
     menu_config.yaml.
 
@@ -541,6 +602,14 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
         source = all_sources[key]
         file_format = source.get("file_format", "yaml")
         content_type = source.get("content_type", "")
+
+        if content_type == "NSDB":
+            html_path = f"sources/{key}.html"
+            if not os.path.exists(html_path):
+                print(f"Skipping {key}: {html_path} not found — run -f to fetch first", file=sys.stderr)
+                continue
+            process_nsdb_source(key, source)
+            continue
 
         if content_type in ("LOINCCodeSystem", "LOINCValueSet"):
             json_path = f"sources/{key}.json"
@@ -571,6 +640,215 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
         source_prefixes = source_data.get("prefixes") or {}
         update_source_config(key, {"prefixes": dict(source_prefixes)}, config_file)
         print(f"{key}: prefix list updated ({len(source_prefixes)} prefixes)")
+
+
+def fetch_html(url):
+    """Fetch a URL and return its decoded text content."""
+    with urllib.request.urlopen(url) as response:
+        charset = response.headers.get_content_charset() or "utf-8"
+        return response.read().decode(charset, errors="replace")
+
+
+def strip_tags(html):
+    """Remove all HTML tags from a string and return stripped plain text."""
+    return re.sub(r'<[^>]+>', '', html).strip()
+
+
+def find_links_by_text(html_text, link_texts, base_url):
+    """Find anchor links whose display text matches any entry in link_texts.
+
+    Returns {display_text: absolute_url}.
+    """
+    results = {}
+    for m in re.finditer(r'<a\s[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>',
+                         html_text, re.IGNORECASE | re.DOTALL):
+        text = strip_tags(m.group(2))
+        if text in link_texts:
+            results[text] = urllib.parse.urljoin(base_url, m.group(1))
+    return results
+
+
+def find_section_paragraph(html_text, section_name):
+    """Return plain text of the first paragraph following a header containing section_name."""
+    m = re.search(
+        r'<h[2-4][^>]*>[^<]*' + re.escape(section_name) + r'[^<]*</h[2-4]>'
+        r'(?:\s*<[^>]+>)*\s*<p[^>]*>(.*?)</p>',
+        html_text, re.IGNORECASE | re.DOTALL
+    )
+    return strip_tags(m.group(1)) if m else ""
+
+
+def find_contents_table_links(html_text, base_url):
+    """Find Name-column links from the Contents section table.
+
+    Returns a list of (name, absolute_url) tuples.
+    """
+    m = re.search(
+        r'<h[2-4][^>]*>[^<]*Contents[^<]*</h[2-4]>(.*?)(?=<h[2-4]|\Z)',
+        html_text, re.IGNORECASE | re.DOTALL
+    )
+    if not m:
+        return []
+    table_m = re.search(r'<table[^>]*>(.*?)</table>', m.group(1), re.IGNORECASE | re.DOTALL)
+    if not table_m:
+        return []
+    rows = re.findall(r'<tr[^>]*>(.*?)</tr>', table_m.group(1), re.IGNORECASE | re.DOTALL)
+    if not rows:
+        return []
+    header_cells = re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', rows[0], re.IGNORECASE | re.DOTALL)
+    header_texts = [strip_tags(h).lower() for h in header_cells]
+    name_col = next((i for i, h in enumerate(header_texts) if h == 'name'), None)
+    if name_col is None:
+        return []
+    results = []
+    for row in rows[1:]:
+        cells = re.findall(r'<td[^>]*>(.*?)</td>', row, re.IGNORECASE | re.DOTALL)
+        if len(cells) > name_col:
+            link_m = re.search(r'<a\s[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>',
+                                cells[name_col], re.IGNORECASE | re.DOTALL)
+            if link_m:
+                results.append((strip_tags(link_m.group(2)),
+                                 urllib.parse.urljoin(base_url, link_m.group(1))))
+    return results
+
+
+def parse_attribute_page(html_text):
+    """Parse an NSDB attribute definition page.
+
+    Returns (label, title, description, pv_tables) where pv_tables is a list
+    of lists of {'code', 'class_', 'description'} dicts — one inner list per
+    permissible-value table found on the page.
+    """
+    label = title = description = ""
+
+    def norm_key(raw):
+        """Normalise a cell key: strip tags, collapse whitespace/underscores, remove trailing colon."""
+        return re.sub(r'[\s_]+', ' ', strip_tags(raw)).lower().rstrip(':').strip()
+
+    # Scan all tables for attribute definition rows (label, title, definition/description).
+    # This avoids relying on "Attribute Definition" heading placement in the HTML.
+    all_tables = re.findall(r'<table[^>]*>(.*?)</table>', html_text, re.IGNORECASE | re.DOTALL)
+    for table_html in all_tables:
+        rows = re.findall(r'<tr[^>]*>(.*?)</tr>', table_html, re.IGNORECASE | re.DOTALL)
+        for row in rows:
+            cells = re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', row, re.IGNORECASE | re.DOTALL)
+            if len(cells) >= 2:
+                k = norm_key(cells[0])
+                v = strip_tags(cells[1])
+                if k in ('attribute label', 'label'):
+                    label = v
+                elif k in ('attribute title', 'title'):
+                    title = v
+                elif k in ('attribute definition', 'attribute description', 'definition', 'description'):
+                    description = v
+        if label:
+            break  # Found the attribute definition table; stop scanning
+
+    pv_tables = []
+    for table_html in re.findall(r'<table[^>]*>(.*?)</table>', html_text, re.IGNORECASE | re.DOTALL):
+        rows = re.findall(r'<tr[^>]*>(.*?)</tr>', table_html, re.IGNORECASE | re.DOTALL)
+        if not rows:
+            continue
+        header_cells = re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', rows[0], re.IGNORECASE | re.DOTALL)
+        header_texts = [strip_tags(h).lower() for h in header_cells]
+        if 'code' not in header_texts:
+            continue
+        code_idx = header_texts.index('code')
+        class_idx = next((i for i, h in enumerate(header_texts) if h == 'class'), None)
+        desc_idx = next((i for i, h in enumerate(header_texts) if h == 'description'), None)
+        pv_rows = []
+        for row in rows[1:]:
+            cells = [strip_tags(c) for c in re.findall(r'<td[^>]*>(.*?)</td>', row, re.IGNORECASE | re.DOTALL)]
+            if len(cells) > code_idx and cells[code_idx]:
+                pv_rows.append({
+                    'code': cells[code_idx],
+                    'class_': cells[class_idx] if class_idx is not None and len(cells) > class_idx else "",
+                    'description': cells[desc_idx] if desc_idx is not None and len(cells) > desc_idx else "",
+                })
+        if pv_rows:
+            pv_tables.append(pv_rows)
+
+    return label, title, description, pv_tables
+
+
+def process_nsdb_source(key, source):
+    """Fetch and parse NSDB Soil Name and Layer tables, populating sources/{key}.yaml enums.
+
+    Fetches the source menu_uri index page, finds the Soil Name Table and Soil
+    Layer Table links, and for each follows the Contents table Name links to
+    individual attribute pages. Attributes with more than 2 permissible-value
+    tables or more than 2 rows in any table are written as enums.
+    """
+    yaml_path = f"sources/{key}.yaml"
+    base_url = source.get("menu_uri", "")
+
+    if os.path.exists(yaml_path):
+        with open(yaml_path) as f:
+            schema = yaml.safe_load(f) or {}
+    else:
+        schema = {}
+    # Reset description and enums before each run so repeated -c invocations are idempotent.
+    schema["description"] = source.get("description", "")
+    schema["enums"] = {}
+
+    print(f"  Fetching NSDB index {base_url} ...")
+    try:
+        index_html = fetch_html(base_url)
+    except Exception as e:
+        print(f"  Error fetching {base_url}: {e}", file=sys.stderr)
+        return
+
+    table_links = find_links_by_text(index_html, ["Soil Name Table", "Soil Layer Table"], base_url)
+    if not table_links:
+        print(f"  Warning: 'Soil Name Table' / 'Soil Layer Table' links not found", file=sys.stderr)
+
+    for table_name, table_url in table_links.items():
+        print(f"  Processing '{table_name}' ...")
+        try:
+            table_html = fetch_html(table_url)
+        except Exception as e:
+            print(f"  Error fetching {table_url}: {e}", file=sys.stderr)
+            continue
+
+        desc = find_section_paragraph(table_html, "Description")
+        if desc:
+            existing = schema.get("description", "")
+            schema["description"] = (existing + "\n" + desc).strip() if existing else desc
+
+        attr_links = find_contents_table_links(table_html, table_url)
+        print(f"    Found {len(attr_links)} attribute links")
+
+        for attr_name, attr_url in attr_links:
+            try:
+                attr_html = fetch_html(attr_url)
+            except Exception as e:
+                print(f"    Error fetching {attr_url}: {e}", file=sys.stderr)
+                continue
+
+            label, title, attr_desc, pv_tables = parse_attribute_page(attr_html)
+
+            if len(pv_tables) > 2 or any(len(rows) > 2 for rows in pv_tables):
+                enum_key = f"NSDB_{label}"
+                permissible_values = {}
+                for rows in pv_tables:
+                    for row in rows:
+                        code = row['code']
+                        permissible_values[code] = {
+                            "text": code,
+                            "title": row['class_'],
+                            "description": row['description'],
+                        }
+                schema["enums"][enum_key] = {
+                    "name": label,
+                    "title": title,
+                    "description": attr_desc,
+                    "permissible_values": permissible_values,
+                }
+                print(f"    Added enum {enum_key} ({len(permissible_values)} values)")
+
+    with open(yaml_path, "w") as f:
+        yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+    print(f"Updated {yaml_path}")
 
 
 def generate_enum_report(yaml_file, tsv=False, output=sys.stdout, header=None):
