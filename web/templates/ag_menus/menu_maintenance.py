@@ -1,22 +1,36 @@
 #!/usr/bin/env python3
 # Authors: Damion Dooley and Claude (Anthropic claude-sonnet-4-6)
 #
+# TODO: The -l lookup function currently assumes subClassOf object property
+# traversal when expanding reachable_from.source_nodes via the OLS4 API.
+# Dynamic enumeration of reachable_from relationship_types (e.g. partOf,
+# hasPart, etc.) has not yet been implemented.
+#
 # Usage examples:
 #   Build or update schema.yaml with default LinkML top-level structure:
 #     python menu_maintenance.py -b
 #
-#   Fetch (download) all sources in menu_config.yaml and generate enum report:
-#     python menu_maintenance.py -f
+#   Fetch (download) sources — -f behaviour:
+#     python menu_maintenance.py -f all          # fetch every source in menu_config.yaml
+#     python menu_maintenance.py -f KEY1 KEY2    # fetch only the named source(s)
+#     python menu_maintenance.py -c KEY -f       # fetch only the source(s) listed with -c
+#     python menu_maintenance.py -f              # no-op; prints reminder to use -f all or -c
 #
 #   Generate enum report for all sources in menu_config.yaml:
 #     python menu_maintenance.py -r
 #
-#   Either of the above with tab-felimited output:
+#   Either of the above with tab-delimited output:
 #     python menu_maintenance.py -f -t
 #     python menu_maintenance.py -r -t
 #
-#   Build schema and fetch sources in one command:
-#     python menu_maintenance.py -b -f
+#   Expand reachable_from.source_nodes enums via OLS4 API — always operates on schema.yaml:
+#     python menu_maintenance.py -l                    # expand all enums with reachable_from.source_nodes
+#     python menu_maintenance.py -l linkml_valuesets   # expand enums imported_from a named source
+#     python menu_maintenance.py -l MyBiomeEnum        # expand one enum by name
+#     python menu_maintenance.py -l linkml_valuesets MyBiomeEnum  # source key and enum name mixed
+#
+#   Full refresh — fetch all sources, process into source YAMLs, rebuild schema.yaml:
+#     python menu_maintenance.py -f all -c -b
 #
 #   Add a new source from a URL (auto-detects type, adds to menu_config.yaml, and processes it):
 #     python menu_maintenance.py -a https://example.org/some-valueset.json
@@ -34,6 +48,23 @@
 #   in its source file, it reports the enum key rather than deleting it.
 #   This gives the menu manager the opportunity to manually review whether
 #   the menu item should be removed from their system or retained.
+#
+#   Regenerate menu_config.yaml from scratch with -a (one source per call):
+#
+#     # linkml_valuesets (LinkML)
+#     python menu_maintenance.py -a https://raw.githubusercontent.com/linkml/valuesets/refs/heads/main/src/valuesets/merged/merged_hierarchy.yaml
+#
+#     # LOINCDataAbsentReason (LOINCCodeSystem)
+#     python menu_maintenance.py -a https://terminology.hl7.org/7.1.0/en/CodeSystem-data-absent-reason.json
+#
+#     # LOINCPersonalPronouns (LOINCValueSet)
+#     python menu_maintenance.py -a https://terminology.hl7.org/7.1.0/en/ValueSet-pronouns.json
+#
+#     # LOINCGenderIdentity (LOINCValueSet)
+#     python menu_maintenance.py -a https://terminology.hl7.org/en/ValueSet-gender-identity.json
+#
+#     # NSDBSoilNameAndLayerV2 (NSDB)
+#     python menu_maintenance.py -a https://sis.agr.gc.ca/cansis/nsdb/soil/v2/index.html
 
 import argparse
 import datetime
@@ -49,11 +80,61 @@ import yaml
 
 MENU_CONFIG = "menu_config.yaml"
 
+DEFAULT_CONFIG_COMMENTS = [
+    'See docs on "reachable_from": https://linkml.io/linkml-model/latest/docs/reachable_from/',
+    "Config below doesn't support LinkML dynamic enumeration \"inherits\", and is limited custom version of LinkML dynamic enumerations, not quite in context of LinkML schema.",
+    'Note that "minus" list is implemented before "includes" list, which restores subordinate items that would otherwise have been eliminated by minus list items and their underlying items.',
+    "See https://linkml.io/linkml-model/latest/docs/EnumExpression/",
+    "Here 'reachable_from' is acted on via 'menu_maintenance.py - c' configuration to generate the LinkML .yaml schema file for the given source.  Over in schema.yaml, 'reachable_from' is acted on via 'menu_maintenance.py -l' for lookup function to populate schema.yaml enums.",
+    "TODO: Currently the fetch_ols4_graph() OLS API 'graph' call (which doesn't need an API key) is used to fetch schema.yaml term name and ID, but this doesn't include description field.  Also, add Bioportal api source: https://data.bioontology.org/documentation as an option. It requires an API.",
+]
+
 
 class IndentedDumper(yaml.Dumper):
     """YAML dumper that indents list items one level under their parent key."""
     def increase_indent(self, flow=False, indentless=False):
         return super().increase_indent(flow=flow, indentless=False)
+
+
+# Matches CURIE-style strings such as OBI:0000094 or oboInOwl:ObsoleteClass.
+# The colon must be followed by a letter or digit (excludes URLs whose colon is
+# followed by '//') and the string must start with a letter.
+_CURIE_PATTERN = re.compile(r'^[A-Za-z][A-Za-z0-9]*:[A-Za-z0-9]')
+
+
+def _represent_str(dumper, data):
+    """Single-quote CURIE-pattern strings to satisfy YAML rules for embedded colons."""
+    if _CURIE_PATTERN.match(data):
+        return dumper.represent_scalar('tag:yaml.org,2002:str', data, style="'")
+    return dumper.represent_scalar('tag:yaml.org,2002:str', data)
+
+
+IndentedDumper.add_representer(str, _represent_str)
+
+
+def enum_in_minus(enum_key, enum_def, minus_set):
+    """Return True if enum_key or its annotations source_domain/source_schema match minus_set."""
+    if not minus_set:
+        return False
+    if enum_key in minus_set:
+        return True
+    ann = (enum_def.get("annotations") or {}) if enum_def else {}
+    return ann.get("source_domain") in minus_set or ann.get("source_schema") in minus_set
+
+
+def keys_from_minus(value):
+    """Normalise a minus concepts/permissible_values entry to a set of string keys.
+
+    Accepts a dict (keys used), a list/tuple (items used), a bare string
+    (treated as a single key), or None/falsy (returns empty set).
+    """
+    if not value:
+        return set()
+    if isinstance(value, dict):
+        return set(value)
+    if isinstance(value, (list, tuple)):
+        return set(value)
+    return {str(value)}
 
 
 def to_camel_case(s):
@@ -69,8 +150,7 @@ def rename_source_key(old_key, new_key, config_file=MENU_CONFIG):
         (new_key if k == old_key else k): v
         for k, v in config["sources"].items()
     }
-    with open(config_file, "w") as f:
-        yaml.dump(config, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+    write_config(config, config_file)
 
 
 def fill_loinc_source_metadata(output_path, key, config_file=MENU_CONFIG):
@@ -121,13 +201,20 @@ def fill_loinc_source_metadata(output_path, key, config_file=MENU_CONFIG):
     return new_key, new_path
 
 
+def write_config(config, config_file=MENU_CONFIG):
+    """Write config to config_file, sorting sources keys alphabetically."""
+    if "sources" in config and isinstance(config["sources"], dict):
+        config["sources"] = dict(sorted(config["sources"].items(), key=lambda x: x[0].lower()))
+    with open(config_file, "w") as f:
+        yaml.dump(config, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+
+
 def update_source_config(source_key, fields, config_file=MENU_CONFIG):
     """Update one or more fields on a source entry in menu_config.yaml."""
     with open(config_file, "r") as f:
         config = yaml.safe_load(f)
     config["sources"][source_key].update(fields)
-    with open(config_file, "w") as f:
-        yaml.dump(config, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+    write_config(config, config_file)
 
 
 def update_download_date(source_key, config_file=MENU_CONFIG):
@@ -159,7 +246,7 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
         "title": "Example title",
         "description": "Example description ...",
         "license": "CC0",
-        "prefixes": {},
+        "prefixes": {"anthropics": "https://github.com/anthropics/"},
         "default_prefix": "menu",
         "imports": ["linkml:types"],
         "slots": {},
@@ -196,8 +283,32 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
             with open(source_path, "r") as f:
                 source_data = yaml.safe_load(f)
 
+            # Merge any source YAML prefixes missing from schema (additive only)
+            for prefix, uri in (source_data.get("prefixes") or {}).items():
+                schema["prefixes"].setdefault(prefix, uri)
+
             source_enums = source_data.get("enums") or {}
-            enum_added = enum_updated = enum_reported = 0
+            enum_added = enum_updated = enum_reported = enum_excluded = enum_deleted = enum_conflicts = 0
+            enum_concepts_included = enum_pvs_included = 0
+
+            minus = source.get("minus") or {}
+            minus_concepts = keys_from_minus(minus.get("concepts"))
+            minus_pvs = keys_from_minus(minus.get("permissible_values"))
+
+            include = source.get("include") or {}
+            include_concepts = keys_from_minus(include.get("concepts"))
+            include_pvs = keys_from_minus(include.get("permissible_values"))
+
+            # Pre-compute empty enums (no permissible_values or reachable_from, not
+            # minus-excluded) so is_a references to them can be cleaned up in the
+            # copy loop regardless of iteration order.
+            empty_enum_set = {
+                ek for ek, ev in source_enums.items()
+                if not enum_in_minus(ek, ev, minus_concepts)
+                and not (ev or {}).get("permissible_values")
+                and not (ev or {}).get("reachable_from")
+            }
+            empty_enum_names = sorted(empty_enum_set)
 
             existing_from_source = {
                 k for k, v in schema["enums"].items()
@@ -206,24 +317,123 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
                 and v["annotations"].get("imported_from") == key
             }
 
+            # Delete from schema any minus-excluded enums whose source_file matches
+            # this source, so stale entries are cleaned up on re-build.
+            if minus_concepts:
+                for enum_key in list(schema["enums"]):
+                    existing_def = schema["enums"][enum_key]
+                    if not enum_in_minus(enum_key, existing_def, minus_concepts):
+                        continue
+                    ann = (existing_def.get("annotations") or {})
+                    if ann.get("source_file") == source_path:
+                        del schema["enums"][enum_key]
+                        enum_deleted += 1
+
             for enum_key, enum_def in source_enums.items():
+                if enum_in_minus(enum_key, enum_def, minus_concepts):
+                    enum_excluded += 1
+                    continue
+                if enum_key in empty_enum_set:
+                    continue
                 enum_def = dict(enum_def) if enum_def else {}
+                if enum_def.get("is_a") in empty_enum_set:
+                    del enum_def["is_a"]
+                if enum_def.get("status"):
+                    enum_def["status"] = str(enum_def["status"]).upper()
+                if minus_pvs and enum_def.get("permissible_values"):
+                    enum_def["permissible_values"] = {
+                        k: v for k, v in enum_def["permissible_values"].items()
+                        if k not in minus_pvs
+                    }
                 annotations = dict(enum_def.get("annotations") or {})
                 annotations["imported_from"] = key
+                annotations["source_file"] = source_path
                 enum_def["annotations"] = annotations
 
                 if enum_key not in schema["enums"]:
                     schema["enums"][enum_key] = enum_def
                     enum_added += 1
-                elif schema["enums"][enum_key] != enum_def:
-                    schema["enums"][enum_key] = enum_def
-                    enum_updated += 1
+                else:
+                    existing_annotations = schema["enums"][enum_key].get("annotations") or {}
+                    existing_source_file = existing_annotations.get("source_file", "")
+                    if existing_source_file and existing_source_file != source_path:
+                        print(
+                            f"  Error: enum '{enum_key}' already defined in '{existing_source_file}';"
+                            f" '{source_path}' also defines it — skipping",
+                            file=sys.stderr
+                        )
+                        enum_conflicts += 1
+                    elif schema["enums"][enum_key] != enum_def:
+                        schema["enums"][enum_key] = enum_def
+                        enum_updated += 1
 
+            # Report enums gone from source (but not intentionally excluded via minus)
             for enum_key in sorted(existing_from_source - set(source_enums.keys())):
+                if enum_in_minus(enum_key, schema["enums"].get(enum_key), minus_concepts):
+                    continue
                 print(f"  Review: '{enum_key}' is no longer in {key} source — remove manually if no longer needed")
                 enum_reported += 1
 
-            print(f"{key}: enums {enum_added} added, {enum_updated} updated, {enum_reported} flagged for review")
+            # Second pass: restore concepts and permissible_values listed in include,
+            # overriding any minus exclusions for those specific items.
+            if include_concepts:
+                for concept_label in include_concepts:
+                    # Match by direct enum key first, then by source_schema/source_domain annotation
+                    if concept_label in source_enums:
+                        matched = [(concept_label, source_enums[concept_label])]
+                    else:
+                        matched = [
+                            (ek, ev) for ek, ev in source_enums.items()
+                            if (ev or {}).get("annotations", {}).get("source_schema") == concept_label
+                            or (ev or {}).get("annotations", {}).get("source_domain") == concept_label
+                        ]
+                    if not matched:
+                        print(f"  Warning: include concept '{concept_label}' not found in {source_path}", file=sys.stderr)
+                        continue
+                    for enum_key, raw_def in matched:
+                        enum_def = dict(raw_def) if raw_def else {}
+                        if enum_def.get("status"):
+                            enum_def["status"] = str(enum_def["status"]).upper()
+                        if enum_def.get("permissible_values"):
+                            pvs = {k: v for k, v in enum_def["permissible_values"].items()
+                                   if k not in minus_pvs or k in include_pvs}
+                            enum_def["permissible_values"] = pvs
+                        annotations = dict(enum_def.get("annotations") or {})
+                        annotations["imported_from"] = key
+                        annotations["source_file"] = source_path
+                        enum_def["annotations"] = annotations
+                        schema["enums"][enum_key] = enum_def
+                        enum_concepts_included += 1
+
+            if include_pvs:
+                for enum_key, existing_def in schema["enums"].items():
+                    ann = (existing_def.get("annotations") or {})
+                    if ann.get("source_file") != source_path:
+                        continue
+                    orig_pvs = (source_enums.get(enum_key) or {}).get("permissible_values") or {}
+                    current_pvs = dict(existing_def.get("permissible_values") or {})
+                    for pv_key in include_pvs:
+                        if pv_key in orig_pvs and pv_key not in current_pvs:
+                            current_pvs[pv_key] = orig_pvs[pv_key]
+                            enum_pvs_included += 1
+                    existing_def["permissible_values"] = current_pvs
+
+            parts = [f"{enum_added} added", f"{enum_updated} updated", f"{enum_reported} flagged for review"]
+            if enum_deleted:
+                parts.append(f"{enum_deleted} deleted (minus)")
+            if enum_excluded:
+                parts.append(f"{enum_excluded} excluded (minus)")
+            if empty_enum_names:
+                parts.append(f"{len(empty_enum_names)} empty (skipped)")
+            if enum_conflicts:
+                parts.append(f"{enum_conflicts} conflicts (skipped)")
+            if enum_concepts_included:
+                parts.append(f"{enum_concepts_included} concepts restored (include)")
+            if enum_pvs_included:
+                parts.append(f"{enum_pvs_included} permissible values restored (include)")
+            print(f"{key}: enums {', '.join(parts)}")
+            if empty_enum_names:
+                print(f"  Skipped — no permissible_values or reachable_from: {', '.join(sorted(empty_enum_names))}")
 
         sources_missing = [k for k, v in all_sources.items() if "prefixes" not in v]
         if sources_missing:
@@ -241,7 +451,7 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
                     protected[k] = v
                     prefix_sources[k].append(src_key)
 
-            prefix_added = prefix_updated = prefix_deleted = 0
+            prefix_added = prefix_updated = 0
             for prefix, uri in protected.items():
                 if prefix not in schema["prefixes"]:
                     schema["prefixes"][prefix] = uri
@@ -250,16 +460,9 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
                     schema["prefixes"][prefix] = uri
                     prefix_updated += 1
 
-            for prefix in list(schema["prefixes"].keys()):
-                if prefix not in protected:
-                    del schema["prefixes"][prefix]
-                    prefix_deleted += 1
-
             schema["prefixes"] = dict(sorted(schema["prefixes"].items(), key=lambda x: x[0].lower()))
 
-            print(
-                f"Prefixes: {prefix_added} added, {prefix_updated} updated, {prefix_deleted} removed"
-            )
+            print(f"Prefixes: {prefix_added} added, {prefix_updated} updated")
 
             # Report prefix keys that are identical except for case
             case_groups = defaultdict(list)
@@ -271,6 +474,26 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
                     f"{k} ({', '.join(prefix_sources[k])})" for k in keys
                 )
                 print(f"  Warning: case-variant prefix keys: {detail}", file=sys.stderr)
+
+    # Report enums in schema.yaml not attributed to any current menu_config.yaml source
+    if os.path.exists(config_file):
+        known_sources = set(all_sources.keys())
+        orphans = []
+        for enum_key, enum_def in schema.get("enums", {}).items():
+            ann = (enum_def.get("annotations") or {}) if isinstance(enum_def, dict) else {}
+            imported_from = ann.get("imported_from", "")
+            if not imported_from or imported_from not in known_sources:
+                orphans.append((enum_key, imported_from))
+        if orphans:
+            print(f"\nWarning: {len(orphans)} enum(s) not linked to any menu_config.yaml source:")
+            for enum_key, imported_from in sorted(orphans):
+                if imported_from:
+                    print(f"  {enum_key}  (imported_from: '{imported_from}' — source not in config)")
+                else:
+                    print(f"  {enum_key}  (no imported_from annotation)")
+
+    if schema.get("enums"):
+        schema["enums"] = dict(sorted(schema["enums"].items(), key=lambda x: x[0].lower()))
 
     with open(schema_file, "w") as f:
         yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
@@ -335,6 +558,7 @@ def convert_loinc_codesystem_to_linkml(key, source):
             source_name: {
                 "name": source_name,
                 "description": record.get("description", ""),
+                **({"status": record["status"]} if record.get("status") else {}),
                 "permissible_values": permissible_values,
             }
         },
@@ -395,6 +619,7 @@ def convert_loinc_valueset_to_linkml(key, source):
             source_name: {
                 "name": source_name,
                 "description": record.get("description", ""),
+                **({"status": record["status"]} if record.get("status") else {}),
                 "permissible_values": permissible_values,
             }
         },
@@ -420,6 +645,10 @@ def add_source(urls, config_file=MENU_CONFIG):
     metadata, and runs process_sources for the new key.
     """
     os.makedirs("sources", exist_ok=True)
+
+    if not os.path.exists(config_file):
+        write_config({"comment": DEFAULT_CONFIG_COMMENTS, "sources": {}}, config_file)
+        print(f"Created {config_file}")
 
     for url in urls:
         print(f"Fetching {url} ...")
@@ -462,13 +691,12 @@ def add_source(urls, config_file=MENU_CONFIG):
                 "version": version_label,
                 "content_type": "NSDB",
                 "file_format": "html",
-                "menu_uri": url,
+                "reachable_from": {"source_ontology": url},
                 "download_date": datetime.date.today().isoformat(),
                 "description": "This schema contains summary information for named soils within the Canadian soil surveys NSDB database",
             }
             config.setdefault("sources", {})[key] = entry
-            with open(config_file, "w") as f:
-                yaml.dump(config, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+            write_config(config, config_file)
             print(f"Added source '{key}' to {config_file}")
 
             # Create skeleton LinkML YAML for this source
@@ -555,14 +783,13 @@ def add_source(urls, config_file=MENU_CONFIG):
             "version": schema_data.get("version") or None if schema_data else None,
             "content_type": content_type,
             "file_format": file_format,
-            "menu_uri": url,
+            "reachable_from": {"source_ontology": url},
             "download_date": datetime.date.today().isoformat(),
         }
         if content_type in ("LOINCCodeSystem", "LOINCValueSet"):
             entry["see_also"] = url + ".html"
         config.setdefault("sources", {})[key] = entry
-        with open(config_file, "w") as f:
-            yaml.dump(config, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+        write_config(config, config_file)
         print(f"Added source '{key}' to {config_file}")
 
         # Fill LOINC metadata (may rename key and file)
@@ -774,13 +1001,13 @@ def parse_attribute_page(html_text):
 def process_nsdb_source(key, source):
     """Fetch and parse NSDB Soil Name and Layer tables, populating sources/{key}.yaml enums.
 
-    Fetches the source menu_uri index page, finds the Soil Name Table and Soil
+    Fetches the source source_ontology index page, finds the Soil Name Table and Soil
     Layer Table links, and for each follows the Contents table Name links to
     individual attribute pages. Attributes with more than 2 permissible-value
     tables or more than 2 rows in any table are written as enums.
     """
     yaml_path = f"sources/{key}.yaml"
-    base_url = source.get("menu_uri", "")
+    base_url = (source.get("reachable_from") or {}).get("source_ontology", "")
 
     if os.path.exists(yaml_path):
         with open(yaml_path) as f:
@@ -851,13 +1078,213 @@ def process_nsdb_source(key, source):
     print(f"Updated {yaml_path}")
 
 
+def iri_to_curie(iri, prefixes):
+    """Convert an IRI to a CURIE using the given prefixes dict.
+
+    Tries the OBO convention first (http://purl.obolibrary.org/obo/PREFIX_ID →
+    PREFIX:ID), then falls back to matching against each prefix URI.
+    Returns the original IRI unchanged if no conversion is found.
+    """
+    obo_match = re.match(r"http://purl\.obolibrary\.org/obo/([A-Za-z]+)_(\w+)$", iri)
+    if obo_match:
+        return f"{obo_match.group(1)}:{obo_match.group(2)}"
+    if prefixes:
+        for prefix, uri in sorted(prefixes.items(), key=lambda x: len(x[1]), reverse=True):
+            if uri and iri.startswith(uri):
+                return f"{prefix}:{iri[len(uri):]}"
+    return iri
+
+
+def fetch_ols4_graph(ontology, term_id):
+    """Fetch the OLS4 graph API for a term and return the parsed JSON.
+
+    ontology: ontology prefix exactly as it should appear in the URL (e.g. 'ENVO').
+    term_id:  numeric/alphanumeric part of the term without the prefix (e.g. '00000428').
+
+    The OLS4 API requires the term IRI to be double-percent-encoded in the path.
+    Returns a dict with 'nodes' and 'edges' lists, or None on error.
+    """
+    inner_iri = f"http://purl.obolibrary.org/obo/{ontology}_{term_id}"
+    # Single-encode the IRI (encodes :, /, etc.)
+    single_encoded = urllib.parse.quote(inner_iri, safe="")
+    # Double-encode by percent-encoding the % characters produced above
+    double_encoded = single_encoded.replace("%", "%25")
+    url = f"http://www.ebi.ac.uk/ols4/api/ontologies/{ontology}/terms/{double_encoded}/graph"
+    try:
+        print(f"    Fetching OLS4 graph: {ontology}:{term_id} ...")
+        with urllib.request.urlopen(url, timeout=30) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except Exception as e:
+        print(f"    Warning: OLS4 fetch failed for {ontology}:{term_id}: {e}", file=sys.stderr)
+        return None
+
+
+def expand_reachable_from(yaml_path, enum_filter=None):
+    """For each enum with reachable_from.source_nodes, fetch OLS4 graph data and
+    populate permissible_values with CURIE keys, titles, and is_a hierarchy.
+
+    source_nodes entries must be in CURIE format: PREFIX:ID (e.g. ENVO:00000428).
+    enum_filter: optional set/list of enum keys to restrict processing to.
+    Writes the updated schema back to yaml_path if any enums were expanded.
+    """
+    with open(yaml_path, "r") as f:
+        schema = yaml.safe_load(f)
+    if not schema:
+        return
+
+    OBSOLETE_CLASS_IRI = "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+    OBOINOWL_URI = "http://www.geneontology.org/formats/oboInOwl#"
+    OBOINOWL_KEY = "oboInOwl"
+
+    prefixes = schema.get("prefixes") or {}
+    enums = schema.get("enums") or {}
+    changed = False
+    prefix_added = False
+    expanded = {}   # enum_key -> permissible_value count
+
+    for enum_key, enum_def in enums.items():
+        if enum_filter is not None and enum_key not in enum_filter:
+            continue
+        if not enum_def:
+            continue
+        reachable_from = enum_def.get("reachable_from") or {}
+        source_nodes = reachable_from.get("source_nodes")
+        if not source_nodes:
+            continue
+
+        print(f"  Expanding '{enum_key}' ({len(source_nodes)} source node(s))")
+
+        # Collect all nodes and edges from every source_node graph fetch
+        all_nodes = {}   # iri -> {"label": str, "curie": str}
+        all_edges = []   # [{"child_curie": str, "parent_curie": str}]
+
+        for node_ref in source_nodes:
+            if ":" not in node_ref:
+                print(f"    Warning: source_node '{node_ref}' is not PREFIX:ID format — skipping", file=sys.stderr)
+                continue
+            ontology, term_id = node_ref.split(":", 1)
+            graph = fetch_ols4_graph(ontology, term_id)
+            if not graph:
+                continue
+
+            # Determine which IRIs to skip for this source_node:
+            # - the root node itself (unless include_self is true)
+            # - any ancestor nodes, i.e. targets of (root -subClassOf-> target)
+            inner_iri = f"http://purl.obolibrary.org/obo/{ontology}_{term_id}"
+            include_self = reachable_from.get("include_self", False)
+            skip_iris = set()
+            if not include_self:
+                skip_iris.add(inner_iri)
+            graph_node_iris = {n.get("iri") for n in (graph.get("nodes") or []) if n.get("iri")}
+            for edge in (graph.get("edges") or []):
+                if (edge.get("label") == "subClassOf"
+                        and edge.get("source") == inner_iri
+                        and edge.get("target") in graph_node_iris):
+                    skip_iris.add(edge.get("target"))
+
+            # Pass 1: build node map with current prefixes, skipping root and ancestors
+            for node in (graph.get("nodes") or []):
+                iri = node.get("iri") or ""
+                if iri and iri not in skip_iris:
+                    all_nodes[iri] = {
+                        "label": node.get("label") or "",
+                        "curie": iri_to_curie(iri, prefixes),
+                    }
+
+            # Pass 2: scan edges for obsolete class references before building all_edges
+            graph_edges = graph.get("edges") or []
+            for edge in graph_edges:
+                if edge.get("label") != "subClassOf":
+                    continue
+                tgt_iri = edge.get("target") or ""
+                src_iri = edge.get("source") or ""
+                if tgt_iri != OBSOLETE_CLASS_IRI:
+                    continue
+                # Ensure oboInOwl prefix is registered
+                if OBOINOWL_KEY not in prefixes:
+                    prefixes[OBOINOWL_KEY] = OBOINOWL_URI
+                    schema["prefixes"] = prefixes
+                    prefix_added = True
+                    # Re-compute CURIEs for any oboInOwl IRIs already collected
+                    for iri in list(all_nodes):
+                        if iri.startswith(OBOINOWL_URI):
+                            all_nodes[iri]["curie"] = iri_to_curie(iri, prefixes)
+                # Ensure the ObsoleteClass node itself is in all_nodes
+                if OBSOLETE_CLASS_IRI not in all_nodes:
+                    all_nodes[OBSOLETE_CLASS_IRI] = {
+                        "label": "ObsoleteClass",
+                        "curie": f"{OBOINOWL_KEY}:ObsoleteClass",
+                    }
+                if src_iri in all_nodes:
+                    print(
+                        f"    Warning: term '{all_nodes[src_iri]['curie']}' is obsolete"
+                        f" (subClassOf oboInOwl:ObsoleteClass)",
+                        file=sys.stderr,
+                    )
+
+            # Pass 3: build all_edges (oboInOwl prefix now in place if needed)
+            for edge in graph_edges:
+                if edge.get("label") == "subClassOf":
+                    src_iri = edge.get("source") or ""
+                    tgt_iri = edge.get("target") or ""
+                    if src_iri in all_nodes and tgt_iri in all_nodes:
+                        all_edges.append({
+                            "child_curie": all_nodes[src_iri]["curie"],
+                            "parent_curie": all_nodes[tgt_iri]["curie"],
+                        })
+
+        if not all_nodes:
+            continue
+
+        # Build child→parent lookup (last edge wins for any duplicate child)
+        is_a_map = {e["child_curie"]: e["parent_curie"] for e in all_edges}
+
+        # Build permissible_values dict
+        permissible_values = {}
+        for iri, info in all_nodes.items():
+            curie = info["curie"]
+            pv = {}
+            if info["label"]:
+                pv["title"] = info["label"]
+                pv["text"] = curie
+            pv["meaning"] = curie
+            if curie in is_a_map:
+                pv["is_a"] = is_a_map[curie]
+            permissible_values[curie] = pv
+
+        enum_def["permissible_values"] = permissible_values
+        expanded[enum_key] = len(permissible_values)
+        changed = True
+
+    if changed or prefix_added:
+        with open(yaml_path, "w") as f:
+            yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+        print(f"Updated {yaml_path} with expanded reachable_from values")
+
+    # If oboInOwl prefix was added and we were working on a source file, also update schema.yaml
+    if prefix_added and os.path.abspath(yaml_path) != os.path.abspath("schema.yaml"):
+        schema_file = "schema.yaml"
+        if os.path.exists(schema_file):
+            with open(schema_file, "r") as f:
+                schema_data = yaml.safe_load(f) or {}
+            existing_prefixes = schema_data.get("prefixes") or {}
+            if OBOINOWL_KEY not in existing_prefixes:
+                existing_prefixes[OBOINOWL_KEY] = OBOINOWL_URI
+                schema_data["prefixes"] = existing_prefixes
+                with open(schema_file, "w") as f:
+                    yaml.dump(schema_data, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+                print(f"Added '{OBOINOWL_KEY}' prefix to schema.yaml")
+
+    return expanded
+
+
 def generate_enum_report(yaml_file, tsv=False, output=sys.stdout, header=None):
     """Generate a report of enum keys, titles, source_domain, and source_schema.
 
     Works on any LinkML schema YAML file that contains an 'enums' section with
     annotations including source_domain and source_schema.
 
-    Output is space-padded columns by default, or tab-felimited if tsv=True.
+    Output is space-padded columns by default, or tab-delimited if tsv=True.
     If header is provided it is printed on its own line before the table.
     """
     if header:
@@ -896,11 +1323,12 @@ def main():
     parser = argparse.ArgumentParser(description="Fetch LinkML and other Value Sets and merge into a LinkML schema.yaml file; as well generate enum reports from fetched files.")
     parser.add_argument("-a", "--add", nargs="+", metavar="URL", help="Add one or more sources by URL, auto-detecting type and processing into menu_config.yaml")
     parser.add_argument("-b", "--build", action="store_true", help="Build or update schema.yaml with default LinkML top-level structure")
-    parser.add_argument("-f", "--fetch", action="store_true", help="Fetch all sources in menu_config.yaml and generate enum report")
+    parser.add_argument("-f", "--fetch", nargs="*", metavar="SOURCE_KEY|all", help="Fetch sources. Use '-f all' to fetch every source in menu_config.yaml, or supply specific source keys. Without arguments, fetches only sources listed with -c.")
     parser.add_argument("-c", "--config", nargs="*", metavar="SOURCE_KEY", help="Update menu_config.yaml with prefix dicts from source files; omit keys to process all sources")
     parser.add_argument("-d", "--delete", nargs="+", metavar="SOURCE_KEY", help="Remove one or more source keys from menu_config.yaml")
+    parser.add_argument("-l", "--lookup", nargs="*", metavar="SOURCE_KEY", help="Expand reachable_from.source_nodes enums via OLS4 API for YAML sources; omit keys to process all sources")
     parser.add_argument("-r", "--report", action="store_true", help="Generate enum report for all sources in menu_config.yaml")
-    parser.add_argument("-t", "--tabformat", action="store_true", help="Output report as tab-felimited TSV (default is space-padded columns)")
+    parser.add_argument("-t", "--tabformat", action="store_true", help="Output report as tab-delimited TSV (default is space-padded columns)")
     args = parser.parse_args()
 
     if args.add:
@@ -909,20 +1337,53 @@ def main():
         with open(MENU_CONFIG, "r") as f:
             config = yaml.safe_load(f)
         all_sources = config.get("sources", {})
-        invalid = [k for k in args.delete if k not in all_sources]
-        if invalid:
-            print(f"Unknown source key(s): {', '.join(invalid)}", file=sys.stderr)
-            sys.exit(1)
-        for key in args.delete:
+
+        # Delete any keys that are menu_config.yaml source entries
+        config_keys = [k for k in args.delete if k in all_sources]
+        for key in config_keys:
             del config["sources"][key]
             print(f"Deleted source '{key}' from {MENU_CONFIG}")
-        with open(MENU_CONFIG, "w") as f:
-            yaml.dump(config, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
-    if args.fetch:
+        if config_keys:
+            write_config(config)
+
+        # Delete matching enums from schema.yaml:
+        # - enum key directly matches a given key, OR
+        # - enum's imported_from annotation matches a given key (source deletion)
+        delete_set = set(args.delete)
+        schema_file = "schema.yaml"
+        removed = []
+        if os.path.exists(schema_file):
+            with open(schema_file, "r") as f:
+                schema = yaml.safe_load(f) or {}
+            enums = schema.get("enums") or {}
+            for enum_key in list(enums):
+                ann = (enums[enum_key].get("annotations") or {}) if isinstance(enums[enum_key], dict) else {}
+                if enum_key in delete_set or ann.get("imported_from") in delete_set:
+                    del enums[enum_key]
+                    removed.append(enum_key)
+            if removed:
+                schema["enums"] = enums
+                with open(schema_file, "w") as f:
+                    yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+                print(f"Deleted {len(removed)} enum(s) from {schema_file}: {', '.join(sorted(removed))}")
+
+        acted_on = set(config_keys) | set(removed)
+        not_found = [k for k in args.delete if k not in acted_on]
+        if not_found:
+            print(f"Warning: key(s) not found in {MENU_CONFIG} or {schema_file}: {', '.join(not_found)}", file=sys.stderr)
+    if args.fetch is not None:
         with open(MENU_CONFIG, "r") as f:
             config = yaml.safe_load(f)
         all_sources = config.get("sources", {})
-        keys_to_download = args.config if args.config else list(all_sources.keys())
+        if "all" in args.fetch:
+            keys_to_download = list(all_sources.keys())
+        elif args.fetch:
+            keys_to_download = args.fetch
+        elif args.config:
+            keys_to_download = args.config
+        else:
+            print("No sources fetched. Provide source keys with -c, or use '-f all' to fetch every source.", file=sys.stderr)
+            keys_to_download = []
         invalid = [k for k in keys_to_download if k not in all_sources]
         if invalid:
             print(f"Unknown source key(s): {', '.join(invalid)}", file=sys.stderr)
@@ -930,7 +1391,7 @@ def main():
         os.makedirs("sources", exist_ok=True)
         for key in keys_to_download:
             source = all_sources[key]
-            uri = source.get("menu_uri")
+            uri = (source.get("reachable_from") or {}).get("source_ontology")
             file_format = source.get("file_format", "yaml")
             output_path = f"sources/{key}.{file_format}"
             print(f"Fetching {uri} ...")
@@ -945,6 +1406,64 @@ def main():
                     generate_enum_report(output_path, tsv=args.tabformat)
     if args.config is not None:
         process_sources(args.config)
+    if args.lookup is not None:
+        schema_file = "schema.yaml"
+        if not os.path.exists(schema_file):
+            print(f"schema.yaml not found — run -b first", file=sys.stderr)
+        else:
+            lookup_results = {}   # enum_key -> pv count
+
+            if not args.lookup:
+                # -l with no args: expand every enum in schema.yaml that has reachable_from.source_nodes
+                lookup_results.update(expand_reachable_from(schema_file))
+            else:
+                with open(MENU_CONFIG, "r") as f:
+                    config = yaml.safe_load(f)
+                all_sources = config.get("sources", {})
+                with open(schema_file, "r") as f:
+                    schema_data = yaml.safe_load(f) or {}
+                schema_enums = schema_data.get("enums") or {}
+
+                # Partition given keys: recognised source keys vs direct enum names
+                source_keys = [k for k in args.lookup if k in all_sources]
+                enum_keys   = [k for k in args.lookup if k not in all_sources]
+
+                enum_filter = set()
+
+                if source_keys:
+                    # Resolve to enum keys in schema.yaml whose imported_from matches
+                    from_source = {
+                        ek for ek, ev in schema_enums.items()
+                        if isinstance(ev, dict)
+                        and (ev.get("annotations") or {}).get("imported_from") in source_keys
+                    }
+                    if not from_source:
+                        print(
+                            f"Warning: no enums in schema.yaml with imported_from in:"
+                            f" {', '.join(source_keys)}",
+                            file=sys.stderr,
+                        )
+                    enum_filter |= from_source
+
+                if enum_keys:
+                    not_found = [k for k in enum_keys if k not in schema_enums]
+                    if not_found:
+                        print(
+                            f"Warning: enum(s) not found in schema.yaml: {', '.join(not_found)}",
+                            file=sys.stderr,
+                        )
+                    enum_filter |= {k for k in enum_keys if k in schema_enums}
+
+                if enum_filter:
+                    lookup_results.update(expand_reachable_from(schema_file, enum_filter=enum_filter))
+
+            if lookup_results:
+                print("\nLookup report:")
+                for enum_key, count in sorted(lookup_results.items()):
+                    print(f"  {enum_key}: {count} permissible_values")
+                print(f"  Total: {sum(lookup_results.values())} permissible_values across {len(lookup_results)} enum(s)")
+            else:
+                print("Lookup: no reachable_from.source_nodes enums found to expand")
     if args.build:
         build_schema()
     if args.report:
@@ -964,7 +1483,7 @@ def main():
             title = source.get("title") or ""
             header = f"{name}: {title}" if title else name
             generate_enum_report(source_path, tsv=args.tabformat, header=header)
-    if not any([args.add, args.build, args.delete, args.fetch, args.config is not None, args.report]):
+    if not any([args.add, args.build, args.delete, args.fetch is not None, args.config is not None, args.report]):
         print("No action taken. Use -a to add sources, -b to build schema.yaml, -c to update menu_config.yaml, -d to delete sources, -f to fetch sources, or -r to report on all sources.")
 
 
