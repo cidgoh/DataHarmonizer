@@ -65,6 +65,9 @@
 #
 #     # NSDBSoilNameAndLayerV2 (NSDB)
 #     python menu_maintenance.py -a https://sis.agr.gc.ca/cansis/nsdb/soil/v2/index.html
+#
+#     # LOINCValuesets (LOINC valueset listing page — run -c after to fetch all enums)
+#     python menu_maintenance.py -a https://terminology.hl7.org/en/valuesets.html
 
 import argparse
 import datetime
@@ -637,6 +640,8 @@ def add_source(urls, config_file=MENU_CONFIG):
 
     For each URL, downloads the file and detects its type:
     - URL matching https://sis.agr.gc.ca/cansis/nsdb/soil -> content_type: NSDB
+    - URL from terminology.hl7.org with .html extension (not a single ValueSet/
+      CodeSystem detail page)            -> content_type: LOINC
     - JSON with resourceType CodeSystem  -> content_type: LOINCCodeSystem
     - JSON with resourceType ValueSet    -> content_type: LOINCValueSet
     - YAML with LinkML schema structure  -> content_type: LinkML
@@ -715,6 +720,49 @@ def add_source(urls, config_file=MENU_CONFIG):
             with open(yaml_path, "w") as f:
                 yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
             print(f"Created {yaml_path}")
+            continue
+
+        # URL-pattern detection: HL7 terminology LOINC valueset listing page
+        # Matches pages like valuesets.html / valuesets-fhir.html but not
+        # individual detail pages such as ValueSet-pronouns.html.
+        url_stem = url.split("?")[0].rstrip("/").split("/")[-1]
+        if ("terminology.hl7.org" in url and url_stem.endswith(".html")
+                and not url_stem.startswith("ValueSet-")
+                and not url_stem.startswith("CodeSystem-")):
+            url_stem_noext = url_stem.rsplit(".", 1)[0]
+            key = "LOINC" + to_camel_case(url_stem_noext)
+
+            with open(config_file) as f:
+                config = yaml.safe_load(f) or {}
+            if key in config.get("sources", {}):
+                print(f"  Skipping {url}: source key '{key}' already exists in {config_file}", file=sys.stderr)
+                os.unlink(tmp_path)
+                continue
+
+            output_path = f"sources/{key}.html"
+            os.rename(tmp_path, output_path)
+            print(f"Saved to {output_path}")
+
+            with open(output_path) as f:
+                html_text = f.read()
+            description = find_description_before_table(html_text)
+
+            entry = {
+                "title": f"LOINC {to_camel_case(url_stem_noext)} Value Sets",
+                "name": key,
+                "version": None,
+                "content_type": "LOINC",
+                "file_format": "html",
+                "reachable_from": {"source_ontology": url},
+                "download_date": datetime.date.today().isoformat(),
+                "prefixes": {"LOINC": "https://loinc.org/"},
+            }
+            if description:
+                entry["description"] = description
+            config.setdefault("sources", {})[key] = entry
+            write_config(config, config_file)
+            print(f"Added source '{key}' to {config_file}")
+            print(f"Run '-c {key}' to fetch all ValueSet enums from the listing page.")
             continue
 
         content_type = file_format = key = None
@@ -804,6 +852,8 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
     """Store per-source prefix dicts into menu_config.yaml from fetched source files.
 
     For NSDB sources: runs process_nsdb_source to fetch and parse HTML attribute pages.
+    For LOINC sources: parses the saved HTML listing page, fetches each ValueSet JSON
+    by constructing the URL from the Name column, and writes the combined YAML file.
     For LOINCCodeSystem/LOINCValueSet sources: converts the fetched JSON to a LinkML
     YAML file and stores the resulting prefix dict in menu_config.yaml.
     For yaml sources: reads the source file and stores its prefix dict in
@@ -836,6 +886,14 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
                 print(f"Skipping {key}: {html_path} not found — run -f to fetch first", file=sys.stderr)
                 continue
             process_nsdb_source(key, source)
+            continue
+
+        if content_type == "LOINC":
+            html_path = f"sources/{key}.html"
+            if not os.path.exists(html_path):
+                print(f"Skipping {key}: {html_path} not found — run -f to fetch first", file=sys.stderr)
+                continue
+            process_loinc_table_source(key, source, config_file)
             continue
 
         if content_type in ("LOINCCodeSystem", "LOINCValueSet"):
@@ -879,6 +937,230 @@ def fetch_html(url):
 def strip_tags(html):
     """Remove all HTML tags from a string and return stripped plain text."""
     return re.sub(r'<[^>]+>', '', html).strip()
+
+
+def parse_loinc_table_page(html_text, base_url=""):
+    """Parse a LOINC terminology HTML listing page, returning a list of row dicts.
+
+    Searches for the first table containing a 'Name' column (case-insensitive)
+    and extracts Name, Version, Status, Description/Title, and Identity link
+    fields from each data row.  The Identity href is resolved to an absolute URL
+    and stored as identity_url; process_loinc_table_source uses it (replacing
+    .html with .json) as the JSON download URL for each ValueSet.
+
+    Returns a list of dicts with keys: name, identity_url, and optionally
+    version, status, description.
+    """
+    for table_html in re.findall(r'<table[^>]*>(.*?)</table>', html_text, re.IGNORECASE | re.DOTALL):
+        table_rows = re.findall(r'<tr[^>]*>(.*?)</tr>', table_html, re.IGNORECASE | re.DOTALL)
+        if not table_rows:
+            continue
+        header_cells = re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', table_rows[0], re.IGNORECASE | re.DOTALL)
+        header_texts = [strip_tags(h).strip().lower() for h in header_cells]
+        if 'name' not in header_texts:
+            continue
+
+        name_col = header_texts.index('name')
+        identity_col = next((i for i, h in enumerate(header_texts) if h == 'identity'), None)
+        version_col = next((i for i, h in enumerate(header_texts) if h == 'version'), None)
+        status_col = next((i for i, h in enumerate(header_texts) if h == 'status'), None)
+        desc_col = next((i for i, h in enumerate(header_texts)
+                         if h in ('description', 'title')), None)
+
+        rows = []
+        for row_html in table_rows[1:]:
+            cells = re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.IGNORECASE | re.DOTALL)
+            if len(cells) <= name_col:
+                continue
+            # Name cell may be plain text or a link; use link text preferentially
+            name_cell = cells[name_col]
+            link_m = re.search(r'<a[^>]*>(.*?)</a>', name_cell, re.IGNORECASE | re.DOTALL)
+            name = strip_tags(link_m.group(1) if link_m else name_cell).strip()
+            if not name:
+                continue
+            row = {"name": name}
+            # Extract Identity column href and resolve to absolute URL
+            if identity_col is not None and len(cells) > identity_col:
+                id_link = re.search(r'<a\s[^>]*href=["\']([^"\']+)["\']',
+                                    cells[identity_col], re.IGNORECASE)
+                if id_link:
+                    row["identity_url"] = urllib.parse.urljoin(base_url, id_link.group(1))
+            if version_col is not None and len(cells) > version_col:
+                row["version"] = strip_tags(cells[version_col]).strip()
+            if status_col is not None and len(cells) > status_col:
+                row["status"] = strip_tags(cells[status_col]).strip()
+            if desc_col is not None and len(cells) > desc_col:
+                row["description"] = strip_tags(cells[desc_col]).strip()
+            rows.append(row)
+
+        if rows:
+            return rows
+
+    return []
+
+
+def find_description_before_table(html_text):
+    """Return the text of the paragraph immediately preceding the first table
+    with a 'Name' column, typically the introductory description of the listing.
+
+    Locates the byte-position of the matching table, then finds the last <p>
+    element that ends before that position.  Returns an empty string if no
+    suitable paragraph is found.
+    """
+    # Find start position of the first table that has a Name column header
+    table_start = None
+    for m in re.finditer(r'<table[^>]*>(.*?)</table>', html_text, re.IGNORECASE | re.DOTALL):
+        rows = re.findall(r'<tr[^>]*>(.*?)</tr>', m.group(1), re.IGNORECASE | re.DOTALL)
+        if not rows:
+            continue
+        header_cells = re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', rows[0], re.IGNORECASE | re.DOTALL)
+        if 'name' in [strip_tags(h).strip().lower() for h in header_cells]:
+            table_start = m.start()
+            break
+
+    if table_start is None:
+        return ""
+
+    # Last <p>...</p> before the table
+    before_table = html_text[:table_start]
+    paragraphs = list(re.finditer(r'<p[^>]*>(.*?)</p>', before_table, re.IGNORECASE | re.DOTALL))
+    if paragraphs:
+        return strip_tags(paragraphs[-1].group(1)).strip()
+
+    return ""
+
+
+def find_labeled_field(html_text, label):
+    """Return the first paragraph of content from a named field in the HTML.
+
+    Compares the inner text (HTML tags stripped) of each cell to the label so
+    that formatting such as <b>Definition</b> is handled transparently.
+
+    Searches:
+    - Table rows: a cell whose inner text matches label, then uses the next cell
+    - Definition lists: <dt> whose inner text matches label, then uses <dd>
+
+    Returns the text of the first <p> inside the content, or the full stripped
+    content if no <p> tags are present.  Returns "" if the label is not found.
+    """
+    label_lower = label.strip().lower()
+
+    def _extract(content):
+        p_m = re.search(r'<p[^>]*>(.*?)</p>', content, re.IGNORECASE | re.DOTALL)
+        return strip_tags(p_m.group(1) if p_m else content).strip()
+
+    # Table rows: label must be the first cell (properties/metadata tables);
+    # this avoids false matches on expansion table column headers where the
+    # label may appear at an arbitrary position mid-row.
+    for row_html in re.findall(r'<tr[^>]*>(.*?)</tr>', html_text, re.IGNORECASE | re.DOTALL):
+        cells = re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', row_html, re.IGNORECASE | re.DOTALL)
+        if len(cells) >= 2 and strip_tags(cells[0]).strip().lower() == label_lower:
+            return _extract(cells[1])
+
+    # Definition lists: check inner text of <dt>, return content of <dd>
+    for dt_m in re.finditer(r'<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>',
+                             html_text, re.IGNORECASE | re.DOTALL):
+        if strip_tags(dt_m.group(1)).strip().lower() == label_lower:
+            return _extract(dt_m.group(2))
+
+    return ""
+
+
+def parse_loinc_valueset_html_page(html_text):
+    """Parse an individual LOINC ValueSet HTML expansion page.
+
+    Finds the first table with a Code column and extracts Code, Display (en),
+    Definition, Status, and optionally Level fields from each data row.
+
+    Definition: only the text of the first <p> element in the cell is used;
+    if no <p> tags are present, the full stripped cell text is used.
+
+    Level hierarchy: when a Level column is present, rows at level > 1 receive
+    an is_a attribute pointing to the code of the first preceding row whose
+    level is exactly one less than the current row.
+
+    Returns (description, permissible_values) where description is the text of
+    the paragraph preceding the table (via find_description_before_table) and
+    permissible_values is a dict of
+    {code: {name, [title], [description], [status], [is_a]}}.
+    """
+    description = find_labeled_field(html_text, "Definition")
+    permissible_values = {}
+
+    # Prefer <table class="codes"> (the expansion table); fall back to any table
+    table_candidates = re.findall(
+        r'<table\b[^>]*\bclass=["\'][^"\']*\bcodes\b[^"\']*["\'][^>]*>(.*?)</table>',
+        html_text, re.IGNORECASE | re.DOTALL)
+    if not table_candidates:
+        table_candidates = re.findall(r'<table[^>]*>(.*?)</table>', html_text, re.IGNORECASE | re.DOTALL)
+
+    for table_html in table_candidates:
+        table_rows = re.findall(r'<tr[^>]*>(.*?)</tr>', table_html, re.IGNORECASE | re.DOTALL)
+        if not table_rows:
+            continue
+        header_cells = re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', table_rows[0], re.IGNORECASE | re.DOTALL)
+        header_texts = [strip_tags(h).strip().lower() for h in header_cells]
+
+        code_col = next((i for i, h in enumerate(header_texts) if h == 'code'), None)
+        if code_col is None:
+            continue
+
+        display_col = next((i for i, h in enumerate(header_texts) if 'display' in h), None)
+        def_col    = next((i for i, h in enumerate(header_texts) if h == 'definition'), None)
+        status_col = next((i for i, h in enumerate(header_texts) if h == 'status'), None)
+        level_col  = next((i for i, h in enumerate(header_texts) if h == 'level'), None)
+
+        processed = []  # list of (code, level) used for is_a parent lookup
+
+        for row_html in table_rows[1:]:
+            # Normalize self-closing <td/> so column indices match the header
+            row_html = re.sub(r'<td([^>]*)/>', r'<td\1></td>', row_html, flags=re.IGNORECASE)
+            cells = re.findall(r'<td[^>]*>(.*?)</td>', row_html, re.IGNORECASE | re.DOTALL)
+            if len(cells) <= code_col:
+                continue
+            code = strip_tags(cells[code_col]).strip()
+            if not code:
+                continue
+
+            entry = {"name": code}
+
+            if display_col is not None and len(cells) > display_col:
+                display = strip_tags(cells[display_col]).strip()
+                if display:
+                    entry["title"] = display
+
+            if def_col is not None and len(cells) > def_col:
+                def_cell = cells[def_col]
+                p_m = re.search(r'<p[^>]*>(.*?)</p>', def_cell, re.IGNORECASE | re.DOTALL)
+                def_text = strip_tags(p_m.group(1) if p_m else def_cell).strip()
+                if def_text:
+                    entry["description"] = def_text
+
+            if status_col is not None and len(cells) > status_col:
+                status = strip_tags(cells[status_col]).strip()
+                if status:
+                    entry["status"] = status.upper()
+
+            level = None
+            if level_col is not None and len(cells) > level_col:
+                try:
+                    level = int(strip_tags(cells[level_col]).strip())
+                except (ValueError, TypeError):
+                    pass
+
+            if level is not None and level > 1:
+                for prev_code, prev_level in reversed(processed):
+                    if prev_level == level - 1:
+                        entry["is_a"] = prev_code
+                        break
+
+            processed.append((code, level if level is not None else 1))
+            permissible_values[code] = entry
+
+        if permissible_values:
+            break
+
+    return description, permissible_values
 
 
 def find_links_by_text(html_text, link_texts, base_url):
@@ -1076,6 +1358,84 @@ def process_nsdb_source(key, source):
     with open(yaml_path, "w") as f:
         yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
     print(f"Updated {yaml_path}")
+
+
+def process_loinc_table_source(key, source, config_file=MENU_CONFIG):
+    """Fetch each ValueSet JSON listed in a LOINC HTML table page and build a combined YAML.
+
+    Reads sources/{key}.html, parses the Name column from the enum listing table,
+    constructs a JSON URL for each row as {base_url}ValueSet-{Name}.json, fetches
+    each JSON, converts concepts via collect_loinc_valueset_concepts, and writes
+    the combined enum set to sources/{key}.yaml.
+
+    The base URL is derived from the source_ontology value by stripping the last
+    path segment (the HTML filename), preserving any version path such as /7.1.0/en/.
+    """
+    html_path = f"sources/{key}.html"
+    yaml_path = f"sources/{key}.yaml"
+    source_url = (source.get("reachable_from") or {}).get("source_ontology", "")
+    base_url = source_url.rsplit("/", 1)[0] + "/" if "/" in source_url else ""
+
+    with open(html_path) as f:
+        html_text = f.read()
+
+    rows = parse_loinc_table_page(html_text, base_url=source_url)
+    if not rows:
+        print(f"  Warning: no rows found in LOINC table {html_path}", file=sys.stderr)
+        return
+
+    print(f"  Found {len(rows)} ValueSet(s) in {html_path}")
+
+    prefixes = dict(source.get("prefixes") or {"LOINC": "https://loinc.org/"})
+
+    schema = {
+        "id": source_url,
+        "name": key,
+        "title": source.get("title", ""),
+        "description": source.get("description", ""),
+        "version": source.get("version", ""),
+        "prefixes": prefixes,
+        "default_prefix": next(iter(prefixes), ""),
+        "enums": {},
+    }
+
+    for row in rows:
+        name = row.get("name", "")
+        if not name:
+            continue
+        identity_url = row.get("identity_url", "")
+        if not identity_url:
+            print(f"  Warning: no Identity URL for '{name}' — skipping", file=sys.stderr)
+            continue
+        print(f"  Fetching {identity_url} ...")
+        try:
+            enum_html = fetch_html(identity_url)
+        except Exception as e:
+            print(f"  Warning: could not fetch {identity_url}: {e}", file=sys.stderr)
+            continue
+
+        parts = re.split(r"[\s\-_]+", name)
+        enum_key = "LOINC" + (to_camel_case(name) if len(parts) > 1 else name)
+
+        enum_description, permissible_values = parse_loinc_valueset_html_page(enum_html)
+
+        enum_def = {
+            "name": enum_key,
+            "description": enum_description or row.get("description", ""),
+        }
+        if row.get("status"):
+            enum_def["status"] = str(row["status"]).upper()
+        if permissible_values:
+            enum_def["permissible_values"] = permissible_values
+
+        schema["enums"][enum_key] = enum_def
+        print(f"    Added enum {enum_key} ({len(permissible_values)} values)")
+
+    with open(yaml_path, "w") as f:
+        yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+    print(f"Updated {yaml_path}")
+
+    update_source_config(key, {"prefixes": dict(schema["prefixes"])}, config_file)
 
 
 def iri_to_curie(iri, prefixes):

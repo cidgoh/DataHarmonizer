@@ -1,10 +1,20 @@
 comment:
   - See docs on "reachable_from": https://linkml.io/linkml-model/latest/docs/reachable_from/
-  - Config below doesn't support LinkML dynamic enumeration "inherits", and is limited custom version of LinkML dynamic enumerations, not quite in context of LinkML schema.
-  - Note that "minus" list is implemented before "includes" list, which restores subordinate items that would otherwise have been eliminated by minus list items and their underlying items.
+  - Config below doesn't support LinkML dynamic enumeration "inherits", and is limited
+    custom version of LinkML dynamic enumerations, not quite in context of LinkML
+    schema.
+  - Note that "minus" list is implemented before "includes" list, which restores subordinate
+    items that would otherwise have been eliminated by minus list items and their
+    underlying items.
   - See https://linkml.io/linkml-model/latest/docs/EnumExpression/
-  - "Here 'reachable_from' is acted on via 'menu_maintenance.py - c' configuration to generate the LinkML .yaml schema file for the given source.  Over in schema.yaml, 'reachable_from' is acted on via 'menu_maintenance.py -l' for lookup function to populate schema.yaml enums.
-  - TODO: Currently the fetch_ols4_graph() OLS API 'graph' call (which doesn't need an API key) is used to fetch schema.yaml term name and ID, but this doesn't include description field.  Also, add Bioportal api source: https://data.bioontology.org/documentation as an option. It requires an API.
+  - Here 'reachable_from' is acted on via 'menu_maintenance.py - c' configuration
+    to generate the LinkML .yaml schema file for the given source.  Over in schema.yaml,
+    'reachable_from' is acted on via 'menu_maintenance.py -l' for lookup function
+    to populate schema.yaml enums.
+  - 'TODO: Currently the fetch_ols4_graph() OLS API ''graph'' call (which doesn''t
+    need an API key) is used to fetch schema.yaml term name and ID, but this doesn''t
+    include description field.  Also, add Bioportal api source: https://data.bioontology.org/documentation
+    as an option. It requires an API.'
 sources:
   linkml_valuesets:
     title: LinkML Value Sets
@@ -279,6 +289,22 @@ sources:
     see_also: https://terminology.hl7.org/7.1.0/en/ValueSet-pronouns.json.html
     prefixes:
       LOINC: https://loinc.org/
+  LOINCValuesetsCda:
+    title: LOINC ValuesetsCda Value Sets
+    name: LOINCValuesetsCda
+    version: null
+    content_type: LOINC
+    file_format: html
+    reachable_from:
+      source_ontology: https://terminology.hl7.org/en/valuesets-cda.html
+    download_date: '2026-04-01'
+    prefixes:
+      LOINC: https://loinc.org/
+    description: "CDA Value Sets defined and maintained by HL7 as part of the CDA\
+      \ family of Standards, and published in the International CDA r2 Base Standard.\
+      \  \n    Please note that all of these value sets at this time are drawn from\
+      \ the masters published in the HL7 Version 3 International Standard through\
+      \ the coremif."
   NSDBSoilNameAndLayerV2:
     title: NSDB Soil Name and Layer Tables
     name: NSDBSoilNameAndLayerV2
