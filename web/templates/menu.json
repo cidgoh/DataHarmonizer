@@ -61,11 +61,12 @@
   "AMBR": {
     "folder": "ambr",
     "id": "https://example.com/AMBR",
-    "version": "2.3.2",
+    "version": "2.4.2",
     "templates": {
       "AMBR": {
         "name": "AMBR",
-        "display": true
+        "display": true,
+        "version": "2.4.2"
       }
     }
   },
