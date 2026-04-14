@@ -68,9 +68,22 @@
 #
 #     # LOINCValuesets (LOINC valueset listing page — run -c after to fetch all enums)
 #     python menu_maintenance.py -a https://terminology.hl7.org/en/valuesets.html
+#
+#     # STATSCAN1441857 (Statistics Canada variable definition page — note quoted URL)
+#     python menu_maintenance.py -a "https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=1441857"
+#
+#   Fetch enum YAML for a STATSCAN source (follows each classification code's
+#   Display structure and Display definitions pages to build the full hierarchy):
+#     python menu_maintenance.py -c STATSCAN1441857
+#
+#   North American Product Classification System (NAPCS) Canada 2022 Version 1.0
+#   See https://www.statcan.gc.ca/en/subjects/standard/napcs/2022/index
+#   USA: See https://www.census.gov/naics/napcs/?8976654?yearbck=2022
+#   Mexico: https://www.inegi.org.mx/contenidos/app/scpm/scpm_completo.xlsx
 
 import argparse
 import datetime
+import html
 import json
 import os
 import re
@@ -656,11 +669,19 @@ def add_source(urls, config_file=MENU_CONFIG):
         print(f"Created {config_file}")
 
     for url in urls:
+        # Unescape HTML entities (e.g. &amp; → &) so the server receives a valid URL
+        url = html.unescape(url)
         print(f"Fetching {url} ...")
         tmp_fd, tmp_path = tempfile.mkstemp()
         os.close(tmp_fd)
         try:
-            urllib.request.urlretrieve(url, tmp_path)
+            req = urllib.request.Request(
+                url,
+                headers={"User-Agent": "Mozilla/5.0 (compatible; menu_maintenance/1.0)"},
+            )
+            with urllib.request.urlopen(req) as response:
+                with open(tmp_path, "wb") as tmp_f:
+                    tmp_f.write(response.read())
         except Exception as e:
             print(f"  Error fetching {url}: {e}", file=sys.stderr)
             os.unlink(tmp_path)
@@ -763,6 +784,57 @@ def add_source(urls, config_file=MENU_CONFIG):
             write_config(config, config_file)
             print(f"Added source '{key}' to {config_file}")
             print(f"Run '-c {key}' to fetch all ValueSet enums from the listing page.")
+            continue
+
+        # URL-pattern detection: Statistics Canada variable definition page
+        # e.g. https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=1441857
+        if "statcan.gc.ca" in url and "p3VD.pl" in url and "Function=getVD" in url:
+            tvd_m = re.search(r'[?&]TVD=(\d+)', url)
+            tvd_id = tvd_m.group(1) if tvd_m else "unknown"
+            key = f"STATSCAN{tvd_id}"
+
+            with open(config_file) as f:
+                config = yaml.safe_load(f) or {}
+            if key in config.get("sources", {}):
+                print(f"  Skipping {url}: source key '{key}' already exists in {config_file}", file=sys.stderr)
+                os.unlink(tmp_path)
+                continue
+
+            output_path = f"sources/{key}.html"
+            os.rename(tmp_path, output_path)
+            print(f"Saved to {output_path}")
+
+            with open(output_path) as f:
+                html_text = f.read()
+
+            # Extract title from <meta name="dcterms.title" content="..."> (attr order varies)
+            title = ""
+            for meta_m in re.finditer(r'<meta\b([^>]*)>', html_text, re.IGNORECASE):
+                attrs = meta_m.group(1)
+                if re.search(r'\bname=["\']dcterms\.title["\']', attrs, re.IGNORECASE):
+                    content_m = re.search(r'\bcontent=["\']([^"\']+)["\']', attrs, re.IGNORECASE)
+                    if content_m:
+                        title = content_m.group(1).strip()
+                        break
+            if not title:
+                title = f"StatsCan Variable {tvd_id}"
+
+            # Version: alphanumeric word/code immediately following "version" in the title
+            version_m = re.search(r'\bversion\s+([A-Za-z0-9][A-Za-z0-9._-]*)', title, re.IGNORECASE)
+            version = version_m.group(1) if version_m else None
+
+            entry = {
+                "title": title,
+                "name": key,
+                "version": version,
+                "content_type": "STATSCAN",
+                "file_format": "html",
+                "reachable_from": {"source_ontology": url},
+                "download_date": datetime.date.today().isoformat(),
+            }
+            config.setdefault("sources", {})[key] = entry
+            write_config(config, config_file)
+            print(f"Added source '{key}' to {config_file}")
             continue
 
         content_type = file_format = key = None
@@ -879,6 +951,14 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
         source = all_sources[key]
         file_format = source.get("file_format", "yaml")
         content_type = source.get("content_type", "")
+
+        if content_type == "STATSCAN":
+            html_path = f"sources/{key}.html"
+            if not os.path.exists(html_path):
+                print(f"Skipping {key}: {html_path} not found — run -f to fetch first", file=sys.stderr)
+                continue
+            process_statscan_source(key, source, config_file)
+            continue
 
         if content_type == "NSDB":
             html_path = f"sources/{key}.html"
@@ -1355,6 +1435,186 @@ def process_nsdb_source(key, source):
                 }
                 print(f"    Added enum {enum_key} ({len(permissible_values)} values)")
 
+    with open(yaml_path, "w") as f:
+        yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+    print(f"Updated {yaml_path}")
+
+
+def parse_statscan_definitions(html_text):
+    """Parse a StatsCan 'Display definitions' page.
+
+    Returns {code: definition_text} where each code is the alphanumeric identifier
+    (e.g. '111') extracted from <h2 class="bg-def-1"> headings of the form
+    'CODE - Name', and the definition is the text of the first <p> that follows.
+    """
+    definitions = {}
+    # Work within the panel-body section
+    panel_m = re.search(
+        r'<div\b[^>]*\bpanel-body\b[^>]*>(.*?)(?=<div\b[^>]*\bpanel\b|$)',
+        html_text, re.IGNORECASE | re.DOTALL)
+    body = panel_m.group(1) if panel_m else html_text
+
+    for h2_m in re.finditer(
+            r'<h2\b[^>]*\bbg-def-1\b[^>]*>(.*?)</h2>(.*?)(?=<h2\b[^>]*\bbg-def-1\b|$)',
+            body, re.IGNORECASE | re.DOTALL):
+        heading_text = html.unescape(strip_tags(h2_m.group(1))).strip()
+        # Heading format: "CODE - Name" or "CODE Name"
+        code_m = re.match(r'^(\S+)', heading_text)
+        if not code_m:
+            continue
+        code = code_m.group(1)
+        after = h2_m.group(2)
+        p_m = re.search(r'<p\b[^>]*>(.*?)</p>', after, re.IGNORECASE | re.DOTALL)
+        if p_m:
+            definition = html.unescape(strip_tags(p_m.group(1))).strip()
+            if definition:
+                definitions[code] = definition
+    return definitions
+
+
+def parse_statscan_structure(html_text):
+    """Parse a StatsCan 'Display structure' page.
+
+    Returns an ordered list of (code, name, indent_level) tuples extracted from
+    <li class="list-group-item indent-N"> items inside the panel-body <ul>.
+    indent_level is 1-based (1 = top of this subtree).
+    """
+    items = []
+    panel_m = re.search(
+        r'<div\b[^>]*\bpanel-body\b[^>]*>(.*?)(?=<div\b[^>]*class=["\'][^"\']*(?:panel|footer)|$)',
+        html_text, re.IGNORECASE | re.DOTALL)
+    body = panel_m.group(1) if panel_m else html_text
+
+    ul_m = re.search(r'<ul\b[^>]*\blist-group\b[^>]*>(.*?)(?=</ul>|$)', body, re.IGNORECASE | re.DOTALL)
+    if not ul_m:
+        return items
+    ul_html = ul_m.group(1)
+
+    # Some <li> items lack a closing </li>; capture up to the next <li> or end
+    for li_m in re.finditer(
+            r'<li\b[^>]*\bindent-(\d+)[^>]*>(.*?)(?=<li\b|$)',
+            ul_html, re.IGNORECASE | re.DOTALL):
+        indent = int(li_m.group(1))
+        content = li_m.group(2)
+        # Prefer <a> link text, fall back to plain text content
+        a_m = re.search(r'<a\b[^>]*>(.*?)</a>', content, re.IGNORECASE | re.DOTALL)
+        raw_text = html.unescape(strip_tags(a_m.group(1) if a_m else content)).strip()
+        # Format is "CODE - Name" or "CODE Name"
+        sep_m = re.match(r'^(\S+)\s*[-\u2013]\s*(.*)', raw_text)
+        if sep_m:
+            code, name = sep_m.group(1), sep_m.group(2).strip()
+        else:
+            parts = raw_text.split(None, 1)
+            code, name = parts[0], (parts[1] if len(parts) > 1 else "")
+        if code:
+            items.append((code, name, indent))
+    return items
+
+
+def process_statscan_source(key, source, config_file=MENU_CONFIG):
+    """Build a LinkML enum YAML for a STATSCAN source.
+
+    Reads sources/{key}.html (the main variable definition page).  For each
+    top-level classification code linked from that page it:
+      1. Fetches the code's detail page.
+      2. Fetches the 'Display structure' page → builds the full code hierarchy.
+      3. Fetches the 'Display definitions' page → collects code definitions.
+
+    Also fetches the source-level 'Display definitions' page for top-level
+    code definitions.  Writes sources/{key}.yaml with a single enum whose
+    permissible_values carry name, title, optional description, and is_a.
+    """
+    html_path = f"sources/{key}.html"
+    with open(html_path) as f:
+        source_html = f.read()
+
+    # ---- 1. Source-level Display definitions (top-level codes) ----------
+    definitions = {}
+    src_def_m = re.search(
+        r'href=["\']([^"\']*Function=getVD[^"\']*&amp;D=1[^"\']*)["\']',
+        source_html, re.IGNORECASE)
+    if src_def_m:
+        src_def_url = html.unescape(src_def_m.group(1))
+        try:
+            print(f"  Fetching source-level definitions {src_def_url} ...")
+            definitions.update(parse_statscan_definitions(fetch_html(src_def_url)))
+        except Exception as e:
+            print(f"  Warning: could not fetch source definitions: {e}", file=sys.stderr)
+
+    # ---- 2. Find each top-level CPV link on the source page --------------
+    # Links with CPV= parameter represent individual classification items
+    seen_urls = set()
+    cpv_urls = []
+    for m in re.finditer(
+            r'href=["\']([^"\']*Function=getVD[^"\']*&amp;CPV=[^"\']+)["\']',
+            source_html, re.IGNORECASE):
+        url = html.unescape(m.group(1))
+        if url not in seen_urls:
+            seen_urls.add(url)
+            cpv_urls.append(url)
+
+    # ---- 3. For each CPV page: fetch structure + definitions -------------
+    permissible_values = {}
+
+    for cpv_url in cpv_urls:
+        print(f"  Fetching CPV page {cpv_url} ...")
+        try:
+            cpv_html = fetch_html(cpv_url)
+        except Exception as e:
+            print(f"  Warning: could not fetch {cpv_url}: {e}", file=sys.stderr)
+            continue
+
+        # Display structure link  (Function=getVDStruct)
+        struct_m = re.search(
+            r'href=["\']([^"\']*Function=getVDStruct[^"\']*)["\']',
+            cpv_html, re.IGNORECASE)
+        if struct_m:
+            struct_url = html.unescape(struct_m.group(1))
+            try:
+                print(f"    Fetching structure {struct_url} ...")
+                struct_items = parse_statscan_structure(fetch_html(struct_url))
+                # Build permissible_values from the ordered (code, name, indent) list
+                processed = []  # [(code, indent)] for is_a lookup
+                for code, name, indent in struct_items:
+                    entry = {"name": code}
+                    if name:
+                        entry["title"] = name
+                    # Find is_a: first preceding item at indent-1
+                    if indent > 1:
+                        for prev_code, prev_indent in reversed(processed):
+                            if prev_indent == indent - 1:
+                                entry["is_a"] = prev_code
+                                break
+                    processed.append((code, indent))
+                    permissible_values[code] = entry
+            except Exception as e:
+                print(f"    Warning: structure fetch failed: {e}", file=sys.stderr)
+
+        # Display definitions link (D=1 on the CPV page)
+        def_m = re.search(
+            r'href=["\']([^"\']*Function=getVD[^"\']*&amp;D=1[^"\']*)["\']',
+            cpv_html, re.IGNORECASE)
+        if def_m:
+            def_url = html.unescape(def_m.group(1))
+            try:
+                print(f"    Fetching definitions {def_url} ...")
+                definitions.update(parse_statscan_definitions(fetch_html(def_url)))
+            except Exception as e:
+                print(f"    Warning: definitions fetch failed: {e}", file=sys.stderr)
+
+    # ---- 4. Merge definitions into permissible_values -------------------
+    for code, entry in permissible_values.items():
+        if code in definitions:
+            entry["description"] = definitions[code]
+
+    # ---- 5. Write YAML --------------------------------------------------
+    enum_def = {
+        "name": key,
+        "description": source.get("description", ""),
+        "permissible_values": permissible_values,
+    }
+    schema = {"enums": {key: enum_def}}
+    yaml_path = f"sources/{key}.yaml"
     with open(yaml_path, "w") as f:
         yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
     print(f"Updated {yaml_path}")

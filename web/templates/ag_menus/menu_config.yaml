@@ -316,3 +316,13 @@ sources:
     download_date: '2026-03-28'
     description: This schema contains summary information for named soils within the
       Canadian soil surveys NSDB database
+  STATSCAN1441857:
+    title: Variant of the North American Product Classification System (NAPCS) Canada
+      2022 Version 1.0 for Agricultural goods (extension variant)
+    name: STATSCAN1441857
+    version: '1.0'
+    content_type: STATSCAN
+    file_format: html
+    reachable_from:
+      source_ontology: https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=1441857
+    download_date: '2026-04-13'
