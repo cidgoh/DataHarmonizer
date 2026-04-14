@@ -834,7 +834,7 @@ def write_menu(folder, menu_path, schema_view):
 
 	# Reset this folder's menu content
 	menu[schema_name] = {
-		"folder": folder,
+		"folder": os.path.basename(folder),
 		"id": schema_view.schema['id'],
 		"version": schema_view.schema['version'],
 		"templates":{}
