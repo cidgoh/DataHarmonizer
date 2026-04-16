@@ -8,6 +8,56 @@ apis:
     uri: http://www.ebi.ac.uk/ols4/api/ontologies/{ontology}/terms/{double_encoded}/graph
     ontologies: []
 sources:
+  envo:
+    title: The Environment Ontology
+    name: envo
+    version: '2025-10-20'
+    content_type: OWL
+    file_format: owl
+    reachable_from:
+      source_ontology: https://purl.obolibrary.org/obo/envo.owl
+    download_date: '2026-04-16'
+    description: ENVO is an ontology which represents knowledge about environments,environmental
+      processes, ecosystems, habitats, and related entities
+    license: https://creativecommons.org/publicdomain/zero/1.0/
+    prefixes:
+      BFO: http://purl.obolibrary.org/obo/BFO_
+      PATO: http://purl.obolibrary.org/obo/PATO_
+      OBI: http://purl.obolibrary.org/obo/OBI_
+      RO: http://purl.obolibrary.org/obo/RO_
+      UBERON: http://purl.obolibrary.org/obo/UBERON_
+      GO: http://purl.obolibrary.org/obo/GO_
+      ENVO: http://purl.obolibrary.org/obo/ENVO_
+      IAO: http://purl.obolibrary.org/obo/IAO_
+      CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+      PO: http://purl.obolibrary.org/obo/PO_
+      PCO: http://purl.obolibrary.org/obo/PCO_
+      NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+      FAO: http://purl.obolibrary.org/obo/FAO_
+      FOODON: http://purl.obolibrary.org/obo/FOODON_
+      dc: http://purl.org/dc/elements/1.1/
+      foo: http://geneontology.org/foo/
+      obo: http://purl.obolibrary.org/obo/
+      doap: http://usefulinc.com/ns/doap#
+      envo: http://purl.obolibrary.org/obo/envo#
+      foaf: http://xmlns.com/foaf/0.1/
+      skos: http://www.w3.org/2004/02/skos/core#
+      chebi: http://purl.obolibrary.org/obo/chebi#
+      swrla: http://swrl.stanford.edu/ontologies/3.3/swrla.owl#
+      terms: http://purl.org/dc/terms/
+      schema: http://schema.org/
+      taxslim: http://purl.obolibrary.org/obo/ncbitaxon/subsets/taxslim.obo#
+      oboInOwl: http://www.geneontology.org/formats/oboInOwl#
+      process_attribute: http://purl.obolibrary.org/obo/envo-p/patterns/process_attribute/
+    minus:
+      concepts:
+        - entity
+      status:
+        - DEPRECATED
+    include:
+      concepts:
+        - biological_process
+    concise: True
   linkml_valuesets:
     title: LinkML Value Sets
     name: linkml_valuesets

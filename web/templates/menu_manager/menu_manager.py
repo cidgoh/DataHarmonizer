@@ -122,6 +122,27 @@
 #   To build without concise filtering (keep all nodes), omit the attribute
 #   or set concise: false.
 #
+#   OWL ontologies (content_type: OWL) require owlready2 (pip install owlready2).
+#   The source file is saved as sources/{key}.text regardless of original suffix.
+#   Auto-detected from URL extension (.owl, .ofn, .rdf, .ttl) or file content:
+#
+#     python menu_manager.py -a https://purl.obolibrary.org/obo/envo.owl
+#
+#   The optional minus/include concept lists in menu_config.yaml filter OWL
+#   classes by their English rdfs:label (case-insensitive).  minus removes a
+#   class and its entire subtree; include restores specific labels even when
+#   an ancestor was excluded (re-wiring children to the nearest kept ancestor):
+#
+#     Envo:
+#       content_type: OWL
+#       file_format: text
+#       reachable_from:
+#         source_ontology: https://purl.obolibrary.org/obo/envo.owl
+#       minus:
+#         concepts: [environmental feature, quality]
+#       include:
+#         concepts: [water body]
+#
 
 import argparse
 import csv
@@ -439,6 +460,7 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
             minus = source.get("minus") or {}
             minus_concepts = keys_from_minus(minus.get("concepts"))
             minus_pvs = keys_from_minus(minus.get("permissible_values"))
+            minus_status = keys_from_minus(minus.get("status"))
 
             include = source.get("include") or {}
             include_concepts = keys_from_minus(include.get("concepts"))
@@ -489,6 +511,12 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
                     enum_def["permissible_values"] = {
                         k: v for k, v in enum_def["permissible_values"].items()
                         if k not in minus_pvs
+                    }
+                if (minus_status and source.get("content_type") == "OWL"
+                        and enum_def.get("permissible_values")):
+                    enum_def["permissible_values"] = {
+                        k: v for k, v in enum_def["permissible_values"].items()
+                        if (v or {}).get("status") not in minus_status
                     }
 
                 # concise: true — for supported content types, drop any permissible_value
@@ -733,6 +761,41 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
     print(f"{action} {schema_file}")
 
 
+def add_permissible_value(permissible_values, code, *, title=None, description=None,
+                          is_a=None, status=None, comments=None,
+                          meaning=None, prefixes=None):
+    """Add one permissible value entry to *permissible_values* in-place.
+
+    Always sets text=code. All keyword arguments are optional; a field is
+    only written to the entry when its value is truthy.  Returns the entry.
+
+    permissible_values: dict to mutate.
+    code:        The permissible value code (used as both key and text).
+    title:       Human-readable label.
+    description: Free-text definition.
+    is_a:        Parent code for hierarchy.
+    status:      Status string (e.g. 'ACTIVE').
+    comments:    Additional commentary (LOINC-specific).
+    meaning:     IRI for the concept; compressed to a CURIE when prefixes is provided.
+    prefixes:    Dict of prefix→URI used to compress meaning to a CURIE.
+    """
+    entry = {"text": code}
+    if title:       entry["title"]       = title
+    if description: entry["description"] = description
+    if is_a:        entry["is_a"]        = is_a
+    if status:      entry["status"]      = status
+    if comments:    entry["comments"]    = comments
+    if meaning:
+        if prefixes:
+            for pfx, uri in prefixes.items():
+                if meaning.startswith(uri):
+                    meaning = f"{pfx}:{meaning[len(uri):]}"
+                    break
+        entry["meaning"] = meaning
+    permissible_values[code] = entry
+    return entry
+
+
 def collect_loinc_concepts(concepts, permissible_values, parent_code=None):
     """Recursively flatten a LOINC concept tree into a permissible_values dict.
 
@@ -740,19 +803,14 @@ def collect_loinc_concepts(concepts, permissible_values, parent_code=None):
     """
     COMMENTS_URL = "http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments"
     for concept in concepts or []:
-        code = concept.get("code", "")
-        entry = {"name": code, "text": code}
-        if concept.get("display"):
-            entry["title"] = concept["display"]
-        if concept.get("definition"):
-            entry["description"] = concept["definition"]
-        for ext in concept.get("extension") or []:
-            if ext.get("url") == COMMENTS_URL and ext.get("valueString"):
-                entry["comments"] = ext["valueString"]
-                break
-        if parent_code is not None:
-            entry["is_a"] = parent_code
-        permissible_values[code] = entry
+        code        = concept.get("code", "")
+        title       = concept.get("display") or None
+        description = concept.get("definition") or None
+        comments    = next((e["valueString"] for e in concept.get("extension") or []
+                            if e.get("url") == COMMENTS_URL and e.get("valueString")), None)
+        add_permissible_value(permissible_values, code,
+                              title=title, description=description,
+                              is_a=parent_code, comments=comments)
         collect_loinc_concepts(concept.get("concept"), permissible_values, parent_code=code)
 
 
@@ -806,11 +864,9 @@ def collect_loinc_valueset_concepts(record, permissible_values):
     """
     for include in (record.get("compose") or {}).get("include") or []:
         for concept in include.get("concept") or []:
-            code = concept.get("code", "")
-            entry = {"name": code, "text": code}
-            if concept.get("display"):
-                entry["title"] = concept["display"]
-            permissible_values[code] = entry
+            code  = concept.get("code", "")
+            title = concept.get("display") or None
+            add_permissible_value(permissible_values, code, title=title)
 
 
 def convert_loinc_valueset_to_linkml(key, source):
@@ -856,7 +912,7 @@ def convert_loinc_valueset_to_linkml(key, source):
 
 def make_config_schema(id="", name="", title="", description="", version="",
                        license="", prefixes=None, default_prefix="",
-                       classes={}, enums={}, slots={}):
+                       in_language="en", classes={}, enums={}, slots={}):
     """Return a skeleton LinkML schema dict with all standard top-level fields.
 
     All parameters are optional; absent fields are included with empty/default
@@ -871,6 +927,7 @@ def make_config_schema(id="", name="", title="", description="", version="",
     license:       License identifier (e.g. 'CC0').
     prefixes:      Prefix dict {'PREFIX': 'uri', ...}.
     default_prefix: Default prefix string.
+    in_language:   BCP 47 language tag for the schema content (default 'en').
     classes:       Pre-built classes dict to embed (default empty).
     enums:         Pre-built enums dict to embed (default empty).
     slots:         Pre-built slots dict to embed (default empty).
@@ -882,6 +939,7 @@ def make_config_schema(id="", name="", title="", description="", version="",
         "description":    description,
         "version":        version,
         "license":        license,
+        "in_language":    in_language,
         "imports":        ["linkml:types"],
         "prefixes":       dict(prefixes) if prefixes else {},
         "default_prefix": default_prefix,
@@ -1323,6 +1381,58 @@ def add_source(urls, config_file=MENU_CONFIG):
                 print(f"Added source '{key}' to {config_file}")
                 continue
 
+        # Content detection: OWL ontology (.owl, .ofn, .rdf, .ttl by URL extension,
+        # or RDF/OWL content markers in the file).
+        _url_path = url.split("?")[0].rstrip("/").lower()
+        _is_owl = any(_url_path.endswith(e) for e in ('.owl', '.ofn', '.rdf', '.ttl', '.n3'))
+        if not _is_owl:
+            try:
+                with open(tmp_path, encoding='utf-8', errors='replace') as _f:
+                    _sample = _f.read(4096)
+                _is_owl = ('<rdf:RDF' in _sample or '<owl:Ontology' in _sample
+                           or ('Ontology(' in _sample
+                               and ('SubClassOf(' in _sample or 'Declaration(' in _sample)))
+            except Exception:
+                pass
+
+        if _is_owl:
+            _filename = url.split("?")[0].rstrip("/").split("/")[-1]
+            if "." in _filename:
+                _stem_noext, _ext = _filename.rsplit(".", 1)
+            else:
+                _stem_noext, _ext = _filename, "owl"
+            key = _stem_noext if _stem_noext else "OWLOntology"
+
+            with open(config_file) as f:
+                config = yaml.safe_load(f) or {}
+            if key in config.get("sources", {}):
+                print(f"  Skipping {url}: source key '{key}' already exists in {config_file}",
+                      file=sys.stderr)
+                os.unlink(tmp_path)
+                continue
+
+            output_path = f"sources/{_filename}"
+            os.rename(tmp_path, output_path)
+            print(f"Saved to {output_path}")
+
+            _meta  = _extract_owl_metadata(output_path)
+            entry = make_source_entry(
+                key, url, "OWL", _ext,
+                title       = _meta["title"]       or _stem_noext,
+                description = _meta["description"],
+                version     = _meta["version"],
+            )
+            if _meta["license"]:
+                entry["license"] = _meta["license"]
+            if _meta["prefixes"]:
+                entry["prefixes"] = _meta["prefixes"]
+            config.setdefault("sources", {})[key] = entry
+            write_config(config, config_file)
+            print(f"Added source '{key}' to {config_file}")
+
+            process_sources([key], config_file)
+            continue
+
         content_type = file_format = key = None
         schema_data = None
 
@@ -1440,6 +1550,11 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
         source = all_sources[key]
         file_format = source.get("file_format", "yaml")
         content_type = source.get("content_type", "")
+
+        if content_type == "OWL":
+            if not _require_source_file(key, source.get("file_format", "owl")): continue
+            process_owl_source(key, source, config_file)
+            continue
 
         if content_type == "STATSCAN":
             if not _require_source_file(key, "html"): continue
@@ -1695,24 +1810,21 @@ def parse_loinc_valueset_html_page(html_text):
             if not code:
                 continue
 
-            entry = {"name": code}
-
+            title = ""
             if display_col is not None and len(cells) > display_col:
-                display = strip_tags(cells[display_col]).strip()
-                if display:
-                    entry["title"] = display
+                title = strip_tags(cells[display_col]).strip()
 
+            description = ""
             if def_col is not None and len(cells) > def_col:
                 def_cell = cells[def_col]
                 p_m = re.search(r'<p[^>]*>(.*?)</p>', def_cell, re.IGNORECASE | re.DOTALL)
-                def_text = strip_tags(p_m.group(1) if p_m else def_cell).strip()
-                if def_text:
-                    entry["description"] = def_text
+                description = strip_tags(p_m.group(1) if p_m else def_cell).strip()
 
+            status = ""
             if status_col is not None and len(cells) > status_col:
-                status = strip_tags(cells[status_col]).strip()
-                if status:
-                    entry["status"] = status.upper()
+                status_raw = strip_tags(cells[status_col]).strip()
+                if status_raw:
+                    status = status_raw.upper()
 
             level = None
             if level_col is not None and len(cells) > level_col:
@@ -1721,14 +1833,16 @@ def parse_loinc_valueset_html_page(html_text):
                 except (ValueError, TypeError):
                     pass
 
+            is_a = None
             if level is not None and level > 1:
                 for prev_code, prev_level in reversed(processed):
                     if prev_level == level - 1:
-                        entry["is_a"] = prev_code
+                        is_a = prev_code
                         break
 
             processed.append((code, level if level is not None else 1))
-            permissible_values[code] = entry
+            add_permissible_value(permissible_values, code,
+                                  title=title, description=description, status=status, is_a=is_a)
 
         if permissible_values:
             break
@@ -1943,12 +2057,8 @@ def _build_nsdb_enum(attr_html, enum_prefix, require_qualifying=True):
     permissible_values = {}
     for rows in pv_tables:
         for row in rows:
-            code = row['code']
-            permissible_values[code] = {
-                "text":        code,
-                "title":       row['class_'],
-                "description": row['description'],
-            }
+            add_permissible_value(permissible_values, row['code'],
+                                  title=row['class_'], description=row['description'])
     enum_dict = {
         "name":               label,
         "title":              title,
@@ -1988,12 +2098,8 @@ def _fetch_fr_attr_pvs(attr_url_by_enum, schema_enums, indent="  "):
                 for row in rows:
                     code = row['code']
                     if code in en_codes:
-                        fr_entry = {"text": code}
-                        if row['class_']:
-                            fr_entry["title"] = row['class_']
-                        if row['description']:
-                            fr_entry["description"] = row['description']
-                        fr_pvs[code] = fr_entry
+                        add_permissible_value(fr_pvs, code,
+                                              title=row['class_'], description=row['description'])
             if fr_pvs:
                 fr_enums_pvs[enum_key] = fr_pvs
                 print(f"{indent}French: {len(fr_pvs)} translations for {enum_key}")
@@ -2003,26 +2109,27 @@ def _fetch_fr_attr_pvs(attr_url_by_enum, schema_enums, indent="  "):
     return fr_enums_pvs
 
 
-def _make_fr_locale_extensions(fr_id, name, version, *, description=None, enums=None):
-    """Return a schema extensions dict with a single 'fr' locale entry.
+def _make_locale_extensions(locale_id, name, version, lang, *, description=None, enums=None):
+    """Return a schema extensions dict with a single locale entry.
 
-    fr_id:       IRI for the French locale.
+    locale_id:   IRI for the locale.
     name:        Schema / locale name field.
     version:     Version string.
-    description: Optional French description; omitted when None/empty.
+    lang:        BCP 47 language tag (e.g. 'fr', 'en').
+    description: Optional description; omitted when None/empty.
     enums:       Optional {enum_key: {"permissible_values": {…}}} mapping.
     """
-    fr_locale = {
-        "id":          fr_id,
+    locale = {
+        "id":          locale_id,
         "name":        name,
         "version":     version,
-        "in_language": "fr",
+        "in_language": lang,
     }
     if description:
-        fr_locale["description"] = description
+        locale["description"] = description
     if enums:
-        fr_locale["enums"] = enums
-    return {"locales": {"tag": "locales", "value": {"fr": fr_locale}}}
+        locale["enums"] = enums
+    return {"locales": {"tag": "locales", "value": {lang: locale}}}
 
 
 def _write_nsdb_yaml(schema, yaml_path, base_url, key, source, fr_enums_pvs, fr_description):
@@ -2033,8 +2140,8 @@ def _write_nsdb_yaml(schema, yaml_path, base_url, key, source, fr_enums_pvs, fr_
     before writing.
     """
     if fr_enums_pvs or fr_description:
-        schema["extensions"] = _make_fr_locale_extensions(
-            nsdb_fr_url(base_url), key, source.get("version") or "",
+        schema["extensions"] = _make_locale_extensions(
+            nsdb_fr_url(base_url), key, source.get("version") or "", "fr",
             description=fr_description or None,
             enums={ek: {"permissible_values": pvs} for ek, pvs in fr_enums_pvs.items()} if fr_enums_pvs else None,
         )
@@ -2227,12 +2334,8 @@ def process_nsdb_html_source(key, source, enum_prefix):
                     for row in rows:
                         code = row['code']
                         if code in en_codes:
-                            fr_entry = {"text": code}
-                            if row['class_']:
-                                fr_entry["title"] = row['class_']
-                            if row['description']:
-                                fr_entry["description"] = row['description']
-                            fr_pvs[code] = fr_entry
+                            add_permissible_value(fr_pvs, code,
+                                                  title=row['class_'], description=row['description'])
                 if fr_pvs:
                     fr_enums_pvs[enum_key] = fr_pvs
             except Exception as e:
@@ -2392,6 +2495,302 @@ def statscan_fr_url(url):
     return re.sub(r'(?<=/)([\w]+)(\.pl)(?=\?)', r'\1_f\2', url)
 
 
+_OBO_BASE    = "http://purl.obolibrary.org/obo/"
+_OBO_TERM_RE = re.compile(r'^([A-Za-z]+)_(\d+)$')
+
+def _discover_obo_prefixes(world):
+    """Scan all classes in *world* for OBO Foundry IRI patterns and return
+    a prefix→URI-base dict for each discovered ontology namespace.
+
+    Pattern:  http://purl.obolibrary.org/obo/{PREFIX}_{INTEGER}
+    Produces: {PREFIX}: http://purl.obolibrary.org/obo/{PREFIX}_
+
+    Example:  http://purl.obolibrary.org/obo/ENVO_01000254
+              → {"ENVO": "http://purl.obolibrary.org/obo/ENVO_"}
+    """
+    found = {}
+    for cls in world.classes():
+        iri = cls.iri or ""
+        if not iri.startswith(_OBO_BASE):
+            continue
+        local = iri[len(_OBO_BASE):]
+        m = _OBO_TERM_RE.match(local)
+        if m and m.group(1) not in found:
+            found[m.group(1)] = _OBO_BASE + m.group(1) + "_"
+    return found
+
+
+def _extract_owl_metadata(path):
+    """Parse an OWL/RDF-XML file and extract dc:title, dc:description,
+    owl:versionInfo, dcterms:license, and namespace prefix declarations.
+
+    Returns a dict with keys 'title', 'description', 'version', 'license'
+    (values are None when not found) and 'prefixes' (dict of prefix→URI,
+    excluding standard RDF/OWL infrastructure namespaces).
+    Silently returns defaults on parse errors.
+    """
+    OWL  = "http://www.w3.org/2002/07/owl#"
+    DC   = "http://purl.org/dc/elements/1.1/"
+    DCT  = "http://purl.org/dc/terms/"
+    RDF  = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+
+    # Standard infrastructure namespaces — not useful as prefixes in source config
+    _SKIP_NS = {
+        "http://www.w3.org/XML/1998/namespace",
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "http://www.w3.org/2000/01/rdf-schema#",
+        "http://www.w3.org/2002/07/owl#",
+        "http://www.w3.org/2001/XMLSchema#",
+    }
+
+    result = {"title": None, "description": None, "version": None, "license": None, "prefixes": {}}
+
+    try:
+        import xml.etree.ElementTree as ET
+
+        # Collect all xmlns:prefix="uri" declarations via start-ns events
+        for event, (prefix, uri) in ET.iterparse(path, events=("start-ns",)):
+            if prefix and uri not in _SKIP_NS:
+                result["prefixes"][prefix] = uri
+
+        # Extract metadata from owl:Ontology element
+        tree = ET.parse(path)
+        root = tree.getroot()
+
+        ontology_el = root.find(f".//{{{OWL}}}Ontology")
+        if ontology_el is None:
+            return result
+
+        def _text(el, tag):
+            child = el.find(tag)
+            if child is not None and child.text and child.text.strip():
+                return child.text.strip()
+            return None
+
+        def _attr_or_text(el, tag, attr=f"{{{RDF}}}resource"):
+            """Some tags (e.g. license) carry the value as an rdf:resource attribute."""
+            child = el.find(tag)
+            if child is None:
+                return None
+            if child.text and child.text.strip():
+                return child.text.strip()
+            val = child.get(attr)
+            return val.strip() if val else None
+
+        result["title"]       = (_text(ontology_el, f"{{{DC}}}title")
+                                  or _text(ontology_el, f"{{{DCT}}}title"))
+        result["description"] = (_text(ontology_el, f"{{{DC}}}description")
+                                  or _text(ontology_el, f"{{{DCT}}}description"))
+        result["version"]     = _text(ontology_el, f"{{{OWL}}}versionInfo")
+        result["license"]     = _attr_or_text(ontology_el, f"{{{DCT}}}license")
+
+    except Exception:
+        pass
+
+    return result
+
+
+_SENT_SPLIT = re.compile(r'(?<=[.!?])\s+')
+
+def _clip_sentences(text, max_n):
+    """Clip *text* to at most *max_n* sentences, appending ' ...' if clipped.
+
+    Sentence boundaries are detected by punctuation (.!?) followed by whitespace.
+    """
+    if not text:
+        return text
+    sentences = _SENT_SPLIT.split(text.strip())
+    if len(sentences) <= max_n:
+        return text
+    return " ".join(sentences[:max_n]) + " ..."
+
+
+_DEFINITION_IRIS = (
+    "http://purl.obolibrary.org/obo/IAO_0000115",    # OBO standard (most common)
+    "http://www.w3.org/2004/02/skos/core#definition", # skos:definition
+    "http://purl.org/dc/terms/description",           # dcterms:description
+    "http://purl.org/dc/elements/1.1/description",    # dc:description
+)
+
+def _owl_definition(cls, world):
+    """Return the first definition annotation found on *cls*, checking
+    IAO:0000115, skos:definition, dcterms:description, and dc:description
+    in that order.  Returns None if none are present.
+    """
+    for iri in _DEFINITION_IRIS:
+        prop = world[iri]
+        if prop is None:
+            continue
+        vals = prop[cls]
+        if vals:
+            return str(vals[0])
+    return None
+
+
+def _owl_english_label(cls):
+    """Return the English rdfs:label of an OWL class, or the first unlocalised label.
+
+    Prefers a label whose lang attribute starts with 'en' (covers en-US, en-GB, etc.).
+    Falls back to the first label with no language tag.  Returns None if no usable
+    label is found.
+    """
+    fallback = None
+    for label in cls.label:
+        if hasattr(label, 'lang') and label.lang:
+            if label.lang.lower().startswith('en'):
+                return str(label)
+        elif isinstance(label, str) and fallback is None:
+            fallback = label
+    return fallback
+
+
+def _find_owl_classes_by_label(onto, label_text):
+    """Return all classes in *onto* matching *label_text*, checked in order:
+
+    1. Exact case-insensitive match against the English rdfs:label.
+    2. Case-insensitive match after replacing underscores with spaces (handles
+       config entries like 'biological_process' vs label 'biological process').
+    3. Case-insensitive match against the class's local name (cls.name,
+       the IRI fragment after the last '/' or '#').
+    """
+    label_lower  = label_text.lower()
+    label_spaced = label_lower.replace("_", " ")
+    results = []
+    for cls in onto.world.classes():
+        eng = (_owl_english_label(cls) or "").lower()
+        if eng == label_lower or eng == label_spaced or (cls.name or "").lower() == label_lower:
+            results.append(cls)
+    return results
+
+
+def process_owl_source(key, source, config_file=MENU_CONFIG):
+    """Build a LinkML enum YAML from a fetched OWL ontology source.
+
+    Loads sources/{key}.text with owlready2 in an isolated World, traverses
+    the class hierarchy from top-level nodes (classes with no class-type
+    is_a parent other than owl:Thing), and writes a LinkML YAML with a single
+    enum named *key* containing one permissible_value entry per OWL class.
+
+    Filtering via the source's minus/include.concepts lists:
+      minus.concepts:   English rdfs:label strings (case-insensitive) of
+                        classes whose entire subtree should be excluded.
+      include.concepts: Labels that override minus exclusion; their subtrees
+                        are collected even if an ancestor was excluded.
+    Excluded classes have their children re-wired to the nearest surviving
+    ancestor (is_a points to grandparent rather than the excluded parent).
+    Unrecognised minus/include labels produce a warning.
+    """
+    try:
+        from owlready2 import World, Thing
+    except ImportError:
+        print("Error: owlready2 is not installed — run: pip install owlready2",
+              file=sys.stderr)
+        return
+
+    concise    = bool(source.get("concise"))
+    text_path  = f"sources/{key}.{source.get('file_format', 'owl')}"
+    yaml_path  = f"sources/{key}.yaml"
+    source_url = (source.get("reachable_from") or {}).get("source_ontology", "")
+
+    print(f"Loading OWL ontology from {text_path} ...")
+    world = World()
+    onto  = world.get_ontology(f"file://{os.path.abspath(text_path)}").load()
+    total = len(list(onto.classes()))
+    print(f"  Base IRI: {onto.base_iri}  ({total} classes)")
+
+    # Resolve minus/include concept labels to class IRI sets
+    minus_labels   = list(keys_from_minus((source.get("minus")   or {}).get("concepts")))
+    include_labels = list(keys_from_minus((source.get("include") or {}).get("concepts")))
+
+    minus_iris = set()
+    for lbl in minus_labels:
+        found = _find_owl_classes_by_label(onto, lbl)
+        if not found:
+            print(f"  Warning: minus label '{lbl}' not found in ontology", file=sys.stderr)
+        for cls in found:
+            minus_iris.add(cls.iri)
+
+    include_iris = set()
+    for lbl in include_labels:
+        found = _find_owl_classes_by_label(onto, lbl)
+        if not found:
+            print(f"  Warning: include label '{lbl}' not found in ontology", file=sys.stderr)
+        for cls in found:
+            include_iris.add(cls.iri)
+
+    # Auto-discover OBO Foundry per-ontology prefixes from class IRIs,
+    # then overlay with any explicitly configured prefixes (config wins on conflicts).
+    prefixes = {**_discover_obo_prefixes(world), **dict(source.get("prefixes") or {})}
+    if prefixes != dict(source.get("prefixes") or {}):
+        with open(config_file) as f:
+            config = yaml.safe_load(f) or {}
+        config.setdefault("sources", {})[key]["prefixes"] = prefixes
+        write_config(config, config_file)
+        source["prefixes"] = prefixes
+    permissible_values = {}
+    visited = set()
+
+    def _collect(cls, parent_code, in_minus_subtree=False):
+        """Recursively add cls and its subclasses to permissible_values.
+
+        in_minus_subtree propagates exclusion down the hierarchy.
+        include_iris overrides exclusion for a class and its descendants.
+        minus_iris starts exclusion for a class and its descendants.
+        """
+        if cls.iri in visited:
+            return
+        visited.add(cls.iri)
+
+        # include overrides minus for this class and everything below it
+        if cls.iri in include_iris:
+            in_minus_subtree = False
+        elif cls.iri in minus_iris:
+            in_minus_subtree = True
+
+        if not in_minus_subtree:
+            title       = _owl_english_label(cls)
+            description = _owl_definition(cls, world)
+            if concise and description:
+                description = _clip_sentences(description, 2)
+            code        = cls.name or cls.iri.rstrip('#/').split('/')[-1].split('#')[-1]
+            status      = "DEPRECATED" if bool(cls.deprecated) else None
+            add_permissible_value(permissible_values, code,
+                                  title=title, description=description, is_a=parent_code,
+                                  status=status,
+                                  meaning=cls.iri, prefixes=prefixes)
+            next_parent = code
+        else:
+            next_parent = parent_code  # re-wire surviving children to nearest ancestor
+
+        for sub in cls.subclasses():
+            _collect(sub, next_parent, in_minus_subtree)
+
+    # Top-level classes: those with no class-type is_a parent other than Thing
+    for cls in onto.classes():
+        class_parents = [p for p in cls.is_a if isinstance(p, type) and p is not Thing]
+        if not class_parents:
+            _collect(cls, None)
+
+    n = len(permissible_values)
+    excluded_n = total - len(visited)
+    print(f"  Collected {n} classes"
+          + (f" ({excluded_n} excluded by minus)" if excluded_n > 0 else ""))
+
+    schema = make_config_schema(
+        id=source_url, name=key,
+        title=source.get("title") or key,
+        description=source.get("description") or "",
+        version=source.get("version") or "",
+        license=source.get("license") or "",
+        prefixes=dict(source.get("prefixes") or {}),
+        enums={key: {"permissible_values": permissible_values}},
+    )
+
+    with open(yaml_path, "w") as f:
+        yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+    print(f"Updated {yaml_path} ({n} classes)")
+
+
 def process_statscan_source(key, source, config_file=MENU_CONFIG):
     """Build a LinkML enum YAML for a STATSCAN source.
 
@@ -2479,10 +2878,7 @@ def process_statscan_source(key, source, config_file=MENU_CONFIG):
             if td_cells:
                 idx = cat_td_index if cat_td_index < len(td_cells) else 0
                 title = html.unescape(strip_tags(td_cells[idx])).strip()
-            entry = {"text": code}
-            if title:
-                entry["title"] = title
-            permissible_values[code] = entry
+            add_permissible_value(permissible_values, code, title=title)
             print(f"  Unlinked code: {code!r} title={title!r}")
 
     # ---- 3. For each CPV page: fetch structure + definitions -------------
@@ -2505,18 +2901,15 @@ def process_statscan_source(key, source, config_file=MENU_CONFIG):
                 struct_items = parse_statscan_structure(fetch_html(struct_url))
                 # Build permissible_values from the ordered (code, name, indent) list
                 processed = []  # [(code, indent)] for is_a lookup
-                for code, name, indent in struct_items:
-                    entry = {"text": code}
-                    if name:
-                        entry["title"] = name
-                    # Find is_a: first preceding item at indent-1
+                for code, title, indent in struct_items:
+                    is_a = None
                     if indent > 1:
                         for prev_code, prev_indent in reversed(processed):
                             if prev_indent == indent - 1:
-                                entry["is_a"] = prev_code
+                                is_a = prev_code
                                 break
                     processed.append((code, indent))
-                    permissible_values[code] = entry
+                    add_permissible_value(permissible_values, code, title=title, is_a=is_a)
             except Exception as e:
                 print(f"    Warning: structure fetch failed: {e}", file=sys.stderr)
 
@@ -2585,14 +2978,11 @@ def process_statscan_source(key, source, config_file=MENU_CONFIG):
                 if not code:
                     continue
                 td_cells = re.findall(r'<td\b[^>]*>(.*?)</td>', row_html, re.IGNORECASE | re.DOTALL)
-                fr_title = ""
+                title = ""
                 if td_cells:
                     idx = cat_td_index if cat_td_index < len(td_cells) else 0
-                    fr_title = html.unescape(strip_tags(td_cells[idx])).strip()
-                fr_entry = {"text": code}
-                if fr_title:
-                    fr_entry["title"] = fr_title
-                fr_permissible_values[code] = fr_entry
+                    title = html.unescape(strip_tags(td_cells[idx])).strip()
+                add_permissible_value(fr_permissible_values, code, title=title)
 
         # French CPV pages — convert each English CPV URL to its French equivalent
         for cpv_url in cpv_urls:
@@ -2612,11 +3002,8 @@ def process_statscan_source(key, source, config_file=MENU_CONFIG):
                 try:
                     print(f"    Fetching French structure {fr_struct_url} ...")
                     fr_struct_items = parse_statscan_structure(fetch_html(fr_struct_url))
-                    for code, name, indent in fr_struct_items:
-                        fr_entry = {"text": code}
-                        if name:
-                            fr_entry["title"] = name
-                        fr_permissible_values[code] = fr_entry
+                    for code, title, indent in fr_struct_items:
+                        add_permissible_value(fr_permissible_values, code, title=title)
                 except Exception as e:
                     print(f"    Warning: French structure fetch failed: {e}", file=sys.stderr)
 
@@ -2650,8 +3037,8 @@ def process_statscan_source(key, source, config_file=MENU_CONFIG):
     )
 
     if fr_permissible_values:
-        schema["extensions"] = _make_fr_locale_extensions(
-            statscan_fr_url(source_url), key, source.get("version") or "",
+        schema["extensions"] = _make_locale_extensions(
+            statscan_fr_url(source_url), key, source.get("version") or "", "fr",
             enums={key: {"permissible_values": fr_permissible_values}},
         )
 
@@ -2775,22 +3162,11 @@ def process_napcscanada_source(key, source, config_file=MENU_CONFIG):
                 is_a = level_stack[-1][0]
             level_stack.append((code, level_int))
 
-        entry_en = {"text": code}
-        if title_en:
-            entry_en["title"] = title_en
-        if desc_en:
-            entry_en["description"] = desc_en
-        if is_a:
-            entry_en["is_a"] = is_a
-        permissible_values_en[code] = entry_en
-
+        add_permissible_value(permissible_values_en, code,
+                              title=title_en, description=desc_en, is_a=is_a)
         if title_fr or desc_fr:
-            entry_fr = {"text": code}
-            if title_fr:
-                entry_fr["title"] = title_fr
-            if desc_fr:
-                entry_fr["description"] = desc_fr
-            permissible_values_fr[code] = entry_fr
+            add_permissible_value(permissible_values_fr, code,
+                                  title=title_fr, description=desc_fr)
 
     source_url = (source.get("reachable_from") or {}).get("source_ontology", "")
     version    = source.get("version") or ""
@@ -2802,8 +3178,8 @@ def process_napcscanada_source(key, source, config_file=MENU_CONFIG):
                                enums={key: {"permissible_values": permissible_values_en}})
 
     if permissible_values_fr:
-        schema["extensions"] = _make_fr_locale_extensions(
-            source_url, key, version,
+        schema["extensions"] = _make_locale_extensions(
+            source_url, key, version, "fr",
             enums={key: {"permissible_values": permissible_values_fr}},
         )
 
