@@ -69,8 +69,17 @@
 #     # LOINCGenderIdentity (LOINCValueSet)
 #     python menu_manager.py -a https://terminology.hl7.org/en/ValueSet-gender-identity.json
 #
-#     # NSDBSoilNameAndLayerV2 (NSDB)
+#     # NSDBSoilNameAndLayerV2 (NSDB) — National Soil DataBase, combined Soil Name Table + Soil Layer Table
 #     python menu_manager.py -a https://sis.agr.gc.ca/cansis/nsdb/soil/v2/index.html
+#
+#     # NSDBSNTv2 (NSDBSNT) — National Soil DataBase, Soil Name Table
+#     python menu_manager.py -a https://sis.agr.gc.ca/cansis/nsdb/soil/v2/snt/index.html
+#
+#     # NSDBSLTv2 (NSDBSLT) — National Soil DataBase, Soil Layer Table
+#     python menu_manager.py -a https://sis.agr.gc.ca/cansis/nsdb/soil/v2/slt/index.html
+#
+#     # NSDBSLCv3_2 (NSDBSLC) — National Soil DataBase, Soil Landscapes of Canada
+#     python menu_manager.py -a https://sis.agr.gc.ca/cansis/nsdb/slc/v3.2/index.html
 #
 #     # LOINCValuesets (LOINC valueset listing page — run -c after to fetch all enums)
 #     python menu_manager.py -a https://terminology.hl7.org/en/valuesets.html
@@ -882,6 +891,37 @@ def make_config_schema(id="", name="", title="", description="", version="",
     }
 
 
+def make_source_entry(key, url, content_type, file_format, *,
+                      title=None, version=None, description=None):
+    """Return a standard config source entry dict.
+
+    Builds the fields shared by every source type: name, title, version,
+    content_type, file_format, reachable_from.source_ontology, and
+    download_date.  description is included only when provided (not None).
+    Callers can add extra fields (see_also, prefixes, …) after the call.
+
+    key:          Source key used as 'name' and in the file path.
+    url:          Canonical URL written to reachable_from.source_ontology.
+    content_type: Content type string (e.g. 'NSDBSNT', 'LOINC').
+    file_format:  File extension without dot (e.g. 'html', 'json', 'csv').
+    title:        Human-readable title (None → stored as null).
+    version:      Version string (None → stored as null).
+    description:  Free-text description; omitted from the dict when None.
+    """
+    entry = {
+        "title":          title,
+        "name":           key,
+        "version":        version,
+        "content_type":   content_type,
+        "file_format":    file_format,
+        "reachable_from": {"source_ontology": url},
+        "download_date":  datetime.date.today().isoformat(),
+    }
+    if description is not None:
+        entry["description"] = description
+    return entry
+
+
 def add_source(urls, config_file=MENU_CONFIG):
     """Add sources from URLs to menu_config.yaml and process them.
 
@@ -970,16 +1010,8 @@ def add_source(urls, config_file=MENU_CONFIG):
             os.rename(tmp_path, output_path)
             print(f"Saved to {output_path}")
 
-            entry = {
-                "title":        _snt_title,
-                "name":         key,
-                "version":      _snt_version,
-                "content_type": "NSDBSNT",
-                "file_format":  "html",
-                "reachable_from": {"source_ontology": url},
-                "download_date": datetime.date.today().isoformat(),
-                "description":   _snt_desc,
-            }
+            entry = make_source_entry(key, url, "NSDBSNT", "html",
+                                      title=_snt_title, version=_snt_version, description=_snt_desc)
             config.setdefault("sources", {})[key] = entry
             write_config(config, config_file)
             print(f"Added source '{key}' to {config_file}")
@@ -1038,16 +1070,8 @@ def add_source(urls, config_file=MENU_CONFIG):
             os.rename(tmp_path, output_path)
             print(f"Saved to {output_path}")
 
-            entry = {
-                "title":          _slt_title,
-                "name":           key,
-                "version":        _slt_version,
-                "content_type":   "NSDBSLT",
-                "file_format":    "html",
-                "reachable_from": {"source_ontology": url},
-                "download_date":  datetime.date.today().isoformat(),
-                "description":    _slt_desc,
-            }
+            entry = make_source_entry(key, url, "NSDBSLT", "html",
+                                      title=_slt_title, version=_slt_version, description=_slt_desc)
             config.setdefault("sources", {})[key] = entry
             write_config(config, config_file)
             print(f"Added source '{key}' to {config_file}")
@@ -1084,16 +1108,9 @@ def add_source(urls, config_file=MENU_CONFIG):
             os.rename(tmp_path, output_path)
             print(f"Saved to {output_path}")
 
-            entry = {
-                "title": "NSDB Soil Name and Layer Tables",
-                "name": key,
-                "version": version_label,
-                "content_type": "NSDB",
-                "file_format": "html",
-                "reachable_from": {"source_ontology": url},
-                "download_date": datetime.date.today().isoformat(),
-                "description": "This schema contains summary information for named soils within the Canadian soil surveys NSDB database",
-            }
+            entry = make_source_entry(key, url, "NSDB", "html",
+                                      title="NSDB Soil Name and Layer Tables", version=version_label,
+                                      description="This schema contains summary information for named soils within the Canadian soil surveys NSDB database")
             config.setdefault("sources", {})[key] = entry
             write_config(config, config_file)
             print(f"Added source '{key}' to {config_file}")
@@ -1144,16 +1161,8 @@ def add_source(urls, config_file=MENU_CONFIG):
             os.rename(tmp_path, output_path)
             print(f"Saved to {output_path}")
 
-            entry = {
-                "title":       slc_title,
-                "name":        key,
-                "version":     slc_version,
-                "content_type": "NSDBSLC",
-                "file_format": "html",
-                "reachable_from": {"source_ontology": url},
-                "download_date": datetime.date.today().isoformat(),
-                "description":  slc_description,
-            }
+            entry = make_source_entry(key, url, "NSDBSLC", "html",
+                                      title=slc_title, version=slc_version, description=slc_description)
             config.setdefault("sources", {})[key] = entry
             write_config(config, config_file)
             print(f"Added source '{key}' to {config_file}")
@@ -1191,18 +1200,10 @@ def add_source(urls, config_file=MENU_CONFIG):
                 html_text = f.read()
             description = find_description_before_table(html_text)
 
-            entry = {
-                "title": f"LOINC {to_camel_case(url_stem_noext)} Value Sets",
-                "name": key,
-                "version": None,
-                "content_type": "LOINC",
-                "file_format": "html",
-                "reachable_from": {"source_ontology": url},
-                "download_date": datetime.date.today().isoformat(),
-                "prefixes": {"LOINC": "https://loinc.org/"},
-            }
-            if description:
-                entry["description"] = description
+            entry = make_source_entry(key, url, "LOINC", "html",
+                                      title=f"LOINC {to_camel_case(url_stem_noext)} Value Sets",
+                                      description=description or None)
+            entry["prefixes"] = {"LOINC": "https://loinc.org/"}
             config.setdefault("sources", {})[key] = entry
             write_config(config, config_file)
             print(f"Added source '{key}' to {config_file}")
@@ -1246,15 +1247,7 @@ def add_source(urls, config_file=MENU_CONFIG):
             version_m = re.search(r'\bversion\s+([A-Za-z0-9][A-Za-z0-9._-]*)', title, re.IGNORECASE)
             version = version_m.group(1) if version_m else None
 
-            entry = {
-                "title": title,
-                "name": key,
-                "version": version,
-                "content_type": "STATSCAN",
-                "file_format": "html",
-                "reachable_from": {"source_ontology": url},
-                "download_date": datetime.date.today().isoformat(),
-            }
+            entry = make_source_entry(key, url, "STATSCAN", "html", title=title, version=version)
             config.setdefault("sources", {})[key] = entry
             write_config(config, config_file)
             print(f"Added source '{key}' to {config_file}")
@@ -1323,17 +1316,8 @@ def add_source(urls, config_file=MENU_CONFIG):
 
                 version = year if year else None
 
-                entry = {
-                    "title": title,
-                    "name": key,
-                    "version": version,
-                    "content_type": "NAPCSCanada",
-                    "file_format": "csv",
-                    "see_also": ["https://www.statcan.gc.ca/en/subjects/standard/napcs/2022/index"],
-                    "prefixes": {"napcscanada": "napcscanada/"},
-                    "reachable_from": {"source_ontology": url},
-                    "download_date": datetime.date.today().isoformat(),
-                }
+                entry = make_source_entry(key, url, "NAPCSCanada", "csv", title=title, version=version)
+                entry["see_also"] = ["https://www.statcan.gc.ca/en/subjects/standard/napcs/2022/index"]
                 config.setdefault("sources", {})[key] = entry
                 write_config(config, config_file)
                 print(f"Added source '{key}' to {config_file}")
@@ -1399,15 +1383,9 @@ def add_source(urls, config_file=MENU_CONFIG):
         print(f"Saved to {output_path}")
 
         # Build config entry
-        entry = {
-            "title": schema_data.get("title") or None if schema_data else None,
-            "name": schema_data.get("name") or None if schema_data else None,
-            "version": schema_data.get("version") or None if schema_data else None,
-            "content_type": content_type,
-            "file_format": file_format,
-            "reachable_from": {"source_ontology": url},
-            "download_date": datetime.date.today().isoformat(),
-        }
+        entry = make_source_entry(key, url, content_type, file_format,
+                                  title=schema_data.get("title") or None if schema_data else None,
+                                  version=schema_data.get("version") or None if schema_data else None)
         if content_type in ("LOINCCodeSystem", "LOINCValueSet"):
             entry["see_also"] = url + ".html"
         config.setdefault("sources", {})[key] = entry
@@ -1420,6 +1398,15 @@ def add_source(urls, config_file=MENU_CONFIG):
 
         # Process the source to generate LinkML YAML and update prefix dict in config
         process_sources([key], config_file)
+
+
+def _require_source_file(key, ext):
+    """Return the source file path if it exists, else print a warning and return None."""
+    path = f"sources/{key}.{ext}"
+    if not os.path.exists(path):
+        print(f"Skipping {key}: {path} not found — run -f to fetch first", file=sys.stderr)
+        return None
+    return path
 
 
 def process_sources(source_keys=None, config_file=MENU_CONFIG):
@@ -1455,58 +1442,37 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
         content_type = source.get("content_type", "")
 
         if content_type == "STATSCAN":
-            html_path = f"sources/{key}.html"
-            if not os.path.exists(html_path):
-                print(f"Skipping {key}: {html_path} not found — run -f to fetch first", file=sys.stderr)
-                continue
+            if not _require_source_file(key, "html"): continue
             process_statscan_source(key, source, config_file)
             continue
 
         if content_type == "NAPCSCanada":
-            csv_path = f"sources/{key}.csv"
-            if not os.path.exists(csv_path):
-                print(f"Skipping {key}: {csv_path} not found — run -f to fetch first", file=sys.stderr)
-                continue
+            if not _require_source_file(key, "csv"): continue
             process_napcscanada_source(key, source, config_file)
             continue
 
         if content_type in ("NSDBSNT", "NSDBSLT"):
-            html_path = f"sources/{key}.html"
-            if not os.path.exists(html_path):
-                print(f"Skipping {key}: {html_path} not found — run -f to fetch first", file=sys.stderr)
-                continue
+            if not _require_source_file(key, "html"): continue
             process_nsdb_html_source(key, source, enum_prefix="NSDB")
             continue
 
         if content_type == "NSDB":
-            html_path = f"sources/{key}.html"
-            if not os.path.exists(html_path):
-                print(f"Skipping {key}: {html_path} not found — run -f to fetch first", file=sys.stderr)
-                continue
+            if not _require_source_file(key, "html"): continue
             process_nsdb_source(key, source)
             continue
 
         if content_type == "NSDBSLC":
-            html_path = f"sources/{key}.html"
-            if not os.path.exists(html_path):
-                print(f"Skipping {key}: {html_path} not found — run -f to fetch first", file=sys.stderr)
-                continue
+            if not _require_source_file(key, "html"): continue
             process_nsdb_html_source(key, source, enum_prefix="NSDBSLC")
             continue
 
         if content_type == "LOINC":
-            html_path = f"sources/{key}.html"
-            if not os.path.exists(html_path):
-                print(f"Skipping {key}: {html_path} not found — run -f to fetch first", file=sys.stderr)
-                continue
+            if not _require_source_file(key, "html"): continue
             process_loinc_table_source(key, source, config_file)
             continue
 
         if content_type in ("LOINCCodeSystem", "LOINCValueSet"):
-            json_path = f"sources/{key}.json"
-            if not os.path.exists(json_path):
-                print(f"Skipping {key}: {json_path} not found — run -f to fetch first", file=sys.stderr)
-                continue
+            if not _require_source_file(key, "json"): continue
             if content_type == "LOINCCodeSystem":
                 yaml_path = convert_loinc_codesystem_to_linkml(key, source)
             else:
@@ -2037,6 +2003,28 @@ def _fetch_fr_attr_pvs(attr_url_by_enum, schema_enums, indent="  "):
     return fr_enums_pvs
 
 
+def _make_fr_locale_extensions(fr_id, name, version, *, description=None, enums=None):
+    """Return a schema extensions dict with a single 'fr' locale entry.
+
+    fr_id:       IRI for the French locale.
+    name:        Schema / locale name field.
+    version:     Version string.
+    description: Optional French description; omitted when None/empty.
+    enums:       Optional {enum_key: {"permissible_values": {…}}} mapping.
+    """
+    fr_locale = {
+        "id":          fr_id,
+        "name":        name,
+        "version":     version,
+        "in_language": "fr",
+    }
+    if description:
+        fr_locale["description"] = description
+    if enums:
+        fr_locale["enums"] = enums
+    return {"locales": {"tag": "locales", "value": {"fr": fr_locale}}}
+
+
 def _write_nsdb_yaml(schema, yaml_path, base_url, key, source, fr_enums_pvs, fr_description):
     """Attach fr_locale extensions to *schema*, write YAML, and print a summary.
 
@@ -2045,23 +2033,11 @@ def _write_nsdb_yaml(schema, yaml_path, base_url, key, source, fr_enums_pvs, fr_
     before writing.
     """
     if fr_enums_pvs or fr_description:
-        fr_locale = {
-            "id":          nsdb_fr_url(base_url),
-            "name":        key,
-            "version":     source.get("version") or "",
-            "in_language": "fr",
-        }
-        if fr_description:
-            fr_locale["description"] = fr_description
-        if fr_enums_pvs:
-            fr_locale["enums"] = {ek: {"permissible_values": pvs}
-                                   for ek, pvs in fr_enums_pvs.items()}
-        schema["extensions"] = {
-            "locales": {
-                "tag":   "locales",
-                "value": {"fr": fr_locale},
-            }
-        }
+        schema["extensions"] = _make_fr_locale_extensions(
+            nsdb_fr_url(base_url), key, source.get("version") or "",
+            description=fr_description or None,
+            enums={ek: {"permissible_values": pvs} for ek, pvs in fr_enums_pvs.items()} if fr_enums_pvs else None,
+        )
     with open(yaml_path, "w") as f:
         yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
     fr_parts = []
@@ -2674,22 +2650,10 @@ def process_statscan_source(key, source, config_file=MENU_CONFIG):
     )
 
     if fr_permissible_values:
-        schema["extensions"] = {
-            "locales": {
-                "tag": "locales",
-                "value": {
-                    "fr": {
-                        "id":          statscan_fr_url(source_url),
-                        "name":        key,
-                        "version":     source.get("version") or "",
-                        "in_language": "fr",
-                        "enums": {
-                            key: {"permissible_values": fr_permissible_values},
-                        },
-                    }
-                },
-            }
-        }
+        schema["extensions"] = _make_fr_locale_extensions(
+            statscan_fr_url(source_url), key, source.get("version") or "",
+            enums={key: {"permissible_values": fr_permissible_values}},
+        )
 
     yaml_path = f"sources/{key}.yaml"
     with open(yaml_path, "w") as f:
@@ -2831,29 +2795,17 @@ def process_napcscanada_source(key, source, config_file=MENU_CONFIG):
     source_url = (source.get("reachable_from") or {}).get("source_ontology", "")
     version    = source.get("version") or ""
     title      = source.get("title", "")
-    prefixes   = dict(source.get("prefixes") or {"napcscanada": "napcscanada/"})
+    prefixes   = dict(source.get("prefixes") or {})
 
     schema = make_config_schema(id=source_url, name=key, title=title,
                                version=version, prefixes=prefixes,
                                enums={key: {"permissible_values": permissible_values_en}})
 
     if permissible_values_fr:
-        schema["extensions"] = {
-            "locales": {
-                "tag": "locales",
-                "value": {
-                    "fr": {
-                        "id":          source_url,
-                        "name":        key,
-                        "version":     version,
-                        "in_language": "fr",
-                        "enums": {
-                            key: {"permissible_values": permissible_values_fr},
-                        },
-                    }
-                },
-            }
-        }
+        schema["extensions"] = _make_fr_locale_extensions(
+            source_url, key, version,
+            enums={key: {"permissible_values": permissible_values_fr}},
+        )
 
     yaml_path = f"sources/{key}.yaml"
     with open(yaml_path, "w") as f:
