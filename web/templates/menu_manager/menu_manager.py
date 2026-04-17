@@ -160,6 +160,17 @@ import yaml
 
 MENU_CONFIG = "menu_config.yaml"
 
+# SSSOM predicate_id → LinkML permissible_value attribute name.
+# See https://github.com/mapping-commons/sssom/ for the SSSOM specification
+# and https://www.w3.org/TR/skos-reference/#mapping for SKOS mapping properties.
+SSSOM_PREDICATE_MAP = {
+    "skos:closeMatch":   "close_mappings",
+    "skos:broadMatch":   "broad_mappings",
+    "skos:narrowMatch":  "narrow_mappings",
+    "skos:exactMatch":   "exact_mappings",
+    "skos:relatedMatch": "related_mappings",
+}
+
 # Browser-like headers used for all HTTP fetches.  Some servers (e.g. those
 # behind a Barracuda WAF) reject requests that lack a realistic User-Agent,
 # Accept, or Accept-Language header.
@@ -390,7 +401,157 @@ def update_download_date(source_key, config_file=MENU_CONFIG):
     update_source_config(source_key, {"download_date": datetime.date.today().isoformat()}, config_file)
 
 
-def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
+def _load_sssom(path_or_uri):
+    """Load a SSSOM (Simple Standard for Sharing Ontology Mappings) TSV file.
+
+    SSSOM is a community standard for representing ontology/vocabulary mappings
+    in a tabular format.  See https://github.com/mapping-commons/sssom/ for the
+    full specification.
+
+    The file may begin with '#'-prefixed metadata lines (including an embedded
+    YAML curie_map block) followed by a tab-separated header row and data rows.
+    Required columns: subject_id, predicate_id, object_id.
+    Other columns (subject_label, object_label, match_type, Comments, …) are
+    allowed by the standard and are preserved in each row dict but not used here.
+
+    path_or_uri: local file path or http/https URL.
+
+    Returns a dict {subject_id: [row_dict, …]} indexed by subject_id for fast
+    lookup.  Rows whose subject_id is empty are silently skipped.
+    """
+    import csv, io
+
+    if path_or_uri.startswith(("http://", "https://")):
+        req = urllib.request.Request(path_or_uri, headers=BROWSER_HEADERS)
+        with urllib.request.urlopen(req) as resp:
+            charset = resp.headers.get_content_charset() or "utf-8"
+            content = resp.read().decode(charset, errors="replace")
+    else:
+        with open(path_or_uri, "r", encoding="utf-8") as f:
+            content = f.read()
+
+    # Strip leading '#' metadata/comment lines; the first non-comment line is
+    # the TSV header.
+    data_lines = [ln for ln in content.splitlines() if not ln.startswith("#")]
+    if not data_lines:
+        return {}
+
+    index = {}
+    reader = csv.DictReader(io.StringIO("\n".join(data_lines)), delimiter="\t")
+    for row in reader:
+        subject_id = (row.get("subject_id") or "").strip()
+        if subject_id:
+            index.setdefault(subject_id, []).append(row)
+    return index
+
+
+def apply_sssom_mappings(predicates=None, schema_file="schema.yaml", config_file=MENU_CONFIG):
+    """Apply SSSOM ontology mappings to permissible_values in schema.yaml.
+
+    Reads SSSOM files listed in the top-level 'sssom' array of menu_config.yaml
+    (each entry may be a local relative path or an http/https URL), then for
+    every permissible_value in schema.yaml whose 'meaning' field matches a
+    subject_id in the SSSOM data, writes the matching object_id values into the
+    appropriate mapping attribute on the permissible_value.
+
+    SSSOM predicate_id → LinkML permissible_value attribute:
+      skos:closeMatch   → close_mappings
+      skos:broadMatch   → broad_mappings
+      skos:narrowMatch  → narrow_mappings
+      skos:exactMatch   → exact_mappings
+      skos:relatedMatch → related_mappings
+
+    predicates: list of predicate_id strings to apply (e.g. ['skos:closeMatch']).
+                Pass None or [] to apply all five.
+    """
+    with open(config_file, "r") as f:
+        config = yaml.safe_load(f) or {}
+
+    sssom_files = config.get("sssom") or []
+    if not sssom_files:
+        print("No 'sssom' files listed in menu_config.yaml — nothing to apply", file=sys.stderr)
+        return
+
+    # Resolve which predicates to apply
+    if predicates:
+        unknown = [p for p in predicates if p not in SSSOM_PREDICATE_MAP]
+        for p in unknown:
+            print(
+                f"Warning: unknown predicate '{p}' — valid values: "
+                f"{', '.join(SSSOM_PREDICATE_MAP)}",
+                file=sys.stderr,
+            )
+        active = {p: SSSOM_PREDICATE_MAP[p] for p in predicates if p in SSSOM_PREDICATE_MAP}
+    else:
+        active = dict(SSSOM_PREDICATE_MAP)
+
+    if not active:
+        print("No valid predicates to apply — aborting", file=sys.stderr)
+        return
+
+    # Load and merge all SSSOM files into one index
+    sssom_index = {}
+    for sssom_path in sssom_files:
+        try:
+            partial = _load_sssom(sssom_path)
+            for subj, rows in partial.items():
+                sssom_index.setdefault(subj, []).extend(rows)
+            print(f"Loaded SSSOM: {len(partial)} subject IDs from {sssom_path}")
+        except Exception as _e:
+            print(f"Warning: could not load SSSOM file '{sssom_path}': {_e}", file=sys.stderr)
+
+    if not sssom_index:
+        print("No SSSOM mappings loaded — nothing to apply")
+        return
+
+    if not os.path.exists(schema_file):
+        print(f"{schema_file} not found — run -b first", file=sys.stderr)
+        return
+
+    with open(schema_file, "r") as f:
+        schema = yaml.safe_load(f) or {}
+
+    mapping_counts = {attr: 0 for attr in active.values()}
+    pv_updated = 0
+
+    for enum_def in (schema.get("enums") or {}).values():
+        if not isinstance(enum_def, dict):
+            continue
+        pvs = enum_def.get("permissible_values") or {}
+        for pv_code, pv in pvs.items():
+            meaning = (pv or {}).get("meaning", "")
+            if not meaning:
+                continue
+            rows = sssom_index.get(meaning, [])
+            if not rows:
+                continue
+            changed = False
+            pv = dict(pv)  # copy before mutating
+            for predicate, attr in active.items():
+                object_ids = [
+                    r["object_id"].strip()
+                    for r in rows
+                    if r.get("predicate_id", "").strip() == predicate
+                    and r.get("object_id", "").strip()
+                ]
+                if object_ids:
+                    pv[attr] = object_ids
+                    mapping_counts[attr] += len(object_ids)
+                    changed = True
+            if changed:
+                pvs[pv_code] = pv
+                pv_updated += 1
+
+    with open(schema_file, "w") as f:
+        yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+
+    print(f"Updated {schema_file}: {pv_updated} permissible_value(s) received mappings")
+    for attr, count in mapping_counts.items():
+        if count:
+            print(f"  {attr}: {count} mapping(s)")
+
+
+def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG, keys=None):
     """Create or update schema.yaml with LinkML top-level structure, enums, and prefixes.
 
     On creation, populates default values. On update, only adds keys that are
@@ -434,13 +595,19 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
         action = "Created"
 
     # Sync enums and prefixes from menu_config.yaml sources
+    prefix_conflicts = []  # collected at end for stdout summary
     if os.path.exists(config_file):
         with open(config_file, "r") as f:
             config = yaml.safe_load(f) or {}
         all_sources = config.get("sources", {})
 
         # Sync enums from each source's yaml file into schema
-        for key, source in all_sources.items():
+        sources_to_build = {k: v for k, v in all_sources.items() if keys is None or k in keys}
+        if keys:
+            missing = [k for k in keys if k not in all_sources]
+            for k in missing:
+                print(f"Warning: source key '{k}' not found in {config_file}", file=sys.stderr)
+        for key, source in sources_to_build.items():
             source_path = f"sources/{key}.yaml"
             if not os.path.exists(source_path):
                 print(f"Skipping {key} enums: {source_path} not found — run -f and -p first", file=sys.stderr)
@@ -449,9 +616,30 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
             with open(source_path, "r") as f:
                 source_data = yaml.safe_load(f)
 
-            # Merge any source YAML prefixes missing from schema (additive only)
-            for prefix, uri in (source_data.get("prefixes") or {}).items():
-                schema["prefixes"].setdefault(prefix, uri)
+            # Build full prefix map for this source (source YAML + any config additions).
+            # Only prefixes actually referenced in permissible_value meanings are added
+            # to schema — avoids polluting schema.yaml with unused namespace declarations.
+            source_prefix_map = {
+                **(source_data.get("prefixes") or {}),
+                **(source.get("prefixes") or {}),
+            }
+            for enum_def in (source_data.get("enums") or {}).values():
+                for pv in ((enum_def or {}).get("permissible_values") or {}).values():
+                    meaning = (pv or {}).get("meaning", "")
+                    if is_curie(meaning):
+                        pfx = meaning.split(":")[0]
+                        if pfx not in source_prefix_map:
+                            continue
+                        new_uri = source_prefix_map[pfx]
+                        if pfx in schema["prefixes"]:
+                            if schema["prefixes"][pfx] != new_uri:
+                                prefix_conflicts.append(
+                                    f"  prefix conflict: '{pfx}' already mapped to "
+                                    f"'{schema['prefixes'][pfx]}' but '{key}' requires "
+                                    f"'{new_uri}' — skipping"
+                                )
+                        else:
+                            schema["prefixes"][pfx] = new_uri
 
             source_enums = source_data.get("enums") or {}
             enum_added = enum_updated = enum_reported = enum_excluded = enum_deleted = enum_conflicts = 0
@@ -720,7 +908,7 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
                     schema["prefixes"][prefix] = uri
                     prefix_updated += 1
 
-            schema["prefixes"] = dict(sorted(schema["prefixes"].items(), key=lambda x: x[0].lower()))
+            schema["prefixes"] = sort_prefixes(schema["prefixes"])
 
             print(f"Prefixes: {prefix_added} added, {prefix_updated} updated")
 
@@ -755,10 +943,18 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG):
     if schema.get("enums"):
         schema["enums"] = dict(sorted(schema["enums"].items(), key=lambda x: x[0].lower()))
 
+    if schema.get("prefixes"):
+        schema["prefixes"] = sort_prefixes(schema["prefixes"])
+
     with open(schema_file, "w") as f:
         yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
 
     print(f"{action} {schema_file}")
+
+    if prefix_conflicts:
+        print(f"\nPrefix conflicts ({len(prefix_conflicts)}):")
+        for msg in prefix_conflicts:
+            print(msg)
 
 
 def add_permissible_value(permissible_values, code, *, title=None, description=None,
@@ -910,6 +1106,50 @@ def convert_loinc_valueset_to_linkml(key, source):
     return yaml_path
 
 
+def is_curie(value):
+    """Return True if *value* looks like a CURIE (prefix:localpart) rather than a full URI."""
+    if not value or ":" not in value:
+        return False
+    pfx = value.split(":")[0]
+    return bool(pfx) and "/" not in pfx and pfx.lower() not in ("http", "https", "urn")
+
+
+def sort_prefixes(prefixes):
+    """Return a copy of *prefixes* sorted case-insensitively by key.
+
+    Accepts a dict or any falsy value (returns {} for falsy input).
+    """
+    if not prefixes:
+        return {}
+    return dict(sorted(prefixes.items(), key=lambda x: x[0].lower()))
+
+
+def apply_sorted_prefixes(key, new_prefixes, config_file, *,
+                           yaml_path=None, schema_data=None, source=None):
+    """Sort *new_prefixes* case-insensitively and persist them.
+
+    Always updates the config entry for *key* via update_source_config.
+    If *yaml_path* and *schema_data* are both given, rewrites the source
+    YAML file when the prefix order has changed.
+    If *source* is given, updates source["prefixes"] in-memory.
+
+    Returns the sorted prefixes dict.
+    """
+    sorted_pfx = sort_prefixes(new_prefixes)
+    if yaml_path is not None and schema_data is not None:
+        existing = schema_data.get("prefixes") or {}
+        # Compare as ordered lists of items — dict equality ignores insertion order
+        if list(sorted_pfx.items()) != list(existing.items()):
+            schema_data["prefixes"] = sorted_pfx
+            with open(yaml_path, "w") as f:
+                yaml.dump(schema_data, f, Dumper=IndentedDumper,
+                          default_flow_style=False, sort_keys=False)
+    update_source_config(key, {"prefixes": sorted_pfx}, config_file)
+    if source is not None:
+        source["prefixes"] = sorted_pfx
+    return sorted_pfx
+
+
 def make_config_schema(id="", name="", title="", description="", version="",
                        license="", prefixes=None, default_prefix="",
                        in_language="en", classes={}, enums={}, slots={}):
@@ -941,7 +1181,7 @@ def make_config_schema(id="", name="", title="", description="", version="",
         "license":        license,
         "in_language":    in_language,
         "imports":        ["linkml:types"],
-        "prefixes":       dict(prefixes) if prefixes else {},
+        "prefixes":       sort_prefixes(prefixes),
         "default_prefix": default_prefix,
         "classes":        dict(classes) if classes else {},
         "enums":          dict(enums) if enums else {},
@@ -1425,7 +1665,7 @@ def add_source(urls, config_file=MENU_CONFIG):
             if _meta["license"]:
                 entry["license"] = _meta["license"]
             if _meta["prefixes"]:
-                entry["prefixes"] = _meta["prefixes"]
+                entry["prefixes"] = sort_prefixes(_meta["prefixes"])
             config.setdefault("sources", {})[key] = entry
             write_config(config, config_file)
             print(f"Added source '{key}' to {config_file}")
@@ -1594,7 +1834,13 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
                 yaml_path = convert_loinc_valueset_to_linkml(key, source)
             with open(yaml_path) as f:
                 generated = yaml.safe_load(f)
-            update_source_config(key, {"prefixes": dict(generated.get("prefixes") or {})}, config_file)
+            config_additions = dict(source.get("prefixes") or {})
+            if config_additions:
+                merged = sort_prefixes({**(generated.get("prefixes") or {}), **config_additions})
+                if list(merged.items()) != list(sort_prefixes(generated.get("prefixes") or {}).items()):
+                    generated["prefixes"] = merged
+                    with open(yaml_path, "w") as f:
+                        yaml.dump(generated, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
             continue
 
         if file_format != "yaml":
@@ -1609,9 +1855,25 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
         with open(source_path, "r") as f:
             source_data = yaml.safe_load(f)
 
-        source_prefixes = source_data.get("prefixes") or {}
-        update_source_config(key, {"prefixes": dict(source_prefixes)}, config_file)
-        print(f"{key}: prefix list updated ({len(source_prefixes)} prefixes)")
+        existing_pfx = source_data.get("prefixes") or {}
+
+        # Collect only the prefixes actually referenced in permissible_value meanings
+        meanings_pfx = {}
+        for enum_def in (source_data.get("enums") or {}).values():
+            for pv in ((enum_def or {}).get("permissible_values") or {}).values():
+                meaning = (pv or {}).get("meaning", "")
+                if is_curie(meaning):
+                    pfx = meaning.split(":")[0]
+                    if pfx in existing_pfx and pfx not in meanings_pfx:
+                        meanings_pfx[pfx] = existing_pfx[pfx]
+
+        config_additions = dict(source.get("prefixes") or {})
+        merged           = sort_prefixes({**meanings_pfx, **config_additions})
+        if list(merged.items()) != list(sort_prefixes(existing_pfx).items()):
+            source_data["prefixes"] = merged
+            with open(source_path, "w") as f:
+                yaml.dump(source_data, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+        print(f"{key}: prefixes up to date ({len(merged)} entries)")
 
 
 def fetch_html(url):
@@ -2719,14 +2981,10 @@ def process_owl_source(key, source, config_file=MENU_CONFIG):
             include_iris.add(cls.iri)
 
     # Auto-discover OBO Foundry per-ontology prefixes from class IRIs,
-    # then overlay with any explicitly configured prefixes (config wins on conflicts).
-    prefixes = {**_discover_obo_prefixes(world), **dict(source.get("prefixes") or {})}
-    if prefixes != dict(source.get("prefixes") or {}):
-        with open(config_file) as f:
-            config = yaml.safe_load(f) or {}
-        config.setdefault("sources", {})[key]["prefixes"] = prefixes
-        write_config(config, config_file)
-        source["prefixes"] = prefixes
+    # then overlay with any user-specified config additions (config wins on conflicts).
+    # Written into the source YAML via make_config_schema; menu_config.yaml keeps
+    # only what the user explicitly put there.
+    prefixes = sort_prefixes({**_discover_obo_prefixes(world), **dict(source.get("prefixes") or {})})
     permissible_values = {}
     visited = set()
 
@@ -2782,7 +3040,7 @@ def process_owl_source(key, source, config_file=MENU_CONFIG):
         description=source.get("description") or "",
         version=source.get("version") or "",
         license=source.get("license") or "",
-        prefixes=dict(source.get("prefixes") or {}),
+        prefixes=dict(prefixes),
         enums={key: {"permissible_values": permissible_values}},
     )
 
@@ -3616,12 +3874,19 @@ def generate_enum_report(yaml_file, tsv=False, output=sys.stdout, header=None):
 def main():
     parser = argparse.ArgumentParser(description="Fetch LinkML and other Value Sets and merge into a LinkML schema.yaml file; as well generate enum reports from fetched files.")
     parser.add_argument("-a", "--add", nargs="+", metavar="URL", help="Add one or more sources by URL, auto-detecting type and processing into menu_config.yaml")
-    parser.add_argument("-b", "--build", action="store_true", help="Build or update schema.yaml with default LinkML top-level structure")
+    parser.add_argument("-b", "--build", nargs="?", const=True, metavar="SOURCE_KEY", help="Build or update schema.yaml; optionally supply a source key to rebuild only that source")
     parser.add_argument("-f", "--fetch", nargs="*", metavar="SOURCE_KEY|all", help="Fetch sources. Use '-f all' to fetch every source in menu_config.yaml, or supply specific source keys. Without arguments, fetches only sources listed with -c.")
     parser.add_argument("-c", "--config", nargs="*", metavar="SOURCE_KEY", help="Update menu_config.yaml with prefix dicts from source files; omit keys to process all sources")
     parser.add_argument("-d", "--delete", nargs="+", metavar="SOURCE_KEY", help="Remove one or more source keys from menu_config.yaml")
     parser.add_argument("-l", "--lookup", nargs="*", metavar="SOURCE_KEY", help="Expand reachable_from.source_nodes enums via OLS4 API for YAML sources; omit keys to process all sources")
     parser.add_argument("-r", "--report", action="store_true", help="Generate enum report for all sources in menu_config.yaml")
+    parser.add_argument("-s", "--sssom", nargs="*", metavar="PREDICATE",
+        help=(
+            "Apply SSSOM ontology mappings from the top-level 'sssom' file list in "
+            "menu_config.yaml to permissible_values in schema.yaml.  Optionally supply "
+            "one or more predicate_id values to restrict which mapping types are written "
+            f"({', '.join(SSSOM_PREDICATE_MAP)}); omit to apply all."
+        ))
     parser.add_argument("-t", "--tabformat", action="store_true", help="Output report as tab-delimited TSV (default is space-padded columns)")
     args = parser.parse_args()
 
@@ -3700,8 +3965,12 @@ def main():
                     generate_enum_report(output_path, tsv=args.tabformat)
     if args.config is not None:
         process_sources(args.config)
-    if args.build:
-        build_schema()
+    if args.build is not None:
+        build_schema(keys=[args.build] if isinstance(args.build, str) else None)
+    # -s must run after -b: SSSOM mappings are applied to the schema.yaml that
+    # -b produces, so this order must be preserved.
+    if args.sssom is not None:
+        apply_sssom_mappings(predicates=args.sssom or None)
     if args.lookup is not None:
         schema_file = "schema.yaml"
         if not os.path.exists(schema_file):
@@ -3781,8 +4050,8 @@ def main():
             title = source.get("title") or ""
             header = f"{name}: {title}" if title else name
             generate_enum_report(source_path, tsv=args.tabformat, header=header)
-    if not any([args.add, args.build, args.delete, args.fetch is not None, args.config is not None, args.report]):
-        print("No action taken. Use -a to add sources, -b to build schema.yaml, -c to update menu_config.yaml, -d to delete sources, -f to fetch sources, or -r to report on all sources.")
+    if not any([args.add, args.build is not None, args.delete, args.fetch is not None, args.config is not None, args.sssom is not None, args.report]):
+        print("No action taken. Use -a to add sources, -b to build schema.yaml, -c to update menu_config.yaml, -d to delete sources, -f to fetch sources, -r to report on all sources, or -s to apply SSSOM mappings.")
 
 
 if __name__ == "__main__":

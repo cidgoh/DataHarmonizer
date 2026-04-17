@@ -1,0 +1,4 @@
+subject_id	subject_label	object_id	object_label	predicate_id	match_type	Comments																			
+ENVO:01000691	avalanche	http://sweetontology.net/phenHydro/Snowslide	Snowslide	skos:narrowMatch	HumanCurated	In SWEET a snowslide is a subclass of avalanche																			
+ENVO:01001658	calving of ice into water	http://sweetontology.net/phenCryo/IceCalving	IceCalving	skos:broadMatch	HumanCurated	SWEET lacks more specific terms under ice calving																			
+ENVO:00003044	brine	http://sweetontology.net/matrWater/Brine	Brine	skos:closeMatch	HumanCurated	Candidate Exact match if SWEET adopts the ENVO definition.																			
