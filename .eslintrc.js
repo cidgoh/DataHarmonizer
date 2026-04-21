@@ -6,6 +6,7 @@ module.exports = {
     'lib/rollup.config.js',
     '**/dist/**/*.js',
     '.venv',
+    'babel.config.js',
   ],
   env: {
     browser: true,
@@ -17,6 +18,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  rules: {},
+  rules: {
+    'no-unused-vars': ['error', {
+      'argsIgnorePattern': '^_',
+      'varsIgnorePattern': '^_'
+    }],
+  },
   plugins: ['jest'],
 };
