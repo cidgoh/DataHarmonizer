@@ -21,7 +21,7 @@
     "templates": {
       "GISAID": {
         "name": "GISAID",
-        "display": true
+        "display": false
       }
     }
   },
@@ -32,7 +32,7 @@
     "templates": {
       "PHA4GE": {
         "name": "PHA4GE",
-        "display": true
+        "display": false
       }
     }
   },
