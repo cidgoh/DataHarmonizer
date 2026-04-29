@@ -80,6 +80,14 @@ def init_parser():
 		help="A parameter which indicates that latest version of google sheet should be downloaded.",
 	)
 
+	parser.add_option(
+		"-s",
+		"--schema",
+		dest="schema",
+		default=None,
+		help="Name of a single schema to regenerate (matches Template Name, Folder, or Class, case-insensitive). Exports TSVs from the spreadsheet and regenerates schema.yaml and schema.json for that template only.",
+	)
+
 	return parser.parse_args();
 
 
@@ -161,13 +169,76 @@ def make_dict(df, row_start, row_end, iteration = ''):
 def filter_unnamed_columns(col_name):
     return 'Unnamed' not in col_name
 
+
+def export_and_regenerate(template_folder, tab_prefix):
+	"""Export slots/enums TSVs from the spreadsheet and regenerate schema.yaml and schema.json."""
+
+	tsv_filepath_prefix = f'../web/templates/{template_folder}/schema_';
+
+	# TO PREVENT DATES in "examples" column from being reformatted, ensure
+	# that the examples column in Google Sheets is set to Format -> Number -> plain text.
+	# Pandas when reading excel is supposed to treat TRUE/FALSE as boolean,
+	# but boolean true is saved as 1.0 — replace 1.0 with TRUE.
+	slots = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name=tab_prefix + '-slots', usecols=filter_unnamed_columns);
+	for datatype in ['identifier', 'multivalued', 'required', 'recommended']:
+		slots[datatype] = slots[datatype].replace({1.0: 'TRUE'});
+	slots.to_csv(tsv_filepath_prefix + 'slots.tsv', sep='\t', index=False, lineterminator='\r\n');
+
+	enums = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name=tab_prefix + '-enums', usecols=filter_unnamed_columns, parse_dates=False);
+	enums.to_csv(tsv_filepath_prefix + 'enums.tsv', sep='\t', index=False, lineterminator='\r\n');
+
+	make_linkml_schema(f"../web/templates/{template_folder}/", 'schema');
+
+
+def load_files_tab():
+	"""Load the Files tab and return (template_to_tab, template_to_folder, template_to_class) dicts."""
+	template_schema = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name='Files');
+	template_to_tab    = template_schema.set_index('Template Name')['Tab'].to_dict();
+	template_to_folder = template_schema.set_index('Template Name')['Folder'].to_dict();
+	template_to_class  = template_schema.set_index('Template Name')['Class'].to_dict();
+	return template_to_tab, template_to_folder, template_to_class;
+
+
+def process_single_schema(schema_name):
+	"""Regenerate schema.yaml and schema.json for the template matching schema_name.
+
+	Matches case-insensitively against Template Name, Folder, or Class columns
+	in the Files tab of the spreadsheet.
+	"""
+	template_to_tab, template_to_folder, template_to_class = load_files_tab();
+
+	needle = schema_name.lower();
+
+	# Build a reverse lookup: normalised value -> Template Name
+	matched_template = None;
+	for template_name in template_to_tab:
+		folder = template_to_folder.get(template_name, '');
+		cls    = template_to_class.get(template_name, '');
+		if (needle in template_name.lower()
+				or needle in str(folder).lower()
+				or needle in str(cls).lower()):
+			matched_template = template_name;
+			break;
+
+	if matched_template is None:
+		print(f'Error: No template found matching "{schema_name}".');
+		print('Available templates:');
+		for name in sorted(template_to_tab):
+			print(f'  {name}  (folder: {template_to_folder[name]}, class: {template_to_class[name]})');
+		return;
+
+	template_folder = template_to_folder[matched_template];
+	tab_prefix      = template_to_tab[matched_template];
+
+	print(f'Regenerating schema for "{matched_template}" (folder: {template_folder}, tab: {tab_prefix})');
+	export_and_regenerate(template_folder, tab_prefix);
+	print(f'Done.');
+
+
 def process_release(df):
 
-	# Provids lookup for Template Name,Tab,Folder
-	template_schema = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = 'Files');
-	template_to_tab = template_schema.set_index('Template Name')['Tab'].to_dict();
-	template_to_folder = template_schema.set_index('Template Name')['Folder'].to_dict();
-	template_to_class = template_schema.set_index('Template Name')['Class'].to_dict();
+	# Provides lookup for Template Name, Tab, Folder
+	template_to_tab, template_to_folder, template_to_class = load_files_tab();
 	#print(template_to_tab); print(template_to_folder); print(template_to_folder); print(template_to_class)
 
 	column_name = DH_TEMPLATE_VERSION_CONTROL_FIELDS[0];
@@ -261,31 +332,11 @@ def process_release(df):
 					# TESTING SINGLE ITERATION
 					#break;
 
-				# Now for each todo template folder copy tabs to 
+				# Now for each todo template folder copy tabs to
 				# schema_slots.tsv and schema_enums.tsv and then
 				# run the make_linkml_schema() script
-				# Currently there is no "menu" generation option.
-				for template_folder in do_template_folders:
-
-					tsv_filepath_prefix = f'../web/templates/{template_folder}/schema_';
-					# do_template_folders is a dictionary of template_folder -> tab name.
-					tab_prefix = do_template_folders[template_folder];
-					# TO PREVENT DATES in "examples" column from being 
-					# reformatted, ensure that the examples column in 
-					# google sheets is set to Format -> Number -> plain text
-					# Pandas when reading excel file is supposed to view TRUE, FALSE as boolean
-					slots = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-slots', usecols=filter_unnamed_columns); # 
-					# However here boolean true is being saved as 1.0
-					# So replace 1.0 with TRUE.
-					for datatype in ['identifier','multivalued','required','recommended']:
-						slots[datatype] = slots[datatype].replace({1.0: 'TRUE'});
-
-					slots.to_csv(tsv_filepath_prefix + 'slots.tsv', sep='\t', index=False, lineterminator='\r\n')
-
-					enums = pd.read_excel(DH_TEMPLATES_FILENAME, sheet_name = tab_prefix + '-enums',usecols=filter_unnamed_columns, parse_dates=False);
-					enums.to_csv(tsv_filepath_prefix + 'enums.tsv', sep='\t', index=False, lineterminator='\r\n')
-
-					make_linkml_schema(f"../web/templates/{template_folder}/", 'schema');
+				for template_folder, tab_prefix in do_template_folders.items():
+					export_and_regenerate(template_folder, tab_prefix);
 
 			else:
 				print(f"PROBLEM: Semantic version of last release section {v1} is less or equal to previous one {v2}.")
@@ -302,22 +353,18 @@ if __name__ == "__main__":
 		# refresh_cache();
 		download_google_sheet_as_xlsx('1jPQAIJcL_xa3oBVFEsYRGLGf7ESTOwzsTSjKZ-0CTYE', 'dataharmonizer_templates.xlsx')
 
-	if os.path.isfile(DH_TEMPLATES_FILENAME):
+	if not os.path.isfile(DH_TEMPLATES_FILENAME):
+		print(f"Please generate the {DH_TEMPLATES_FILENAME} filename by including the --download parameter.");
+	elif options.schema:
+		process_single_schema(options.schema);
+	else:
 		# create a Pandas "df" dataframe
 		df = pd.read_excel(
-			DH_TEMPLATES_FILENAME, 
+			DH_TEMPLATES_FILENAME,
 			sheet_name = DH_TEMPLATES_TAB_RELEASES # Load by sheet name
-		) 
+		)
 		# Note: if a column is blank or not a number, pandas by default returns
 		# it as nan.
-		# Set all the columns from this Releases tab as datatype (class) str
-		# might help in some cases but we seemed to have to detect nan anyways
-		# so not implementing the parameter below
-		#dtype = dict.fromkeys(DH_TEMPLATE_VERSION_CONTROL_FIELDS, str)
-
 		#print("Loaded file", df);
 		process_release(df);
-
-	else:
-		print(f"Please generate the {DH_TEMPLATES_FILENAME} filename by including the --download parameter.");
 	
