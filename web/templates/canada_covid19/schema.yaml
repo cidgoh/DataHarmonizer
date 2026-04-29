@@ -105,7 +105,7 @@ classes:
       - host_age_bin
       - host_gender
       - host_residence_geo_loc_name_country
-      - host_residence_geo_loc_name_state_province_territory
+      - host_residence_geo_loc_name_state_province_territory_region
       - host_subject_id
       - symptom_onset_date
       - signs_and_symptoms
@@ -414,8 +414,8 @@ classes:
         name: host_residence_geo_loc_name_country
         rank: 55
         slot_group: Host Information
-      host_residence_geo_loc_name_state_province_territory:
-        name: host_residence_geo_loc_name_state_province_territory
+      host_residence_geo_loc_name_state_province_territory_region:
+        name: host_residence_geo_loc_name_state_province_territory_region
         rank: 56
         slot_group: Host Information
       host_subject_id:
@@ -1168,7 +1168,7 @@ slots:
       - value: Severe acute respiratory syndrome coronavirus 2
   isolate_id:
     name: isolate_id
-    slot_uri: GENEPIO:0001195
+    slot_uri: GENEPIO:0001644
     title: isolate
     any_of:
       - range: WhitespaceMinimizedString
@@ -1689,8 +1689,8 @@ slots:
       - Select the country name from pick list provided in the template.
     examples:
       - value: Canada
-  host_residence_geo_loc_name_state_province_territory:
-    name: host_residence_geo_loc_name_state_province_territory
+  host_residence_geo_loc_name_state_province_territory_region:
+    name: host_residence_geo_loc_name_state_province_territory_region
     slot_uri: GENEPIO:0001397
     title: host residence geo_loc name (state/province/territory)
     any_of:
@@ -6324,6 +6324,16 @@ enums:
         title: Illumina MiSeq
         meaning: GENEPIO:0100125
         is_a: Illumina
+      Illumina MiSeq i100:
+        text: Illumina MiSeq i100
+        title: Illumina MiSeq i100
+        meaning: GENEPIO:0102294
+        is_a: Illumina MiSeq
+      Illumina MiSeq i100 Plus:
+        text: Illumina MiSeq i100 Plus
+        title: Illumina MiSeq i100 Plus
+        meaning: GENEPIO:0102295
+        is_a: Illumina MiSeq
       Illumina NextSeq:
         text: Illumina NextSeq
         title: Illumina NextSeq
@@ -6338,6 +6348,11 @@ enums:
         text: Illumina NextSeq 550
         title: Illumina NextSeq 550
         meaning: GENEPIO:0100128
+        is_a: Illumina NextSeq
+      Illumina NextSeq 1000:
+        text: Illumina NextSeq 1000
+        title: Illumina NextSeq 1000
+        meaning: GENEPIO:0004432
         is_a: Illumina NextSeq
       Illumina NextSeq 2000:
         text: Illumina NextSeq 2000

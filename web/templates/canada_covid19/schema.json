@@ -432,8 +432,8 @@
           "rank": 55,
           "slot_group": "Host Information"
         },
-        "host_residence_geo_loc_name_state_province_territory": {
-          "name": "host_residence_geo_loc_name_state_province_territory",
+        "host_residence_geo_loc_name_state_province_territory_region": {
+          "name": "host_residence_geo_loc_name_state_province_territory_region",
           "rank": 56,
           "slot_group": "Host Information"
         },
@@ -1699,7 +1699,7 @@
             "VirusSeq_Portal:fasta%20header%20name"
           ],
           "rank": 26,
-          "slot_uri": "GENEPIO:0001195",
+          "slot_uri": "GENEPIO:0001644",
           "alias": "isolate_id",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
@@ -2748,8 +2748,8 @@
             }
           ]
         },
-        "host_residence_geo_loc_name_state_province_territory": {
-          "name": "host_residence_geo_loc_name_state_province_territory",
+        "host_residence_geo_loc_name_state_province_territory_region": {
+          "name": "host_residence_geo_loc_name_state_province_territory_region",
           "description": "The state/province/territory of residence of the host.",
           "title": "host residence geo_loc name (state/province/territory)",
           "comments": [
@@ -2766,7 +2766,7 @@
           ],
           "rank": 56,
           "slot_uri": "GENEPIO:0001397",
-          "alias": "host_residence_geo_loc_name_state_province_territory",
+          "alias": "host_residence_geo_loc_name_state_province_territory_region",
           "owner": "CanCOGeNCovid19",
           "domain_of": [
             "CanCOGeNCovid19"
@@ -6183,7 +6183,7 @@
         "VirusSeq_Portal:isolate",
         "VirusSeq_Portal:fasta%20header%20name"
       ],
-      "slot_uri": "GENEPIO:0001195",
+      "slot_uri": "GENEPIO:0001644",
       "domain_of": [
         "CanCOGeNCovid19"
       ],
@@ -7113,8 +7113,8 @@
         }
       ]
     },
-    "host_residence_geo_loc_name_state_province_territory": {
-      "name": "host_residence_geo_loc_name_state_province_territory",
+    "host_residence_geo_loc_name_state_province_territory_region": {
+      "name": "host_residence_geo_loc_name_state_province_territory_region",
       "description": "The state/province/territory of residence of the host.",
       "title": "host residence geo_loc name (state/province/territory)",
       "comments": [
@@ -13735,6 +13735,18 @@
           "is_a": "Illumina",
           "title": "Illumina MiSeq"
         },
+        "Illumina MiSeq i100": {
+          "text": "Illumina MiSeq i100",
+          "meaning": "GENEPIO:0102294",
+          "is_a": "Illumina MiSeq",
+          "title": "Illumina MiSeq i100"
+        },
+        "Illumina MiSeq i100 Plus": {
+          "text": "Illumina MiSeq i100 Plus",
+          "meaning": "GENEPIO:0102295",
+          "is_a": "Illumina MiSeq",
+          "title": "Illumina MiSeq i100 Plus"
+        },
         "Illumina NextSeq": {
           "text": "Illumina NextSeq",
           "meaning": "GENEPIO:0100126",
@@ -13752,6 +13764,12 @@
           "meaning": "GENEPIO:0100128",
           "is_a": "Illumina NextSeq",
           "title": "Illumina NextSeq 550"
+        },
+        "Illumina NextSeq 1000": {
+          "text": "Illumina NextSeq 1000",
+          "meaning": "GENEPIO:0004432",
+          "is_a": "Illumina NextSeq",
+          "title": "Illumina NextSeq 1000"
         },
         "Illumina NextSeq 2000": {
           "text": "Illumina NextSeq 2000",

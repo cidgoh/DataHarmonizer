@@ -811,9 +811,12 @@ sequencing instrument menu	SequencingInstrumentMenu								Menu « Instrument d
 		Illumina NovaSeq 6000	GENEPIO:0100123			Illumina NovaSeq 6000						Illumina NovaSeq 6000									
 		Illumina MiniSeq	GENEPIO:0100124		Illumina MiniSeq						Illumina MiniSeq										
 		Illumina MiSeq	GENEPIO:0100125		Illumina MiSeq						Illumina MiSeq										
+		Illumina MiSeq i100	GENEPIO:0102294			Illumina MiSeq i100						Illumina MiSeq i100									
+		Illumina MiSeq i100 Plus	GENEPIO:0102295			Illumina MiSeq i100 Plus						Illumina MiSeq i100 Plus									
 		Illumina NextSeq 	GENEPIO:0100126		Illumina NextSeq 						Illumina NextSeq 										
 		Illumina NextSeq 500	GENEPIO:0100127			Illumina NextSeq 500						Illumina NextSeq 500									
 		Illumina NextSeq 550	GENEPIO:0100128			Illumina NextSeq 550						Illumina NextSeq 550									
+		Illumina NextSeq 1000	GENEPIO:0004432			Illumina NextSeq 1000						Illumina NextSeq 1000									
 		Illumina NextSeq 2000	GENEPIO:0100129			Illumina NextSeq 2000						Illumina NextSeq 2000									
 		Pacific Biosciences	GENEPIO:0100130	Pacific Biosciences						Pacific Biosciences											
 		PacBio RS	GENEPIO:0100131		PacBio RS						PacBio RS										
