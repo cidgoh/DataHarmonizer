@@ -68,7 +68,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol
+      - experimental_protocol_name
       - experimental_protocol_url
       - environmental_site
       - proximal_environmental_site
@@ -108,7 +108,7 @@ classes:
       - turbidity_measurement_value
       - turbidity_measurement_unit
       - turbidity_measurement_method
-      - dissolved_oxygen_measurement_value
+      - dissolved_oxygen_concentration_measurement_value
       - dissolved_oxygen_measurement_unit
       - dissolved_oxygen_measurement_method
       - oxygen_reduction_potential_orp_measurement_value
@@ -184,7 +184,7 @@ classes:
       - quality_control_details
       - raw_sequence_data_processing_method
       - dehosting_method
-      - genome_sequence_file_name
+      - genome_sequence_filename
       - genome_sequence_file_path
       - consensus_sequence_software_name
       - consensus_sequence_software_version
@@ -436,8 +436,8 @@ classes:
         name: specimen_processing_details
         rank: 49
         slot_group: Sample collection and processing
-      experimental_protocol:
-        name: experimental_protocol
+      experimental_protocol_name:
+        name: experimental_protocol_name
         rank: 50
         slot_group: Sample collection and processing
       experimental_protocol_url:
@@ -596,8 +596,8 @@ classes:
         name: turbidity_measurement_method
         rank: 89
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_value:
-        name: dissolved_oxygen_measurement_value
+      dissolved_oxygen_concentration_measurement_value:
+        name: dissolved_oxygen_concentration_measurement_value
         rank: 90
         slot_group: Environmental conditions and measurements
       dissolved_oxygen_measurement_unit:
@@ -900,8 +900,8 @@ classes:
         name: dehosting_method
         rank: 165
         slot_group: Bioinformatics and QC metrics
-      genome_sequence_file_name:
-        name: genome_sequence_file_name
+      genome_sequence_filename:
+        name: genome_sequence_filename
         rank: 166
         slot_group: Bioinformatics and QC metrics
       genome_sequence_file_path:
@@ -1170,7 +1170,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol
+      - experimental_protocol_name
       - experimental_protocol_url
       - environmental_site
       - proximal_environmental_site
@@ -1210,7 +1210,7 @@ classes:
       - turbidity_measurement_value
       - turbidity_measurement_unit
       - turbidity_measurement_method
-      - dissolved_oxygen_measurement_value
+      - dissolved_oxygen_concentration_measurement_value
       - dissolved_oxygen_measurement_unit
       - dissolved_oxygen_measurement_method
       - oxygen_reduction_potential_orp_measurement_value
@@ -1286,7 +1286,7 @@ classes:
       - quality_control_details
       - raw_sequence_data_processing_method
       - dehosting_method
-      - genome_sequence_file_name
+      - genome_sequence_filename
       - genome_sequence_file_path
       - sequence_assembly_software_name
       - sequence_assembly_software_version
@@ -1319,6 +1319,7 @@ classes:
       - diagnostic_measurement_value_1
       - diagnostic_measurement_unit_1
       - diagnostic_measurement_method_1
+      - target_taxonomic_name_2
       - assay_target_name_2
       - assay_target_details_2
       - gene_symbol_2
@@ -1326,6 +1327,7 @@ classes:
       - diagnostic_measurement_value_2
       - diagnostic_measurement_unit_2
       - diagnostic_measurement_method_2
+      - target_taxonomic_name_3
       - assay_target_name_3
       - assay_target_details_3
       - gene_symbol_3
@@ -1542,8 +1544,8 @@ classes:
         name: specimen_processing_details
         rank: 50
         slot_group: Sample collection and processing
-      experimental_protocol:
-        name: experimental_protocol
+      experimental_protocol_name:
+        name: experimental_protocol_name
         rank: 51
         slot_group: Sample collection and processing
       experimental_protocol_url:
@@ -1702,8 +1704,8 @@ classes:
         name: turbidity_measurement_method
         rank: 90
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_value:
-        name: dissolved_oxygen_measurement_value
+      dissolved_oxygen_concentration_measurement_value:
+        name: dissolved_oxygen_concentration_measurement_value
         rank: 91
         slot_group: Environmental conditions and measurements
       dissolved_oxygen_measurement_unit:
@@ -2006,8 +2008,8 @@ classes:
         name: dehosting_method
         rank: 166
         slot_group: Bioinformatics and QC metrics
-      genome_sequence_file_name:
-        name: genome_sequence_file_name
+      genome_sequence_filename:
+        name: genome_sequence_filename
         rank: 167
         slot_group: Bioinformatics and QC metrics
       genome_sequence_file_path:
@@ -2150,17 +2152,21 @@ classes:
         name: diagnostic_measurement_method_1
         rank: 199
         slot_group: Pathogen diagnostic testing
+      target_taxonomic_name_2:
+        name: target_taxonomic_name_2
+        rank: 200
+        slot_group: Pathogen diagnostic testing
       assay_target_name_2:
         name: assay_target_name_2
-        rank: 200
+        rank: 201
         slot_group: Pathogen diagnostic testing
       assay_target_details_2:
         name: assay_target_details_2
-        rank: 201
+        rank: 202
         slot_group: Pathogen diagnostic testing
       gene_symbol_2:
         name: gene_symbol_2
-        rank: 202
+        rank: 203
         slot_group: Pathogen diagnostic testing
         comments:
           - 'Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
@@ -2171,31 +2177,35 @@ classes:
           - range: NullValueMenu
       diagnostic_target_presence_2:
         name: diagnostic_target_presence_2
-        rank: 203
+        rank: 204
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_value_2:
         name: diagnostic_measurement_value_2
-        rank: 204
+        rank: 205
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_unit_2:
         name: diagnostic_measurement_unit_2
-        rank: 205
+        rank: 206
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_method_2:
         name: diagnostic_measurement_method_2
-        rank: 206
+        rank: 207
+        slot_group: Pathogen diagnostic testing
+      target_taxonomic_name_3:
+        name: target_taxonomic_name_3
+        rank: 208
         slot_group: Pathogen diagnostic testing
       assay_target_name_3:
         name: assay_target_name_3
-        rank: 207
+        rank: 209
         slot_group: Pathogen diagnostic testing
       assay_target_details_3:
         name: assay_target_details_3
-        rank: 208
+        rank: 210
         slot_group: Pathogen diagnostic testing
       gene_symbol_3:
         name: gene_symbol_3
-        rank: 209
+        rank: 211
         slot_group: Pathogen diagnostic testing
         comments:
           - 'Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
@@ -2206,19 +2216,19 @@ classes:
           - range: NullValueMenu
       diagnostic_target_presence_3:
         name: diagnostic_target_presence_3
-        rank: 210
+        rank: 212
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_value_3:
         name: diagnostic_measurement_value_3
-        rank: 211
+        rank: 213
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_unit_3:
         name: diagnostic_measurement_unit_3
-        rank: 212
+        rank: 214
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_method_3:
         name: diagnostic_measurement_method_3
-        rank: 213
+        rank: 215
         slot_group: Pathogen diagnostic testing
   WastewaterPathogenAgnostic:
     name: WastewaterPathogenAgnostic
@@ -2277,7 +2287,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol
+      - experimental_protocol_name
       - experimental_protocol_url
       - environmental_site
       - proximal_environmental_site
@@ -2331,7 +2341,7 @@ classes:
       - turbidity_measurement_value
       - turbidity_measurement_unit
       - turbidity_measurement_method
-      - dissolved_oxygen_measurement_value
+      - dissolved_oxygen_concentration_measurement_value
       - dissolved_oxygen_measurement_unit
       - dissolved_oxygen_measurement_method
       - oxygen_reduction_potential_orp_measurement_value
@@ -2410,7 +2420,7 @@ classes:
       - quality_control_details
       - raw_sequence_data_processing_method
       - dehosting_method
-      - genome_sequence_file_name
+      - genome_sequence_filename
       - genome_sequence_file_path
       - sequence_assembly_software_name
       - sequence_assembly_software_version
@@ -2445,6 +2455,7 @@ classes:
       - diagnostic_measurement_value_1
       - diagnostic_measurement_unit_1
       - diagnostic_measurement_method_1
+      - target_taxonomic_name_2
       - assay_target_name_2
       - assay_target_details_2
       - gene_symbol_2
@@ -2452,6 +2463,7 @@ classes:
       - diagnostic_measurement_value_2
       - diagnostic_measurement_unit_2
       - diagnostic_measurement_method_2
+      - target_taxonomic_name_3
       - assay_target_name_3
       - assay_target_details_3
       - gene_symbol_3
@@ -2668,8 +2680,8 @@ classes:
         name: specimen_processing_details
         rank: 50
         slot_group: Sample collection and processing
-      experimental_protocol:
-        name: experimental_protocol
+      experimental_protocol_name:
+        name: experimental_protocol_name
         rank: 51
         slot_group: Sample collection and processing
       experimental_protocol_url:
@@ -2884,8 +2896,8 @@ classes:
         name: turbidity_measurement_method
         rank: 104
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_value:
-        name: dissolved_oxygen_measurement_value
+      dissolved_oxygen_concentration_measurement_value:
+        name: dissolved_oxygen_concentration_measurement_value
         rank: 105
         slot_group: Environmental conditions and measurements
       dissolved_oxygen_measurement_unit:
@@ -3200,8 +3212,8 @@ classes:
         name: dehosting_method
         rank: 183
         slot_group: Bioinformatics and QC metrics
-      genome_sequence_file_name:
-        name: genome_sequence_file_name
+      genome_sequence_filename:
+        name: genome_sequence_filename
         rank: 184
         slot_group: Bioinformatics and QC metrics
       genome_sequence_file_path:
@@ -3352,17 +3364,21 @@ classes:
         name: diagnostic_measurement_method_1
         rank: 218
         slot_group: Pathogen diagnostic testing
+      target_taxonomic_name_2:
+        name: target_taxonomic_name_2
+        rank: 219
+        slot_group: Pathogen diagnostic testing
       assay_target_name_2:
         name: assay_target_name_2
-        rank: 219
+        rank: 220
         slot_group: Pathogen diagnostic testing
       assay_target_details_2:
         name: assay_target_details_2
-        rank: 220
+        rank: 221
         slot_group: Pathogen diagnostic testing
       gene_symbol_2:
         name: gene_symbol_2
-        rank: 221
+        rank: 222
         slot_group: Pathogen diagnostic testing
         comments:
           - 'Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
@@ -3373,31 +3389,35 @@ classes:
           - range: NullValueMenu
       diagnostic_target_presence_2:
         name: diagnostic_target_presence_2
-        rank: 222
+        rank: 223
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_value_2:
         name: diagnostic_measurement_value_2
-        rank: 223
+        rank: 224
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_unit_2:
         name: diagnostic_measurement_unit_2
-        rank: 224
+        rank: 225
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_method_2:
         name: diagnostic_measurement_method_2
-        rank: 225
+        rank: 226
+        slot_group: Pathogen diagnostic testing
+      target_taxonomic_name_3:
+        name: target_taxonomic_name_3
+        rank: 227
         slot_group: Pathogen diagnostic testing
       assay_target_name_3:
         name: assay_target_name_3
-        rank: 226
+        rank: 228
         slot_group: Pathogen diagnostic testing
       assay_target_details_3:
         name: assay_target_details_3
-        rank: 227
+        rank: 229
         slot_group: Pathogen diagnostic testing
       gene_symbol_3:
         name: gene_symbol_3
-        rank: 228
+        rank: 230
         slot_group: Pathogen diagnostic testing
         comments:
           - 'Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
@@ -3408,19 +3428,19 @@ classes:
           - range: NullValueMenu
       diagnostic_target_presence_3:
         name: diagnostic_target_presence_3
-        rank: 229
+        rank: 231
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_value_3:
         name: diagnostic_measurement_value_3
-        rank: 230
+        rank: 232
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_unit_3:
         name: diagnostic_measurement_unit_3
-        rank: 231
+        rank: 233
         slot_group: Pathogen diagnostic testing
       diagnostic_measurement_method_3:
         name: diagnostic_measurement_method_3
-        rank: 232
+        rank: 234
         slot_group: Pathogen diagnostic testing
 slots:
   specimen_sample_collector_sample_id:
@@ -3635,7 +3655,7 @@ slots:
   sample_collected_by:
     name: sample_collected_by
     slot_uri: GENEPIO:0001153
-    title: sample collected by
+    title: sample collected by organisation name
     any_of:
       - range: WhitespaceMinimizedString
       - range: NullValueMenu
@@ -3655,7 +3675,7 @@ slots:
     slot_uri: GENEPIO:0100432
     title: sample collector contact name
     range: WhitespaceMinimizedString
-    description: The name or job title of the contact responsible for follow-up regarding the sample.
+    description: The name of the contact responsible for follow-up regarding the sample.
     comments:
       - Provide the name of an individual or their job title. As personnel turnover may render the contact's name obsolete, it is more preferable to provide a job title for ensuring accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value.
     examples:
@@ -4126,8 +4146,8 @@ slots:
       - Briefly describe the processes applied to the sample.
     examples:
       - value: 25 samples were pooled and further prepared as a single sample during library prep.
-  experimental_protocol:
-    name: experimental_protocol
+  experimental_protocol_name:
+    name: experimental_protocol_name
     slot_uri: GENEPIO:0101029
     title: experimental protocol name
     range: WhitespaceMinimizedString
@@ -4142,11 +4162,14 @@ slots:
     slot_uri: GENEPIO:0102071
     title: experimental protocol url
     range: WhitespaceMinimizedString
+    description: A URL linking to detailed information or documentation about the experimental protocol. This URL should direct users to a source that provides the necessary details to reproduce the experiment that generated the dataset.
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_processing_protocol
       - NCBI_BIOSAMPLE_GenomeTrakr:ww_processing_protocol
     comments:
-      - Provide a url link to the protocol.
+      - Provide the url of the experimental protocol.
+    examples:
+      - value: https://github.com/ww-protocol
   environmental_site:
     name: environmental_site
     slot_uri: GENEPIO:0001232
@@ -4347,6 +4370,8 @@ slots:
       - NCBI_BIOSAMPLE_GenomeTrakr:ww_endog_control_1
     comments:
       - Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample.
+    examples:
+      - value: Pepper Mild Mottle Virus (PMMV)
   extraction_recovery_efficiency_measurement_value:
     name: extraction_recovery_efficiency_measurement_value
     slot_uri: GENEPIO:0100924
@@ -4388,7 +4413,7 @@ slots:
       - value: K12
   isolate_id:
     name: isolate_id
-    slot_uri: GENEPIO:0001195
+    slot_uri: GENEPIO:0001644
     title: isolate ID
     any_of:
       - range: WhitespaceMinimizedString
@@ -4810,8 +4835,8 @@ slots:
       - Provide the name of the procedure or technology used to measure turbidity.
     examples:
       - value: Nephelometric method
-  dissolved_oxygen_measurement_value:
-    name: dissolved_oxygen_measurement_value
+  dissolved_oxygen_concentration_measurement_value:
+    name: dissolved_oxygen_concentration_measurement_value
     slot_uri: GENEPIO:0000035
     title: dissolved oxygen measurement value
     range: WhitespaceMinimizedString
@@ -5812,8 +5837,8 @@ slots:
       - Provide the name and version number of the software used to remove host reads.
     examples:
       - value: Nanostripper
-  genome_sequence_file_name:
-    name: genome_sequence_file_name
+  genome_sequence_filename:
+    name: genome_sequence_filename
     slot_uri: GENEPIO:0101715
     title: genome sequence file name
     any_of:
@@ -6384,6 +6409,17 @@ slots:
       - Select a value from the pick list provided to describe the method used for a given diagnostic test.
     examples:
       - value: qPCR
+  target_taxonomic_name_2:
+    name: target_taxonomic_name_2
+    slot_uri: GENEPIO:0102050
+    title: target taxonomic name 2
+    range: WhitespaceMinimizedString
+    description: The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2
+      - NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2
+    comments:
+      - 'The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
   assay_target_name_2:
     name: assay_target_name_2
     slot_uri: GENEPIO:0102038
@@ -6463,6 +6499,14 @@ slots:
       - Select a value from the pick list provided to describe the method used for a given diagnostic test.
     examples:
       - value: qPCR
+  target_taxonomic_name_3:
+    name: target_taxonomic_name_3
+    slot_uri: GENEPIO:0102051
+    title: target taxonomic name 3
+    range: WhitespaceMinimizedString
+    description: The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.
+    comments:
+      - 'The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
   assay_target_name_3:
     name: assay_target_name_3
     slot_uri: GENEPIO:0102039
@@ -11185,21 +11229,25 @@ enums:
         title: colony forming units per milliliter (CFU/mL) [UO:0000213]
         meaning: UO:0000213
         description: A unit of microbial density that describes the number of colony forming units within a milliliter of material.
-      colony forming units per 100 milliliter (CFU/100 mL):
-        text: colony forming units per 100 milliliter (CFU/100 mL)
-        title: colony forming units per 100 milliliter (CFU/100 mL)
+      colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]:
+        text: colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]
+        title: colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]
+        meaning: GENEPIO:0102203
         description: A unit of microbial density that describes the number of colony forming units within 100 milliliters of material.
-      colony forming units per grams total solids (CFU/gTS):
-        text: colony forming units per grams total solids (CFU/gTS)
-        title: colony forming units per grams total solids (CFU/gTS)
+      colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]:
+        text: colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]
+        title: colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]
+        meaning: GENEPIO:0102204
         description: A unit of microbial density that describes the number of colony forming units within a gram of total solids in waste material.
-      most probable number per milliliter (MPN/mL):
-        text: most probable number per milliliter (MPN/mL)
-        title: most probable number per milliliter (MPN/mL)
+      most probable number per milliliter (MPN/mL) [GENEPIO:0102205]:
+        text: most probable number per milliliter (MPN/mL) [GENEPIO:0102205]
+        title: most probable number per milliliter (MPN/mL) [GENEPIO:0102205]
+        meaning: GENEPIO:0102205
         description: A unit of microbial density that describes the most probable number of microbes within one milliliter of material.
-      most probable number per 100 milliliter (MPN/100 mL):
-        text: most probable number per 100 milliliter (MPN/100 mL)
-        title: most probable number per 100 milliliter (MPN/100 mL)
+      most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]:
+        text: most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]
+        title: most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]
+        meaning: GENEPIO:0102206
         description: A unit of microbial density that describes the most probable number of microbes within 100 milliliters of material.
   SampleTemperatureUnitAtCollectionMenu:
     name: SampleTemperatureUnitAtCollectionMenu
@@ -11903,17 +11951,6 @@ enums:
           - NCBI_SRA:BGISEQ
           - ENA_GSC_MIxS_WW_ERC00023:BGISEQ
           - ENA_SEWAGE_ERC00036:BGISEQ
-      MGISEQ-2000RS [GENEPIO:0100971]:
-        text: MGISEQ-2000RS [GENEPIO:0100971]
-        title: MGISEQ-2000RS [GENEPIO:0100971]
-        meaning: GENEPIO:0100971
-        description: An MGI sequencing instrument model that utilises DNA nanoball and (DNB) and probe-anchor synthesis (cPAS) for next generation sequencing ad which is capable of medium to high throughput sequencing.
-        is_a: MGI sequencing instrument [GENEPIO:0100146]
-        exact_mappings:
-          - NCBI_SRAGenomeTrakr:MGISEQ-2000RS
-          - NCBI_SRA:MGISEQ-2000RS
-          - ENA_GSC_MIxS_WW_ERC00023:MGISEQ-2000RS
-          - ENA_SEWAGE_ERC00036:MGISEQ-2000RS
       MGI DNBSEQ-G99 [GENEPIO:0100972]:
         text: MGI DNBSEQ-G99 [GENEPIO:0100972]
         title: MGI DNBSEQ-G99 [GENEPIO:0100972]
@@ -12490,7 +12527,7 @@ enums:
         text: midnight-ont-v3 [GENEPIO:0100862]
         title: midnight-ont-v3 [GENEPIO:0100862]
         meaning: GENEPIO:0100862
-        description: An amplicon strategy which targets SARS-CoV-2 and was developed by Oxford Nanopore Technologies with the attributes of version 2.0.0 which produces amplicons approximately 1200bp in length.
+        description: An amplicon strategy which targets SARS-CoV-2 and was developed by Oxford Nanopore Technologies with the attributes of version 3.0.0 which produces amplicons approximately 1200bp in length.
         exact_mappings:
           - NCBI_BIOSAMPLE_SARS_COV_2_WWS:midnight-ont-v3
           - NCBI_BIOSAMPLE_GenomeTrakr:midnight-ont-v3
@@ -13176,20 +13213,21 @@ enums:
     name: DiagnosticMeasurementUnitMenu
     title: diagnostic measurement unit menu
     permissible_values:
-      gene copies per liter (GC/L):
-        text: gene copies per liter (GC/L)
-        title: gene copies per liter (GC/L)
+      copies per liter (C/L) [GENEPIO:0102202]:
+        text: copies per liter (C/L) [GENEPIO:0102202]
+        title: copies per liter (C/L) [GENEPIO:0102202]
+        meaning: GENEPIO:0102202
         description: A unit that measures the number of copies of a given gene within a liter of a biological material.
         exact_mappings:
           - NCBI_BIOSAMPLE_SARS_COV_2_WWS:GC/L
           - NCBI_BIOSAMPLE_GenomeTrakr:GC/L
           - ENA_GSC_MIxS_WW_ERC00023:GC/L
           - ENA_SEWAGE_ERC00036:GC/L
-      cycle threshold (Ct)  [GENEPIO:0100657]:
-        text: cycle threshold (Ct)  [GENEPIO:0100657]
-        title: cycle threshold (Ct)  [GENEPIO:0100657]
-        meaning: GENEPIO:0100657
-        description: A data field which describes the cycle threshold (Ct) value result from a diagnostic reverse transcription polymerase chain reaction (RT-PCR) test.
+      cycle threshold (Ct)  [UO:0010077]:
+        text: cycle threshold (Ct)  [UO:0010077]
+        title: cycle threshold (Ct)  [UO:0010077]
+        meaning: UO:0010077
+        description: A count unit of how many Polymerase Chain Reaction (PCR) cycles it took to detect a real signal from a sample. Equivalent to the PCR cycle number at which a sample's reaction curve intersects the threshold line.
         exact_mappings:
           - NCBI_BIOSAMPLE_SARS_COV_2_WWS:Ct
           - NCBI_BIOSAMPLE_GenomeTrakr:Ct
@@ -13205,36 +13243,40 @@ enums:
           - NCBI_BIOSAMPLE_GenomeTrakr:CFU/ml
           - ENA_GSC_MIxS_WW_ERC00023:CFU/ml
           - ENA_SEWAGE_ERC00036:CFU/ml
-      colony forming units per 100 milliliter (CFU/100 mL):
-        text: colony forming units per 100 milliliter (CFU/100 mL)
-        title: colony forming units per 100 milliliter (CFU/100 mL)
+      colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]:
+        text: colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]
+        title: colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]
+        meaning: GENEPIO:0102203
         description: A unit of microbial density that describes the number of colony forming units within 100 milliliters of material.
         exact_mappings:
           - NCBI_BIOSAMPLE_SARS_COV_2_WWS:CFU/100%20mL
           - NCBI_BIOSAMPLE_GenomeTrakr:CFU/100%20mL
           - ENA_GSC_MIxS_WW_ERC00023:CFU/100%20mL
           - ENA_SEWAGE_ERC00036:CFU/100%20mL
-      colony forming units per grams total solids (CFU/gTS):
-        text: colony forming units per grams total solids (CFU/gTS)
-        title: colony forming units per grams total solids (CFU/gTS)
+      colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]:
+        text: colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]
+        title: colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]
+        meaning: GENEPIO:0102204
         description: A unit of microbial density that describes the number of colony forming units within a gram of total solids in waste material.
         exact_mappings:
           - NCBI_BIOSAMPLE_SARS_COV_2_WWS:CFU/gTS
           - NCBI_BIOSAMPLE_GenomeTrakr:CFU/gTS
           - ENA_GSC_MIxS_WW_ERC00023:CFU/gTS
           - ENA_SEWAGE_ERC00036:CFU/gTS
-      most probable number per milliliter (MPN/mL):
-        text: most probable number per milliliter (MPN/mL)
-        title: most probable number per milliliter (MPN/mL)
+      most probable number per milliliter (MPN/mL) [GENEPIO:0102205]:
+        text: most probable number per milliliter (MPN/mL) [GENEPIO:0102205]
+        title: most probable number per milliliter (MPN/mL) [GENEPIO:0102205]
+        meaning: GENEPIO:0102205
         description: A unit of microbial density that describes the most probable number of microbes within one milliliter of material.
         exact_mappings:
           - NCBI_BIOSAMPLE_SARS_COV_2_WWS:MPN/mL
           - NCBI_BIOSAMPLE_GenomeTrakr:MPN/mL
           - ENA_GSC_MIxS_WW_ERC00023:MPN/mL
           - ENA_SEWAGE_ERC00036:MPN/mL
-      most probable number per 100 milliliter (MPN/100 mL):
-        text: most probable number per 100 milliliter (MPN/100 mL)
-        title: most probable number per 100 milliliter (MPN/100 mL)
+      most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]:
+        text: most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]
+        title: most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]
+        meaning: GENEPIO:0102206
         description: A unit of microbial density that describes the most probable number of microbes within 100 milliliters of material.
         exact_mappings:
           - NCBI_BIOSAMPLE_SARS_COV_2_WWS:MPN/100%20mL
@@ -13250,13 +13292,15 @@ enums:
         title: Quantitative real time polymerase chain reaction (qPCR) [OBI:0000893]
         meaning: OBI:0000893
         description: An assay, based on the PCR, that amplifies and simultaneously quantifies a specific DNA molecule based on the use of complementary probes/primers. It enables both detection and quantification (as absolute number of copies or relative amount when normalized to DNA input or additional normalizing genes) of one or more specific sequences in a DNA sample.
-      Digital real time polymerase chain reaction (dPCR):
-        text: Digital real time polymerase chain reaction (dPCR)
-        title: Digital real time polymerase chain reaction (dPCR)
+      Digital real time polymerase chain reaction (dPCR) [GENEPIO:0102209]:
+        text: Digital real time polymerase chain reaction (dPCR) [GENEPIO:0102209]
+        title: Digital real time polymerase chain reaction (dPCR) [GENEPIO:0102209]
+        meaning: GENEPIO:0102209
         description: A type of polymerase chain reaction technique in which the sample is fractionated, within which individual PCR reactions occur in each fraction
-      Bacteria culture test:
-        text: Bacteria culture test
-        title: Bacteria culture test
+      Cell culture [OBI:0001876]:
+        text: Cell culture [OBI:0001876]
+        title: Cell culture [OBI:0001876]
+        meaning: OBI:0001876
         description: An assay to identify the presence of bacteria
 types:
   WhitespaceMinimizedString:

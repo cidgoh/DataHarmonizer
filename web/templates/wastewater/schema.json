@@ -307,8 +307,8 @@
           "rank": 49,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "rank": 50,
           "slot_group": "Sample collection and processing"
         },
@@ -507,8 +507,8 @@
           "rank": 89,
           "slot_group": "Environmental conditions and measurements"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "rank": 90,
           "slot_group": "Environmental conditions and measurements"
         },
@@ -887,8 +887,8 @@
           "rank": 165,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "rank": 166,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -1613,7 +1613,7 @@
         "sample_collected_by": {
           "name": "sample_collected_by",
           "description": "The name of the organization with which the sample collector is affiliated.",
-          "title": "sample collected by",
+          "title": "sample collected by organisation name",
           "comments": [
             "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions."
           ],
@@ -1651,7 +1651,7 @@
         },
         "sample_collector_contact_name": {
           "name": "sample_collector_contact_name",
-          "description": "The name or job title of the contact responsible for follow-up regarding the sample.",
+          "description": "The name of the contact responsible for follow-up regarding the sample.",
           "title": "sample collector contact name",
           "comments": [
             "Provide the name of an individual or their job title. As personnel turnover may render the contact's name obsolete, it is more preferable to provide a job title for ensuring accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
@@ -2755,8 +2755,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental protocol name",
           "comments": [
@@ -2769,7 +2769,7 @@
           ],
           "rank": 50,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol",
+          "alias": "experimental_protocol_name",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -2781,9 +2781,15 @@
         },
         "experimental_protocol_url": {
           "name": "experimental_protocol_url",
+          "description": "A URL linking to detailed information or documentation about the experimental protocol. This URL should direct users to a source that provides the necessary details to reproduce the experiment that generated the dataset.",
           "title": "experimental protocol url",
           "comments": [
-            "Provide a url link to the protocol."
+            "Provide the url of the experimental protocol."
+          ],
+          "examples": [
+            {
+              "value": "https://github.com/ww-protocol"
+            }
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
@@ -3205,6 +3211,11 @@
           "title": "endogenous control details",
           "comments": [
             "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
+          ],
+          "examples": [
+            {
+              "value": "Pepper Mild Mottle Virus (PMMV)"
+            }
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
@@ -3982,8 +3993,8 @@
           "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "description": "The numerical value of a measurement of dissolved oxygen.",
           "title": "dissolved oxygen measurement value",
           "comments": [
@@ -3997,7 +4008,7 @@
           "from_schema": "https://example.com/GRDI",
           "rank": 90,
           "slot_uri": "GENEPIO:0000035",
-          "alias": "dissolved_oxygen_measurement_value",
+          "alias": "dissolved_oxygen_concentration_measurement_value",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -6281,8 +6292,8 @@
             }
           ]
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "description": "The name of the consensus sequence file.",
           "title": "genome sequence file name",
           "comments": [
@@ -6299,7 +6310,7 @@
           ],
           "rank": 166,
           "slot_uri": "GENEPIO:0101715",
-          "alias": "genome_sequence_file_name",
+          "alias": "genome_sequence_filename",
           "owner": "WastewaterSARS-CoV-2",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -7875,8 +7886,8 @@
           "rank": 50,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "rank": 51,
           "slot_group": "Sample collection and processing"
         },
@@ -8075,8 +8086,8 @@
           "rank": 90,
           "slot_group": "Environmental conditions and measurements"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "rank": 91,
           "slot_group": "Environmental conditions and measurements"
         },
@@ -8455,8 +8466,8 @@
           "rank": 166,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "rank": 167,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -8642,14 +8653,19 @@
           "rank": 199,
           "slot_group": "Pathogen diagnostic testing"
         },
+        "target_taxonomic_name_2": {
+          "name": "target_taxonomic_name_2",
+          "rank": 200,
+          "slot_group": "Pathogen diagnostic testing"
+        },
         "assay_target_name_2": {
           "name": "assay_target_name_2",
-          "rank": 200,
+          "rank": 201,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_2": {
           "name": "assay_target_details_2",
-          "rank": 201,
+          "rank": 202,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_2": {
@@ -8662,7 +8678,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 202,
+          "rank": 203,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -8675,32 +8691,37 @@
         },
         "diagnostic_target_presence_2": {
           "name": "diagnostic_target_presence_2",
-          "rank": 203,
+          "rank": 204,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_2": {
           "name": "diagnostic_measurement_value_2",
-          "rank": 204,
+          "rank": 205,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_2": {
           "name": "diagnostic_measurement_unit_2",
-          "rank": 205,
+          "rank": 206,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_2": {
           "name": "diagnostic_measurement_method_2",
-          "rank": 206,
+          "rank": 207,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "target_taxonomic_name_3": {
+          "name": "target_taxonomic_name_3",
+          "rank": 208,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_name_3": {
           "name": "assay_target_name_3",
-          "rank": 207,
+          "rank": 209,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_3": {
           "name": "assay_target_details_3",
-          "rank": 208,
+          "rank": 210,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_3": {
@@ -8713,7 +8734,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 209,
+          "rank": 211,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -8726,22 +8747,22 @@
         },
         "diagnostic_target_presence_3": {
           "name": "diagnostic_target_presence_3",
-          "rank": 210,
+          "rank": 212,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_3": {
           "name": "diagnostic_measurement_value_3",
-          "rank": 211,
+          "rank": 213,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_3": {
           "name": "diagnostic_measurement_unit_3",
-          "rank": 212,
+          "rank": 214,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_3": {
           "name": "diagnostic_measurement_method_3",
-          "rank": 213,
+          "rank": 215,
           "slot_group": "Pathogen diagnostic testing"
         }
       },
@@ -9206,7 +9227,7 @@
         "sample_collected_by": {
           "name": "sample_collected_by",
           "description": "The name of the organization with which the sample collector is affiliated.",
-          "title": "sample collected by",
+          "title": "sample collected by organisation name",
           "comments": [
             "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions."
           ],
@@ -9244,7 +9265,7 @@
         },
         "sample_collector_contact_name": {
           "name": "sample_collector_contact_name",
-          "description": "The name or job title of the contact responsible for follow-up regarding the sample.",
+          "description": "The name of the contact responsible for follow-up regarding the sample.",
           "title": "sample collector contact name",
           "comments": [
             "Provide the name of an individual or their job title. As personnel turnover may render the contact's name obsolete, it is more preferable to provide a job title for ensuring accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
@@ -10348,8 +10369,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental protocol name",
           "comments": [
@@ -10362,7 +10383,7 @@
           ],
           "rank": 51,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol",
+          "alias": "experimental_protocol_name",
           "owner": "WastewaterAMR",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -10374,9 +10395,15 @@
         },
         "experimental_protocol_url": {
           "name": "experimental_protocol_url",
+          "description": "A URL linking to detailed information or documentation about the experimental protocol. This URL should direct users to a source that provides the necessary details to reproduce the experiment that generated the dataset.",
           "title": "experimental protocol url",
           "comments": [
-            "Provide a url link to the protocol."
+            "Provide the url of the experimental protocol."
+          ],
+          "examples": [
+            {
+              "value": "https://github.com/ww-protocol"
+            }
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
@@ -10798,6 +10825,11 @@
           "title": "endogenous control details",
           "comments": [
             "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
+          ],
+          "examples": [
+            {
+              "value": "Pepper Mild Mottle Virus (PMMV)"
+            }
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
@@ -11575,8 +11607,8 @@
           "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "description": "The numerical value of a measurement of dissolved oxygen.",
           "title": "dissolved oxygen measurement value",
           "comments": [
@@ -11590,7 +11622,7 @@
           "from_schema": "https://example.com/GRDI",
           "rank": 91,
           "slot_uri": "GENEPIO:0000035",
-          "alias": "dissolved_oxygen_measurement_value",
+          "alias": "dissolved_oxygen_concentration_measurement_value",
           "owner": "WastewaterAMR",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -13876,8 +13908,8 @@
             }
           ]
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "description": "The name of the consensus sequence file.",
           "title": "genome sequence file name",
           "comments": [
@@ -13894,7 +13926,7 @@
           ],
           "rank": 167,
           "slot_uri": "GENEPIO:0101715",
-          "alias": "genome_sequence_file_name",
+          "alias": "genome_sequence_filename",
           "owner": "WastewaterAMR",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -14804,6 +14836,29 @@
             }
           ]
         },
+        "target_taxonomic_name_2": {
+          "name": "target_taxonomic_name_2",
+          "description": "The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.",
+          "title": "target taxonomic name 2",
+          "comments": [
+            "The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2",
+            "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2"
+          ],
+          "rank": 200,
+          "slot_uri": "GENEPIO:0102050",
+          "alias": "target_taxonomic_name_2",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Pathogen diagnostic testing",
+          "range": "WhitespaceMinimizedString"
+        },
         "assay_target_name_2": {
           "name": "assay_target_name_2",
           "description": "The name of the assay target used in the diagnostic RT-PCR test.",
@@ -14812,7 +14867,7 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 200,
+          "rank": 201,
           "slot_uri": "GENEPIO:0102038",
           "alias": "assay_target_name_2",
           "owner": "WastewaterAMR",
@@ -14832,7 +14887,7 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 201,
+          "rank": 202,
           "slot_uri": "GENEPIO:0102046",
           "alias": "assay_target_details_2",
           "owner": "WastewaterAMR",
@@ -14861,7 +14916,7 @@
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_gene",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_gene"
           ],
-          "rank": 202,
+          "rank": 203,
           "slot_uri": "GENEPIO:0102042",
           "alias": "gene_symbol_2",
           "owner": "WastewaterAMR",
@@ -14897,7 +14952,7 @@
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_known_present",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_known_present"
           ],
-          "rank": 203,
+          "rank": 204,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_2",
           "owner": "WastewaterAMR",
@@ -14933,7 +14988,7 @@
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_conc",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc"
           ],
-          "rank": 204,
+          "rank": 205,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_2",
           "owner": "WastewaterAMR",
@@ -14962,7 +15017,7 @@
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_conc_unit",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc_unit"
           ],
-          "rank": 205,
+          "rank": 206,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_2",
           "owner": "WastewaterAMR",
@@ -14994,7 +15049,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 206,
+          "rank": 207,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_2",
           "owner": "WastewaterAMR",
@@ -15013,6 +15068,25 @@
             }
           ]
         },
+        "target_taxonomic_name_3": {
+          "name": "target_taxonomic_name_3",
+          "description": "The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.",
+          "title": "target taxonomic name 3",
+          "comments": [
+            "The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 208,
+          "slot_uri": "GENEPIO:0102051",
+          "alias": "target_taxonomic_name_3",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Pathogen diagnostic testing",
+          "range": "WhitespaceMinimizedString"
+        },
         "assay_target_name_3": {
           "name": "assay_target_name_3",
           "description": "The name of the assay target used in the diagnostic RT-PCR test.",
@@ -15021,7 +15095,7 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 207,
+          "rank": 209,
           "slot_uri": "GENEPIO:0102039",
           "alias": "assay_target_name_3",
           "owner": "WastewaterAMR",
@@ -15041,7 +15115,7 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 208,
+          "rank": 210,
           "slot_uri": "GENEPIO:0102047",
           "alias": "assay_target_details_3",
           "owner": "WastewaterAMR",
@@ -15066,7 +15140,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 209,
+          "rank": 211,
           "slot_uri": "GENEPIO:0102043",
           "alias": "gene_symbol_3",
           "owner": "WastewaterAMR",
@@ -15098,7 +15172,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 210,
+          "rank": 212,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_3",
           "owner": "WastewaterAMR",
@@ -15130,7 +15204,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 211,
+          "rank": 213,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_3",
           "owner": "WastewaterAMR",
@@ -15155,7 +15229,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 212,
+          "rank": 214,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_3",
           "owner": "WastewaterAMR",
@@ -15187,7 +15261,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 213,
+          "rank": 215,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_3",
           "owner": "WastewaterAMR",
@@ -15487,8 +15561,8 @@
           "rank": 50,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "rank": 51,
           "slot_group": "Sample collection and processing"
         },
@@ -15757,8 +15831,8 @@
           "rank": 104,
           "slot_group": "Environmental conditions and measurements"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "rank": 105,
           "slot_group": "Environmental conditions and measurements"
         },
@@ -16152,8 +16226,8 @@
           "rank": 183,
           "slot_group": "Bioinformatics and QC metrics"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "rank": 184,
           "slot_group": "Bioinformatics and QC metrics"
         },
@@ -16349,14 +16423,19 @@
           "rank": 218,
           "slot_group": "Pathogen diagnostic testing"
         },
+        "target_taxonomic_name_2": {
+          "name": "target_taxonomic_name_2",
+          "rank": 219,
+          "slot_group": "Pathogen diagnostic testing"
+        },
         "assay_target_name_2": {
           "name": "assay_target_name_2",
-          "rank": 219,
+          "rank": 220,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_2": {
           "name": "assay_target_details_2",
-          "rank": 220,
+          "rank": 221,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_2": {
@@ -16369,7 +16448,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 221,
+          "rank": 222,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -16382,32 +16461,37 @@
         },
         "diagnostic_target_presence_2": {
           "name": "diagnostic_target_presence_2",
-          "rank": 222,
+          "rank": 223,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_2": {
           "name": "diagnostic_measurement_value_2",
-          "rank": 223,
+          "rank": 224,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_2": {
           "name": "diagnostic_measurement_unit_2",
-          "rank": 224,
+          "rank": 225,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_2": {
           "name": "diagnostic_measurement_method_2",
-          "rank": 225,
+          "rank": 226,
+          "slot_group": "Pathogen diagnostic testing"
+        },
+        "target_taxonomic_name_3": {
+          "name": "target_taxonomic_name_3",
+          "rank": 227,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_name_3": {
           "name": "assay_target_name_3",
-          "rank": 226,
+          "rank": 228,
           "slot_group": "Pathogen diagnostic testing"
         },
         "assay_target_details_3": {
           "name": "assay_target_details_3",
-          "rank": 227,
+          "rank": 229,
           "slot_group": "Pathogen diagnostic testing"
         },
         "gene_symbol_3": {
@@ -16420,7 +16504,7 @@
               "value": "gyrase A"
             }
           ],
-          "rank": 228,
+          "rank": 230,
           "slot_group": "Pathogen diagnostic testing",
           "any_of": [
             {
@@ -16433,22 +16517,22 @@
         },
         "diagnostic_target_presence_3": {
           "name": "diagnostic_target_presence_3",
-          "rank": 229,
+          "rank": 231,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_value_3": {
           "name": "diagnostic_measurement_value_3",
-          "rank": 230,
+          "rank": 232,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_unit_3": {
           "name": "diagnostic_measurement_unit_3",
-          "rank": 231,
+          "rank": 233,
           "slot_group": "Pathogen diagnostic testing"
         },
         "diagnostic_measurement_method_3": {
           "name": "diagnostic_measurement_method_3",
-          "rank": 232,
+          "rank": 234,
           "slot_group": "Pathogen diagnostic testing"
         }
       },
@@ -16913,7 +16997,7 @@
         "sample_collected_by": {
           "name": "sample_collected_by",
           "description": "The name of the organization with which the sample collector is affiliated.",
-          "title": "sample collected by",
+          "title": "sample collected by organisation name",
           "comments": [
             "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions."
           ],
@@ -16951,7 +17035,7 @@
         },
         "sample_collector_contact_name": {
           "name": "sample_collector_contact_name",
-          "description": "The name or job title of the contact responsible for follow-up regarding the sample.",
+          "description": "The name of the contact responsible for follow-up regarding the sample.",
           "title": "sample collector contact name",
           "comments": [
             "Provide the name of an individual or their job title. As personnel turnover may render the contact's name obsolete, it is more preferable to provide a job title for ensuring accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
@@ -18055,8 +18139,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental protocol name",
           "comments": [
@@ -18069,7 +18153,7 @@
           ],
           "rank": 51,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol",
+          "alias": "experimental_protocol_name",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -18081,9 +18165,15 @@
         },
         "experimental_protocol_url": {
           "name": "experimental_protocol_url",
+          "description": "A URL linking to detailed information or documentation about the experimental protocol. This URL should direct users to a source that provides the necessary details to reproduce the experiment that generated the dataset.",
           "title": "experimental protocol url",
           "comments": [
-            "Provide a url link to the protocol."
+            "Provide the url of the experimental protocol."
+          ],
+          "examples": [
+            {
+              "value": "https://github.com/ww-protocol"
+            }
           ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
@@ -18506,6 +18596,11 @@
           "comments": [
             "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
           ],
+          "examples": [
+            {
+              "value": "Pepper Mild Mottle Virus (PMMV)"
+            }
+          ],
           "from_schema": "https://example.com/GRDI",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_endog_control_1"
@@ -18627,7 +18722,7 @@
           ],
           "from_schema": "https://example.com/GRDI",
           "rank": 69,
-          "slot_uri": "GENEPIO:0001195",
+          "slot_uri": "GENEPIO:0001644",
           "alias": "isolate_id",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
@@ -19629,8 +19724,8 @@
           "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "description": "The numerical value of a measurement of dissolved oxygen.",
           "title": "dissolved oxygen measurement value",
           "comments": [
@@ -19644,7 +19739,7 @@
           "from_schema": "https://example.com/GRDI",
           "rank": 105,
           "slot_uri": "GENEPIO:0000035",
-          "alias": "dissolved_oxygen_measurement_value",
+          "alias": "dissolved_oxygen_concentration_measurement_value",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -22020,8 +22115,8 @@
             }
           ]
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "description": "The name of the consensus sequence file.",
           "title": "genome sequence file name",
           "comments": [
@@ -22038,7 +22133,7 @@
           ],
           "rank": 184,
           "slot_uri": "GENEPIO:0101715",
-          "alias": "genome_sequence_file_name",
+          "alias": "genome_sequence_filename",
           "owner": "WastewaterPathogenAgnostic",
           "domain_of": [
             "WastewaterSARS-CoV-2",
@@ -22998,6 +23093,29 @@
             }
           ]
         },
+        "target_taxonomic_name_2": {
+          "name": "target_taxonomic_name_2",
+          "description": "The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.",
+          "title": "target taxonomic name 2",
+          "comments": [
+            "The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2",
+            "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2"
+          ],
+          "rank": 219,
+          "slot_uri": "GENEPIO:0102050",
+          "alias": "target_taxonomic_name_2",
+          "owner": "WastewaterPathogenAgnostic",
+          "domain_of": [
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Pathogen diagnostic testing",
+          "range": "WhitespaceMinimizedString"
+        },
         "assay_target_name_2": {
           "name": "assay_target_name_2",
           "description": "The name of the assay target used in the diagnostic RT-PCR test.",
@@ -23006,7 +23124,7 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 219,
+          "rank": 220,
           "slot_uri": "GENEPIO:0102038",
           "alias": "assay_target_name_2",
           "owner": "WastewaterPathogenAgnostic",
@@ -23026,7 +23144,7 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 220,
+          "rank": 221,
           "slot_uri": "GENEPIO:0102046",
           "alias": "assay_target_details_2",
           "owner": "WastewaterPathogenAgnostic",
@@ -23055,7 +23173,7 @@
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_gene",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_gene"
           ],
-          "rank": 221,
+          "rank": 222,
           "slot_uri": "GENEPIO:0102042",
           "alias": "gene_symbol_2",
           "owner": "WastewaterPathogenAgnostic",
@@ -23091,7 +23209,7 @@
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_known_present",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_known_present"
           ],
-          "rank": 222,
+          "rank": 223,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_2",
           "owner": "WastewaterPathogenAgnostic",
@@ -23127,7 +23245,7 @@
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_conc",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc"
           ],
-          "rank": 223,
+          "rank": 224,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_2",
           "owner": "WastewaterPathogenAgnostic",
@@ -23156,7 +23274,7 @@
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_conc_unit",
             "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2_conc_unit"
           ],
-          "rank": 224,
+          "rank": 225,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_2",
           "owner": "WastewaterPathogenAgnostic",
@@ -23188,7 +23306,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 225,
+          "rank": 226,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_2",
           "owner": "WastewaterPathogenAgnostic",
@@ -23207,6 +23325,25 @@
             }
           ]
         },
+        "target_taxonomic_name_3": {
+          "name": "target_taxonomic_name_3",
+          "description": "The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.",
+          "title": "target taxonomic name 3",
+          "comments": [
+            "The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "rank": 227,
+          "slot_uri": "GENEPIO:0102051",
+          "alias": "target_taxonomic_name_3",
+          "owner": "WastewaterPathogenAgnostic",
+          "domain_of": [
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Pathogen diagnostic testing",
+          "range": "WhitespaceMinimizedString"
+        },
         "assay_target_name_3": {
           "name": "assay_target_name_3",
           "description": "The name of the assay target used in the diagnostic RT-PCR test.",
@@ -23215,7 +23352,7 @@
             "The specific genomic region, sequence, or variant targeted by the assay in a diagnostic RT-PCR test. This may include parts of a gene, non-coding regions, or other genetic elements that serve as a marker for detecting the presence of a pathogen or other relevant entities."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 226,
+          "rank": 228,
           "slot_uri": "GENEPIO:0102039",
           "alias": "assay_target_name_3",
           "owner": "WastewaterPathogenAgnostic",
@@ -23235,7 +23372,7 @@
             "Provide details that are applicable to the assay used for the diagnostic test."
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 227,
+          "rank": 229,
           "slot_uri": "GENEPIO:0102047",
           "alias": "assay_target_details_3",
           "owner": "WastewaterPathogenAgnostic",
@@ -23260,7 +23397,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 228,
+          "rank": 230,
           "slot_uri": "GENEPIO:0102043",
           "alias": "gene_symbol_3",
           "owner": "WastewaterPathogenAgnostic",
@@ -23292,7 +23429,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 229,
+          "rank": 231,
           "slot_uri": "GENEPIO:0100962",
           "alias": "diagnostic_target_presence_3",
           "owner": "WastewaterPathogenAgnostic",
@@ -23324,7 +23461,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 230,
+          "rank": 232,
           "slot_uri": "GENEPIO:0100963",
           "alias": "diagnostic_measurement_value_3",
           "owner": "WastewaterPathogenAgnostic",
@@ -23349,7 +23486,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 231,
+          "rank": 233,
           "slot_uri": "GENEPIO:0100964",
           "alias": "diagnostic_measurement_unit_3",
           "owner": "WastewaterPathogenAgnostic",
@@ -23381,7 +23518,7 @@
             }
           ],
           "from_schema": "https://example.com/GRDI",
-          "rank": 232,
+          "rank": 234,
           "slot_uri": "GENEPIO:0100965",
           "alias": "diagnostic_measurement_method_3",
           "owner": "WastewaterPathogenAgnostic",
@@ -23800,7 +23937,7 @@
     "sample_collected_by": {
       "name": "sample_collected_by",
       "description": "The name of the organization with which the sample collector is affiliated.",
-      "title": "sample collected by",
+      "title": "sample collected by organisation name",
       "comments": [
         "The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions."
       ],
@@ -23834,7 +23971,7 @@
     },
     "sample_collector_contact_name": {
       "name": "sample_collector_contact_name",
-      "description": "The name or job title of the contact responsible for follow-up regarding the sample.",
+      "description": "The name of the contact responsible for follow-up regarding the sample.",
       "title": "sample collector contact name",
       "comments": [
         "Provide the name of an individual or their job title. As personnel turnover may render the contact's name obsolete, it is more preferable to provide a job title for ensuring accuracy of information and institutional memory. If the information is unknown or cannot be provided, leave blank or provide a null value."
@@ -24789,8 +24926,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "experimental_protocol": {
-      "name": "experimental_protocol",
+    "experimental_protocol_name": {
+      "name": "experimental_protocol_name",
       "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
       "title": "experimental protocol name",
       "comments": [
@@ -24811,9 +24948,15 @@
     },
     "experimental_protocol_url": {
       "name": "experimental_protocol_url",
+      "description": "A URL linking to detailed information or documentation about the experimental protocol. This URL should direct users to a source that provides the necessary details to reproduce the experiment that generated the dataset.",
       "title": "experimental protocol url",
       "comments": [
-        "Provide a url link to the protocol."
+        "Provide the url of the experimental protocol."
+      ],
+      "examples": [
+        {
+          "value": "https://github.com/ww-protocol"
+        }
       ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
@@ -25188,6 +25331,11 @@
       "comments": [
         "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
       ],
+      "examples": [
+        {
+          "value": "Pepper Mild Mottle Virus (PMMV)"
+        }
+      ],
       "from_schema": "https://example.com/GRDI",
       "exact_mappings": [
         "NCBI_BIOSAMPLE_GenomeTrakr:ww_endog_control_1"
@@ -25288,7 +25436,7 @@
         }
       ],
       "from_schema": "https://example.com/GRDI",
-      "slot_uri": "GENEPIO:0001195",
+      "slot_uri": "GENEPIO:0001644",
       "domain_of": [
         "WastewaterPathogenAgnostic"
       ],
@@ -26147,8 +26295,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "dissolved_oxygen_measurement_value": {
-      "name": "dissolved_oxygen_measurement_value",
+    "dissolved_oxygen_concentration_measurement_value": {
+      "name": "dissolved_oxygen_concentration_measurement_value",
       "description": "The numerical value of a measurement of dissolved oxygen.",
       "title": "dissolved oxygen measurement value",
       "comments": [
@@ -28222,8 +28370,8 @@
         }
       ]
     },
-    "genome_sequence_file_name": {
-      "name": "genome_sequence_file_name",
+    "genome_sequence_filename": {
+      "name": "genome_sequence_filename",
       "description": "The name of the consensus sequence file.",
       "title": "genome sequence file name",
       "comments": [
@@ -29355,6 +29503,25 @@
         }
       ]
     },
+    "target_taxonomic_name_2": {
+      "name": "target_taxonomic_name_2",
+      "description": "The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.",
+      "title": "target taxonomic name 2",
+      "comments": [
+        "The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2",
+        "NCBI_BIOSAMPLE_GenomeTrakr:ww_surv_target_2"
+      ],
+      "slot_uri": "GENEPIO:0102050",
+      "domain_of": [
+        "WastewaterAMR",
+        "WastewaterPathogenAgnostic"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
     "assay_target_name_2": {
       "name": "assay_target_name_2",
       "description": "The name of the assay target used in the diagnostic RT-PCR test.",
@@ -29519,6 +29686,21 @@
           "range": "NullValueMenu"
         }
       ]
+    },
+    "target_taxonomic_name_3": {
+      "name": "target_taxonomic_name_3",
+      "description": "The scientific name of the organism or taxon that is the focus of the study, assay, or diagnostic test.",
+      "title": "target taxonomic name 3",
+      "comments": [
+        "The target taxonomic name refers to the specific species, genus, or other taxonomic classification that the assay or diagnostic test is designed to identify, detect, or characterize. This may include the full binomial name (Genus species) or a higher taxonomic rank (e.g., genus, family) when species-level identification is not applicable.  Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy."
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "slot_uri": "GENEPIO:0102051",
+      "domain_of": [
+        "WastewaterAMR",
+        "WastewaterPathogenAgnostic"
+      ],
+      "range": "WhitespaceMinimizedString"
     },
     "assay_target_name_3": {
       "name": "assay_target_name_3",
@@ -35347,25 +35529,29 @@
           "meaning": "UO:0000213",
           "title": "colony forming units per milliliter (CFU/mL) [UO:0000213]"
         },
-        "colony forming units per 100 milliliter (CFU/100 mL)": {
-          "text": "colony forming units per 100 milliliter (CFU/100 mL)",
+        "colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]": {
+          "text": "colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]",
           "description": "A unit of microbial density that describes the number of colony forming units within 100 milliliters of material.",
-          "title": "colony forming units per 100 milliliter (CFU/100 mL)"
+          "meaning": "GENEPIO:0102203",
+          "title": "colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]"
         },
-        "colony forming units per grams total solids (CFU/gTS)": {
-          "text": "colony forming units per grams total solids (CFU/gTS)",
+        "colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]": {
+          "text": "colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]",
           "description": "A unit of microbial density that describes the number of colony forming units within a gram of total solids in waste material.",
-          "title": "colony forming units per grams total solids (CFU/gTS)"
+          "meaning": "GENEPIO:0102204",
+          "title": "colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]"
         },
-        "most probable number per milliliter (MPN/mL)": {
-          "text": "most probable number per milliliter (MPN/mL)",
+        "most probable number per milliliter (MPN/mL) [GENEPIO:0102205]": {
+          "text": "most probable number per milliliter (MPN/mL) [GENEPIO:0102205]",
           "description": "A unit of microbial density that describes the most probable number of microbes within one milliliter of material.",
-          "title": "most probable number per milliliter (MPN/mL)"
+          "meaning": "GENEPIO:0102205",
+          "title": "most probable number per milliliter (MPN/mL) [GENEPIO:0102205]"
         },
-        "most probable number per 100 milliliter (MPN/100 mL)": {
-          "text": "most probable number per 100 milliliter (MPN/100 mL)",
+        "most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]": {
+          "text": "most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]",
           "description": "A unit of microbial density that describes the most probable number of microbes within 100 milliliters of material.",
-          "title": "most probable number per 100 milliliter (MPN/100 mL)"
+          "meaning": "GENEPIO:0102206",
+          "title": "most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]"
         }
       }
     },
@@ -36212,19 +36398,6 @@
             "ENA_SEWAGE_ERC00036:BGISEQ"
           ]
         },
-        "MGISEQ-2000RS [GENEPIO:0100971]": {
-          "text": "MGISEQ-2000RS [GENEPIO:0100971]",
-          "description": "An MGI sequencing instrument model that utilises DNA nanoball and (DNB) and probe-anchor synthesis (cPAS) for next generation sequencing ad which is capable of medium to high throughput sequencing.",
-          "meaning": "GENEPIO:0100971",
-          "is_a": "MGI sequencing instrument [GENEPIO:0100146]",
-          "title": "MGISEQ-2000RS [GENEPIO:0100971]",
-          "exact_mappings": [
-            "NCBI_SRAGenomeTrakr:MGISEQ-2000RS",
-            "NCBI_SRA:MGISEQ-2000RS",
-            "ENA_GSC_MIxS_WW_ERC00023:MGISEQ-2000RS",
-            "ENA_SEWAGE_ERC00036:MGISEQ-2000RS"
-          ]
-        },
         "MGI DNBSEQ-G99 [GENEPIO:0100972]": {
           "text": "MGI DNBSEQ-G99 [GENEPIO:0100972]",
           "description": "An MGI sequencing instrument model that utilises DNA nanoball and (DNB) and probe-anchor synthesis (cPAS) for next generation sequencing and which adopts triangular matrix signal spots on sequencing flow cell, for low throughput at highspeeds.",
@@ -36907,7 +37080,7 @@
         },
         "midnight-ont-v3 [GENEPIO:0100862]": {
           "text": "midnight-ont-v3 [GENEPIO:0100862]",
-          "description": "An amplicon strategy which targets SARS-CoV-2 and was developed by Oxford Nanopore Technologies with the attributes of version 2.0.0 which produces amplicons approximately 1200bp in length.",
+          "description": "An amplicon strategy which targets SARS-CoV-2 and was developed by Oxford Nanopore Technologies with the attributes of version 3.0.0 which produces amplicons approximately 1200bp in length.",
           "meaning": "GENEPIO:0100862",
           "title": "midnight-ont-v3 [GENEPIO:0100862]",
           "exact_mappings": [
@@ -37727,10 +37900,11 @@
       "title": "diagnostic measurement unit menu",
       "from_schema": "https://example.com/GRDI",
       "permissible_values": {
-        "gene copies per liter (GC/L)": {
-          "text": "gene copies per liter (GC/L)",
+        "copies per liter (C/L) [GENEPIO:0102202]": {
+          "text": "copies per liter (C/L) [GENEPIO:0102202]",
           "description": "A unit that measures the number of copies of a given gene within a liter of a biological material.",
-          "title": "gene copies per liter (GC/L)",
+          "meaning": "GENEPIO:0102202",
+          "title": "copies per liter (C/L) [GENEPIO:0102202]",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:GC/L",
             "NCBI_BIOSAMPLE_GenomeTrakr:GC/L",
@@ -37738,11 +37912,11 @@
             "ENA_SEWAGE_ERC00036:GC/L"
           ]
         },
-        "cycle threshold (Ct)  [GENEPIO:0100657]": {
-          "text": "cycle threshold (Ct)  [GENEPIO:0100657]",
-          "description": "A data field which describes the cycle threshold (Ct) value result from a diagnostic reverse transcription polymerase chain reaction (RT-PCR) test.",
-          "meaning": "GENEPIO:0100657",
-          "title": "cycle threshold (Ct)  [GENEPIO:0100657]",
+        "cycle threshold (Ct)  [UO:0010077]": {
+          "text": "cycle threshold (Ct)  [UO:0010077]",
+          "description": "A count unit of how many Polymerase Chain Reaction (PCR) cycles it took to detect a real signal from a sample. Equivalent to the PCR cycle number at which a sample's reaction curve intersects the threshold line.",
+          "meaning": "UO:0010077",
+          "title": "cycle threshold (Ct)  [UO:0010077]",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:Ct",
             "NCBI_BIOSAMPLE_GenomeTrakr:Ct",
@@ -37762,10 +37936,11 @@
             "ENA_SEWAGE_ERC00036:CFU/ml"
           ]
         },
-        "colony forming units per 100 milliliter (CFU/100 mL)": {
-          "text": "colony forming units per 100 milliliter (CFU/100 mL)",
+        "colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]": {
+          "text": "colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]",
           "description": "A unit of microbial density that describes the number of colony forming units within 100 milliliters of material.",
-          "title": "colony forming units per 100 milliliter (CFU/100 mL)",
+          "meaning": "GENEPIO:0102203",
+          "title": "colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:CFU/100%20mL",
             "NCBI_BIOSAMPLE_GenomeTrakr:CFU/100%20mL",
@@ -37773,10 +37948,11 @@
             "ENA_SEWAGE_ERC00036:CFU/100%20mL"
           ]
         },
-        "colony forming units per grams total solids (CFU/gTS)": {
-          "text": "colony forming units per grams total solids (CFU/gTS)",
+        "colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]": {
+          "text": "colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]",
           "description": "A unit of microbial density that describes the number of colony forming units within a gram of total solids in waste material.",
-          "title": "colony forming units per grams total solids (CFU/gTS)",
+          "meaning": "GENEPIO:0102204",
+          "title": "colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:CFU/gTS",
             "NCBI_BIOSAMPLE_GenomeTrakr:CFU/gTS",
@@ -37784,10 +37960,11 @@
             "ENA_SEWAGE_ERC00036:CFU/gTS"
           ]
         },
-        "most probable number per milliliter (MPN/mL)": {
-          "text": "most probable number per milliliter (MPN/mL)",
+        "most probable number per milliliter (MPN/mL) [GENEPIO:0102205]": {
+          "text": "most probable number per milliliter (MPN/mL) [GENEPIO:0102205]",
           "description": "A unit of microbial density that describes the most probable number of microbes within one milliliter of material.",
-          "title": "most probable number per milliliter (MPN/mL)",
+          "meaning": "GENEPIO:0102205",
+          "title": "most probable number per milliliter (MPN/mL) [GENEPIO:0102205]",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:MPN/mL",
             "NCBI_BIOSAMPLE_GenomeTrakr:MPN/mL",
@@ -37795,10 +37972,11 @@
             "ENA_SEWAGE_ERC00036:MPN/mL"
           ]
         },
-        "most probable number per 100 milliliter (MPN/100 mL)": {
-          "text": "most probable number per 100 milliliter (MPN/100 mL)",
+        "most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]": {
+          "text": "most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]",
           "description": "A unit of microbial density that describes the most probable number of microbes within 100 milliliters of material.",
-          "title": "most probable number per 100 milliliter (MPN/100 mL)",
+          "meaning": "GENEPIO:0102206",
+          "title": "most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]",
           "exact_mappings": [
             "NCBI_BIOSAMPLE_SARS_COV_2_WWS:MPN/100%20mL",
             "NCBI_BIOSAMPLE_GenomeTrakr:MPN/100%20mL",
@@ -37819,15 +37997,17 @@
           "meaning": "OBI:0000893",
           "title": "Quantitative real time polymerase chain reaction (qPCR) [OBI:0000893]"
         },
-        "Digital real time polymerase chain reaction (dPCR)": {
-          "text": "Digital real time polymerase chain reaction (dPCR)",
+        "Digital real time polymerase chain reaction (dPCR) [GENEPIO:0102209]": {
+          "text": "Digital real time polymerase chain reaction (dPCR) [GENEPIO:0102209]",
           "description": "A type of polymerase chain reaction technique in which the sample is fractionated, within which individual PCR reactions occur in each fraction",
-          "title": "Digital real time polymerase chain reaction (dPCR)"
+          "meaning": "GENEPIO:0102209",
+          "title": "Digital real time polymerase chain reaction (dPCR) [GENEPIO:0102209]"
         },
-        "Bacteria culture test": {
-          "text": "Bacteria culture test",
+        "Cell culture [OBI:0001876]": {
+          "text": "Cell culture [OBI:0001876]",
           "description": "An assay to identify the presence of bacteria",
-          "title": "Bacteria culture test"
+          "meaning": "OBI:0001876",
+          "title": "Cell culture [OBI:0001876]"
         }
       }
     }
