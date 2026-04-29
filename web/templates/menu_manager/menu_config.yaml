@@ -1,15 +1,122 @@
+locales:
+  - en
+  - fr
 apis:
+  agrovoc:
+    type:
+      sparql:
+        uri: https://agrovoc.fao.org/sparql/
+      rest:
+        uri: https://agrovoc.fao.org/browse/rest/v1/
+    ontologies:
+      - agrovoc
   bioportal:
-    uri: https://data.bioontology.org/
-    apikey: 75494b6d-7473-49b5-b47a-6e846f90d16b
+    type:
+      rest:
+        uri: https://data.bioontology.org/
+        apikey: 75494b6d-7473-49b5-b47a-6e846f90d16b
     ontologies:
       - envo
   ols:
-    uri: http://www.ebi.ac.uk/ols4/api/ontologies/{ontology}/terms/{double_encoded}/graph
+    type:
+      rest:
+        uri: http://www.ebi.ac.uk/ols4/api/ontologies/{ontology}/terms/{double_encoded}/graph
     ontologies: []
 sssom:
   - ./sources/sssom.tsv
 sources:
+  AFCPicklists:
+    title: AgriFoodCA Picklists
+    name: AFCPicklists
+    version: null
+    content_type: AgriFoodCA
+    file_format: yaml
+    reachable_from:
+      source_ontology: https://github.com/agrifooddatacanada/picklists_for_schemas/tree/main/picklists
+    download_date: '2026-04-26'
+    description: Agricultural food data picklists from AgriFoodData Canada
+  AFCSoilAerationStatus:
+    title: Soil aeration status
+    name: AFCSoilAerationStatus
+    version: null
+    content_type: AgriFoodCA
+    file_format: csv
+    reachable_from:
+      source_ontology: https://raw.githubusercontent.com/agrifooddatacanada/picklists_for_schemas/main/picklists/soil_aeration_status.csv
+    download_date: '2026-04-26'
+    description: Qualitative oxygen availability status.
+    see_also: https://static.ixambee.com/public/miscellaneous-pdf/physical_and_chemical_properties_of_soil1720241418.pdf
+  AFCSoilDrainage:
+    title: Soil Drainage Class
+    name: AFCSoilDrainage
+    version: null
+    content_type: AgriFoodCA
+    file_format: csv
+    reachable_from:
+      source_ontology: https://raw.githubusercontent.com/agrifooddatacanada/picklists_for_schemas/main/picklists/soil_drainage.csv
+    download_date: '2026-04-26'
+    description: Indicates the type of drainage found within a soil profile.
+    see_also: https://sis.agr.gc.ca/cansis/nsdb/soil/v2/snt/drainage.html
+  agrovoc:
+    name: agrovoc
+    title: AGROVOC Multilingual Thesaurus
+    version: null
+    content_type: OntologyAPI
+    file_format: json
+    description: AGROVOC is a multilingual, structured thesaurus coordinated by the
+      Food and Agriculture Organization (FAO) of the United Nations since the early
+      1980s. It acts as a controlled vocabulary covering all areas of interest to
+      FAO, such as food, agriculture, fisheries, forestry, and the environment.
+    reachable_from:
+      api:
+        agrovoc:
+          type: sparql
+      source_nodes:
+        - 'agrovoc:c_26950'
+      include_self: true
+    prefixes:
+      agrovoc: http://aims.fao.org/aos/agrovoc/
+  AGROVOC_c_26950:
+    title: fishing
+    name: AGROVOC_c_26950
+    version: null
+    content_type: OntologyAPI
+    file_format: json
+    reachable_from:
+      api:
+        agrovoc:
+          type: sparql
+      source_nodes:
+        - 'agrovoc:c_26950'
+      include_self: true
+    download_date: '2026-04-22'
+    description: '"Fishing" defines the extent of the activities that should be regarded
+      as fishing and include not only the harvesting or catching of fish but also
+      any activity undertaken to search for, attract and locate fish prior to its
+      being caught. "Fishing" is a general term; therefore it is recommended to use
+      specific terms such as "commercial fishing", "experimental fishing", "sport
+      fishing", etc. As an adjective is used for example: "fishing activity", "fishing
+      boat".'
+    prefixes:
+      agrovoc: http://aims.fao.org/aos/agrovoc/
+  AGROVOC_c_2808:
+    title: farmland
+    name: AGROVOC_c_2808
+    version: null
+    content_type: OntologyAPI
+    file_format: json
+    reachable_from:
+      api:
+        agrovoc:
+          type: sparql
+      source_nodes:
+        - 'agrovoc:c_2808'
+      include_self: true
+    download_date: '2026-04-24'
+    description: Land which is or can be used for agriculture without further clearing
+      or draining; for forest land use <24843>
+    prefixes:
+      agrovoc: http://aims.fao.org/aos/agrovoc/
   envo:
     title: The Environment Ontology
     name: envo
@@ -25,7 +132,7 @@ sources:
     prefixes:
       BFO: http://purl.obolibrary.org/obo/BFO_
       CHEBI: http://purl.obolibrary.org/obo/CHEBI_
-      sesaw: http://purl.obolibrary.org/me/there
+      testing: http://purl.obolibrary.org/testing
   LOINCDataAbsentReason:
     title: DataAbsentReason
     name: LOINCDataAbsentReason
@@ -36,6 +143,18 @@ sources:
     reachable_from:
       source_ontology: https://terminology.hl7.org/7.1.0/en/CodeSystem-data-absent-reason.json
     download_date: '2026-03-26'
+    prefixes:
+      LOINC: https://loinc.org/
+  LOINCFoodTypeCodes:
+    title: Food Type Codes
+    name: LOINCFoodTypeCodes
+    version: 6.0.0-ballot4
+    content_type: LOINCValueSet
+    file_format: json
+    reachable_from:
+      source_ontology: https://build.fhir.org/valueset-food-type.json
+    download_date: '2026-04-24'
+    see_also: https://build.fhir.org/valueset-food-type.json.html
     prefixes:
       LOINC: https://loinc.org/
   LOINCPersonalPronouns:
@@ -81,6 +200,19 @@ sources:
       source_ontology: https://www.statcan.gc.ca/en/media/5274
     download_date: '2026-04-14'
     concise: true
+  NRCSSoilFieldBook:
+    title: USDA NRCS Field Book for Describing and Sampling Soils
+    name: NRCSSoilFieldBook
+    version: '4.0'
+    content_type: NRCSSoilFieldBook
+    file_format: pdf
+    reachable_from:
+      source_ontology: https://www.nrcs.usda.gov/sites/default/files/2025-05/Field-Book-for-Describing-and-Sampling-Soils-Ver4.pdf
+    download_date: '2026-04-28'
+    description: The U.S. Department of Agriculture Natural Resources Conservation
+      Service Field Book for Describing and Sampling Soils provides a standard for
+      many soil description variables.  This resource lists selected categorical picklists
+      for soil type, etc.
   NSDBSLCv3_2:
     title: Soil Landscapes of Canada version 3.2
     name: NSDBSLCv3_2
@@ -94,6 +226,17 @@ sources:
       Canada, which was developed by Agriculture and Agri-Food Canada to provide information
       about the country's agricultural soils at the provincial and national levels.  SLC
       v3.2 replaces SLC v3.1.1.
+  NSDBSNT_DRAINAGE:
+    title: Soil Drainage Class
+    name: NSDBSNT_DRAINAGE
+    version: '2'
+    content_type: NSDBSNT
+    file_format: html
+    reachable_from:
+      source_ontology: https://sis.agr.gc.ca/cansis/nsdb/soil/v2/snt/drainage.html
+    download_date: '2026-04-26'
+    description: Indicates the type of drainage found within a soil profile. First
+      used in SLC 3.0. Identical classes to drainage in SLC 1.0, but codes differ.
   NSDBSNT_WATERTBL:
     title: Water Table Characteristics
     name: NSDBSNT_WATERTBL
@@ -129,6 +272,22 @@ sources:
     download_date: '2026-04-14'
     description: This schema contains summary information for named soils within the
       Canadian soil surveys NSDB database
+  SNOMED56265001:
+    title: Heart disease
+    name: SNOMED56265001
+    version: http://snomed.info/sct/900000000000207008/version/20251017
+    content_type: OntologyAPI
+    file_format: json
+    reachable_from:
+      api:
+        ols:
+          type: rest
+      source_nodes:
+        - 'SNOMED:56265001'
+      include_self: true
+    download_date: '2026-04-25'
+    prefixes:
+      SNOMED: http://snomed.info/id/
   STATSCAN1326727:
     title: Classification of gender
     name: STATSCAN1326727
@@ -156,181 +315,67 @@ sources:
     file_format: yaml
     reachable_from:
       source_ontology: https://raw.githubusercontent.com/linkml/valuesets/refs/heads/main/src/valuesets/merged/merged_hierarchy.yaml
-    download_date: '2026-04-16'
-    prefixes:
-      _base: http://example.org/
-      adms: http://www.w3.org/ns/adms#
-      AFO: http://purl.allotrope.org/ontologies/quality#
-      AGRO: http://purl.obolibrary.org/obo/AGRO_
-      ANSI: https://www.ansi.org/
-      arxiv: https://arxiv.org/abs/
-      BAO: http://www.bioassayontology.org/bao#BAO_
-      BFO: http://purl.obolibrary.org/obo/BFO_
-      bibo: http://purl.org/ontology/bibo/
-      biolink: https://w3id.org/biolink/
-      BLS: https://www.bls.gov/
-      brick: https://brickschema.org/schema/Brick#
-      BSPO: http://purl.obolibrary.org/obo/BSPO_
-      BTO: http://purl.obolibrary.org/obo/BTO_
-      caDSR: https://cadsr.cancer.gov/onedata/cde/
-      CFR: https://www.ecfr.gov/
-      CHEBI: http://purl.obolibrary.org/obo/CHEBI_
-      CHMO: http://purl.obolibrary.org/obo/CHMO_
-      CIO: http://purl.obolibrary.org/obo/CIO_
-      cito: http://purl.org/spar/cito/
-      CL: http://purl.obolibrary.org/obo/CL_
-      COB: http://purl.obolibrary.org/obo/COB_
-      CRediT: https://credit.niso.org/contributor-roles/
-      CSCMP: https://cscmp.org/
-      CSS: https://www.w3.org/TR/css-color-3/#
-      damlpt: http://www.daml.org/2003/01/periodictable/PeriodicTable#
-      DataCite: https://datacite.org/schema/kernel-4/
-      dcat: http://www.w3.org/ns/dcat#
-      DCMITYPE: http://purl.org/dc/dcmitype/
-      dcterms: http://purl.org/dc/terms/
-      DICOM: http://dicom.nema.org/dcm/
-      DOID: http://purl.obolibrary.org/obo/DOID_
-      DUO: http://purl.obolibrary.org/obo/DUO_
-      EC: https://enzyme.expasy.org/EC/
-      ECO: http://purl.obolibrary.org/obo/ECO_
-      ECOCORE: http://purl.obolibrary.org/obo/ECOCORE_
-      ECTO: http://purl.obolibrary.org/obo/ECTO_
-      EDAM: http://edamontology.org/
-      EEO: https://www.eeoc.gov/
-      EFO: http://www.ebi.ac.uk/efo/EFO_
-      EMMO: http://emmo.info/emmo#
-      ENM: http://purl.enanomapper.org/onto/ENM_
-      ENVO: http://purl.obolibrary.org/obo/ENVO_
-      ERO: http://purl.obolibrary.org/obo/ERO_
-      euvoc: http://publications.europa.eu/resource/authority/
-      example: http://example.org/
-      ExO: http://purl.obolibrary.org/obo/ExO_
-      FABIO: http://purl.org/spar/fabio/
-      FBbi: http://purl.obolibrary.org/obo/FBbi_
-      fhir: http://hl7.org/fhir/
-      fhir_data_absent_reason: http://terminology.hl7.org/CodeSystem/data-absent-reason
-      fibo.commons.PartiesAndSituations: https://spec.edmcouncil.org/fibo/ontology/FBC/ommons/PartiesAndSituations/
-      FLSA: https://www.dol.gov/agencies/whd/flsa/
-      FOODON: http://purl.obolibrary.org/obo/FOODON_
-      gc: http://purl.org/gc/
-      GENO: http://purl.obolibrary.org/obo/GENO_
-      geonames: http://sws.geonames.org/
-      GO: http://purl.obolibrary.org/obo/GO_
-      GO_REF: http://purl.obolibrary.org/obo/GO_REF_
-      goldbook: https://goldbook.iupac.org/terms/view/
-      greg: http://www.w3.org/ns/time/gregorian#
-      GRID: https://www.grid.ac/institutes/
-      GSSO: http://purl.obolibrary.org/obo/GSSO_
-      HEX: https://www.color-hex.com/color/
-      HL7: http://terminology.hl7.org/CodeSystem/
-      HP: http://purl.obolibrary.org/obo/HP_
-      HsapDv: http://purl.obolibrary.org/obo/HsapDv_
-      IAEA: https://www.iaea.org/
-      iana: https://www.iana.org/assignments/media-types/
-      IAO: http://purl.obolibrary.org/obo/IAO_
-      ICD10: http://purl.bioontology.org/ontology/ICD10/
-      ICDO: http://purl.obolibrary.org/obo/ICDO_
-      IEEE: https://standards.ieee.org/
-      INES: https://www.iaea.org/resources/databases/ines
-      insdc: https://www.insdc.org/controlled-vocabulary/geographic-location/
-      IRS: https://www.irs.gov/
-      ISIC: https://unstats.un.org/unsd/classifications/Econ/ISIC
-      ISM: https://www.ismworld.org/
-      ISNI: https://isni.org/isni/
-      ISO: https://www.iso.org/
-      iso3166loc: http://id.loc.gov/vocabulary/countries/
-      ITIL: https://www.itil-officialsite.com/
-      IUPAC: http://purl.obolibrary.org/obo/IUPAC_
-      LEAN: https://www.lean.org/
-      linkml: https://w3id.org/linkml/
-      LOINC: https://loinc.org/
-      marcrel: http://id.loc.gov/vocabulary/relators/
-      MESH: http://id.nlm.nih.gov/mesh/
-      mesh: http://id.nlm.nih.gov/mesh/
-      METPO: https://w3id.org/metpo/
-      MFOEM: http://purl.obolibrary.org/obo/MFOEM_
-      MI: http://purl.obolibrary.org/obo/MI_
-      MICRO: http://purl.obolibrary.org/obo/MICRO_
-      MINMOD: https://minmod.isi.edu/resource/
-      mixs: http://purl.obolibrary.org/obo/MIXS_
-      MMO: http://purl.obolibrary.org/obo/MMO_
-      MmusDv: http://purl.obolibrary.org/obo/MmusDv_
-      MOD: http://purl.obolibrary.org/obo/MOD_
-      MONDO: http://purl.obolibrary.org/obo/MONDO_
-      MOP: http://purl.obolibrary.org/obo/MOP_
-      MS: http://purl.obolibrary.org/obo/MS_
-      MSIO: http://purl.obolibrary.org/obo/MSIO_
-      NAICS: https://www.census.gov/naics/
-      NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
-      NCIT: http://purl.obolibrary.org/obo/NCIT_
-      NCIt: http://purl.obolibrary.org/obo/NCIT_
-      NRC: https://www.nrc.gov/
-      OBCS: http://purl.obolibrary.org/obo/OBCS_
-      OBI: http://purl.obolibrary.org/obo/OBI_
-      oboe-core: http://ecoinformatics.org/oboe/oboe.1.0/oboe-core.owl#
-      OEO: http://openenergy-platform.org/ontology/oeo/OEO_
-      om: http://www.opengis.net/om/2.0
-      omopschema: http://example.org/omop/
-      OMP: http://purl.obolibrary.org/obo/OMP_
-      OMRSE: http://purl.obolibrary.org/obo/OMRSE_
-      OPMI: http://purl.obolibrary.org/obo/OPMI_
-      orcid: https://orcid.org/
-      ORCID: https://orcid.org/
-      OSHA: https://www.osha.gov/
-      owl: http://www.w3.org/2002/07/owl#
-      PATO: http://purl.obolibrary.org/obo/PATO_
-      pdg: https://pdgapi.lbl.gov/summaries/
-      PECO: http://purl.obolibrary.org/obo/PECO_
-      PMI: https://www.pmi.org/
-      PO: http://purl.obolibrary.org/obo/PO_
-      PR: http://purl.obolibrary.org/obo/PR_
-      premis: http://id.loc.gov/vocabulary/preservation/
-      PRIDE: http://purl.obolibrary.org/obo/PRIDE_
-      PROCO: http://purl.obolibrary.org/obo/PROCO_
-      prov: http://www.w3.org/ns/prov#
-      quantitykind: http://qudt.org/vocab/quantitykind/
-      QUDT: http://qudt.org/vocab/unit/
-      rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-      rdfs: http://www.w3.org/2000/01/rdf-schema#
-      REX: http://purl.obolibrary.org/obo/REX_
-      RO: http://purl.obolibrary.org/obo/RO_
-      ROR: https://ror.org/
-      RXNO: http://purl.obolibrary.org/obo/RXNO_
-      RxNorm: http://purl.bioontology.org/ontology/RXNORM/
-      SBA: https://www.sba.gov/
-      SBO: http://biomodels.net/SBO/SBO_
-      schema: http://schema.org/
-      SCOR: https://www.apics.org/apics-for-business/frameworks/scor
-      SEC: https://www.sec.gov/
-      seer: https://seer.cancer.gov/
-      SHRM: https://www.shrm.org/
-      SI: http://www.bipm.org/en/si/
-      SIC: https://www.osha.gov/data/sic-manual/
-      SIO: http://semanticscience.org/resource/SIO_
-      SLM: https://swisslipids.org/rdf/SLM_
-      SNOMED: http://snomed.info/id/
-      SO: http://purl.obolibrary.org/obo/SO_
-      SPDX: https://spdx.org/licenses/
-      spdx: https://spdx.org/licenses/
-      SRAO: http://www.fairsharing.org/ontology/subject/SRAO_
-      STATO: http://purl.obolibrary.org/obo/STATO_
-      sweet: http://sweetontology.net/
-      SWO: http://purl.obolibrary.org/obo/SWO_
-      TAXRANK: http://purl.obolibrary.org/obo/TAXRANK_
-      TIME: http://www.w3.org/2006/time#
-      TO: http://purl.obolibrary.org/obo/TO_
-      TQM: https://www.asq.org/
-      UBERON: http://purl.obolibrary.org/obo/UBERON_
-      UCUM: http://unitsofmeasure.org/
-      ucum: http://unitsofmeasure.org/
-      uniprot.proteome: http://purl.uniprot.org/proteomes/
-      UO: http://purl.obolibrary.org/obo/UO_
-      valuesets: https://w3id.org/valuesets/
-      valuesets_meta: https://w3id.org/valuesets/meta/
-      VO: http://purl.obolibrary.org/obo/VO_
-      VT: http://purl.obolibrary.org/obo/VT_
-      wgs84: http://www.w3.org/2003/01/geo/wgs84_pos#
-      wikidata: http://www.wikidata.org/entity/
-      WNA: https://world-nuclear.org/
-      X11: https://en.wikipedia.org/wiki/X11_color_names#
-      xsd: http://www.w3.org/2001/XMLSchema#
+    download_date: '2026-04-24'
+    minus:
+      concepts:
+        - academic
+        - bio
+        - bioprocessing
+        - business
+        - chemistry
+        - clinical
+        - computing
+        - visual
+        - energy
+        - environmental_health
+        - geography
+        - industry
+        - materials_science
+        - maturity_levels
+        - medical
+        - microelectronics
+        - mining_processing
+        - organizations
+        - physics
+        - publishing
+        - quantum
+        - spatial
+        - binary_classification
+        - priority_severity
+        - sentiment_analysis
+        - text_classification
+        - demographics
+        - hydrology
+        - subsurface
+        - BusinessTimeFrame
+        - BioticInteractionType
+        - Disease
+        - Cancer
+        - GeneticDisease
+        - InfectiousDisease
+        - Protein
+    include:
+      concepts:
+        - PublicationType
+        - ResearchField
+        - ResearchRole
+        - BasicColorEnum
+        - PesticideTypeEnum
+        - ExtremeWeatherEventEnum
+        - PesticideTypeEnum
+        - CanadianProvinceCodeEnum
+        - ImagingAssayEnum
+        - MassSpectrometryAssayEnum
+        - SequencingAssayEnum
+        - Environment
+        - EnvironmentalMaterial
+        - FlowerColorEnum
+        - PlantLeafColorEnum
+        - InsdcMissingValueEnum
+        - plant_developmental_stages
+        - plant_experimental_conditions
+        - sequencing_platforms
+        - specimen_processing
+        - TaxonomicRank
+        - file_formats
+        - mime_types

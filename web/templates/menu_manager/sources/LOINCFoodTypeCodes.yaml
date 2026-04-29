@@ -1,0 +1,22 @@
+id: http://hl7.org/fhir/ValueSet/food-type
+name: LOINCFoodTypeCodes
+title: Food Type Codes
+description: ''
+version: 6.0.0-ballot4
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes:
+  LOINC: https://loinc.org/
+default_prefix: LOINC
+classes: {}
+enums:
+  LOINCFoodTypeCodes:
+    name: LOINCFoodTypeCodes
+    description: This value set represents codes for types of foods and is provided
+      as a suggestive example. It include codes from [SNOMED CT](http://snomed.info/sct)
+      where concept is-a 255620007 (Foods (substance)).
+    status: active
+    permissible_values: {}
+slots: {}
