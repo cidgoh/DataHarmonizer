@@ -583,8 +583,10 @@ def _print_table(title, rows, col_defs, indent="  ", concise=False):
 
 
 def _collect(accumulator, spath, from_ref, to_ref, commit_info,
-             substantive, enrichment, new_yaml):
-    """Accumulate changes from one commit step into accumulator[spath]."""
+             substantive, enrichment, new_yaml, cosmetic=None):
+    """Accumulate changes from one commit step into accumulator[spath].
+    cosmetic: list of cosmetic change tuples to include, or None to omit them.
+    """
     h, date_full, author = commit_info
     date = date_full[:10]
 
@@ -595,12 +597,15 @@ def _collect(accumulator, spath, from_ref, to_ref, commit_info,
 
     all_entries = (
         [(e, 'S') for e in substantive] +
-        [(e, 'E') for e in enrichment]
+        [(e, 'E') for e in enrichment] +
+        ([(e, 'C') for e in cosmetic] if cosmetic else [])
     )
-    for (diff_path, old_val, new_val, cap), _ in all_entries:
+    for (diff_path, old_val, new_val, cap), kind in all_entries:
         if   old_val == '[ADDED]':   chg = 'ADD'
         elif new_val == '[REMOVED]': chg = 'DELETE'
         else:                        chg = 'UPDATE'
+        if kind == 'C':
+            chg = 'C-' + chg[:3]   # C-ADD, C-DEL, C-UPD
 
         c = _categorize(diff_path, old_val, new_val)
         cat        = c['cat']
@@ -800,7 +805,7 @@ def _print_schema_report(spath, data, maxlen=None, concise=False):
             _print_table(f"Enum: {enum_name}", rows, cols, indent=T, concise=concise)
 
 
-def run_detail_report(old_ref, new_ref, maxlen=None, target_files=None, concise=False):
+def run_detail_report(old_ref, new_ref, maxlen=None, target_files=None, concise=False, show_cosmetic=False):
     """
     Build and print a schema-grouped detail report over a range of commits.
     Walks old_ref → … → HEAD (or a date range) accumulating all changes, then
@@ -828,10 +833,12 @@ def run_detail_report(old_ref, new_ref, maxlen=None, target_files=None, concise=
                 new_yaml = load_git(to_ref, spath)
             except subprocess.CalledProcessError:
                 continue
-            substantive, enrichment, _ = analyze(old_yaml, new_yaml)
-            if substantive or enrichment:
+            substantive, enrichment, cosmetic_changes = analyze(old_yaml, new_yaml)
+            include_cosmetic = cosmetic_changes if show_cosmetic else None
+            if substantive or enrichment or include_cosmetic:
                 _collect(accumulator, spath, from_ref, to_ref,
-                         commit_info, substantive, enrichment, new_yaml)
+                         commit_info, substantive, enrichment, new_yaml,
+                         cosmetic=include_cosmetic)
 
     n = len(pairs)
     print(f"\n{'='*78}")
@@ -866,6 +873,11 @@ def main():
                         help="Concise output: in each table, suppress VERSION/DATE/AUTHOR/CHG "
                              "columns when they are identical to the previous row. "
                              "The first row of every table always shows all values.")
+    parser.add_argument("--cosmetic", "-C", action="store_true",
+                        help="Include cosmetic changes in the detail report (-d). "
+                             "Cosmetic changes (reorderings, redundant name fields, "
+                             "whitespace-only string wrapping) are tagged C-ADD / C-DEL / C-UPD "
+                             "in the CHG column.")
     args = parser.parse_args()
     maxlen = None if args.full else 120
 
@@ -881,7 +893,8 @@ def main():
         report_files = SCHEMA_FILES
 
     if args.detail:
-        run_detail_report(args.old_ref, args.new_ref, maxlen, report_files, concise=args.concise)
+        run_detail_report(args.old_ref, args.new_ref, maxlen, report_files,
+                          concise=args.concise, show_cosmetic=args.cosmetic)
         return
 
     totals = dict(substantive=0, cap=0, enrichment=0, cosmetic=0)
