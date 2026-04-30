@@ -9,8 +9,8 @@ Usage:
     python3 script/diff_schemas.py [old_ref [new_ref]] [options]
 
 Arguments:
-    old_ref     Git ref for the older version (default: HEAD~1)
-    new_ref     Git ref for the newer version (default: working tree)
+    old_ref     Git ref (e.g. HEAD~5) or start date (yyyy-mm-dd) for the older version (default: HEAD~1)
+    new_ref     Git ref or end date (yyyy-mm-dd) for the newer version (default: working tree / today)
 
 Options:
     -f, --full    Show full field values without truncation (default: truncate at 120 chars)
@@ -50,6 +50,12 @@ Examples:
 
     # Detail report for a range ending before HEAD:
     python3 script/diff_schemas.py HEAD~5 HEAD~2 --detail
+
+    # Detail report for all commits since a date:
+    python3 script/diff_schemas.py 2024-11-01 --detail --schema wastewater
+
+    # Detail report for commits within a date range:
+    python3 script/diff_schemas.py 2024-11-01 2025-03-31 --detail
 
 Authored by Damion Dooley and Claude
 """
@@ -260,6 +266,41 @@ def build_commit_sequence(old_ref, new_ref):
         to_ref = f"HEAD~{to_n}" if to_n > 0 else "HEAD"
         pairs.append((f"HEAD~{i}", to_ref))
     return pairs
+
+
+def is_date_ref(ref):
+    """Return True if ref looks like a yyyy-mm-dd date string."""
+    return bool(ref and re.match(r'^\d{4}-\d{2}-\d{2}$', str(ref).strip()))
+
+
+def build_date_range_pairs(since, until=None):
+    """
+    Return list of (from_ref, to_ref) full-hash pairs for all commits whose
+    author date falls in [since, until] (both yyyy-mm-dd), oldest first.
+    The parent of the first in-range commit is prepended so that changes
+    introduced by that commit are captured.  If until is None all commits
+    up to HEAD are included.
+    """
+    cmd = ["git", "log", "--format=%H", f"--since={since}"]
+    if until:
+        cmd.append(f"--until={until} 23:59:59")
+    cmd.append("--reverse")
+    try:
+        out = subprocess.check_output(cmd, text=True, stderr=subprocess.DEVNULL)
+    except subprocess.CalledProcessError:
+        return []
+    hashes = [h.strip() for h in out.strip().splitlines() if h.strip()]
+    if not hashes:
+        return []
+    try:
+        parent = subprocess.check_output(
+            ["git", "rev-parse", f"{hashes[0]}^"],
+            text=True, stderr=subprocess.DEVNULL,
+        ).strip()
+        refs = [parent] + hashes
+    except subprocess.CalledProcessError:
+        refs = hashes   # initial commit has no parent
+    return [(refs[i], refs[i + 1]) for i in range(len(refs) - 1)]
 
 
 def get_commit_info(ref):
@@ -487,6 +528,12 @@ def _fmt_val(info, maxlen=None, cap=True):
 def _col_w(rows, idx, header=""):
     """Return column width equal to the widest value (or header) in that column."""
     return max(len(header), max((len(str(r[idx])) for r in rows), default=0))
+
+
+def _semver_key(v):
+    """Convert a version string like '1.4.2' to a tuple of ints for sorting.
+    Non-numeric components are treated as 0 so malformed versions sort stably."""
+    return tuple(int(x) if x.isdigit() else 0 for x in str(v).split('.'))
 
 
 def _print_table(title, rows, col_defs, indent="  ", concise=False):
@@ -730,13 +777,13 @@ def _print_schema_report(spath, data, maxlen=None, concise=False):
         print(f"  ENUMS")
 
         if data['enum_summary']:
-            cols = PFX + [("ENUM NAME", 35), ("VALUE", 1)]
-            rows = [pfx(e) + [
-                        (e['enum_name'] + ' [permissible_values]')
-                        if e['field'] == 'permissible_values' and e['enum_name']
-                        else (e.get('enum_name') or e['field']),
-                        val_enum(e)]
+            rows = [pfx(e) + [e.get('enum_name') or '', e['field'] or '', val_enum(e)]
                     for e in data['enum_summary']]
+            cols = PFX + [
+                ("ENUM", _col_w(rows, 4, "ENUM")),
+                ("ATTRIBUTE", _col_w(rows, 5, "ATTRIBUTE")),
+                ("VALUE", 1),
+            ]
             _print_table("Enum / Collection Changes", rows, cols, indent=T, concise=concise)
 
         for enum_name in sorted(data['enums']):
@@ -748,7 +795,7 @@ def _print_schema_report(spath, data, maxlen=None, concise=False):
                 redundant = (v.strip().lower() in pv.strip().lower()
                              or v.strip().lower() == pv_key.strip().lower())
                 rows.append(pfx(e) + [pv, '' if redundant else v])
-            rows.sort(key=lambda r: (r[1], r[4].lower()))
+            rows.sort(key=lambda r: (_semver_key(r[0]), r[1], r[4].lower()))
             cols = PFX + [("PERMISSIBLE VALUE", _col_w(rows, 4, "PERMISSIBLE VALUE")), ("VALUE", 1)]
             _print_table(f"Enum: {enum_name}", rows, cols, indent=T, concise=concise)
 
@@ -756,12 +803,18 @@ def _print_schema_report(spath, data, maxlen=None, concise=False):
 def run_detail_report(old_ref, new_ref, maxlen=None, target_files=None, concise=False):
     """
     Build and print a schema-grouped detail report over a range of commits.
-    Walks old_ref → … → HEAD accumulating all changes, then prints them
-    grouped by schema → section (schema attrs / classes / slots / enums).
+    Walks old_ref → … → HEAD (or a date range) accumulating all changes, then
+    prints them grouped by schema → section (schema attrs / classes / slots / enums).
+    old_ref / new_ref may be HEAD~N refs or yyyy-mm-dd date strings.
     target_files: list of schema paths to process (defaults to all SCHEMA_FILES).
     """
-    pairs = build_commit_sequence(old_ref, new_ref)
-    end_label = new_ref or "HEAD"
+    if is_date_ref(old_ref):
+        until = new_ref if is_date_ref(new_ref) else None
+        pairs = build_date_range_pairs(old_ref, until)
+        end_label = until or "HEAD"
+    else:
+        pairs = build_commit_sequence(old_ref, new_ref)
+        end_label = new_ref or "HEAD"
 
     if target_files is None:
         target_files = SCHEMA_FILES
@@ -797,9 +850,10 @@ def run_detail_report(old_ref, new_ref, maxlen=None, target_files=None, concise=
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("old_ref", nargs="?", default="HEAD~1")
+    parser.add_argument("old_ref", nargs="?", default="HEAD~1",
+                        help="Git ref (HEAD~N) or start date yyyy-mm-dd (default: HEAD~1)")
     parser.add_argument("new_ref", nargs="?", default=None,
-                        help="Omit to compare against working tree")
+                        help="Git ref or end date yyyy-mm-dd; omit for working tree / up to today")
     parser.add_argument("--full", "-f", action="store_true",
                         help="Show full values without truncation")
     parser.add_argument("--detail", "-d", action="store_true",
