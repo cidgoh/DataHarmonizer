@@ -6,10 +6,28 @@ Compare schema.yaml files between two git commits, classifying changes as:
   - COSMETIC:       reordering, redundant name fields, whitespace-only wrapping
 
 Usage:
-    python3 script/diff_schemas.py [old_ref [new_ref]]
+    python3 script/diff_schemas.py [old_ref [new_ref]] [options]
 
-Defaults: old_ref=HEAD~1, new_ref=HEAD (working tree)
-Example: python3 script/diff_schemas.py HEAD~5 # Means compare five commits ago with now.
+Arguments:
+    old_ref     Git ref for the older version (default: HEAD~1)
+    new_ref     Git ref for the newer version (default: working tree)
+
+Options:
+    -f, --full  Show full field values without truncation (default: truncate at 120 chars)
+    -h, --help  Show this help message and exit
+
+Examples:
+    # Compare last commit against working tree:
+    python3 script/diff_schemas.py
+
+    # Compare five commits ago against working tree:
+    python3 script/diff_schemas.py HEAD~5
+
+    # Compare two specific commits:
+    python3 script/diff_schemas.py HEAD~3 HEAD~1
+
+    # Show full values without truncation:
+    python3 script/diff_schemas.py HEAD~1 --full
 
 Authored by Damion Dooley and Claude
 """

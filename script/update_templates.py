@@ -1,47 +1,54 @@
 # update_templates.py
 #
-# This app fetches the Google sheet called "DataHarmonizer Templates", and 
+# This app fetches the Google sheet called "DataHarmonizer Templates", and
 # saves it to a local "dataharmonizer_templates.xlsx" file. It then examines
 # the Version Control tab which lists "Pathogen Genomics Package" releases of
-# bundles of /web/templates/ DataHarmonizer schemas and their templates. 
+# bundles of /web/templates/ DataHarmonizer schemas and their templates.
 #
 # Then in the first "Version Control" tab sheet
 # it examines last and second last "Pathogen Genomics Templates version"
-# entries, looking for any differences in the listed templates version  
+# entries, looking for any differences in the listed templates version
 # ids, and for those that change, it fetches latest slot and enum tab info.
 # It revises schema_core.yaml for appropriate version ids, and saves
-# schema_slots.tsv and schema_enums.tsv overtop existing files. It then 
-# reruns tabular_to_schema.py on each repo, yeilding schema.yaml and 
+# schema_slots.tsv and schema_enums.tsv overtop existing files. It then
+# reruns tabular_to_schema.py on each repo, yeilding schema.yaml and
 # schema.json which can then be included in overall schema.
 #
 # NOTE: A different approach would just look for changes between Google sheet
 # and latest DH repo files, and then act on that, but prompt user to specify
 # new version ids for changed files.
 #
-# PARAMETERS
-# 	-m adds all listed repos to menu, which also triggers refreshing all
-#      their import slot and enum info.
-# 
-# Author: Damion Dooley Nov 2025
+# USAGE
+#   Run from the script/ directory:
 #
-# GOOGLE API SETUP for fetching "DataHarmonizer Templates" spreadsheet
-# Uses python modules gspread oauth2client
-#	> pip3 install gspread oauth2client
-# 1: go to: 
-#	> https://console.cloud.google.com/
-# 2: select a project (or create one, e.g. dataharmonizer)
-#	> https://console.cloud.google.com/home/dashboard?project=dataharmonizer
-# 3: Enable the Google Sheets API (can search for "google sheets api")
-#	https://console.cloud.google.com/marketplace/product/google/sheets.googleapis.com
-# 4: setup credentials (
-#	In the Google Cloud console, go to Menu menu > APIs & Services > Credentials 
-# 5: Under google menu in upper right, go to "project settings > service accounts"
-# 6: press +Create Service Account
-# 7: Click on account after it is set up
-# 8: press Keys tab
-# 9: "Add key" 
-# 
-
+#   python3 update_templates.py [options]
+#
+# OPTIONS
+#   -d, --download    Download the latest DataHarmonizer Templates Google Sheet
+#                     and save as dataharmonizer_templates.xlsx. Required on
+#                     first run or to refresh cached spreadsheet data.
+#
+#   -s SCHEMA, --schema=SCHEMA
+#                     Regenerate schema.yaml and schema.json for a single
+#                     template matched by Template Name, Folder, or Class
+#                     (case-insensitive). Exports slot/enum TSVs from the
+#                     spreadsheet for that template only.
+#                     Example: python3 update_templates.py -s "CanCOGeN"
+#
+#   -m, --menu        Generate or update menu entries for all schemas.
+#                     Also triggers a full refresh of slot and enum info.
+#
+# EXAMPLES
+#   # Download latest spreadsheet then process version changes:
+#   python3 update_templates.py -d
+#
+#   # Process version changes using a cached spreadsheet:
+#   python3 update_templates.py
+#
+#   # Regenerate a single template's schema files:
+#   python3 update_templates.py -s wastewater
+#
+# Author: Damion Dooley Nov 2025
 
 import pandas as pd
 import csv
