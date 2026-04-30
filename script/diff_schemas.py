@@ -518,13 +518,16 @@ def _print_table(title, rows, col_defs, indent="  ", concise=False):
     print(pad + "  ".join(seps))
     prefix_cols = min(4, len(col_defs) - 1)  # never blank the last (value) column
     for row_idx, row in enumerate(rows):
+        # Concise: blank all prefix columns only when every one matches the previous row.
+        # If any prefix value differs, show all prefix values.
+        hide_prefix = (
+            concise
+            and row_idx > 0
+            and all(str(row[i]) == str(rows[row_idx - 1][i]) for i in range(prefix_cols))
+        )
         cells = []
         for i, (v, (h, w)) in enumerate(zip(row, col_defs)):
-            if concise and row_idx > 0 and i < prefix_cols:
-                # Blank if identical to the original (pre-display) previous row
-                s = "" if str(v) == str(rows[row_idx - 1][i]) else str(v) if v is not None else ""
-            else:
-                s = str(v) if v is not None else ""
+            s = "" if (hide_prefix and i < prefix_cols) else (str(v) if v is not None else "")
             if i < len(col_defs) - 1:
                 cells.append((s[:w-3] + "..." if len(s) > w else s).ljust(w))
             else:
