@@ -200,6 +200,19 @@ sources:
       source_ontology: https://www.statcan.gc.ca/en/media/5274
     download_date: '2026-04-14'
     concise: true
+  NASIS:
+    title: NASIS Database Metadata
+    name: NASIS
+    version: 7.4.3
+    content_type: NASIS
+    file_format: pdf
+    reachable_from:
+      source_ontology: https://www.nrcs.usda.gov/sites/default/files/2025-07/NASIS%207.4.3%20Domains.pdf
+    download_date: '2026-04-29'
+    concise: true
+    description: The USDA NRCS National Soil Information System (NASIS) domain tables
+      define the controlled vocabularies for all categorical fields in the NASIS soil
+      survey database.
   NRCSSoilFieldBook:
     title: USDA NRCS Field Book for Describing and Sampling Soils
     name: NRCSSoilFieldBook

@@ -240,6 +240,10 @@ from source_nrcs import (
     process_nrcs_source,
     match_nrcs,
 )
+from source_nasis import (
+    process_nasis_source,
+    match_nasis,
+)
 from source_utils import (
     MENU_CONFIG,
     BROWSER_HEADERS,
@@ -638,6 +642,18 @@ def build_schema(schema_file="schema.yaml", config_file=MENU_CONFIG, keys=None):
                         k: v for k, v in enum_def["permissible_values"].items()
                         if (v or {}).get("status") not in minus_status
                     }
+
+                # concise: true — drop permissible_values with status: obsolete
+                if source.get("concise") and enum_def.get("permissible_values"):
+                    pvs = enum_def["permissible_values"]
+                    before = len(pvs)
+                    enum_def["permissible_values"] = {
+                        k: v for k, v in pvs.items()
+                        if (v or {}).get("status") != "obsolete"
+                    }
+                    n_dropped = before - len(enum_def["permissible_values"])
+                    if n_dropped:
+                        print(f"  concise: dropped {n_dropped} obsolete pv(s) from {enum_key}")
 
                 # concise: true — for supported content types, drop any permissible_value
                 # whose title is identical to its parent's title, then re-wire is_a
@@ -1132,6 +1148,10 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
 
         if content_type == "NRCSSoilFieldBook":
             process_nrcs_source(key, source, locales=locales)
+            continue
+
+        if content_type == "NASIS":
+            process_nasis_source(key, source, locales=locales)
             continue
 
         process_linkml_source(key, source, config_file)

@@ -219,6 +219,43 @@ python menu_manager.py -a "https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=get
 python menu_manager.py -c STATSCAN1441857
 ```
 
+### NASIS (USDA NRCS National Soil Information System)
+
+NASIS publishes all domain tables (controlled vocabularies for every categorical
+field in the NASIS soil survey database) as a single PDF.  Each domain becomes
+one LinkML enum.  Requires `pypdf` (`pip install pypdf`).
+
+NASIS is not auto-detected by `-a`; add it manually to `menu_config.yaml`:
+
+```yaml
+sources:
+  NASIS:
+    title: NASIS Database Metadata
+    name: NASIS
+    version: '7.4.3'
+    content_type: NASIS
+    file_format: pdf
+    concise: true
+    reachable_from:
+      source_ontology: https://www.nrcs.usda.gov/sites/default/files/2025-07/NASIS%207.4.3%20Domains.pdf
+    download_date: '2026-04-29'
+    description: The USDA NRCS National Soil Information System (NASIS) domain tables
+      define the controlled vocabularies for all categorical fields in the NASIS
+      soil survey database.
+```
+
+Then download and process:
+
+```bash
+python menu_manager.py -c NASIS     # downloads PDF on first run, writes sources/NASIS.yaml
+python menu_manager.py -b           # adds NASIS enums to schema.yaml
+```
+
+The parser extracts 453 enums from the 906-page PDF.  `concise: true` drops
+the ~1,950 permissible values marked obsolete in the PDF at `-b` build time.
+
+---
+
 ### NAPCS Canada
 
 See https://www.statcan.gc.ca/en/subjects/standard/napcs/2022/index and
@@ -315,9 +352,14 @@ dropped.  Any codes that had `is_a: "0110"` are re-wired to `is_a: "011"`.
 
 To keep all nodes, omit `concise` or set `concise: false`.
 
-Currently supported for `content_type: NAPCSCanada`.  For `content_type: OWL`,
-`concise: true` is applied earlier, at `-c` processing time inside
-`process_owl_source`, clipping class definitions to two sentences.
+Behaviour varies by content type:
+
+| Content type | `concise: true` effect |
+|---|---|
+| Any | Drops permissible values with `status: obsolete` at `-b` build time |
+| `NAPCSCanada` | Also drops hierarchy nodes whose title exactly matches their parent's title, re-wiring grandchildren to the nearest surviving ancestor |
+| `OWL` | Also applied at `-c` time inside `process_owl_source`, clipping class definitions to two sentences |
+| `NASIS` | ~1,950 obsolete-marked domain values dropped; surviving count is written to `sources/NASIS.yaml` |
 
 ---
 
@@ -333,7 +375,8 @@ The `minus` and `include` attributes are applied uniformly with two exceptions:
 | `minus.status` | **OWL only** | Removes PVs whose `status` field matches (e.g. `DEPRECATED`). Silently ignored for other types even if present. OntologyAPI sources also emit `status: DEPRECATED` on nodes, so this could logically apply there too |
 | `include.concepts` | Yes | Restores excluded enums after `minus` |
 | `include.permissible_values` | Yes | Restores specific PV keys in surviving enums |
-| `concise` deduplication | **NAPCSCanada only** | Drops PVs whose title equals their parent's title at `-b` time |
+| `concise` obsolete drop | Yes | Drops PVs with `status: obsolete` at `-b` time |
+| `concise` deduplication | **NAPCSCanada only** | Also drops PVs whose title equals their parent's title; grandchildren re-wired |
 
 The processing order is:
 1. `minus.concepts` / `minus.permissible_values` / `minus.status` — first pass, excluding items
@@ -477,6 +520,8 @@ specifications.
 | `source_ontologyapi.py` | `content_type: OntologyAPI` — OLS4 / BioPortal / AGROVOC graph fetching and processing |
 | `source_agrovoc.py` | AGROVOC SPARQL fetchers and `match_agrovoc` detection |
 | `source_loinc.py` | LOINC CodeSystem / ValueSet JSON conversion and HL7 table parsing |
+| `source_nasis.py` | `content_type: NASIS` — USDA NRCS NASIS Domains PDF parsing (requires `pypdf`) |
+| `source_nrcs.py` | `content_type: NRCSSoilFieldBook` — USDA NRCS Field Book for Describing and Sampling Soils PDF parsing (requires `pypdf`) |
 | `source_nsdb.py` | National Soil DataBase HTML parsing |
 | `source_statscan.py` | Statistics Canada classification page scraping |
 | `source_napcscanada.py` | NAPCS Canada CSV parsing |

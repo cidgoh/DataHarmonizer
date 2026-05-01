@@ -68,11 +68,15 @@ def _represent_str(dumper, data):
     CURIE-pattern strings (e.g. ENVO:00000428) are single-quoted to prevent
     the embedded colon from being misread as a key-value separator.
 
-    Strings containing a double-quote character are also single-quoted: PyYAML
-    may emit them as plain block scalars that wrap to a new line, and a
-    continuation line starting with '"' is rejected by many YAML parsers as it
-    looks like the start of a double-quoted scalar.
+    Strings containing a single-quote character are double-quoted to avoid the
+    ugly '' escaping that YAML single-quote style requires.
+
+    Strings containing a double-quote character are single-quoted: PyYAML may
+    emit them as plain block scalars that wrap to a new line, and a continuation
+    line starting with '"' is rejected by many YAML parsers.
     """
+    if "'" in data and '"' not in data:
+        return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='"')
     if _CURIE_PATTERN.match(data) or '"' in data:
         return dumper.represent_scalar('tag:yaml.org,2002:str', data, style="'")
     return dumper.represent_scalar('tag:yaml.org,2002:str', data)
@@ -99,11 +103,13 @@ def add_permissible_value(permissible_values, code, *, title=None, description=N
                           meaning=None, prefixes=None):
     """Add one permissible value entry to *permissible_values* in-place.
 
-    Always sets text=code. All keyword arguments are optional; a field is
-    only written to the entry when its value is truthy.  Returns the entry.
+    All keyword arguments are optional; a field is only written to the entry
+    when its value is truthy.  'text' is omitted when it equals the key
+    (always the case: key == code), since in LinkML the key already carries
+    the text value.  Returns the entry.
 
     permissible_values: dict to mutate.
-    code:        The permissible value code (used as both key and text).
+    code:        The permissible value code (used as the dict key).
     title:       Human-readable label.
     description: Free-text definition.
     is_a:        Parent code for hierarchy.
@@ -112,7 +118,7 @@ def add_permissible_value(permissible_values, code, *, title=None, description=N
     meaning:     IRI for the concept; compressed to a CURIE when prefixes is provided.
     prefixes:    Dict of prefix→URI used to compress meaning to a CURIE.
     """
-    entry = {"text": code}
+    entry = {}
     if title:       entry["title"]       = title
     if description: entry["description"] = description
     if is_a:        entry["is_a"]        = is_a
