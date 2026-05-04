@@ -177,6 +177,7 @@ from source_ontologyapi import (
     fetch_api_graph,
     process_skos_source,
     match_snomed,
+    match_ontology_term,
 )
 from source_linkml import (
     apply_sorted_prefixes,
@@ -934,12 +935,16 @@ def add_source(urls, config_file=MENU_CONFIG):
         # Unescape HTML entities (e.g. &amp; → &) so the server receives a valid URL
         url = html.unescape(url)
 
-        # Pre-download detectors: no file download needed for these URL patterns
+        # Pre-download detectors: handle their own download (or need none)
         if match_agrovoc(url, config_file):
             continue
         if match_snomed(url, config_file):
             continue
+        if match_ontology_term(url, config_file):
+            continue
         if match_agrifood_dir(url, config_file):
+            continue
+        if match_nasis(url, config_file):
             continue
 
         print(f"Fetching {url} ...")

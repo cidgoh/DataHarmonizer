@@ -10,15 +10,17 @@ Public API used by menu_manager.py:
 
 import os
 import re
+import subprocess
 import sys
-import urllib.request
+import urllib.parse
 import yaml
 
 from source_utils import (
     add_permissible_value,
     IndentedDumper,
     make_config_schema,
-    BROWSER_HEADERS,
+    make_source_entry,
+    write_config,
     MENU_CONFIG,
 )
 
@@ -124,13 +126,22 @@ def _require_pypdf():
 
 
 def fetch_pdf(url, dest_path):
-    """Download *url* to *dest_path* using browser-like headers."""
-    req = urllib.request.Request(url, headers=BROWSER_HEADERS)
-    with urllib.request.urlopen(req) as resp:
-        data = resp.read()
-    with open(dest_path, "wb") as f:
-        f.write(data)
-    print(f"  Downloaded {url} → {dest_path} ({len(data):,} bytes)")
+    """Download *url* to *dest_path* via curl.
+
+    Uses curl rather than urllib so that HTTP/2 is negotiated automatically.
+    The NRCS server (Akamai CDN) drops urllib's HTTP/1.1 connections but
+    serves curl without issue.
+    """
+    print(f"  Downloading {url} ...")
+    result = subprocess.run(
+        ["curl", "-L", "--silent", "--show-error", "-o", dest_path, url],
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        print(f"  curl error: {result.stderr.strip()}", file=sys.stderr)
+        sys.exit(1)
+    size = os.path.getsize(dest_path)
+    print(f"  Saved {dest_path} ({size:,} bytes)")
 
 
 # ---------------------------------------------------------------------------
@@ -379,12 +390,50 @@ def process_nasis_source(key, source, locales=None):
     print(f"Updated {yaml_path}")
 
 
-def match_nasis(url, tmp_path, config_file=MENU_CONFIG):
+def match_nasis(url, config_file=MENU_CONFIG):
     """Return True if *url* is a NASIS Domains PDF URL and was handled.
 
-    Placeholder for future -a auto-detection support.
+    Pre-download detector (no tmp_path): downloads the PDF itself via curl
+    so that HTTP/2 is used.  urllib's HTTP/1.1 is dropped by the Akamai CDN
+    that serves nrcs.usda.gov.
+
+    Matches URLs like:
+      https://www.nrcs.usda.gov/sites/default/files/2025-07/NASIS%207.4.3%20Domains.pdf
     """
-    if "nrcs.usda.gov" not in url or "NASIS" not in url or not url.lower().endswith(".pdf"):
+    decoded = urllib.parse.unquote(url)
+    if "nrcs.usda.gov" not in decoded or "NASIS" not in decoded or not decoded.lower().endswith(".pdf"):
         return False
-    # TODO: implement -a add-source detection for NASIS PDF URLs
-    return False
+
+    key = "NASIS"
+
+    with open(config_file) as f:
+        config = yaml.safe_load(f) or {}
+    if key in config.get("sources", {}):
+        print(f"  Skipping {url}: source key '{key}' already exists in {config_file}",
+              file=sys.stderr)
+        return True
+
+    version_m = re.search(r'NASIS\s+([\d.]+)', decoded)
+    version = version_m.group(1) if version_m else None
+
+    pdf_path = f"sources/{key}.pdf"
+    fetch_pdf(url, pdf_path)
+
+    entry = make_source_entry(
+        key, url, "NASIS", "pdf",
+        title="NASIS Database Metadata",
+        version=version,
+        description=(
+            "The USDA NRCS National Soil Information System (NASIS) domain tables"
+            " define the controlled vocabularies for all categorical fields in the"
+            " NASIS soil survey database."
+        ),
+    )
+    entry["concise"] = True
+
+    config.setdefault("sources", {})[key] = entry
+    write_config(config, config_file)
+    print(f"Added source '{key}' to {config_file}")
+
+    process_nasis_source(key, entry)
+    return True

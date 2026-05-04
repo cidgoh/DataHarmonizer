@@ -11,6 +11,7 @@ Public API used by menu_manager.py:
     fetch_api_graph(ontology, term_id, apis=None, locales=None)
     process_skos_source(key, source, config_file=None, locales=None)
     match_snomed(url, config_file=MENU_CONFIG)
+    match_ontology_term(url, config_file=MENU_CONFIG)
 """
 
 import json
@@ -475,4 +476,105 @@ def match_snomed(url, config_file=MENU_CONFIG):
     write_config(config, config_file)
     print(f"Added source '{key}' (title={title!r}, version={version!r}, "
           f"description={'set' if description else 'not available'}) to {config_file}")
+    return True
+
+
+# Matches a bare CURIE like ENVO:00010483 or GO:0008150 (letter-started prefix, colon, local ID)
+_CURIE_INPUT_PAT = re.compile(r'^([A-Za-z][A-Za-z0-9]*):([\w]+)$')
+# Matches OBO shorthand with underscore: ENVO_00010483, GO_0008150 (numeric local part)
+_OBO_SHORTHAND_PAT = re.compile(r'^([A-Za-z][A-Za-z0-9]*)_(\d+)$')
+# Matches an OBO Foundry IRI: http(s)://purl.obolibrary.org/obo/PREFIX_localid
+_OBO_IRI_INPUT_PAT = re.compile(r'https?://purl\.obolibrary\.org/obo/([A-Za-z][A-Za-z0-9]*)_([\w]+)')
+
+
+def _find_api_for_prefix(prefix, apis):
+    """Return (api_name, api_conf) for the first API whose ontologies list contains *prefix*.
+
+    Comparison is case-insensitive.  Falls back to ('ols', apis['ols']) when no
+    explicit match is found, since OLS4 accepts any OBO ontology by default.
+    """
+    prefix_upper = prefix.upper()
+    for name, conf in (apis or {}).items():
+        ontologies = [o.upper() for o in (conf.get("ontologies") or [])]
+        if prefix_upper in ontologies:
+            return name, conf
+    return "ols", (apis or {}).get("ols") or {}
+
+
+def match_ontology_term(url, config_file=MENU_CONFIG):
+    """Return True if *url* is an ontology term CURIE, OBO shorthand, or OBO IRI and was handled.
+
+    Accepted forms:
+      ENVO:00010483                                    (bare CURIE, colon separator)
+      ENVO_00010483                                    (OBO shorthand, underscore + numeric ID)
+      http://purl.obolibrary.org/obo/ENVO_00010483     (OBO Foundry IRI)
+
+    Looks up the prefix in the `apis` block of menu_config.yaml to find which
+    configured API handles the ontology (defaults to OLS4 when none claim it).
+    The configured API is written to reachable_from for -l expansion; term
+    label and description are always fetched from OLS4 (which is public and
+    free) regardless of which API will be used for hierarchy expansion.
+    """
+    prefix = term_id = None
+
+    m = _CURIE_INPUT_PAT.match(url)
+    if m:
+        prefix, term_id = m.group(1), m.group(2)
+    else:
+        m = _OBO_SHORTHAND_PAT.match(url)
+        if m:
+            prefix, term_id = m.group(1), m.group(2)
+        else:
+            m = _OBO_IRI_INPUT_PAT.match(url)
+            if m:
+                prefix, term_id = m.group(1).upper(), m.group(2)
+
+    if not prefix:
+        return False
+
+    with open(config_file) as _cf:
+        config = yaml.safe_load(_cf) or {}
+
+    apis = config.get("apis") or {}
+    api_name, api_conf = _find_api_for_prefix(prefix, apis)
+
+    key = f"{prefix}_{term_id}"
+    curie = f"{prefix}:{term_id}"
+
+    if key in config.get("sources", {}):
+        print(f"  Skipping {url}: source key '{key}' already exists in {config_file}",
+              file=sys.stderr)
+        return True
+
+    api_type = "sparql" if _get_type_conf(api_conf, "sparql") else "rest"
+
+    # Always use OLS4 for the initial label/description lookup — it is public
+    # and free, and avoids auth issues with BioPortal or SPARQL endpoints.
+    # The api_name/api_type in the source entry controls -l routing only.
+    ols_conf = apis.get("ols") or {}
+    iri_base = resolve_ols4_iri_base(prefix, ols_conf)
+    concept_iri = iri_base + term_id
+
+    print(f"  Fetching OLS4 ontology metadata for {prefix} ...")
+    meta = _fetch_ols4_ontology_meta(prefix, ols_conf)
+    version = meta.get("version") or None
+
+    print(f"  Fetching OLS4 term info for {concept_iri} ...")
+    term_info = _fetch_ols4_term_info(prefix, concept_iri, ols_conf)
+    title = term_info["label"] or key
+    description = term_info["description"] or None
+
+    entry = make_source_entry(key, concept_iri, "OntologyAPI", "json",
+                              title=title, version=version, description=description)
+    entry["prefixes"] = {prefix: iri_base}
+    entry["reachable_from"] = {
+        "api": {api_name: {"type": api_type}},
+        "source_nodes": [curie],
+        "include_self": True,
+    }
+
+    config.setdefault("sources", {})[key] = entry
+    write_config(config, config_file)
+    print(f"Added source '{key}' (api={api_name}, title={title!r}) to {config_file}")
+    print(f"  Run: menu_manager.py -l {key}  to expand the hierarchy via {api_name}")
     return True

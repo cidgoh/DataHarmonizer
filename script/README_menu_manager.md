@@ -9,6 +9,8 @@ assembles them into a `schema.yaml` suitable for use with DataHarmonizer.
 
 ## Quick-start workflow
 
+**Note that some terminals access python as "python3". ALSO, menu_manager.py needs to be run within the context of the folder you want to generate schema.yaml in. If menu_manager.py location is not set in the shell environment then you will need to reference it using a relative path to the DataHarmonizer script/ folder, .e.g  "python ../../../script/menu_manager.py" .**
+
 ```bash
 # 1. Add sources (auto-detects type, downloads, adds to menu_config.yaml)
 python menu_manager.py -a https://example.org/some-valueset.json
@@ -22,6 +24,10 @@ python menu_manager.py -b
 # Full refresh in one line:
 python menu_manager.py -f all -c -b
 ```
+
+One strategy with a new menu management installation is to pick a few libraries that you know contain enumerations / picklists useful in a project.  So for example, soil:
+python menu_manager.py -a https://example.org/some-valueset.json
+
 
 ---
 
@@ -122,6 +128,7 @@ python menu_manager.py -a https://example.org/some-valueset.json
 |---|---|
 | `OntologyAPI` | URL matches `aims.fao.org/aos/agrovoc/{id}` (pre-download) |
 | `OntologyAPI` | URL matches `snomed.info/id/{conceptId}` (pre-download) |
+| `OntologyAPI` | Bare CURIE `ENVO:00010483`, OBO shorthand `ENVO_00010483`, or OBO IRI `http://purl.obolibrary.org/obo/ENVO_00010483` (pre-download; routes to configured API or OLS4) |
 | `NSDBSNT` | URL contains `/snt/` under the NSDB soil domain |
 | `NSDBSLT` | URL contains `/slt/` under the NSDB soil domain |
 | `NSDB` | URL matches `sis.agr.gc.ca/cansis/nsdb/soil` prefix |
@@ -135,6 +142,7 @@ python menu_manager.py -a https://example.org/some-valueset.json
 | `NAPCSCanada` | CSV content with NAPCS-specific column headers |
 | `AgriFoodCA` | GitHub directory URL for `agrifooddatacanada/picklists_for_schemas` (pre-download) |
 | `AgriFoodCA` | CSV first row matches `,title,description,keywords,source` (content-based) |
+| `NASIS` | URL from `nrcs.usda.gov` containing `NASIS` with `.pdf` extension |
 
 ---
 
@@ -155,6 +163,34 @@ python menu_manager.py -b
 (see [API configuration](#api-configuration)).  If it is absent, `fetch_api_graph`
 still falls back to OLS4 and auto-detects the `http://snomed.info/id/` IRI base
 from OLS4 ontology metadata — no explicit `iri_base` key required.
+
+### OBO ontology terms (ENVO, GO, UBERON, …)
+
+Pass either a bare CURIE or a full OBO IRI.  The prefix is looked up in the
+`apis` block of `menu_config.yaml` to choose the API (defaults to OLS4).  The
+term label and description are fetched immediately; hierarchy expansion runs
+separately with `-l`.
+
+```bash
+# OBO shorthand (underscore + numeric ID)
+python menu_manager.py -a ENVO_00010483
+python menu_manager.py -l ENVO_00010483
+
+# CURIE form (colon separator)
+python menu_manager.py -a ENVO:00010483
+python menu_manager.py -l ENVO_00010483
+
+# OBO IRI form
+python menu_manager.py -a http://purl.obolibrary.org/obo/ENVO_00010483
+python menu_manager.py -l ENVO_00010483
+
+# Ontology whose prefix is listed under bioportal in menu_config.yaml
+# will be routed to BioPortal automatically
+python menu_manager.py -a MESH:D001234
+python menu_manager.py -l MESH_D001234
+```
+
+The generated source key is always `{PREFIX}_{localID}` (e.g. `ENVO_00010483`).
 
 ### AGROVOC
 
@@ -225,29 +261,21 @@ NASIS publishes all domain tables (controlled vocabularies for every categorical
 field in the NASIS soil survey database) as a single PDF.  Each domain becomes
 one LinkML enum.  Requires `pypdf` (`pip install pypdf`).
 
-NASIS is not auto-detected by `-a`; add it manually to `menu_config.yaml`:
-
-```yaml
-sources:
-  NASIS:
-    title: NASIS Database Metadata
-    name: NASIS
-    version: '7.4.3'
-    content_type: NASIS
-    file_format: pdf
-    concise: true
-    reachable_from:
-      source_ontology: https://www.nrcs.usda.gov/sites/default/files/2025-07/NASIS%207.4.3%20Domains.pdf
-    download_date: '2026-04-29'
-    description: The USDA NRCS National Soil Information System (NASIS) domain tables
-      define the controlled vocabularies for all categorical fields in the NASIS
-      soil survey database.
+```bash
+python menu_manager.py -a "https://www.nrcs.usda.gov/sites/default/files/2025-07/NASIS%207.4.3%20Domains.pdf"
+python menu_manager.py -b
 ```
 
-Then download and process:
+The URL is auto-detected as NASIS: the PDF is saved to `sources/NASIS.pdf`, a
+source entry (with `concise: true`) is added to `menu_config.yaml`, and
+`process_nasis_source` runs immediately.  To update to a newer release, remove
+the `NASIS` key from `menu_config.yaml` first and re-run `-a` with the new URL.
+
+To process a manually placed PDF (already at `sources/NASIS.pdf`) without
+re-downloading:
 
 ```bash
-python menu_manager.py -c NASIS     # downloads PDF on first run, writes sources/NASIS.yaml
+python menu_manager.py -c NASIS     # writes sources/NASIS.yaml
 python menu_manager.py -b           # adds NASIS enums to schema.yaml
 ```
 
