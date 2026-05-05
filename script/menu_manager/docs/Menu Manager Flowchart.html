@@ -1,0 +1,1662 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Menu Manager — Parameter Flowchart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+/**
+ * <deck-stage> — reusable web component for HTML decks.
+ *
+ * Handles:
+ *  (a) speaker notes — reads <script type="application/json" id="speaker-notes">
+ *      and posts {slideIndexChanged: N} to the parent window on nav.
+ *  (b) keyboard navigation — ←/→, PgUp/PgDn, Space, Home/End, number keys.
+ *  (c) press R to reset to slide 0 (with a tasteful keyboard hint).
+ *  (d) bottom-center overlay showing slide count + hints, fades out on idle.
+ *  (e) auto-scaling — inner canvas is a fixed design size (default 1920×1080)
+ *      scaled with `transform: scale()` to fit the viewport, letterboxed.
+ *      Set the `noscale` attribute to render at authored size (1:1) — the
+ *      PPTX exporter sets this so its DOM capture sees unscaled geometry.
+ *  (f) print — `@media print` lays every slide out as its own page at the
+ *      design size, so the browser's Print → Save as PDF produces a clean
+ *      one-page-per-slide PDF with no extra setup.
+ *
+ * Slides are HIDDEN, not unmounted. Non-active slides stay in the DOM with
+ * `visibility: hidden` + `opacity: 0`, so their state (videos, iframes,
+ * form inputs, React trees) is preserved across navigation.
+ *
+ * Lifecycle event — the component dispatches a `slidechange` CustomEvent on
+ * itself whenever the active slide changes (including the initial mount).
+ * The event bubbles and composes out of shadow DOM, so you can listen on
+ * the <deck-stage> element or on document:
+ *
+ *   document.querySelector('deck-stage').addEventListener('slidechange', (e) => {
+ *     e.detail.index         // new 0-based index
+ *     e.detail.previousIndex // previous index, or -1 on init
+ *     e.detail.total         // total slide count
+ *     e.detail.slide         // the new active slide element
+ *     e.detail.previousSlide // the prior slide element, or null on init
+ *     e.detail.reason        // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+ *   });
+ *
+ * Persistence: current slide index is saved to localStorage keyed by the
+ * document path, so refresh returns you to the same place.
+ *
+ * Usage:
+ *   <deck-stage width="1920" height="1080">
+ *     <section data-label="Title">...</section>
+ *     <section data-label="Agenda">...</section>
+ *   </deck-stage>
+ *
+ * Slides are the direct element children of <deck-stage>. Each slide is
+ * automatically tagged with:
+ *   - data-screen-label="NN Label"   (1-indexed, for comment flow)
+ *   - data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+ */
+
+(() => {
+  const DESIGN_W_DEFAULT = 1920;
+  const DESIGN_H_DEFAULT = 1080;
+  const STORAGE_PREFIX = 'deck-stage:slide:';
+  const OVERLAY_HIDE_MS = 1800;
+  const VALIDATE_ATTR = 'no_overflowing_text,no_overlapping_text,slide_sized_text';
+
+  const pad2 = (n) => String(n).padStart(2, '0');
+
+  const stylesheet = `
+    :host {
+      position: fixed;
+      inset: 0;
+      display: block;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .canvas {
+      position: relative;
+      transform-origin: center center;
+      flex-shrink: 0;
+      background: #fff;
+      will-change: transform;
+    }
+
+    /* Slides live in light DOM (via <slot>) so authored CSS still applies.
+       We absolutely position each slotted child to stack them. */
+    ::slotted(*) {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    ::slotted([data-deck-active]) {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    /* Tap zones for mobile — back/forward thirds like Stories.
+       Transparent, no visible UI, don't block the overlay. */
+    .tapzones {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      z-index: 2147482000;
+      pointer-events: none;
+    }
+    .tapzone {
+      flex: 1;
+      pointer-events: auto;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Only activate tap zones on coarse pointers (touch devices). */
+    @media (hover: hover) and (pointer: fine) {
+      .tapzones { display: none; }
+    }
+
+    .overlay {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translate(-50%, 6px) scale(0.92);
+      filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: #000;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-feature-settings: "tnum" 1;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease, transform 260ms cubic-bezier(.2,.8,.2,1), filter 260ms ease;
+      transform-origin: center bottom;
+      z-index: 2147483000;
+      user-select: none;
+    }
+    .overlay[data-visible] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .btn {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.72);
+      transition: background 140ms ease, color 140ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn:active { background: rgba(255,255,255,0.18); }
+    .btn:focus { outline: none; }
+    .btn:focus-visible { outline: none; }
+    .btn::-moz-focus-inner { border: 0; }
+    .btn svg { width: 14px; height: 14px; display: block; }
+    .btn.reset {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0 10px 0 12px;
+      gap: 6px;
+      color: rgba(255,255,255,0.72);
+    }
+    .btn.reset .kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 10px;
+      line-height: 1;
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+    }
+
+    .count {
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+      font-weight: 500;
+      padding: 0 8px;
+      min-width: 42px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .count .sep { color: rgba(255,255,255,0.45); margin: 0 3px; font-weight: 400; }
+    .count .total { color: rgba(255,255,255,0.55); }
+
+    .divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 2px;
+    }
+
+    /* ── Print: one page per slide, no chrome ────────────────────────────
+       The screen layout stacks every slide at inset:0 inside a scaled
+       canvas; for print we want them in document flow at the authored
+       design size so the browser paginates one slide per sheet. The
+       @page size is set from the width/height attributes via the inline
+       <style id="deck-stage-print-page"> that connectedCallback injects
+       into <head> (the @page at-rule has no effect inside shadow DOM). */
+    @media print {
+      :host {
+        position: static;
+        inset: auto;
+        background: none;
+        overflow: visible;
+        color: inherit;
+      }
+      .stage { position: static; display: block; }
+      .canvas {
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        background: none;
+        will-change: auto;
+      }
+      ::slotted(*) {
+        position: relative !important;
+        inset: auto !important;
+        width: var(--deck-design-w) !important;
+        height: var(--deck-design-h) !important;
+        box-sizing: border-box !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+      ::slotted(*:last-child) {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .overlay, .tapzones { display: none !important; }
+    }
+  `;
+
+  class DeckStage extends HTMLElement {
+    static get observedAttributes() { return ['width', 'height', 'noscale']; }
+
+    constructor() {
+      super();
+      this._root = this.attachShadow({ mode: 'open' });
+      this._index = 0;
+      this._slides = [];
+      this._notes = [];
+      this._hideTimer = null;
+      this._mouseIdleTimer = null;
+      this._storageKey = STORAGE_PREFIX + (location.pathname || '/');
+
+      this._onKey = this._onKey.bind(this);
+      this._onResize = this._onResize.bind(this);
+      this._onSlotChange = this._onSlotChange.bind(this);
+      this._onMouseMove = this._onMouseMove.bind(this);
+      this._onTapBack = this._onTapBack.bind(this);
+      this._onTapForward = this._onTapForward.bind(this);
+    }
+
+    get designWidth() {
+      return parseInt(this.getAttribute('width'), 10) || DESIGN_W_DEFAULT;
+    }
+    get designHeight() {
+      return parseInt(this.getAttribute('height'), 10) || DESIGN_H_DEFAULT;
+    }
+
+    connectedCallback() {
+      this._render();
+      this._loadNotes();
+      this._syncPrintPageRule();
+      window.addEventListener('keydown', this._onKey);
+      window.addEventListener('resize', this._onResize);
+      window.addEventListener('mousemove', this._onMouseMove, { passive: true });
+      // Initial collection + layout happens via slotchange, which fires on mount.
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener('keydown', this._onKey);
+      window.removeEventListener('resize', this._onResize);
+      window.removeEventListener('mousemove', this._onMouseMove);
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      if (this._mouseIdleTimer) clearTimeout(this._mouseIdleTimer);
+    }
+
+    attributeChangedCallback() {
+      if (this._canvas) {
+        this._canvas.style.width = this.designWidth + 'px';
+        this._canvas.style.height = this.designHeight + 'px';
+        this._canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+        this._canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+        this._fit();
+        this._syncPrintPageRule();
+      }
+    }
+
+    _render() {
+      const style = document.createElement('style');
+      style.textContent = stylesheet;
+
+      const stage = document.createElement('div');
+      stage.className = 'stage';
+
+      const canvas = document.createElement('div');
+      canvas.className = 'canvas';
+      canvas.style.width = this.designWidth + 'px';
+      canvas.style.height = this.designHeight + 'px';
+      canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+      canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+
+      const slot = document.createElement('slot');
+      slot.addEventListener('slotchange', this._onSlotChange);
+      canvas.appendChild(slot);
+      stage.appendChild(canvas);
+
+      // Tap zones (mobile): left third = back, right third = forward.
+      const tapzones = document.createElement('div');
+      tapzones.className = 'tapzones export-hidden';
+      tapzones.setAttribute('aria-hidden', 'true');
+      const tzBack = document.createElement('div');
+      tzBack.className = 'tapzone tapzone--back';
+      const tzMid = document.createElement('div');
+      tzMid.className = 'tapzone tapzone--mid';
+      tzMid.style.pointerEvents = 'none';
+      const tzFwd = document.createElement('div');
+      tzFwd.className = 'tapzone tapzone--fwd';
+      tzBack.addEventListener('click', this._onTapBack);
+      tzFwd.addEventListener('click', this._onTapForward);
+      tapzones.append(tzBack, tzMid, tzFwd);
+
+      // Overlay: compact, solid black, with clickable controls.
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay export-hidden';
+      overlay.setAttribute('role', 'toolbar');
+      overlay.setAttribute('aria-label', 'Deck controls');
+      overlay.innerHTML = `
+        <button class="btn prev" type="button" aria-label="Previous slide" title="Previous (←)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+        </button>
+        <span class="count" aria-live="polite"><span class="current">1</span><span class="sep">/</span><span class="total">1</span></span>
+        <button class="btn next" type="button" aria-label="Next slide" title="Next (→)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+        <span class="divider"></span>
+        <button class="btn reset" type="button" aria-label="Reset to first slide" title="Reset (R)">Reset<span class="kbd">R</span></button>
+      `;
+
+      overlay.querySelector('.prev').addEventListener('click', () => this._go(this._index - 1, 'click'));
+      overlay.querySelector('.next').addEventListener('click', () => this._go(this._index + 1, 'click'));
+      overlay.querySelector('.reset').addEventListener('click', () => this._go(0, 'click'));
+
+      this._root.append(style, stage, tapzones, overlay);
+      this._canvas = canvas;
+      this._slot = slot;
+      this._overlay = overlay;
+      this._countEl = overlay.querySelector('.current');
+      this._totalEl = overlay.querySelector('.total');
+    }
+
+    /** @page must live in the document stylesheet — it's a no-op inside
+     *  shadow DOM. Inject/update a single <head> style tag so the print
+     *  sheet matches the design size and Save-as-PDF yields one slide per
+     *  page with no margins. */
+    _syncPrintPageRule() {
+      const id = 'deck-stage-print-page';
+      let tag = document.getElementById(id);
+      if (!tag) {
+        tag = document.createElement('style');
+        tag.id = id;
+        document.head.appendChild(tag);
+      }
+      tag.textContent =
+        '@page { size: ' + this.designWidth + 'px ' + this.designHeight + 'px; margin: 0; } ' +
+        '@media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } ' +
+        '* { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }';
+    }
+
+    _onSlotChange() {
+      this._collectSlides();
+      this._restoreIndex();
+      this._applyIndex({ showOverlay: false, broadcast: true, reason: 'init' });
+      this._fit();
+    }
+
+    _collectSlides() {
+      const assigned = this._slot.assignedElements({ flatten: true });
+      this._slides = assigned.filter((el) => {
+        // Skip template/style/script nodes even if someone slots them.
+        const tag = el.tagName;
+        return tag !== 'TEMPLATE' && tag !== 'SCRIPT' && tag !== 'STYLE';
+      });
+
+      this._slides.forEach((slide, i) => {
+        const n = i + 1;
+        // Determine a label for comment flow: prefer explicit data-label,
+        // then an existing data-screen-label, then first heading, else "Slide".
+        let label = slide.getAttribute('data-label');
+        if (!label) {
+          const existing = slide.getAttribute('data-screen-label');
+          if (existing) {
+            // Strip any leading number the author may have included.
+            label = existing.replace(/^\s*\d+\s*/, '').trim() || existing;
+          }
+        }
+        if (!label) {
+          const h = slide.querySelector('h1, h2, h3, [data-title]');
+          if (h) label = (h.textContent || '').trim().slice(0, 40);
+        }
+        if (!label) label = 'Slide';
+        slide.setAttribute('data-screen-label', `${pad2(n)} ${label}`);
+
+        // Validation attribute for comment flow / auto-checks.
+        if (!slide.hasAttribute('data-om-validate')) {
+          slide.setAttribute('data-om-validate', VALIDATE_ATTR);
+        }
+
+        slide.setAttribute('data-deck-slide', String(i));
+      });
+
+      if (this._totalEl) this._totalEl.textContent = String(this._slides.length || 1);
+      if (this._index >= this._slides.length) this._index = Math.max(0, this._slides.length - 1);
+    }
+
+    _loadNotes() {
+      const tag = document.getElementById('speaker-notes');
+      if (!tag) { this._notes = []; return; }
+      try {
+        const parsed = JSON.parse(tag.textContent || '[]');
+        if (Array.isArray(parsed)) this._notes = parsed;
+      } catch (e) {
+        console.warn('[deck-stage] Failed to parse #speaker-notes JSON:', e);
+        this._notes = [];
+      }
+    }
+
+    _restoreIndex() {
+      try {
+        const raw = localStorage.getItem(this._storageKey);
+        if (raw != null) {
+          const n = parseInt(raw, 10);
+          if (Number.isFinite(n) && n >= 0 && n < this._slides.length) {
+            this._index = n;
+          }
+        }
+      } catch (e) { /* ignore */ }
+    }
+
+    _persistIndex() {
+      try { localStorage.setItem(this._storageKey, String(this._index)); }
+      catch (e) { /* ignore */ }
+    }
+
+    _applyIndex({ showOverlay = true, broadcast = true, reason = 'init' } = {}) {
+      if (!this._slides.length) return;
+      const prev = this._prevIndex == null ? -1 : this._prevIndex;
+      const curr = this._index;
+      this._slides.forEach((s, i) => {
+        if (i === curr) s.setAttribute('data-deck-active', '');
+        else s.removeAttribute('data-deck-active');
+      });
+      if (this._countEl) this._countEl.textContent = String(curr + 1);
+      this._persistIndex();
+
+      if (broadcast) {
+        // (1) Legacy: host-window postMessage for speaker-notes renderers.
+        try { window.postMessage({ slideIndexChanged: curr }, '*'); } catch (e) {}
+
+        // (2) In-page CustomEvent on the <deck-stage> element itself.
+        //     Bubbles and composes out of shadow DOM so slide code can listen:
+        //       document.querySelector('deck-stage').addEventListener('slidechange', e => {
+        //         e.detail.index, e.detail.previousIndex, e.detail.total, e.detail.slide, e.detail.reason
+        //       });
+        const detail = {
+          index: curr,
+          previousIndex: prev,
+          total: this._slides.length,
+          slide: this._slides[curr] || null,
+          previousSlide: prev >= 0 ? (this._slides[prev] || null) : null,
+          reason: reason, // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+        };
+        this.dispatchEvent(new CustomEvent('slidechange', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }));
+      }
+
+      this._prevIndex = curr;
+      if (showOverlay) this._flashOverlay();
+    }
+
+    _flashOverlay() {
+      if (!this._overlay) return;
+      this._overlay.setAttribute('data-visible', '');
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      this._hideTimer = setTimeout(() => {
+        this._overlay.removeAttribute('data-visible');
+      }, OVERLAY_HIDE_MS);
+    }
+
+    _fit() {
+      if (!this._canvas) return;
+      // PPTX export sets noscale so the DOM capture sees authored-size
+      // geometry — the scaled canvas is in shadow DOM, so the exporter's
+      // resetTransformSelector can't reach .canvas.style.transform directly.
+      if (this.hasAttribute('noscale')) {
+        this._canvas.style.transform = 'none';
+        return;
+      }
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const s = Math.min(vw / this.designWidth, vh / this.designHeight);
+      this._canvas.style.transform = `scale(${s})`;
+    }
+
+    _onResize() { this._fit(); }
+
+    _onMouseMove() {
+      // Keep overlay visible while mouse moves; hide after idle.
+      this._flashOverlay();
+    }
+
+    _onTapBack(e) {
+      e.preventDefault();
+      this._go(this._index - 1, 'tap');
+    }
+
+    _onTapForward(e) {
+      e.preventDefault();
+      this._go(this._index + 1, 'tap');
+    }
+
+    _onKey(e) {
+      // Ignore when the user is typing.
+      const t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      const key = e.key;
+      let handled = true;
+
+      if (key === 'ArrowRight' || key === 'PageDown' || key === ' ' || key === 'Spacebar') {
+        this._go(this._index + 1, 'keyboard');
+      } else if (key === 'ArrowLeft' || key === 'PageUp') {
+        this._go(this._index - 1, 'keyboard');
+      } else if (key === 'Home') {
+        this._go(0, 'keyboard');
+      } else if (key === 'End') {
+        this._go(this._slides.length - 1, 'keyboard');
+      } else if (key === 'r' || key === 'R') {
+        this._go(0, 'keyboard');
+      } else if (/^[0-9]$/.test(key)) {
+        // 1..9 jump to that slide; 0 jumps to 10.
+        const n = key === '0' ? 9 : parseInt(key, 10) - 1;
+        if (n < this._slides.length) this._go(n, 'keyboard');
+      } else {
+        handled = false;
+      }
+
+      if (handled) {
+        e.preventDefault();
+        this._flashOverlay();
+      }
+    }
+
+    _go(i, reason = 'api') {
+      if (!this._slides.length) return;
+      const clamped = Math.max(0, Math.min(this._slides.length - 1, i));
+      if (clamped === this._index) {
+        this._flashOverlay();
+        return;
+      }
+      this._index = clamped;
+      this._applyIndex({ showOverlay: true, broadcast: true, reason });
+    }
+
+    // Public API ------------------------------------------------------------
+
+    /** Current slide index (0-based). */
+    get index() { return this._index; }
+    /** Total slide count. */
+    get length() { return this._slides.length; }
+    /** Programmatically navigate. */
+    goTo(i) { this._go(i, 'api'); }
+    next() { this._go(this._index + 1, 'api'); }
+    prev() { this._go(this._index - 1, 'api'); }
+    reset() { this._go(0, 'api'); }
+  }
+
+  if (!customElements.get('deck-stage')) {
+    customElements.define('deck-stage', DeckStage);
+  }
+})();
+
+</script>
+<style>
+  :root {
+    --bg: #f5f2ec;
+    --ink: #17191c;
+    --ink-soft: #4a4e55;
+    --ink-faint: #8b8f96;
+    --rule: #d6d1c6;
+    --rule-strong: #2b2d31;
+    --paper: #fbfaf6;
+
+    /* Group colors (lifecycle) */
+    --g-add:      oklch(58% 0.14 55);    /* terracotta */
+    --g-add-t:    oklch(95% 0.03 55);
+    --g-fetch:    oklch(55% 0.13 145);   /* moss green */
+    --g-fetch-t:  oklch(95% 0.025 145);
+    --g-maint:    oklch(52% 0.12 250);   /* steel blue */
+    --g-maint-t:  oklch(95% 0.02 250);
+    --g-build:    oklch(45% 0.12 300);   /* plum */
+    --g-build-t:  oklch(95% 0.025 300);
+    --g-map:      oklch(55% 0.14 25);    /* red-orange */
+    --g-map-t:    oklch(95% 0.03 25);
+
+    --file: oklch(40% 0.05 230);
+    --file-t: oklch(96% 0.015 230);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #000; color: var(--ink); font-family: "Inter Tight", -apple-system, Helvetica, Arial, sans-serif; font-feature-settings: "ss01","cv11","tnum"; }
+  section { background: var(--bg); color: var(--ink); overflow: hidden; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; }
+
+  /* ── Shared chrome ─────────────────────────────────────── */
+  .chrome {
+    position: absolute; inset: 0;
+    padding: 56px 72px 56px;
+    display: flex; flex-direction: column;
+  }
+  .eyebrow {
+    display: flex; align-items: center; gap: 16px;
+    font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 500;
+  }
+  .eyebrow .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--rule-strong); }
+  .eyebrow .sep { flex: 1; height: 1px; background: var(--rule); }
+  .eyebrow .pagenum { font-family: "JetBrains Mono", monospace; font-size: 24px; letter-spacing: 0.02em; color: var(--ink-soft); }
+
+  h1.title { font-size: 84px; line-height: 1.02; font-weight: 600; letter-spacing: -0.02em; margin: 28px 0 0; max-width: 1500px; text-wrap: balance; }
+  h2.slide-title { font-size: 52px; line-height: 1.04; font-weight: 600; letter-spacing: -0.015em; margin: 20px 0 0; }
+  p.deck { font-size: 28px; line-height: 1.4; color: var(--ink-soft); max-width: 1280px; margin: 24px 0 0; }
+
+  /* ── Title slide ───────────────────────────────────────── */
+  .title-slide .chrome { justify-content: space-between; padding: 96px; }
+  .title-slide .footer { display: flex; gap: 64px; font-size: 26px; color: var(--ink-soft); }
+  .title-slide .footer .k { font-family: "JetBrains Mono", monospace; color: var(--ink); font-weight: 500; }
+  .title-slide .footer .label { font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); display:block; margin-bottom: 6px; font-weight: 600; }
+  .title-slide .glyph { position: absolute; right: 96px; top: 96px; width: 240px; height: 240px; }
+
+  /* ── Generic tweak panel ───────────────────────────────── */
+  #tweak-panel {
+    position: fixed;
+    right: 18px; bottom: 58px;
+    z-index: 2147483600;
+    background: #15171a;
+    color: #eaeae4;
+    border-radius: 10px;
+    padding: 14px 16px 14px;
+    font-family: "Inter Tight", sans-serif;
+    font-size: 13px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    display: none;
+    min-width: 220px;
+  }
+  #tweak-panel[data-on] { display: block; }
+  #tweak-panel h4 { margin: 0 0 10px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #a7a9ae; font-weight: 600; }
+  #tweak-panel label { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 6px 0; }
+  #tweak-panel input { accent-color: #eaeae4; }
+  body[data-hide-values] .chips { display: none !important; }
+  body[data-hide-values] .vcard ul { display: none !important; }
+  body[data-hide-values] .vcard .vdesc { display: none !important; }
+
+  /* ═══════════════════════ MAIN FLOWCHART (V1) ═══════════════════════ */
+  .flow-slide .chrome { padding: 32px 48px 16px; }
+  .flow-v1 {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    margin-top: 16px;
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-columns: 98px 1fr;
+    gap: 0;
+    position: relative;
+  }
+  .flow-v1 .stage-row {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: stretch;
+  }
+  .flow-v1 .stage-pill {
+    margin: 0 8px;
+    padding: 10px 16px 11px;
+    border-radius: 10px;
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    display: flex; flex-direction: column; gap: 2px; align-items: flex-start;
+    position: relative;
+  }
+  .flow-v1 .stage-pill .sn { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--ink-faint); font-weight: 600; }
+  .flow-v1 .stage-pill .sname { font-size: 19px; font-weight: 600; color: var(--ink); letter-spacing: -0.005em; }
+  .flow-v1 .stage-pill[data-g="add"]   { border-color: var(--g-add);   box-shadow: inset 4px 0 0 var(--g-add); }
+  .flow-v1 .stage-pill[data-g="fetch"] { border-color: var(--g-fetch); box-shadow: inset 4px 0 0 var(--g-fetch); }
+  .flow-v1 .stage-pill[data-g="maint"] { border-color: var(--g-maint); box-shadow: inset 4px 0 0 var(--g-maint); }
+  .flow-v1 .stage-pill[data-g="build"] { border-color: var(--g-build); box-shadow: inset 4px 0 0 var(--g-build); }
+  .flow-v1 .stage-pill[data-g="map"]   { border-color: var(--g-map);   box-shadow: inset 4px 0 0 var(--g-map); }
+  .flow-v1 .stage-pill::after {
+    content: "";
+    position: absolute;
+    right: -14px; top: 50%;
+    width: 0; height: 0;
+    border-left: 8px solid var(--ink-faint);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    transform: translateY(-50%);
+  }
+  .flow-v1 .stage-row .stage-pill:last-child::after { display: none; }
+
+  .flow-v1 .lane-labels {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: stretch;
+  }
+  .flow-v1 .lane-labels .lab {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 16px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    border-right: 1px solid var(--rule);
+  }
+  .flow-v1 .lane-labels .lab span { background: var(--bg); padding: 6px 0; }
+
+  .flow-v1 .cli-lane, .flow-v1 .file-lane {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 12px 0;
+  }
+  .flow-v1 .cli-lane { grid-row: 2 / 3; }
+  .flow-v1 .file-lane { grid-row: 3 / 4; padding-top: 22px; }
+
+  .cli-cell, .file-cell {
+    padding: 0 10px;
+    display: flex; flex-direction: column;
+    gap: 12px;
+    position: relative;
+  }
+
+  /* Rounded CLI card */
+  .flag {
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    border-radius: 12px;
+    padding: 12px 14px 12px;
+    display: flex; flex-direction: column; gap: 6px;
+    position: relative;
+  }
+  .flag .top { display: flex; align-items: center; gap: 10px; }
+  .flag .sh {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 22px; font-weight: 600;
+    padding: 1px 8px;
+    border-radius: 6px;
+    line-height: 1.1;
+  }
+  .flag .ln { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--ink-faint); }
+  .flag .verb { margin-left: auto; font-size: 14px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; text-transform: uppercase; font-size: 12px; }
+  .flag .desc { font-size: 13px; line-height: 1.38; color: var(--ink-soft); }
+  .flag .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+  .chip {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+  .chip.meta { background: transparent; color: var(--ink-faint); border-color: var(--rule); }
+
+  .flag[data-g="add"]   { border-color: color-mix(in oklch, var(--g-add) 50%, var(--rule)); }
+  .flag[data-g="add"] .sh { background: var(--g-add-t); color: var(--g-add); }
+  .flag[data-g="add"] .chip:not(.meta) { background: var(--g-add-t); color: var(--g-add); border-color: color-mix(in oklch, var(--g-add) 25%, transparent); }
+
+  .flag[data-g="fetch"] { border-color: color-mix(in oklch, var(--g-fetch) 50%, var(--rule)); }
+  .flag[data-g="fetch"] .sh { background: var(--g-fetch-t); color: var(--g-fetch); }
+  .flag[data-g="fetch"] .chip:not(.meta) { background: var(--g-fetch-t); color: var(--g-fetch); border-color: color-mix(in oklch, var(--g-fetch) 25%, transparent); }
+
+  .flag[data-g="maint"] { border-color: color-mix(in oklch, var(--g-maint) 50%, var(--rule)); }
+  .flag[data-g="maint"] .sh { background: var(--g-maint-t); color: var(--g-maint); }
+  .flag[data-g="maint"] .chip:not(.meta) { background: var(--g-maint-t); color: var(--g-maint); border-color: color-mix(in oklch, var(--g-maint) 25%, transparent); }
+
+  .flag[data-g="build"] { border-color: color-mix(in oklch, var(--g-build) 50%, var(--rule)); }
+  .flag[data-g="build"] .sh { background: var(--g-build-t); color: var(--g-build); }
+  .flag[data-g="build"] .chip:not(.meta) { background: var(--g-build-t); color: var(--g-build); border-color: color-mix(in oklch, var(--g-build) 25%, transparent); }
+
+  .flag[data-g="map"]   { border-color: color-mix(in oklch, var(--g-map) 50%, var(--rule)); }
+  .flag[data-g="map"] .sh { background: var(--g-map-t); color: var(--g-map); }
+  .flag[data-g="map"] .chip:not(.meta) { background: var(--g-map-t); color: var(--g-map); border-color: color-mix(in oklch, var(--g-map) 25%, transparent); }
+
+  .flag.modifier {
+    border-style: dashed;
+    border-color: var(--ink-faint);
+    background: transparent;
+  }
+  .flag.modifier .sh { background: #e9e5db; color: var(--ink); }
+
+  /* Document-icon file card */
+  .doc {
+    --doc-bg: var(--paper);
+    --doc-border: var(--rule);
+    background: var(--doc-bg);
+    border: 1.5px solid var(--doc-border);
+    border-radius: 8px;
+    padding: 12px 14px 12px;
+    display: flex; flex-direction: column; gap: 3px;
+    position: relative;
+    min-height: 108px;
+  }
+  /* folded corner */
+  .doc::before {
+    content: "";
+    position: absolute;
+    top: -1.5px; right: -1.5px;
+    width: 22px; height: 22px;
+    background:
+      linear-gradient(135deg, transparent 50%, var(--doc-border) 50%, var(--doc-border) 54%, var(--bg) 54%);
+    border-top-right-radius: 8px;
+  }
+  .doc .flab { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: 0.12em; color: var(--ink-faint); font-weight: 600; text-transform: uppercase; }
+  .doc .fname { font-family: "JetBrains Mono", monospace; font-size: 14px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; word-break: break-word; line-height: 1.25; }
+  .doc .fdesc { font-size: 12px; line-height: 1.3; color: var(--ink-soft); margin-top: 2px; }
+  .doc.primary { --doc-bg: var(--file-t); --doc-border: color-mix(in oklch, var(--file) 40%, var(--rule)); }
+  .doc.final   { --doc-bg: oklch(92% 0.04 230); --doc-border: var(--file); border-width: 2px; }
+
+  /* Horizontal file arrow */
+  .harrow {
+    position: absolute;
+    top: 50%;
+    right: -14px;
+    width: 24px; height: 14px;
+    transform: translateY(-50%);
+    z-index: 3;
+    pointer-events: none;
+  }
+  .harrow svg { width: 100%; height: 100%; display: block; }
+
+  /* Vertical CLI→file connector */
+  .vdrop {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    width: 2px;
+    height: 28px;
+    background: repeating-linear-gradient(to bottom, var(--ink-faint) 0 3px, transparent 3px 6px);
+    transform: translateX(-50%);
+  }
+  .vdrop::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--ink-faint);
+  }
+
+  .footnote {
+    display: flex; gap: 14px; align-items: center;
+    font-size: 12px; color: var(--ink-soft);
+    margin-top: 2px;
+    height: 20px;
+    overflow: hidden;
+  }
+  .footnote .leg { display: flex; align-items: center; gap: 8px; }
+  .footnote .sw { width: 22px; height: 10px; border-radius: 3px; }
+  .footnote .sw.add   { background: var(--g-add); }
+  .footnote .sw.fetch { background: var(--g-fetch); }
+  .footnote .sw.maint { background: var(--g-maint); }
+  .footnote .sw.build { background: var(--g-build); }
+  .footnote .sw.map   { background: var(--g-map); }
+  .footnote .sw.file  { background: var(--file); }
+  .footnote .sw.mod   { background: transparent; border: 1.5px dashed var(--ink-faint); }
+
+  /* ═══════════════════════ V2 — Compact node graph ══════════════════════ */
+  .flow-v2 {
+    flex: 1;
+    margin-top: 24px;
+    position: relative;
+  }
+  .flow-v2 .canvas {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+  }
+  .flow-v2 .col {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 18.3%;
+    display: flex;
+    flex-direction: column;
+  }
+  .flow-v2 .col .ch {
+    border-top: 2px solid var(--rule-strong);
+    padding: 10px 0 8px;
+    margin-bottom: 16px;
+  }
+  .flow-v2 .col .ch .sn { font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: 0.14em; color: var(--ink-faint); font-weight: 600; }
+  .flow-v2 .col .ch .sname { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; margin-top: 2px; }
+
+  .flow-v2 .col[data-g="add"]   .ch { border-top-color: var(--g-add); }
+  .flow-v2 .col[data-g="fetch"] .ch { border-top-color: var(--g-fetch); }
+  .flow-v2 .col[data-g="maint"] .ch { border-top-color: var(--g-maint); }
+  .flow-v2 .col[data-g="build"] .ch { border-top-color: var(--g-build); }
+  .flow-v2 .col[data-g="map"]   .ch { border-top-color: var(--g-map); }
+
+  /* ═══════════════════════ V3 — Bold schematic ══════════════════════ */
+  .v3 .chrome { background: #151618; color: #eceade; padding: 48px 64px 48px; }
+  .v3 .eyebrow { color: #8b8f96; }
+  .v3 .eyebrow .dot { background: #eceade; }
+  .v3 .eyebrow .sep { background: #2a2c30; }
+  .v3 h2.slide-title { color: #eceade; }
+
+  .flow-v3 {
+    flex: 1;
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto 1fr auto 1fr;
+    gap: 14px 20px;
+    align-content: start;
+  }
+  .flow-v3 .stagebar {
+    grid-row: 1;
+    display: flex; align-items: center; gap: 12px;
+    padding: 8px 4px 8px 14px;
+    position: relative;
+    border-radius: 999px;
+  }
+  .flow-v3 .stagebar .num { font-family: "JetBrains Mono", monospace; font-size: 28px; font-weight: 600; line-height: 1; opacity: 0.6; }
+  .flow-v3 .stagebar .nm { font-size: 19px; font-weight: 600; letter-spacing: -0.005em; }
+  .flow-v3 .stagebar[data-g="add"]   { background: color-mix(in oklch, var(--g-add) 30%, transparent); }
+  .flow-v3 .stagebar[data-g="fetch"] { background: color-mix(in oklch, var(--g-fetch) 30%, transparent); }
+  .flow-v3 .stagebar[data-g="maint"] { background: color-mix(in oklch, var(--g-maint) 40%, transparent); }
+  .flow-v3 .stagebar[data-g="build"] { background: color-mix(in oklch, var(--g-build) 40%, transparent); }
+  .flow-v3 .stagebar[data-g="map"]   { background: color-mix(in oklch, var(--g-map) 35%, transparent); }
+
+  .flow-v3 .flag3 {
+    background: #1f2024;
+    border: 1.5px solid #2f3136;
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 6px;
+    position: relative;
+  }
+  .flow-v3 .flag3 .top { display: flex; align-items: center; gap: 10px; }
+  .flow-v3 .flag3 .sh {
+    font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 600;
+    padding: 2px 9px; border-radius: 7px;
+  }
+  .flow-v3 .flag3 .ln { font-family: "JetBrains Mono", monospace; font-size: 12px; color: #8b8f96; }
+  .flow-v3 .flag3 .verb { margin-left: auto; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: #8b8f96; text-transform: uppercase; }
+  .flow-v3 .flag3 .desc { font-size: 13px; line-height: 1.38; color: #c3c4c9; }
+  .flow-v3 .flag3 .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+  .flow-v3 .flag3 .chip { background: #2a2c30; color: #d8d9dd; border-color: transparent; }
+  .flow-v3 .flag3 .chip.meta { background: transparent; color: #8b8f96; border-color: #2f3136; }
+
+  .flow-v3 .flag3[data-g="add"]   { border-color: var(--g-add); }
+  .flow-v3 .flag3[data-g="add"] .sh { background: var(--g-add); color: #151618; }
+  .flow-v3 .flag3[data-g="fetch"] { border-color: var(--g-fetch); }
+  .flow-v3 .flag3[data-g="fetch"] .sh { background: var(--g-fetch); color: #151618; }
+  .flow-v3 .flag3[data-g="maint"] { border-color: var(--g-maint); }
+  .flow-v3 .flag3[data-g="maint"] .sh { background: var(--g-maint); color: #fff; }
+  .flow-v3 .flag3[data-g="build"] { border-color: var(--g-build); }
+  .flow-v3 .flag3[data-g="build"] .sh { background: var(--g-build); color: #fff; }
+  .flow-v3 .flag3[data-g="map"]   { border-color: var(--g-map); }
+  .flow-v3 .flag3[data-g="map"] .sh { background: var(--g-map); color: #151618; }
+  .flow-v3 .flag3.modifier { border-style: dashed; border-color: #4a4e55; }
+  .flow-v3 .flag3.modifier .sh { background: #2a2c30; color: #eceade; }
+
+  .flow-v3 .cli-col { grid-row: 2; display: flex; flex-direction: column; gap: 10px; }
+  .flow-v3 .files-col { grid-row: 4; display: flex; flex-direction: column; gap: 10px; position: relative; }
+
+  .flow-v3 .bridge {
+    grid-row: 3;
+    border-top: 1px dashed #3a3c41;
+    position: relative;
+    margin: 6px 0;
+  }
+  .flow-v3 .bridge::before {
+    content: "→";
+    position: absolute; right: -4px; top: -12px;
+    color: #8b8f96; font-family: "JetBrains Mono", monospace; font-size: 18px;
+  }
+
+  .flow-v3 .doc3 {
+    background: #1f2024;
+    border: 1.5px solid #2f3136;
+    border-radius: 10px;
+    padding: 12px 14px 12px;
+    display: flex; flex-direction: column; gap: 3px;
+    position: relative;
+    min-height: 102px;
+  }
+  .flow-v3 .doc3::before {
+    content: "";
+    position: absolute;
+    top: -1.5px; right: -1.5px;
+    width: 20px; height: 20px;
+    background: linear-gradient(135deg, transparent 50%, #2f3136 50%, #2f3136 55%, #151618 55%);
+    border-top-right-radius: 10px;
+  }
+  .flow-v3 .doc3 .flab { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: 0.12em; color: #8b8f96; font-weight: 600; text-transform: uppercase; }
+  .flow-v3 .doc3 .fname { font-family: "JetBrains Mono", monospace; font-size: 14px; font-weight: 600; color: #eceade; word-break: break-word; line-height: 1.25; }
+  .flow-v3 .doc3 .fdesc { font-size: 12px; line-height: 1.3; color: #a7a9ae; }
+  .flow-v3 .doc3.primary { border-color: var(--file); background: oklch(24% 0.025 230); }
+  .flow-v3 .doc3.final { border-color: var(--file); border-width: 2px; background: oklch(28% 0.04 230); }
+
+  /* ── Slide — Value lists ───────────────────────────────── */
+  .values-slide .chrome { padding: 56px 72px; }
+  .values-grid {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 24px;
+  }
+  .vcard {
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    border-radius: 14px;
+    padding: 18px 20px 18px;
+    display: flex; flex-direction: column; gap: 8px;
+    position: relative;
+  }
+  .vcard[data-g="add"]   { border-color: color-mix(in oklch, var(--g-add) 45%, var(--rule)); }
+  .vcard[data-g="fetch"] { border-color: color-mix(in oklch, var(--g-fetch) 45%, var(--rule)); }
+  .vcard[data-g="maint"] { border-color: color-mix(in oklch, var(--g-maint) 45%, var(--rule)); }
+  .vcard[data-g="build"] { border-color: color-mix(in oklch, var(--g-build) 45%, var(--rule)); }
+  .vcard[data-g="map"]   { border-color: color-mix(in oklch, var(--g-map) 45%, var(--rule)); }
+
+  .vcard .vhead { display: flex; align-items: center; gap: 12px; }
+  .vcard .vsh { font-family: "JetBrains Mono", monospace; font-size: 28px; font-weight: 600; padding: 1px 10px; border-radius: 8px; }
+  .vcard[data-g="add"]   .vsh { background: var(--g-add-t);   color: var(--g-add); }
+  .vcard[data-g="fetch"] .vsh { background: var(--g-fetch-t); color: var(--g-fetch); }
+  .vcard[data-g="maint"] .vsh { background: var(--g-maint-t); color: var(--g-maint); }
+  .vcard[data-g="build"] .vsh { background: var(--g-build-t); color: var(--g-build); }
+  .vcard[data-g="map"]   .vsh { background: var(--g-map-t);   color: var(--g-map); }
+  .vcard .vln { font-size: 18px; font-weight: 600; color: var(--ink); }
+  .vcard .vnargs { margin-left: auto; font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--ink-faint); padding: 2px 8px; background: var(--bg); border-radius: 999px; border: 1px solid var(--rule); }
+  .vcard .vdesc { font-size: 15px; line-height: 1.4; color: var(--ink-soft); }
+  .vcard ul { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .vcard li { font-size: 14px; line-height: 1.4; display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: baseline; }
+  .vcard li .tok { font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-weight: 600; padding: 1px 7px; border-radius: 4px; background: var(--bg); color: var(--ink); border: 1px solid var(--rule); }
+  .vcard li .txt { color: var(--ink-soft); }
+
+  /* ── Slide — Command sequences ─────────────────────────── */
+  .cmd-slide .chrome { padding: 56px 72px; }
+  .cmd-grid {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 28px;
+  }
+  .cmd-card {
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    border-radius: 14px;
+    padding: 20px 22px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .cmd-card .ch { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+  .cmd-card .ch h3 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .cmd-card .tag { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--ink-faint); text-transform: uppercase; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--bg); border: 1px solid var(--rule); }
+  .cmd-card p { margin: 0; font-size: 15px; line-height: 1.45; color: var(--ink-soft); }
+  .cmd-card pre {
+    margin: 0;
+    padding: 14px 16px;
+    background: #15171a;
+    color: #eaeae4;
+    border-radius: 8px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    line-height: 1.55;
+    overflow: hidden;
+  }
+  .cmd-card pre .c { color: #8b8f96; }
+  .cmd-card pre .f { color: oklch(80% 0.14 55); }
+  .cmd-card pre .a { color: oklch(82% 0.14 145); }
+
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- ─────────────────────────── SLIDE 1 ─────────────────────────── -->
+  <section class="title-slide" data-label="Title">
+    <div class="chrome">
+      <div>
+        <div class="eyebrow">
+          <span class="dot"></span>
+          <span>menu_manager.py</span>
+          <span class="sep"></span>
+          <span class="pagenum">01 / 05</span>
+        </div>
+        <h1 class="title">Parameter flowchart<br>for <span class="mono" style="font-weight:600;">menu_manager.py</span></h1>
+        <p class="deck">A left-to-right timeline of every CLI option and the files each one reads and writes — from the initial <span class="mono">-a</span> that adds a source, through maintenance steps <span class="mono">-f -c -l -r -d</span>, to the final <span class="mono">-b</span> build and optional <span class="mono">-s</span> SSSOM mapping pass.</p>
+      </div>
+
+      <svg class="glyph" viewBox="0 0 240 240" fill="none" aria-hidden="true">
+        <rect x="0.5" y="0.5" width="239" height="239" rx="12" stroke="#2b2d31" stroke-width="1"/>
+        <line x1="0" y1="120" x2="240" y2="120" stroke="#d6d1c6" stroke-width="1"/>
+        <circle cx="40" cy="70"  r="15" fill="oklch(58% 0.14 55)"/>
+        <circle cx="90" cy="70"  r="15" fill="oklch(55% 0.13 145)"/>
+        <circle cx="140" cy="70" r="15" fill="oklch(52% 0.12 250)"/>
+        <circle cx="190" cy="70" r="15" fill="oklch(45% 0.12 300)"/>
+        <rect x="30" y="150" width="36" height="48" rx="4" fill="none" stroke="#2b2d31" stroke-width="1.5"/>
+        <path d="M58 150 L66 150 L66 158 Z" fill="#2b2d31"/>
+        <rect x="102" y="150" width="36" height="48" rx="4" fill="#fbfaf6" stroke="#2b2d31" stroke-width="1.5"/>
+        <path d="M130 150 L138 150 L138 158 Z" fill="#2b2d31"/>
+        <rect x="174" y="150" width="36" height="48" rx="4" fill="oklch(45% 0.12 300)" stroke="oklch(45% 0.12 300)" stroke-width="1.5"/>
+        <path d="M202 150 L210 150 L210 158 Z" fill="#15171a"/>
+        <path d="M66 174 L102 174" stroke="#2b2d31" stroke-width="1.2"/>
+        <path d="M98 170 L102 174 L98 178" fill="none" stroke="#2b2d31" stroke-width="1.2"/>
+        <path d="M138 174 L174 174" stroke="#2b2d31" stroke-width="1.2"/>
+        <path d="M170 170 L174 174 L170 178" fill="none" stroke="#2b2d31" stroke-width="1.2"/>
+      </svg>
+
+      <div class="footer">
+        <div><span class="label">Scope</span>9 CLI options · 5 lifecycle groups</div>
+        <div><span class="label">Audience</span>Schema / bioinformatics collaborators</div>
+        <div><span class="label">Ends at</span><span class="k">schema.yaml</span> (LinkML)</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────── SLIDE 2 — MAIN (V1) ─────────────────────────── -->
+  <section class="flow-slide" data-label="Timeline — engineering view">
+    <div class="chrome">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Option 1 · Engineering timeline</span>
+        <span class="sep"></span>
+        <span class="pagenum">02 / 05</span>
+      </div>
+      <h2 class="slide-title">Add → Fetch → Maintain → Build → Map</h2>
+
+      <div class="flow-v1">
+        <!-- Lane labels -->
+        <div class="lane-labels">
+          <div class="lab"><span>CLI&nbsp;options</span></div>
+          <div class="lab"><span>Files &amp; data</span></div>
+        </div>
+
+        <!-- Stage headers -->
+        <div class="stage-row">
+          <div class="stage-pill" data-g="add">      <span class="sn">STAGE 01</span><span class="sname">Register</span></div>
+          <div class="stage-pill" data-g="fetch">    <span class="sn">STAGE 02</span><span class="sname">Fetch &amp; process</span></div>
+          <div class="stage-pill" data-g="maint">    <span class="sn">STAGE 03</span><span class="sname">Maintain</span></div>
+          <div class="stage-pill" data-g="build">    <span class="sn">STAGE 04</span><span class="sname">Build schema</span></div>
+          <div class="stage-pill" data-g="map">      <span class="sn">STAGE 05</span><span class="sname">Map (SSSOM)</span></div>
+        </div>
+
+        <!-- CLI lane -->
+        <div class="cli-lane">
+          <div class="cli-cell">
+            <div class="flag" data-g="add">
+              <div class="top"><span class="sh">-a</span><span class="ln">--add</span><span class="verb">Add</span></div>
+              <div class="desc">Add sources by URL; auto-detects content type and appends a stub entry to <span class="mono">menu_config.yaml</span>.</div>
+              <div class="chips"><span class="chip">URL …</span><span class="chip meta">nargs=+</span></div>
+            </div>
+          </div>
+
+          <div class="cli-cell">
+            <div class="flag" data-g="fetch">
+              <div class="top"><span class="sh">-f</span><span class="ln">--fetch</span><span class="verb">Fetch</span></div>
+              <div class="desc">Download source files. <span class="mono">-f all</span> fetches every source; bare keys fetch a subset; alone, defers to <span class="mono">-c</span>'s keys.</div>
+              <div class="chips"><span class="chip">all</span><span class="chip">KEY …</span><span class="chip">⟨none⟩</span><span class="chip meta">nargs=*</span></div>
+            </div>
+            <div class="flag" data-g="fetch">
+              <div class="top"><span class="sh">-c</span><span class="ln">--config</span><span class="verb">Process</span></div>
+              <div class="desc">Parse downloads into <span class="mono">sources/{key}.yaml</span>; refresh prefix dicts in menu_config.yaml.</div>
+              <div class="chips"><span class="chip">KEY …</span><span class="chip">⟨all⟩</span><span class="chip meta">nargs=*</span></div>
+            </div>
+          </div>
+
+          <div class="cli-cell">
+            <div class="flag" data-g="maint">
+              <div class="top"><span class="sh">-l</span><span class="ln">--lookup</span><span class="verb">Expand</span></div>
+              <div class="desc">Expand <span class="mono">reachable_from.source_nodes</span> via OLS4 / BioPortal. Accepts source keys or enum names.</div>
+              <div class="chips"><span class="chip">KEY …</span><span class="chip">ENUM …</span><span class="chip">⟨none⟩</span><span class="chip meta">nargs=*</span></div>
+            </div>
+            <div class="flag" data-g="maint">
+              <div class="top"><span class="sh">-r</span><span class="ln">--report</span><span class="verb">Report</span></div>
+              <div class="desc">Emit an enum report across every source YAML. Pair with <span class="mono">-t</span> for TSV.</div>
+              <div class="chips"><span class="chip meta">store_true</span></div>
+            </div>
+            <div class="flag" data-g="maint">
+              <div class="top"><span class="sh">-d</span><span class="ln">--delete</span><span class="verb">Delete</span></div>
+              <div class="desc">Remove source keys from menu_config.yaml; strip their enums from schema.yaml.</div>
+              <div class="chips"><span class="chip">KEY …</span><span class="chip meta">nargs=+</span></div>
+            </div>
+          </div>
+
+          <div class="cli-cell">
+            <div class="flag" data-g="build">
+              <div class="top"><span class="sh">-b</span><span class="ln">--build</span><span class="verb">Build</span></div>
+              <div class="desc">Create or update <span class="mono">schema.yaml</span> — upserts enums, syncs prefixes, flags missing enums for manual review.</div>
+              <div class="chips"><span class="chip">KEY</span><span class="chip">⟨all sources⟩</span><span class="chip meta">nargs=?</span></div>
+            </div>
+            <div class="flag modifier">
+              <div class="top"><span class="sh">-t</span><span class="ln">--tabformat</span><span class="verb">Modifier</span></div>
+              <div class="desc">Switches <span class="mono">-r</span> / <span class="mono">-f</span> report output to tab-delimited TSV.</div>
+              <div class="chips"><span class="chip meta">store_true</span></div>
+            </div>
+          </div>
+
+          <div class="cli-cell">
+            <div class="flag" data-g="map">
+              <div class="top"><span class="sh">-s</span><span class="ln">--sssom</span><span class="verb">Map</span></div>
+              <div class="desc">Apply SSSOM mappings to permissible_values in <span class="mono">schema.yaml</span>. Runs <em>after</em> <span class="mono">-b</span>. Predicate args narrow which mapping types are written.</div>
+              <div class="chips"><span class="chip">exactMatch</span><span class="chip">closeMatch</span><span class="chip">broadMatch</span><span class="chip">narrowMatch</span><span class="chip">relatedMatch</span><span class="chip meta">nargs=*</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Files lane -->
+        <div class="file-lane">
+          <div class="file-cell">
+            <span class="vdrop"></span>
+            <div class="doc primary">
+              <div class="flab">Config · appended</div>
+              <div class="fname">menu_config.yaml</div>
+              <div class="fdesc">New source entry: URL, content_type, file_format, prefixes.</div>
+              <span class="harrow"><svg viewBox="0 0 24 14"><line x1="0" y1="7" x2="18" y2="7" stroke="#4a4e55" stroke-width="1.6"/><polyline points="14,2 19,7 14,12" fill="none" stroke="#4a4e55" stroke-width="1.6"/></svg></span>
+            </div>
+          </div>
+
+          <div class="file-cell">
+            <span class="vdrop"></span>
+            <div class="doc">
+              <div class="flab">Remote · downloaded</div>
+              <div class="fname">sources/{key}.{yaml|json|html|owl|csv}</div>
+              <div class="fdesc">Raw file pulled from <span class="mono">reachable_from.source_ontology</span>.</div>
+            </div>
+            <div class="doc primary">
+              <div class="flab">LinkML intermediary</div>
+              <div class="fname">sources/{key}.yaml</div>
+              <div class="fdesc">Normalized per-source enums &amp; prefixes.</div>
+              <span class="harrow"><svg viewBox="0 0 24 14"><line x1="0" y1="7" x2="18" y2="7" stroke="#4a4e55" stroke-width="1.6"/><polyline points="14,2 19,7 14,12" fill="none" stroke="#4a4e55" stroke-width="1.6"/></svg></span>
+            </div>
+          </div>
+
+          <div class="file-cell">
+            <span class="vdrop"></span>
+            <div class="doc">
+              <div class="flab">Config · spine</div>
+              <div class="fname">menu_config.yaml</div>
+              <div class="fdesc">Read for apis block; rewritten on <span class="mono">-c</span> / <span class="mono">-d</span>.</div>
+            </div>
+            <div class="doc">
+              <div class="flab">API · read</div>
+              <div class="fname">OLS4 · BioPortal</div>
+              <div class="fdesc"><span class="mono">-l</span> expands source_nodes into permissible_values.</div>
+              <span class="harrow"><svg viewBox="0 0 24 14"><line x1="0" y1="7" x2="18" y2="7" stroke="#4a4e55" stroke-width="1.6"/><polyline points="14,2 19,7 14,12" fill="none" stroke="#4a4e55" stroke-width="1.6"/></svg></span>
+            </div>
+          </div>
+
+          <div class="file-cell">
+            <span class="vdrop"></span>
+            <div class="doc primary">
+              <div class="flab">Schema · upserted</div>
+              <div class="fname">schema.yaml</div>
+              <div class="fdesc">All source enums merged; prefixes synced; stale enums reported.</div>
+              <span class="harrow"><svg viewBox="0 0 24 14"><line x1="0" y1="7" x2="18" y2="7" stroke="#4a4e55" stroke-width="1.6"/><polyline points="14,2 19,7 14,12" fill="none" stroke="#4a4e55" stroke-width="1.6"/></svg></span>
+            </div>
+          </div>
+
+          <div class="file-cell">
+            <span class="vdrop"></span>
+            <div class="doc">
+              <div class="flab">Mapping input · optional</div>
+              <div class="fname">sources/sssom.tsv</div>
+              <div class="fdesc">Listed under top-level <span class="mono">sssom:</span> in menu_config.yaml.</div>
+            </div>
+            <div class="doc final">
+              <div class="flab">Final output</div>
+              <div class="fname">schema.yaml</div>
+              <div class="fdesc">permissible_values gain exact/close/broad/narrow/related_mappings.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footnote">
+        <div class="leg"><span class="sw add"></span><span>-a&nbsp;&nbsp;add</span></div>
+        <div class="leg"><span class="sw fetch"></span><span>-f&nbsp;-c&nbsp;&nbsp;fetch / process</span></div>
+        <div class="leg"><span class="sw maint"></span><span>-l&nbsp;-r&nbsp;-d&nbsp;&nbsp;maintain</span></div>
+        <div class="leg"><span class="sw build"></span><span>-b&nbsp;&nbsp;build</span></div>
+        <div class="leg"><span class="sw map"></span><span>-s&nbsp;&nbsp;map (SSSOM)</span></div>
+        <div class="leg"><span class="sw mod"></span><span>-t&nbsp;&nbsp;modifier</span></div>
+        <div class="leg"><span class="sw file"></span><span>File / data</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────── SLIDE 4 — VARIATION V3 (dark/bold) ─────────────────────────── -->
+  <section class="flow-slide v3" data-label="Timeline — schematic">
+    <div class="chrome">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Option 2 · Dark schematic</span>
+        <span class="sep"></span>
+        <span class="pagenum">03 / 05</span>
+      </div>
+      <h2 class="slide-title">A bolder, higher-contrast read</h2>
+
+      <div class="flow-v3">
+        <!-- row 1 : stage bars -->
+        <div class="stagebar" data-g="add"   style="grid-column: 1;"><span class="num">01</span><span class="nm">Register</span></div>
+        <div class="stagebar" data-g="fetch" style="grid-column: 2;"><span class="num">02</span><span class="nm">Fetch &amp; process</span></div>
+        <div class="stagebar" data-g="maint" style="grid-column: 3;"><span class="num">03</span><span class="nm">Maintain</span></div>
+        <div class="stagebar" data-g="build" style="grid-column: 4;"><span class="num">04</span><span class="nm">Build</span></div>
+        <div class="stagebar" data-g="map"   style="grid-column: 5;"><span class="num">05</span><span class="nm">Map</span></div>
+
+        <!-- row 2 : CLI flags -->
+        <div class="cli-col" style="grid-column: 1;">
+          <div class="flag3" data-g="add">
+            <div class="top"><span class="sh">-a</span><span class="ln">--add</span><span class="verb">Add</span></div>
+            <div class="desc">Register source URLs; auto-detect content type.</div>
+            <div class="chips"><span class="chip">URL …</span><span class="chip meta">nargs=+</span></div>
+          </div>
+        </div>
+        <div class="cli-col" style="grid-column: 2;">
+          <div class="flag3" data-g="fetch">
+            <div class="top"><span class="sh">-f</span><span class="ln">--fetch</span><span class="verb">Fetch</span></div>
+            <div class="chips"><span class="chip">all</span><span class="chip">KEY …</span><span class="chip meta">nargs=*</span></div>
+          </div>
+          <div class="flag3" data-g="fetch">
+            <div class="top"><span class="sh">-c</span><span class="ln">--config</span><span class="verb">Process</span></div>
+            <div class="chips"><span class="chip">KEY …</span><span class="chip meta">nargs=*</span></div>
+          </div>
+        </div>
+        <div class="cli-col" style="grid-column: 3;">
+          <div class="flag3" data-g="maint">
+            <div class="top"><span class="sh">-l</span><span class="ln">--lookup</span><span class="verb">Expand</span></div>
+            <div class="chips"><span class="chip">KEY / ENUM</span><span class="chip meta">nargs=*</span></div>
+          </div>
+          <div class="flag3" data-g="maint">
+            <div class="top"><span class="sh">-r</span><span class="ln">--report</span><span class="verb">Report</span></div>
+            <div class="chips"><span class="chip meta">store_true</span></div>
+          </div>
+          <div class="flag3" data-g="maint">
+            <div class="top"><span class="sh">-d</span><span class="ln">--delete</span><span class="verb">Delete</span></div>
+            <div class="chips"><span class="chip">KEY …</span><span class="chip meta">nargs=+</span></div>
+          </div>
+        </div>
+        <div class="cli-col" style="grid-column: 4;">
+          <div class="flag3" data-g="build">
+            <div class="top"><span class="sh">-b</span><span class="ln">--build</span><span class="verb">Build</span></div>
+            <div class="chips"><span class="chip">KEY</span><span class="chip">⟨all⟩</span><span class="chip meta">nargs=?</span></div>
+          </div>
+          <div class="flag3 modifier">
+            <div class="top"><span class="sh">-t</span><span class="ln">--tabformat</span><span class="verb">Modifier</span></div>
+            <div class="desc">TSV output for -r / -f.</div>
+          </div>
+        </div>
+        <div class="cli-col" style="grid-column: 5;">
+          <div class="flag3" data-g="map">
+            <div class="top"><span class="sh">-s</span><span class="ln">--sssom</span><span class="verb">Map</span></div>
+            <div class="desc">Runs after -b.</div>
+            <div class="chips"><span class="chip">skos:exactMatch</span><span class="chip">closeMatch</span><span class="chip">broadMatch</span><span class="chip">narrowMatch</span><span class="chip">relatedMatch</span></div>
+          </div>
+        </div>
+
+        <!-- row 3 : bridge line -->
+        <div class="bridge" style="grid-column: 1 / 6;"></div>
+
+        <!-- row 4 : file docs -->
+        <div class="files-col" style="grid-column: 1;">
+          <div class="doc3 primary">
+            <div class="flab">Config · appended</div>
+            <div class="fname">menu_config.yaml</div>
+          </div>
+        </div>
+        <div class="files-col" style="grid-column: 2;">
+          <div class="doc3">
+            <div class="flab">Downloaded</div>
+            <div class="fname">sources/{key}.yaml|json|html|owl|csv</div>
+          </div>
+          <div class="doc3 primary">
+            <div class="flab">LinkML intermediary</div>
+            <div class="fname">sources/{key}.yaml</div>
+          </div>
+        </div>
+        <div class="files-col" style="grid-column: 3;">
+          <div class="doc3">
+            <div class="flab">Config · spine</div>
+            <div class="fname">menu_config.yaml</div>
+          </div>
+          <div class="doc3">
+            <div class="flab">APIs · read</div>
+            <div class="fname">OLS4 · BioPortal</div>
+          </div>
+        </div>
+        <div class="files-col" style="grid-column: 4;">
+          <div class="doc3 primary">
+            <div class="flab">Schema · upserted</div>
+            <div class="fname">schema.yaml</div>
+          </div>
+        </div>
+        <div class="files-col" style="grid-column: 5;">
+          <div class="doc3">
+            <div class="flab">Optional input</div>
+            <div class="fname">sources/sssom.tsv</div>
+          </div>
+          <div class="doc3 final">
+            <div class="flab">Final output</div>
+            <div class="fname">schema.yaml</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────── SLIDE 5 — VALUE LISTS ─────────────────────────── -->
+  <section class="values-slide" data-label="Parameter value lists">
+    <div class="chrome">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Parameter value lists</span>
+        <span class="sep"></span>
+        <span class="pagenum">04 / 05</span>
+      </div>
+      <h2 class="slide-title">What each flag accepts</h2>
+
+      <div class="values-grid">
+
+        <div class="vcard" data-g="add">
+          <div class="vhead"><span class="vsh">-a</span><span class="vln">--add</span><span class="vnargs">nargs=+</span></div>
+          <div class="vdesc">One or more URLs; content type auto-detected from suffix or body.</div>
+          <ul>
+            <li><span class="tok">URL</span><span class="txt">.yaml · .json · .html · .owl · .csv · .ofn · .rdf · .ttl</span></li>
+          </ul>
+        </div>
+
+        <div class="vcard" data-g="fetch">
+          <div class="vhead"><span class="vsh">-f</span><span class="vln">--fetch</span><span class="vnargs">nargs=*</span></div>
+          <div class="vdesc">Downloads registered sources into <span class="mono">sources/</span>.</div>
+          <ul>
+            <li><span class="tok">all</span><span class="txt">every source in menu_config.yaml</span></li>
+            <li><span class="tok">KEY …</span><span class="txt">a subset of source keys</span></li>
+            <li><span class="tok">⟨none⟩</span><span class="txt">defers to the keys passed with -c</span></li>
+          </ul>
+        </div>
+
+        <div class="vcard" data-g="fetch">
+          <div class="vhead"><span class="vsh">-c</span><span class="vln">--config</span><span class="vnargs">nargs=*</span></div>
+          <div class="vdesc">Process downloads and refresh prefix dicts.</div>
+          <ul>
+            <li><span class="tok">KEY …</span><span class="txt">process only the named sources</span></li>
+            <li><span class="tok">⟨none⟩</span><span class="txt">process every source</span></li>
+          </ul>
+        </div>
+
+        <div class="vcard" data-g="maint">
+          <div class="vhead"><span class="vsh">-l</span><span class="vln">--lookup</span><span class="vnargs">nargs=*</span></div>
+          <div class="vdesc">Expand <span class="mono">reachable_from.source_nodes</span> via the apis block.</div>
+          <ul>
+            <li><span class="tok">SOURCE_KEY</span><span class="txt">all enums imported_from that source</span></li>
+            <li><span class="tok">ENUM_NAME</span><span class="txt">a specific enum in schema.yaml</span></li>
+            <li><span class="tok">⟨none⟩</span><span class="txt">every enum with source_nodes</span></li>
+          </ul>
+        </div>
+
+        <div class="vcard" data-g="maint">
+          <div class="vhead"><span class="vsh">-r</span><span class="vln">--report</span><span class="vnargs">store_true</span></div>
+          <div class="vdesc">Enum report across every source YAML.</div>
+          <ul>
+            <li><span class="tok">flag</span><span class="txt">no arguments; pair with -t for TSV</span></li>
+          </ul>
+        </div>
+
+        <div class="vcard" data-g="maint">
+          <div class="vhead"><span class="vsh">-d</span><span class="vln">--delete</span><span class="vnargs">nargs=+</span></div>
+          <div class="vdesc">Removes entries from config and enums from schema.</div>
+          <ul>
+            <li><span class="tok">KEY …</span><span class="txt">required; one or more source keys</span></li>
+          </ul>
+        </div>
+
+        <div class="vcard" data-g="build">
+          <div class="vhead"><span class="vsh">-b</span><span class="vln">--build</span><span class="vnargs">nargs=?</span></div>
+          <div class="vdesc">Create or update schema.yaml.</div>
+          <ul>
+            <li><span class="tok">SOURCE_KEY</span><span class="txt">rebuild only that source's enums</span></li>
+            <li><span class="tok">⟨none⟩</span><span class="txt">rebuild from every source</span></li>
+          </ul>
+        </div>
+
+        <div class="vcard" data-g="map">
+          <div class="vhead"><span class="vsh">-s</span><span class="vln">--sssom</span><span class="vnargs">nargs=*</span></div>
+          <div class="vdesc">Apply mappings from the top-level <span class="mono">sssom</span> file list.</div>
+          <ul>
+            <li><span class="tok">skos:exactMatch</span><span class="txt">→ exact_mappings</span></li>
+            <li><span class="tok">skos:closeMatch</span><span class="txt">→ close_mappings</span></li>
+            <li><span class="tok">skos:broadMatch</span><span class="txt">→ broad_mappings</span></li>
+            <li><span class="tok">skos:narrowMatch</span><span class="txt">→ narrow_mappings</span></li>
+            <li><span class="tok">skos:relatedMatch</span><span class="txt">→ related_mappings</span></li>
+          </ul>
+        </div>
+
+        <div class="vcard" style="border-color: var(--ink-faint); border-style: dashed;">
+          <div class="vhead"><span class="vsh" style="background:#e9e5db;color:var(--ink);">-t</span><span class="vln">--tabformat</span><span class="vnargs">store_true</span></div>
+          <div class="vdesc">Modifier. Switches report/fetch output from padded columns to TSV.</div>
+          <ul>
+            <li><span class="tok">flag</span><span class="txt">pairs with -r or -f</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────────────────────── SLIDE 6 — RECIPES ─────────────────────────── -->
+  <section class="cmd-slide" data-label="Command sequences">
+    <div class="chrome">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>Typical command sequences</span>
+        <span class="sep"></span>
+        <span class="pagenum">05 / 05</span>
+      </div>
+      <h2 class="slide-title">Four end-to-end recipes</h2>
+
+      <div class="cmd-grid">
+
+        <div class="cmd-card">
+          <div class="ch"><h3>Register a brand-new source</h3><span class="tag">Stage 01</span></div>
+          <p>Adds a URL, auto-detects type, and writes a stub entry into menu_config.yaml.</p>
+<pre><span class="c"># Add NAPCS Canada 2022 from its CSV</span>
+python menu_manager.py <span class="f">-a</span> <span class="a">"https://www.statcan.gc.ca/en/media/5274"</span></pre>
+        </div>
+
+        <div class="cmd-card">
+          <div class="ch"><h3>Full refresh of one source</h3><span class="tag">Stages 02 → 04</span></div>
+          <p>Fetch, process, then rebuild schema — scoped to a single key.</p>
+<pre>python menu_manager.py <span class="f">-f</span> <span class="a">NAPCSCanada2022</span> \
+                       <span class="f">-c</span> <span class="a">NAPCSCanada2022</span> \
+                       <span class="f">-b</span> <span class="a">NAPCSCanada2022</span></pre>
+        </div>
+
+        <div class="cmd-card">
+          <div class="ch"><h3>Rebuild everything &amp; map</h3><span class="tag">Stages 02 → 05</span></div>
+          <p>Fetch all sources, reprocess, rebuild schema, then apply every SSSOM predicate.</p>
+<pre>python menu_manager.py <span class="f">-f</span> <span class="a">all</span> <span class="f">-c</span> <span class="f">-b</span> <span class="f">-s</span></pre>
+        </div>
+
+        <div class="cmd-card">
+          <div class="ch"><h3>Expand an enum from an ontology</h3><span class="tag">Stage 03 · lookup</span></div>
+          <p>Walks <span class="mono">reachable_from.source_nodes</span> via the apis block and writes results back to schema.yaml.</p>
+<pre>python menu_manager.py <span class="f">-l</span> <span class="a">envo</span> <span class="a">MyBiomeEnum</span>
+python menu_manager.py <span class="f">-l</span>                         <span class="c"># every enum</span></pre>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<!-- Tweaks panel -->
+<div id="tweak-panel">
+  <h4>Tweaks</h4>
+  <label><input type="checkbox" id="t-hide-values"> Hide value-list chips</label>
+</div>
+
+<script>
+  // Tweaks — persist to menu_config is not needed; just apply live.
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "hideValues": false
+  }/*EDITMODE-END*/;
+
+  const panel = document.getElementById('tweak-panel');
+  const cb = document.getElementById('t-hide-values');
+
+  function applyTweaks(state) {
+    if (state.hideValues) document.body.setAttribute('data-hide-values', '');
+    else document.body.removeAttribute('data-hide-values');
+    cb.checked = !!state.hideValues;
+  }
+  applyTweaks(TWEAK_DEFAULTS);
+
+  let state = { ...TWEAK_DEFAULTS };
+  cb.addEventListener('change', () => {
+    state.hideValues = cb.checked;
+    applyTweaks(state);
+    try { window.parent.postMessage({type: '__edit_mode_set_keys', edits: {hideValues: state.hideValues}}, '*'); } catch (e) {}
+  });
+
+  window.addEventListener('message', (e) => {
+    const d = e.data || {};
+    if (d.type === '__activate_edit_mode') panel.setAttribute('data-on', '');
+    if (d.type === '__deactivate_edit_mode') panel.removeAttribute('data-on');
+  });
+  try { window.parent.postMessage({type: '__edit_mode_available'}, '*'); } catch (e) {}
+</script>
+
+</body>
+</html>
