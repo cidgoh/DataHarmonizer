@@ -1350,7 +1350,15 @@ def generate_enum_report(yaml_file, tsv=False, output=sys.stdout, header=None):
         print(header, file=output)
 
     with open(yaml_file, "r") as f:
-        schema = yaml.safe_load(f)
+        try:
+            schema = yaml.safe_load(f)
+        except yaml.YAMLError as e:
+            print(f"Warning: {yaml_file} is not valid YAML (downloaded content may be HTML or redirected): {e}", file=sys.stderr)
+            return
+
+    if not isinstance(schema, dict):
+        print(f"Warning: {yaml_file} did not parse as a YAML mapping (got {type(schema).__name__}) — skipping enum report.", file=sys.stderr)
+        return
 
     enums = schema.get("enums", {})
     rows = []
@@ -1458,6 +1466,9 @@ def main():
         for key in keys_to_download:
             source = all_sources[key]
             uri = (source.get("reachable_from") or {}).get("source_ontology")
+            if not uri:
+                print(f"Skipping {key}: no source_ontology URL found (API-based sources must be fetched via -c)", file=sys.stderr)
+                continue
             file_format = source.get("file_format", "yaml")
             output_path = f"sources/{key}.{file_format}"
             print(f"Fetching {uri} ...")
