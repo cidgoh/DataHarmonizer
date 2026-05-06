@@ -4,6 +4,71 @@ DataHarmonizer is a browser-based spreadsheet editor for standardised data colle
 
 ---
 
+## Running DataHarmonizer
+
+DataHarmonizer is designed to be a **stand-alone web browser application** — no server-side software is required to use it. There are three standard ways to run it.
+
+### 1. Stand-alone (open index.html directly)
+
+The simplest way. After a distribution build (see below), open the `web/dist/index.html` file directly in any modern browser. No installation, no server, no network access required.
+
+- The default menu of templates is loaded from the bundled `menu.json`.
+- The **first template in the menu** is loaded automatically on startup.
+- All template data (schema, picklists, validation rules) is bundled into the distribution at compile time.
+
+**What "compile time" means:**
+Each template originates as a set of LinkML class definitions stored in `web/templates/<name>/schema.yaml` within the DataHarmonizer GitHub repository. Running `yarn build:web` in the project root compiles these into the self-contained `web/dist/` distribution folder. The resulting `web/dist/` folder (containing `index.html`, bundled JavaScript, and the template files) is what gets distributed or deployed.
+
+### 2. Served from a web server
+
+For team or public deployment, copy the `web/dist/` folder to any standard web server (Apache, Nginx, GitHub Pages, etc.) as the site root or a subfolder. No server-side code is needed — the server only serves static files.
+
+Users navigate to the URL, and the application loads exactly as in the stand-alone case. This mode also enables the YAML schema loading path (described in the next section).
+
+### 3. Development environment (`yarn dev`)
+
+For schema developers and contributors:
+
+1. Clone the repository and run `yarn install` to install dependencies.
+2. Run `yarn dev` in a console window.
+3. Open a browser and navigate to `http://localhost:8080` (the port may differ; webpack prints the exact URL).
+
+The dev server uses webpack's hot-module-replacement so edits to templates, schema files, or application code are reflected in the browser immediately without a full rebuild.
+
+---
+
+## Schema Loading: YAML and JSON
+
+### Background
+
+Each template's schema is defined in `schema.yaml`. DataHarmonizer can load this file **directly at runtime** (no Python build step required), making it possible to edit `schema.yaml` and see the changes immediately by refreshing the browser. A pre-compiled `schema.json` can also be present as a fallback; it is produced either by the Python `script/linkml.py` tool or by the Node utility `script/induce_schema.cjs`.
+
+### How schema loading works in each run mode
+
+**Served from a web server (modes 2 and 3)**
+
+When the application is running under any `http://` or `https://` origin (including `localhost`), schema loading follows this order:
+
+1. **Try `schema.yaml`** — fetched directly from the server at `templates/<name>/schema.yaml`. The browser parses and processes it using `schema_induction.js`, which resolves `linkml:types` built-ins and merges the full inheritance chain (`is_a` / `slot_usage`) into each class's `attributes`. This is the preferred path and requires no pre-build step.
+2. **Fall back to `schema.json`** — if the YAML fetch fails (file absent, server error, etc.), the application fetches `templates/<name>/schema.json` instead. This file must have been generated previously by `script/linkml.py` or `script/induce_schema.cjs`.
+
+Both files are copied into `web/dist/templates/<name>/` by the build process whenever they exist in the repository.
+
+**Stand-alone / `file://` protocol (mode 1)**
+
+When `index.html` is opened directly from the filesystem, browsers block `fetch()` requests to other local files, so the HTTP path above is unavailable. Instead the application uses webpack-bundled copies loaded at build time:
+
+1. **Try bundled `schema.json`** — if `schema.json` was present at the time `yarn build:web` ran, webpack includes it as a lazy JavaScript chunk. This is the preferred file:// path.
+2. **Fall back to bundled `schema.yaml`** — if `schema.json` is absent, webpack also bundles `schema.yaml` as a raw-text chunk (via webpack `asset/source`). The application processes it synchronously using the same induction logic (resolving `linkml:types` and computing class attributes). This means templates can be used stand-alone even if only `schema.yaml` is present in the repository — the next `yarn build:web` will bundle it.
+
+> **Tip:** To test a newly edited `schema.yaml` in stand-alone mode without committing or running `script/linkml.py`, simply run `yarn build:web` again. The updated `schema.yaml` will be rebundled. For quicker iteration, use mode 3 (`yarn dev`) where YAML is fetched live on every page reload.
+
+### Uploading a template at runtime
+
+**File → Upload Template** accepts both `.json` and `.yaml` schema files from your local machine. A `.yaml` file is processed through the same induction logic, so the schema is fully resolved before being used — no separate build step is needed.
+
+---
+
 ## Templates and the Template Selector
 
 A **template** is a single data-entry view built from one LinkML class. A schema can define multiple templates from different classes, each appearing as a separate entry in the template selector. The toolbar's template dropdown lets you switch between them.
