@@ -12,12 +12,12 @@ classes:
   Schema:
     name: Schema
     title: Schema
-    description: The top-level description of a LinkML schema.  A schema contains tables (LinkML classes) that detail one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
+    description: A view of loaded LinkML schemas and their descriptions.  A schema contains tables (LinkML classes) that detail one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
     see_also:
       - templates/schema_editor/SOP.pdf
     unique_keys:
       schema_key:
-        description: A slot is uniquely identified by the schema it appears in as well as its name
+        description: A schema is uniquely identified by its name.
         unique_key_slots:
           - name
     slots:
@@ -35,15 +35,16 @@ classes:
         name: name
         rank: 1
         slot_group: key
+        title: Name
         identifier: true
         pattern: ^([A-Z][a-z0-9]+)+$
         description: The coding name of a LinkML schema.
         comments:
-          - "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab.\nA schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
+          - "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
         examples:
           - value: Wastewater
         range: WhitespaceMinimizedString
-        title: Name
+        required: true
       id:
         name: id
         rank: 2
@@ -90,10 +91,10 @@ classes:
   Prefix:
     name: Prefix
     title: Prefix
-    description: A prefix used in the URIs mentioned in this schema.
+    description: A view of the list of prefixes used in loaded schema(s).  Prefixes provide namespaces that can be used within a system.  See https://en.wikipedia.org/wiki/CURIE
     unique_keys:
       prefix_key:
-        description: A slot is uniquely identified by the schema it appears in as well as its name
+        description: A prefix is uniquely identified by the schema it appears in as well as its currie prefix.
         unique_key_slots:
           - schema_id
           - prefix
@@ -120,10 +121,10 @@ classes:
   Class:
     name: Class
     title: Table
-    description: A table (LinkML class) specification contained in given schema.  A table may be a top-level DataHarmonizer "template" that can be displayed in a spreadsheet tab, or it may be a subordinate 1-many table linked to a parent table by a primary key field.
+    description: A view of the loaded schema(s) table (LinkML class) specifications.  A table may be a top-level DataHarmonizer "template" that can be displayed in a spreadsheet tab, or it may be a subordinate 1-many table linked to a parent table by a primary key field.
     unique_keys:
       class_key:
-        description: A class is uniquely identified by the schema it appears in as well as its name.
+        description: A table (class) is uniquely identified by the schema it appears in as well as its name.
         unique_key_slots:
           - schema_id
           - name
@@ -149,14 +150,15 @@ classes:
         name: name
         rank: 2
         slot_group: key
+        title: Coding Name
         pattern: ^([A-Z]+[a-z0-9]*)+$
         description: The coding name of this table (LinkML class).
         comments:
-          - "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nEach table can be displayed in DataHarmonizer in a spreadsheet tab. A table may be visible as a top-level DataHarmonizer template\", or it may be a subordinate 1-many table linked to a parent table by a primary key field."
+          - "This is name formatted in the standard **CamelCase** naming convention. This format enables software tools to work with it without character processing issues.\nEach table can be displayed in DataHarmonizer in a spreadsheet tab. A table may be visible as a top-level DataHarmonizer template\", or it may be a subordinate 1-many table linked to a parent table by a primary key field."
         examples:
           - value: WastewaterAMR|WastewaterPathogenAgnostic
         range: WhitespaceMinimizedString
-        title: Name
+        required: true
       title:
         name: title
         rank: 3
@@ -202,17 +204,17 @@ classes:
   UniqueKey:
     name: UniqueKey
     title: Table key
-    description: A table linking the name of each multi-component(slot) key to the schema class it appears in.
+    description: A view of the single or multi-component field (slot) key which often dictate record uniqueness and which can participate in primary / foreign key relationships.
     unique_keys:
       uniquekey_key:
         description: A slot is uniquely identified by the schema it appears in as well as its name
         unique_key_slots:
           - schema_id
-          - class_name
+          - class_id
           - name
     slots:
       - schema_id
-      - class_name
+      - class_id
       - name
       - unique_key_slots
       - description
@@ -225,21 +227,22 @@ classes:
         title: Schema
         range: Schema
         description: The coding name of the schema that this unique key is in.
-      class_name:
-        name: class_name
+      class_id:
+        name: class_id
         rank: 2
         slot_group: key
-        title: Class
         required: true
         description: The coding name of the table (LinkML class) that this unique key is in.
+        title: Class
       name:
         name: name
         rank: 3
         slot_group: key
+        title: Coding Name
         pattern: ^[a-z]+[a-z0-9_]*$
         description: The coding name of this unique key.
         range: WhitespaceMinimizedString
-        title: Name
+        required: true
       unique_key_slots:
         name: unique_key_slots
         rank: 4
@@ -255,21 +258,69 @@ classes:
         rank: 6
         slot_group: technical
         description: Editorial notes about an element intended primarily for internal consumption
+  SlotGroup:
+    name: SlotGroup
+    title: Table section
+    description: A view of the field section names (aka "slot groups") of the loaded schema(s) tables (LinkML classes).
+    unique_keys:
+      slotgroup_key:
+        description: A slot_group is specified in a table's (class's) slot_usage entry for a particular field (slot).
+        unique_key_slots:
+          - schema_id
+          - class_id
+          - name
+    slots:
+      - schema_id
+      - class_id
+      - name
+      - rank
+    slot_usage:
+      schema_id:
+        name: schema_id
+        rank: 1
+        slot_group: key
+        title: Schema
+        range: SchemaMenu
+        description: The coding name of the schema
+      class_id:
+        name: class_id
+        rank: 2
+        slot_group: key
+        title: Table
+        required: true
+        description: The name of a schema table (LinkML class).
+        comments:
+          - A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.
+      name:
+        name: name
+        rank: 3
+        slot_group: key
+        title: Section name
+        description: A section name that groups fields as they appear within a table (LinkML Class)
+        any_of:
+          - range: SchemaSlotGroupMenu
+          - range: WhitespaceMinimizedString
+      rank:
+        name: rank
+        rank: 4
+        slot_group: attribute
+        description: An integer which sets the order of this field relative to the others within a given table (LinkML slot's slot_usage rank).  This is a calculated field.  Adjust it by dragging and dropping this row to change order of field with respect to table or table section.
   Slot:
     name: Slot
     title: Field
-    description: One or more fields (LinkML slots) contained in given schema. A field (slot) can be used in one or more table (class) specifications.  A field defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
+    description: A view of the fields (LinkML slots) used in loaded schema(s).  Schema-level fields can be reused in one or more table (class) specifications, or can be stand-alone fields occuring directly as attributes in a single table.  A field defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
     unique_keys:
       slot_key:
-        description: A slot is uniquely identified by the schema it appears in as well as its name
+        description: A slot is uniquely identified by the schema it appears in as well as its name and any class that it may appear in.
         unique_key_slots:
           - schema_id
-          - name
           - slot_type
+          - class_id
+          - name
     slots:
       - schema_id
       - slot_type
-      - class_name
+      - class_id
       - name
       - rank
       - inlined
@@ -305,7 +356,7 @@ classes:
         rank: 1
         slot_group: key
         title: Schema
-        range: Schema
+        range: SchemaMenu
         description: The coding name of the schema that this field (LinkML slot) is contained in.
         comments:
           - A schema has a list of fields it defines. A schema can also import other schemas' fields.
@@ -313,8 +364,8 @@ classes:
         name: slot_type
         rank: 2
         slot_group: key
-      class_name:
-        name: class_name
+      class_id:
+        name: class_id
         rank: 3
         slot_group: key
         title: Table reuse
@@ -325,6 +376,8 @@ classes:
         name: name
         rank: 4
         slot_group: key
+        title: Coding name
+        required: true
         pattern: ^[a-z]+[a-z0-9_]*$
         description: The coding name of this field (LinkML slot).
         comments:
@@ -332,11 +385,11 @@ classes:
         any_of:
           - range: WhitespaceMinimizedString
           - range: SchemaSlotMenu
-        title: Name
       rank:
         name: rank
         rank: 5
         slot_group: table attribute
+        description: An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.
       inlined:
         name: inlined
         rank: 6
@@ -460,14 +513,14 @@ classes:
   Annotation:
     name: Annotation
     title: Annotation
-    description: One or more fields (LinkML slots) contained in given schema. A field (slot) can be used in one or more table (class) specifications.  A field defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
+    description: A view of the annotations that classes from loaded schema(s) have.  An annotation is a field (LinkML slot) attached directly to a schema, table, field, slot_usage, or table attribute. A field (slot) can be used in one or more table (class) specifications.  A field defines a visible column in a template, and can be a basic number, date, string, picklist (categorical or ordinal), or other single-field datatype.
     unique_keys:
-      slot_key:
-        description: A slot is uniquely identified by the schema it appears in as well as its name
+      annotation_key:
+        description: An annotation is uniquely identified by the schema it appears in as well as its name and annotation type (schema, class, slot, slot_usage, attribute)
         unique_key_slots:
           - schema_id
-          - name
           - annotation_type
+          - name
     slots:
       - schema_id
       - annotation_type
@@ -491,8 +544,6 @@ classes:
         name: class_name
         rank: 3
         slot_group: key
-        title: On table
-        description: If this annotation is attached to a table (LinkML class), provide the name of the table.
       slot_name:
         name: slot_name
         rank: 4
@@ -503,6 +554,7 @@ classes:
         slot_group: key
         title: Key
         range: WhitespaceMinimizedString
+        required: true
         pattern: ^[a-z]+[a-z0-9_]*$
         description: The annotation key (i.e. coding name of the annotation).
         comments:
@@ -515,7 +567,7 @@ classes:
   Enum:
     name: Enum
     title: Picklist
-    description: One or more enumerations in given schema.  An enumeration can be used in the "range" or "any of" attribute of a slot.  Each enumeration has a flat list or hierarchy of permitted values.
+    description: A view of the enumerations in loaded schema(s).  An enumeration can be used in the "range" or "any of" attribute of a slot.  Each enumeration has a flat list or hierarchy of permitted values.
     unique_keys:
       enum_key:
         description: An enumeration is uniquely identified by the schema it appears in as well as its name.
@@ -543,15 +595,22 @@ classes:
         slot_group: key
         title: Name
         range: WhitespaceMinimizedString
+        required: true
         pattern: ^([A-Z]+[a-z0-9]*)+$
-        description: The coding name of this pick list menu (LinkML enum) of terms..
+        description: The coding name of this pick list menu (LinkML enum) of terms.
         comments:
           - See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/
+        examples:
+          - value: "- NullValueMenu\n- ComplicationsMenu\n- HostDiseaseMenu\n- HostCommonNameMenu"
       title:
         name: title
         rank: 3
         slot_group: attribute
         description: The plain language name of this pick list menu (LinkML enum) of terms.
+        comments:
+          - "The plain language \"Title\" label should mirror the \"Name\" label, and should use ordinary textual punctuation.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/title/"
+        examples:
+          - value: "- null value menu\n- Complications menu\n- Host Disease Menu\n- host (common name) menu"
         title: Title
         required: true
       description:
@@ -559,7 +618,11 @@ classes:
         rank: 4
         slot_group: metadata
         range: string
-        description: A plan text description of this pick list (LinkML enum) menu.
+        description: A plain text description of this pick list (LinkML enum) menu.
+        comments:
+          - "Plain language sentence(s) using ordinary textual punctuation.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/description/"
+        examples:
+          - value: 'NullValueMenu Description: A picklist menu of  International Nucleotide Database Collaboration (INSDC) standardised missing/null value reporting language to be used where a value of an expected format for sample metadata reporting can not be provided. [source: https://ena-docs.readthedocs.io/en/latest/submit/samples/missing-values.html]'
       enum_uri:
         name: enum_uri
         rank: 5
@@ -571,10 +634,10 @@ classes:
   PermissibleValue:
     name: PermissibleValue
     title: Picklist choices
-    description: An enumeration picklist value.
+    description: A view of loaded schema(s) enumeration picklist values.
     unique_keys:
       permissiblevalue_key:
-        description: An enumeration is uniquely identified by the schema it appears in as well as its name.
+        description: A permissible value is uniquely identified by the schema it appears in as well as its enumeration name and its text attribute.
         unique_key_slots:
           - schema_id
           - enum_id
@@ -604,6 +667,10 @@ classes:
         title: Enum
         range: Enum
         description: The coding name of the menu (LinkML enum) that this choice is contained in.
+        comments:
+          - "To edit this value please refer to it within the \"Name\" column of the \"Picklist\" tab. Editing it there will change the \"Picklist\" name without impacting any underlying \"Picklist choices\". The code name should be formatted in the standard **CamelCase** naming convention. This format enables software tools to work with it without character processing issues.\n\nFor more information see\nhttps://linkml.io/linkml/schemas/enums.html\nhttps://linkml.io/linkml-model/latest/docs/EnumDefinition/"
+        examples:
+          - value: "- NullValueMenu\n- ComplicationsMenu\n- HostDiseaseMenu\n- HostCommonNameMenu"
       text:
         name: text
         rank: 3
@@ -615,23 +682,40 @@ classes:
         title: Parent
         range: WhitespaceMinimizedString
         description: The parent term code (in the same enumeration) of this choice, if any.
+        comments:
+          - "Create a picklist hierarchy by declaring code (LinkML permissible_vaue key) that you wish to be the parent of the value. Only refer to a parent class/choice/permissible value that has already been created under the \"Class\" column within this specific picklist. When no parent class is declared, the associated \"class\" remains at the top level of the picklist menu.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/is_a/"
+        examples:
+          - value: "Input for \"Class: | Parent Class:\"\n- Class: Lower respiratory tract\n- Class: Bronchus | Parent Class: Lower respirtory tract\n- Class: Lung | Parent Class: Lower respiratory tract\n- Class: Bronchiole | Parent Class: Lung\n\nResulting Picklist:\n- Lower respiratory tract\n--- Bronchus\n--- Lung\n------Bronchiole"
       title:
         name: title
         rank: 5
         slot_group: attribute
         title: title
-        description: The plain language title of this menu choice (LinkML PermissibleValue) to display. If none, the code will be dsplayed.
+        description: The plain language title of this menu choice (LinkML PermissibleValue) to display. If none, the code will be displayed.
+        comments:
+          - 'Suggestion: If empty, the "Code" value will be displayed.'
+        examples:
+          - value: "Class: Nasopharynx (NP)\nUser Interface Label: rhinopharynx\n\nClass: UBERON:0001728\nUser Interface Label: Nasopharynx (NP)"
       description:
         name: description
         rank: 6
         slot_group: metadata
         range: string
-        description: A plan text description of the meaning of this menu choice.
+        description: A plain text description of the meaning of this menu choice.
+        comments:
+          - "Plain language sentence(s) using ordinary textual punctuation. If using a URI/CURIE in the \"URI\" column, it is recommended to use the associated definition. When applicable, indicate the definition source(s) within square brackets \"[ ]\" after the description.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/description/"
+        examples:
+          - value: "Class: nasopharynx\nDescription: The section of the pharynx that lies above the soft palate. [UBERON:0001728]\n\nor \n\nThe uppermost of the three regions of the throat (pharynx), situated behind the nasal cavity and extending from the posterior nares to the level above the soft palate. [TFD][VHOG]"
       exact_mappings:
         name: exact_mappings
         rank: 7
         slot_group: metadata
         title: Code mappings
+        description: A list of terms from other schemas or terminology systems that mean exactly the same thing as this term.
+        comments:
+          - "This field is used to point to concepts in external standards that are fully equivalent to the current term, helping both people and software systems recognize that they refer to the same idea. It is aligned with skos:exactMatch and inherits its behavior and purpose from mappings.\n\n\"A skos:exactMatch link indicates a high degree of confidence that two concepts can be used interchangeably across a wide range of information retrieval applications.\" - https://www.w3.org/TR/skos-reference/#L4858\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/exact_mappings/"
+        examples:
+          - value: "Class: Pacific Biosciences [GENEPIO:0001927]\nMapping: ENA_GSC_MIxS_WW_ERC00023:PACBIO_SMRT\n\nNote: \"ENA_GSC_MIxS_WW_ERC00023\" is the database and submission type prefix used to identify the target export, while \"PACBIO_SMRT\" is the export format required for this specific class."
       meaning:
         name: meaning
         rank: 8
@@ -641,10 +725,14 @@ classes:
         rank: 9
         slot_group: metadata
         description: Editorial notes about an element intended primarily for internal consumption
+        comments:
+          - "Plain language sentence(s), using ordinary textual punctuation, providing organization specific comments (E.g., curation information or schema editor comments).\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/notes/"
+        examples:
+          - value: Discuss with schema workgroup whether the we should add the abbreviation "(NP)" to the "User Interface Label" for the "nasopharynx" "Class".
   EnumSource:
     name: EnumSource
     title: Picklist config
-    description: The external (URI reachable) source of an ontology or other parseable vocabulary that aids in composing this menu.  This includes specifications for extracting nodes or branches for inclusion or exclusion in the picklist (LinkML) enumeration.
+    description: A view of all the external (URI reachable) sources for loaded schema pick lists (LinkML enums).  This includes specifications for extracting nodes or branches for inclusion or exclusion in the picklist enumeration.
     unique_keys:
       enum_source_key:
         description: A picklist source consists of the schema, enumeration, inclusion or exclusion flag, and source URI of the ontology.
@@ -704,7 +792,7 @@ classes:
   Setting:
     name: Setting
     title: Setting
-    description: A regular expression that can be reused in a structured_pattern. See:https://linkml.io/linkml/faq/modeling.html#can-i-reuse-regular-expression-patterns.
+    description: A view of settings associated with loaded schema(s).  Usually a regular expression that can be reused in a structured_pattern. See:https://linkml.io/linkml/faq/modeling.html#can-i-reuse-regular-expression-patterns.
     unique_keys:
       settings_key:
         description: A setting is uniquely identified by the name key whose value is a regular expression.
@@ -730,6 +818,7 @@ classes:
         slot_group: key
         title: Name
         range: WhitespaceMinimizedString
+        required: true
         pattern: ^([A-Z]+[a-z0-9]*)+$
         description: The coding name of this setting, which I can be referenced in a Linkml structured_pattern expression. See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/
       value:
@@ -747,11 +836,11 @@ classes:
   Rule:
     name: Rule
     title: Rule
-    description: A rule that executes the change in state of one or more fields (slots).  Each rule has a "precondition" expression of constraints one or more fields' values and a postcondition expression stating what the same or other field's values change to.
+    description: A view of loaded schema(s) rules that execute the change in state of one or more fields (slots).  Each rule has a "precondition" expression of constraints one or more fields' values and a postcondition expression stating what the same or other field's values change to.
   Extension:
     name: Extension
     title: Extension
-    description: A list of LinkML attribute-value pairs that are not directly part of the schema's class/slot structure.  Locale information is held here.
+    description: A view of loaded schema(s) list of LinkML attribute-value pairs that are not directly part of the schema's class/slot structure.  Locale information is held here.
     unique_keys:
       extension_key:
         description: A key which details each schema's extension.
@@ -776,6 +865,7 @@ classes:
         slot_group: key
         title: Name
         range: WhitespaceMinimizedString
+        required: true
       value:
         name: value
         rank: 3
@@ -785,7 +875,7 @@ classes:
         rank: 4
         slot_group: attribute
         range: string
-        description: A plan text description of this extension.  LinkML extensions allow saving any kind of object as a value of a key.
+        description: A plain text description of this extension.  LinkML extensions allow saving any kind of object as a value of a key.
   Container:
     tree_root: true
     attributes:
@@ -837,15 +927,12 @@ slots:
   schema_id:
     name: schema_id
     required: true
-    range: SchemaMenu
     annotations:
       foreign_key:
         tag: foreign_key
         value: Schema.name
   class_id:
     name: class_id
-    title: Class
-    description: The class name that this table is linked to.
     range: SchemaClassMenu
     annotations:
       foreign_key:
@@ -854,9 +941,9 @@ slots:
   slot_id:
     name: slot_id
     title: Slot
-    description: The class name that this table is linked to.
+    description: The slot name that this table is linked to via a foreign key.
     required: true
-    range: WhitespaceMinimizedString
+    range: SchemaSlotMenu
     annotations:
       foreign_key:
         tag: foreign_key
@@ -870,7 +957,6 @@ slots:
         value: Enum.name
   name:
     name: name
-    required: true
   id:
     name: id
     title: ID
@@ -896,6 +982,8 @@ slots:
     description: This is the default language (ISO 639-1 Code) that the schema’s table, field and picklist (LinkML class, slot, and enumeration) titles, descriptions and other textual items are in.
     comments:
       - This is often “en” for English.
+    examples:
+      - value: English (en)
   locales:
     name: locales
     title: Translations
@@ -904,6 +992,8 @@ slots:
     multivalued: true
     comments:
       - Language translations are held in the schema’s extensions.locales data structure.
+    examples:
+      - value: French (fr)
   default_prefix:
     name: default_prefix
     title: Default prefix
@@ -956,9 +1046,6 @@ slots:
     description: A boolean indicating whether this is a specification for a top-level data container on which serializations are based.
     comments:
       - Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html
-  class_name:
-    name: class_name
-    range: SchemaClassMenu
   unique_key_slots:
     name: unique_key_slots
     title: Unique key slots
@@ -972,6 +1059,10 @@ slots:
     name: notes
     title: Notes
     range: WhitespaceMinimizedString
+  rank:
+    name: rank
+    title: Ordering
+    range: integer
   slot_type:
     name: slot_type
     title: Type
@@ -980,11 +1071,6 @@ slots:
     description: 'The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.'
     comments:
       - "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
-  rank:
-    name: rank
-    title: Ordering
-    range: integer
-    description: An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.
   inlined:
     name: inlined
     title: Inlined
@@ -1013,7 +1099,7 @@ slots:
     name: range
     title: Range
     any_of:
-      - range: SchemaSlotTypeMenu
+      - range: SchemaTypeMenu
       - range: SchemaClassMenu
       - range: SchemaEnumMenu
     required: true
@@ -1139,6 +1225,11 @@ slots:
     range: SchemaAnnotationTypeMenu
     required: true
     description: A menu of schema element types this annotation could pertain to (Schema, Class, Slot; in future Enumeration …)
+  class_name:
+    name: class_name
+    title: On table
+    range: SchemaClassMenu
+    description: If this annotation is attached to a table (LinkML class), provide the name of the table.
   slot_name:
     name: slot_name
     title: On field
@@ -1155,11 +1246,17 @@ slots:
     description: A URI for identifying this pick list’s (LinkML enum) semantic type.
     comments:
       - This semantic metadata helps in the comparison of datasets.
+    examples:
+      - value: "CURIE Example =  CHEBI:138488\nURI Example = http://purl.obolibrary.org/obo/CHEBI_138488"
   inherits:
     name: inherits
     title: Inherits
     range: SchemaEnumMenu
     description: Indicates that this menu inherits choices from another menu, and includes or excludes other values (for selection and validation).
+    comments:
+      - "Select a menu from the \"Inherits\" dropdown list or copy and paste the \"Picklist Name (CamelCase)\" value for the menu you wish to use. Currently you can only inherit from menus listed within the \"Picklist\" tab of the schema you are editing. If the dropdown list is not appearing try resizing your browser menu.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/inherits/"
+    examples:
+      - value: HostCommonNameMenu
   text:
     name: text
     title: Code
@@ -1167,12 +1264,18 @@ slots:
     required: true
     description: The code (LinkML permissible_value key) for the menu item choice.
     comments:
-      - A picklist's codes must be unique.  Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice.
+      - A picklist's codes must be unique. Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice.
+    examples:
+      - value: "- Lower respiratory tract\n- Bronchus\n- Lung\n- Bronchiole"
   meaning:
     name: meaning
     title: Meaning
     range: uri
     description: A URI for identifying this choice's semantic type.
+    comments:
+      - "Suggestion: Input a URI or CURIE (Compact uniform resource identifier).\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/meaning/\nhttps://en.wikipedia.org/wiki/Uniform_Resource_Identifier\nhttps://cthoyt.com/2021/09/14/curies.html"
+    examples:
+      - value: "CURIE Example =  UBERON:0001728\nURI Example = http://purl.obolibrary.org/obo/UBERON_0001728"
   criteria:
     name: criteria
     title: Criteria
@@ -1226,7 +1329,7 @@ enums:
       attribute:
         text: attribute
         title: Table field (stand-alone)
-        description: A table field which is not reused from the schema.  The field can impose its own attribute values.
+        description: A table field which is not reused from the schema.  The field imposes its own attribute values.
   SchemaAnnotationTypeMenu:
     name: SchemaAnnotationTypeMenu
     title: Annotation Type
@@ -1259,6 +1362,26 @@ enums:
       exclude:
         text: exclude
         title: exclude
+  SchemaMenu:
+    name: SchemaMenu
+    title: Schemas
+    permissible_values:
+  SchemaClassMenu:
+    name: SchemaClassMenu
+    title: Classes
+    permissible_values:
+  SchemaSlotGroupMenu:
+    name: SchemaSlotGroupMenu
+    title: Slot Groups
+    permissible_values:
+  SchemaSlotMenu:
+    name: SchemaSlotMenu
+    title: Slots
+    permissible_values:
+  SchemaEnumMenu:
+    name: SchemaEnumMenu
+    title: Enumerations
+    permissible_values:
   TrueFalseMenu:
     name: TrueFalseMenu
     title: True/False Menu
