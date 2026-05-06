@@ -31,13 +31,18 @@ module.exports = (env, argv) => {
         template: './index.html',
       }),
       new CopyPlugin({
-        // Covers all schema.json including locales
+        // Covers all schema.json and schema.yaml including locales
         patterns: [
           {
             context: 'templates',
             from: '**/schema.json',
             to: 'templates/[path][name][ext]',
-          },   
+          },
+          {
+            context: 'templates',
+            from: '**/schema.yaml',
+            to: 'templates/[path][name][ext]',
+          },
           {
             context: 'images',
             from: '**/*.gif',
@@ -51,6 +56,12 @@ module.exports = (env, argv) => {
     ],
     module: {
       rules: [
+        {
+          // Bundle schema.yaml as raw text for the file:// fallback (getSchemaYaml).
+          // Only active in dev mode where schemas.js is bundled directly.
+          test: /schema\.yaml$/,
+          type: 'asset/source',
+        },
         { test: /\.xlsx$/, loader: 'webpack-xlsx-loader' },
         {
           test: /\.(c|d|t)sv$/, // load all .csv, .dsv, .tsv files with dsv-loader

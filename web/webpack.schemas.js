@@ -6,6 +6,16 @@ module.exports = {
   entry: {
     schemas: './schemas.js',
   },
+  module: {
+    rules: [
+      {
+        // Bundle schema.yaml files as raw text strings (asset/source) so that
+        // getSchemaYaml() can return them without fetch() in file:// contexts.
+        test: /schema\.yaml$/,
+        type: 'asset/source',
+      },
+    ],
+  },
   output: {
     path: path.resolve(__dirname, 'dist', 'dist-schemas'),
     filename: '[name].js',
@@ -27,6 +37,14 @@ module.exports = {
           context: 'templates',
           from: '**/schema.yaml',
           to: '../templates/[path][name][ext]',
+        },
+        {
+          // schema.json as a static file so the HTTP JSON fallback in
+          // fetchSchema() can fetch it directly without the webpack bundle.
+          context: 'templates',
+          from: '**/schema.json',
+          to: '../templates/[path][name][ext]',
+          noErrorOnMissing: true,
         },
         {
           context: 'templates',
