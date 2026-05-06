@@ -1,12 +1,11 @@
 class_name	slot_group	name	title	range	identifier	multivalued	required	recommended	minimum_value	maximum_value	pattern	structured_pattern	slot_uri	description	comments	examples
 Schema	key	name	Name	WhitespaceMinimizedString	TRUE		TRUE				^([A-Z][a-z0-9]+)+$			The coding name of a LinkML schema.	"This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.
-A LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab.
-A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."	Wastewater
+A LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."	Wastewater
 	key	id	ID	uri	TRUE		TRUE							The unique URI for identifying this LinkML schema.	Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development. This semantic metadata helps in the comparison of datasets.	https://example.com/GRDI
 	attributes	description	Description	string			TRUE							The plain language description of this LinkML schema.		
 	attributes	version	Version	WhitespaceMinimizedString			TRUE				^\d+\.\d+\.\d+$			The semantic version identifier for this LinkML schema.	See https://semver.org/	1.2.3
-	attributes	in_language	Default language	LanguagesMenu										This is the default language (ISO 639-1 Code) that the schema’s table, field and picklist (LinkML class, slot, and enumeration) titles, descriptions and other textual items are in.	This is often “en” for English.	
-	attributes	locales	Translations	LanguagesMenu		TRUE								For multilingual schemas, a list of (ISO 639-1) languages (codes) which translations can be provided for.	Language translations are held in the schema’s extensions.locales data structure.	
+	attributes	in_language	Default language	LanguagesMenu										This is the default language (ISO 639-1 Code) that the schema’s table, field and picklist (LinkML class, slot, and enumeration) titles, descriptions and other textual items are in.	This is often “en” for English.	English (en)
+	attributes	locales	Translations	LanguagesMenu		TRUE								For multilingual schemas, a list of (ISO 639-1) languages (codes) which translations can be provided for.	Language translations are held in the schema’s extensions.locales data structure.	French (fr)
 	attributes	default_prefix	Default prefix	uri			TRUE							A prefix to assume all classes and slots can be addressed by.		
 	attributes	imports	Imports	WhitespaceMinimizedString		TRUE								A list of linkml:[import name] schemas to import and reuse.	Currently only the default linkml:types is implemented.	
 	attributes	see_also	See Also	WhitespaceMinimizedString		TRUE								A delimited list of URLs to supporting documentation; or possibly a local relative file path containing such information.		
@@ -16,7 +15,7 @@ Prefix	key	schema_id	Schema	Schema			TRUE							The coding name of the LinkML sc
 	attributes	reference	Reference	uri			TRUE							The URI the prefix expands to.		
 																
 Class	key	schema_id	Schema	Schema			TRUE							The coding name of the LinkML schema this table (LinkML class) is contained in.		
-	key	name	Name	WhitespaceMinimizedString			TRUE				^([A-Z]+[a-z0-9]*)+$			The coding name of this table (LinkML class).	"This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.
+	key	name	Coding Name	WhitespaceMinimizedString			TRUE				^([A-Z]+[a-z0-9]*)+$			The coding name of this table (LinkML class).	"This is name formatted in the standard **CamelCase** naming convention. This format enables software tools to work with it without character processing issues.
 Each table can be displayed in DataHarmonizer in a spreadsheet tab. A table may be visible as a top-level DataHarmonizer template"", or it may be a subordinate 1-many table linked to a parent table by a primary key field."	WastewaterAMR|WastewaterPathogenAgnostic
 	attributes	title	Title	WhitespaceMinimizedString			TRUE							The plain language name of this table (LinkML class).		
 	attributes	description	Description	string			TRUE							The plain language description of this table (LinkML class).		
@@ -27,22 +26,25 @@ Each table can be displayed in DataHarmonizer in a spreadsheet tab. A table may 
 	technical	tree_root	Root Table	boolean;TrueFalseMenu										A boolean indicating whether this is a specification for a top-level data container on which serializations are based.	Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html	
 																
 UniqueKey	key	schema_id	Schema	Schema			TRUE							The coding name of the schema that this unique key is in.		
-	key	class_name	Class	SchemaClassMenu			TRUE							The coding name of the table (LinkML class) that this unique key is in.		
-	key	name	Name	WhitespaceMinimizedString			TRUE				^[a-z]+[a-z0-9_]*$			The coding name of this unique key.		
+	key	class_id	Class	SchemaClassMenu			TRUE							The coding name of the table (LinkML class) that this unique key is in.		
+	key	name	Coding Name	WhitespaceMinimizedString			TRUE				^[a-z]+[a-z0-9_]*$			The coding name of this unique key.		
 	technical	unique_key_slots	Unique key slots	SchemaSlotMenu		TRUE	TRUE							A list of a table’s fields (LinkML class’s slots) that make up this unique key	See https://linkml.io/linkml/schemas/constraints.html	
 	technical	description	Description	WhitespaceMinimizedString										The description of this unique key combination.		
 	technical	notes	Notes	WhitespaceMinimizedString										Editorial notes about an element intended primarily for internal consumption		
 																
+SlotGroup	key	schema_id	Schema	SchemaMenu			TRUE							The coding name of the schema		
+	key	class_id	Table	SchemaClassMenu			TRUE							The name of a schema table (LinkML class).	A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.	
+	key	name	Section name	SchemaSlotGroupMenu;WhitespaceMinimizedString										A section name that groups fields as they appear within a table (LinkML Class)		
+	attribute	rank	Ordering	integer										An integer which sets the order of this field relative to the others within a given table (LinkML slot's slot_usage rank).  This is a calculated field.  Adjust it by dragging and dropping this row to change order of field with respect to table or table section.		
 																
-Slot	key	schema_id	Schema	Schema			TRUE							The coding name of the schema that this field (LinkML slot) is contained in.	A schema has a list of fields it defines. A schema can also import other schemas' fields.	
+Slot	key	schema_id	Schema	SchemaMenu			TRUE							The coding name of the schema that this field (LinkML slot) is contained in.	A schema has a list of fields it defines. A schema can also import other schemas' fields.	
 	key	slot_type	Type	SchemaSlotTypeMenu			TRUE							The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.	"In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:
 1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).
 2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's ""slot_usage"" list.
 3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"	
-	key	class_name	Table reuse	SchemaClassMenu										If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.	A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.	
-	key	name	Name	WhitespaceMinimizedString;SchemaSlotMenu			TRUE				^[a-z]+[a-z0-9_]*$			The coding name of this field (LinkML slot).	"This name is formatted as a standard lowercase **snake_case** formatted name.
+	key	class_id	Table reuse	SchemaClassMenu										If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.	A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.	
+	key	name	Coding name	WhitespaceMinimizedString;SchemaSlotMenu			TRUE				^[a-z]+[a-z0-9_]*$			The coding name of this field (LinkML slot).	"This name is formatted as a standard lowercase **snake_case** formatted name.
 A field can be used in one or more tables. A field can be shown as a visible datatype column in a spreadsheet (DataHarmonizer template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."	
-																
 	table attribute	rank	Ordering	integer										An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.		
 	table attribute	inlined	Inlined	boolean;TrueFalseMenu										Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.		
 	table attribute	inlined_as_list	Inlined as list	boolean;TrueFalseMenu										Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.		
@@ -72,6 +74,12 @@ A field can be used in one or more tables. A field can be shown as a visible dat
 	metadata	version	Version	WhitespaceMinimizedString										A version number (or date) indicating when this field (LinkML slot) was introduced.		
 	metadata	notes	Notes	WhitespaceMinimizedString										Editorial notes about this field (LinkML slot) intended primarily for internal consumption		
 																
+																
+																
+																
+																
+																
+																
 Annotation	key	schema_id	Schema	Schema			TRUE							The coding name of the schema this annotation is contained in.		
 	key	annotation_type	Annotation on	SchemaAnnotationTypeMenu			TRUE							A menu of schema element types this annotation could pertain to (Schema, Class, Slot; in future Enumeration …)		
 	key	class_name	On table	SchemaClassMenu										If this annotation is attached to a table (LinkML class), provide the name of the table.		
@@ -80,21 +88,89 @@ Annotation	key	schema_id	Schema	Schema			TRUE							The coding name of the schem
 	attribute	value	Value	string										The annotation’s value, which can be a string or an object of any kind (in non-serialized data).		
 																
 Enum	key	schema_id	Schema	Schema			TRUE							The coding name of the schema this pick list (LinkML enum) is contained in.		
-	key	name	Name	WhitespaceMinimizedString			TRUE				^([A-Z]+[a-z0-9]*)+$			The coding name of this pick list menu (LinkML enum) of terms..	See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/	
-	attribute	title	Title	WhitespaceMinimizedString			TRUE							The plain language name of this pick list menu (LinkML enum) of terms.		
-	metadata	description	Description	string										A plan text description of this pick list (LinkML enum) menu.		
-	metadata	enum_uri	Enum URI	uri										A URI for identifying this pick list’s (LinkML enum) semantic type.	This semantic metadata helps in the comparison of datasets.	
-	metadata	inherits	Inherits	SchemaEnumMenu										Indicates that this menu inherits choices from another menu, and includes or excludes other values (for selection and validation).		
+	key	name	Name	WhitespaceMinimizedString			TRUE				^([A-Z]+[a-z0-9]*)+$			The coding name of this pick list menu (LinkML enum) of terms.	See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/	"- NullValueMenu
+- ComplicationsMenu
+- HostDiseaseMenu
+- HostCommonNameMenu"
+	attribute	title	Title	WhitespaceMinimizedString			TRUE							The plain language name of this pick list menu (LinkML enum) of terms.	"The plain language ""Title"" label should mirror the ""Name"" label, and should use ordinary textual punctuation.
+
+For more information see
+https://linkml.io/linkml-model/latest/docs/title/"	"- null value menu
+- Complications menu
+- Host Disease Menu
+- host (common name) menu"
+	metadata	description	Description	string										A plain text description of this pick list (LinkML enum) menu.	"Plain language sentence(s) using ordinary textual punctuation.
+
+For more information see
+https://linkml.io/linkml-model/latest/docs/description/"	NullValueMenu Description: A picklist menu of  International Nucleotide Database Collaboration (INSDC) standardised missing/null value reporting language to be used where a value of an expected format for sample metadata reporting can not be provided. [source: https://ena-docs.readthedocs.io/en/latest/submit/samples/missing-values.html]
+	metadata	enum_uri	Enum URI	uri										A URI for identifying this pick list’s (LinkML enum) semantic type.	This semantic metadata helps in the comparison of datasets.	"CURIE Example =  CHEBI:138488
+URI Example = http://purl.obolibrary.org/obo/CHEBI_138488"
+	metadata	inherits	Inherits	SchemaEnumMenu										Indicates that this menu inherits choices from another menu, and includes or excludes other values (for selection and validation).	"Select a menu from the ""Inherits"" dropdown list or copy and paste the ""Picklist Name (CamelCase)"" value for the menu you wish to use. Currently you can only inherit from menus listed within the ""Picklist"" tab of the schema you are editing. If the dropdown list is not appearing try resizing your browser menu.
+
+For more information see
+https://linkml.io/linkml-model/latest/docs/inherits/"	HostCommonNameMenu
 																
 PermissibleValue	key	schema_id	Schema	Schema			TRUE							The coding name of the schema this menu choice's menu (LinkML enum) is contained in.		
-	key	enum_id	Enum	Enum			TRUE							The coding name of the menu (LinkML enum) that this choice is contained in.		
-	key	text	Code	WhitespaceMinimizedString			TRUE							The code (LinkML permissible_value key) for the menu item choice.	A picklist's codes must be unique.  Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice.	
-	attribute	is_a	Parent	WhitespaceMinimizedString										The parent term code (in the same enumeration) of this choice, if any.		
-	attribute	title	title	WhitespaceMinimizedString										The plain language title of this menu choice (LinkML PermissibleValue) to display. If none, the code will be dsplayed.		
-	metadata	description	Description	string										A plan text description of the meaning of this menu choice.		
-	metadata	exact_mappings	Code mappings	WhitespaceMinimizedString		TRUE										
-	metadata	meaning	Meaning	uri										A URI for identifying this choice's semantic type.		
-	metadata	notes	Notes	WhitespaceMinimizedString										Editorial notes about an element intended primarily for internal consumption		
+	key	enum_id	Enum	Enum			TRUE							The coding name of the menu (LinkML enum) that this choice is contained in.	"To edit this value please refer to it within the ""Name"" column of the ""Picklist"" tab. Editing it there will change the ""Picklist"" name without impacting any underlying ""Picklist choices"". The code name should be formatted in the standard **CamelCase** naming convention. This format enables software tools to work with it without character processing issues.
+
+For more information see
+https://linkml.io/linkml/schemas/enums.html
+https://linkml.io/linkml-model/latest/docs/EnumDefinition/"	"- NullValueMenu
+- ComplicationsMenu
+- HostDiseaseMenu
+- HostCommonNameMenu"
+	key	text	Code	WhitespaceMinimizedString			TRUE							The code (LinkML permissible_value key) for the menu item choice.	A picklist's codes must be unique. Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice.	"- Lower respiratory tract
+- Bronchus
+- Lung
+- Bronchiole"
+	attribute	is_a	Parent	WhitespaceMinimizedString										The parent term code (in the same enumeration) of this choice, if any.	"Create a picklist hierarchy by declaring code (LinkML permissible_vaue key) that you wish to be the parent of the value. Only refer to a parent class/choice/permissible value that has already been created under the ""Class"" column within this specific picklist. When no parent class is declared, the associated ""class"" remains at the top level of the picklist menu.
+
+For more information see
+https://linkml.io/linkml-model/latest/docs/is_a/"	"Input for ""Class: | Parent Class:""
+- Class: Lower respiratory tract
+- Class: Bronchus | Parent Class: Lower respirtory tract
+- Class: Lung | Parent Class: Lower respiratory tract
+- Class: Bronchiole | Parent Class: Lung
+
+Resulting Picklist:
+- Lower respiratory tract
+--- Bronchus
+--- Lung
+------Bronchiole"
+	attribute	title	title	WhitespaceMinimizedString										The plain language title of this menu choice (LinkML PermissibleValue) to display. If none, the code will be displayed.	Suggestion: If empty, the "Code" value will be displayed.	"Class: Nasopharynx (NP)
+User Interface Label: rhinopharynx
+
+Class: UBERON:0001728
+User Interface Label: Nasopharynx (NP)"
+	metadata	description	Description	string										A plain text description of the meaning of this menu choice.	"Plain language sentence(s) using ordinary textual punctuation. If using a URI/CURIE in the ""URI"" column, it is recommended to use the associated definition. When applicable, indicate the definition source(s) within square brackets ""[ ]"" after the description.
+
+For more information see
+https://linkml.io/linkml-model/latest/docs/description/"	"Class: nasopharynx
+Description: The section of the pharynx that lies above the soft palate. [UBERON:0001728]
+
+or 
+
+The uppermost of the three regions of the throat (pharynx), situated behind the nasal cavity and extending from the posterior nares to the level above the soft palate. [TFD][VHOG]"
+	metadata	exact_mappings	Code mappings	WhitespaceMinimizedString		TRUE								A list of terms from other schemas or terminology systems that mean exactly the same thing as this term.	"This field is used to point to concepts in external standards that are fully equivalent to the current term, helping both people and software systems recognize that they refer to the same idea. It is aligned with skos:exactMatch and inherits its behavior and purpose from mappings.
+
+""A skos:exactMatch link indicates a high degree of confidence that two concepts can be used interchangeably across a wide range of information retrieval applications."" - https://www.w3.org/TR/skos-reference/#L4858
+
+For more information see
+https://linkml.io/linkml-model/latest/docs/exact_mappings/"	"Class: Pacific Biosciences [GENEPIO:0001927]
+Mapping: ENA_GSC_MIxS_WW_ERC00023:PACBIO_SMRT
+
+Note: ""ENA_GSC_MIxS_WW_ERC00023"" is the database and submission type prefix used to identify the target export, while ""PACBIO_SMRT"" is the export format required for this specific class."
+	metadata	meaning	Meaning	uri										A URI for identifying this choice's semantic type.	"Suggestion: Input a URI or CURIE (Compact uniform resource identifier).
+
+For more information see
+https://linkml.io/linkml-model/latest/docs/meaning/
+https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+https://cthoyt.com/2021/09/14/curies.html"	"CURIE Example =  UBERON:0001728
+URI Example = http://purl.obolibrary.org/obo/UBERON_0001728"
+	metadata	notes	Notes	WhitespaceMinimizedString										Editorial notes about an element intended primarily for internal consumption	"Plain language sentence(s), using ordinary textual punctuation, providing organization specific comments (E.g., curation information or schema editor comments).
+
+For more information see
+https://linkml.io/linkml-model/latest/docs/notes/"	Discuss with schema workgroup whether the we should add the abbreviation "(NP)" to the "User Interface Label" for the "nasopharynx" "Class".
 																
 EnumSource	key	schema_id	Schema	Schema			TRUE							The coding name of the schema this menu inclusion and exclusion criteria pertain to.		
 	key	enum_id	Enum	Enum			TRUE							The coding name of the menu (enumeration) that this inclusion criteria pertains to.		
@@ -116,7 +192,7 @@ Setting	key	schema_id	Schema	Schema			TRUE							The coding name of the schema t
 Extension	key	schema_id	Schema	Schema			TRUE									
 	key	name	Name	WhitespaceMinimizedString			TRUE									
 	attribute	value	Value	string												
-	attribute	description	Description	string										A plan text description of this extension.  LinkML extensions allow saving any kind of object as a value of a key.		
+	attribute	description	Description	string										A plain text description of this extension.  LinkML extensions allow saving any kind of object as a value of a key.		
 																
 																
 																
