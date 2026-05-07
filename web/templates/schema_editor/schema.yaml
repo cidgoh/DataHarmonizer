@@ -35,7 +35,7 @@ classes:
         name: name
         rank: 1
         slot_group: key
-        title: Name
+        title: Schema ID
         identifier: true
         pattern: ^([A-Z][a-z0-9]+)+$
         description: The coding name of a LinkML schema.
@@ -107,7 +107,7 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: Schema
         description: The coding name of the LinkML schema this prefix is listed in.
       prefix:
@@ -143,14 +143,14 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: Schema
         description: The coding name of the LinkML schema this table (LinkML class) is contained in.
       name:
         name: name
         rank: 2
         slot_group: key
-        title: Coding Name
+        title: Class ID
         pattern: ^([A-Z]+[a-z0-9]*)+$
         description: The coding name of this table (LinkML class).
         comments:
@@ -224,21 +224,21 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: Schema
         description: The coding name of the schema that this unique key is in.
       class_id:
         name: class_id
         rank: 2
         slot_group: key
+        title: Class ID
         required: true
         description: The coding name of the table (LinkML class) that this unique key is in.
-        title: Class
       name:
         name: name
         rank: 3
         slot_group: key
-        title: Coding Name
+        title: Unique Key ID
         pattern: ^[a-z]+[a-z0-9_]*$
         description: The coding name of this unique key.
         range: WhitespaceMinimizedString
@@ -279,14 +279,14 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: SchemaMenu
         description: The coding name of the schema
       class_id:
         name: class_id
         rank: 2
         slot_group: key
-        title: Table
+        title: Table ID
         required: true
         description: The name of a schema table (LinkML class).
         comments:
@@ -355,7 +355,7 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: SchemaMenu
         description: The coding name of the schema that this field (LinkML slot) is contained in.
         comments:
@@ -376,7 +376,7 @@ classes:
         name: name
         rank: 4
         slot_group: key
-        title: Coding name
+        title: Slot ID
         required: true
         pattern: ^[a-z]+[a-z0-9_]*$
         description: The coding name of this field (LinkML slot).
@@ -533,7 +533,7 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: Schema
         description: The coding name of the schema this annotation is contained in.
       annotation_type:
@@ -586,14 +586,14 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: Schema
         description: The coding name of the schema this pick list (LinkML enum) is contained in.
       name:
         name: name
         rank: 2
         slot_group: key
-        title: Name
+        title: Enum ID
         range: WhitespaceMinimizedString
         required: true
         pattern: ^([A-Z]+[a-z0-9]*)+$
@@ -657,14 +657,14 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: Schema
         description: The coding name of the schema this menu choice's menu (LinkML enum) is contained in.
       enum_id:
         name: enum_id
         rank: 2
         slot_group: key
-        title: Enum
+        title: Picklist ID
         range: Enum
         description: The coding name of the menu (LinkML enum) that this choice is contained in.
         comments:
@@ -755,14 +755,14 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: Schema
         description: The coding name of the schema this menu inclusion and exclusion criteria pertain to.
       enum_id:
         name: enum_id
         rank: 2
         slot_group: key
-        title: Enum
+        title: Enum ID
         range: Enum
         description: The coding name of the menu (enumeration) that this inclusion criteria pertains to.
       criteria:
@@ -809,7 +809,7 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: Schema
         description: The coding name of the schema this setting is contained in.
       name:
@@ -857,7 +857,7 @@ classes:
         name: schema_id
         rank: 1
         slot_group: key
-        title: Schema
+        title: Schema ID
         range: Schema
       name:
         name: name
@@ -959,7 +959,7 @@ slots:
     name: name
   id:
     name: id
-    title: ID
+    title: URI
     range: uri
     required: true
     description: The unique URI for identifying this LinkML schema.

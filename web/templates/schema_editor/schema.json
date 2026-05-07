@@ -41,7 +41,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of a LinkML schema.",
-          "title": "Name",
+          "title": "Schema ID",
           "comments": [
             "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
           ],
@@ -117,7 +117,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of a LinkML schema.",
-          "title": "Name",
+          "title": "Schema ID",
           "comments": [
             "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
           ],
@@ -150,7 +150,7 @@
         "id": {
           "name": "id",
           "description": "The unique URI for identifying this LinkML schema.",
-          "title": "ID",
+          "title": "URI",
           "comments": [
             "Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development. This semantic metadata helps in the comparison of datasets."
           ],
@@ -333,7 +333,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the LinkML schema this prefix is listed in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "Schema"
@@ -359,7 +359,7 @@
             }
           },
           "description": "The coding name of the LinkML schema this prefix is listed in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -432,7 +432,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the LinkML schema this table (LinkML class) is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "Schema"
@@ -440,7 +440,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of this table (LinkML class).",
-          "title": "Coding Name",
+          "title": "Class ID",
           "comments": [
             "This is name formatted in the standard **CamelCase** naming convention. This format enables software tools to work with it without character processing issues.\nEach table can be displayed in DataHarmonizer in a spreadsheet tab. A table may be visible as a top-level DataHarmonizer template\", or it may be a subordinate 1-many table linked to a parent table by a primary key field."
           ],
@@ -516,7 +516,7 @@
             }
           },
           "description": "The coding name of the LinkML schema this table (LinkML class) is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -541,7 +541,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of this table (LinkML class).",
-          "title": "Coding Name",
+          "title": "Class ID",
           "comments": [
             "This is name formatted in the standard **CamelCase** naming convention. This format enables software tools to work with it without character processing issues.\nEach table can be displayed in DataHarmonizer in a spreadsheet tab. A table may be visible as a top-level DataHarmonizer template\", or it may be a subordinate 1-many table linked to a parent table by a primary key field."
           ],
@@ -723,7 +723,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the schema that this unique key is in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "Schema"
@@ -731,7 +731,7 @@
         "class_id": {
           "name": "class_id",
           "description": "The coding name of the table (LinkML class) that this unique key is in.",
-          "title": "Class",
+          "title": "Class ID",
           "rank": 2,
           "slot_group": "key",
           "required": true
@@ -739,7 +739,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of this unique key.",
-          "title": "Coding Name",
+          "title": "Unique Key ID",
           "rank": 3,
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
@@ -775,7 +775,7 @@
             }
           },
           "description": "The coding name of the schema that this unique key is in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -806,7 +806,7 @@
             }
           },
           "description": "The coding name of the table (LinkML class) that this unique key is in.",
-          "title": "Class",
+          "title": "Class ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 2,
           "alias": "class_id",
@@ -823,7 +823,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of this unique key.",
-          "title": "Coding Name",
+          "title": "Unique Key ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 3,
           "alias": "name",
@@ -922,7 +922,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the schema",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "SchemaMenu"
@@ -930,7 +930,7 @@
         "class_id": {
           "name": "class_id",
           "description": "The name of a schema table (LinkML class).",
-          "title": "Table",
+          "title": "Table ID",
           "comments": [
             "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
           ],
@@ -970,7 +970,7 @@
             }
           },
           "description": "The coding name of the schema",
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -1001,7 +1001,7 @@
             }
           },
           "description": "The name of a schema table (LinkML class).",
-          "title": "Table",
+          "title": "Table ID",
           "comments": [
             "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
           ],
@@ -1084,7 +1084,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the schema that this field (LinkML slot) is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "comments": [
             "A schema has a list of fields it defines. A schema can also import other schemas' fields."
           ],
@@ -1110,7 +1110,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of this field (LinkML slot).",
-          "title": "Coding name",
+          "title": "Slot ID",
           "comments": [
             "This name is formatted as a standard lowercase **snake_case** formatted name.\nA field can be used in one or more tables. A field can be shown as a visible datatype column in a spreadsheet (DataHarmonizer template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
           ],
@@ -1292,7 +1292,7 @@
             }
           },
           "description": "The coding name of the schema that this field (LinkML slot) is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "comments": [
             "A schema has a list of fields it defines. A schema can also import other schemas' fields."
           ],
@@ -1363,7 +1363,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of this field (LinkML slot).",
-          "title": "Coding name",
+          "title": "Slot ID",
           "comments": [
             "This name is formatted as a standard lowercase **snake_case** formatted name.\nA field can be used in one or more tables. A field can be shown as a visible datatype column in a spreadsheet (DataHarmonizer template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
           ],
@@ -1919,7 +1919,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the schema this annotation is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "Schema"
@@ -1969,7 +1969,7 @@
             }
           },
           "description": "The coding name of the schema this annotation is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -2099,7 +2099,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the schema this pick list (LinkML enum) is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "Schema"
@@ -2107,7 +2107,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of this pick list menu (LinkML enum) of terms.",
-          "title": "Name",
+          "title": "Enum ID",
           "comments": [
             "See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/"
           ],
@@ -2174,7 +2174,7 @@
             }
           },
           "description": "The coding name of the schema this pick list (LinkML enum) is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -2199,7 +2199,7 @@
         "name": {
           "name": "name",
           "description": "The coding name of this pick list menu (LinkML enum) of terms.",
-          "title": "Name",
+          "title": "Enum ID",
           "comments": [
             "See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/"
           ],
@@ -2348,7 +2348,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the schema this menu choice's menu (LinkML enum) is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "Schema"
@@ -2356,7 +2356,7 @@
         "enum_id": {
           "name": "enum_id",
           "description": "The coding name of the menu (LinkML enum) that this choice is contained in.",
-          "title": "Enum",
+          "title": "Picklist ID",
           "comments": [
             "To edit this value please refer to it within the \"Name\" column of the \"Picklist\" tab. Editing it there will change the \"Picklist\" name without impacting any underlying \"Picklist choices\". The code name should be formatted in the standard **CamelCase** naming convention. This format enables software tools to work with it without character processing issues.\n\nFor more information see\nhttps://linkml.io/linkml/schemas/enums.html\nhttps://linkml.io/linkml-model/latest/docs/EnumDefinition/"
           ],
@@ -2465,7 +2465,7 @@
             }
           },
           "description": "The coding name of the schema this menu choice's menu (LinkML enum) is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -2496,7 +2496,7 @@
             }
           },
           "description": "The coding name of the menu (LinkML enum) that this choice is contained in.",
-          "title": "Enum",
+          "title": "Picklist ID",
           "comments": [
             "To edit this value please refer to it within the \"Name\" column of the \"Picklist\" tab. Editing it there will change the \"Picklist\" name without impacting any underlying \"Picklist choices\". The code name should be formatted in the standard **CamelCase** naming convention. This format enables software tools to work with it without character processing issues.\n\nFor more information see\nhttps://linkml.io/linkml/schemas/enums.html\nhttps://linkml.io/linkml-model/latest/docs/EnumDefinition/"
           ],
@@ -2709,7 +2709,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the schema this menu inclusion and exclusion criteria pertain to.",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "Schema"
@@ -2717,7 +2717,7 @@
         "enum_id": {
           "name": "enum_id",
           "description": "The coding name of the menu (enumeration) that this inclusion criteria pertains to.",
-          "title": "Enum",
+          "title": "Enum ID",
           "rank": 2,
           "slot_group": "key",
           "range": "Enum"
@@ -2763,7 +2763,7 @@
             }
           },
           "description": "The coding name of the schema this menu inclusion and exclusion criteria pertain to.",
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -2794,7 +2794,7 @@
             }
           },
           "description": "The coding name of the menu (enumeration) that this inclusion criteria pertains to.",
-          "title": "Enum",
+          "title": "Enum ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 2,
           "alias": "enum_id",
@@ -2931,7 +2931,7 @@
         "schema_id": {
           "name": "schema_id",
           "description": "The coding name of the schema this setting is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "Schema"
@@ -2971,7 +2971,7 @@
             }
           },
           "description": "The coding name of the schema this setting is contained in.",
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -3081,7 +3081,7 @@
       "slot_usage": {
         "schema_id": {
           "name": "schema_id",
-          "title": "Schema",
+          "title": "Schema ID",
           "rank": 1,
           "slot_group": "key",
           "range": "Schema"
@@ -3116,7 +3116,7 @@
               "value": "Schema.name"
             }
           },
-          "title": "Schema",
+          "title": "Schema ID",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 1,
           "alias": "schema_id",
@@ -3436,7 +3436,7 @@
     "id": {
       "name": "id",
       "description": "The unique URI for identifying this LinkML schema.",
-      "title": "ID",
+      "title": "URI",
       "comments": [
         "Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development. This semantic metadata helps in the comparison of datasets."
       ],
