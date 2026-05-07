@@ -243,6 +243,16 @@ Select the profile in the dropdown, then click **Delete profile**. The profile i
 
 Click **Reset** to discard any drag-drop changes made in the current session and restore the table to its auto-detected state (as it appeared when the file was first loaded).
 
+### Limitation — JSON files must have consistent field names across all records
+
+When loading a JSON data file, DataHarmonizer builds the column header by scanning every record (row) in each table and collecting the union of all field names encountered. This works correctly when every record in a given class/table uses the same set of field names.
+
+However, if some records contain a typo or variant spelling of a field name — for example because records were merged in from another source — the union will contain **both** the correct name and the mistyped one. The correctly named field will match the schema and its data will load normally. The mistyped name will appear in the Field Mapper report as an unmatched data column (visible when the **Concise view** checkbox is off).
+
+This situation cannot be resolved through the Field Mapper: two distinct data columns cannot both be mapped to the same schema field, and even if they could, the per-record ambiguity (which name applies to which record) has no clean resolution at load time.
+
+**Remedy:** fix the JSON file directly so that every record of a given class uses identical field names before loading it into DataHarmonizer.
+
 ---
 
 ## Clearing Data
