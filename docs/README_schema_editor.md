@@ -156,3 +156,5 @@ Each locale row in the translation popup includes a **google** button on the rig
 - Selecting a row in the **Schema** tab filters all other tabs to show only elements belonging to that schema — useful when multiple schemas are loaded simultaneously.
 - Fields marked with `slot_group: technical` in the underlying schema definition (e.g. `class_uri`, `is_a`, `tree_root`) are grouped into a "technical" section within their tab and are only editable in expert mode.
 - The schema editor does not run `tabular_to_schema.py` or any build pipeline step. After saving `schema.yaml`, run the standard DataHarmonizer build process (`update_templates.py` or equivalent) to produce the `schema.json` consumed by the DH JavaScript runtime.
+
+For technical details on how `schema.yaml` files are loaded and resolved at runtime, see `README_developer.md`.
