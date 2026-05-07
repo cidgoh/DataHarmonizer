@@ -274,7 +274,7 @@ td.tabFieldTd.attribute {
 
 td.tabFieldTd.slot_usage.inherited::before { 
   position:relative; 
-  content: "as per schema slot";
+  content: "as per schema field";
   color: grey;
   border:1px solid grey;
   background-color: #edffed;
