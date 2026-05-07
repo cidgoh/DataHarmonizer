@@ -24,5 +24,9 @@ export const getSchemaYaml = async (schema_folder) => {
 };
 
 export const getExportFormats = async (schema_folder) => {
-  return (await import(`./templates/${schema_folder}/export.js`)).default;
+  try {
+    return (await import(`./templates/${schema_folder}/export.js`)).default;
+  } catch (e) {
+    return {};
+  }
 };
