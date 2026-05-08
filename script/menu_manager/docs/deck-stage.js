@@ -527,7 +527,9 @@
     }
 
     _fit() {
-      if (!this._canvas) return;
+      if (!this._canvas) {
+        return;
+      }
       // PPTX export sets noscale so the DOM capture sees authored-size
       // geometry — the scaled canvas is in shadow DOM, so the exporter's
       // resetTransformSelector can't reach .canvas.style.transform directly.
