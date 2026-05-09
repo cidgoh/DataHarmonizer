@@ -17,7 +17,7 @@ body {
   max-width: 60px;
 }
 
-/* MAKING BOOTSTRAP tab states more pronounced */ 
+/* MAKING BOOTSTRAP tab states more pronounced */
 li.nav-item > a.nav-link.active {
   font-weight:bold
 }
@@ -25,6 +25,18 @@ li.nav-item.disabled {
   background-color: #eee !important;
   opacity: 0.7;
   cursor: not-allowed !important;
+}
+
+/* Tab turns red when validation finds errors on it */
+li.nav-item > a.nav-link.tab-has-errors {
+  color: #dc3545;
+  opacity: 0.75;
+}
+li.nav-item > a.nav-link.tab-has-errors.active {
+  color: #dc3545;
+  opacity: 1;
+  background-color: #fff5f5;
+  border-color: #dc3545 #dc3545 #fff5f5;
 }
 
 
