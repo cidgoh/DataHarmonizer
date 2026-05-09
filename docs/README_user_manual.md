@@ -141,7 +141,11 @@ Right-click any row → **Remove row**. If the schema has 1-to-many relationship
 
 ## Validation
 
-Click the **Validate** button in the toolbar. DataHarmonizer checks every cell against the schema rules:
+### Running validation
+
+Click the **Validate** button in the toolbar. DataHarmonizer validates **every tab** in the schema — not just the one currently displayed — and checks **every row** in each tab, regardless of whether rows are currently visible or hidden by a column filter or the Display setting.
+
+Rules checked per cell:
 
 - **Required** fields must not be empty.
 - **Pattern** constraints (regular expressions) must match.
@@ -151,7 +155,32 @@ Click the **Validate** button in the toolbar. DataHarmonizer checks every cell a
 - **Unique key combinations** — composite keys declared in `unique_keys` must be unique across rows.
 - **Foreign key references** (in 1-to-many schemas) — child values must exist in the parent table.
 
-Invalid cells are highlighted in red. Click a highlighted cell to see the validation error in the status bar. Validation runs against the full dataset, not just visible rows.
+Invalid cells are highlighted in red. Click a highlighted cell to see the validation error in the status bar at the bottom of the window.
+
+### Tab error indicator
+
+After validation, any tab that contains invalid cells has its tab label turned **red**. The tab label returns to normal automatically once every error on that tab has been corrected.
+
+> **Note:** A tab may continue to show a red label even when all currently *visible* cells appear valid. This happens when errors exist in **hidden or filtered rows** — rows that are not displayed because a column filter is active or the Display option is set to "Record(s) by selected key". To reveal and fix those errors, open the **Display** dropdown in the toolbar and choose **All records**, which clears all filters and shows every row. The red label will disappear once all errors in those rows are resolved.
+
+### Navigating errors with the Next Error button
+
+After validation finds errors, a **Next Error** button appears in the toolbar. Clicking it scrolls to and selects the next invalid cell. Navigation wraps around so pressing the button repeatedly cycles through all invalid cells on the current tab. Rows that are hidden or filtered out are skipped automatically; switch to **Display: All records** to include them.
+
+**Navigation direction** is controlled by the **Validate by column** checkbox in the **Settings** menu:
+
+| Setting | Behaviour |
+|---------|-----------|
+| **Validate by column** checked (default) | Advances *vertically* — moves down through all error rows in the current column, then jumps to the first error row in the next column to the right. Useful when you want to fix one field across many records at a time. |
+| **Validate by column** unchecked | Advances *horizontally* — moves across all invalid columns within the current row, then jumps to the first invalid column in the next row below. Useful when you want to fix all errors in one record before moving on. |
+
+### Live re-validation on edit
+
+When you edit a cell in a row that was previously marked invalid, DataHarmonizer immediately re-validates that row. If the row's errors are cleared, the red highlighting is removed without requiring a full re-validate. Uniqueness checks (identifier and unique-key constraints) are not re-evaluated live; run **Validate** again to confirm those after corrections.
+
+### "No more errors" confirmation
+
+When the last invalid cell on the current tab is corrected — either through live re-validation or a fresh **Validate** run — the **Next Error** button is replaced briefly by a **No more errors** confirmation message, then fades out.
 
 ---
 
