@@ -63,9 +63,40 @@ When `index.html` is opened directly from the filesystem, browsers block `fetch(
 
 > **Tip:** To test a newly edited `schema.yaml` in stand-alone mode without committing or running `script/linkml.py`, simply run `yarn build:web` again. The updated `schema.yaml` will be rebundled. For quicker iteration, use mode 3 (`yarn dev`) where YAML is fetched live on every page reload.
 
-### Uploading a template at runtime
+### Loading a template at runtime
 
-**File → Upload Template** accepts both `.json` and `.yaml` schema files from your local machine. A `.yaml` file is processed through the same induction logic, so the schema is fully resolved before being used — no separate build step is needed.
+DataHarmonizer provides three ways to load a schema that is not part of the bundled menu. All three use the same detection and registration logic, so the result is identical: the schema's displayable classes are added as new entries to the **template dropdown**, the first root class is selected automatically, and the spreadsheet reloads.
+
+#### File → Load Template (file browser)
+
+Opens a file-picker. Accepts `.yaml` (preferred) or `.json` schema files from your local machine. A `.yaml` file is processed through the same induction logic as the server-fetch path — `linkml:types` built-ins are injected, and the full `is_a` / `slot_usage` inheritance chain is computed — so no separate build step is needed.
+
+#### File → Load Template from URL
+
+Opens a dialog for a URL pointing to a `schema.yaml` file. DataHarmonizer fetches the file, processes it identically to the file-upload path, and adds the resulting templates to the dropdown.
+
+This path is useful for:
+- Comparing two versions of the same schema side by side (each gets a uniquely named menu entry).
+- Loading a schema hosted on GitHub Raw or any public HTTPS endpoint without downloading it first.
+- Quickly testing a remote schema without modifying the local installation.
+
+#### How root classes are determined
+
+When a schema is loaded by either method above, DataHarmonizer scans `schema.classes` to find which classes should appear as template tabs. The following checks are tried in order:
+
+1. **`tree_root: true`** on the class — a direct LinkML annotation marking the class as a root template. The `Container` class and `dh_interface` class are excluded even if they carry this annotation, because they are structural classes rather than displayable templates.
+2. **`is_a: dh_interface`** — the legacy DataHarmonizer convention; classes inheriting from `dh_interface` are treated as independent root templates.
+3. **Container attribute ranges** (fallback) — if neither check above finds any classes, DataHarmonizer looks at the `Container` class's attributes for ranges that point to schema classes. Among those, the class that has **no `foreign_key` annotations** in any of its induced attributes is selected as the root (child tables link to their parent via foreign keys, so the root table is the one without any). If all candidate classes have foreign keys, the first Container range is used.
+
+All detected root classes are added to the template dropdown. Each class produces one entry; child tables (linked via foreign keys) appear as additional tabs automatically when that root is loaded.
+
+#### Schema name collision handling
+
+The schema is registered in the template menu under its `schema.name` value. If a schema with that name is already present in the menu (e.g. you load two versions of the same schema), a numeric suffix is appended: `GRDI_1`, `GRDI_2`, etc. This lets you load and compare multiple versions in the same session without overwriting each other.
+
+#### Locales
+
+If the schema declares supported languages in `schema.extensions.locales`, those locale codes are recorded with the menu entry so that the language-switcher in the toolbar can offer them when that template is active.
 
 ---
 
@@ -73,7 +104,23 @@ When `index.html` is opened directly from the filesystem, browsers block `fetch(
 
 A **template** is a single data-entry view built from one LinkML class. A schema can define multiple templates from different classes, each appearing as a separate entry in the template selector. The toolbar's template dropdown lets you switch between them.
 
-### Example: Mpox — two templates, one schema
+### Bundled templates (menu.json)
+
+The default set of templates is defined in `web/templates/menu.json`. Each entry in this file describes one schema (folder, version, list of displayable class names) and is compiled into the application bundle at build time. These templates are always available regardless of network access.
+
+### Example: GRDI — one root, multiple linked tables
+
+The GRDI schema (`web/templates/grdi_1m/schema.yaml`) uses a hierarchical 1-to-many structure:
+
+| Tab | Class | Relationship |
+|-----|-------|-------------|
+| **GRDISample** | Root template | Independent |
+| **GRDIIsolate** | Child of GRDISample | `foreign_key: GRDISample.sample_collector_sample_id` |
+| **AMRTest** | Child of GRDIIsolate | `foreign_key: GRDIIsolate.isolate_id` |
+
+Only `GRDISample` appears in the template dropdown (it is the root, with no foreign key pointing to any other class). Loading it produces a three-tab spreadsheet: **GRDISample**, **GRDIIsolate**, and **AMRTest**. Selecting a row in a parent tab filters the child tab to show only the rows associated with that parent record.
+
+### Example: Mpox — two independent root templates, one schema
 
 The Mpox schema (`web/templates/mpox/schema.yaml`) contains two classes that each produce a distinct template:
 
@@ -82,7 +129,7 @@ The Mpox schema (`web/templates/mpox/schema.yaml`) contains two classes that eac
 | **Mpox** | `Mpox` | Canadian national specification |
 | **MpoxInternational** | `MpoxInternational` | International submission specification |
 
-Both classes `is_a: dh_interface` — they are independent siblings, not parent and child, so they do not share data across tabs. They do share many of the same underlying schema-level slots (fields), but each class selects its own subset and can override field properties (order, constraints, picklist options) through `slot_usage`. For example, `MpoxInternational` adds fields like `geo_loc_latitude`, `geo_loc_longitude`, `lineage_clade_name`, and `pathoplexus_accession` that the Canadian template omits, while both share core fields like `specimen_collector_sample_id`, `sample_collected_by`, and `organism`.
+Both classes `is_a: dh_interface` — they are independent siblings, not parent and child, so they do not share data across tabs. They share many underlying schema-level slots but each selects its own subset and can override field properties through `slot_usage`.
 
 Selecting a template from the dropdown reloads the spreadsheet columns for that class. Data already in the grid is replaced, so save before switching.
 
