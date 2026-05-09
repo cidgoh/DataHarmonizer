@@ -1,7 +1,8 @@
 id: https://example.com/DH_LinkML
 name: DH_LinkML
+title: Schema Editor for Data Harmonizer
 description: The DataHarmonizer template for editing a schema.
-version: 1.0.0
+version: 2.0.0
 in_language: en
 imports:
   - linkml:types
@@ -37,10 +38,10 @@ classes:
         slot_group: key
         title: Schema ID
         identifier: true
-        pattern: ^([A-Z][a-z0-9]+)+$
+        pattern: ^[a-zA-Z_][a-zA-Z0-9._-]*$
         description: The coding name of a LinkML schema.
         comments:
-          - "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
+          - "This is a coding-compatible name formatted with XML xs:ncname constraints, namely no whitespace or colon allowed, and must lead with an alphabet character. LinkML recommends the standard **CamelCase** naming convention which omits dashes and underscores.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
         examples:
           - value: Wastewater
         range: WhitespaceMinimizedString
@@ -594,7 +595,6 @@ classes:
         rank: 2
         slot_group: key
         title: Enum ID
-        range: WhitespaceMinimizedString
         required: true
         pattern: ^([A-Z]+[a-z0-9]*)+$
         description: The coding name of this pick list menu (LinkML enum) of terms.
@@ -602,6 +602,9 @@ classes:
           - See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/
         examples:
           - value: "- NullValueMenu\n- ComplicationsMenu\n- HostDiseaseMenu\n- HostCommonNameMenu"
+        any_of:
+          - range: WhitespaceMinimizedString
+          - range: SchemaEnumMenu
       title:
         name: title
         rank: 3
@@ -819,8 +822,8 @@ classes:
         title: Name
         range: WhitespaceMinimizedString
         required: true
-        pattern: ^([A-Z]+[a-z0-9]*)+$
-        description: The coding name of this setting, which I can be referenced in a Linkml structured_pattern expression. See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/
+        pattern: ^[a-zA-Z_][a-zA-Z0-9._-]*$
+        description: The coding name of this setting, which I can be referenced in a Linkml structured_pattern expression. See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/ . The name should conform to XML schema xs:NCName syntax.
       value:
         name: value
         rank: 3
@@ -1030,7 +1033,7 @@ slots:
     range: WhitespaceMinimizedString
   class_uri:
     name: class_uri
-    title: Table URI
+    title: Semantic URI
     range: uri
     description: A URI for identifying this table's semantic type.
     comments:
@@ -1040,9 +1043,7 @@ slots:
   tree_root:
     name: tree_root
     title: Root Table
-    any_of:
-      - range: boolean
-      - range: TrueFalseMenu
+    range: boolean
     description: A boolean indicating whether this is a specification for a top-level data container on which serializations are based.
     comments:
       - Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html
@@ -1057,7 +1058,7 @@ slots:
       - See https://linkml.io/linkml/schemas/constraints.html
   notes:
     name: notes
-    title: Notes
+    title: Editorial Notes
     range: WhitespaceMinimizedString
   rank:
     name: rank
@@ -1074,16 +1075,12 @@ slots:
   inlined:
     name: inlined
     title: Inlined
-    any_of:
-      - range: boolean
-      - range: TrueFalseMenu
+    range: boolean
     description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.
   inlined_as_list:
     name: inlined_as_list
     title: Inlined as list
-    any_of:
-      - range: boolean
-      - range: TrueFalseMenu
+    range: boolean
     description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.
   slot_group:
     name: slot_group
@@ -1092,7 +1089,7 @@ slots:
     description: The name of a grouping to place this field (LinkML slot) within during presentation in a table.
   slot_uri:
     name: slot_uri
-    title: Slot URI
+    title: Semantic URI
     range: uri
     description: A URI for identifying this field’s (LinkML slot’s) semantic type.
   range:
@@ -1113,32 +1110,24 @@ slots:
   required:
     name: required
     title: Required
-    any_of:
-      - range: boolean
-      - range: TrueFalseMenu
+    range: boolean
     description: A boolean TRUE indicates this field (LinkML slot) is a mandatory data field.
     comments:
       - A mandatory data field will fail validation if empty.
   recommended:
     name: recommended
     title: Recommended
-    any_of:
-      - range: boolean
-      - range: TrueFalseMenu
+    range: boolean
     description: A boolean TRUE indicates this field (LinkML slot) is a recommended data field.
   identifier:
     name: identifier
     title: Identifier
-    any_of:
-      - range: boolean
-      - range: TrueFalseMenu
+    range: boolean
     description: A boolean TRUE indicates this field (LinkML slot) is an identifier such that each of its row values must be unique within the table.  In LinkML, “If a slot is declared as an identifier then it serves as a unique key for members of that class. It can also be used for inlining as a dict in JSON serializations.”
   multivalued:
     name: multivalued
     title: Multivalued
-    any_of:
-      - range: boolean
-      - range: TrueFalseMenu
+    range: boolean
     description: A boolean TRUE indicates this field (LinkML slot) can hold more than one values taken from its range.
   minimum_value:
     name: minimum_value
@@ -1241,7 +1230,7 @@ slots:
     range: string
   enum_uri:
     name: enum_uri
-    title: Enum URI
+    title: Semantic URI
     range: uri
     description: A URI for identifying this pick list’s (LinkML enum) semantic type.
     comments:
@@ -1269,7 +1258,7 @@ slots:
       - value: "- Lower respiratory tract\n- Bronchus\n- Lung\n- Bronchiole"
   meaning:
     name: meaning
-    title: Meaning
+    title: Semantic URI
     range: uri
     description: A URI for identifying this choice's semantic type.
     comments:
@@ -1290,9 +1279,7 @@ slots:
   is_direct:
     name: is_direct
     title: Directly downloadable
-    any_of:
-      - range: boolean
-      - range: TrueFalseMenu
+    range: boolean
     description: Can the vocabulary source be automatically downloaded and processed, or is a manual process involved?
   source_nodes:
     name: source_nodes
@@ -1303,9 +1290,7 @@ slots:
   include_self:
     name: include_self
     title: Include top level terms
-    any_of:
-      - range: boolean
-      - range: TrueFalseMenu
+    range: boolean
     description: Include the listed selection of items (top of term branch or otherwise) as selectable items themselves.
   relationship_types:
     name: relationship_types
@@ -1382,16 +1367,6 @@ enums:
     name: SchemaEnumMenu
     title: Enumerations
     permissible_values:
-  TrueFalseMenu:
-    name: TrueFalseMenu
-    title: True/False Menu
-    permissible_values:
-      'TRUE':
-        text: 'TRUE'
-        title: 'TRUE'
-      'FALSE':
-        text: 'FALSE'
-        title: 'FALSE'
   LanguagesMenu:
     name: LanguagesMenu
     title: Languages Menu
