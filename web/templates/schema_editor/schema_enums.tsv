@@ -1,8 +1,4 @@
 name	title	text	menu_1	menu_2	menu_3	menu_4	menu_5	meaning	description
-TrueFalseMenu	True/False Menu								
-		TRUE	TRUE						
-		FALSE	FALSE						
-									
 LanguagesMenu	Languages Menu								
 		ab	Abkhazian (ab)						
 		aa	Afar (aa)						
