@@ -68,21 +68,21 @@
             >Export To...</span
           >
 
-          <span data-i18n="template_label">Template</span>
+          <span data-i18n="template_label">Load Template</span>
           <span
             class="dropdown-item"
             data-toggle="modal"
             data-target="#select-template-modal"
             id="select-template-modal-button"
             data-i18n="select-template-modal-button"
-            >Select Template from menu</span
+            >... from menu</span
           >
           <label
             for="upload-template-input"
             class="dropdown-item mb-0"
             id="upload-template-dropdown-item"
             data-i18n="upload-template-dropdown-item"
-            >Load Template</label
+            >... from file</label
           >
           <input
             type="file"
@@ -95,7 +95,7 @@
             id="load-template-url-button"
             data-toggle="modal"
             data-target="#load-template-url-modal"
-            >Load Template from URL</span
+            >... from URL</span
           >
 
           <span data-i18n="schema-editor">Schema Editor</span>
@@ -103,7 +103,7 @@
             class="dropdown-item"
             id="load-schema-editor-button"
             data-i18n="load-schema-editor"
-            >Load Editor</span
+            >Run Editor</span
           >
           <div style="padding: 0.25rem 1.5rem" id="schema-editor-menu">
             <span data-i18n="schema-editor-menu">Schema Editor options:</span>
@@ -768,63 +768,6 @@
                   data-i18n="export-to-confirm-btn"
                 >
                   Export
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="open-error-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col text-danger" id="open-err-msg"></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col d-flex justify-content-end">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                  data-i18n="template-ok"
-                >
-                  Ok
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="modal fade"
-    id="upload-template-error-modal"
-    tabindex="-1"
-    role="dialog"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col text-danger" id="upload-template-err-msg"></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col d-flex justify-content-end">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                  data-i18n="template-ok"
-                >
-                  Ok
                 </button>
               </div>
             </div>
