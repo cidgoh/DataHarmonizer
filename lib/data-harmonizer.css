@@ -228,9 +228,41 @@ background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%
 }
 /*.modal.show */
 #translate-modal .modal-dialog {
-  width:95%; 
+  width:95%;
   max-width: 100% !important;
   margin:1rem !important;
+  height: 95vh;
+}
+#translate-modal .modal-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#translate-modal .modal-body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+#translate-modal .container-fluid,
+#translate-modal .row,
+#translate-modal .col,
+#translate-modal-inner {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+#translate-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+#translate-modal table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 #translate-modal table {
   min-width: 50%;
@@ -299,6 +331,8 @@ td.tabFieldTd.slot_usage.inherited::before {
   top:1px;
   padding: 2px 5px;
 }
+/* hide checkboxes in schema editor where field inherits from another. */
+td.tabFieldTd.slot_usage.inherited input{display:none}
 
 /* Not sure how to display frozen column right side in header area
 .data-harmonizer-grid th.overlayEdge {

@@ -270,7 +270,7 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col">
-                <div>
+                <div id="translate-modal-inner">
                   <label
                       data-i18n="translate-local"
                       id="translate-local"
@@ -278,23 +278,24 @@
                   <div id="translate-modal-content">
 
                   </div>
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                    data-i18n="template-cancel"
-                    style="margin-left: 50%; margin-right: 40px;"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    id="translation-save"
-                    data-i18n="template-save"
-                  >
-                    Save
-                  </button>
+                  <div style="display:flex; justify-content:flex-end; gap:0.75rem; padding:0.5rem 0;">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                      data-i18n="template-cancel"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="translation-save"
+                      data-i18n="template-save"
+                    >
+                      Save
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
