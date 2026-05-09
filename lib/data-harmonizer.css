@@ -1,3 +1,20 @@
+#data-harmonizer-tabs {background-color:white;z-index:10}
+#validation-status-bar {
+  display: none;
+  position: fixed;
+  z-index:1;
+  max-width: 420px;
+  padding: 4px 10px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #721c24;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+
 #loading-screen {
   display: none;
   background-color: rgba(108, 117, 125, 0.2);
