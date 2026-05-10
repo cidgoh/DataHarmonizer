@@ -316,10 +316,9 @@
       >
       <span
         class="dropdown-item"
-        data-toggle="modal"
-        data-target="#contact-us-modal"
         id="help_contact"
         data-i18n="help_contact"
+        style="cursor:pointer"
         >Contact Us</span
       >
       <span class="dropdown-item disabled" id="version-dropdown-item"></span>
@@ -507,106 +506,6 @@
     </div>
   </div>
 
-  <div
-    class="modal fade"
-    id="clear-data-warning-modal"
-    tabindex="-1"
-    role="dialog"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col">
-                <span
-                  class="text-danger"
-                  id="clear-data-prompt"
-                  data-i18n="clear-data-prompt"
-                  >Clear existing data?</span
-                >
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-2 col-sm-6"></div>
-              <div class="col d-flex justify-content-end">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                  data-i18n="template-cancel"
-                >
-                  Cancel
-                </button>
-              </div>
-              <div class="col d-flex justify-content-end">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  id="clear-data-confirm-btn"
-                  data-i18n="clear-data-confirm-btn"
-                  data-dismiss="modal"
-                >
-                  Clear
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="modal fade"
-    id="save-as-invalid-warning-modal"
-    tabindex="-1"
-    role="dialog"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div
-                class="col text-danger"
-                id="save-as-warning"
-                data-i18n="save-as-warning"
-              >
-                You have invalid cells. Continue saving?
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-2 col-sm-6"></div>
-              <div class="col d-flex justify-content-end">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                  data-i18n="template-cancel"
-                >
-                  Cancel
-                </button>
-              </div>
-              <div class="col d-flex justify-content-end">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                  data-toggle="modal"
-                  data-target="#save-as-modal"
-                  data-i18n="template-continue"
-                >
-                  Continue
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="modal fade" id="save-as-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -690,57 +589,6 @@
                   data-i18n="template-save"
                 >
                   Save
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="modal fade"
-    id="export-to-invalid-warning-modal"
-    tabindex="-1"
-    role="dialog"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div
-                class="col text-danger"
-                id="export-to-invalid-warning"
-                data-i18n="export-to-invalid-warning"
-              >
-                You have invalid cells. Continue exporting?
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-2 col-sm-6"></div>
-              <div class="col d-flex justify-content-end">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                  data-i18n="template-cancel"
-                >
-                  Cancel
-                </button>
-              </div>
-              <div class="col d-flex justify-content-end">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-dismiss="modal"
-                  data-toggle="modal"
-                  data-target="#export-to-modal"
-                  id="export-to-modal-btn"
-                  data-i18n="template-continue"
-                >
-                  Continue
                 </button>
               </div>
             </div>
@@ -934,47 +782,6 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="contact-us-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col">
-                <p
-                  id="template-contact-blurb"
-                  data-i18n="template-contact-blurb"
-                ></p>
-                <p
-                  id="dataharmonizer-contact-blurb"
-                  data-i18n="dataharmonizer-contact-blurb"
-                >
-                  If you have questions about the DataHarmonizer application, or
-                  want to notify us of bugs or potential improvements, contact
-                  us by either posting an issue at
-                  https://github.com/Public-Health-Bioinformatics/DataHarmonizer/issues
-                  or emailing us at emma_griffiths@sfu.ca
-                </p>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col d-flex justify-content-end">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                  data-i18n="template-ok"
-                >
-                  Ok
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="modal fade" id="load-schema-url-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
