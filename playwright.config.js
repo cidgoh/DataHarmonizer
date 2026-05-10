@@ -1,5 +1,5 @@
 // See docs/README_quality_assurance.md
-
+/* eslint-env node */
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
