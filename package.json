@@ -34,6 +34,7 @@
     "build:schemas": "yarn clean:schemas && webpack --config web/webpack.schemas.js",
     "dev": "webpack serve --mode=development --config web/webpack.config.js",
     "flightcheck": "yarn format && yarn lint ; yarn test",
+    "test": "jest tests/jest",
     "test:jest": "jest tests/jest",
     "test:playwright": "playwright tests/playwright"
   },
