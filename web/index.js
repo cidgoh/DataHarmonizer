@@ -71,7 +71,6 @@ const main = async function () {
       // take out all loading in "toolbar" to an outside context
       releasesURL:
         'https://github.com/cidgoh/pathogen-genomics-package/releases',
-      getLanguages: context.getLocaleData.bind(context),
       // getExportFormats() is an dictionary object of exports available for a given schema
       // The Toolbar constructor will set this to _defaultGetExportFormats() if none given;
       // getExportFormats: context.getExportFormats.bind(context),
