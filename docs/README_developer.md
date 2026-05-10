@@ -171,15 +171,14 @@ This approach is being superseded by the **built-in Schema Editor** — a DataHa
 
 ## Locale and i18n Architecture
 
-DataHarmonizer uses three independent but coordinated locale layers. Understanding how they interact is essential for working on template authoring, interface translation, or data file loading.
+DataHarmonizer uses two independent but coordinated locale layers. Understanding how they interact is essential for working on template authoring, interface translation, or data file loading.
 
-### The three layers
+### The two layers
 
 | Layer | What it covers | Source |
 |-------|---------------|--------|
 | **Interface i18n** | Toolbar labels, menu items, button text, modal copy | `web/translations/translations.json` via i18next |
 | **Schema locale overlay** | Column headers, descriptions, picklist titles for one language | `schema.extensions.locales.<langcode>` deep-merged onto the default schema |
-| **Enum value translation** | Bi-directional mapping of picklist values between languages | Built from locale overlay data and stored as i18next namespaces |
 
 A schema's default `in_language` is `"en"`. A schema may declare zero or more additional locales.
 
@@ -234,27 +233,13 @@ The result is stored as `template.locales[langcode].schema`. The DH runtime read
 
 ---
 
-### Enum value translation (`addTranslationResources`)
-
-When a user switches languages, picklist values already entered in the spreadsheet need to be translated in-place. `AppContext.addTranslationResources()` builds the required bi-directional i18next namespace resources from the locale overlay data.
-
-For each language pair `(A, B)` it creates:
-
-- namespace `A_to_B` under language `A` — maps each enum `text` value to the locale `title` for that value in language B.
-- namespace `B_to_A` under language `B` — the inverse map.
-
-During a locale switch (`Toolbar.js` `#select-translation-localization` change handler), the active translation namespace (`${previousLocale}_to_${targetLocale}`) is applied cell-by-cell to translate enum values already in the grid.
-
----
-
 ### Locale selection flow
 
 When the user changes the `#select-translation-localization` dropdown:
 
 1. `i18next.changeLanguage(langcode)` — switches the interface language; `$(document).localize()` re-renders all `data-i18n` DOM elements.
-2. `findBestLocaleMatch(template.locales, [langcode])` — checks that the selected locale is supported by the current template. Throws `LocaleNotSupportedError` if not (logged as a warning; the interface language still switches).
-3. In-grid enum values are translated via the `A_to_B` namespace.
-4. `context.reload(template_path, langcode)` — reloads the template using the locale-overlaid schema for `langcode`, rebuilding column headers, descriptions, and picklist options.
+2. `findBestLocaleMatch(template.locales, [langcode])` — checks whether the selected locale is supported by the current template's schema. If not supported, `null` is passed to `reload()` and the default schema is used (interface language still switches).
+3. `context.reload(template_path, langcode)` — reloads the template using the locale-overlaid schema for `langcode`, rebuilding column headers, descriptions, and picklist options.
 
 ---
 
@@ -273,7 +258,7 @@ When saving to JSON, the currently active locale is written back into `in_langua
 
 1. Add translated UI strings to `web/translations/translations.json` under the new language code.
 2. In `schema.yaml`, add a block under `extensions.locales.value.<langcode>` containing translated `slots`, `enums`, and/or `classes` entries. Only fields that differ from the default need to be listed.
-3. No code changes are required — the dropdown, deep merge, and translation namespace machinery all derive the available locales dynamically from these two sources.
+3. No code changes are required — the dropdown and deep-merge machinery derive the available locales dynamically from these two sources.
 
 ---
 
@@ -285,6 +270,5 @@ When saving to JSON, the currently active locale is written back into `in_langua
 | `initI18n()` | `lib/utils/i18n.js` | Initialises i18next with interface translations and custom formatters |
 | `deepMerge(base, overlay)` | `lib/utils/objects.js` | Recursively merges a locale overlay onto the default schema |
 | `findBestLocaleMatch()` | `lib/utils/templates.js` | Finds the best available locale for a user preference (exact, then language-code fallback) |
-| `addTranslationResources()` | `lib/AppContext.js` | Builds bi-directional enum-value translation namespaces from locale overlay data |
 | `check_locale(lang)` | `lib/Toolbar.js` | Synchronises the UI language to a data file's `in_language` value |
 | `initializeLocale()` | `lib/Toolbar.js` | Populates the locale dropdown and wires the change handler |
