@@ -1,4 +1,4 @@
-/* Claude built this in response to request: "is there a way to build some browser based unit testing with simple user actions, for example, 
+/* Claude built this (with some human edits afterward to make it work) in response to request: "is there a way to build some browser based unit testing with simple user actions, for example, 
   - running "yarn dev" or a webserver 
   - then a test to load localhost:8080
   - then to click on "file > Data > Open"
@@ -7,7 +7,7 @@
   - then "file > Data > Save As" 
   - and be able to compare saved file with some standard file?"
 
-  Note, to see test, modify root folder playwrite.config.js and edit the headless attribute
+  Note, to see test, modify root folder playwrite.config.js and edit the headless:false attribute
 */
 import { test, expect } from '@playwright/test';
   import path from 'path';
