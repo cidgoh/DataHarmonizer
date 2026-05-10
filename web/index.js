@@ -66,9 +66,7 @@ const main = async function () {
     });
 
     new Toolbar(dhToolbarRoot, context, {
-      templatePath: context.appConfig.template_path, 
-      // TODO: a default should be loaded before Toolbar is constructed! then
-      // take out all loading in "toolbar" to an outside context
+      templatePath: context.appConfig.template_path,
       releasesURL:
         'https://github.com/cidgoh/pathogen-genomics-package/releases',
       // getExportFormats() is an dictionary object of exports available for a given schema
