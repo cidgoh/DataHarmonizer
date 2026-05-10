@@ -245,6 +245,40 @@ If the grid contains invalid cells, DataHarmonizer warns you before exporting. Y
 
 ---
 
+## Saving Data Files
+
+Open the **File** menu → **Save As...** to save the current grid data to a file. Enter a base filename, choose a format from the drop-down (`.xlsx`, `.xls`, `.tsv`, `.csv`, `.json`), then click **Save**.
+
+### Formatting Options
+
+Click **Formatting Options ▾** to expand the options panel.
+
+#### Save column headers
+
+Controls what text is written in the header row (non-JSON formats only).
+
+| Choice | Header written to file |
+|--------|----------------------|
+| **Field title** *(default)* | The human-readable display title in the active locale (e.g. `Sequencing date`) |
+| **Field coding name** | The internal slot name from the schema (e.g. `sequencing_date`) |
+
+For JSON output the key is always the slot's coding name; this option is disabled.
+
+#### Save picklist choices by
+
+Controls how enumeration (picklist) values are serialized.
+
+| Choice | Value written to file |
+|--------|-----------------------|
+| **Code** | The internal permissible-value code (e.g. `Not Applicable`) |
+| **Label** *(default)* | The display label in the active locale (e.g. `Non applicable` when French is active) |
+
+The **Label** option shows the active locale name in parentheses (e.g. `Label (English)`, `Label (Français)`). To save labels in a different language, switch the locale selector to that language before saving.
+
+For JSON output, picklist choices are always saved as codes and these options are disabled.
+
+---
+
 ## Loading Data Files
 
 Open the **File** menu → **Open** (or drag a file onto the grid) to load an existing data file. Supported formats: `.tsv`, `.csv`, `.xlsx`, `.xls`, `.json`.
