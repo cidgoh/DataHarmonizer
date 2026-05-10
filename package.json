@@ -34,7 +34,8 @@
     "build:schemas": "yarn clean:schemas && webpack --config web/webpack.schemas.js",
     "dev": "webpack serve --mode=development --config web/webpack.config.js",
     "flightcheck": "yarn format && yarn lint ; yarn test",
-    "test": "jest tests/"
+    "test:jest": "jest tests/jest",
+    "test:playwright": "playwright tests/playwright"
   },
   "peerDependencies": {
     "bootstrap": "4.x",
@@ -45,6 +46,7 @@
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
+    "@playwright/test": "^1.59.1",
     "@rollup/plugin-alias": "^5.0.1",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^29.0.2",
