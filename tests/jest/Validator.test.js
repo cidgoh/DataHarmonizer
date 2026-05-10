@@ -1,4 +1,4 @@
-import Validator from '../lib/Validator';
+import Validator from '../../lib/Validator';
 
 const SCHEMA = {
   id: 'test',
