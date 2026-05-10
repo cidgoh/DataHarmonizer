@@ -637,19 +637,52 @@
                 </div>
               </div>
             </div>
+            <!-- Save Options (collapsible) -->
+            <div class="row mt-2">
+              <div class="col">
+                <a href="#" class="small" id="save-options-toggle"
+                   data-toggle="collapse" data-target="#save-options-collapse"
+                   aria-expanded="false">Formatting Options ▾</a>
+                <div id="save-options-collapse" class="collapse mt-2">
+
+                  <div id="save-header-options" class="mb-2">
+                    <small><strong>Save column headers:</strong></small><br>
+                    <label class="mr-3 mb-0">
+                      <input type="radio" name="save-header-format" value="title" id="save-header-title" checked>
+                      Field title
+                    </label>
+                    <label class="mb-0">
+                      <input type="radio" name="save-header-format" value="name" id="save-header-name">
+                      Field coding name
+                    </label>
+                  </div>
+
+                  <div id="save-picklist-options">
+                    <small><strong>Save picklist choices by:</strong></small><br>
+                    <label class="d-block mb-0">
+                      <input type="radio" name="save-picklist-format" value="code" id="save-picklist-code">
+                      Code
+                    </label>
+                    <label class="d-block mb-0">
+                      <input type="radio" name="save-picklist-format" value="locale_label" id="save-picklist-locale" checked>
+                      Locale label
+                    </label>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
             <div class="row mt-3">
-              <div class="col-2 col-sm-6"></div>
               <div class="col d-flex justify-content-end">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  class="btn btn-secondary mr-2"
                   data-dismiss="modal"
                   data-i18n="template-cancel"
                 >
                   Cancel
                 </button>
-              </div>
-              <div class="col d-flex justify-content-end">
                 <button
                   type="button"
                   class="btn btn-primary"
