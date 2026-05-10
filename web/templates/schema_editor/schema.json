@@ -2,7 +2,7 @@
   "id": "https://example.com/DH_LinkML",
   "name": "DH_LinkML",
   "description": "The DataHarmonizer template for editing a schema.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "in_language": "en",
   "default_prefix": "https://example.com/DH_LinkML/",
   "imports": [],
@@ -43,7 +43,7 @@
           "description": "The coding name of a LinkML schema.",
           "title": "Schema ID",
           "comments": [
-            "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
+            "This is a coding-compatible name formatted with XML xs:ncname constraints, namely no whitespace or colon allowed, and must lead with an alphabet character. LinkML recommends the standard **CamelCase** naming convention which omits dashes and underscores.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
           ],
           "examples": [
             {
@@ -55,7 +55,7 @@
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
           "required": true,
-          "pattern": "^([A-Z][a-z0-9]+)+$"
+          "pattern": "^[a-zA-Z_][a-zA-Z0-9._-]*$"
         },
         "id": {
           "name": "id",
@@ -119,7 +119,7 @@
           "description": "The coding name of a LinkML schema.",
           "title": "Schema ID",
           "comments": [
-            "This is name formatted in the standard **CamelCase** naming convention.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
+            "This is a coding-compatible name formatted with XML xs:ncname constraints, namely no whitespace or colon allowed, and must lead with an alphabet character. LinkML recommends the standard **CamelCase** naming convention which omits dashes and underscores.  This format enables software tools to work with it without character processing issues.\nA LinkML schema contains classes for describing one or more tables (LinkML classes), fields/columns (slots), and picklists (enumerations). DataHarmonizer can be set up to display each table on a separate tab. A schema can also specify other schemas to import, making their slots, classes, etc. available for reuse."
           ],
           "examples": [
             {
@@ -145,7 +145,7 @@
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
           "required": true,
-          "pattern": "^([A-Z][a-z0-9]+)+$"
+          "pattern": "^[a-zA-Z_][a-zA-Z0-9._-]*$"
         },
         "id": {
           "name": "id",
@@ -649,7 +649,7 @@
         "class_uri": {
           "name": "class_uri",
           "description": "A URI for identifying this table's semantic type.",
-          "title": "Table URI",
+          "title": "Semantic URI",
           "comments": [
             "This semantic metadata helps in the comparison of datasets."
           ],
@@ -693,14 +693,7 @@
             "Class"
           ],
           "slot_group": "technical",
-          "any_of": [
-            {
-              "range": "boolean"
-            },
-            {
-              "range": "TrueFalseMenu"
-            }
-          ]
+          "range": "boolean"
         }
       },
       "unique_keys": {
@@ -887,7 +880,7 @@
         "notes": {
           "name": "notes",
           "description": "Editorial notes about an element intended primarily for internal consumption",
-          "title": "Notes",
+          "title": "Editorial Notes",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 6,
           "alias": "notes",
@@ -1421,14 +1414,7 @@
             "Slot"
           ],
           "slot_group": "table attribute",
-          "any_of": [
-            {
-              "range": "boolean"
-            },
-            {
-              "range": "TrueFalseMenu"
-            }
-          ]
+          "range": "boolean"
         },
         "inlined_as_list": {
           "name": "inlined_as_list",
@@ -1442,14 +1428,7 @@
             "Slot"
           ],
           "slot_group": "table attribute",
-          "any_of": [
-            {
-              "range": "boolean"
-            },
-            {
-              "range": "TrueFalseMenu"
-            }
-          ]
+          "range": "boolean"
         },
         "slot_group": {
           "name": "slot_group",
@@ -1468,7 +1447,7 @@
         "slot_uri": {
           "name": "slot_uri",
           "description": "A URI for identifying this field’s (LinkML slot’s) semantic type.",
-          "title": "Slot URI",
+          "title": "Semantic URI",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 9,
           "alias": "slot_uri",
@@ -1555,14 +1534,7 @@
             "Slot"
           ],
           "slot_group": "field attribute",
-          "any_of": [
-            {
-              "range": "boolean"
-            },
-            {
-              "range": "TrueFalseMenu"
-            }
-          ]
+          "range": "boolean"
         },
         "recommended": {
           "name": "recommended",
@@ -1576,14 +1548,7 @@
             "Slot"
           ],
           "slot_group": "field attribute",
-          "any_of": [
-            {
-              "range": "boolean"
-            },
-            {
-              "range": "TrueFalseMenu"
-            }
-          ]
+          "range": "boolean"
         },
         "identifier": {
           "name": "identifier",
@@ -1597,14 +1562,7 @@
             "Slot"
           ],
           "slot_group": "field attribute",
-          "any_of": [
-            {
-              "range": "boolean"
-            },
-            {
-              "range": "TrueFalseMenu"
-            }
-          ]
+          "range": "boolean"
         },
         "multivalued": {
           "name": "multivalued",
@@ -1618,14 +1576,7 @@
             "Slot"
           ],
           "slot_group": "field attribute",
-          "any_of": [
-            {
-              "range": "boolean"
-            },
-            {
-              "range": "TrueFalseMenu"
-            }
-          ]
+          "range": "boolean"
         },
         "minimum_value": {
           "name": "minimum_value",
@@ -1883,7 +1834,7 @@
         "notes": {
           "name": "notes",
           "description": "Editorial notes about this field (LinkML slot) intended primarily for internal consumption",
-          "title": "Notes",
+          "title": "Editorial Notes",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 32,
           "alias": "notes",
@@ -2118,9 +2069,16 @@
           ],
           "rank": 2,
           "slot_group": "key",
-          "range": "WhitespaceMinimizedString",
           "required": true,
-          "pattern": "^([A-Z]+[a-z0-9]*)+$"
+          "pattern": "^([A-Z]+[a-z0-9]*)+$",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "SchemaEnumMenu"
+            }
+          ]
         },
         "title": {
           "name": "title",
@@ -2224,9 +2182,16 @@
             "Extension"
           ],
           "slot_group": "key",
-          "range": "WhitespaceMinimizedString",
           "required": true,
-          "pattern": "^([A-Z]+[a-z0-9]*)+$"
+          "pattern": "^([A-Z]+[a-z0-9]*)+$",
+          "any_of": [
+            {
+              "range": "WhitespaceMinimizedString"
+            },
+            {
+              "range": "SchemaEnumMenu"
+            }
+          ]
         },
         "title": {
           "name": "title",
@@ -2286,7 +2251,7 @@
         "enum_uri": {
           "name": "enum_uri",
           "description": "A URI for identifying this pick list’s (LinkML enum) semantic type.",
-          "title": "Enum URI",
+          "title": "Semantic URI",
           "comments": [
             "This semantic metadata helps in the comparison of datasets."
           ],
@@ -2644,7 +2609,7 @@
         "meaning": {
           "name": "meaning",
           "description": "A URI for identifying this choice's semantic type.",
-          "title": "Meaning",
+          "title": "Semantic URI",
           "comments": [
             "Suggestion: Input a URI or CURIE (Compact uniform resource identifier).\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/meaning/\nhttps://en.wikipedia.org/wiki/Uniform_Resource_Identifier\nhttps://cthoyt.com/2021/09/14/curies.html"
           ],
@@ -2666,7 +2631,7 @@
         "notes": {
           "name": "notes",
           "description": "Editorial notes about an element intended primarily for internal consumption",
-          "title": "Notes",
+          "title": "Editorial Notes",
           "comments": [
             "Plain language sentence(s), using ordinary textual punctuation, providing organization specific comments (E.g., curation information or schema editor comments).\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/notes/"
           ],
@@ -2848,14 +2813,7 @@
             "EnumSource"
           ],
           "slot_group": "technical",
-          "any_of": [
-            {
-              "range": "boolean"
-            },
-            {
-              "range": "TrueFalseMenu"
-            }
-          ]
+          "range": "boolean"
         },
         "source_nodes": {
           "name": "source_nodes",
@@ -2884,14 +2842,7 @@
             "EnumSource"
           ],
           "slot_group": "technical",
-          "any_of": [
-            {
-              "range": "boolean"
-            },
-            {
-              "range": "TrueFalseMenu"
-            }
-          ]
+          "range": "boolean"
         },
         "relationship_types": {
           "name": "relationship_types",
@@ -2938,13 +2889,13 @@
         },
         "name": {
           "name": "name",
-          "description": "The coding name of this setting, which I can be referenced in a Linkml structured_pattern expression. See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/",
+          "description": "The coding name of this setting, which I can be referenced in a Linkml structured_pattern expression. See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/ . The name should conform to XML schema xs:NCName syntax.",
           "title": "Name",
           "rank": 2,
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
           "required": true,
-          "pattern": "^([A-Z]+[a-z0-9]*)+$"
+          "pattern": "^[a-zA-Z_][a-zA-Z0-9._-]*$"
         },
         "value": {
           "name": "value",
@@ -2995,7 +2946,7 @@
         },
         "name": {
           "name": "name",
-          "description": "The coding name of this setting, which I can be referenced in a Linkml structured_pattern expression. See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/",
+          "description": "The coding name of this setting, which I can be referenced in a Linkml structured_pattern expression. See https://linkml.io/linkml/schemas/enums.html and https://linkml.io/linkml-model/latest/docs/EnumDefinition/ . The name should conform to XML schema xs:NCName syntax.",
           "title": "Name",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 2,
@@ -3015,7 +2966,7 @@
           "slot_group": "key",
           "range": "WhitespaceMinimizedString",
           "required": true,
-          "pattern": "^([A-Z]+[a-z0-9]*)+$"
+          "pattern": "^[a-zA-Z_][a-zA-Z0-9._-]*$"
         },
         "value": {
           "name": "value",
@@ -3588,7 +3539,7 @@
     "class_uri": {
       "name": "class_uri",
       "description": "A URI for identifying this table's semantic type.",
-      "title": "Table URI",
+      "title": "Semantic URI",
       "comments": [
         "This semantic metadata helps in the comparison of datasets."
       ],
@@ -3617,14 +3568,7 @@
       "domain_of": [
         "Class"
       ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
+      "range": "boolean"
     },
     "unique_key_slots": {
       "name": "unique_key_slots",
@@ -3643,7 +3587,7 @@
     },
     "notes": {
       "name": "notes",
-      "title": "Notes",
+      "title": "Editorial Notes",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "UniqueKey",
@@ -3684,14 +3628,7 @@
       "domain_of": [
         "Slot"
       ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
+      "range": "boolean"
     },
     "inlined_as_list": {
       "name": "inlined_as_list",
@@ -3701,14 +3638,7 @@
       "domain_of": [
         "Slot"
       ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
+      "range": "boolean"
     },
     "slot_group": {
       "name": "slot_group",
@@ -3723,7 +3653,7 @@
     "slot_uri": {
       "name": "slot_uri",
       "description": "A URI for identifying this field’s (LinkML slot’s) semantic type.",
-      "title": "Slot URI",
+      "title": "Semantic URI",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Slot"
@@ -3773,14 +3703,7 @@
       "domain_of": [
         "Slot"
       ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
+      "range": "boolean"
     },
     "recommended": {
       "name": "recommended",
@@ -3790,14 +3713,7 @@
       "domain_of": [
         "Slot"
       ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
+      "range": "boolean"
     },
     "identifier": {
       "name": "identifier",
@@ -3807,14 +3723,7 @@
       "domain_of": [
         "Slot"
       ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
+      "range": "boolean"
     },
     "multivalued": {
       "name": "multivalued",
@@ -3824,14 +3733,7 @@
       "domain_of": [
         "Slot"
       ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
+      "range": "boolean"
     },
     "minimum_value": {
       "name": "minimum_value",
@@ -4039,7 +3941,7 @@
     "enum_uri": {
       "name": "enum_uri",
       "description": "A URI for identifying this pick list’s (LinkML enum) semantic type.",
-      "title": "Enum URI",
+      "title": "Semantic URI",
       "comments": [
         "This semantic metadata helps in the comparison of datasets."
       ],
@@ -4094,7 +3996,7 @@
     "meaning": {
       "name": "meaning",
       "description": "A URI for identifying this choice's semantic type.",
-      "title": "Meaning",
+      "title": "Semantic URI",
       "comments": [
         "Suggestion: Input a URI or CURIE (Compact uniform resource identifier).\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/meaning/\nhttps://en.wikipedia.org/wiki/Uniform_Resource_Identifier\nhttps://cthoyt.com/2021/09/14/curies.html"
       ],
@@ -4138,14 +4040,7 @@
       "domain_of": [
         "EnumSource"
       ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
+      "range": "boolean"
     },
     "source_nodes": {
       "name": "source_nodes",
@@ -4166,14 +4061,7 @@
       "domain_of": [
         "EnumSource"
       ],
-      "any_of": [
-        {
-          "range": "boolean"
-        },
-        {
-          "range": "TrueFalseMenu"
-        }
-      ]
+      "range": "boolean"
     },
     "relationship_types": {
       "name": "relationship_types",
@@ -4279,21 +4167,6 @@
       "name": "SchemaEnumMenu",
       "title": "Enumerations",
       "from_schema": "https://example.com/DH_LinkML"
-    },
-    "TrueFalseMenu": {
-      "name": "TrueFalseMenu",
-      "title": "True/False Menu",
-      "from_schema": "https://example.com/DH_LinkML",
-      "permissible_values": {
-        "TRUE": {
-          "text": "TRUE",
-          "title": "TRUE"
-        },
-        "FALSE": {
-          "text": "FALSE",
-          "title": "FALSE"
-        }
-      }
     },
     "LanguagesMenu": {
       "name": "LanguagesMenu",
