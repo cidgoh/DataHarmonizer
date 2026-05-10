@@ -2,27 +2,31 @@
 
 
   "template_label": {
-    "en": "Template",
-    "fr": "Modèle"
-  },
-  "select-template-modal-button": {
-    "en": "Select Template from menu",
-    "fr": "Sélectionner un modèle"
-  },
-  "upload-template-dropdown-item": {
-    "en": "Load Template",
+    "en": "Load template",
     "fr": "Charger le modèle"
   },
+  "select-template-modal-button": {
+    "en": "... from menu",
+    "fr": "... dans le menu"
+  },
+  "upload-template-dropdown-item": {
+    "en": "... from file",
+    "fr": "... du fichier"
+  },
+  "load-template-url-button": {
+    "en": "... from URL",
+    "fr": "... de l'URL"
+  },
   "schema-editor": {
-    "en": "Schema Editor",
+    "en": "Schema editor",
     "fr": "L'éditeur de schéma"
   },
   "load-schema-editor": {
-    "en": "Load Schema Editor",
-    "fr": "Charger l'éditeur de schéma"
+    "en": "Run editor",
+    "fr": "Exécuter l'éditeur"
   },
   "schema-editor-menu": {
-    "en": "Schema Editor options",
+    "en": "Schema editor options",
     "fr": "Options de l'éditeur de schéma"
   },
   "schema-editor-expert-options": {
@@ -30,20 +34,20 @@
     "fr": "Activer/désactiver le mode utilisateur expert"
   },
   "upload-template-yaml-dropdown-item": {
-    "en": "Load Schema from file (.yaml format)",
-    "fr": "Charger le schéma à partir du fichier (format .yaml)"
+    "en": "Load schema from file (yaml format)",
+    "fr": "Charger le schéma à partir du fichier (format yaml)"
   },
     "upload-template-uri": {
-    "en": "Load Schema from URI (yaml format)",
-    "fr": "Charger le schéma à partir de l'URI (format yaml)"
+    "en": "Load schema from URL (yaml format)",
+    "fr": "Charger le schéma à partir de l'URL (format yaml)"
   },
   
   "save-template-button": {
-    "en": "Save Selected Schema (.yaml format)",
-    "fr": "Enregistrer le schéma sélectionné (format .yaml)"
+    "en": "Save selected schema (yaml format)",
+    "fr": "Enregistrer le schéma sélectionné (format yaml)"
   },
   "translation-form-button": {
-    "en": "Translation Form (for chosen rows)",
+    "en": "Translation form (for selected rows)",
     "fr": "Formulaire de traduction (pour les lignes choisies)"
   },
 
@@ -71,6 +75,14 @@
     "fr": "Exporter vers"
   },
 
+  "no-matching-fields-warning": {
+    "en": "The LinkML schema \"{{schema}}\" template \"{{template}}\" has NO header row OR NO matching fields with the corresponding data file tab or table. This DH tab table will be empty.{{hint}}",
+    "fr": "Le schéma LinkML \"{{schema}}\" modèle \"{{template}}\" n'a PAS de ligne d'en-tête OU PAS de champs correspondants avec l'onglet ou le tableau du fichier de données correspondant. Ce tableau DH sera vide.{{hint}}"
+  },
+  "no-matching-fields-locale-hint": {
+    "en": "\n\n NOTE: {{count}} header(s) match the \"{{locale}}\" locale — try switching the language before loading.",
+    "fr": "\n\n REMARQUE : {{count}} en-tête(s) correspondent au paramètre régional \"{{locale}}\" — essayez de changer la langue avant de charger."
+  },
   "field-mapping-mismatch": {
     "en": "One or more template header field names do not exactly match those in the selected data file",
     "fr": "Un ou plusieurs noms de champs d'en-tête du modèle ne correspondent pas exactement à ceux du fichier de données sélectionné."
