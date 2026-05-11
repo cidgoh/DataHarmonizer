@@ -54,6 +54,37 @@ $(dhRoot).append(`
 // Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
   const context = new AppContext();
+
+  // Preview popup: schema passed via sessionStorage from the Schema Editor.
+  // Skip menu.json / webpack schema loading entirely.
+  const previewParam = new URLSearchParams(location.search).get('preview');
+  if (previewParam) {
+    const stored = sessionStorage.getItem(`dh_preview_${previewParam}`);
+    if (stored) {
+      const schema = JSON.parse(stored);
+      // Container and dh_interface are coordination-only classes — never use as template.
+      const EXCLUDED = new Set(['Container', 'dh_interface']);
+      // Prefer a non-excluded class with tree_root, then first non-excluded class.
+      const firstClass =
+        Object.entries(schema.classes || {})
+          .find(([name, c]) => c.tree_root && !EXCLUDED.has(name))?.[0] ||
+        Object.keys(schema.classes || {})
+          .find((name) => !EXCLUDED.has(name));
+      const templatePath = `${schema.name}/${firstClass}`;
+      context.reload(templatePath, null, schema).then(async (context) => {
+        initI18n((/* lang */) => { $(document).localize(); });
+        new Toolbar(dhToolbarRoot, context, {
+          templatePath,
+          forcedSchema: schema,
+          getSchema: async (s) =>
+            Template.create(s).then((result) => result.current.schema),
+        });
+        new Footer(dhFooterRoot, context);
+      });
+    }
+    return;
+  }
+
   context.reload(context.appConfig.template_path)
     .then(async (context) => {
     // FUTURE: Connect to locale of browser? Takes `lang` as argument (unused)
