@@ -91,6 +91,30 @@ The save routine collects data from all Schema Editor tabs and assembles a valid
 
 ---
 
+## Previewing a Schema
+
+The **Preview** feature lets you test a schema in a live DataHarmonizer instance directly from the Schema Editor, without first saving the file and running a build pipeline.
+
+### How to preview
+
+1. On the **Schema** tab, right-click on the row for the schema you want to preview.
+2. Select **Preview** from the context menu.
+3. A popup window opens containing a fully functional DataHarmonizer instance loaded with that schema.
+
+### What the preview does
+
+- The schema is compiled in the browser (slots and slot_usage are merged into class attributes) and passed directly to the DataHarmonizer runtime — no `schema.json` build step is required.
+- The popup uses the schema's first non-Container, non-infrastructure class as the active template tab.  If a class in the schema is marked `tree_root: true` (and is not `Container`), that class is preferred.
+- You can load a data file into the preview, enter data, and run **Validate** — the full validation pipeline runs against the in-browser schema.
+- The popup window is named after the schema. Clicking **Preview** again for the same schema row reloads that popup with the current schema content — any edits you have made since the last preview are reflected immediately. A second popup is never opened for the same schema.
+
+### Limitations
+
+- Export formats (xlsx, csv, json, etc.) are available for download, but the preview schema is not processed through the normal build pipeline, so any export templates that rely on compiled `schema.json` features may not be fully functional.
+- The preview reflects the schema content at the moment **Preview** was clicked. Subsequent edits in the Schema Editor are not automatically pushed to an already-open preview window; close and reopen it to pick up changes.
+
+---
+
 ## Multilingual Text Editing
 
 The Schema Editor provides a structured workflow for adding translations of schema metadata (titles, descriptions, examples, comments) into additional languages. This workflow has two parts: configuring which languages are supported, and then entering or fetching the translated text.
