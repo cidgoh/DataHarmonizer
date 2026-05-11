@@ -153,6 +153,33 @@ A future option could support **multi-focus cascading**, where the user first na
 
 ---
 
+## DataHarmonizer Field/Slot Special Attributes
+
+When `AppContext.useTemplate()` processes a class's induced `attributes` dict, it augments each slot object with additional properties that the DH runtime needs for grid rendering, validation, and export. These properties are **not** part of the LinkML specification — they exist only in memory at runtime and are never written back to `schema.yaml`.
+
+| Attribute | Type | Set in | Purpose |
+|-----------|------|--------|---------|
+| `section_title` | string | `useTemplate()` | The slot_group label under which this slot is grouped in the grid's column header hierarchy. |
+| `datatype` | string | `useTemplate()` | Handsontable cell type derived from the slot's `range` (e.g. `xsd:date`, `xsd:token`, `xsd:boolean`, `xsd:nonNegativeInteger`). Controls grid input widget and parser used during validation. |
+| `sources` | string[] | `useTemplate()` | Names of every enum that contributes to this slot's picklist (a slot may draw from more than one enum). |
+| `permissible_values` | object | `setSlotRangeLookup()` | Permissible values keyed by enum name, preserving the per-source structure. Used when a slot draws from multiple enums and per-source lookup is needed. |
+| `merged_permissible_values` | object | `setSlotRangeLookup()` | All permissible values from all source enums merged into a single flat lookup, using the active locale's titles. Used at validation and save time for picklist value resolution. |
+| `default_merged_permissible_values` | object | `setSlotRangeLookup()` | Same flat lookup as `merged_permissible_values` but always in the default (English) locale. Used by the Save As "Default label (en)" option so that English labels can be emitted regardless of the active UI locale. |
+| `flatVocabulary` | string[] | `setSlotRangeLookup()` | Display strings for the Handsontable autocomplete/dropdown source, indented to represent hierarchy within the enum. |
+| `flatVocabularyLCase` | string[] | `setSlotRangeLookup()` | Lowercase version of `flatVocabulary` used for case-insensitive validation lookups. |
+| `capitalize` | boolean | `useTemplate()` | Derived from a `structured_pattern` annotation on the slot. When `true`, the grid capitalises the first character of input. |
+| `pattern` | RegExp | `useTemplate()` | The slot's `pattern` string compiled into a `RegExp` object. Replaces the original string value so the validator can call `.test()` directly without recompiling on every cell. |
+| `exportField` | object | `setExportField()` | Maps export format prefixes to arrays of field-mapping rules derived from the slot's `exact_mappings`. Consumed by format-specific export modules. |
+| `getColumn` | function | template code | Optional hook that template-specific code may attach to a slot to override the Handsontable column configuration object produced by the default column-building logic. |
+
+### Notes
+
+- **`pattern` is the only case where a standard LinkML attribute is replaced** — the string value from the schema is overwritten with a compiled `RegExp` in the live slot object. The original string is not preserved on the slot.
+- Slots whose `range` is a class (for 1-to-many foreign-key columns) receive a `datatype` of `xsd:token` and no `flatVocabulary`; their values are constrained by cascade FK logic rather than a picklist.
+- `merged_permissible_values` and `default_merged_permissible_values` are only present on slots that have at least one enum source. Slots with a scalar `range` (date, integer, string, etc.) have none of the picklist attributes.
+
+---
+
 ## `tabular_to_schema.py` — Legacy Schema Build Tool
 
 `script/tabular_to_schema.py` was the previous way of assembling a complete DataHarmonizer `schema.yaml` from spreadsheet-based source files. It combines three inputs:
