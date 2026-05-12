@@ -8,9 +8,9 @@ Technical reference for developers working on the DataHarmonizer codebase.
 
 ### Objective
 
-A raw LinkML `schema.yaml` file stores field definitions in a normalized, reusable form. Global slot definitions live in a top-level `slots` dictionary; per-class customisations live in each class's `slot_usage`; and inherited properties flow down through `is_a` chains. Before the DH runtime can render a spreadsheet, every class needs a **self-contained `attributes` dictionary** where all of these layers have been resolved into one merged definition per field.
+DataHarmonizer v1.x was never able to read LinkML schemas directly, but instead used a command line tool containing a LinkML SchemaView() python function to compile a "raw" schema.yaml file into schema.json view, one that could be loaded into the DataHarmonizer static website.
 
-`lib/utils/schema_induction.js` performs this resolution in the browser at schema-load time, replacing the Python `linkml-runtime SchemaView` build step that previously produced `schema.json`.
+DataHarmonizer 2.0 does away with the above step, enabling LinkML schemas to be read directly (with a few format requirements). To do this we have to convert LinkML's SchemaView() function into an equivalent javascript transformation. The `lib/utils/schema_induction.js` script performs this resolution in the browser at schema-load time, so schema.json is no longer needed, and may be deprecated into the future.
 
 ### Entry points
 
