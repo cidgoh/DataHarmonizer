@@ -1,23 +1,6 @@
 <div>
   <div class="btn-group" role="group">
-    <!--
-    <div class="btn-group" id="file-dropdown-btn-group" role="group">
-      <button
-        class="btn btn-primary dropdown-toggle"
-        type="button"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-        id="file-menu-button"
-        data-i18n="template_label"
-      >
-        Template
-      </button>
-      <div class="dropdown-menu">
 
-      </div>
-    </div>
-    -->
     <div class="btn-group" id="file-dropdown-btn-group" role="group">
       <button
         class="btn btn-primary dropdown-toggle"
@@ -30,8 +13,10 @@
       >
         File
       </button>
+
       <div class="dropdown-menu">
-        <div style="padding: 0.25rem 1.5rem">
+
+        <div id="data-manager-menu" style="padding: 0.25rem 1.5rem">
           <span data-i18n="data">Data</span>
           <span
             class="dropdown-item"
@@ -69,6 +54,7 @@
           >
 
           <span data-i18n="template_label">Load Template</span>
+
           <span
             class="dropdown-item"
             data-toggle="modal"
@@ -98,71 +84,76 @@
             >... from URL</span
           >
 
-          <span data-i18n="schema-editor">Schema Editor</span>
           <span
-            class="dropdown-item"
+            class="dropdown-item" style="padding-left:0"
             id="load-schema-editor-button"
             data-i18n="load-schema-editor"
-            >Run Editor</span
+            >Run schema editor</span
           >
-          <div style="padding: 0.25rem 1.5rem" id="schema-editor-menu">
-            <span data-i18n="schema-editor-menu">Schema Editor options:</span>
-            <div>
-              <label
-                for="schema_upload"
-                class="dropdown-item mb-0"
-                id="upload-template-yaml-dropdown-item"
-                data-i18n="upload-template-yaml-dropdown-item"
-                >Load schema from file (yaml format)</label
-              >
-              <input
-                type="file"
-                accept=".yaml" 
-                class="form-control-file"
-                multiple="false"
-                style="display:none"
-                id="schema_upload"
-              />
-              <span
-                class="dropdown-item"
-                id="load-schema-url-button"
-                data-toggle="modal"
-                data-target="#load-schema-url-modal"
-                >Load schema from URL (yaml format)</span
-              >
-              <span
-                class="dropdown-item"
-                data-toggle="modal"
-                id="save-template-button"
-                data-i18n="save-template-button"
-                >Save selected schema (yaml format)</span
-              >
-              <span
-                class="dropdown-item"
-                data-toggle="modal"
-                id="translation-form-button"
-                data-i18n="translation-form-button"
-                >Translation form (for chosen rows)</span
-              >
-              <label
-                for="schema_expert"
-                class="dropdown-item mb-0"
-                id="schema-editor-expert-user"
-                ><span data-i18n="schema-editor-expert-options">Toggle expert user mode</span>
-                <input
-                  type="checkbox"
-                  class="form-control"
-                  style="width:1rem;height:1.5rem;float:right"
-                  id="schema_expert"
-                />
-              </label
-              >
-            </div>
-          </div>
         </div>
 
+        <div id="schema-editor-menu" style="padding: 0.25rem 1.5rem" >
 
-        <!-- span class="dropdown-item" data-toggle="modal" id="export-to-dropdown-item" data-target="#export-to-modal">Export To...</span -->
+          <span data-i18n="schema-editor">Schema Editor</span>
+
+          <label
+            for="schema_upload"
+            class="dropdown-item mb-0"
+            id="upload-template-yaml-dropdown-item"
+            data-i18n="upload-template-yaml-dropdown-item"
+            >Load schema from file (yaml format)</label
+          >
+          <input
+            type="file"
+            accept=".yaml" 
+            class="form-control-file"
+            multiple="false"
+            style="display:none"
+            id="schema_upload"
+          />
+          <span
+            class="dropdown-item"
+            id="load-schema-url-button"
+            data-toggle="modal"
+            data-target="#load-schema-url-modal"
+            >Load schema from URL (yaml format)</span
+          >
+          <span
+            class="dropdown-item"
+            data-toggle="modal"
+            id="save-template-button"
+            data-i18n="save-template-button"
+            >Save selected schema (yaml format)</span
+          >
+          <span
+            class="dropdown-item"
+            data-toggle="modal"
+            id="translation-form-button"
+            data-i18n="translation-form-button"
+            >Translation form (for chosen rows)</span
+          >
+          <label
+            for="schema_expert"
+            class="dropdown-item mb-0"
+            id="schema-editor-expert-user"
+            ><span data-i18n="schema-editor-expert-options">Toggle expert user mode</span>
+            <input
+              type="checkbox"
+              class="form-control"
+              style="width:1rem;height:1.5rem;float:right"
+              id="schema_expert"
+            />
+          </label>
+
+          <span
+            class="dropdown-item" style="padding-left:0"
+            id="load-data-manager-button"
+            data-i18n="load-data-manager"
+            >Run data manager
+          </span>
+
+        </div>
+
       </div>
 
       <!-- next section -->
