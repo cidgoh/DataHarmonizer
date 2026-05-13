@@ -122,6 +122,15 @@ Called whenever the user selects a row in any tab. It calls `crudGetDependentRow
 
 `tabFilter` uses Handsontable's HiddenRows plugin so that hidden rows remain in the source data and are not deleted.
 
+The Display dropdown menu (toolbar `#display-dropdown-btn-group`) currently exposes two levels of row filtering that compose on top of `tabFilter`:
+
+| Control | Scope | Mechanism |
+|---------|-------|-----------|
+| Main type radio ("All records" / "Record(s) by selected key") | All tabs | Switches `tabFilter` between an empty key filter (show all) and the FK-driven filter |
+| "Fields, by type" checkboxes | Schema Editor Field/Slot tab only | `AppContext.applySlotTypeFilter()` hides rows whose `slot_type` column value is not in the checked set, composing additively with the HiddenRows state left by `tabFilter` |
+
+**Future direction:** In the future each tab in a multi-table template could contribute its own section of additional filter controls to the Display menu — shown only when that tab is active and hidden when the user switches away — providing schema-specific row-filtering options (e.g., filter by status, by date range, or by any enumerated column) without requiring changes to the shared toolbar code. The existing pattern (show `#slot_type_optgroup` on Slot-tab entry, hide it on departure, store filter state on `dh._slotTypeFilter`) serves as a reference implementation for this per-tab extensibility.
+
 ### Cascade update (`getChangeReport` + `beforeChange` hook)
 
 When a user edits a key slot in a tab's row, `DataHarmonizer.js`'s `beforeChange` hook fires. It calls `getChangeReport` which in turn calls `crudGetDependentRows` with the pending change. If any descendant rows would be affected, a confirmation dialog lists them. On confirmation, each affected row in each descendant tab has its FK slot updated via `setSourceDataAtCell` (physical row index, reaches hidden rows).
