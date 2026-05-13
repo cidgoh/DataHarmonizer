@@ -142,7 +142,7 @@ Each template is displayed as a **Handsontable** spreadsheet. Column headers app
 - **Top row (section):** the `slot_group` name that groups related fields — e.g. "Database Identifiers", "Sample collection and processing", "Host information".
 - **Bottom row (field):** the field title. Required fields are highlighted. Hovering over a header shows the field description, examples, and comments from the schema.
 
-The **first column is frozen** (pinned) so it remains visible while scrolling horizontally.
+One or more **columns on the left are frozen** (pinned) so they remain visible while scrolling horizontally. The number of frozen columns depends on the schema; most templates freeze only the first (identifier) column, but some freeze additional columns. Frozen columns are always visible regardless of which column-filter option is active.
 
 ---
 
@@ -160,11 +160,17 @@ The **first column is frozen** (pinned) so it remains visible while scrolling ho
 
 **Jump to a field** — use the **Settings** menu → **Jump to field** to open a search-as-you-type field picker. Selecting a field name scrolls the grid to that column.
 
-**Show/hide columns** — the **Settings** menu offers:
-- **Show all columns** — restores all hidden columns.
-- **Show required columns only** — hides optional columns.
-- **Show recommended columns** — shows required plus recommended columns.
-- Individual **section toggles** — show or hide the columns belonging to a named section.
+**Show/hide columns** — the **Settings** menu offers four column-filter modes. Only one of the first three can be active at a time; selecting one clears any active section filter.
+
+- **Show all columns** — restores every column to visible. This is the default state.
+- **Show required columns only** — hides all optional columns; only columns flagged `required` in the schema are shown.
+- **Show recommended columns** — shows columns that are either `required` or `recommended`; purely optional columns are hidden.
+- **Show section** — lists every named section (slot group) in the template, each with a checkbox to its right. Sections work independently of the three options above:
+  - Check one or more section checkboxes to show only the columns belonging to those sections. Sections can be combined freely — for example, checking "Sample collection" and "Host information" shows columns from both sections at once.
+  - Uncheck a section to remove it from the visible set. When the last checked section is unchecked, all columns are restored automatically (equivalent to **Show all columns**).
+  - Checking any section checkbox deactivates the Show all / Show required / Show recommended highlight, and vice versa — activating one of those three options clears all section checkboxes.
+
+In all filter modes, **frozen columns** (the pinned identifier column(s) on the left) remain visible regardless of which sections or filters are active.
 
 **Filter within a column** — click the dropdown arrow in any column header to filter rows by condition or value. This uses Handsontable's built-in filter panel.
 

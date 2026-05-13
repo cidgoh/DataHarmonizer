@@ -103,14 +103,14 @@ The **Preview** feature lets you test a schema in a live DataHarmonizer instance
 
 ### What the preview does
 
-- The schema is compiled in the browser (slots and slot_usage are merged into class attributes) and passed directly to the DataHarmonizer runtime — no `schema.json` build step is required.
+- The schema is compiled in the browser (slots and slot_usage are merged into class attributes) and passed directly to the DataHarmonizer runtime (one no longer needs the build step of running linkml.py or tabular_to_schema.py to generate `schema.json`).
 - The popup uses the schema's first non-Container, non-infrastructure class as the active template tab.  If a class in the schema is marked `tree_root: true` (and is not `Container`), that class is preferred.
 - You can load a data file into the preview, enter data, and run **Validate** — the full validation pipeline runs against the in-browser schema.
 - The popup window is named after the schema. Clicking **Preview** again for the same schema row reloads that popup with the current schema content — any edits you have made since the last preview are reflected immediately. A second popup is never opened for the same schema.
 
 ### Limitations
 
-- Export formats (xlsx, csv, json, etc.) are available for download, but the preview schema is not processed through the normal build pipeline, so any export templates that rely on compiled `schema.json` features may not be fully functional.
+- Export formats (xlsx, csv, json, etc.) are available for download, but the preview schema is not processed through the normal build pipeline, and does not have access to the `export.js` file where customized options are specified for each export target.
 - The preview reflects the schema content at the moment **Preview** was clicked. Subsequent edits in the Schema Editor are not automatically pushed to an already-open preview window; close and reopen it to pick up changes.
 
 ---
@@ -182,3 +182,112 @@ Each locale row in the translation popup includes a **google** button on the rig
 - The schema editor does not run `tabular_to_schema.py` or any build pipeline step. After saving `schema.yaml`, run the standard DataHarmonizer build process (`update_templates.py` or equivalent) to produce the `schema.json` consumed by the DH JavaScript runtime.
 
 For technical details on how `schema.yaml` files are loaded and resolved at runtime, see `README_developer.md`.
+
+---
+
+## The Container Class
+
+### What it is
+
+A **Container** is a special LinkML class that acts as the top-level envelope for a schema's data. It is defined with `tree_root: true`, which tells LinkML validators and serialisers that this class is the outermost object — the root of the data tree. It holds one multivalued, inlined-as-list slot per data table in the schema, each slot pointing (`range:`) to the corresponding table class.
+
+The canonical pattern (from the [LinkML tutorial](https://linkml.io/linkml/intro/tutorial02.html)):
+
+```yaml
+classes:
+
+  Container:
+    tree_root: true
+    attributes:
+      persons:
+        range: Person
+        multivalued: true
+        inlined_as_list: true
+
+  Person:
+    attributes:
+      id:
+      full_name:
+      age:
+```
+
+Key attributes on each Container slot:
+
+| Attribute | Required | Purpose |
+|-----------|----------|---------|
+| `range` | yes | Names the table class that this slot holds |
+| `multivalued: true` | yes | Declares that the slot holds a list of instances, not just one |
+| `inlined_as_list: true` | yes | Serialises the instances as a YAML/JSON list nested under this key |
+
+The slot name is conventional; it is typically the **plural form** of the class name (e.g. `persons` for `Person`, `isolates` for `Isolate`), but any name is valid.
+
+### Why DataHarmonizer requires it for multi-table schemas
+
+When a schema has more than one table class (class linked by a foreign key), DataHarmonizer uses the `Container` class to discover those tables and determine how data should be structured for JSON export and import. Specifically:
+
+- On **JSON export**, DataHarmonizer writes a JSON object whose top-level keys are the Container slot names, each containing the list of records for that table.
+- On **JSON import**, DataHarmonizer reads those same top-level keys to reconstruct the per-table data.
+- The `range` on each Container slot maps a key back to the correct schema class, so the right column headers are applied to each list.
+
+A schema that defines only a single, flat (non-linked) table class does not strictly need a Container — DataHarmonizer will construct a virtual one at runtime for backwards compatibility. Any schema that defines **two or more table classes** should include an explicit Container.
+
+### Defining a Container for a multi-table template
+
+Suppose a schema has three linked classes — `Sample`, `Isolate`, and `AMRTest` — forming a parent/child/grandchild chain. The Container should list all three:
+
+```yaml
+classes:
+
+  Container:
+    tree_root: true
+    attributes:
+      samples:
+        range: Sample
+        multivalued: true
+        inlined_as_list: true
+      isolates:
+        range: Isolate
+        multivalued: true
+        inlined_as_list: true
+      amr_tests:
+        range: AMRTest
+        multivalued: true
+        inlined_as_list: true
+
+  Sample:
+    tree_root: false   # only Container carries tree_root
+    attributes:
+      sample_id:
+        identifier: true
+      ...
+
+  Isolate:
+    attributes:
+      isolate_id:
+        identifier: true
+      sample_id:
+        foreign_key: Sample.sample_id
+      ...
+
+  AMRTest:
+    attributes:
+      amr_test_id:
+        identifier: true
+      isolate_id:
+        foreign_key: Isolate.isolate_id
+      ...
+```
+
+In the Schema Editor, the Container class is created on the **Table** tab just like any other class, with `tree_root` set to `true` in the technical fields (visible in expert mode). Its slots are added on the **Field** tab as schema-level `slot` rows whose `range` points to each table class.
+
+### Complications with multiple independent multi-table templates
+
+LinkML's specification states that **only one class per schema should carry `tree_root: true`**. This works cleanly when a schema contains a single multi-table template (one Container, one hierarchy of linked classes).
+
+Difficulties arise when a schema is designed to offer **several independent multi-table templates** — for example, two separate data-collection workflows that each have their own parent/child tables but share common slot definitions. In this situation:
+
+- There is still only one Container class, so all table classes from every template must be listed as Container slots. This couples templates that are conceptually independent.
+- LinkML validators (`linkml-validate`) treat the single Container as the document root and expect every data file to conform to it. A data file produced from template A will contain only template A's keys, which the validator will accept (missing keys on multivalued slots are valid). However, spurious validation warnings may appear if the validator is strict about unexpected or absent container keys.
+- Some LinkML-based tooling (code generators, JSON Schema export) may generate a single combined class that does not cleanly separate the two templates.
+
+**Practical workaround:** If two independent templates must coexist in one schema file, list all of their table classes in the shared Container and document which slots belong to which workflow. If strict separation is required, consider splitting the schema into two separate `schema.yaml` files, each with its own Container and `tree_root` class, and loading them as independent DataHarmonizer templates.
