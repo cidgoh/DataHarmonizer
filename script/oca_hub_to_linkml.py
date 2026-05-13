@@ -57,8 +57,8 @@ NDGP	Milk	Updated_Milk_OCA_schema.md	Updated_Milk_OCA_package.json
 NDGP	MIR	Updated_MIR_OCA_schema.md	Updated_MIR_OCA_package.json
 NDGP	Pedigree	Updated_Pedigree_OCA_schema.md	Updated_Pedigree_OCA_package.json
 peACE	PeaCE	PeaCE_OCA_schema-Final-1.md	PeaCE_OCA_package_Final.json
-JT	GENOME	Agri-genomics_Option_Survey_OCA_schema.md	Agri-genomics_Option_Survey_OCA_package.json
-
+peACE	PeaMAGIC	PeaMAGIC_OCA_schema.md	PeaMAGIC_OCA_package.json
+JT	GENOME	GENOME_OCA_schema.md	GENOME_OCA_package_20260417.json
 '''
 
 def process_markdown(row, first_call):
