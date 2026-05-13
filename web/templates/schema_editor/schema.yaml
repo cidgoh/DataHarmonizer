@@ -323,12 +323,14 @@ classes:
       - slot_type
       - class_id
       - name
-      - rank
-      - inlined
-      - inlined_as_list
       - slot_group
+      - rank
       - slot_uri
       - title
+      - description
+      - comments
+      - examples
+      - aliases
       - range
       - unit
       - required
@@ -344,10 +346,8 @@ classes:
       - structured_pattern
       - ifabsent
       - equals_expression
-      - aliases
-      - description
-      - comments
-      - examples
+      - inlined
+      - inlined_as_list
       - exact_mappings
       - version
       - notes
@@ -386,130 +386,130 @@ classes:
         any_of:
           - range: WhitespaceMinimizedString
           - range: SchemaSlotMenu
-      rank:
-        name: rank
-        rank: 5
-        slot_group: table attribute
-        description: An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.
-      inlined:
-        name: inlined
-        rank: 6
-        slot_group: table attribute
-      inlined_as_list:
-        name: inlined_as_list
-        rank: 7
-        slot_group: table attribute
       slot_group:
         name: slot_group
-        rank: 8
+        rank: 5
         slot_group: field attribute
+      rank:
+        name: rank
+        rank: 6
+        slot_group: table attribute
+        description: An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.
       slot_uri:
         name: slot_uri
-        rank: 9
+        rank: 7
         slot_group: field attribute
       title:
         name: title
-        rank: 10
+        rank: 8
         slot_group: field attribute
         description: The plain language name of this field (LinkML slot).
         comments:
           - This can be displayed in applications and documentation.
         title: Title
         required: true
-      range:
-        name: range
-        rank: 11
-        slot_group: field attribute
-      unit:
-        name: unit
-        rank: 12
-        slot_group: field attribute
-      required:
-        name: required
-        rank: 13
-        slot_group: field attribute
-      recommended:
-        name: recommended
-        rank: 14
-        slot_group: field attribute
-      identifier:
-        name: identifier
-        rank: 15
-        slot_group: field attribute
-      multivalued:
-        name: multivalued
-        rank: 16
-        slot_group: field attribute
-      minimum_value:
-        name: minimum_value
-        rank: 17
-        slot_group: field attribute
-      maximum_value:
-        name: maximum_value
-        rank: 18
-        slot_group: field attribute
-      minimum_cardinality:
-        name: minimum_cardinality
-        rank: 19
-        slot_group: field attribute
-      maximum_cardinality:
-        name: maximum_cardinality
-        rank: 20
-        slot_group: field attribute
-      todos:
-        name: todos
-        rank: 21
-        slot_group: field attribute
-      pattern:
-        name: pattern
-        rank: 22
-        slot_group: field attribute
-      structured_pattern:
-        name: structured_pattern
-        rank: 23
-        slot_group: field attribute
-      ifabsent:
-        name: ifabsent
-        rank: 24
-        slot_group: field attribute
-      equals_expression:
-        name: equals_expression
-        rank: 25
-        slot_group: field attribute
-      aliases:
-        name: aliases
-        rank: 26
-        slot_group: metadata
       description:
         name: description
-        rank: 27
-        slot_group: metadata
+        rank: 9
+        slot_group: field attribute
         range: string
         required: true
         description: A plan text description of this field (LinkML slot).
       comments:
         name: comments
-        rank: 28
-        slot_group: metadata
+        rank: 10
+        slot_group: field attribute
       examples:
         name: examples
+        rank: 11
+        slot_group: field attribute
+      aliases:
+        name: aliases
+        rank: 12
+        slot_group: field attribute
+      range:
+        name: range
+        rank: 13
+        slot_group: field attribute
+      unit:
+        name: unit
+        rank: 14
+        slot_group: field attribute
+      required:
+        name: required
+        rank: 15
+        slot_group: field attribute
+      recommended:
+        name: recommended
+        rank: 16
+        slot_group: field attribute
+      identifier:
+        name: identifier
+        rank: 17
+        slot_group: field attribute
+      multivalued:
+        name: multivalued
+        rank: 18
+        slot_group: field attribute
+      minimum_value:
+        name: minimum_value
+        rank: 19
+        slot_group: field attribute
+      maximum_value:
+        name: maximum_value
+        rank: 20
+        slot_group: field attribute
+      minimum_cardinality:
+        name: minimum_cardinality
+        rank: 21
+        slot_group: field attribute
+      maximum_cardinality:
+        name: maximum_cardinality
+        rank: 22
+        slot_group: field attribute
+      todos:
+        name: todos
+        rank: 23
+        slot_group: field attribute
+      pattern:
+        name: pattern
+        rank: 24
+        slot_group: field attribute
+      structured_pattern:
+        name: structured_pattern
+        rank: 25
+        slot_group: field attribute
+      ifabsent:
+        name: ifabsent
+        rank: 26
+        slot_group: field attribute
+      equals_expression:
+        name: equals_expression
+        rank: 27
+        slot_group: field attribute
+      inlined:
+        name: inlined
+        rank: 28
+        slot_group: field attribute
+      inlined_as_list:
+        name: inlined_as_list
         rank: 29
-        slot_group: metadata
+        slot_group: field attribute
       exact_mappings:
         name: exact_mappings
         rank: 30
-        slot_group: metadata
+        slot_group: field attribute
         title: Exact mappings
         description: A list of one or more Curies or URIs that point to terms that are semantically identical to this field (LinkML slot).
       version:
         name: version
         rank: 31
-        slot_group: metadata
+        slot_group: field attribute
         description: A version number (or date) indicating when this field (LinkML slot) was introduced.
       notes:
         name: notes
         rank: 32
-        slot_group: metadata
+        slot_group: field attribute
         description: Editorial notes about this field (LinkML slot) intended primarily for internal consumption
   Annotation:
     name: Annotation
@@ -1072,19 +1072,9 @@ slots:
     description: 'The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.'
     comments:
       - "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
-  inlined:
-    name: inlined
-    title: Inlined
-    range: boolean
-    description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.
-  inlined_as_list:
-    name: inlined_as_list
-    title: Inlined as list
-    range: boolean
-    description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.
   slot_group:
     name: slot_group
-    title: Field group
+    title: Table section
     range: SchemaSlotGroupMenu
     description: The name of a grouping to place this field (LinkML slot) within during presentation in a table.
   slot_uri:
@@ -1092,6 +1082,24 @@ slots:
     title: Semantic URI
     range: uri
     description: A URI for identifying this field’s (LinkML slot’s) semantic type.
+  comments:
+    name: comments
+    title: Comments
+    range: WhitespaceMinimizedString
+    description: A free text field for adding other comments to guide usage of this field (LinkML slot).
+  examples:
+    name: examples
+    title: Examples
+    range: WhitespaceMinimizedString
+    description: A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.
+  aliases:
+    name: aliases
+    title: Aliases
+    range: WhitespaceMinimizedString
+    description: A list of other names that slot can be known by.
+    multivalued: true
+    comments:
+      - See https://linkml.io/linkml/schemas/metadata.html#providing-aliases
   range:
     name: range
     title: Range
@@ -1186,24 +1194,16 @@ slots:
     description: Enables inferring (calculating) value based on other field (LinkML slot) values. This is a LinkML-script-processed expression, having the syntax of a python expression.
     comments:
       - See https://linkml.io/linkml/schemas/advanced.html#equals-expression
-  aliases:
-    name: aliases
-    title: Aliases
-    range: WhitespaceMinimizedString
-    description: A list of other names that slot can be known by.
-    multivalued: true
-    comments:
-      - See https://linkml.io/linkml/schemas/metadata.html#providing-aliases
-  comments:
-    name: comments
-    title: Comments
-    range: WhitespaceMinimizedString
-    description: A free text field for adding other comments to guide usage of this field (LinkML slot).
-  examples:
-    name: examples
-    title: Examples
-    range: WhitespaceMinimizedString
-    description: A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.
+  inlined:
+    name: inlined
+    title: Inlined
+    range: boolean
+    description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.
+  inlined_as_list:
+    name: inlined_as_list
+    title: Inlined as list
+    range: boolean
+    description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.
   exact_mappings:
     name: exact_mappings
     range: WhitespaceMinimizedString

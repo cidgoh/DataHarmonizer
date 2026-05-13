@@ -1120,30 +1120,20 @@
             }
           ]
         },
+        "slot_group": {
+          "name": "slot_group",
+          "rank": 5,
+          "slot_group": "field attribute"
+        },
         "rank": {
           "name": "rank",
           "description": "An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.",
-          "rank": 5,
-          "slot_group": "table attribute"
-        },
-        "inlined": {
-          "name": "inlined",
           "rank": 6,
           "slot_group": "table attribute"
         },
-        "inlined_as_list": {
-          "name": "inlined_as_list",
-          "rank": 7,
-          "slot_group": "table attribute"
-        },
-        "slot_group": {
-          "name": "slot_group",
-          "rank": 8,
-          "slot_group": "field attribute"
-        },
         "slot_uri": {
           "name": "slot_uri",
-          "rank": 9,
+          "rank": 7,
           "slot_group": "field attribute"
         },
         "title": {
@@ -1153,126 +1143,136 @@
           "comments": [
             "This can be displayed in applications and documentation."
           ],
-          "rank": 10,
+          "rank": 8,
           "slot_group": "field attribute",
           "required": true
-        },
-        "range": {
-          "name": "range",
-          "rank": 11,
-          "slot_group": "field attribute"
-        },
-        "unit": {
-          "name": "unit",
-          "rank": 12,
-          "slot_group": "field attribute"
-        },
-        "required": {
-          "name": "required",
-          "rank": 13,
-          "slot_group": "field attribute"
-        },
-        "recommended": {
-          "name": "recommended",
-          "rank": 14,
-          "slot_group": "field attribute"
-        },
-        "identifier": {
-          "name": "identifier",
-          "rank": 15,
-          "slot_group": "field attribute"
-        },
-        "multivalued": {
-          "name": "multivalued",
-          "rank": 16,
-          "slot_group": "field attribute"
-        },
-        "minimum_value": {
-          "name": "minimum_value",
-          "rank": 17,
-          "slot_group": "field attribute"
-        },
-        "maximum_value": {
-          "name": "maximum_value",
-          "rank": 18,
-          "slot_group": "field attribute"
-        },
-        "minimum_cardinality": {
-          "name": "minimum_cardinality",
-          "rank": 19,
-          "slot_group": "field attribute"
-        },
-        "maximum_cardinality": {
-          "name": "maximum_cardinality",
-          "rank": 20,
-          "slot_group": "field attribute"
-        },
-        "todos": {
-          "name": "todos",
-          "rank": 21,
-          "slot_group": "field attribute"
-        },
-        "pattern": {
-          "name": "pattern",
-          "rank": 22,
-          "slot_group": "field attribute"
-        },
-        "structured_pattern": {
-          "name": "structured_pattern",
-          "rank": 23,
-          "slot_group": "field attribute"
-        },
-        "ifabsent": {
-          "name": "ifabsent",
-          "rank": 24,
-          "slot_group": "field attribute"
-        },
-        "equals_expression": {
-          "name": "equals_expression",
-          "rank": 25,
-          "slot_group": "field attribute"
-        },
-        "aliases": {
-          "name": "aliases",
-          "rank": 26,
-          "slot_group": "metadata"
         },
         "description": {
           "name": "description",
           "description": "A plan text description of this field (LinkML slot).",
-          "rank": 27,
-          "slot_group": "metadata",
+          "rank": 9,
+          "slot_group": "field attribute",
           "range": "string",
           "required": true
         },
         "comments": {
           "name": "comments",
-          "rank": 28,
-          "slot_group": "metadata"
+          "rank": 10,
+          "slot_group": "field attribute"
         },
         "examples": {
           "name": "examples",
+          "rank": 11,
+          "slot_group": "field attribute"
+        },
+        "aliases": {
+          "name": "aliases",
+          "rank": 12,
+          "slot_group": "field attribute"
+        },
+        "range": {
+          "name": "range",
+          "rank": 13,
+          "slot_group": "field attribute"
+        },
+        "unit": {
+          "name": "unit",
+          "rank": 14,
+          "slot_group": "field attribute"
+        },
+        "required": {
+          "name": "required",
+          "rank": 15,
+          "slot_group": "field attribute"
+        },
+        "recommended": {
+          "name": "recommended",
+          "rank": 16,
+          "slot_group": "field attribute"
+        },
+        "identifier": {
+          "name": "identifier",
+          "rank": 17,
+          "slot_group": "field attribute"
+        },
+        "multivalued": {
+          "name": "multivalued",
+          "rank": 18,
+          "slot_group": "field attribute"
+        },
+        "minimum_value": {
+          "name": "minimum_value",
+          "rank": 19,
+          "slot_group": "field attribute"
+        },
+        "maximum_value": {
+          "name": "maximum_value",
+          "rank": 20,
+          "slot_group": "field attribute"
+        },
+        "minimum_cardinality": {
+          "name": "minimum_cardinality",
+          "rank": 21,
+          "slot_group": "field attribute"
+        },
+        "maximum_cardinality": {
+          "name": "maximum_cardinality",
+          "rank": 22,
+          "slot_group": "field attribute"
+        },
+        "todos": {
+          "name": "todos",
+          "rank": 23,
+          "slot_group": "field attribute"
+        },
+        "pattern": {
+          "name": "pattern",
+          "rank": 24,
+          "slot_group": "field attribute"
+        },
+        "structured_pattern": {
+          "name": "structured_pattern",
+          "rank": 25,
+          "slot_group": "field attribute"
+        },
+        "ifabsent": {
+          "name": "ifabsent",
+          "rank": 26,
+          "slot_group": "field attribute"
+        },
+        "equals_expression": {
+          "name": "equals_expression",
+          "rank": 27,
+          "slot_group": "field attribute"
+        },
+        "inlined": {
+          "name": "inlined",
+          "rank": 28,
+          "slot_group": "field attribute"
+        },
+        "inlined_as_list": {
+          "name": "inlined_as_list",
           "rank": 29,
-          "slot_group": "metadata"
+          "slot_group": "field attribute"
         },
         "exact_mappings": {
           "name": "exact_mappings",
           "description": "A list of one or more Curies or URIs that point to terms that are semantically identical to this field (LinkML slot).",
           "title": "Exact mappings",
           "rank": 30,
-          "slot_group": "metadata"
+          "slot_group": "field attribute"
         },
         "version": {
           "name": "version",
           "description": "A version number (or date) indicating when this field (LinkML slot) was introduced.",
           "rank": 31,
-          "slot_group": "metadata"
+          "slot_group": "field attribute"
         },
         "notes": {
           "name": "notes",
           "description": "Editorial notes about this field (LinkML slot) intended primarily for internal consumption",
           "rank": 32,
-          "slot_group": "metadata"
+          "slot_group": "field attribute"
         }
       },
       "attributes": {
@@ -1387,12 +1387,26 @@
             }
           ]
         },
+        "slot_group": {
+          "name": "slot_group",
+          "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
+          "title": "Table section",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 5,
+          "alias": "slot_group",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "field attribute",
+          "range": "SchemaSlotGroupMenu"
+        },
         "rank": {
           "name": "rank",
           "description": "An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.",
           "title": "Ordering",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 5,
+          "rank": 6,
           "alias": "rank",
           "owner": "Slot",
           "domain_of": [
@@ -1402,54 +1416,12 @@
           "slot_group": "table attribute",
           "range": "integer"
         },
-        "inlined": {
-          "name": "inlined",
-          "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.",
-          "title": "Inlined",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 6,
-          "alias": "inlined",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "table attribute",
-          "range": "boolean"
-        },
-        "inlined_as_list": {
-          "name": "inlined_as_list",
-          "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.",
-          "title": "Inlined as list",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 7,
-          "alias": "inlined_as_list",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "table attribute",
-          "range": "boolean"
-        },
-        "slot_group": {
-          "name": "slot_group",
-          "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
-          "title": "Field group",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 8,
-          "alias": "slot_group",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "field attribute",
-          "range": "SchemaSlotGroupMenu"
-        },
         "slot_uri": {
           "name": "slot_uri",
           "description": "A URI for identifying this field’s (LinkML slot’s) semantic type.",
           "title": "Semantic URI",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 9,
+          "rank": 7,
           "alias": "slot_uri",
           "owner": "Slot",
           "domain_of": [
@@ -1466,7 +1438,7 @@
             "This can be displayed in applications and documentation."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 10,
+          "rank": 8,
           "alias": "title",
           "owner": "Slot",
           "domain_of": [
@@ -1479,12 +1451,80 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
+        "description": {
+          "name": "description",
+          "description": "A plan text description of this field (LinkML slot).",
+          "title": "Description",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 9,
+          "alias": "description",
+          "owner": "Slot",
+          "domain_of": [
+            "Schema",
+            "Class",
+            "UniqueKey",
+            "Slot",
+            "Enum",
+            "PermissibleValue",
+            "Setting",
+            "Extension"
+          ],
+          "slot_group": "field attribute",
+          "range": "string",
+          "required": true
+        },
+        "comments": {
+          "name": "comments",
+          "description": "A free text field for adding other comments to guide usage of this field (LinkML slot).",
+          "title": "Comments",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 10,
+          "alias": "comments",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "field attribute",
+          "range": "WhitespaceMinimizedString"
+        },
+        "examples": {
+          "name": "examples",
+          "description": "A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.",
+          "title": "Examples",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 11,
+          "alias": "examples",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "field attribute",
+          "range": "WhitespaceMinimizedString"
+        },
+        "aliases": {
+          "name": "aliases",
+          "description": "A list of other names that slot can be known by.",
+          "title": "Aliases",
+          "comments": [
+            "See https://linkml.io/linkml/schemas/metadata.html#providing-aliases"
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 12,
+          "alias": "aliases",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "field attribute",
+          "range": "WhitespaceMinimizedString",
+          "multivalued": true
+        },
         "range": {
           "name": "range",
           "description": "The data type or pick list range or ranges that a field’s (LinkML slot’s) value can be validated by.  If more than one, this appears in the field’s specification as a list of \"any of\" ranges.",
           "title": "Range",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 11,
+          "rank": 13,
           "alias": "range",
           "owner": "Slot",
           "domain_of": [
@@ -1510,7 +1550,7 @@
           "description": "A unit for a numeric field, expressed in the Unified Code for Units of Measure (UCUM, https://ucum.org/) codes.  A UCUM code can be looked up at https://units-of-measurement.org/",
           "title": "Unit",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 12,
+          "rank": 14,
           "alias": "unit",
           "owner": "Slot",
           "domain_of": [
@@ -1527,7 +1567,7 @@
             "A mandatory data field will fail validation if empty."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 13,
+          "rank": 15,
           "alias": "required",
           "owner": "Slot",
           "domain_of": [
@@ -1541,7 +1581,7 @@
           "description": "A boolean TRUE indicates this field (LinkML slot) is a recommended data field.",
           "title": "Recommended",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 14,
+          "rank": 16,
           "alias": "recommended",
           "owner": "Slot",
           "domain_of": [
@@ -1555,7 +1595,7 @@
           "description": "A boolean TRUE indicates this field (LinkML slot) is an identifier such that each of its row values must be unique within the table.  In LinkML, “If a slot is declared as an identifier then it serves as a unique key for members of that class. It can also be used for inlining as a dict in JSON serializations.”",
           "title": "Identifier",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 15,
+          "rank": 17,
           "alias": "identifier",
           "owner": "Slot",
           "domain_of": [
@@ -1569,7 +1609,7 @@
           "description": "A boolean TRUE indicates this field (LinkML slot) can hold more than one values taken from its range.",
           "title": "Multivalued",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 16,
+          "rank": 18,
           "alias": "multivalued",
           "owner": "Slot",
           "domain_of": [
@@ -1583,7 +1623,7 @@
           "description": "A minimum value which is appropriate for the range data type of the field (LinkML slot).",
           "title": "Minimum value",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 17,
+          "rank": 19,
           "alias": "minimum_value",
           "owner": "Slot",
           "domain_of": [
@@ -1597,7 +1637,7 @@
           "description": "A maximum value which is appropriate for the range data type of the field (LinkML slot).",
           "title": "Maximum value",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 18,
+          "rank": 20,
           "alias": "maximum_value",
           "owner": "Slot",
           "domain_of": [
@@ -1611,7 +1651,7 @@
           "description": "For a multivalued field (LinkML slot), a minimum count of values required.",
           "title": "Minimum cardinality",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 19,
+          "rank": 21,
           "alias": "minimum_cardinality",
           "owner": "Slot",
           "domain_of": [
@@ -1625,7 +1665,7 @@
           "description": "For a multivalued field (LinkML slot), a maximum count of values required.",
           "title": "Maximum cardinality",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 20,
+          "rank": 22,
           "alias": "maximum_cardinality",
           "owner": "Slot",
           "domain_of": [
@@ -1639,7 +1679,7 @@
           "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
           "title": "Conditional",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 21,
+          "rank": 23,
           "alias": "todos",
           "owner": "Slot",
           "domain_of": [
@@ -1657,7 +1697,7 @@
             "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 22,
+          "rank": 24,
           "alias": "pattern",
           "owner": "Slot",
           "domain_of": [
@@ -1671,7 +1711,7 @@
           "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
           "title": "Structured pattern",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 23,
+          "rank": 25,
           "alias": "structured_pattern",
           "owner": "Slot",
           "domain_of": [
@@ -1705,7 +1745,7 @@
             }
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 24,
+          "rank": 26,
           "alias": "ifabsent",
           "owner": "Slot",
           "domain_of": [
@@ -1722,7 +1762,7 @@
             "See https://linkml.io/linkml/schemas/advanced.html#equals-expression"
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 25,
+          "rank": 27,
           "alias": "equals_expression",
           "owner": "Slot",
           "domain_of": [
@@ -1731,73 +1771,33 @@
           "slot_group": "field attribute",
           "range": "WhitespaceMinimizedString"
         },
-        "aliases": {
-          "name": "aliases",
-          "description": "A list of other names that slot can be known by.",
-          "title": "Aliases",
-          "comments": [
-            "See https://linkml.io/linkml/schemas/metadata.html#providing-aliases"
-          ],
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 26,
-          "alias": "aliases",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "metadata",
-          "range": "WhitespaceMinimizedString",
-          "multivalued": true
-        },
-        "description": {
-          "name": "description",
-          "description": "A plan text description of this field (LinkML slot).",
-          "title": "Description",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 27,
-          "alias": "description",
-          "owner": "Slot",
-          "domain_of": [
-            "Schema",
-            "Class",
-            "UniqueKey",
-            "Slot",
-            "Enum",
-            "PermissibleValue",
-            "Setting",
-            "Extension"
-          ],
-          "slot_group": "metadata",
-          "range": "string",
-          "required": true
-        },
-        "comments": {
-          "name": "comments",
-          "description": "A free text field for adding other comments to guide usage of this field (LinkML slot).",
-          "title": "Comments",
+        "inlined": {
+          "name": "inlined",
+          "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.",
+          "title": "Inlined",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 28,
-          "alias": "comments",
+          "alias": "inlined",
           "owner": "Slot",
           "domain_of": [
             "Slot"
           ],
-          "slot_group": "metadata",
-          "range": "WhitespaceMinimizedString"
+          "slot_group": "field attribute",
+          "range": "boolean"
         },
-        "examples": {
-          "name": "examples",
-          "description": "A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.",
-          "title": "Examples",
+        "inlined_as_list": {
+          "name": "inlined_as_list",
+          "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.",
+          "title": "Inlined as list",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 29,
-          "alias": "examples",
+          "alias": "inlined_as_list",
           "owner": "Slot",
           "domain_of": [
             "Slot"
           ],
-          "slot_group": "metadata",
-          "range": "WhitespaceMinimizedString"
+          "slot_group": "field attribute",
+          "range": "boolean"
         },
         "exact_mappings": {
           "name": "exact_mappings",
@@ -1811,7 +1811,7 @@
             "Slot",
             "PermissibleValue"
           ],
-          "slot_group": "metadata",
+          "slot_group": "field attribute",
           "range": "WhitespaceMinimizedString",
           "multivalued": true
         },
@@ -1828,7 +1828,7 @@
             "Class",
             "Slot"
           ],
-          "slot_group": "metadata",
+          "slot_group": "field attribute",
           "range": "WhitespaceMinimizedString"
         },
         "notes": {
@@ -1844,7 +1844,7 @@
             "Slot",
             "PermissibleValue"
           ],
-          "slot_group": "metadata",
+          "slot_group": "field attribute",
           "range": "WhitespaceMinimizedString"
         }
       },
@@ -3620,30 +3620,10 @@
       "range": "SchemaSlotTypeMenu",
       "required": true
     },
-    "inlined": {
-      "name": "inlined",
-      "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.",
-      "title": "Inlined",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "boolean"
-    },
-    "inlined_as_list": {
-      "name": "inlined_as_list",
-      "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.",
-      "title": "Inlined as list",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "boolean"
-    },
     "slot_group": {
       "name": "slot_group",
       "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
-      "title": "Field group",
+      "title": "Table section",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Slot"
@@ -3659,6 +3639,40 @@
         "Slot"
       ],
       "range": "uri"
+    },
+    "comments": {
+      "name": "comments",
+      "description": "A free text field for adding other comments to guide usage of this field (LinkML slot).",
+      "title": "Comments",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "examples": {
+      "name": "examples",
+      "description": "A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.",
+      "title": "Examples",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
+    "aliases": {
+      "name": "aliases",
+      "description": "A list of other names that slot can be known by.",
+      "title": "Aliases",
+      "comments": [
+        "See https://linkml.io/linkml/schemas/metadata.html#providing-aliases"
+      ],
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "multivalued": true
     },
     "range": {
       "name": "range",
@@ -3852,39 +3866,25 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "aliases": {
-      "name": "aliases",
-      "description": "A list of other names that slot can be known by.",
-      "title": "Aliases",
-      "comments": [
-        "See https://linkml.io/linkml/schemas/metadata.html#providing-aliases"
-      ],
+    "inlined": {
+      "name": "inlined",
+      "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.",
+      "title": "Inlined",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Slot"
       ],
-      "range": "WhitespaceMinimizedString",
-      "multivalued": true
+      "range": "boolean"
     },
-    "comments": {
-      "name": "comments",
-      "description": "A free text field for adding other comments to guide usage of this field (LinkML slot).",
-      "title": "Comments",
+    "inlined_as_list": {
+      "name": "inlined_as_list",
+      "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.",
+      "title": "Inlined as list",
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Slot"
       ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "examples": {
-      "name": "examples",
-      "description": "A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.",
-      "title": "Examples",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
+      "range": "boolean"
     },
     "exact_mappings": {
       "name": "exact_mappings",

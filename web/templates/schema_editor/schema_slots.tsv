@@ -46,12 +46,14 @@ Slot	key	schema_id	Schema ID	SchemaMenu			TRUE							The coding name of the sche
 	key	class_id	Table reuse	SchemaClassMenu										If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.	A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.	
 	key	name	Slot ID	WhitespaceMinimizedString;SchemaSlotMenu			TRUE				^[a-z]+[a-z0-9_]*$			The coding name of this field (LinkML slot).	"This name is formatted as a standard lowercase **snake_case** formatted name.
 A field can be used in one or more tables. A field can be shown as a visible datatype column in a spreadsheet (DataHarmonizer template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."	
+	field attribute	slot_group	Table section	SchemaSlotGroupMenu										The name of a grouping to place this field (LinkML slot) within during presentation in a table.		
 	table attribute	rank	Ordering	integer										An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.		
-	table attribute	inlined	Inlined	boolean										Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.		
-	table attribute	inlined_as_list	Inlined as list	boolean										Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.		
-	field attribute	slot_group	Field group	SchemaSlotGroupMenu										The name of a grouping to place this field (LinkML slot) within during presentation in a table.		
 	field attribute	slot_uri	Semantic URI	uri										A URI for identifying this field’s (LinkML slot’s) semantic type.		
 	field attribute	title	Title	WhitespaceMinimizedString			TRUE							The plain language name of this field (LinkML slot).	This can be displayed in applications and documentation.	
+	field attribute	description	Description	string			TRUE							A plan text description of this field (LinkML slot).		
+	field attribute	comments	Comments	WhitespaceMinimizedString										A free text field for adding other comments to guide usage of this field (LinkML slot).		
+	field attribute	examples	Examples	WhitespaceMinimizedString										A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.		
+	field attribute	aliases	Aliases	WhitespaceMinimizedString		TRUE								A list of other names that slot can be known by.	See https://linkml.io/linkml/schemas/metadata.html#providing-aliases	
 	field attribute	range	Range	SchemaTypeMenu;SchemaClassMenu;SchemaEnumMenu		TRUE	TRUE							The data type or pick list range or ranges that a field’s (LinkML slot’s) value can be validated by.  If more than one, this appears in the field’s specification as a list of "any of" ranges.		
 	field attribute	unit	Unit	WhitespaceMinimizedString										A unit for a numeric field, expressed in the Unified Code for Units of Measure (UCUM, https://ucum.org/) codes.  A UCUM code can be looked up at https://units-of-measurement.org/		
 	field attribute	required	Required	boolean										A boolean TRUE indicates this field (LinkML slot) is a mandatory data field.	A mandatory data field will fail validation if empty.	
@@ -67,13 +69,11 @@ A field can be used in one or more tables. A field can be shown as a visible dat
 	field attribute	structured_pattern	Structured pattern	WhitespaceMinimizedString										This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.		
 	field attribute	ifabsent	Default value	WhitespaceMinimizedString										Specify a default value for a field (LinkML slot) using the syntax shown in the examples.		For strings: string(default value);For integer: int(42);For float: float(0.5);For boolean: True;For dates: date("2020-01-31");For datetime: datetime("2020-01-31T12:00:00Z")
 	field attribute	equals_expression	Calculated value	WhitespaceMinimizedString										Enables inferring (calculating) value based on other field (LinkML slot) values. This is a LinkML-script-processed expression, having the syntax of a python expression.	See https://linkml.io/linkml/schemas/advanced.html#equals-expression	
-	metadata	aliases	Aliases	WhitespaceMinimizedString		TRUE								A list of other names that slot can be known by.	See https://linkml.io/linkml/schemas/metadata.html#providing-aliases	
-	metadata	description	Description	string			TRUE							A plan text description of this field (LinkML slot).		
-	metadata	comments	Comments	WhitespaceMinimizedString										A free text field for adding other comments to guide usage of this field (LinkML slot).		
-	metadata	examples	Examples	WhitespaceMinimizedString										A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.		
-	metadata	exact_mappings	Exact mappings	WhitespaceMinimizedString		TRUE								A list of one or more Curies or URIs that point to terms that are semantically identical to this field (LinkML slot).		
-	metadata	version	Version	WhitespaceMinimizedString										A version number (or date) indicating when this field (LinkML slot) was introduced.		
-	metadata	notes	Editorial Notes	WhitespaceMinimizedString										Editorial notes about this field (LinkML slot) intended primarily for internal consumption		
+	field attribute	inlined	Inlined	boolean										Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.		
+	field attribute	inlined_as_list	Inlined as list	boolean										Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.		
+	field attribute	exact_mappings	Exact mappings	WhitespaceMinimizedString		TRUE								A list of one or more Curies or URIs that point to terms that are semantically identical to this field (LinkML slot).		
+	field attribute	version	Version	WhitespaceMinimizedString										A version number (or date) indicating when this field (LinkML slot) was introduced.		
+	field attribute	notes	Editorial Notes	WhitespaceMinimizedString										Editorial notes about this field (LinkML slot) intended primarily for internal consumption		
 																
 																
 																
