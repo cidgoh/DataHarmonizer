@@ -298,14 +298,14 @@ tr.translate_key td {
   font-weight:bold;
 }
 
-.handsontable td.tabFieldTd.htDimmed {
+.handsontable td.tabFieldTd { /* .htDimmed */
   /* height:20px !important; 
   overflow-y:hidden !important; */
   white-space: nowrap; /* Prevent text from wrapping */
   text-overflow: ellipsis; /* Add ellipsis for truncated text */
 }
 
-.handsontable td.tabFieldTd.htDimmed.current {
+.handsontable td.tabFieldTd.current {  /* .htDimmed */
   white-space: normal; /* Prevent text from wrapping */
   text-overflow: unset; /* Add ellipsis for truncated text */
 }
