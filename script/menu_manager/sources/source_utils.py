@@ -119,7 +119,8 @@ def add_permissible_value(permissible_values, code, *, title=None, description=N
     prefixes:    Dict of prefix→URI used to compress meaning to a CURIE.
     """
     entry = {}
-    if title:       entry["title"]       = title
+    if title and title.lower() != code.lower():
+        entry["title"] = title
     if description: entry["description"] = description
     if is_a:        entry["is_a"]        = is_a
     if status:      entry["status"]      = status

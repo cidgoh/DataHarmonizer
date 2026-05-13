@@ -9,6 +9,7 @@ followed by 5–6 blank rows, followed by a data header and data rows.
 
 Public API used by menu_manager.py:
     process_agrifood_source(key, source, config_file=None, locales=None)
+    refetch_agrifood_dir(key, source, locales=None)
     match_agrifood_csv(url, tmp_path, config_file)
     match_agrifood_dir(url, config_file)
 """
@@ -124,9 +125,9 @@ def _map_columns(header_row):
             key_set = True
             continue
 
-        if norm.endswith('_en'):
+        if norm.endswith('_en') or norm.startswith('en_'):
             en_cols.append((col_s, 'desc' in norm))
-        elif norm.endswith('_fr'):
+        elif norm.endswith('_fr') or norm.startswith('fr_'):
             fr_cols.append((col_s, 'desc' in norm))
 
     # Single _en/_fr column → always title; two columns → desc-named → description
@@ -200,21 +201,39 @@ def parse_agrifood_picklist(csv_text):
     col_desc   = meta_col('description')
     col_source = meta_col('source')
 
+    n_meta = len(meta_header)
+
     def meta_get(row, col):
         if col is None or col >= len(row):
             return ''
         return row[col].strip()
 
+    def meta_get_desc(row, col):
+        """Return the description cell, rejoining cells split by unquoted commas.
+
+        csv.reader splits "quality, status" into two cells when the CSV author
+        forgot to quote the description field.  We know the description ends
+        just before the first trailing meta column (keywords, source, …), so
+        the number of trailing columns is (n_meta - col - 1).  Any extra cells
+        in the row beyond n_meta must all belong to the description.
+        """
+        if col is None or col >= len(row):
+            return ''
+        n_trailing = n_meta - col - 1
+        end = len(row) - n_trailing if n_trailing > 0 else len(row)
+        parts = [row[i].strip() for i in range(col, min(end, len(row)))]
+        return ', '.join(parts)
+
     general_row = rows[1] if len(rows) > 1 else []
     source_doc  = meta_get(general_row, col_source) or None
 
-    en_row  = rows[2] if len(rows) > 2 else []
+    en_row   = rows[2] if len(rows) > 2 else []
     title_en = meta_get(en_row, col_title)
-    desc_en  = meta_get(en_row, col_desc) or None
+    desc_en  = meta_get_desc(en_row, col_desc) or None
 
     fr_row   = rows[3] if len(rows) > 3 else []
     title_fr = meta_get(fr_row, col_title)
-    desc_fr  = meta_get(fr_row, col_desc) or None
+    desc_fr  = meta_get_desc(fr_row, col_desc) or None
 
     # Scan for the data header: first non-blank row after row 3
     data_header_idx = None
@@ -446,6 +465,86 @@ def _build_combined_yaml(results, source_url, key, locales=None):
         )
 
     return schema
+
+
+def refetch_agrifood_dir(key, source, locales=None):
+    """Re-download all CSVs from the AgriFoodCA GitHub picklists directory and
+    regenerate ``sources/{key}.yaml``.
+
+    Used by the ``-f`` handler to refresh a combined-directory AgriFoodCA source
+    that was originally added via ``-a`` (and therefore has ``file_format: yaml``).
+    Unlike ``match_agrifood_dir``, this function does not mutate ``menu_config.yaml``
+    and does not check whether the key already exists in config.
+    """
+    source_url = (source.get("reachable_from") or {}).get("source_ontology", "")
+
+    print("Fetching AgriFoodCA picklist directory via GitHub API ...")
+    try:
+        req = urllib.request.Request(
+            _GITHUB_API_URL,
+            headers={
+                "Accept":     "application/vnd.github+json",
+                "User-Agent": "menu_manager/1.0",
+            }
+        )
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            listing = json.loads(resp.read().decode("utf-8"))
+    except Exception as e:
+        print(f"  Error fetching GitHub API listing: {e}", file=sys.stderr)
+        return
+
+    csv_files = [
+        item for item in listing
+        if isinstance(item, dict) and item.get("name", "").lower().endswith(".csv")
+    ]
+    if not csv_files:
+        print("  No CSV files found in the picklists directory.", file=sys.stderr)
+        return
+
+    print(f"  Found {len(csv_files)} CSV file(s); downloading ...")
+
+    results = []
+    skipped = 0
+    for item in csv_files:
+        filename = item["name"]
+        raw_url  = (item.get("download_url")
+                    or _RAW_BASE + urllib.parse.quote(filename))
+
+        print(f"  Downloading {filename} ...")
+        try:
+            req = urllib.request.Request(
+                raw_url,
+                headers={"User-Agent": "menu_manager/1.0"}
+            )
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                charset  = resp.headers.get_content_charset() or "utf-8"
+                csv_text = resp.read().decode(charset, errors="replace")
+            if csv_text.startswith('﻿'):
+                csv_text = csv_text[1:]
+        except Exception as e:
+            print(f"    Warning: failed to download {filename}: {e}", file=sys.stderr)
+            skipped += 1
+            continue
+
+        parsed = parse_agrifood_picklist(csv_text)
+        if parsed is None:
+            print(f"    Warning: {filename} does not match AgriFoodCA format — skipped",
+                  file=sys.stderr)
+            skipped += 1
+            continue
+
+        results.append((_filename_to_key(filename), parsed))
+
+    if not results:
+        print("  No valid picklists found.", file=sys.stderr)
+        return
+
+    schema = _build_combined_yaml(results, source_url, key, locales=locales)
+    yaml_path = f"sources/{key}.yaml"
+    with open(yaml_path, "w") as f:
+        yaml.dump(schema, f, Dumper=IndentedDumper, default_flow_style=False, sort_keys=False)
+    print(f"Saved {len(results)} enums to {yaml_path}"
+          + (f" ({skipped} file(s) skipped)" if skipped else ""))
 
 
 def match_agrifood_csv(url, tmp_path, config_file=MENU_CONFIG):

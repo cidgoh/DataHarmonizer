@@ -200,6 +200,7 @@ from source_napcscanada import (
 )
 from source_agrifoodca import (
     process_agrifood_source,
+    refetch_agrifood_dir,
     match_agrifood_csv,
     match_agrifood_dir,
 )
@@ -244,6 +245,10 @@ from source_nrcs import (
 from source_nasis import (
     process_nasis_source,
     match_nasis,
+)
+from source_credit import (
+    process_credit_source,
+    match_credit,
 )
 from source_utils import (
     MENU_CONFIG,
@@ -946,6 +951,8 @@ def add_source(urls, config_file=MENU_CONFIG):
             continue
         if match_nasis(url, config_file):
             continue
+        if match_credit(url, config_file):
+            continue
 
         print(f"Fetching {url} ...")
         tmp_fd, tmp_path = tempfile.mkstemp()
@@ -1157,6 +1164,10 @@ def process_sources(source_keys=None, config_file=MENU_CONFIG):
 
         if content_type == "NASIS":
             process_nasis_source(key, source, locales=locales)
+            continue
+
+        if content_type == "CRediT":
+            process_credit_source(key, source, locales=locales)
             continue
 
         process_linkml_source(key, source, config_file)
@@ -1463,8 +1474,16 @@ def main():
             print(f"Unknown source key(s): {', '.join(invalid)}", file=sys.stderr)
             sys.exit(1)
         os.makedirs("sources", exist_ok=True)
+        locales_cfg = config.get("locales") or ["en"]
         for key in keys_to_download:
             source = all_sources[key]
+            content_type = source.get("content_type", "")
+            # AgriFoodCA directory sources (file_format: yaml) are built from
+            # multiple CSVs fetched via the GitHub API — raw urlretrieve would
+            # download the GitHub tree HTML page instead.
+            if content_type == "AgriFoodCA" and source.get("file_format") == "yaml":
+                refetch_agrifood_dir(key, source, locales=locales_cfg)
+                continue
             uri = (source.get("reachable_from") or {}).get("source_ontology")
             if not uri:
                 print(f"Skipping {key}: no source_ontology URL found (API-based sources must be fetched via -c)", file=sys.stderr)
