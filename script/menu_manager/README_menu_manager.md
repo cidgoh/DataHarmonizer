@@ -9,7 +9,7 @@ assembles them into a `schema.yaml` suitable for use with DataHarmonizer.
 
 ## Quick-start workflow
 
-**Note that some terminals access python as "python3". ALSO, menu_manager.py needs to be run within the context of the folder you want to generate schema.yaml in. If menu_manager.py location is not set in the shell environment then you will need to reference it using a relative path to the DataHarmonizer script/ folder, .e.g  "python ../../../script/menu_manager.py" .**
+**Note that some terminals access python as "python3". ALSO, menu_manager.py needs to be run within the context of the folder you want to generate schema.yaml in. If menu_manager.py location is not set in the shell environment then you will need to reference it using a relative path to the DataHarmonizer script/ folder, e.g. `python ../../../script/menu_manager/menu_manager.py`.**
 
 ```bash
 # 1. Add sources (auto-detects type, downloads, adds to menu_config.yaml)

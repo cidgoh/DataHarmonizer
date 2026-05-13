@@ -168,8 +168,8 @@ import urllib.request
 from collections import defaultdict
 import yaml
 
-# Locate companion source_* modules in script/menu_manager/ regardless of CWD.
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "menu_manager"))
+# Locate companion source_* modules in sources/ regardless of CWD.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "sources"))
 
 from source_ontologyapi import (
     iri_to_curie,
