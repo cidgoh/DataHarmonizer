@@ -1,0 +1,27 @@
+id: http://terminology.hl7.org/ValueSet/pronouns
+name: LOINCPersonalPronouns
+title: Personal Pronouns
+description: ''
+version: 2.0.0
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes:
+  LOINC: https://loinc.org/
+default_prefix: LOINC
+classes: {}
+enums:
+  LOINCPersonalPronouns:
+    name: LOINCPersonalPronouns
+    description: Codes that indicate the pronouns to be used when communicating with
+      or about an individual.
+    status: active
+    permissible_values:
+      LA29518-0:
+        title: he/him/his/his/himself
+      LA29519-8:
+        title: she/her/her/hers/herself
+      LA29520-6:
+        title: they/them/their/theirs/themselves
+slots: {}

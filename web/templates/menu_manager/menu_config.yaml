@@ -33,7 +33,7 @@ sources:
     file_format: yaml
     reachable_from:
       source_ontology: https://github.com/agrifooddatacanada/picklists_for_schemas/tree/main/picklists
-    download_date: '2026-04-26'
+    download_date: '2026-05-13'
     description: Agricultural food data picklists from AgriFoodData Canada
   AFCSoilAerationStatus:
     title: Soil aeration status
@@ -43,7 +43,7 @@ sources:
     file_format: csv
     reachable_from:
       source_ontology: https://raw.githubusercontent.com/agrifooddatacanada/picklists_for_schemas/main/picklists/soil_aeration_status.csv
-    download_date: '2026-04-26'
+    download_date: '2026-05-13'
     description: Qualitative oxygen availability status.
     see_also: https://static.ixambee.com/public/miscellaneous-pdf/physical_and_chemical_properties_of_soil1720241418.pdf
   AFCSoilDrainage:
@@ -54,7 +54,7 @@ sources:
     file_format: csv
     reachable_from:
       source_ontology: https://raw.githubusercontent.com/agrifooddatacanada/picklists_for_schemas/main/picklists/soil_drainage.csv
-    download_date: '2026-04-26'
+    download_date: '2026-05-13'
     description: Indicates the type of drainage found within a soil profile.
     see_also: https://sis.agr.gc.ca/cansis/nsdb/soil/v2/snt/drainage.html
   agrovoc:
@@ -125,7 +125,7 @@ sources:
     file_format: owl
     reachable_from:
       source_ontology: https://purl.obolibrary.org/obo/envo.owl
-    download_date: '2026-04-16'
+    download_date: '2026-05-13'
     description: ENVO is an ontology which represents knowledge about environments,environmental
       processes, ecosystems, habitats, and related entities
     license: https://creativecommons.org/publicdomain/zero/1.0/
@@ -162,7 +162,7 @@ sources:
     file_format: json
     reachable_from:
       source_ontology: https://terminology.hl7.org/7.1.0/en/CodeSystem-data-absent-reason.json
-    download_date: '2026-03-26'
+    download_date: '2026-05-13'
     prefixes:
       LOINC: https://loinc.org/
   LOINCFoodTypeCodes:
@@ -173,7 +173,7 @@ sources:
     file_format: json
     reachable_from:
       source_ontology: https://build.fhir.org/valueset-food-type.json
-    download_date: '2026-04-24'
+    download_date: '2026-05-13'
     see_also: https://build.fhir.org/valueset-food-type.json.html
     prefixes:
       LOINC: https://loinc.org/
@@ -185,7 +185,7 @@ sources:
     file_format: json
     reachable_from:
       source_ontology: https://terminology.hl7.org/7.1.0/en/ValueSet-pronouns.json
-    download_date: '2026-03-29'
+    download_date: '2026-05-13'
     see_also: https://terminology.hl7.org/7.1.0/en/ValueSet-pronouns.json.html
     prefixes:
       LOINC: https://loinc.org/
@@ -197,7 +197,7 @@ sources:
     file_format: html
     reachable_from:
       source_ontology: https://terminology.hl7.org/en/valuesets-cda.html
-    download_date: '2026-04-01'
+    download_date: '2026-05-13'
     prefixes:
       LOINC: https://loinc.org/
     description: "CDA Value Sets defined and maintained by HL7 as part of the CDA\
@@ -218,7 +218,7 @@ sources:
       napcscanada: napcscanada/
     reachable_from:
       source_ontology: https://www.statcan.gc.ca/en/media/5274
-    download_date: '2026-04-14'
+    download_date: '2026-05-13'
     concise: true
   NASIS:
     title: NASIS Database Metadata
@@ -228,7 +228,7 @@ sources:
     file_format: pdf
     reachable_from:
       source_ontology: https://www.nrcs.usda.gov/sites/default/files/2025-07/NASIS%207.4.3%20Domains.pdf
-    download_date: '2026-04-29'
+    download_date: '2026-05-13'
     concise: true
     description: The USDA NRCS National Soil Information System (NASIS) domain tables
       define the controlled vocabularies for all categorical fields in the NASIS soil
@@ -241,7 +241,7 @@ sources:
     file_format: pdf
     reachable_from:
       source_ontology: https://www.nrcs.usda.gov/sites/default/files/2025-05/Field-Book-for-Describing-and-Sampling-Soils-Ver4.pdf
-    download_date: '2026-04-28'
+    download_date: '2026-05-13'
     description: The U.S. Department of Agriculture Natural Resources Conservation
       Service Field Book for Describing and Sampling Soils provides a standard for
       many soil description variables.  This resource lists selected categorical picklists
@@ -254,7 +254,7 @@ sources:
     file_format: html
     reachable_from:
       source_ontology: https://sis.agr.gc.ca/cansis/nsdb/slc/v3.2/index.html
-    download_date: '2026-04-14'
+    download_date: '2026-05-13'
     description: "SLC version 3.2 is the latest revision of the Soil Landscapes of\
       \ Canada, which was developed by Agriculture and Agri-Food Canada to provide\
       \ information about the country's agricultural soils at the provincial and national\
@@ -267,7 +267,7 @@ sources:
     file_format: html
     reachable_from:
       source_ontology: https://sis.agr.gc.ca/cansis/nsdb/soil/v2/snt/drainage.html
-    download_date: '2026-04-26'
+    download_date: '2026-05-13'
     description: Indicates the type of drainage found within a soil profile. First
       used in SLC 3.0. Identical classes to drainage in SLC 1.0, but codes differ.
   NSDBSNT_WATERTBL:
@@ -278,7 +278,7 @@ sources:
     file_format: html
     reachable_from:
       source_ontology: https://sis.agr.gc.ca/cansis/nsdb/soil/v2/snt/watertbl.html
-    download_date: '2026-04-15'
+    download_date: '2026-05-13'
     description: Indicates the presence of a water table at a depth of 100cm, and
       identifies its temporal characteristics.
   NSDBSNTv2:
@@ -289,7 +289,7 @@ sources:
     file_format: html
     reachable_from:
       source_ontology: https://sis.agr.gc.ca/cansis/nsdb/soil/v2/snt/index.html
-    download_date: '2026-04-14'
+    download_date: '2026-05-13'
     description: "The Soil Name Table (SNT) describes the general physical and chemical\
       \ characteristics for all of the soils identified in a geographic region.  \n\
       Soil Order, Great Group and Subgroup are listed, along with attributes such\
@@ -302,7 +302,7 @@ sources:
     file_format: html
     reachable_from:
       source_ontology: https://sis.agr.gc.ca/cansis/nsdb/soil/v2/index.html
-    download_date: '2026-04-14'
+    download_date: '2026-05-13'
     description: This schema contains summary information for named soils within the
       Canadian soil surveys NSDB database
   SNOMED56265001:
@@ -329,7 +329,7 @@ sources:
     file_format: html
     reachable_from:
       source_ontology: https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=1326727
-    download_date: '2026-04-14'
+    download_date: '2026-05-13'
   STATSCAN1368814:
     title: Variant of Standard Geographical Classification (SGC) 2021 for Agricultural
       Regions
@@ -339,7 +339,7 @@ sources:
     file_format: html
     reachable_from:
       source_ontology: https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=1368814
-    download_date: '2026-04-14'
+    download_date: '2026-05-13'
   valuesets_merged_hierarchy:
     title: Merged Value Sets with Hierarchical Structure
     name: valuesets_merged_hierarchy
@@ -348,7 +348,7 @@ sources:
     file_format: yaml
     reachable_from:
       source_ontology: https://raw.githubusercontent.com/linkml/valuesets/refs/heads/main/src/valuesets/merged/merged_hierarchy.yaml
-    download_date: '2026-04-24'
+    download_date: '2026-05-13'
     minus:
       concepts:
         - academic

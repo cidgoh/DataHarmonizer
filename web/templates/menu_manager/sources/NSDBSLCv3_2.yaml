@@ -1,0 +1,982 @@
+id: https://sis.agr.gc.ca/cansis/nsdb/slc/v3.2/index.html
+name: NSDBSLCv3_2
+title: Soil Landscapes of Canada version 3.2
+description: "SLC version 3.2 is the latest revision of the Soil Landscapes of Canada,\
+  \ which was developed by Agriculture and Agri-Food Canada to provide information\
+  \ about the country's agricultural soils at the provincial and national levels.\
+  \  SLC v3.2 replaces SLC v3.1.1.\nThe Polygon Attribute Table (PAT) provides the\
+  \ linkage between geographic locations (polygons) and soil landscape attributes\
+  \ in the associated database tables.\nThe Land Area Table (LAT) contains attributes\
+  \ of the polygon, and attributes which apply to the entire landscape represented\
+  \ by that polygon.  \nArea values for the SLC polygons were calculated using the\
+  \ HYDRO coverage.  When unioned with the SLC coverage, it provides land, fresh water\
+  \ and ocean water values for each landscape polygon. All values are in hectares.\n\
+  The Component Table describes each of the individual soil and landscape features\
+  \ which comprise the polygon (i.e. the components of the polygon).   \r\nEach component\
+  \ includes its estimated extent, slope, stoniness, and local surface form class,\
+  \ as well as a link to the soil attributes provided in the \r\nSoil Name and \r\n\
+  Soil Layer tables.\nThe Component Rating Table (CRT) contains soil and landform\
+  \ suitability ratings that apply to individual components within a polygon.  These\
+  \ ratings are generated from the contents of the Soil Names Table (SNT) and Soil\
+  \ Layers Table (SLT).\nThe national SLCv3.2 coverage includes a new Landscape Segmentation\
+  \ Table for the agricultural portion of Canada, which identifies the main landform\
+  \ and slope combinations within each SLC polygon, and the representative soils found\
+  \ within each of the associated landform positions (landscape segments).\nThis table\
+  \ identifies the predominant landforms found within each SLC polygon, and the percentage\
+  \ of the polygon occupied by each landform.\nThis table defines a set of 84 landscape\
+  \ segments; four segments for each of 21 landform types.  Each segment in each of\
+  \ the 21 landforms has a characteristic slope, slope length, and relative extent\
+  \ within the landform.  The structure of this table is shown below.\nThis table\
+  \ contains attributes which apply to entire EcoDistricts."
+version: '3.2'
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes: {}
+default_prefix: ''
+classes: {}
+enums:
+  NSDBSLC_SLOPE:
+    name: SLOPE
+    title: Slope Gradient
+    description: 'SLOPE contains categorized slope gradient (in percent) of polygon
+      components for the low end of range (Shields, 1982). First used in SLC 3.0.
+      Identical class definitions to version 1.0 but "Not Applicable" code differs.'
+    permissible_values:
+      A:
+        title: Little or none
+        description: 'Little or no slope: 0 - 3 % gradient.'
+      B:
+        title: Gentle
+        description: 'Gentle slopes: 4 - 9 % gradient.'
+      C:
+        title: Moderate
+        description: 'Moderate slopes: 10 - 15 % gradient.'
+      D:
+        title: Steep
+        description: 'Steep slopes:  16 - 30 % gradient.'
+      E:
+        title: Extremely steep
+        description: 'Extremely steep slopes:  31 - 60% gradient.'
+      F:
+        title: Excessively steep
+        description: 'Excessively steep slopes: &gt; 60% gradient.'
+      '-':
+        title: n/a
+        description: Not applicable (water).
+  NSDBSLC_STONE:
+    name: STONE
+    title: Surface Stoniness
+    description: "This field indicates the stoniness of the soil surface. Surface\
+      \ stoniness will impact a soil's agricultural capabilities. First used in SLC\
+      \ 3.0."
+    permissible_values:
+      N:
+        title: None
+        description: The soil surface  is nonstony.
+      S:
+        title: Slightly Stony
+        description: The soil surface is slightly to moderately stony.
+      V:
+        title: Very Stony
+        description: The soil surface is very to excessively stony.
+      U:
+        title: Unknown
+        description: The soil surface stoniness is either unknown or not applicable.
+  NSDBSLC_LOCSF:
+    name: LOCSF
+    title: Local Surface Form
+    description: "Identifies the local surface form of a polygon component. Descriptions\
+      \ define classes of local physical surface forms (assemblage of slopes) or recurring\
+      \ patterns of forms which occur at the earth's surface. When applied to consolidated\
+      \ materials, form refers to the product of their modification by geological\
+      \ processes. (ref: ECSS, 1987; NWWG, 1987)."
+    permissible_values:
+      D:
+        title: Dissected
+        description: A dissected (or gullied) pattern providing external drainage
+          for an area.
+      H:
+        title: Hummocky (or irregular)
+        description: A very complex sequence of slopes extending from somewhat rounded
+          concavities (or swales) of various sizes to irregular conical knolls (or
+          knobs) and short discontinuous ridges; there is a general lack of concordance
+          between knolls and swales. Slopes are generally 4-70%. Examples are hummocky
+          moraines and hummocky fluvioglacial landforms.
+      I:
+        title: Inclined
+        description: A sloping, unidirectional surface with a generally constant slope
+          unbroken by marked irregularity or gullies; a weakly developed dissected
+          pattern provides external drainage for the local area. Slopes are 2-70%;
+          the form of inclined slopes is not related to the initial mode of origin
+          of the underlying material.
+      K:
+        title: Knoll and kettle
+        description: A chaotic sequence of knolls and kettles (or sloughs), which
+          occupies 15-20% of an area and has no external drainage. Slopes are generally
+          &gt;3%. Examples are morainal plains and hill lands.
+      L:
+        title: Level
+        description: A flat or very gently sloping, unidirectional surface with a
+          generally constant slope unbroken by marked elevations and depressions.
+          Slopes are generally
+      M:
+        title: Rolling
+        description: A very regular sequence of moderate slopes extending from rounded
+          and, in some places, confined concave depressions to broad, rounded convexities
+          producing a wavelike pattern of moderate relief. Slope gradients are generally
+          >5% but may be less. This surface form is usually controlled by the underlying
+          bedrock.
+      R:
+        title: Ridged
+        description: A long, narrow elevation of the surface, usually sharp crested
+          with steep sides; ridges may be parallel, subparallel, or intersecting.
+          Examples are eskers, crevasse fillings, washboard moraines and some drumlins.
+      S:
+        title: Steep
+        description: "Erosional slopes of greater than 70% (35\xB0), present on both\
+          \ consolidated and unconsolidated materials.  The form of a steep erosional\
+          \ slope on unconsolidated materials is not related to the initial mode of\
+          \ origin of the underlying material.  An example is an escarpment."
+      T:
+        title: Terraced
+        description: Scarp face and the horizontal or gently inclined surface (or
+          tread) above it. An example is an alluvial terrace.
+      U:
+        title: Undulating
+        description: A very regular sequence of gentle slopes that extends from rounded
+          and, in some places, confined concavities to broad, rounded convexities
+          producing a wavelike pattern of low local relief. Slope length is generally
+          less than 0.8 km and the dominant gradient of slopes is usually 2-5%. The
+          terrain lacks an external drainage pattern. Examples are some ground moraines
+          and lacustrine material of varying textures.
+      B04:
+        title: Domed bog
+        description: A large bog (diameter usually >500 m) with a convex surface rising
+          several metres above the surrounding terrain. The centre usually drains
+          in all directions; small crescentic pools commonly form around the highest
+          point; a concentric pattern is formed if the highest point is in the centre,
+          while an eccentric pattern is formed if the highest point is off-centre.
+          Peat development is usually >3 m.
+      B05:
+        title: Polygonal peat plateau bog
+        description: A perennially frozen bog rising approximately 1 m above the surrounding
+          fen. The surface is relatively flat, scored by a polygonal pattern of trenches
+          that developed over ice wedges. The permafrost and ice wedges developed
+          in peat originally deposited in a nonpermafrost environment.
+      B07:
+        title: Peat plateau bog
+        description: A bog composed of perennially frozen peat rising abruptly about
+          1 m from the surrounding unfrozen fen. The surface is relatively flat and
+          even, and commonly covers large areas. The peat was originally deposited
+          in a nonpermafrost environment and is associated in many places with collapse
+          scar bogs or fens.
+      B09:
+        title: Atlantic plateau bog
+        description: A bog with a flat to undulating surface raised above the surrounding
+          terrain. The bog edges commonly slope steeply downwards to the mineral soil
+          terrain. Large pools scattered on the bog reach depths of 2-4 m.
+      B13:
+        title: Basin bog
+        description: A bog situated in a basin with essentially closed drainage which
+          receives water from precipitation and runoff from the immediate surroundings.
+          The surface of the bog is flat with peat generally deepest at the centre.
+      B14:
+        title: Flat bog
+        description: A bog having a flat, featureless surface and occurring in broad,
+          poorly defined depressions. The depth of peat is generally uniform.
+      B15:
+        title: String bog
+        description: A pattern of narrow (2-3 m wide), low (1 m.
+      B16:
+        title: Blanket bog
+        description: A bog consisting of extensive peat deposits that occur more or
+          less uniformly over gently sloping hills and valleys. The peat thickness
+          is usually
+      B18:
+        title: Slope bog
+        description: A bog occurring in areas of high rainfall on appreciably sloping
+          land surfaces. The bog is fed by rainwater and by water draining from other
+          nutrient-poor peatlands. The peat may exceed 1 m in thickness.
+      B19:
+        title: Veneer bog
+        description: A bog occurring on gently sloping terrain underlain by generally
+          discontinuous permafrost. Although drainage is predominantly below the surface,
+          overland flow occurs in poorly defined drainways during peak runoff. Peat
+          thickness is usually
+      B20:
+        title: Lowland polygon bog
+        description: "A bog with flat-topped or convex peat surfaces (often referred\
+          \ to as 'high-centre polygons') separated by trenches over ice wedges that\
+          \ form a polygonal pattern when viewed from above. The peat was deposited\
+          \ in a permafrost environment as shown by internal structures."
+      F01:
+        title: Northern ribbed fen
+        description: "A fen with parallel, low peat ridges ('strings') alternating\
+          \ with wet hollows or shallow pools, oriented across the major slope at\
+          \ right angles to water movement. The depth of peat is >1 m."
+      F07:
+        title: Shore fen
+        description: A fen with an anchored surface mat that forms the shore of a
+          pond or lake. The rooting zone is affected by the water of the lake at both
+          normal and flood levels.
+      F11:
+        title: Slope fen
+        description: A fen occurring mainly on slow-draining, nutrient-enriched seepage
+          slopes. Pools are usually absent, but wet seepage tracks may occur. Peat
+          thickness is usually
+      F13:
+        title: Horizontal fen
+        description: A fen with a gently sloping, featureless surface. This fen occupies
+          broad, often ill-defined depressions and may interconnect with other fens.
+          Peat accumulation is generally uniform.
+      S01:
+        title: Stream swamp
+        description: A swamp occurring along the banks of permanent or semipermanent
+          streams. The high water table is maintained by the level of water in the
+          stream. The swamp is seasonally inundated with subsequent sediment deposition.
+      S04:
+        title: Basin swamp
+        description: A swamp developed in a topographically defined basin where water
+          derived locally may be augmented by drainage from other parts of the watershed.
+          Accumulation of well-decomposed peat is shallow (
+      M06:
+        title: Stream marsh
+        description: A marsh occupying shorelines, bars, stream beds, or islands in
+          continuously flowing watercourses. The marsh is subject to prolonged annual
+          flooding and is commonly covered by thick layers of sediments.
+      M11:
+        title: Shallow basin marsh
+        description: A marsh occurring in a uniformly shallow marsh depression or
+          swale, having a gradual gradient from the edge to the deepest portion; the
+          marsh edge may be poorly defined. Water levels fluctuate rapidly.
+      M14:
+        title: Shore marsh
+        description: A marsh occupying the contact zone between high and low water
+          marks bordering semipermanent or permanent lakes. The marsh,usually found
+          along protected shorelines, behind barrier beaches in lagoons, on islands,
+          or in embayments, is subject to flooding by a rise in lake levels, wind
+          waves, or surface runoff.
+  NSDBSLC_PROVINCE:
+    name: PROVINCE
+    title: Province Code
+    description: A two-character province code used as part of a link to the CanSIS
+      NAMES and LAYERS tables.
+    permissible_values:
+      AB:
+        title: Alberta
+      BC:
+        title: British Columbia
+      MB:
+        title: Manitoba
+      NB:
+        title: New Brunswick
+      NL:
+        title: Newfoundland and Labrador
+      NT:
+        title: Northwest Territories
+      NS:
+        title: Nova Scotia
+      NU:
+        title: Nunavut
+      'ON':
+        title: Ontario
+      PE:
+        title: Prince Edward Island
+      QC:
+        title: Quebec
+      SK:
+        title: Saskatchewan
+      YT:
+        title: Yukon
+  NSDBSLC_CFRAG1:
+    name: CFRAG1
+    title: Coarse Fragment 1
+    description: CFRAG1 is the average coarse fragment content of the soil profile,
+      from 0cm to 50cm (or to a root restricting layer
+    permissible_values:
+      D:
+        title: More than 65%
+        description: More than 65% of the coarse fragment content of the control section.
+      C:
+        title: 31 - 65%
+        description: From 31 to 65% of coarse fragment content of the control section.
+      B:
+        title: 10 - 30%
+        description: From 10 to 30% of coarse fragment content of the control section.
+      A:
+        title: Less than 10%
+        description: Less than 10% of coarse fragment content of the control section.
+      '-':
+        title: Not applicable
+        description: Coarse fragment content of the control section is non applicable.
+  NSDBSLC_CFRAG2:
+    name: CFRAG2
+    title: Coarse Fragment 2
+    description: CFRAG2 is an average coarse fragment content of the soil profile,
+      from 50cm to 100cm (or to a root restricting layer > 50cm). First used in SLC
+      1.0.
+    permissible_values:
+      D:
+        title: More than 65%
+        description: More than 65% of the coarse fragment content of the control section.
+      C:
+        title: 31 - 65%
+        description: From 31 to 65% of coarse fragment content of the control section.
+      B:
+        title: 10 - 30%
+        description: From 10 to 30% of coarse fragment content of the control section.
+      A:
+        title: Less than 10%
+        description: Less than 10% of coarse fragment content of the control section.
+      '-':
+        title: Not applicable
+        description: Coarse fragment content of the control section is non applicable.
+  NSDBSLC_DEPTH:
+    name: DEPTH
+    title: Depth to Bedrock or Root-restricting Layer
+    description: Depth to Bedrock or Root-restricting Layer. First used in SLC 3.0.
+    permissible_values:
+      '1':
+        title: Less than 25 cm
+        description: Root Depth less than 25 cm.
+      '2':
+        title: 25 - 49 cm
+        description: Root Depth of 25 - 49 cm.
+      '3':
+        title: 50 - 74cm
+        description: Root Depth of 50 - 74 cm.
+      '4':
+        title: 75 - 99 cm
+        description: Root Depth of 75 - 99 cm.
+      '5':
+        title: 100 cm or more
+        description: Root Depth of 100 cm or more.
+      '-':
+        title: Non applicable
+        description: Root Depth non applicable (eg. rock, ice).
+  NSDBSLC_AWHC:
+    name: AWHC
+    title: Available Water Holding Capacity
+    description: Indicates the soils available water holding capacity class. First
+      used in SLC 3.0.
+    permissible_values:
+      '1':
+        title: '&lt;50mm'
+        description: Available Water Holding Capacity of
+      '2':
+        title: 50 - 99 mm
+        description: Available Water Holding Capacity of 50 - 99 mm.
+      '3':
+        title: 100 - 149 mm
+        description: Available Water Holding Capacity of 100 - 149 mm.
+      '4':
+        title: 150 - 199 mm
+        description: Available Water Holding Capacity of 150 - 199 mm.
+      '5':
+        title: 200 - 250 mm
+        description: Available Water Holding Capacity of 200 - 250 mm.
+      '6':
+        title: Solonetzic or saline soils
+        description: Not applicable - solonetzic or saline soils.
+      '7':
+        title: High water table
+        description: Not applicable - high water table.
+      '8':
+        title: Perennially frozen subsoils
+        description: Not applicable - perennially frozen subsoils.
+      '-':
+        title: Water, ice or rock
+        description: Not applicable - water, ice or rock.
+  NSDBSLC_LF_TYPE:
+    name: LF_TYPE
+    title: Landform Type Class
+    description: This one character code identifies the type of landform.
+    permissible_values:
+      H:
+        title: Hummocky (or irregular)
+        description: Hummocky or irregular type of landform.
+      I:
+        title: Inclined and dissected
+        description: Inclined and dissected type of landform.
+      L:
+        title: Level
+        description: 'Type of landform: Level.'
+      M:
+        title: Rolling
+        description: 'Type of landform: Rolling.'
+      R:
+        title: Ridged
+        description: 'Type of landform: Ridged.'
+      S:
+        title: Steep
+        description: 'Type of landform: Steep.'
+      T:
+        title: Terraced
+        description: 'Type of landform: Terraced.'
+      U:
+        title: Undulating
+        description: 'Type of landform: Undulating.'
+  NSDBSLC_LF_SLOPE:
+    name: LF_SLOPE
+    title: Landform Slope Class
+    description: 'This field contains categorized slope gradient (in percent) of polygon
+      components for the low end of range (Shields, 1982). First used in SLC 3.0.
+      Identical class definitions to version 1.0 but "Not Applicable" code is not
+      included.'
+    permissible_values:
+      A:
+        title: Little or none
+        description: 'Little or no slope: 0 - 3 % gradient.'
+      B:
+        title: Gentle
+        description: 'Gentle slopes: 4 - 9 % gradient.'
+      C:
+        title: Moderate
+        description: 'Moderate slopes: 10 - 15 % gradient.'
+      D:
+        title: Steep
+        description: 'Steep slopes:  16 - 30 % gradient.'
+      E:
+        title: Extremely steep
+        description: 'Extremely steep slopes:  31 - 60% gradient.'
+      F:
+        title: Excessively steep
+        description: 'Excessively steep slopes: &gt; 60% gradient.'
+  NSDBSLC_LF_SEGMENT:
+    name: LF_SEGMENT
+    title: Landform Segment Class (Position)
+    description: Each landform is defined as having four segments, representing the
+      upper slope, mid slope, lower slope and depression positions. This code identifies
+      the position of the landform segment.
+    permissible_values:
+      U:
+        title: Upper
+        description: Landform segment is found in the upper slope position of the
+          landform.
+      M:
+        title: Middle
+        description: Landform segment is found in the mid slope position of the landform.
+      L:
+        title: Lower
+        description: Landform segment is found in the lower slope position of the
+          landform.
+      D:
+        title: Depression
+        description: Landform segment is found in the depression position of the landform.
+  NSDBSLC_CROPPED:
+    name: CROPPED
+    title: Crop Production Likelihood Class
+    description: Likelihood of the soil is used for agricultural crop production.
+    permissible_values:
+      L:
+        title: Low
+        description: Low probability of being used for agricultural crop production.
+      M:
+        title: Moderate
+        description: Moderate probability of being used for agricultural crop production.
+      H:
+        title: High
+        description: High probability of being used for agricultural crop production.
+slots: {}
+extensions:
+  locales:
+    tag: locales
+    value:
+      fr:
+        id: https://sis.agr.gc.ca/siscan/nsdb/slc/v3.2/index.html
+        name: NSDBSLCv3_2
+        version: '3.2'
+        in_language: fr
+        description: "La table des attributs de polygone (PAT) fournit le lien entre\
+          \ les emplacements g\xE9ographiques (polygones) et les attributs de p\xE9\
+          do-paysage dans les bases de donn\xE9es associ\xE9es.\nLa table de paysage\
+          \ (LAT) contient les attributs du polygone, ainsi que les attributs qui\
+          \ s'appliquent au paysage entier repr\xE9sent\xE9 par ce polygone. Toutes\
+          \ les superficies sont exprim\xE9es en hectares.\nLa table des composantes\
+          \ d&eacute;crit les sols et paysages qui sont les composantes d&rsquo;un\
+          \ polygone.  Noter que les composantes ne  d&eacute;crivent que la portion\
+          \ terre du polygone.\nLa table de classification des composantes (CRT) renferme\
+          \ les classes d'aptitude du sol et du relief qui s'appliquent \xE1 chaque\
+          \ composante d'un polygone. Ces classes sont \xE9tablies \xE1 partir du\
+          \ contenu du tableau des noms (SNT) et du tableau des couches de sol (SLT).\n\
+          La couverture nationale de la version 3.2 du PPC comprend \xE9galement une\
+          \ nouvelle table des segments du paysage pour la portion agricole du Canada,\
+          \ laquelle indique les principaux reliefs trouv\xE9 \xE0 l'int\xE9rieur\
+          \ de chaque polygones du PPC, ainsi que les composantes des sols que l'on\
+          \ s'attend de trouver dans chacun des quatre segments de relief.  Chaque\
+          \ polygone national de la version 3.2 du PPC associ\xE9 \xE0 des donn\xE9\
+          es sur le sol a un relief dominant, et certains polygones complexes du PPC\
+          \ peuvent aussi avoir un deuxi\xE8me ou un troisi\xE8me relief important.\n\
+          Cette table identifie les reliefs pr\xE9dominants au sein de chaque polygone\
+          \ des PPC, et le pourcentage du polygone occup\xE9e par chaque relief.\n\
+          La table de segmentation du relief (LST) de la version 3.2 du PPC contient\
+          \ des valeurs pr\xE9d\xE9finies concernant la pente, la longueur de la pente\
+          \ et l'\xE9tendue relative de chaque segment pour chacun des 21 types de\
+          \ reliefs actuellement d\xE9finis. D'autres recherches permettraient de\
+          \ pr\xE9ciser les attributs actuels des segments de relief et d'accro\xEE\
+          tre le nombre de types de reliefs. Le format actuel de la LST permet l'application\
+          \ de ces \xE9ventuelles mises \xE0 jour sous forme de colonnes ou de dossiers\
+          \ suppl\xE9mentaires.\nCette table contient les attributs qui s'appliquent\
+          \ \xE0 l'ensemble  \xE9codistricts ."
+        enums:
+          NSDBSLC_SLOPE:
+            permissible_values:
+              A:
+                title: Rien ou presque rien
+                description: Rien ou presque rien (0 - 3 %).
+              B:
+                title: Faibles
+                description: Pentes faibles (4 - 9 %).
+              C:
+                title: "Mod\xE9r\xE9es"
+                description: "Pentes mod\xE9r\xE9es (10 - 15 %)."
+              D:
+                title: Raides
+                description: Pentes raides (16 - 30 %).
+              E:
+                title: "Tr\xE8s raides"
+                description: "Pentes tr\xE8s raides (31 - 60 %)."
+              F:
+                title: "Extr\xEAmement raides"
+                description: "Pentes extr\xEAmement fortes (> 60 %)."
+              '-':
+                title: n/a
+                description: "Ne s'applique pas (eau)."
+          NSDBSLC_STONE:
+            permissible_values:
+              N:
+                title: Non pierreux
+                description: La surface du sol est non pierreux.
+              S:
+                title: "L\xE9g\xE8rement pierreux"
+                description: "La surface du sol est de l\xE9g\xE8rement \xE0 mod\xE9\
+                  r\xE9ment pierreux."
+              V:
+                title: "Tr\xE8s pierreux"
+                description: "La surface du sol est de tr\xE8s \xE0 excessivement\
+                  \ pierreux."
+              U:
+                title: Inconnu
+                description: "La surface du sol est de pierrosit\xE9 inconnu ou ne\
+                  \ s'applique pas."
+          NSDBSLC_LOCSF:
+            permissible_values:
+              D:
+                title: "Diss\xE9qu\xE9"
+                description: "Terrain diss\xE9qu\xE9 (ou ravin\xE9) assurant un drainage\
+                  \ vers l'ext\xE9rieur d'une zone donn\xE9e."
+              H:
+                title: "Bossel\xE9 (ou irr\xE9gulier)"
+                description: "S\xE9rie tr\xE8s complexe de pentes dont les toits varient\
+                  \ de concavit\xE9s l\xE9g\xE8rement arrondies (ou d\xE9pressions)\
+                  \ de diverses tailles \xE0 des collines coniques irr\xE9guli\xE8\
+                  res (ou buttes) et \xE0 de courtes cr\xEAtes discontinues; il y\
+                  \ a g\xE9n\xE9ralement manque de concordance entre les creux et\
+                  \ les bosses; les pentes varient de 4-70 %; exemples : moraine mammelonn\xE9\
+                  e, d\xE9p\xF4t fluvio-glaciaire mammelonn\xE9."
+              I:
+                title: "Inclin\xE9"
+                description: "Surface unidirectionnelle \xE0 inclinaison g\xE9n\xE9\
+                  ralement constante, non bris\xE9e par des ravins ou des irr\xE9\
+                  gularit\xE9s marqu\xE9es; terrain peu marqu\xE9, permet le drainage\
+                  \ vers l'ext\xE9rieur de la r\xE9gion; les pentes varient de 2-70\
+                  \ %; la forme des versants n'est pas li\xE9e \xE0 l'origine du mat\xE9\
+                  riau sous-jacent."
+              K:
+                title: En bosses et creux
+                description: "S\xE9rie tr\xE8s chaotique de bosses et de creux (ou\
+                  \ d\xE9pressions) qui occupent 15-20% d'une r\xE9gion, n'a pas de\
+                  \ drainage vers l'ext\xE9rieur; les pentes sont g\xE9n\xE9ralement\
+                  \ >3 %; ex., plaines morainiques et collines."
+              L:
+                title: Plan
+                description: "Surface unidirectionnelle plane ou l\xE9g\xE8rement\
+                  \ en pente \xE0 inclinaison g\xE9n\xE9ralement constante, non bris\xE9\
+                  e par des \xE9l\xE9vations et des d\xE9pressions marqu\xE9es; les\
+                  \ pentes sont g\xE9n\xE9ralement"
+              M:
+                title: "Valonn\xE9"
+                description: "S\xE9quence tr\xE8s r\xE9guli\xE8re de pentes moyennes\
+                  \ qui s'\xE9tirent entre des d\xE9pressions arrondies et, par endroit,\
+                  \ confin\xE9es et concaves, et de larges convexit\xE9s arrondies,\
+                  \ ce qui conf\xE8re au paysage une allure de vagues de hauteur moyenne;\
+                  \ les gradients de pentes sont g\xE9n\xE9ralement >5 %, mais peuvent\
+                  \ y \xEAtre inf\xE9rieurs; ce model\xE9 est g\xE9n\xE9ralement ma\xEE\
+                  tris\xE9 par le substratum rocheux sous-jacent."
+              R:
+                title: "\xC0 cr\xEAtes"
+                description: "Longue et \xE9troite \xE9l\xE9vation de la surface \xE0\
+                  \ cr\xEAte nettement pointue et versants abrupts; les cr\xEAtes\
+                  \ peuvent \xEAtre parall\xE8les, quasi parall\xE8les ou se croiser;\
+                  \ ex., eskers, remplissages de crevasses, moraines bossel\xE9es,\
+                  \ certains drumlins."
+              S:
+                title: "Escarp\xE9"
+                description: "Pentes d'\xE9rosion de plus de 70 % (35\xB0), se trouvent\
+                  \ sur des mat\xE9riaux consolid\xE9s ou non consolid\xE9s; la forme\
+                  \ d'une pente d'\xE9rosion escarp\xE9e sur mat\xE9riaux non consolid\xE9\
+                  s n'est pas li\xE9e \xE0 l'origine des mat\xE9riaux sous-jacents;\
+                  \ ex., escarpements."
+              T:
+                title: En terrasses
+                description: "Paroi de l'escarpement et surface horizontale ou l\xE9\
+                  g\xE8rement inclin\xE9e qui se trouve au-dessus; ex., terrasse alluviale."
+              U:
+                title: "Ondul\xE9"
+                description: "S\xE9quence tr\xE8s r\xE9guli\xE8re de pentes douces\
+                  \ qui s'\xE9tirent entre des concavit\xE9s arrondies et, par endroits\
+                  \ confin\xE9es, et de grandes convexit\xE9s arrondies, ce qui produit\
+                  \ un paysage peu accident\xE9, en vagues; la longueur des pentes\
+                  \ est g\xE9n\xE9ralement de moins de 0,8 km et le gradient dominant\
+                  \ des pentes est g\xE9n\xE9ralement de 2-5 % (de 1 \xE0 3\xB0);\
+                  \ aucune configuration de drainage externe; ex., certaines moraines\
+                  \ de fond, mat\xE9riau lacustre de diverses textures."
+              B04:
+                title: "Bog bomb\xE9"
+                description: "Bog important (diam\xE8tre g\xE9n\xE9ralement >500 m)\
+                  \ \xE0 surface convexe qui s'\xE9l\xE8ve de plusieurs m\xE8tres\
+                  \ au-dessus du terrain avoisinant; le drainage en surface rayonne\
+                  \ \xE0 partir du centre dans toutes les directions; de petits \xE9\
+                  tangs en forme de croissant se forment g\xE9n\xE9ralement pr\xE8\
+                  s du point le plus haut; si le point le plus \xE9lev\xE9 est au\
+                  \ centre, les \xE9tangs forment une configuration concentrique ou,\
+                  \ dans le cas contraire, excentrique; l'\xE9paisseur du d\xE9p\xF4\
+                  t de tourbe est g\xE9n\xE9ralement >3 m."
+              B05:
+                title: Bog polygonal de plateau tourbeux
+                description: "Bog gel\xE9 en permanence s'\xE9levant d'environ 1 m\
+                  \ au-dessus du fen avoisinant; la surface est relativement plane\
+                  \ et marqu\xE9e par une structure polygonale de tranch\xE9es qui\
+                  \ se sont form\xE9es au-dessus des coins de glace; le perg\xE9lisol\
+                  \ et les coins de glace se sont form\xE9s dans une tourbe qui s'est\
+                  \ accumul\xE9e dans un milieu qui n'\xE9tait pas gel\xE9 en permanence."
+              B07:
+                title: Bog de plateau tourbeux
+                description: "Bog compos\xE9 de tourbe gel\xE9e en permanence qui\
+                  \ s'\xE9l\xE8ve de fa\xE7on abrupte d'environ 1 m au-dessus du fen\
+                  \ adjacent non gel\xE9; la surface est relativement plane et r\xE9\
+                  guli\xE8re et couvre g\xE9n\xE9ralement de vastes \xE9tendues; la\
+                  \ tourbe a \xE9t\xE9 d\xE9pos\xE9e \xE0 l'origine en milieu non\
+                  \ perg\xE9lisol\xE9 et est associ\xE9e \xE0 de nombreux endroits\
+                  \ \xE0 des bogs ou des fens effondr\xE9s."
+              B09:
+                title: Bog de plateau de l&#39;Atlantique
+                description: "Bog \xE0 surface plane \xE0 ondul\xE9e qui domine le\
+                  \ terrain adjacent, les bordures du bog descendent en g\xE9n\xE9\
+                  ral en pente abrupte vers le terrain \xE0 sol min\xE9ral; de larges\
+                  \ \xE9tangs qui pars\xE8ment le bog atteignent une profondeur de\
+                  \ 2-4 m."
+              B13:
+                title: Bog de bassin
+                description: "Bog situ\xE9 dans un bassin dont le drainage est essentiellement\
+                  \ ferm\xE9; il est aliment\xE9 en eau par les pr\xE9cipitations\
+                  \ et le ruissellement des environs imm\xE9diats; la surface du bog\
+                  \ est plane, mais la tourbe est g\xE9n\xE9ralement la plus \xE9\
+                  paisse au centre."
+              B14:
+                title: Bog plat
+                description: "Bog \xE0 surface plane et sans relief qui appara\xEE\
+                  t dans de vastes d\xE9pressions mal d\xE9finies; la profondeur des\
+                  \ d\xE9p\xF4ts de tourbe est g\xE9n\xE9ralement uniforme."
+              B15:
+                title: "Bog structur\xE9"
+                description: "Configuration d'\xE9troites (2-3 m de largeur) cr\xEA\
+                  tes basses (1 m."
+              B16:
+                title: Bog en couverture
+                description: "Bog compos\xE9 de d\xE9p\xF4ts tourbeux consid\xE9rables\
+                  \ recouvrant \xE0 peu pr\xE8s uniform\xE9ment des collines et des\
+                  \ vall\xE9es \xE0 pentes douces; l'\xE9paisseur de la tourbe est\
+                  \ g\xE9n\xE9ralement"
+              B18:
+                title: "Bog inclin\xE9"
+                description: "Bog apparaissant dans les r\xE9gions \xE0 pr\xE9cipitation\
+                  \ \xE9lev\xE9e sur des pentes assez abruptes, et qui est aliment\xE9\
+                  \ par les eaux de pluie et l'eau provenant d'autres tourbi\xE8res\
+                  \ pauvres en \xE9l\xE9ments nutritifs; l'\xE9paisseur de la tourbe\
+                  \ peut d\xE9passer 1 m."
+              B19:
+                title: "Bog en plaqu\xE9"
+                description: "Bog se formant sur un terrain en pente douce recouvrant\
+                  \ du perg\xE9lisol g\xE9n\xE9ralement discontinu; bien que le drainage\
+                  \ soit essentiellement souterrain, l'\xE9coulement superficiel a\
+                  \ lieu dans des chenaux mal d\xE9finis au cours du ruissellement\
+                  \ de pointe; l'\xE9paisseur de la tourbe est g\xE9n\xE9ralement"
+              B20:
+                title: Bog de polygone de basse terre
+                description: "Bog \xE0 surface tourbeuses convexes ou planes s\xE9\
+                  par\xE9es par des tranch\xE9es correspondant \xE0 des coins de glace\
+                  \ qui forment une figuration polygonale en surface; la tourbe a\
+                  \ \xE9t\xE9 d\xE9pos\xE9e \xE0 l'origine en milieu non perg\xE9\
+                  lisol\xE9."
+              F01:
+                title: "Fen c\xF4tel\xE9 du nord"
+                description: "Fen ayant de basses cr\xEAtes tourbeuses parall\xE8\
+                  les ('c\xF4tes') qui alternent avec des d\xE9pressions humides ou\
+                  \ des \xE9tangs peu profonds, orient\xE9s en travers de la pente\
+                  \ principale, \xE0 angle droit par rapport au mouvement de l'eau;\
+                  \ l'\xE9paisseur de la tourbe est >1 m."
+              F07:
+                title: Fen de rivage
+                description: "Fen ayant un tapis superficiel ancr\xE9 qui forme la\
+                  \ rive d'un \xE9tang ou d'un lac; la zone d'enracinement est touch\xE9\
+                  e par les eaux du lac au niveau normal ou de crue."
+              F11:
+                title: "Fen inclin\xE9"
+                description: "Fen se trouvant essentiellement sur des pentes d'infiltration\
+                  \ \xE0 drainage lent, enrichies en \xE9l\xE9ments nutritifs; il\
+                  \ n'y a g\xE9n\xE9ralement pas d'\xE9tangs, mais parfois des traces\
+                  \ d'infiltration; l'\xE9paisseur du d\xE9p\xF4t de tourbe est g\xE9\
+                  n\xE9ralement"
+              F13:
+                title: Fen horizontal
+                description: "Fen ayant une surface \xE0 pente tr\xE8s l\xE9g\xE8\
+                  re, sans accident de terrain; ce fen occupe le fond de vastes d\xE9\
+                  pressions souvent mal d\xE9finies et peut \xEAtre reli\xE9 \xE0\
+                  \ d'autres fens; l'accumulation de tourbe est g\xE9n\xE9ralement\
+                  \ uniforme."
+              S01:
+                title: "Mar\xE9cage de ruisseau"
+                description: "Mar\xE9cage qui se trouvent le long des rives de cours\
+                  \ d'eau permanents ou semi-permanents; la surface de saturation\
+                  \ reste \xE9lev\xE9e sous l'effet du niveau des eaux dans le cours\
+                  \ d'eau; le mar\xE9cage est inond\xE9 en saison et subit donc des\
+                  \ accumulations r\xE9guli\xE8res de s\xE9diments."
+              S04:
+                title: "Mar\xE9cage de bassin"
+                description: "Mar\xE9cage confin\xE9 \xE0 des bassins d\xE9finis par\
+                  \ la topographie o\xF9 les eaux du drainage provenant d'autres portions\
+                  \ du bassin versant peuvent s'ajouter \xE0 l'eau de provenance locale;\
+                  \ l'accumulation de tourbes bien d\xE9compos\xE9es est peu \xE9\
+                  paisse ("
+              M06:
+                title: Marais de ruisseau
+                description: "Marais occupant les rivages, les cordons littoraux,\
+                  \ le lit des cours d'eau ou des \xEEles situ\xE9es dans les cours\
+                  \ d'eau \xE0 \xE9coulement continu; le marais est sujet \xE0 des\
+                  \ inondations annuelles prolong\xE9es et est souvent couvert d'\xE9\
+                  paisses couches de s\xE9diments."
+              M11:
+                title: Marais de bassin peu profond
+                description: "Marais qui se trouve dans une d\xE9pression ou un creux\
+                  \ uniform\xE9ment peu profond, \xE0 pente graduelle entre le rebord\
+                  \ de la d\xE9pression et sa partie la plus profonde; la lisi\xE8\
+                  re du marais peut \xEAtre mal d\xE9limit\xE9e; les niveaux d'eau\
+                  \ fluctuent rapidement."
+              M14:
+                title: Marais de rivage
+                description: "Marais occupant la zone de contact entre les laisses\
+                  \ de haute mer et de basse mer en bordure de lacs permanents ou\
+                  \ semi-permanents; on retrouve habituellement ce type de marais\
+                  \ le long des rives abrit\xE9es, dans des lagunes derri\xE8re les\
+                  \ cordons littoraux, sur des \xEEles ou dans des baies; le marais\
+                  \ est sujet \xE0 des inondations caus\xE9es par la hausse des niveaux\
+                  \ des lacs, par des vagues, par le vent ou par le ruissellement\
+                  \ de surface."
+          NSDBSLC_PROVINCE:
+            permissible_values:
+              AB:
+                title: Alberta
+              BC:
+                title: Colombie-Britannique
+              MB:
+                title: Manitoba
+              NB:
+                title: Nouveau-Brunswick
+              NL:
+                title: Terre-Neuve-et-Labrador
+              NT:
+                title: Territoires du Nord-Ouest
+              NS:
+                title: "Nouvelle-\xC9cosse"
+              NU:
+                title: Nunavut
+              'ON':
+                title: Ontario
+              PE:
+                title: "\xCEle-du-Prince-\xC9douard"
+              QC:
+                title: "Qu\xE9bec"
+              SK:
+                title: Saskatchewan
+              YT:
+                title: Yukon
+          NSDBSLC_CFRAG1:
+            permissible_values:
+              D:
+                title: Plus que 65%
+                description: "Plus que 65% de teneur en fragments grossiers de la\
+                  \ section t\xE9moin."
+              C:
+                title: 31 - 65%
+                description: "De 31 \xE0 65% de teneur en fragments grossiers de la\
+                  \ section t\xE9moin."
+              B:
+                title: 10 - 30%
+                description: "De 10 \xE0 30% de teneur en fragments grossiers de la\
+                  \ section t\xE9moin."
+              A:
+                title: Moins que 10%
+                description: "Moins que 10% de teneur en fragments grossiers de la\
+                  \ section t\xE9moin."
+              '-':
+                title: Ne s&#39;applique pas
+                description: "La teneur en fragments grossiers de la section t\xE9\
+                  moin ne s'applique pas."
+          NSDBSLC_CFRAG2:
+            permissible_values:
+              D:
+                title: Plus que 65%
+                description: "Plus que 65% de teneur en fragments grossiers de la\
+                  \ section t\xE9moin."
+              C:
+                title: 31 - 65%
+                description: "De 31 \xE0 65% de teneur en fragments grossiers de la\
+                  \ section t\xE9moin."
+              B:
+                title: 10 - 30%
+                description: "De 10 \xE0 30% de teneur en fragments grossiers de la\
+                  \ section t\xE9moin."
+              A:
+                title: Moins que 10%
+                description: "Moins que 10% de teneur en fragments grossiers de la\
+                  \ section t\xE9moin."
+              '-':
+                title: Ne s&#39;applique pas
+                description: "La teneur en fragments grossiers de la section t\xE9\
+                  moin ne s'applique pas."
+          NSDBSLC_DEPTH:
+            permissible_values:
+              '1':
+                title: Moins de 25 cm
+                description: Profondeur des racines moins de 25 cm.
+              '2':
+                title: 25 - 49 cm
+                description: Profondeur des racines de 25 - 49 cm.
+              '3':
+                title: 50 - 74 cm
+                description: Profondeur des racines de 50 - 74 cm.
+              '4':
+                title: 75 - 99cm
+                description: Profondeur des racines de 75 - 99 cm.
+              '5':
+                title: 100 cm ou plus
+                description: Profondeur des racines de 100 cm ou plus.
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Profondeur des racines ne s'applique pas (ex. roche,\
+                  \ glace)."
+          NSDBSLC_AWHC:
+            permissible_values:
+              '1':
+                title: '&lt;50mm'
+                description: "L'eau disponible du sol de retention de la classe de\
+                  \ capacit\xE9 de"
+              '2':
+                title: 50 - 99 mm
+                description: "L'eau disponible du sol de retention de la classe de\
+                  \ capacit\xE9 de 50 - 99 mm."
+              '3':
+                title: 100 - 149 mm
+                description: "L'eau disponible du sol de retention de la classe de\
+                  \ capacit\xE9 de 100 - 149 mm."
+              '4':
+                title: 150 - 199 mm
+                description: "L'eau disponible du sol de retention de la classe de\
+                  \ capacit\xE9 de 150 - 199 mm."
+              '5':
+                title: 200 - 250 mm
+                description: "L'eau disponible du sol de retention de la classe de\
+                  \ capacit\xE9 de 200 - 250 mm."
+              '6':
+                title: Solonetziques ou sols salin
+                description: "Ne s'applique pas - solonetziques ou sols salin."
+              '7':
+                title: "Table d&#39;eau \xE9lev\xE9e"
+                description: "Ne s'applique pas - table d'eau \xE9lev\xE9e."
+              '8':
+                title: "Sous-sol gel\xE9 continuellement"
+                description: "Ne s'applique pas - sous-sol gel\xE9 continuellement."
+              '-':
+                title: Eau, roche ou glace
+                description: "Ne s'applique pas - l'eau, roche ou glace."
+          NSDBSLC_LF_TYPE:
+            permissible_values:
+              H:
+                title: "Bossel\xE9 (ou irr\xE9gulier)"
+                description: "Type de relief bossel\xE9 ou irr\xE9gulier."
+              I:
+                title: "Inclin\xE9 et diss\xE9qu\xE9"
+                description: "Type de relief inclin\xE9 et diss\xE9qu\xE9."
+              L:
+                title: Plan
+                description: 'Type de relief : plan.'
+              M:
+                title: "Valonn\xE9"
+                description: "Type de relief : valonn\xE9."
+              R:
+                title: "Inclin\xE9"
+                description: "Type de relief : inclin\xE9."
+              S:
+                title: "Escarp\xE9"
+                description: "Type de relief : escarp\xE9."
+              T:
+                title: En terrasses
+                description: "Type de relief nomm\xE9 : en terrasses."
+              U:
+                title: "Ondul\xE9"
+                description: "Type de relief : ondul\xE9."
+          NSDBSLC_LF_SLOPE:
+            permissible_values:
+              A:
+                title: Rien ou presque rien
+                description: Rien ou presque rien (0 - 3 %).
+              B:
+                title: Faibles
+                description: Pentes faibles (4 - 9 %).
+              C:
+                title: "Mod\xE9r\xE9es"
+                description: "Pentes mod\xE9r\xE9es (10 - 15 %)."
+              D:
+                title: Raides
+                description: Pentes raides (16 - 30 %).
+              E:
+                title: "Tr\xE8s raides"
+                description: "Pentes tr\xE8s raides (31 - 60 %)."
+              F:
+                title: "Extr\xEAmement raides"
+                description: "Pentes extr\xEAmement fortes (&gt; 60 %)."
+          NSDBSLC_LF_SEGMENT:
+            permissible_values:
+              U:
+                title: "Sup\xE9rieur"
+                description: "Le segment de relief se retrouve dans la position sup\xE9\
+                  rieure de la pente du relief."
+              M:
+                title: Mi-pente
+                description: Le segment du relief se retrouve dans la position mi-pente
+                  du relief.
+              L:
+                title: "Inf\xE9rieure"
+                description: "Le segment du relief se retrouve \xE0 la position inf\xE9\
+                  rieure de la pente du relief."
+              D:
+                title: Partie creuse
+                description: Le segment du relief se retrouve dans la partie creuse
+                  du relief.
+          NSDBSLC_CROPPED:
+            permissible_values:
+              L:
+                title: Faible
+                description: "Faible probabilit\xE9 d'\xEAtre utilis\xE9 pour la production\
+                  \ agricole."
+              M:
+                title: "Mod\xE9r\xE9e"
+                description: "Probabilit\xE9 mod\xE9r\xE9e d'\xEAtre utilis\xE9 pour\
+                  \ la production agricole."
+              H:
+                title: Forte
+                description: "Forte probabilit\xE9 d'\xEAtre utilis\xE9 pour la production\
+                  \ agricole."

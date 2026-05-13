@@ -1,0 +1,100 @@
+id: http://aims.fao.org/aos/agrovoc/
+name: AGROVOC_c_2808
+title: farmland
+description: Land which is or can be used for agriculture without further clearing
+  or draining; for forest land use <24843>
+version: ''
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes:
+  agrovoc: http://aims.fao.org/aos/agrovoc/
+default_prefix: ''
+classes: {}
+enums:
+  AGROVOC_c_2808:
+    name: AGROVOC_c_2808
+    title: farmland
+    reachable_from:
+      api:
+        agrovoc:
+          type: sparql
+      source_nodes:
+        - 'agrovoc:c_2808'
+      include_self: true
+    permissible_values:
+      'agrovoc:c_15203':
+        text: 'agrovoc:c_15203'
+        meaning: 'agrovoc:c_15203'
+        title: vineyards
+        is_a: 'agrovoc:c_16212'
+      'agrovoc:c_16212':
+        text: 'agrovoc:c_16212'
+        meaning: 'agrovoc:c_16212'
+        title: cultivated land
+        is_a: 'agrovoc:c_2808'
+      'agrovoc:c_18948':
+        text: 'agrovoc:c_18948'
+        meaning: 'agrovoc:c_18948'
+        title: arable land
+        description: Arable land is land worked (ploughed or tilled) regularly, generally
+          under a system of crop rotation.
+        is_a: 'agrovoc:c_2808'
+      'agrovoc:c_25194':
+        text: 'agrovoc:c_25194'
+        meaning: 'agrovoc:c_25194'
+        title: irrigated land
+        is_a: 'agrovoc:c_2808'
+      'agrovoc:c_2808':
+        text: 'agrovoc:c_2808'
+        meaning: 'agrovoc:c_2808'
+        title: farmland
+        description: Land which is or can be used for agriculture without further
+          clearing or draining; for forest land use <24843>
+      'agrovoc:c_2894':
+        text: 'agrovoc:c_2894'
+        meaning: 'agrovoc:c_2894'
+        title: fields
+        is_a: 'agrovoc:c_16212'
+      'agrovoc:c_34007':
+        text: 'agrovoc:c_34007'
+        meaning: 'agrovoc:c_34007'
+        title: fallow
+        description: 'Uncultivated agricultural land could be brought back into cultivation
+          using the resources normally available on an agricultural holding. Related
+          terms: For "abandoned land" use <c_6>.  For "fallow", use <c_34007>. For
+          "marginal land", use <c_4603>.  For "unclaimed lands", use <c_0e0e555b>.  For
+          "virgin land", use <c_8257>. For "waste land", use <c_16205>.'
+        is_a: 'agrovoc:c_2808'
+      'agrovoc:c_34008':
+        text: 'agrovoc:c_34008'
+        meaning: 'agrovoc:c_34008'
+        title: green fallow
+        is_a: 'agrovoc:c_34007'
+      'agrovoc:c_34009':
+        text: 'agrovoc:c_34009'
+        meaning: 'agrovoc:c_34009'
+        title: bare fallow
+        is_a: 'agrovoc:c_34007'
+      'agrovoc:c_34891':
+        text: 'agrovoc:c_34891'
+        meaning: 'agrovoc:c_34891'
+        title: rice fields
+        is_a: 'agrovoc:c_2894'
+      'agrovoc:c_5379':
+        text: 'agrovoc:c_5379'
+        meaning: 'agrovoc:c_5379'
+        title: orchards
+        is_a: 'agrovoc:c_16212'
+      'agrovoc:c_b4e2557b':
+        text: 'agrovoc:c_b4e2557b'
+        meaning: 'agrovoc:c_b4e2557b'
+        title: uncultivated agricultural land
+        description: 'Uncultivated agricultural land could be brought back into cultivation
+          using the resources normally available on an agricultural holding. For "abandoned
+          land" use <c_6>.  For "fallow", use <c_34007>. For "marginal land", use
+          <c_4603>.  For "unclaimed lands", use <c_0e0e555b>.  For "virgin land",
+          use <c_8257>. For "waste land", use <c_16205>. '
+        is_a: 'agrovoc:c_2808'
+slots: {}

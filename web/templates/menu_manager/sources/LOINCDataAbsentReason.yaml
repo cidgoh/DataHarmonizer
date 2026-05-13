@@ -1,0 +1,94 @@
+id: http://hl7.org/fhir/ValueSet/data-absent-reason
+name: LOINCDataAbsentReason
+title: DataAbsentReason
+description: ''
+version: 1.0.0
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes:
+  LOINC: https://loinc.org/
+default_prefix: LOINC
+classes: {}
+enums:
+  LOINCDataAbsentReason:
+    name: LOINCDataAbsentReason
+    description: Used to specify why the normally expected content of the data element
+      is missing.
+    status: active
+    permissible_values:
+      unknown:
+        title: Unknown
+        description: The value is expected to exist but is not known.
+      asked-unknown:
+        title: Asked But Unknown
+        description: The source was asked but does not know the value.
+        is_a: unknown
+      temp-unknown:
+        title: Temporarily Unknown
+        description: There is reason to expect (from the workflow) that the value
+          may become known.
+        is_a: unknown
+      not-asked:
+        title: Not Asked
+        description: "The workflow didn't lead to this value being known."
+        is_a: unknown
+      asked-declined:
+        title: Asked But Declined
+        description: The source was asked but declined to answer.
+        is_a: unknown
+      masked:
+        title: Masked
+        description: The information is not available due to security, privacy or
+          related reasons.
+        comments: 'Using "masked" may be breach of security or confidentiality, but
+          there are times        when its use is required to support alternate workflows
+          for gaining access to denied information.'
+      not-applicable:
+        title: Not Applicable
+        description: There is no proper value for this element (e.g. last menstrual
+          period for a male).
+      unsupported:
+        title: Unsupported
+        description: "The source system wasn't capable of supporting this element."
+      as-text:
+        title: As Text
+        description: The content of the data is represented in the resource narrative.
+        comments: It may be linked by internal references (e.g. xml:id). This usually
+          implies that the value        could not be represented in the correct format
+          - this may be due to system limitations,        or this particular data
+          value.
+      error:
+        title: Error
+        description: Some system or workflow process error means that the information
+          is not available.
+      not-a-number:
+        title: Not a Number (NaN)
+        description: The numeric value is undefined or unrepresentable due to a floating
+          point processing error.
+        is_a: error
+        comments: This is sometimes an output value from measuring devices.
+      negative-infinity:
+        title: Negative Infinity (NINF)
+        description: The numeric value is excessively low and unrepresentable due
+          to a floating point processing        error.
+        is_a: error
+        comments: This is sometimes an output value from measuring devices.
+      positive-infinity:
+        title: Positive Infinity (PINF)
+        description: The numeric value is excessively high and unrepresentable due
+          to a floating point processing        error.
+        is_a: error
+        comments: This is sometimes an output value from measuring devices.
+      not-performed:
+        title: Not Performed
+        description: The value is not available because the observation procedure
+          (test, etc.) was not performed.
+      not-permitted:
+        title: Not Permitted
+        description: The value is not permitted in this context (e.g. due to profiles,
+          or the base data types).
+        comments: This is most often associated with required bindings that do not
+          include the actual code        used, but may be used with other data types.
+slots: {}

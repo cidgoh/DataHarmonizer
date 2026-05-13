@@ -1,0 +1,191 @@
+id: https://raw.githubusercontent.com/agrifooddatacanada/picklists_for_schemas/main/picklists/soil_drainage.csv
+name: AFCSoilDrainage
+title: Soil Drainage Class
+description: Indicates the type of drainage found within a soil profile.
+version: ''
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes: {}
+default_prefix: ''
+classes: {}
+enums:
+  AFCSoilDrainage:
+    permissible_values:
+      VR:
+        title: Very rapidly drained
+        description: Water is removed from the soil very rapidly in relation to supply.
+          Excess water flows downward very rapidly if underlying material is pervious.
+          There may be very rapid subsurface flow during heavy rainfall provided there
+          is a steep gradient. Soils have very low available water storage capacity
+          (usually less than 2.5 cm) within the control section and are usually coarse
+          textured, or shallow, or both. Water source is precipitation.
+      R:
+        title: Rapidly drained
+        description: Water is removed from the soil rapidly in relation to supply.
+          Excess water flows downward if underlying material is pervious. Subsurface
+          flow may occur on steep gradients during heavy rainfall. Soils have low
+          available water storage capacity (2.5-4 cm) within the control section,
+          and are usually coarse textured, or shallow, or both. Water source is precipitation.
+      W:
+        title: Well drained
+        description: Water is removed from the soil readily but not rapidly. Excess
+          water flows downward readily into underlying pervious material or laterally
+          as subsurface flow. Soils have intermediate available water storage capacity
+          (4-5 cm) within the control section, and are generally intermediate in texture
+          and depth. Water source is precipitation. On slopes subsurface flow may
+          occur for short durations, but additions are equaled by losses.
+      MW:
+        title: Moderately well drained
+        description: Water is removed from the soil somewhat slowly in relation to
+          supply. Excess water is removed somewhat slowly due to low perviousness,
+          shallow water table, lack of gradient, or some combination of these. Soils
+          have intermediate to high water storage capacity (5-6 cm) within the control
+          section and are usually medium to fined textured. Precipitation is the dominant
+          water source in medium to fine textured soils; precipitation and significant
+          additions by subsurface flow are necessary in coarse textured soils.
+      I:
+        title: Imperfectly drained
+        description: Water is removed from the soil sufficiently slowly in relation
+          to supply, to keep the soil wet for a significant part of the growing season.
+          Excess water moves slowly downward if precipitation is the major supply.
+          If subsurface water or groundwater, or both, is the main source, the flow
+          rate may vary but the soil remains wet for a significant part of the growing
+          season. Precipitation is the main source if available water storage capacity
+          is high; contribution by subsurface flow or groundwater flow, or both, increases
+          as available water storage capacity decreases. Soils have a wide range in
+          available water supply, texture, and depth, and are gleyed phases of well
+          drained subgroups.
+      P:
+        title: Poorly drained
+        description: Water is removed so slowly in relation to supply that the soil
+          remains wet for a comparatively large part of the time the soil is not frozen.
+          Excess water is evident in the soil for a large part of the time. Subsurface
+          flow or groundwater flow, or both, in addition to precipitation are the
+          main water sources; there may also be a perched water table, with precipitation
+          exceeding evapotranspiration. Soils have a wide range in available water
+          storage capacity, texture, and depth, and are gleyed subgroups, Gleysols,
+          and Organic soils.
+      VP:
+        title: Very poorly drained
+        description: Water is removed from the soil so slowly that the water table
+          remains at or on the surface for the greater part of the time the soil is
+          not frozen. Excess water is present in the soil for the greater part of
+          the time. Groundwater flow and subsurface flow are the major water sources.
+          Precipitation is less important except where there is a perched water table
+          with precipitation exceeding evapotranspiration. Soils have a wide range
+          in available water storage capacity, texture, and depth, and are either
+          Gleysolic or Organic.
+      '-':
+        title: Not applicable
+        description: Drainage not applicable (rock, ice, etc)
+slots: {}
+extensions:
+  locales:
+    tag: locales
+    value:
+      fr:
+        id: https://raw.githubusercontent.com/agrifooddatacanada/picklists_for_schemas/main/picklists/soil_drainage.csv
+        name: AFCSoilDrainage
+        version: ''
+        in_language: fr
+        description: "Indique le type de drainage pr\xE9sent dans un profil de sol."
+        enums:
+          AFCSoilDrainage:
+            permissible_values:
+              VR:
+                title: "Tr\xE8s rapidement drain\xE9"
+                description: "L\u2019eau est \xE9vacu\xE9e du sol tr\xE8s rapidement\
+                  \ par rapport \xE0 l\u2019apport. L\u2019eau en exc\xE8s s\u2019\
+                  infiltre tr\xE8s rapidement vers le bas si le mat\xE9riau sous-jacent\
+                  \ est perm\xE9able. Il peut y avoir un \xE9coulement souterrain\
+                  \ tr\xE8s rapide lors de fortes pluies, pourvu qu\u2019il y ait\
+                  \ une forte pente. Les sols ont une tr\xE8s faible capacit\xE9 de\
+                  \ r\xE9tention d\u2019eau disponible (g\xE9n\xE9ralement moins de\
+                  \ 2,5 cm) dans la section de contr\xF4le et sont habituellement\
+                  \ de texture grossi\xE8re, ou peu profonds, ou les deux. La source\
+                  \ d\u2019eau est la pr\xE9cipitation."
+              R:
+                title: "Rapidement drain\xE9"
+                description: "L\u2019eau est \xE9vacu\xE9e du sol rapidement par rapport\
+                  \ \xE0 l\u2019apport. L\u2019eau en exc\xE8s s\u2019infiltre vers\
+                  \ le bas si le mat\xE9riau sous-jacent est perm\xE9able. Un \xE9\
+                  coulement souterrain peut se produire sur des pentes abruptes lors\
+                  \ de fortes pluies. Les sols ont une faible capacit\xE9 de r\xE9\
+                  tention d\u2019eau disponible (2,5 \xE0 4 cm) dans la section de\
+                  \ contr\xF4le et sont g\xE9n\xE9ralement de texture grossi\xE8re,\
+                  \ ou peu profonds, ou les deux. La source d\u2019eau est la pr\xE9\
+                  cipitation."
+              W:
+                title: "Bien drain\xE9"
+                description: "L\u2019eau est \xE9vacu\xE9e du sol facilement mais\
+                  \ non rapidement. L\u2019eau en exc\xE8s s\u2019infiltre facilement\
+                  \ dans le mat\xE9riau perm\xE9able sous-jacent ou s\u2019\xE9coule\
+                  \ lat\xE9ralement comme \xE9coulement souterrain. Les sols ont une\
+                  \ capacit\xE9 de r\xE9tention d\u2019eau disponible interm\xE9diaire\
+                  \ (4 \xE0 5 cm) dans la section de contr\xF4le, et sont g\xE9n\xE9\
+                  ralement de texture et profondeur interm\xE9diaires. La source d\u2019\
+                  eau est la pr\xE9cipitation. Sur les pentes, un \xE9coulement souterrain\
+                  \ peut se produire pendant de courtes dur\xE9es, mais les apports\
+                  \ sont compens\xE9s par les pertes."
+              MW:
+                title: "Mod\xE9r\xE9ment bien drain\xE9"
+                description: "L\u2019eau est \xE9vacu\xE9e du sol quelque peu lentement\
+                  \ par rapport \xE0 l\u2019apport. L\u2019eau en exc\xE8s est \xE9\
+                  vacu\xE9e assez lentement en raison d\u2019une faible perm\xE9abilit\xE9\
+                  , d\u2019une nappe phr\xE9atique peu profonde, d\u2019un manque\
+                  \ de pente ou d\u2019une combinaison de ces facteurs. Les sols ont\
+                  \ une capacit\xE9 de r\xE9tention d\u2019eau disponible de moyenne\
+                  \ \xE0 \xE9lev\xE9e (5 \xE0 6 cm) dans la section de contr\xF4le\
+                  \ et sont g\xE9n\xE9ralement de texture moyenne \xE0 fine. La pr\xE9\
+                  cipitation est la principale source d\u2019eau dans les sols de\
+                  \ texture moyenne \xE0 fine; dans les sols de texture grossi\xE8\
+                  re, la pr\xE9cipitation et des apports significatifs par \xE9coulement\
+                  \ souterrain sont n\xE9cessaires."
+              I:
+                title: "Imperfectement drain\xE9"
+                description: "L\u2019eau est \xE9vacu\xE9e du sol suffisamment lentement\
+                  \ par rapport \xE0 l\u2019apport pour que le sol reste humide pendant\
+                  \ une grande partie de la saison de croissance. L\u2019eau en exc\xE8\
+                  s descend lentement si la pr\xE9cipitation est la principale source\
+                  \ d\u2019eau. Si l\u2019eau souterraine ou l\u2019\xE9coulement\
+                  \ souterrain (ou les deux) constitue la principale source, le d\xE9\
+                  bit peut varier, mais le sol demeure humide pendant une grande partie\
+                  \ de la saison de croissance. La pr\xE9cipitation est la source\
+                  \ principale si la capacit\xE9 de r\xE9tention d\u2019eau disponible\
+                  \ est \xE9lev\xE9e; la contribution par \xE9coulement souterrain\
+                  \ ou nappe phr\xE9atique augmente lorsque la capacit\xE9 de r\xE9\
+                  tention d\u2019eau diminue. Les sols pr\xE9sentent une large gamme\
+                  \ de capacit\xE9s de r\xE9tention, de textures et de profondeurs,\
+                  \ et sont des phases gleyifi\xE9es de sous-groupes bien drain\xE9\
+                  s."
+              P:
+                title: "Mal drain\xE9"
+                description: "L\u2019eau est \xE9vacu\xE9e si lentement par rapport\
+                  \ \xE0 l\u2019apport que le sol reste humide pendant une grande\
+                  \ partie du temps o\xF9 il n\u2019est pas gel\xE9. L\u2019eau en\
+                  \ exc\xE8s est pr\xE9sente dans le sol pendant une grande partie\
+                  \ du temps. L\u2019\xE9coulement souterrain ou l\u2019eau souterraine,\
+                  \ en plus de la pr\xE9cipitation, sont les principales sources d\u2019\
+                  eau; il peut aussi y avoir une nappe perch\xE9e, avec une pr\xE9\
+                  cipitation d\xE9passant l\u2019\xE9vapotranspiration. Les sols pr\xE9\
+                  sentent une large gamme de capacit\xE9s de r\xE9tention, de textures\
+                  \ et de profondeurs, et appartiennent \xE0 des sous-groupes gleyifi\xE9\
+                  s, aux Gleysols ou aux sols organiques."
+              VP:
+                title: "Tr\xE8s mal drain\xE9"
+                description: "L\u2019eau est \xE9vacu\xE9e du sol si lentement que\
+                  \ la nappe phr\xE9atique demeure \xE0 la surface ou pr\xE8s de la\
+                  \ surface pendant la majeure partie du temps o\xF9 le sol n\u2019\
+                  est pas gel\xE9. L\u2019eau en exc\xE8s est pr\xE9sente pendant\
+                  \ la majorit\xE9 du temps. L\u2019eau souterraine et l\u2019\xE9\
+                  coulement souterrain sont les principales sources d\u2019eau. La\
+                  \ pr\xE9cipitation est moins importante sauf lorsqu\u2019il existe\
+                  \ une nappe perch\xE9e et que la pr\xE9cipitation d\xE9passe l\u2019\
+                  \xE9vapotranspiration. Les sols pr\xE9sentent une large gamme de\
+                  \ capacit\xE9s de r\xE9tention, de textures et de profondeurs, et\
+                  \ sont soit gleyiques, soit organiques."
+              '-':
+                title: Sans objet
+                description: Drainage non applicable (roche, glace, etc.).

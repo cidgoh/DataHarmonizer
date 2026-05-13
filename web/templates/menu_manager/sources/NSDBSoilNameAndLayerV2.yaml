@@ -1,0 +1,3336 @@
+id: https://sis.agr.gc.ca/cansis/nsdb/soil/v2/index.html
+name: NSDBSoilNameAndLayerV2
+title: NSDB Soil Name and Layer Tables
+description: "This schema contains summary information for named soils within the\
+  \ Canadian soil surveys NSDB database\nThe Soil Name Table (SNT) describes the general\
+  \ physical and chemical characteristics for all of the soils identified in a geographic\
+  \ region.  \r\nSoil Order, Great Group and Subgroup are listed, along with attributes\
+  \ such as mode of deposition, and drainage class.\nThe Soil Layer Table (SLT) contains\
+  \ information which varies in a vertical direction, for all soils in the NSDB. \
+  \ Data in this table is based upon real measurements where available, but the majority\
+  \ of values are estimates provided by experienced pedologists.  The data in the\
+  \ SLT can be considered to represent modal information for each attribute in isolation.\
+  \  As such it is appropriate for mapping and land suitability interpretations. \
+  \ It should not be treated as real pedons for environmental modelling purposes because\
+  \ the recorded combination of measurements may never actually be present for any\
+  \ pedon in the field.  Measurements for real pedons are stored in the Pedon database."
+version: v2
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes: {}
+default_prefix: ''
+classes: {}
+enums:
+  NSDB_PROVINCE:
+    name: PROVINCE
+    title: Province Code
+    description: A two-character province code used as part of a link to the CanSIS
+      NAMES and LAYERS tables.
+    permissible_values:
+      AB:
+        title: Alberta
+      BC:
+        title: British Columbia
+      MB:
+        title: Manitoba
+      NB:
+        title: New Brunswick
+      NL:
+        title: Newfoundland and Labrador
+      NT:
+        title: Northwest Territories
+      NS:
+        title: Nova Scotia
+      NU:
+        title: Nunavut
+      'ON':
+        title: Ontario
+      PE:
+        title: Prince Edward Island
+      QC:
+        title: Quebec
+      SK:
+        title: Saskatchewan
+      YT:
+        title: Yukon
+  NSDB_KIND:
+    name: KIND
+    title: Kind of Surface Material
+    description: Identifies the kind of surface soil, rock outcrop or other material
+      (feature). First used in SLC 3.0.
+    permissible_values:
+      M:
+        title: Mineral
+        description: The soil material is primarily composed of mineral particles.
+      O:
+        title: Organic
+        description: The soil material is primarily composed of organic particles.
+      N:
+        title: True Non-soil
+        description: This is a true non-soil (e.g. airport or lake).
+      U:
+        title: Unclassified
+        description: This material was not classified due to an absence of information
+          or an unusual situation, such as rockland or an extremely shallow soil.
+  NSDB_WATERTBL:
+    name: WATERTBL
+    title: Water Table Characteristics
+    description: Indicates the presence of a water table at a depth of 100cm, and
+      identifies its temporal characteristics.
+    permissible_values:
+      YB:
+        title: Always
+        description: The water table is always present in the soil.
+      YG:
+        title: Growing season
+        description: The water table is present in the soil during the growing season.
+      YN:
+        title: Non growing season
+        description: The water table is present in the soil during the non growing
+          season.
+      YU:
+        title: Unspecified period
+        description: The water table is present in the soil during an unspecified
+          period.
+      'NO':
+        title: Never
+        description: The water table is not present in the soil at any time.
+      '-':
+        title: Not applicable
+        description: Not applicable.
+  NSDB_ROOTRESTRI:
+    name: ROOTRESTRI
+    title: Soil layer that restricts root growth
+    description: 'Indicates the soil layer that restricts root growth. "-" indicates
+      "not applicable". Layers are numbered 0 if no restricting layer is present.
+      Numbers 1-9 indicate that the layer is restrictive and this number can be linked
+      to the LAYER_NO field in the SLT.'
+    permissible_values:
+      '0':
+        title: No root restricting layer
+        description: The growth of plant roots is not restricted by any soil layer.
+      '1':
+        title: First layer
+        description: The growth of plant roots is restricted by the first (uppermost)
+          layer.
+      '2':
+        title: Second layer
+        description: The growth of plant roots is restricted by the second layer.
+      '3':
+        title: Third layer
+        description: The growth of plant roots is restricted by the third layer.
+      '4':
+        title: Fourth layer
+        description: The growth of plant roots is restricted by the fourth layer.
+      '5':
+        title: Fifth layer
+        description: The growth of plant roots is restricted by the fifth layer.
+      '6':
+        title: Sixth layer
+        description: The growth of plant roots is restricted by the sixth layer.
+      '7':
+        title: Seventh layer
+        description: The growth of plant roots is restricted by the seventh layer.
+      '8':
+        title: Eighth layer
+        description: The growth of plant roots is restricted by the eighth layer.
+      '9':
+        title: Ninth layer
+        description: The growth of plant roots is restricted by the ninth layer.
+      '-':
+        title: Not applicable
+        description: Non-applicable (e.g. rock, ice).
+  NSDB_RESTR_TYPE:
+    name: RESTR_TYPE
+    title: Type of root restricting layer
+    description: Indicates the type of soil in the root restricting layer.
+    permissible_values:
+      UN:
+        title: Undifferentiated
+        description: Undifferentiated
+      BN:
+        title: Solonetzic
+        description: Solonetzic B horizon
+      SA:
+        title: Salinity
+        description: Salinity (conductivity &gt; 4 dS/m)
+      CT:
+        title: Compact Till
+        description: Compact (Basal) Till
+      OR:
+        title: Ortstein
+        description: Ortstein horizon
+      FP:
+        title: Fragipan
+        description: Fragipan
+      LI:
+        title: Lithic
+        description: Lithic (consolidated bedrock)
+      CR:
+        title: Cryic
+        description: Cryic (frozen) horizon
+      DU:
+        title: Duric
+        description: Duric horizon
+      PL:
+        title: Placic
+        description: Placic horizon
+      '-':
+        title: n/a
+        description: Not Applicable
+  NSDB_DRAINAGE:
+    name: DRAINAGE
+    title: Soil Drainage Class
+    description: Indicates the type of drainage found within a soil profile. First
+      used in SLC 3.0. Identical classes to drainage in SLC 1.0, but codes differ.
+    permissible_values:
+      VR:
+        title: Very rapidly drained
+        description: Water is removed from the soil very rapidly in relation to supply.
+          Excess water flows downward very rapidly if underlying material is pervious.
+          There may be very rapid subsurface flow during heavy rainfall provided there
+          is a steep gradient. Soils have very low available water storage capacity
+          (usually less than 2.5 cm) within the control section and are usually coarse
+          textured, or shallow, or both. Water source is precipitation.
+      R:
+        title: Rapidly drained
+        description: Water is removed from the soil rapidly in relation to supply.
+          Excess water flows downward if underlying material is pervious. Subsurface
+          flow may occur on steep gradients during heavy rainfall. Soils have low
+          available water storage capacity (2.5-4 cm) within the control section,
+          and are usually coarse textured, or shallow, or both. Water source is precipitation.
+      W:
+        title: Well drained
+        description: Water is removed from the soil readily but not rapidly. Excess
+          water flows downward readily into underlying pervious material or laterally
+          as subsurface flow. Soils have intermediate available water storage capacity
+          (4-5 cm) within the control section, and are generally intermediate in texture
+          and depth. Water source is precipitation. On slopes subsurface flow may
+          occur for short durations, but additions are equaled by losses.
+      MW:
+        title: Moderately well drained
+        description: Water is removed from the soil somewhat slowly in relation to
+          supply. Excess water is removed somewhat slowly due to low perviousness,
+          shallow water table, lack of gradient, or some combination of these. Soils
+          have intermediate to high water storage capacity (5-6 cm) within the control
+          section and are usually medium to fined textured. Precipitation is the dominant
+          water source in medium to fine textured soils; precipitation and significant
+          additions by subsurface flow are necessary in coarse textured soils.
+      I:
+        title: Imperfectly drained
+        description: Water is removed from the soil sufficiently slowly in relation
+          to supply, to keep the soil wet for a significant part of the growing season.
+          Excess water moves slowly downward if precipitation is the major supply.
+          If subsurface water or groundwater, or both, is the main source, the flow
+          rate may vary but the soil remains wet for a significant part of the growing
+          season. Precipitation is the main source if available water storage capacity
+          is high; contribution by subsurface flow or groundwater flow, or both, increases
+          as available water storage capacity decreases. Soils have a wide range in
+          available water supply, texture, and depth, and are gleyed phases of well
+          drained subgroups.
+      P:
+        title: Poorly drained
+        description: Water is removed so slowly in relation to supply that the soil
+          remains wet for a comparatively large part of the time the soil is not frozen.
+          Excess water is evident in the soil for a large part of the time. Subsurface
+          flow or groundwater flow, or both, in addition to precipitation are the
+          main water sources; there may also be a perched water table, with precipitation
+          exceeding evapotranspiration. Soils have a wide range in available water
+          storage capacity, texture, and depth, and are gleyed subgroups, Gleysols,
+          and Organic soils.
+      VP:
+        title: Very poorly drained
+        description: Water is removed from the soil so slowly that the water table
+          remains at or on the surface for the greater part of the time the soil is
+          not frozen. Excess water is present in the soil for the greater part of
+          the time. Groundwater flow and subsurface flow are the major water sources.
+          Precipitation is less important except where there is a perched water table
+          with precipitation exceeding evapotranspiration. Soils have a wide range
+          in available water storage capacity, texture, and depth, and are either
+          Gleysolic or Organic.
+      '-':
+        title: Not applicable
+        description: Drainage not applicable (rock, ice, etc)
+  NSDB_PMTEX1:
+    name: PMTEX1
+    title: "Parent material texture - first\_(uppermost)"
+    description: The texture class of the underlying parent material. First used in
+      SLC 3.0.
+    permissible_values:
+      VC:
+        title: Very Coarse
+        description: 'Very Coarse (USDA Texture Classes: VCS,CS,S,GS,CBS).'
+      C:
+        title: Coarse
+        description: 'Coarse (USDA Texture Classes: FS,LCS,LS,LFS,GLS,CBLS).'
+      MC:
+        title: Moderately Coarse
+        description: 'Moderately Coarse (USDA Texture Classes: VFS,LVFS,CSL,SL,FSL,GSL,CBSL,GFSL).'
+      M:
+        title: Medium
+        description: 'Medium (USDA Texture Classes: VFSL,L,SIL,SI,GL,GSIL).'
+      MF:
+        title: Moderately Fine
+        description: 'Moderately Fine (USDA Texture Classes: SCL,FSCL,VFSCL,CL,SICL,GSCL,GL,CBCL).'
+      F:
+        title: Fine
+        description: 'Fine (USDA Texture Classes: SC,SIC,C,GSIC).'
+      VF:
+        title: Very Fine
+        description: 'Very Fine (USDA Texture Classes: HC (more than 60% clay).'
+      CS:
+        title: Coarse Skeletal
+        description: 'Coarse Skeletal (USDA Texture Classes: VGS, VGLS).'
+      MS:
+        title: Medium Skeletal
+        description: 'Medium Skeletal (USDA Texture Classes: VGSL, VGL).'
+      FS:
+        title: Fine Skeletal
+        description: 'Fine Skeletal (USDA Texture Classes: VGC).'
+      FR:
+        title: Fragmental
+        description: Fragmental
+      SM:
+        title: Stratified (Mineral)
+        description: Stratified (Mineral)
+      SU:
+        title: Stratified (Mineral and Organic)
+        description: Stratified (Mineral and Organic)
+      FI:
+        title: Fibric
+        description: Fibric
+      ME:
+        title: Mesic
+        description: Mesic
+      HU:
+        title: Humic
+        description: Humic
+      UD:
+        title: Undifferentiated
+        description: Undifferentiated
+      '-':
+        title: Not Applicable
+        description: Not Applicable
+  NSDB_PMTEX2:
+    name: PMTEX2
+    title: Parent material texture - second
+    description: The texture class of the second underlying parent material. First
+      used in SLC 3.0.
+    permissible_values:
+      VC:
+        title: Very Coarse
+        description: 'Very Coarse (USDA Texture Classes: VCS,CS,S,GS,CBS).'
+      C:
+        title: Coarse
+        description: 'Coarse (USDA Texture Classes: FS,LCS,LS,LFS,GLS,CBLS).'
+      MC:
+        title: Moderately Coarse
+        description: 'Moderately Coarse (USDA Texture Classes: VFS,LVFS,CSL,SL,FSL,GSL,CBSL,GFSL).'
+      M:
+        title: Medium
+        description: 'Medium (USDA Texture Classes: VFSL,L,SIL,SI,GL,GSIL).'
+      MF:
+        title: Moderately Fine
+        description: 'Moderately Fine (USDA Texture Classes: SCL,FSCL,VFSCL,CL,SICL,GSCL,GL,CBCL).'
+      F:
+        title: Fine
+        description: 'Fine (USDA Texture Classes: SC,SIC,C,GSIC).'
+      VF:
+        title: Very Fine
+        description: 'Very Fine (USDA Texture Classes: HC (more than 60% clay).'
+      CS:
+        title: Coarse Skeletal
+        description: 'Coarse Skeletal (USDA Texture Classes: VGS, VGLS).'
+      MS:
+        title: Medium Skeletal
+        description: 'Medium Skeletal (USDA Texture Classes: VGSL, VGL).'
+      FS:
+        title: Fine Skeletal
+        description: 'Fine Skeletal (USDA Texture Classes: VGC).'
+      FR:
+        title: Fragmental
+        description: Fragmental
+      SM:
+        title: Stratified (Mineral)
+        description: Stratified (Mineral)
+      SU:
+        title: Stratified (Mineral and Organic)
+        description: Stratified (Mineral and Organic)
+      FI:
+        title: Fibric
+        description: Fibric
+      ME:
+        title: Mesic
+        description: Mesic
+      HU:
+        title: Humic
+        description: Humic
+      UD:
+        title: Undifferentiated
+        description: Undifferentiated
+      '-':
+        title: Not Applicable
+        description: Not Applicable
+  NSDB_PMTEX3:
+    name: PMTEX3
+    title: Parent material texture - third
+    description: The texture class of the third underlying parent material. First
+      used in SLC 3.0.
+    permissible_values:
+      VC:
+        title: Very Coarse
+        description: 'Very Coarse (USDA Texture Classes: VCS,CS,S,GS,CBS).'
+      C:
+        title: Coarse
+        description: 'Coarse (USDA Texture Classes: FS,LCS,LS,LFS,GLS,CBLS).'
+      MC:
+        title: Moderately Coarse
+        description: 'Moderately Coarse (USDA Texture Classes: VFS,LVFS,CSL,SL,FSL,GSL,CBSL,GFSL).'
+      M:
+        title: Medium
+        description: 'Medium (USDA Texture Classes: VFSL,L,SIL,SI,GL,GSIL).'
+      MF:
+        title: Moderately Fine
+        description: 'Moderately Fine (USDA Texture Classes: SCL,FSCL,VFSCL,CL,SICL,GSCL,GL,CBCL).'
+      F:
+        title: Fine
+        description: 'Fine (USDA Texture Classes: SC,SIC,C,GSIC).'
+      VF:
+        title: Very Fine
+        description: 'Very Fine (USDA Texture Classes: HC (more than 60% clay).'
+      CS:
+        title: Coarse Skeletal
+        description: 'Coarse Skeletal (USDA Texture Classes: VGS, VGLS).'
+      MS:
+        title: Medium Skeletal
+        description: 'Medium Skeletal (USDA Texture Classes: VGSL, VGL).'
+      FS:
+        title: Fine Skeletal
+        description: 'Fine Skeletal (USDA Texture Classes: VGC).'
+      FR:
+        title: Fragmental
+        description: Fragmental
+      SM:
+        title: Stratified (Mineral)
+        description: Stratified (Mineral)
+      SU:
+        title: Stratified (Mineral and Organic)
+        description: Stratified (Mineral and Organic)
+      FI:
+        title: Fibric
+        description: Fibric
+      ME:
+        title: Mesic
+        description: Mesic
+      HU:
+        title: Humic
+        description: Humic
+      UD:
+        title: Undifferentiated
+        description: Undifferentiated
+      '-':
+        title: Not Applicable
+        description: Not Applicable
+  NSDB_PMCHEM1:
+    name: PMCHEM1
+    title: "Parent material chemical property - first\_(uppermost)"
+    description: The chemical composition class of the upper layer parent material.
+    permissible_values:
+      UD:
+        title: Undifferentiated
+        description: Undifferentiated acidity and/or calcareousness
+      EA:
+        title: Extremely / Strongly Acidic
+        description: pH &lt; 5.6
+      AN:
+        title: Medium Acid to Neutral
+        description: pH 5.6 - 7.4
+      WC:
+        title: Weakly Calcareous
+        description: '&lt; 6 CaCO3 equivalent (%)'
+      VC:
+        title: Moderately / Very Strongly Calcareous
+        description: 6 - 40 CaCO3 equivalent (%)
+      EC:
+        title: Extremely Calcareous
+        description: '&gt; 40 CaCO3 equivalent (%)'
+      SA:
+        title: Calcareous and Saline
+        description: Calcareous and Saline
+      '-':
+        title: Not Applicable
+        description: Not Applicable
+  NSDB_PMCHEM2:
+    name: PMCHEM2
+    title: Parent material chemical property - second
+    description: The chemical composition class of the second underlying parent material
+      if present.
+    permissible_values:
+      UD:
+        title: Undifferentiated
+        description: Undifferentiated acidity and/or calcareousness
+      EA:
+        title: Extremely / Strongly Acidic
+        description: pH &lt; 5.6
+      AN:
+        title: Medium Acid to Neutral
+        description: pH 5.6 - 7.4
+      WC:
+        title: Weakly Calcareous
+        description: '&lt; 6 CaCO3 equivalent (%)'
+      VC:
+        title: Moderately / Very Strongly Calcareous
+        description: 6 - 40 CaCO3 equivalent (%)
+      EC:
+        title: Extremely Calcareous
+        description: '&gt; 40 CaCO3 equivalent (%)'
+      SA:
+        title: Calcareous and Saline
+        description: Calcareous and Saline
+      '-':
+        title: Not Applicable
+        description: Not Applicable
+  NSDB_PMCHEM3:
+    name: PMCHEM3
+    title: Parent material chemical property - third
+    description: The chemical composition class of the third, underlying parent material
+      if present.
+    permissible_values:
+      UD:
+        title: Undifferentiated
+        description: Undifferentiated acidity and/or calcareousness
+      EA:
+        title: Extremely / Strongly Acidic
+        description: pH &lt; 5.6
+      AN:
+        title: Medium Acid to Neutral
+        description: pH 5.6 - 7.4
+      WC:
+        title: Weakly Calcareous
+        description: '&lt; 6 CaCO3 equivalent (%)'
+      VC:
+        title: Moderately / Very Strongly Calcareous
+        description: 6 - 40 CaCO3 equivalent (%)
+      EC:
+        title: Extremely Calcareous
+        description: '&gt; 40 CaCO3 equivalent (%)'
+      SA:
+        title: Calcareous and Saline
+        description: Calcareous and Saline
+      '-':
+        title: Not Applicable
+        description: Not Applicable
+  NSDB_MDEP1:
+    name: MDEP1
+    title: Mode of deposition - first (uppermost)
+    description: The mode of deposition of the uppermost underlying parent material.
+      First used in SLC 3.0
+    permissible_values:
+      ANTH:
+        title: Anthropogenic
+        description: Materials modified by people,including those associated with
+          mineral exploitation and waste disposal. They include materials deposited
+          as a result of human activities or geological materials modified artificially
+          so that their physical properties (structure, cohesion, compaction) have
+          been drastically altered. Examples are areas of landfill, spoil heaps, open-pit
+          mines and levelled irrigated areas.
+      COLL:
+        title: Colluvial
+        description: Massive to moderately-well stratified, nonsorted to poorly sorted
+          sediments with any range of particle sizes from clay to boulders that have
+          reached their present position only by direct, gravity-induced movement.
+          Processes include slow displacements such as creep and solifluction and
+          rapid movements such as earth flows.
+      EOLI:
+        title: Eolian
+        description: 'Eolian material deposited by wind: uniform deposit of very fine
+          sand and silt.'
+      FLEO:
+        title: Fluvioeolian
+        description: Fluvioeolian
+      FLLC:
+        title: Fluviolacustrine
+        description: Fluviolacustrine
+      FLUV:
+        title: Fluvial
+        description: These sediments generally consist of gravel and sand with a minor
+          fraction of silt and rarely of clay. The gravels are typically rounded and
+          contain interstitial sand.
+      FNPT:
+        title: Fen Peat
+        description: These deposits consist of sedge peat derived primarily from sedges
+          with inclusions of partially decayed stems of shrubs formed in a eutrophic
+          environment due to the close association of the material with mineral-rich
+          waters.
+      FOPT:
+        title: Forest Peat
+        description: This class is used for forest peatcovered or forest peat-filled
+          areas where the water table is at or above the peat surface. The dominant
+          peat materials are shallow to deep mesic to humic forest and fen peat formed
+          in a eutrophic environment resulting from strong water movement from the
+          margins or other mineral sources.
+      GLFL:
+        title: Glaciofluvial
+        description: Material moved by glaciers and subsequently sorted and deposited
+          by streams flowing from the melting ice. The deposits are stratified and
+          may occur in the form of outwash plains, deltas, kames eskers, and kame
+          terraces. See also glacial drift and till.
+      GLLC:
+        title: Glaciolacustrine
+        description: "Used where there is evidence that the lacustrine materials were\
+          \ deposited in contact with glacial ice. One of the following characteristics\
+          \ must be present:\r\n\r\nkettles or an otherwise irregular surface that\
+          \ is neither simply the result of normal settling and compaction in silt\
+          \ nor the result of piping\r\nslump structures resulting from loss of support\
+          \ caused by melting of retaining ice\r\npresence of numerous ice-rafted\
+          \ stones in the lacustrine silts."
+      GLMA:
+        title: Glaciomarine
+        description: Glaciomarine
+      LACU:
+        title: Lacustrine
+        description: Sediment, generally consisting of either stratified fine sand,
+          silt, and clay deposited on the lake bed, or moderately-well sorted, stratified
+          sand and coarse materials that consist of near lake shore or beach deposits.
+          These materials have either settled from suspension in bodies of standing
+          fresh water or accumulated at their margins through wave action.
+      LATL:
+        title: Lacustro-Till
+        description: Lacustro-Till
+      MARI:
+        title: Marine
+        description: Unconsolidated deposits of clay, silt, sand, or gravel that are
+          well to moderately well sorted and well to moderately well stratified (in
+          some places containing shells). The deposits have settled from suspension
+          in salt or brackish water bodies or have accumulated at their margins through
+          shoreline processes such as wave action and longshore drift. Nonfossiliferous
+          deposits may be judged marine if they are located in an area that may reasonably
+          be considered to have contained salt water at the time the deposits were
+          formed.
+      RESD:
+        title: Residual
+        description: Unconsolidated, weathered, or partly weathered mineral soil material
+          that accumulates by in situ disintegration of bedrock.
+      SAPR:
+        title: Saprolite
+        description: "This material is rock and contains a high proportion of residual\
+          \ silts and clays formed by alteration, chiefly by chemical weathering.\r\
+          \n\r\nThe rock remains in a coherent state, interstitial grain relationships\
+          \ are undisturbed, and no downhill movement due to gravity has occurred.\
+          \ The process is assumed to be active.\r\nExamples: rotten rock containing\
+          \ corestones."
+      SEPT:
+        title: Sedimentary Peat
+        description: Coprogenous earth is composed of aquatic plant debris modified
+          by aquatic animals. It makes slightly viscous water suspensions and is slightly
+          plastic but not sticky. The material shrinks upon drying to form clods that
+          are difficult to rewet and commonly crack along horizontal planes. It has
+          very few or no plant fragments recognizable to the naked eye, a pyrophosphate
+          index of 5 or more, and a dry color value of less than 5.
+      SPPT:
+        title: Sphagnum Peat
+        description: These deposits consist of sphagnum or forest peat formed in an
+          ombrotrophic environment caused by the slightly elevated nature of the bog.
+          They tend to be disassociated from nutrient-rich ground water or surrounding
+          mineral soils.
+      TILL:
+        title: Till (Morainal)
+        description: 'Morainal material (till) deposited by glacial ice: a mixture
+          of boulders, sand, silt, and clay.'
+      UNDM:
+        title: Undifferentiated mineral
+        description: A sequence of more than three types of genetic mineral materials
+          outcropping on a steep erosional escarpment. This complex class is to be
+          used where units relating to individual genetic materials cannot be delimited
+          separately at the scale of mapping. It may include colluvium derived from
+          the various genetic materials and resting upon the scarp slope.
+      UNDO:
+        title: Undifferentiated organic
+        description: A layered sequence of more than three undifferentiated types
+          of organic material (>30% organic matter by weight).
+      VOLC:
+        title: Volcanic
+        description: Volcanic pumice and ash.
+      RKUD:
+        title: Undifferentiated
+        description: Bedrock, undifferentiated
+      RKIA:
+        title: Igneous, acidic
+        description: Igneous, acidic bedrock (dominantly granite)
+      RKIB:
+        title: Igneous, basic
+        description: Igneous, basic bedrock (dominantly basalt)
+      RKIC:
+        title: Igneous, basic coarse
+        description: Igneous, basic coarse bedrock (coarse grained basalts)
+      RKIF:
+        title: Igneous, basic fine grained
+        description: Igneous, basic fine grained bedrock (dominantly andesites)
+      RKCA:
+        title: Calcareous
+        description: Calcareous bedrock (dominantly sandstone and shale)
+      RKLS:
+        title: Limestone
+        description: Limestone bedrock (limestone and dolomite)
+      RKSH:
+        title: Shale
+        description: Shale bedrock
+      RKSS:
+        title: Sandstone
+        description: Sandstone bedrock
+      RKSM:
+        title: Siltstone and mudstone
+        description: Siltstone and mudstone bedrock
+      RKSP:
+        title: Schist and phyllite
+        description: Schist and phyllite bedrock
+      RKSA:
+        title: Slate
+        description: Slate bedrock
+      RKQU:
+        title: Quartzite
+        description: Quartzite bedrock
+      RKGN:
+        title: Gneiss
+        description: Gneiss bedrock
+      '-':
+        title: Not Applicable
+        description: Not Applicable
+  NSDB_MDEP2:
+    name: MDEP2
+    title: Mode of deposition - second
+    description: The mode of deposition of the second underlying parent material.
+      First used in SLC 3.0
+    permissible_values:
+      ANTH:
+        title: Anthropogenic
+        description: Materials modified by people,including those associated with
+          mineral exploitation and waste disposal. They include materials deposited
+          as a result of human activities or geological materials modified artificially
+          so that their physical properties (structure, cohesion, compaction) have
+          been drastically altered. Examples are areas of landfill, spoil heaps, open-pit
+          mines and levelled irrigated areas.
+      COLL:
+        title: Colluvial
+        description: Massive to moderately-well stratified, nonsorted to poorly sorted
+          sediments with any range of particle sizes from clay to boulders that have
+          reached their present position only by direct, gravity-induced movement.
+          Processes include slow displacements such as creep and solifluction and
+          rapid movements such as earth flows.
+      EOLI:
+        title: Eolian
+        description: 'Eolian material deposited by wind: uniform deposit of very fine
+          sand and silt.'
+      FLEO:
+        title: Fluvioeolian
+        description: Fluvioeolian
+      FLLC:
+        title: Fluviolacustrine
+        description: Fluviolacustrine
+      FLUV:
+        title: Fluvial
+        description: These sediments generally consist of gravel and sand with a minor
+          fraction of silt and rarely of clay. The gravels are typically rounded and
+          contain interstitial sand.
+      FNPT:
+        title: Fen Peat
+        description: These deposits consist of sedge peat derived primarily from sedges
+          with inclusions of partially decayed stems of shrubs formed in a eutrophic
+          environment due to the close association of the material with mineral-rich
+          waters.
+      FOPT:
+        title: Forest Peat
+        description: This class is used for forest peatcovered or forest peat-filled
+          areas where the water table is at or above the peat surface. The dominant
+          peat materials are shallow to deep mesic to humic forest and fen peat formed
+          in a eutrophic environment resulting from strong water movement from the
+          margins or other mineral sources.
+      GLFL:
+        title: Glaciofluvial
+        description: Material moved by glaciers and subsequently sorted and deposited
+          by streams flowing from the melting ice. The deposits are stratified and
+          may occur in the form of outwash plains, deltas, kames eskers, and kame
+          terraces. See also glacial drift and till.
+      GLLC:
+        title: Glaciolacustrine
+        description: "Used where there is evidence that the lacustrine materials were\
+          \ deposited in contact with glacial ice. One of the following characteristics\
+          \ must be present:\r\n\r\nkettles or an otherwise irregular surface that\
+          \ is neither simply the result of normal settling and compaction in silt\
+          \ nor the result of piping\r\nslump structures resulting from loss of support\
+          \ caused by melting of retaining ice\r\npresence of numerous ice-rafted\
+          \ stones in the lacustrine silts."
+      GLMA:
+        title: Glaciomarine
+        description: Glaciomarine
+      LACU:
+        title: Lacustrine
+        description: Sediment, generally consisting of either stratified fine sand,
+          silt, and clay deposited on the lake bed, or moderately-well sorted, stratified
+          sand and coarse materials that consist of near lake shore or beach deposits.
+          These materials have either settled from suspension in bodies of standing
+          fresh water or accumulated at their margins through wave action.
+      LATL:
+        title: Lacustro-Till
+        description: Lacustro-Till
+      MARI:
+        title: Marine
+        description: Unconsolidated deposits of clay, silt, sand, or gravel that are
+          well to moderately well sorted and well to moderately well stratified (in
+          some places containing shells). The deposits have settled from suspension
+          in salt or brackish water bodies or have accumulated at their margins through
+          shoreline processes such as wave action and longshore drift. Nonfossiliferous
+          deposits may be judged marine if they are located in an area that may reasonably
+          be considered to have contained salt water at the time the deposits were
+          formed.
+      RESD:
+        title: Residual
+        description: Unconsolidated, weathered, or partly weathered mineral soil material
+          that accumulates by in situ disintegration of bedrock.
+      SAPR:
+        title: Saprolite
+        description: "This material is rock and contains a high proportion of residual\
+          \ silts and clays formed by alteration, chiefly by chemical weathering.\r\
+          \n\r\nThe rock remains in a coherent state, interstitial grain relationships\
+          \ are undisturbed, and no downhill movement due to gravity has occurred.\
+          \ The process is assumed to be active.\r\nExamples: rotten rock containing\
+          \ corestones."
+      SEPT:
+        title: Sedimentary Peat
+        description: Coprogenous earth is composed of aquatic plant debris modified
+          by aquatic animals. It makes slightly viscous water suspensions and is slightly
+          plastic but not sticky. The material shrinks upon drying to form clods that
+          are difficult to rewet and commonly crack along horizontal planes. It has
+          very few or no plant fragments recognizable to the naked eye, a pyrophosphate
+          index of 5 or more, and a dry color value of less than 5.
+      SPPT:
+        title: Sphagnum Peat
+        description: These deposits consist of sphagnum or forest peat formed in an
+          ombrotrophic environment caused by the slightly elevated nature of the bog.
+          They tend to be disassociated from nutrient-rich ground water or surrounding
+          mineral soils.
+      TILL:
+        title: Till (Morainal)
+        description: 'Morainal material (till) deposited by glacial ice: a mixture
+          of boulders, sand, silt, and clay.'
+      UNDM:
+        title: Undifferentiated mineral
+        description: A sequence of more than three types of genetic mineral materials
+          outcropping on a steep erosional escarpment. This complex class is to be
+          used where units relating to individual genetic materials cannot be delimited
+          separately at the scale of mapping. It may include colluvium derived from
+          the various genetic materials and resting upon the scarp slope.
+      UNDO:
+        title: Undifferentiated organic
+        description: A layered sequence of more than three undifferentiated types
+          of organic material (>30% organic matter by weight).
+      VOLC:
+        title: Volcanic
+        description: Volcanic pumice and ash.
+      RKUD:
+        title: Undifferentiated
+        description: Bedrock, undifferentiated
+      RKIA:
+        title: Igneous, acidic
+        description: Igneous, acidic bedrock (dominantly granite)
+      RKIB:
+        title: Igneous, basic
+        description: Igneous, basic bedrock (dominantly basalt)
+      RKIC:
+        title: Igneous, basic coarse
+        description: Igneous, basic coarse bedrock (coarse grained basalts)
+      RKIF:
+        title: Igneous, basic fine grained
+        description: Igneous, basic fine grained bedrock (dominantly andesites)
+      RKCA:
+        title: Calcareous
+        description: Calcareous bedrock (dominantly sandstone and shale)
+      RKLS:
+        title: Limestone
+        description: Limestone bedrock (limestone and dolomite)
+      RKSH:
+        title: Shale
+        description: Shale bedrock
+      RKSS:
+        title: Sandstone
+        description: Sandstone bedrock
+      RKSM:
+        title: Siltstone and mudstone
+        description: Siltstone and mudstone bedrock
+      RKSP:
+        title: Schist and phyllite
+        description: Schist and phyllite bedrock
+      RKSA:
+        title: Slate
+        description: Slate bedrock
+      RKQU:
+        title: Quartzite
+        description: Quartzite bedrock
+      RKGN:
+        title: Gneiss
+        description: Gneiss bedrock
+      '-':
+        title: Not Applicable
+        description: Not Applicable
+  NSDB_MDEP3:
+    name: MDEP3
+    title: Mode of deposition - third
+    description: The mode of deposition of the third underlying parent material. First
+      used in SLC 3.0
+    permissible_values:
+      ANTH:
+        title: Anthropogenic
+        description: Materials modified by people,including those associated with
+          mineral exploitation and waste disposal. They include materials deposited
+          as a result of human activities or geological materials modified artificially
+          so that their physical properties (structure, cohesion, compaction) have
+          been drastically altered. Examples are areas of landfill, spoil heaps, open-pit
+          mines and levelled irrigated areas.
+      COLL:
+        title: Colluvial
+        description: Massive to moderately-well stratified, nonsorted to poorly sorted
+          sediments with any range of particle sizes from clay to boulders that have
+          reached their present position only by direct, gravity-induced movement.
+          Processes include slow displacements such as creep and solifluction and
+          rapid movements such as earth flows.
+      EOLI:
+        title: Eolian
+        description: 'Eolian material deposited by wind: uniform deposit of very fine
+          sand and silt.'
+      FLEO:
+        title: Fluvioeolian
+        description: Fluvioeolian
+      FLLC:
+        title: Fluviolacustrine
+        description: Fluviolacustrine
+      FLUV:
+        title: Fluvial
+        description: These sediments generally consist of gravel and sand with a minor
+          fraction of silt and rarely of clay. The gravels are typically rounded and
+          contain interstitial sand.
+      FNPT:
+        title: Fen Peat
+        description: These deposits consist of sedge peat derived primarily from sedges
+          with inclusions of partially decayed stems of shrubs formed in a eutrophic
+          environment due to the close association of the material with mineral-rich
+          waters.
+      FOPT:
+        title: Forest Peat
+        description: This class is used for forest peatcovered or forest peat-filled
+          areas where the water table is at or above the peat surface. The dominant
+          peat materials are shallow to deep mesic to humic forest and fen peat formed
+          in a eutrophic environment resulting from strong water movement from the
+          margins or other mineral sources.
+      GLFL:
+        title: Glaciofluvial
+        description: Material moved by glaciers and subsequently sorted and deposited
+          by streams flowing from the melting ice. The deposits are stratified and
+          may occur in the form of outwash plains, deltas, kames eskers, and kame
+          terraces. See also glacial drift and till.
+      GLLC:
+        title: Glaciolacustrine
+        description: "Used where there is evidence that the lacustrine materials were\
+          \ deposited in contact with glacial ice. One of the following characteristics\
+          \ must be present:\r\n\r\nkettles or an otherwise irregular surface that\
+          \ is neither simply the result of normal settling and compaction in silt\
+          \ nor the result of piping\r\nslump structures resulting from loss of support\
+          \ caused by melting of retaining ice\r\npresence of numerous ice-rafted\
+          \ stones in the lacustrine silts."
+      GLMA:
+        title: Glaciomarine
+        description: Glaciomarine
+      LACU:
+        title: Lacustrine
+        description: Sediment, generally consisting of either stratified fine sand,
+          silt, and clay deposited on the lake bed, or moderately-well sorted, stratified
+          sand and coarse materials that consist of near lake shore or beach deposits.
+          These materials have either settled from suspension in bodies of standing
+          fresh water or accumulated at their margins through wave action.
+      LATL:
+        title: Lacustro-Till
+        description: Lacustro-Till
+      MARI:
+        title: Marine
+        description: Unconsolidated deposits of clay, silt, sand, or gravel that are
+          well to moderately well sorted and well to moderately well stratified (in
+          some places containing shells). The deposits have settled from suspension
+          in salt or brackish water bodies or have accumulated at their margins through
+          shoreline processes such as wave action and longshore drift. Nonfossiliferous
+          deposits may be judged marine if they are located in an area that may reasonably
+          be considered to have contained salt water at the time the deposits were
+          formed.
+      RESD:
+        title: Residual
+        description: Unconsolidated, weathered, or partly weathered mineral soil material
+          that accumulates by in situ disintegration of bedrock.
+      SAPR:
+        title: Saprolite
+        description: "This material is rock and contains a high proportion of residual\
+          \ silts and clays formed by alteration, chiefly by chemical weathering.\r\
+          \n\r\nThe rock remains in a coherent state, interstitial grain relationships\
+          \ are undisturbed, and no downhill movement due to gravity has occurred.\
+          \ The process is assumed to be active.\r\nExamples: rotten rock containing\
+          \ corestones."
+      SEPT:
+        title: Sedimentary Peat
+        description: Coprogenous earth is composed of aquatic plant debris modified
+          by aquatic animals. It makes slightly viscous water suspensions and is slightly
+          plastic but not sticky. The material shrinks upon drying to form clods that
+          are difficult to rewet and commonly crack along horizontal planes. It has
+          very few or no plant fragments recognizable to the naked eye, a pyrophosphate
+          index of 5 or more, and a dry color value of less than 5.
+      SPPT:
+        title: Sphagnum Peat
+        description: These deposits consist of sphagnum or forest peat formed in an
+          ombrotrophic environment caused by the slightly elevated nature of the bog.
+          They tend to be disassociated from nutrient-rich ground water or surrounding
+          mineral soils.
+      TILL:
+        title: Till (Morainal)
+        description: 'Morainal material (till) deposited by glacial ice: a mixture
+          of boulders, sand, silt, and clay.'
+      UNDM:
+        title: Undifferentiated mineral
+        description: A sequence of more than three types of genetic mineral materials
+          outcropping on a steep erosional escarpment. This complex class is to be
+          used where units relating to individual genetic materials cannot be delimited
+          separately at the scale of mapping. It may include colluvium derived from
+          the various genetic materials and resting upon the scarp slope.
+      UNDO:
+        title: Undifferentiated organic
+        description: A layered sequence of more than three undifferentiated types
+          of organic material (>30% organic matter by weight).
+      VOLC:
+        title: Volcanic
+        description: Volcanic pumice and ash.
+      RKUD:
+        title: Undifferentiated
+        description: Bedrock, undifferentiated
+      RKIA:
+        title: Igneous, acidic
+        description: Igneous, acidic bedrock (dominantly granite)
+      RKIB:
+        title: Igneous, basic
+        description: Igneous, basic bedrock (dominantly basalt)
+      RKIC:
+        title: Igneous, basic coarse
+        description: Igneous, basic coarse bedrock (coarse grained basalts)
+      RKIF:
+        title: Igneous, basic fine grained
+        description: Igneous, basic fine grained bedrock (dominantly andesites)
+      RKCA:
+        title: Calcareous
+        description: Calcareous bedrock (dominantly sandstone and shale)
+      RKLS:
+        title: Limestone
+        description: Limestone bedrock (limestone and dolomite)
+      RKSH:
+        title: Shale
+        description: Shale bedrock
+      RKSS:
+        title: Sandstone
+        description: Sandstone bedrock
+      RKSM:
+        title: Siltstone and mudstone
+        description: Siltstone and mudstone bedrock
+      RKSP:
+        title: Schist and phyllite
+        description: Schist and phyllite bedrock
+      RKSA:
+        title: Slate
+        description: Slate bedrock
+      RKQU:
+        title: Quartzite
+        description: Quartzite bedrock
+      RKGN:
+        title: Gneiss
+        description: Gneiss bedrock
+      '-':
+        title: Not Applicable
+        description: Not Applicable
+  NSDB_ORDER3:
+    name: ORDER3
+    title: Soil Order (3rd edition)
+    description: Identifies the soil order according to the Canadian System of Soil
+      Classification 3rd edition.
+    permissible_values:
+      BR:
+        title: Brunisolic
+        description: Brunisolic
+      CH:
+        title: Chernozemic
+        description: Chernozemic
+      CY:
+        title: Cryosolic
+        description: Cryosolic
+      GL:
+        title: Gleysolic
+        description: Gleysolic
+      LU:
+        title: Luvisolic
+        description: Luvisolic
+      OR:
+        title: Organic
+        description: Organic
+      PZ:
+        title: Podzolic
+        description: Podzolic
+      RG:
+        title: Regosolic
+        description: Regosolic
+      SZ:
+        title: Solonetzic
+        description: Solonetzic
+      VE:
+        title: Vertisolic
+        description: Vertisolic
+      '-':
+        title: Not applicable
+        description: Not applicable
+  NSDB_G_GROUP3:
+    name: G_GROUP3
+    title: Soil Great Group (3rd edition)
+    description: Identifies the soil great group according to the Canadian System
+      of Soil Classification 3rd edition
+    permissible_values:
+      MB:
+        title: Melanic Brunisol
+        description: Melanic Brunisol
+      EB:
+        title: Eutric Brunisol
+        description: Eutric Brunisol
+      SB:
+        title: Sombric Brunisol
+        description: Sombric Brunisol
+      DYB:
+        title: Dystric Brunisol
+        description: Dystric Brunisol
+      BC:
+        title: Brown Chernozem
+        description: Brown Chernozem
+      DBC:
+        title: Dark Brown Chernozem
+        description: Dark Brown Chernozem
+      BLC:
+        title: Black Chernozem
+        description: Black Chernozem
+      DGC:
+        title: Dark Gray Chernozem
+        description: Dark Gray Chernozem
+      TC:
+        title: Turbic Cryosol
+        description: Turbic Cryosol
+      SC:
+        title: Static Cryosol
+        description: Static Cryosol
+      OC:
+        title: Organic Cryosol
+        description: Organic Cryosol
+      HG:
+        title: Humic Gleysol
+        description: Humic Gleysol
+      G:
+        title: Gleysol
+        description: Gleysol
+      LG:
+        title: Luvic Gleysol
+        description: Luvic Gleysol
+      GBL:
+        title: Gray Brown Luvisol
+        description: Gray Brown Luvisol
+      GL:
+        title: Gray Luvisol
+        description: Gray Luvisol
+      F:
+        title: Fibrisol
+        description: Fibrisol
+      M:
+        title: Mesisol
+        description: Mesisol
+      H:
+        title: Humisol
+        description: Humisol
+      FO:
+        title: Folisol
+        description: Folisol
+      HP:
+        title: Humic Podzol
+        description: Humic Podzol
+      FHP:
+        title: Ferro-Humic Podzol
+        description: Ferro-Humic Podzol
+      HFP:
+        title: Humo-Ferric Podzol
+        description: Humo-Ferric Podzol
+      R:
+        title: Regosol
+        description: Regosol
+      HR:
+        title: Humic Regosol
+        description: Humic Regosol
+      SZ:
+        title: Solonetz
+        description: Solonetz
+      SS:
+        title: Solodized Solonetz
+        description: Solodized Solonetz
+      SO:
+        title: Solod
+        description: Solod
+      VSZ:
+        title: Vertic Solonetz
+        description: Vertic Solonetz
+      V:
+        title: Vertisol
+        description: Vertisol
+      HV:
+        title: Humic Vertisol
+        description: Humic Vertisol
+  NSDB_S_GROUP3:
+    name: S_GROUP3
+    title: Soil Subgroup (3rd edition)
+    description: Identifies the soil subgroup according to the Canadian System of
+      Soil Classification, 3rd edition.  Subgroup codes are used in conjunction with
+      great group codes.
+    permissible_values:
+      O:
+        title: Orthic Humic Vertisol
+        description: Orthic Humic Vertisol
+      E:
+        title: Eluviated Black Chernozem
+        description: Eluviated Black Chernozem
+      GL:
+        title: Gleyed Humic Vertisol
+        description: Gleyed Humic Vertisol
+      GLE:
+        title: Gleyed Eluviated Black Chernozem
+        description: Gleyed Eluviated Black Chernozem
+      DU:
+        title: Duric Humo-Ferric Podzol
+        description: Duric Humo-Ferric Podzol
+      R:
+        title: Rego Gleysol
+        description: Rego Gleysol
+      CA:
+        title: Calcareous Dark Gray Chernozem
+        description: Calcareous Dark Gray Chernozem
+      SZ:
+        title: Solonetzic Gray Luvisol
+        description: Solonetzic Gray Luvisol
+      V:
+        title: Vertic Gray Luvisol
+        description: Vertic Gray Luvisol
+      GLR:
+        title: Gleyed Rego Dark Gray Chernozem
+        description: Gleyed Rego Dark Gray Chernozem
+      GLCA:
+        title: Gleyed Calcareous Dark Gray Chernozem
+        description: Gleyed Calcareous Dark Gray Chernozem
+      GLSZ:
+        title: Gleyed Solonetzic Gray Luvisol
+        description: Gleyed Solonetzic Gray Luvisol
+      GLV:
+        title: Gleyed Vertic Gray Luvisol
+        description: Gleyed Vertic Gray Luvisol
+      OE:
+        title: Orthic Eutric Static Cryosol
+        description: Orthic Eutric Static Cryosol
+      OD:
+        title: Orthic Dystric Static Cryosol
+        description: Orthic Dystric Static Cryosol
+      BRE:
+        title: Brunisolic Eutric Static Cryosol
+        description: Brunisolic Eutric Static Cryosol
+      BRD:
+        title: Brunisolic Dystric Static Cryosol
+        description: Brunisolic Dystric Static Cryosol
+      HE:
+        title: Hemic Folisol
+        description: Hemic Folisol
+      HD:
+        title: Histic Dystric Static Cryosol
+        description: Histic Dystric Static Cryosol
+      HR:
+        title: Histic Regosolic Static Cryosol
+        description: Histic Regosolic Static Cryosol
+      L:
+        title: Luvisolic Static Cryosol
+        description: Luvisolic Static Cryosol
+      FI:
+        title: Fibric Humisol
+        description: Fibric Humisol
+      ME:
+        title: Mesic Humisol
+        description: Mesic Humisol
+      HU:
+        title: Humic Folisol
+        description: Humic Folisol
+      TFI:
+        title: Terric Fibric Humisol
+        description: Terric Fibric Humisol
+      TME:
+        title: Terric Mesic Humisol
+        description: Terric Mesic Humisol
+      THU:
+        title: Terric Humic Mesisol
+        description: Terric Humic Mesisol
+      GC:
+        title: Glacic Organic Cryosol
+        description: Glacic Organic Cryosol
+      FE:
+        title: Fera Luvic Gleysol
+        description: Fera Luvic Gleysol
+      FR:
+        title: Fragic Humo-Ferric Podzol
+        description: Fragic Humo-Ferric Podzol
+      BR:
+        title: Brunisolic Gray Luvisol
+        description: Brunisolic Gray Luvisol
+      PZ:
+        title: Podzolic Gray Luvisol
+        description: Podzolic Gray Luvisol
+      GLBR:
+        title: Gleyed Brunisolic Gray Luvisol
+        description: Gleyed Brunisolic Gray Luvisol
+      GLPZ:
+        title: Gleyed Podzolic Gray Luvisol
+        description: Gleyed Podzolic Gray Luvisol
+      D:
+        title: Dark Gray Luvisol
+        description: Dark Gray Luvisol
+      GLD:
+        title: Gleyed Dark Gray Luvisol
+        description: Gleyed Dark Gray Luvisol
+      GLFR:
+        title: Gleyed Fragic Gray Luvisol
+        description: Gleyed Fragic Gray Luvisol
+      TY:
+        title: Typic Humisol
+        description: Typic Humisol
+      LM:
+        title: Limnic Humisol
+        description: Limnic Humisol
+      CU:
+        title: Cumulic Humic Regosol
+        description: Cumulic Humic Regosol
+      T:
+        title: Terric Humisol
+        description: Terric Humisol
+      HY:
+        title: Hydric Humisol
+        description: Hydric Humisol
+      HI:
+        title: Histic Folisol
+        description: Histic Folisol
+      LI:
+        title: Lignic Folisol
+        description: Lignic Folisol
+      OT:
+        title: Ortstein Humo-Ferric Podzol
+        description: Ortstein Humo-Ferric Podzol
+      P:
+        title: Placic Humo-Ferric Podzol
+        description: Placic Humo-Ferric Podzol
+      LU:
+        title: Luvisolic Humo-Ferric Podzol
+        description: Luvisolic Humo-Ferric Podzol
+      SM:
+        title: Sombric Humo-Ferric Podzol
+        description: Sombric Humo-Ferric Podzol
+      GLSM:
+        title: Gleyed Sombric Humo-Ferric Podzol
+        description: Gleyed Sombric Humo-Ferric Podzol
+      GLOT:
+        title: Gleyed Ortstein Humo-Ferric Podzol
+        description: Gleyed Ortstein Humo-Ferric Podzol
+      GLCU:
+        title: Gleyed Cumulic Humic Regosol
+        description: Gleyed Cumulic Humic Regosol
+      B:
+        title: Brown Vertic Solonetz
+        description: Brown Vertic Solonetz
+      DB:
+        title: Dark Brown Vertic Solonetz
+        description: Dark Brown Vertic Solonetz
+      BL:
+        title: Black Vertic Solonetz
+        description: Black Vertic Solonetz
+      A:
+        title: Alkaline Solonetz
+        description: Alkaline Solonetz
+      GLB:
+        title: Gleyed Brown Vertic Solonetz
+        description: Gleyed Brown Vertic Solonetz
+      GLDB:
+        title: Gleyed Dark Brown Vertic Solonetz
+        description: Gleyed Dark Brown Vertic Solonetz
+      GLBL:
+        title: Gleyed Black Vertic Solonetz
+        description: Gleyed Black Vertic Solonetz
+      DG:
+        title: Dark Gray Solod
+        description: Dark Gray Solod
+      G:
+        title: Gray Solod
+        description: Gray Solod
+      GLDG:
+        title: Gleyed Dark Gray Solod
+        description: Gleyed Dark Gray Solod
+      GLG:
+        title: Gleyed Gray Solod
+        description: Gleyed Gray Solod
+      GLC:
+        title: Gleysolic Humic Vertisol
+        description: Gleysolic Humic Vertisol
+  NSDB_HZN_MAS:
+    name: HZN_MAS
+    title: Horizon Master Code
+    description: Identifies the master horizon, as per Chapter 2 of the Canadian System
+      of Soil Classification, third edition.
+    permissible_values:
+      A:
+        title: Surface mineral horizon
+        description: This mineral horizon forms at or near the surface in the zone
+          of leaching or eluviation of materials in solution or suspension, or of
+          maximum in situ accumulation of organic matter or both. The accumulated
+          organic matter is usually expressed morphologically by a darkening of the
+          surface soil (Ah). Conversely, the removal of organic matter is usually
+          expressed by a lightening of the soil color usually in the upper part of
+          the solum (Ae). The removal of clay from the upper part of the solum (Ae)
+          is expressed by a coarser soil texture relative to the underlying subsoil
+          layers. The removal of iron is indicated usually by a paler or less red
+          soil color in the upper part of the solum (Ae) relative to the lower part
+          of the subsoil.
+      AB:
+        title: Surface transitional horizon
+        description: Gradual transition. The dominance of horizons in the transitional
+          zone may be shown by order, AB or BA, etc. Lower case suffixes may also
+          be added in some instances, e.g., ABg, ABgj, etc.
+      AC:
+        title: Surface transitional horizon
+        description: Gradual transition. The dominance of horizons in the transitional
+          zone may be shown by order, AC or BC, etc. Lower case suffixes may also
+          be added in some instances, e.g., ACg, ACgj, etc.
+      B:
+        title: Subsurface mineral horizon
+        description: This mineral horizon is characterized by enrichment in organic
+          matter, sesquioxides, or clay; or by the development of soil structure;
+          or by a change of color denoting hydrolysis, reduction, or oxidation. In
+          B horizons, accumulated organic matter (Bh) is evidenced usually by dark
+          colors relative to the C horizon. Clay accumulation is indicated by finer
+          soil textures and by clay cutans coating peds and lining pores (Bt). Soil
+          structure developed in B horizons includes prismatic or columnar units with
+          coatings or stainings and significant amounts of exchangeable sodium (Bn)
+          and other changes of structure (Bm) from that of the parent material. Color
+          changes include relatively uniform browning due to oxidation of iron (Bm),
+          and mottling and gleying of structurally altered material associated with
+          periodic reduction (Bg).
+      BA:
+        title: Subsurface Transitional Horizon
+        description: Gradual transition. The dominance of horizons in the transitional
+          zone may be shown by order, AB or BA, etc. Lower case suffixes may also
+          be added in some instances, e.g., BAg, BAgj, etc.
+      BC:
+        title: Subsurface Transitional Horizon
+        description: Gradual transition. The dominance of horizons in the transitional
+          zone may be shown by order, AC or BC, etc. Lower case suffixes may also
+          be added in some instances, e.g., BCg, BCgj, etc.
+      C:
+        title: Parent mineral horizon
+        description: "This mineral horizon is comparatively unaffected by the pedogenic\
+          \ processes operating in A and B horizons, except the process of gleying\
+          \ (Cg), and the accumulation of calcium and magnesium carbonates (Cca) and\
+          \ more soluble salts (Cs, Csa). Marl, diatomaceous earth, and rock with\
+          \ a hardness \u22643 on Mohs' scale are considered to be C horizons."
+      CA: {}
+      CB: {}
+      F:
+        title: Organic horizon partially decomposed
+        description: This organic horizon is characterized by an accumulation of partly
+          decomposed organic matter. Some of the original structures are difficult
+          to recognize. The material may be partly comminuted by soil fauna as in
+          moder, or it may be a partly decomposed mat permeated by fungal hyphae as
+          in mor.
+      FH: {}
+      H:
+        title: Organic horizon of indiscernible origin
+        description: This organic horizon is characterized by an accumulation of decomposed
+          organic matter in which the original structures are indiscernible. This
+          horizon differs from the F by having greater humification due chiefly to
+          the action of organisms. It is frequently intermixed with mineral grains,
+          especially near the junction with a mineral horizon.
+      L:
+        title: Organic horizon poorly decomposed
+        description: This organic horizon is characterized by an accumulation of organic
+          matter in which the original structures are easily discernible.
+      LF: {}
+      LFH: {}
+      LH: {}
+      O:
+        title: Organic horizon from mosses, rushes and woody materials
+        description: This organic horizon is developed mainly from mosses, rushes,
+          and woody materials.
+      R:
+        title: Rock
+        description: "This consolidated bedrock layer is too hard to break with the\
+          \ hands (>3 on Mohs' scale) or to dig with a spade when moist. It does not\
+          \ meet the requirements of a C horizon. The boundary between the R layer\
+          \ and any overlying unconsolidated material is called a lithic contact."
+      W:
+        title: Water
+        description: This layer of water may occur in Gleysolic, Organic, or Cryosolic
+          soils. Hydric layers in Organic soils are a kind of W layer as is segregated
+          ice formation in Cryosolic soils.
+      '-':
+        title: Not applicable
+  NSDB_DOMSAND:
+    name: DOMSAND
+    title: Dominant Sand Fraction
+    description: Identifies the dominant sand fraction.
+    permissible_values:
+      VC:
+        title: Very Coarse
+        description: "The dominant sand fraction class is of type 'very coarse'."
+      C:
+        title: Coarse
+        description: "The dominant sand fraction class is of type 'Coarse'."
+      M:
+        title: Medium
+        description: "The dominant sand fraction class is of type 'Medium'."
+      F:
+        title: Fine
+        description: "The dominant sand fraction class is of type 'Fine'."
+      VF:
+        title: Very Fine
+        description: "The dominant sand fraction class is of type 'Very Fine'."
+      '-':
+        title: Not applicable
+        description: The dominant sand fraction class is not applicable.
+  NSDB_VONPOST:
+    name: VONPOST
+    title: Von Post
+    description: Indicates the class of decomposition using the Von Post estimate
+      of decomposition.
+    permissible_values:
+      '01':
+        title: Living moss layer
+        description: 'Living moss layer. Usually the surface 2-4 cm. Cannot be considered
+          "peat" as such as it is not yet dead.'
+      '02':
+        title: Plant material is dead
+        description: The structure and form of the plant material is complete.  The
+          only difference between 01 and 02 is that a 02  peat is not living.  When
+          squeezing, clear to slightly yellowish water is emitted.  The peat sample
+          in the hand is normally bright yellowish orange in colour, especially after
+          squeezing.  The sample is spongy, or elastic; upon squeezing, the compressed
+          sample springs back, and will take little or no shape.
+      '03':
+        title: Plant material very easily distinguishable
+        description: 'The plant material is still very easily distinguishable, but
+          the individual sphagnum "stalks" are breaking up into pieces, as opposed
+          to continuous lengths of stems, etc.  When squeezing, yellow water with
+          some plant debris (mostly individual leaves is emitted.  The colour of the
+          sample is somewhat darker that a 02 peat.  The sample is still spongy, but
+          less than 02; after squeezing, the peat will spring back to a point where
+          a vague to fairly definite form of the handprint is distinguishable.'
+      '04':
+        title: Plant material disintegrating
+        description: 'The plant material is not as easily distinguishable as in 03
+          because the pieces of peat, as mentioned above, are now disintegrating,
+          therefor one is often dealing with individual stems, branches, and leaves.  When
+          squeezing, light brown to brown water with a lot of debris is emitted.  The
+          sample is not spongy, and upon rubbing, a slightly soapy or humic texture
+          is detected.  Upon squeezing, the sample makes a perfect replica of the
+          handprint, commonly called "brass knuckles".  It should be noted that after
+          squeezing a peat sample, the difference in shape between a 03 and a 04,
+          is that a 03 is "rounded off" whereas a 04 peat has definite "sharp" ridges
+          left by the fingers. No peat escapes the fingers.'
+      '05':
+        title: Some unstructured material is present
+        description: 'The plant material is reaching a stage of decomposition where
+          the individual components (branches, leaves, stem) are starting to breakup,
+          such that some amorphous or unstructured material is present. When squeezing,
+          definitely brown water is emitted.  This water is reaching the point where
+          it can no longer be termed "water", but is a solution.  The sample has a
+          more definite soapy or humic texture, yet roughness is still present.  Upon
+          squeezing a very small amount of the sample escapes between the fingers.'
+      '06':
+        title: Half of the material is unstructured
+        description: The plant material has decomposed to the extent where almost
+          half of the sample is in an amorphous or unstructured state.  Plant constituents
+          are still distinguishable upon close examination in the hand. upon squeezing,
+          brown to dark brown water is emitted.  The sample is pasty and very malleable.  Upon
+          squeezing, approximately one-third of the peat escapes between the fingers
+          as a paste.
+      '07':
+        title: Plant material practically indistinguishable
+        description: 'The original plant material is practically undistinguishable
+          and a very close examination in the hand is needed to see that there are
+          still vague structures present.  If the sample is "worked" in the hand,
+          this structure will disappear.  It should be noted that such things as weed,
+          sedge roots, and Eriophorum fibres are often very resistant to decomposition,
+          and can be present in their "original" state in humified peats up to 07.  Upon
+          gentle squeezing, a small amount of very dark water is emitted.  When the
+          final squeeze is performed, over half of the material escapes the hand.'
+      08:
+        title: No appreciable roots or fibres
+        description: 'The only distinguishable plant remains are roots or Eriophorum
+          fibres, when present.  If appreciable amounts of roots or fibres are present,
+          the peat cannot be considered to be a 08, even though the remaining material
+          is such.  The "appreciable amount" of these materials occur when they interfere
+          with the squeezing out of the remaining amorphous material.  If pieces or
+          chips of weed are present in the sample, regardless of the amount, this
+          alone classifies the peat as a 07.  Little or no water is emitted upon gentle
+          squeezing.  The final squeeze results in over two thirds of the peat escaping
+          the hand.'
+      09:
+        title: Homogeneous amorphous
+        description: A very homogenous, amorphous sample containing no roots or fibres.
+          There is no free water emitted upon squeezing, and almost all of the sample
+          escapes the hand.
+      '10':
+        title: Pudding-like homogeneous
+        description: 'Very rare to non-existent in non-sedimentary peats.  In sedimentary
+          peats, the particle size can be extremely small resulting in "pudding-like"
+          homogenous material.  Upon squeezing, all of the sample escapes the hand.'
+      '-9':
+        title: Not applicable
+        description: Not applicable
+slots: {}
+extensions:
+  locales:
+    tag: locales
+    value:
+      fr:
+        id: https://sis.agr.gc.ca/siscan/nsdb/soil/v2/index.html
+        name: NSDBSoilNameAndLayerV2
+        version: v2
+        in_language: fr
+        description: "Cette table d\xE9crit les caract\xE9ristiques physiques et chimiques\
+          \ g\xE9n\xE9rales pour tous les sols identifi\xE9s dans une r\xE9gion g\xE9\
+          ographique.\nLe fichier sur les couches de sol est con\xE7u pour traiter\
+          \ les attributs qui varient dans le sens vertical.  Les donn\xE9es de ce\
+          \ tableau sont bas\xE9es sur des mesures r\xE9elles lorsqu'elles sont disponibles,\
+          \ mais la plupart des valeurs sont des estimations fournies par les p\xE9\
+          dologues exp\xE9riment\xE9s. Les donn\xE9es de la SLT peuvent \xEAtre consid\xE9\
+          r\xE9es comme repr\xE9sentant des informations modal pour chaque attribut\
+          \ dans l'isolement. Comme tel, elles conviennent pour la cartographie et\
+          \ les interpr\xE9tations de l\u2019aptitude des terres. Elles ne doivent\
+          \ pas \xEAtre trait\xE9es comme de v\xE9ritables p\xE9dons \xE0 des fins\
+          \ de mod\xE9lisation environnementale parce que la combinaison enregistr\xE9\
+          e des mesures peut ne jamais \xEAtre pr\xE9sent pour tout p\xE9don dans\
+          \ le domaine. Les mesures pour les vrais p\xE9dons sont stock\xE9s dans\
+          \ la base de donn\xE9es p\xE9don."
+        enums:
+          NSDB_PROVINCE:
+            permissible_values:
+              AB:
+                title: Alberta
+              BC:
+                title: Colombie-Britannique
+              MB:
+                title: Manitoba
+              NB:
+                title: Nouveau-Brunswick
+              NL:
+                title: Terre-Neuve-et-Labrador
+              NT:
+                title: Territoires du Nord-Ouest
+              NS:
+                title: "Nouvelle-\xC9cosse"
+              NU:
+                title: Nunavut
+              'ON':
+                title: Ontario
+              PE:
+                title: "\xCEle-du-Prince-\xC9douard"
+              QC:
+                title: "Qu\xE9bec"
+              SK:
+                title: Saskatchewan
+              YT:
+                title: Yukon
+          NSDB_KIND:
+            permissible_values:
+              M:
+                title: "Min\xE9ral"
+                description: "Mat\xE9riau p\xE9dologique : Min\xE9ral."
+              O:
+                title: Organique
+                description: "Mat\xE9riau p\xE9dologique : Organique."
+              N:
+                title: "Non-sol v\xE9ritable"
+                description: "Non-sol v\xE9ritable (p. ex. a\xE9roport, lac)."
+              U:
+                title: "Non classifi\xE9"
+                description: "Information incompl\xE8te ou situation inhabituelle,\
+                  \ telle que terrain rocheux ou sol mince."
+          NSDB_WATERTBL:
+            permissible_values:
+              YB:
+                title: Toujours
+                description: "La nappe phr\xE9atique est toujours pr\xE9sente dans\
+                  \ le sol."
+              YG:
+                title: Saison de croissance
+                description: "La nappe phr\xE9atique est pr\xE9sente dans le sol pendant\
+                  \ la saison de croissance."
+              YN:
+                title: En dehors de la saison de croissance
+                description: "La nappe phr\xE9atique est pr\xE9sente dans le sol en\
+                  \ dehors de la saison de croissance."
+              YU:
+                title: "P\xE9riode ind\xE9termin\xE9e"
+                description: "La nappe phr\xE9atique est pr\xE9sente dans le sol pendant\
+                  \ une p\xE9riode ind\xE9termin\xE9e."
+              'NO':
+                title: Jamais
+                description: "La nappe phr\xE9atique n'est jamais pr\xE9sente dans\
+                  \ le sol."
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas."
+          NSDB_ROOTRESTRI:
+            permissible_values:
+              '0':
+                title: Aucune couche qui limite racines
+                description: "La croissance des racines des plantes n'est pas limit\xE9\
+                  \ par une couche de sol."
+              '1':
+                title: "Premi\xE8re couche"
+                description: "La croissance des racines des plantes est limit\xE9\
+                  e par la premi\xE8re couche (la plus haute)."
+              '2':
+                title: "Deuxi\xE8me couche"
+                description: "La croissance des racines de la plante est limit\xE9\
+                  e par la deuxi\xE8me couche."
+              '3':
+                title: "troisi\xE8me couche"
+                description: "La croissance des racines de la plante est limit\xE9\
+                  e par la troisi\xE8me couche."
+              '4':
+                title: "Quatri\xE8me couche"
+                description: "La croissance des racines des plantes est limit\xE9\
+                  e par la quatri\xE8me couche."
+              '5':
+                title: "Cinqui\xE8me couche"
+                description: "La croissance des racines des plantes est limit\xE9\
+                  e par la cinqui\xE8me couche."
+              '6':
+                title: "Sixi\xE8me couche"
+                description: "La croissance des racines des plantes est limit\xE9\
+                  e par la sixi\xE8me couche."
+              '7':
+                title: "Septi\xE8me couche"
+                description: "La croissance des racines des plantes est limit\xE9\
+                  e par la septi\xE8me couche."
+              '8':
+                title: "Huiti\xE8me couche"
+                description: "La croissance des racines des plantes est limit\xE9\
+                  e par la huiti\xE8me couche."
+              '9':
+                title: "Couche neuvi\xE8me"
+                description: "La croissance des racines des plantes est limit\xE9\
+                  e par la neuvi\xE8me couche."
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas (roche, glace)."
+          NSDB_RESTR_TYPE:
+            permissible_values:
+              UN:
+                title: "Non diff\xE9renci\xE9"
+                description: "Non diff\xE9renci\xE9"
+              BN:
+                title: Solonetzique
+                description: Horizon B solonetzique
+              SA:
+                title: "Salinit\xE9"
+                description: "Salinit\xE9 (conductivit\xE9 &gt; 4 dS/m)"
+              CT:
+                title: Till compact
+                description: Till (de fond) compact
+              OR:
+                title: Ortstein
+                description: "Horizon d'ortstein"
+              FP:
+                title: Fragipan
+                description: Fragipan
+              LI:
+                title: Lithique
+                description: Lithique (roc solide)
+              CR:
+                title: Cryique
+                description: "Horizon cryique (gel\xE9)"
+              DU:
+                title: Durique
+                description: Horizon durique
+              PL:
+                title: Placique
+                description: Horizon placique
+              '-':
+                title: n/a
+                description: "Ne s'applique pas"
+          NSDB_DRAINAGE:
+            permissible_values:
+              VR:
+                title: "Drainage tr\xE8s rapide"
+                description: "L'eau s'\xE9coule du sol beaucoup plus rapidement qu'elle\
+                  \ n'y p\xE9n\xE8tre.\_ Le surplus d'eau descend tr\xE8s rapidement\
+                  \ dans le cas o\xF9\_ le mat\xE9riel sous-jacent est perm\xE9able.\_\
+                  \ L'\xE9coulement souterrain peut-\xEAtre tr\xE8s rapide lorsque\
+                  \ les pluies sont intenses l\xE0 o\xF9 le gradient est abrupt.\_\
+                  \ Les sols ont une capacit\xE9 de storage tr\xE8s basse (normallement\
+                  \ moins de 2.5 cm) dans la section contr\xF4l\xE9e et sont d'une\
+                  \ texture grossi\xE8re, ou peu profond, ou les deux. L'eau provient\
+                  \ des pr\xE9cipitations."
+              R:
+                title: Drainage rapide
+                description: "L'eau s'\xE9coule du sol plus rapidement qu'elle n'y\
+                  \ p\xE9n\xE8tre.\_ Le surplus d'eau descend vers le bas dans le\
+                  \ cas o\xF9 le mat\xE9riel sous-jacent est perm\xE9able.\_ Il peut\
+                  \ se produire un \xE9coulement souterrain sur les gradients abrupts\
+                  \ lors des pluies intenses.\_ Les sols ont une capacit\xE9 de storage\
+                  \ basse (2.5-4 cm) dans la section contr\xF4l\xE9e et sont d'une\
+                  \ texture grossi\xE8re, ou peu profond, ou les deux. L'eau provient\
+                  \ des pr\xE9cipitations."
+              W:
+                title: Drainage bon
+                description: "L'eau s'\xE9coule du sol ais\xE9ment mais non rapidement.\_\
+                  \ Le surplus d'eau descend facilement dans le mat\xE9riel sous-jacent\
+                  \ perm\xE9able ou migre lat\xE9ralement sous forme d'\xE9coulement\
+                  \ souterrain.\_ Les sols ont une capacit\xE9 de storage interm\xE9\
+                  diaire (4-5 cm) dans la section contr\xF4l\xE9e, et sont d'une texture\
+                  \ et profondeur interm\xE9diaire.\_ L'eau provient des pr\xE9cipitations.\_\
+                  \ Sur des inclinaisons dans le sous-sol la descente d'eau peut se\
+                  \ produire pour un temp court mais des surplus sont \xE9gaux au\
+                  \ pertes."
+              MW:
+                title: "Drainage mod\xE9r\xE9ment bon"
+                description: "L'eau s'\xE9coule du sol un peu plus lentement qu'elle\
+                  \ n'y p\xE9n\xE8tre.\_ Le surplus d'eau s'\xE9coule un peu lentement\
+                  \ \xE0 cause de la faible perm\xE9abilit\xE9, de la surface de saturation\
+                  \ \xE9lev\xE9e, du faible gradient ou d'une combinaison de ces facteurs.\_\
+                  \ Les sols ont une capacit\xE9 de teneur en eau de l'interm\xE9\
+                  diaire \xE0 \xE9lev\xE9e (5-6 cm) dans la section contr\xF4l\xE9\
+                  e et sont \xE0 texture moyenne \xE0 fine.\_ La source d'eau dominante\
+                  \ est la pr\xE9cipitation dans les sols \xE0 texture moyenne \xE0\
+                  \ fine.\_ Dans les sols \xE0 texture grossi\xE8re, des volumes importants\
+                  \ d'\xE9coulement souterrain s'ajoutent aux pr\xE9cipitations."
+              I:
+                title: Drainage imparfait
+                description: "L'eau s'\xE9coule du sol suffisamment lentement par\
+                  \ rapport \xE0 l'apport d'eau pour que le sol reste humide durant\
+                  \ une grande partie de la saison de croissance.\_ Le surplus d'eau\
+                  \ descend lentement vers le bas l\xE0 o\xF9 les pr\xE9cipitations\
+                  \ constituent le principal apport.\_ Dans les cas o\xF9 les eaux\
+                  \ souterraines ou sub-superficielles, ou les deux, constituent la\
+                  \ principale source, le taux d'\xE9coulement peut varier, mais le\
+                  \ sol demeure humide durant une importante partie de la saison de\
+                  \ croissance.\_ La source principale est la pr\xE9cipitation quand\
+                  \ la capacit\xE9 est \xE9lev\xE9e en teneur d'eau. La contribution\
+                  \ d'\xE9coulement superficiel ou souterrain, ou les deux, augmente\
+                  \ \xE0 chaque fois que la capacit\xE9e de teneur en eau disponible\
+                  \ diminue. Les sols ont une grande capacit\xE9e en provision d'eau,\
+                  \ texture et profondeur, et ont des phases gleyifi\xE9 de sous-groupe\
+                  \ \xE0 drainage bon."
+              P:
+                title: Drainage pauvre
+                description: "\xC9tant donn\xE9 que l'eau s'\xE9coule beaucoup plus\
+                  \ lentement qu'elle y est apport\xE9e, le sol demeure humide durant\
+                  \ une grande partie de la p\xE9riode o\xF9 le sol n'est pas gel\xE9\
+                  .\_ Il y a la plupart du temps un surplus d'eau dans le sol.\_ L'\xE9\
+                  coulement superficiel ou souterrain, ou les deux, s'ajoute aux pr\xE9\
+                  cipitations comme principale source d'eau\_; il peut y avoir aussi\
+                  \ une nappe d'eau perch\xE9e, quand les pr\xE9cipitations sont plus\
+                  \ importantes que l'\xE9vapotranspiration. La capacit\xE9 de r\xE9\
+                  tention d'eau, la texture et la profondeur des sols varient fortement.\
+                  \ Ces sols appartiennent aux sous-groupe gleyifi\xE9s, aux gleysols\
+                  \ ou aux sols organiques."
+              VP:
+                title: "Drainage tr\xE8s pauvre"
+                description: "L'eau s'\xE9coule tellement lentement que la surface\
+                  \ de saturation affleure \xE0 la surface durant une large partie\
+                  \ de la p\xE9riode o\xF9 le sol n'est pas gel\xE9.\_ L'exc\xE8s\
+                  \ d'eau est pr\xE9sente dans le sol durant une grande partie du\
+                  \ temps.\_ L'\xE9coulement de la nappe souterraine et l'\xE9coulement\
+                  \ souterrain constituent les principales sources d'eau.\_ Les pr\xE9\
+                  cipitations jouent un r\xF4le moins important, sauf l\xE0 o\xF9\
+                  \ il y a une nappe d'eau perch\xE9e et o\xF9 les pr\xE9cipitations\
+                  \ exc\xE8dent l'\xE9vapotranspiration. La capacit\xE9 de r\xE9tention\
+                  \ d'eau, la texture et la profondeur de ces sols varient fortement\
+                  \ et ces derniers sont gleysoliques ou organiques."
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Drainage ne s'applique pas (roche, glace, etc)"
+          NSDB_PMTEX1:
+            permissible_values:
+              VC:
+                title: "Tr\xE8s grossier"
+                description: "Tr\xE8s grossier (Cat\xE9gories de texture du USDA:\
+                  \ VCS,CS,S,GS,CBS)."
+              C:
+                title: Grossier
+                description: "Grossier (Cat\xE9gories de texture du USDA: FS,LCS,LS,LFS,GLS,CBLS)."
+              MC:
+                title: "Mod\xE9r\xE9ment grossier"
+                description: "Mod\xE9r\xE9ment grossier (Cat\xE9gories de texture\
+                  \ du USDA: VFS,LVFS,CSL,SL,FSL,GSL,CBSL,GFSL)."
+              M:
+                title: Moyen
+                description: "Moyen (Cat\xE9gories de texture du USDA: VFSL,L,SIL,SI,GL,GSIL)."
+              MF:
+                title: "Mod\xE9r\xE9ment fine"
+                description: "Mod\xE9r\xE9ment fine (Cat\xE9gories de texture du USDA:\
+                  \ SCL,FSCL,VFSCL,CL,SICL,GSCL,GL,CBCL)."
+              F:
+                title: Fine
+                description: "Fine (Cat\xE9gories de texture du USDA: SC,SIC,C,GSIC)."
+              VF:
+                title: "Tr\xE8s fine"
+                description: "Tr\xE8s fine (Cat\xE9gories de texture du USDA: HC (plus\
+                  \ que 60% d'argile)."
+              CS:
+                title: Gros squelette
+                description: "Gros squelette\_(Cat\xE9gories de texture du USDA: VGS,\
+                  \ VGLS)."
+              MS:
+                title: Moyen squelette
+                description: "Moyen squelette\_(Cat\xE9gories de texture du USDA:\
+                  \ VGSL, VGL)."
+              FS:
+                title: Fin squelette
+                description: "Fin squelette (Cat\xE9gories de texture du USDA: VGC)."
+              FR:
+                title: Fragmentaires
+                description: Fragmentaires
+              SM:
+                title: "Stratifi\xE9es (min\xE9ral)"
+                description: "Stratifi\xE9es (min\xE9ral)"
+              SU:
+                title: "Stratifi\xE9es (min\xE9ral et organique)"
+                description: "Stratifi\xE9es (min\xE9ral et organique)"
+              FI:
+                title: Fibriques
+                description: Fibriques
+              ME:
+                title: "M\xE9siques"
+                description: "M\xE9siques"
+              HU:
+                title: Humiques
+                description: Humiques
+              UD:
+                title: "Non diff\xE9renci\xE9"
+                description: "Non diff\xE9renci\xE9"
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_PMTEX2:
+            permissible_values:
+              VC:
+                title: "Tr\xE8s grossier"
+                description: "Tr\xE8s grossier (Cat\xE9gories de texture du USDA:\
+                  \ VCS,CS,S,GS,CBS)."
+              C:
+                title: Grossier
+                description: "Grossier (Cat\xE9gories de texture du USDA: FS,LCS,LS,LFS,GLS,CBLS)."
+              MC:
+                title: "Mod\xE9r\xE9ment grossier"
+                description: "Mod\xE9r\xE9ment grossier (Cat\xE9gories de texture\
+                  \ du USDA: VFS,LVFS,CSL,SL,FSL,GSL,CBSL,GFSL)."
+              M:
+                title: Moyen
+                description: "Moyen (Cat\xE9gories de texture du USDA: VFSL,L,SIL,SI,GL,GSIL)."
+              MF:
+                title: "Mod\xE9r\xE9ment fine"
+                description: "Mod\xE9r\xE9ment fine (Cat\xE9gories de texture du USDA:\
+                  \ SCL,FSCL,VFSCL,CL,SICL,GSCL,GL,CBCL)."
+              F:
+                title: Fine
+                description: "Fine (Cat\xE9gories de texture du USDA: SC,SIC,C,GSIC)."
+              VF:
+                title: "Tr\xE8s fine"
+                description: "Tr\xE8s fine (Cat\xE9gories de texture du USDA: HC (plus\
+                  \ que 60% d'argile)."
+              CS:
+                title: Gros squelette
+                description: "Gros squelette\_(Cat\xE9gories de texture du USDA: VGS,\
+                  \ VGLS)."
+              MS:
+                title: Moyen squelette
+                description: "Moyen squelette\_(Cat\xE9gories de texture du USDA:\
+                  \ VGSL, VGL)."
+              FS:
+                title: Fin squelette
+                description: "Fin squelette (Cat\xE9gories de texture du USDA: VGC)."
+              FR:
+                title: Fragmentaires
+                description: Fragmentaires
+              SM:
+                title: "Stratifi\xE9es (min\xE9ral)"
+                description: "Stratifi\xE9es (min\xE9ral)"
+              SU:
+                title: "Stratifi\xE9es (min\xE9ral et organique)"
+                description: "Stratifi\xE9es (min\xE9ral et organique)"
+              FI:
+                title: Fibriques
+                description: Fibriques
+              ME:
+                title: "M\xE9siques"
+                description: "M\xE9siques"
+              HU:
+                title: Humiques
+                description: Humiques
+              UD:
+                title: "Non diff\xE9renci\xE9"
+                description: "Non diff\xE9renci\xE9"
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_PMTEX3:
+            permissible_values:
+              VC:
+                title: "Tr\xE8s grossier"
+                description: "Tr\xE8s grossier (Cat\xE9gories de texture du USDA:\
+                  \ VCS,CS,S,GS,CBS)."
+              C:
+                title: Grossier
+                description: "Grossier (Cat\xE9gories de texture du USDA: FS,LCS,LS,LFS,GLS,CBLS)."
+              MC:
+                title: "Mod\xE9r\xE9ment grossier"
+                description: "Mod\xE9r\xE9ment grossier (Cat\xE9gories de texture\
+                  \ du USDA: VFS,LVFS,CSL,SL,FSL,GSL,CBSL,GFSL)."
+              M:
+                title: Moyen
+                description: "Moyen (Cat\xE9gories de texture du USDA: VFSL,L,SIL,SI,GL,GSIL)."
+              MF:
+                title: "Mod\xE9r\xE9ment fine"
+                description: "Mod\xE9r\xE9ment fine (Cat\xE9gories de texture du USDA:\
+                  \ SCL,FSCL,VFSCL,CL,SICL,GSCL,GL,CBCL)."
+              F:
+                title: Fine
+                description: "Fine (Cat\xE9gories de texture du USDA: SC,SIC,C,GSIC)."
+              VF:
+                title: "Tr\xE8s fine"
+                description: "Tr\xE8s fine (Cat\xE9gories de texture du USDA: HC (plus\
+                  \ que 60% d'argile)."
+              CS:
+                title: Gros squelette
+                description: "Gros squelette\_(Cat\xE9gories de texture du USDA: VGS,\
+                  \ VGLS)."
+              MS:
+                title: Moyen squelette
+                description: "Moyen squelette\_(Cat\xE9gories de texture du USDA:\
+                  \ VGSL, VGL)."
+              FS:
+                title: Fin squelette
+                description: "Fin squelette (Cat\xE9gories de texture du USDA: VGC)."
+              FR:
+                title: Fragmentaires
+                description: Fragmentaires
+              SM:
+                title: "Stratifi\xE9es (min\xE9ral)"
+                description: "Stratifi\xE9es (min\xE9ral)"
+              SU:
+                title: "Stratifi\xE9es (min\xE9ral et organique)"
+                description: "Stratifi\xE9es (min\xE9ral et organique)"
+              FI:
+                title: Fibriques
+                description: Fibriques
+              ME:
+                title: "M\xE9siques"
+                description: "M\xE9siques"
+              HU:
+                title: Humiques
+                description: Humiques
+              UD:
+                title: "Non diff\xE9renci\xE9"
+                description: "Non diff\xE9renci\xE9"
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_PMCHEM1:
+            permissible_values:
+              UD:
+                title: "Non diff\xE9renci\xE9"
+                description: "Non diff\xE9renci\xE9"
+              EA:
+                title: "Teneur acide extr\xEAme / tr\xE8s \xE9lev\xE9e"
+                description: pH &lt; 5,6
+              AN:
+                title: "Teneur acide moyenne \xE0 neutre"
+                description: pH 5,6 - 7,4
+              WC:
+                title: Faible teneur en calcaire
+                description: "&lt; 6 CaCO3 \xE9quivalent (%)"
+              VC:
+                title: "Teneur mod\xE9r\xE9e / tr\xE8s \xE9lev\xE9e en calcaire"
+                description: "6 - 40 CaCO3 \xE9quivalent (%)"
+              EC:
+                title: "Teneur extr\xEAme en calcaire"
+                description: "&gt; 40 CaCO3 \xE9quivalent (%)"
+              SA:
+                title: Saline Teneur en calcaire et teneur saline
+                description: Saline Teneur en calcaire et teneur saline
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_PMCHEM2:
+            permissible_values:
+              UD:
+                title: "Non diff\xE9renci\xE9"
+                description: "Non diff\xE9renci\xE9"
+              EA:
+                title: "Teneur acide extr\xEAme / tr\xE8s \xE9lev\xE9e"
+                description: pH &lt; 5,6
+              AN:
+                title: "Teneur acide moyenne \xE0 neutre"
+                description: pH 5,6 - 7,4
+              WC:
+                title: Faible teneur en calcaire
+                description: "&lt; 6 CaCO3 \xE9quivalent (%)"
+              VC:
+                title: "Teneur mod\xE9r\xE9e / tr\xE8s \xE9lev\xE9e en calcaire"
+                description: "6 - 40 CaCO3 \xE9quivalent (%)"
+              EC:
+                title: "Teneur extr\xEAme en calcaire"
+                description: "&gt; 40 CaCO3 \xE9quivalent (%)"
+              SA:
+                title: Saline Teneur en calcaire et teneur saline
+                description: Saline Teneur en calcaire et teneur saline
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_PMCHEM3:
+            permissible_values:
+              UD:
+                title: "Non diff\xE9renci\xE9"
+                description: "Non diff\xE9renci\xE9"
+              EA:
+                title: "Teneur acide extr\xEAme / tr\xE8s \xE9lev\xE9e"
+                description: pH &lt; 5,6
+              AN:
+                title: "Teneur acide moyenne \xE0 neutre"
+                description: pH 5,6 - 7,4
+              WC:
+                title: Faible teneur en calcaire
+                description: "&lt; 6 CaCO3 \xE9quivalent (%)"
+              VC:
+                title: "Teneur mod\xE9r\xE9e / tr\xE8s \xE9lev\xE9e en calcaire"
+                description: "6 - 40 CaCO3 \xE9quivalent (%)"
+              EC:
+                title: "Teneur extr\xEAme en calcaire"
+                description: "&gt; 40 CaCO3 \xE9quivalent (%)"
+              SA:
+                title: Saline Teneur en calcaire et teneur saline
+                description: Saline Teneur en calcaire et teneur saline
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_MDEP1:
+            permissible_values:
+              ANTH:
+                title: "Mat\xE9riaux anthropiques"
+                description: "Mat\xE9riaux modifi\xE9s par l'homme, y compris ceux\
+                  \ qui sont associ\xE9s \xE0 l'exploitation mini\xE8re et \xE0 l'\xE9\
+                  limination des d\xE9chets; ils comprennent les accumulations de\
+                  \ mat\xE9riaux qui proviennent de l'activit\xE9 humaine et les mat\xE9\
+                  riaux g\xE9ologiques modifi\xE9s artificiellement de telle sorte\
+                  \ que leurs propri\xE9t\xE9s physiques (structure, coh\xE9sion,\
+                  \ compaction) ont \xE9t\xE9 consid\xE9rablement alt\xE9r\xE9es;\
+                  \ ex., d\xE9charges, tas de d\xE9blais, mines \xE0 ciel ouvert,\
+                  \ zones nivel\xE9es et irrigu\xE9es."
+              COLL:
+                title: Colluvial
+                description: "S\xE9diments massifs \xE0 moyennement bien stratifi\xE9\
+                  s, non tri\xE9s \xE0 mal tri\xE9s, \xE0 granulom\xE9trie variable\
+                  \ (des argiles ou blocs qui ont atteint leur position actuelle par\
+                  \ mouvement direct engendr\xE9 par la gravit\xE9); il y a des d\xE9\
+                  placements lents comme le creep et la solifluction ainsi que des\
+                  \ mouvements rapides comme les coul\xE9es boueuses."
+              EOLI:
+                title: "\xC9olien"
+                description: "Mat\xE9riaux \xE9oliens d\xE9pos\xE9s par le vent :\
+                  \ d\xE9p\xF4ts uniformes de sable tr\xE8s fin et de limon."
+              FLEO:
+                title: "Fluvio-\xE9olien"
+                description: "Fluvio-\xE9olien"
+              FLLC:
+                title: Fluvio-lacustre
+                description: Fluvio-lacustre
+              FLUV:
+                title: Fluviatile
+                description: "Ces s\xE9diments sont g\xE9n\xE9ralement compos\xE9\
+                  s de gravier et de sable, avec une faible proportion de limon et\
+                  \ rarement d'argile. Les graviers sont typiquement arrondis et les\
+                  \ interstices sont remplis de sable."
+              FNPT:
+                title: Tourbe de carex
+                description: "Ces d\xE9p\xF4ts consistent en tourbe de carex, d\xE9\
+                  riv\xE9 principalement de carex avec des inclusions de tiges d'arbustes\
+                  \ partiellement d\xE9compos\xE9es, form\xE9s dans un environnement\
+                  \ eutrophique d\xFB \xE0 l'intime association du mat\xE9riau avec\
+                  \ des eaux riches en min\xE9raux."
+              FOPT:
+                title: "Tourbe de for\xEAt"
+                description: "Cette classe est utilis\xE9e pour les \xE9tendues recouvertes\
+                  \ de tourbe foresti\xE8re ou remplies de tourbe foresti\xE8re avec\
+                  \ une nappe phr\xE9atique \xE0 la surface ou au-dessus de la surface\
+                  \ de la tourbe. Les mat\xE9riaux tourbeux dominants sont des tourbes\
+                  \ de for\xEAt ou de fen m\xE9siques \xE0 humiques qui sont minces\
+                  \ \xE0 profonds, et qui ont \xE9t\xE9 form\xE9s dans un environnement\
+                  \ eutrophique r\xE9sultant d'un fort \xE9coulement des eaux provenant\
+                  \ du pourtour ou d'autres sources min\xE9rales."
+              GLFL:
+                title: Glacio-fluviatile
+                description: "Detris transport\xE9s par les glaciers, puis tri\xE9\
+                  s et d\xE9pos\xE9s par les cours d'eau de fonte. Les d\xE9p\xF4\
+                  ts sont stratifi\xE9s et se pr\xE9sentent sous forme de plaines\
+                  \ d'\xE9pandage fluvio glaciaire, de deltas, de kames, d'eskers\
+                  \ et de terrasses de harne. Voir aussi drift glaciare et till."
+              GLLC:
+                title: Glacio-lacustre
+                description: "Utiliser l\xE0 o\xF9 il est clair que les mat\xE9riaux\
+                  \ lacustres ont \xE9t\xE9 d\xE9pos\xE9s au contact d'un glacier.\
+                  \ Une des caract\xE9ristiques suivantes doit \xEAtre pr\xE9sente\
+                  \ : \r\n\r\nDes kettles ou une surface par ailleurs irr\xE9guli\xE8\
+                  re qui n'est pas simplement le r\xE9sultat de tassement et de compactage\
+                  \ normaux dans le limon, ni le r\xE9sultat de chenaux d'\xE9coulement\r\
+                  \nsouterrain.\r\nDes structures d'affaissement r\xE9sultant de la\
+                  \ perte de support due \xE0 la fonte du support de glace.\r\nLa\
+                  \ pr\xE9sence de nombreux blocs glaciels (pierres transport\xE9\
+                  es par la glace flottante) dans les limons lacustres."
+              GLMA:
+                title: Glacio-marin
+                description: Glacio-marin
+              LACU:
+                title: "S\xE9diments lacustres"
+                description: "S\xE9diment compos\xE9 g\xE9n\xE9ralement d'argile,\
+                  \ de limon et de sable fin stratifi\xE9s et d\xE9pos\xE9s au fond\
+                  \ du lac ou de sable stratifi\xE9 et moyennement bien tri\xE9 et\
+                  \ de mat\xE9riaux plus grossiers qui ont \xE9t\xE9 transport\xE9\
+                  s et d\xE9pos\xE9s par les vagues sur la plage ou dans la zone littorale;\
+                  \ il s'agit de mat\xE9riaux en suspension qui ont \xE9t\xE9 d\xE9\
+                  pos\xE9s dans des masses d'eau douce ou se sont accumul\xE9s \xE0\
+                  \ leurs marges sous l'effet des vagues; ex., s\xE9diments lacustres\
+                  \ et plages."
+              LATL:
+                title: Till lacustre
+                description: Till lacustre
+              MARI:
+                title: "D\xE9p\xF4ts marins"
+                description: "D\xE9p\xF4ts non consolid\xE9s d'argile, de limon, de\
+                  \ sable ou de gravier, bien \xE0 moyennement bien tri\xE9s et bien\
+                  \ \xE0 moyennement bien stratifi\xE9s (renfermant par endroits des\
+                  \ coquillages); ces mat\xE9riaux d'abord en suspension, se sont\
+                  \ d\xE9pos\xE9s dans des masses d'eau sal\xE9e ou saum\xE2tre ou\
+                  \ se sont accumul\xE9s \xE0 la lisi\xE8re de celles-ci sous l'effet\
+                  \ de ph\xE9nom\xE8nes littoraux comme l'action des vagues et de\
+                  \ la d\xE9rive littorale; les d\xE9p\xF4ts non fossilif\xE8res peuvent\
+                  \ \xEAtre consid\xE9r\xE9s comme des d\xE9p\xF4ts marins s'ils sont\
+                  \ situ\xE9s en un endroit que l'on peut raisonnablement consid\xE9\
+                  rer comme ayant \xE9t\xE9 recouvert d'eau sal\xE9e \xE0 l'\xE9poque\
+                  \ o\xF9 ces d\xE9p\xF4ts se sont form\xE9s."
+              RESD:
+                title: "S\xE9diments r\xE9siduels"
+                description: "Mat\xE9riau de sol min\xE9ral non consolid\xE9, m\xE9\
+                  t\xE9oris\xE9 ou partiellement alt\xE9r\xE9 qui s'accumule par d\xE9\
+                  sint\xE9gration sur place du substratum rocheux."
+              SAPR:
+                title: Saprolithe
+                description: "Ce mat\xE9riau consiste en roc alt\xE9r\xE9 et contient\
+                  \ une forte proportion de limons et d'argiles r\xE9siduels, form\xE9\
+                  s par alt\xE9ration, principalement par l'alt\xE9ration chimique.\r\
+                  \n\r\nLe roc demeure dans un \xE9tat coh\xE9rent, la relation entre\
+                  \ les grains n'est pas d\xE9rang\xE9e et aucun mouvement par gravit\xE9\
+                  \ n'appara\xEEt. Le processus est pr\xE9sum\xE9 \xEAtre \xE0 actif.\r\
+                  \nExemple: roche pourrie \xE0 noyaux de pierre."
+              SEPT:
+                title: "Tourbe s\xE9dimentaire"
+                description: "La terre coprog\xE8ne est compos\xE9e de d\xE9bris de\
+                  \ plantes aquatiques modifi\xE9es par des animaux aquatiques. En\
+                  \ suspension aqueuse, elle devient l\xE9g\xE8rement visqueuse; elle\
+                  \ est plastique mais non collante; elle se r\xE9tracte au s\xE9\
+                  chage pour former des mottes difficiles \xE0 r\xE9humidifier et\
+                  \ qui ont souvent tendance \xE0 se fissurer le long de plans horizontaux.\
+                  \ Elle a peu ou pas de fragments v\xE9g\xE9taux identifiables \xE0\
+                  \ l'oeil nu, un indice au pyrophosphate de 5 ou plus et une luminosit\xE9\
+                  \ de couleur inf\xE9rieure \xE0 5 \xE0 l'\xE9tat sec."
+              SPPT:
+                title: Tourbe de sphaigne
+                description: "Ces d\xE9p\xF4ts consistent en tourbe de sphaigne ou\
+                  \ de for\xEAt, form\xE9 sous un environnement ombrotrophique d\xFB\
+                  \ \xE0 la nature l\xE9g\xE8rement sur\xE9lev\xE9e de la tourbi\xE8\
+                  re. Elles sont souvent dissoci\xE9es de la nappe phr\xE9atique riche\
+                  \ en \xE9l\xE9ments nutritifs ou des sols min\xE9raux environnants."
+              TILL:
+                title: Till (morainique)
+                description: "Moraine (till) d\xE9pos\xE9e par la glace de l'\xE8\
+                  re glaciaire : m\xE9lange de blocs, de sable, de limon et d'argile."
+              UNDM:
+                title: "Min\xE9ral non diff\xE9renci\xE9"
+                description: "S\xE9rie de plus de trois types de mat\xE9riaux min\xE9\
+                  raux g\xE9n\xE9tiques qui affleurent sur un escarpement d'\xE9rosion;\
+                  \ cette classe complexe doit \xEAtre utilis\xE9e dans les cas o\xF9\
+                  \ les unit\xE9s se rapportant aux mat\xE9riaux g\xE9n\xE9tiques\
+                  \ individuels ne peuvent \xEAtre d\xE9limit\xE9es s\xE9par\xE9ment\
+                  \ \xE0 cause de l'\xE9chelle utilis\xE9e; ces mat\xE9riaux comportent\
+                  \ le colluvion qui provient de divers mat\xE9riaux g\xE9n\xE9tiques\
+                  \ et qui repose sur la pente de l'escarpement."
+              UNDO:
+                title: "Organique non diff\xE9renci\xE9"
+                description: "S\xE9rie de couches comportant plus de trois types de\
+                  \ mat\xE9riaux organiques (>30 % de mati\xE8re organique en poids)."
+              VOLC:
+                title: Volcanique
+                description: Cendre et ponce volcaniques.
+              RKUD:
+                title: "Non diff\xE9renci\xE9s"
+                description: "Assise rocheuse, non diff\xE9renci\xE9s"
+              RKIA:
+                title: "Ign\xE9e, acide"
+                description: "Ign\xE9e, assise rocheuse acide (granite dominant)"
+              RKIB:
+                title: "Ign\xE9e, de base"
+                description: "Ign\xE9e, assise rocheuse de base (basalte dominant)"
+              RKIC:
+                title: "Ign\xE9e, grossi\xE8re de base"
+                description: "Ign\xE9e, assise rocheuse grossi\xE8re de base (basalte\
+                  \ particulaire grossi\xE8re)"
+              RKIF:
+                title: "Ign\xE9e, de base \xE0 particule fine"
+                description: "Ign\xE9e, assise rocheuse de base \xE0 particule fine\
+                  \ (and\xE9sites dominant)"
+              RKCA:
+                title: Calcaire
+                description: "Assise rocheuse calcaire (gr\xE8s et schiste dominant)"
+              RKLS:
+                title: "Pierre \xE0 chaux"
+                description: "Assise rocheuse de pierre \xE0 chaux (dolomite et pierre\
+                  \ \xE0 chaux)"
+              RKSH:
+                title: Schisteuse
+                description: Assise rocheuse schisteuse
+              RKSS:
+                title: "Gr\xE8s"
+                description: "Assise rocheuse de gr\xE8s"
+              RKSM:
+                title: "Gr\xE8s fin et de pierre de boue"
+                description: "Gr\xE8s fin et assise rocheuse de pierre de boue"
+              RKSP:
+                title: Schiste et phyllithe
+                description: Schiste et assise rocheuse phyllithe
+              RKSA:
+                title: Ardoise
+                description: "Assise rocheuse d'ardoise"
+              RKQU:
+                title: Quartz
+                description: Assise rocheuse de quartz
+              RKGN:
+                title: Gneiss
+                description: Assise rocheuse de gneiss
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_MDEP2:
+            permissible_values:
+              ANTH:
+                title: "Mat\xE9riaux anthropiques"
+                description: "Mat\xE9riaux modifi\xE9s par l'homme, y compris ceux\
+                  \ qui sont associ\xE9s \xE0 l'exploitation mini\xE8re et \xE0 l'\xE9\
+                  limination des d\xE9chets; ils comprennent les accumulations de\
+                  \ mat\xE9riaux qui proviennent de l'activit\xE9 humaine et les mat\xE9\
+                  riaux g\xE9ologiques modifi\xE9s artificiellement de telle sorte\
+                  \ que leurs propri\xE9t\xE9s physiques (structure, coh\xE9sion,\
+                  \ compaction) ont \xE9t\xE9 consid\xE9rablement alt\xE9r\xE9es;\
+                  \ ex., d\xE9charges, tas de d\xE9blais, mines \xE0 ciel ouvert,\
+                  \ zones nivel\xE9es et irrigu\xE9es."
+              COLL:
+                title: Colluvial
+                description: "S\xE9diments massifs \xE0 moyennement bien stratifi\xE9\
+                  s, non tri\xE9s \xE0 mal tri\xE9s, \xE0 granulom\xE9trie variable\
+                  \ (des argiles ou blocs qui ont atteint leur position actuelle par\
+                  \ mouvement direct engendr\xE9 par la gravit\xE9); il y a des d\xE9\
+                  placements lents comme le creep et la solifluction ainsi que des\
+                  \ mouvements rapides comme les coul\xE9es boueuses."
+              EOLI:
+                title: "\xC9olien"
+                description: "Mat\xE9riaux \xE9oliens d\xE9pos\xE9s par le vent :\
+                  \ d\xE9p\xF4ts uniformes de sable tr\xE8s fin et de limon."
+              FLEO:
+                title: "Fluvio-\xE9olien"
+                description: "Fluvio-\xE9olien"
+              FLLC:
+                title: Fluvio-lacustre
+                description: Fluvio-lacustre
+              FLUV:
+                title: Fluviatile
+                description: "Ces s\xE9diments sont g\xE9n\xE9ralement compos\xE9\
+                  s de gravier et de sable, avec une faible proportion de limon et\
+                  \ rarement d'argile. Les graviers sont typiquement arrondis et les\
+                  \ interstices sont remplis de sable."
+              FNPT:
+                title: Tourbe de carex
+                description: "Ces d\xE9p\xF4ts consistent en tourbe de carex, d\xE9\
+                  riv\xE9 principalement de carex avec des inclusions de tiges d'arbustes\
+                  \ partiellement d\xE9compos\xE9es, form\xE9s dans un environnement\
+                  \ eutrophique d\xFB \xE0 l'intime association du mat\xE9riau avec\
+                  \ des eaux riches en min\xE9raux."
+              FOPT:
+                title: "Tourbe de for\xEAt"
+                description: "Cette classe est utilis\xE9e pour les \xE9tendues recouvertes\
+                  \ de tourbe foresti\xE8re ou remplies de tourbe foresti\xE8re avec\
+                  \ une nappe phr\xE9atique \xE0 la surface ou au-dessus de la surface\
+                  \ de la tourbe. Les mat\xE9riaux tourbeux dominants sont des tourbes\
+                  \ de for\xEAt ou de fen m\xE9siques \xE0 humiques qui sont minces\
+                  \ \xE0 profonds, et qui ont \xE9t\xE9 form\xE9s dans un environnement\
+                  \ eutrophique r\xE9sultant d'un fort \xE9coulement des eaux provenant\
+                  \ du pourtour ou d'autres sources min\xE9rales."
+              GLFL:
+                title: Glacio-fluviatile
+                description: "Detris transport\xE9s par les glaciers, puis tri\xE9\
+                  s et d\xE9pos\xE9s par les cours d'eau de fonte. Les d\xE9p\xF4\
+                  ts sont stratifi\xE9s et se pr\xE9sentent sous forme de plaines\
+                  \ d'\xE9pandage fluvio glaciaire, de deltas, de kames, d'eskers\
+                  \ et de terrasses de harne. Voir aussi drift glaciare et till."
+              GLLC:
+                title: Glacio-lacustre
+                description: "Utiliser l\xE0 o\xF9 il est clair que les mat\xE9riaux\
+                  \ lacustres ont \xE9t\xE9 d\xE9pos\xE9s au contact d'un glacier.\
+                  \ Une des caract\xE9ristiques suivantes doit \xEAtre pr\xE9sente\
+                  \ : \r\n\r\nDes kettles ou une surface par ailleurs irr\xE9guli\xE8\
+                  re qui n'est pas simplement le r\xE9sultat de tassement et de compactage\
+                  \ normaux dans le limon, ni le r\xE9sultat de chenaux d'\xE9coulement\r\
+                  \nsouterrain.\r\nDes structures d'affaissement r\xE9sultant de la\
+                  \ perte de support due \xE0 la fonte du support de glace.\r\nLa\
+                  \ pr\xE9sence de nombreux blocs glaciels (pierres transport\xE9\
+                  es par la glace flottante) dans les limons lacustres."
+              GLMA:
+                title: Glacio-marin
+                description: Glacio-marin
+              LACU:
+                title: "S\xE9diments lacustres"
+                description: "S\xE9diment compos\xE9 g\xE9n\xE9ralement d'argile,\
+                  \ de limon et de sable fin stratifi\xE9s et d\xE9pos\xE9s au fond\
+                  \ du lac ou de sable stratifi\xE9 et moyennement bien tri\xE9 et\
+                  \ de mat\xE9riaux plus grossiers qui ont \xE9t\xE9 transport\xE9\
+                  s et d\xE9pos\xE9s par les vagues sur la plage ou dans la zone littorale;\
+                  \ il s'agit de mat\xE9riaux en suspension qui ont \xE9t\xE9 d\xE9\
+                  pos\xE9s dans des masses d'eau douce ou se sont accumul\xE9s \xE0\
+                  \ leurs marges sous l'effet des vagues; ex., s\xE9diments lacustres\
+                  \ et plages."
+              LATL:
+                title: Till lacustre
+                description: Till lacustre
+              MARI:
+                title: "D\xE9p\xF4ts marins"
+                description: "D\xE9p\xF4ts non consolid\xE9s d'argile, de limon, de\
+                  \ sable ou de gravier, bien \xE0 moyennement bien tri\xE9s et bien\
+                  \ \xE0 moyennement bien stratifi\xE9s (renfermant par endroits des\
+                  \ coquillages); ces mat\xE9riaux d'abord en suspension, se sont\
+                  \ d\xE9pos\xE9s dans des masses d'eau sal\xE9e ou saum\xE2tre ou\
+                  \ se sont accumul\xE9s \xE0 la lisi\xE8re de celles-ci sous l'effet\
+                  \ de ph\xE9nom\xE8nes littoraux comme l'action des vagues et de\
+                  \ la d\xE9rive littorale; les d\xE9p\xF4ts non fossilif\xE8res peuvent\
+                  \ \xEAtre consid\xE9r\xE9s comme des d\xE9p\xF4ts marins s'ils sont\
+                  \ situ\xE9s en un endroit que l'on peut raisonnablement consid\xE9\
+                  rer comme ayant \xE9t\xE9 recouvert d'eau sal\xE9e \xE0 l'\xE9poque\
+                  \ o\xF9 ces d\xE9p\xF4ts se sont form\xE9s."
+              RESD:
+                title: "S\xE9diments r\xE9siduels"
+                description: "Mat\xE9riau de sol min\xE9ral non consolid\xE9, m\xE9\
+                  t\xE9oris\xE9 ou partiellement alt\xE9r\xE9 qui s'accumule par d\xE9\
+                  sint\xE9gration sur place du substratum rocheux."
+              SAPR:
+                title: Saprolithe
+                description: "Ce mat\xE9riau consiste en roc alt\xE9r\xE9 et contient\
+                  \ une forte proportion de limons et d'argiles r\xE9siduels, form\xE9\
+                  s par alt\xE9ration, principalement par l'alt\xE9ration chimique.\r\
+                  \n\r\nLe roc demeure dans un \xE9tat coh\xE9rent, la relation entre\
+                  \ les grains n'est pas d\xE9rang\xE9e et aucun mouvement par gravit\xE9\
+                  \ n'appara\xEEt. Le processus est pr\xE9sum\xE9 \xEAtre \xE0 actif.\r\
+                  \nExemple: roche pourrie \xE0 noyaux de pierre."
+              SEPT:
+                title: "Tourbe s\xE9dimentaire"
+                description: "La terre coprog\xE8ne est compos\xE9e de d\xE9bris de\
+                  \ plantes aquatiques modifi\xE9es par des animaux aquatiques. En\
+                  \ suspension aqueuse, elle devient l\xE9g\xE8rement visqueuse; elle\
+                  \ est plastique mais non collante; elle se r\xE9tracte au s\xE9\
+                  chage pour former des mottes difficiles \xE0 r\xE9humidifier et\
+                  \ qui ont souvent tendance \xE0 se fissurer le long de plans horizontaux.\
+                  \ Elle a peu ou pas de fragments v\xE9g\xE9taux identifiables \xE0\
+                  \ l'oeil nu, un indice au pyrophosphate de 5 ou plus et une luminosit\xE9\
+                  \ de couleur inf\xE9rieure \xE0 5 \xE0 l'\xE9tat sec."
+              SPPT:
+                title: Tourbe de sphaigne
+                description: "Ces d\xE9p\xF4ts consistent en tourbe de sphaigne ou\
+                  \ de for\xEAt, form\xE9 sous un environnement ombrotrophique d\xFB\
+                  \ \xE0 la nature l\xE9g\xE8rement sur\xE9lev\xE9e de la tourbi\xE8\
+                  re. Elles sont souvent dissoci\xE9es de la nappe phr\xE9atique riche\
+                  \ en \xE9l\xE9ments nutritifs ou des sols min\xE9raux environnants."
+              TILL:
+                title: Till (morainique)
+                description: "Moraine (till) d\xE9pos\xE9e par la glace de l'\xE8\
+                  re glaciaire : m\xE9lange de blocs, de sable, de limon et d'argile."
+              UNDM:
+                title: "Min\xE9ral non diff\xE9renci\xE9"
+                description: "S\xE9rie de plus de trois types de mat\xE9riaux min\xE9\
+                  raux g\xE9n\xE9tiques qui affleurent sur un escarpement d'\xE9rosion;\
+                  \ cette classe complexe doit \xEAtre utilis\xE9e dans les cas o\xF9\
+                  \ les unit\xE9s se rapportant aux mat\xE9riaux g\xE9n\xE9tiques\
+                  \ individuels ne peuvent \xEAtre d\xE9limit\xE9es s\xE9par\xE9ment\
+                  \ \xE0 cause de l'\xE9chelle utilis\xE9e; ces mat\xE9riaux comportent\
+                  \ le colluvion qui provient de divers mat\xE9riaux g\xE9n\xE9tiques\
+                  \ et qui repose sur la pente de l'escarpement."
+              UNDO:
+                title: "Organique non diff\xE9renci\xE9"
+                description: "S\xE9rie de couches comportant plus de trois types de\
+                  \ mat\xE9riaux organiques (>30 % de mati\xE8re organique en poids)."
+              VOLC:
+                title: Volcanique
+                description: Cendre et ponce volcaniques.
+              RKUD:
+                title: "Non diff\xE9renci\xE9s"
+                description: "Assise rocheuse, non diff\xE9renci\xE9s"
+              RKIA:
+                title: "Ign\xE9e, acide"
+                description: "Ign\xE9e, assise rocheuse acide (granite dominant)"
+              RKIB:
+                title: "Ign\xE9e, de base"
+                description: "Ign\xE9e, assise rocheuse de base (basalte dominant)"
+              RKIC:
+                title: "Ign\xE9e, grossi\xE8re de base"
+                description: "Ign\xE9e, assise rocheuse grossi\xE8re de base (basalte\
+                  \ particulaire grossi\xE8re)"
+              RKIF:
+                title: "Ign\xE9e, de base \xE0 particule fine"
+                description: "Ign\xE9e, assise rocheuse de base \xE0 particule fine\
+                  \ (and\xE9sites dominant)"
+              RKCA:
+                title: Calcaire
+                description: "Assise rocheuse calcaire (gr\xE8s et schiste dominant)"
+              RKLS:
+                title: "Pierre \xE0 chaux"
+                description: "Assise rocheuse de pierre \xE0 chaux (dolomite et pierre\
+                  \ \xE0 chaux)"
+              RKSH:
+                title: Schisteuse
+                description: Assise rocheuse schisteuse
+              RKSS:
+                title: "Gr\xE8s"
+                description: "Assise rocheuse de gr\xE8s"
+              RKSM:
+                title: "Gr\xE8s fin et de pierre de boue"
+                description: "Gr\xE8s fin et assise rocheuse de pierre de boue"
+              RKSP:
+                title: Schiste et phyllithe
+                description: Schiste et assise rocheuse phyllithe
+              RKSA:
+                title: Ardoise
+                description: "Assise rocheuse d'ardoise"
+              RKQU:
+                title: Quartz
+                description: Assise rocheuse de quartz
+              RKGN:
+                title: Gneiss
+                description: Assise rocheuse de gneiss
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_MDEP3:
+            permissible_values:
+              ANTH:
+                title: "Mat\xE9riaux anthropiques"
+                description: "Mat\xE9riaux modifi\xE9s par l'homme, y compris ceux\
+                  \ qui sont associ\xE9s \xE0 l'exploitation mini\xE8re et \xE0 l'\xE9\
+                  limination des d\xE9chets; ils comprennent les accumulations de\
+                  \ mat\xE9riaux qui proviennent de l'activit\xE9 humaine et les mat\xE9\
+                  riaux g\xE9ologiques modifi\xE9s artificiellement de telle sorte\
+                  \ que leurs propri\xE9t\xE9s physiques (structure, coh\xE9sion,\
+                  \ compaction) ont \xE9t\xE9 consid\xE9rablement alt\xE9r\xE9es;\
+                  \ ex., d\xE9charges, tas de d\xE9blais, mines \xE0 ciel ouvert,\
+                  \ zones nivel\xE9es et irrigu\xE9es."
+              COLL:
+                title: Colluvial
+                description: "S\xE9diments massifs \xE0 moyennement bien stratifi\xE9\
+                  s, non tri\xE9s \xE0 mal tri\xE9s, \xE0 granulom\xE9trie variable\
+                  \ (des argiles ou blocs qui ont atteint leur position actuelle par\
+                  \ mouvement direct engendr\xE9 par la gravit\xE9); il y a des d\xE9\
+                  placements lents comme le creep et la solifluction ainsi que des\
+                  \ mouvements rapides comme les coul\xE9es boueuses."
+              EOLI:
+                title: "\xC9olien"
+                description: "Mat\xE9riaux \xE9oliens d\xE9pos\xE9s par le vent :\
+                  \ d\xE9p\xF4ts uniformes de sable tr\xE8s fin et de limon."
+              FLEO:
+                title: "Fluvio-\xE9olien"
+                description: "Fluvio-\xE9olien"
+              FLLC:
+                title: Fluvio-lacustre
+                description: Fluvio-lacustre
+              FLUV:
+                title: Fluviatile
+                description: "Ces s\xE9diments sont g\xE9n\xE9ralement compos\xE9\
+                  s de gravier et de sable, avec une faible proportion de limon et\
+                  \ rarement d'argile. Les graviers sont typiquement arrondis et les\
+                  \ interstices sont remplis de sable."
+              FNPT:
+                title: Tourbe de carex
+                description: "Ces d\xE9p\xF4ts consistent en tourbe de carex, d\xE9\
+                  riv\xE9 principalement de carex avec des inclusions de tiges d'arbustes\
+                  \ partiellement d\xE9compos\xE9es, form\xE9s dans un environnement\
+                  \ eutrophique d\xFB \xE0 l'intime association du mat\xE9riau avec\
+                  \ des eaux riches en min\xE9raux."
+              FOPT:
+                title: "Tourbe de for\xEAt"
+                description: "Cette classe est utilis\xE9e pour les \xE9tendues recouvertes\
+                  \ de tourbe foresti\xE8re ou remplies de tourbe foresti\xE8re avec\
+                  \ une nappe phr\xE9atique \xE0 la surface ou au-dessus de la surface\
+                  \ de la tourbe. Les mat\xE9riaux tourbeux dominants sont des tourbes\
+                  \ de for\xEAt ou de fen m\xE9siques \xE0 humiques qui sont minces\
+                  \ \xE0 profonds, et qui ont \xE9t\xE9 form\xE9s dans un environnement\
+                  \ eutrophique r\xE9sultant d'un fort \xE9coulement des eaux provenant\
+                  \ du pourtour ou d'autres sources min\xE9rales."
+              GLFL:
+                title: Glacio-fluviatile
+                description: "Detris transport\xE9s par les glaciers, puis tri\xE9\
+                  s et d\xE9pos\xE9s par les cours d'eau de fonte. Les d\xE9p\xF4\
+                  ts sont stratifi\xE9s et se pr\xE9sentent sous forme de plaines\
+                  \ d'\xE9pandage fluvio glaciaire, de deltas, de kames, d'eskers\
+                  \ et de terrasses de harne. Voir aussi drift glaciare et till."
+              GLLC:
+                title: Glacio-lacustre
+                description: "Utiliser l\xE0 o\xF9 il est clair que les mat\xE9riaux\
+                  \ lacustres ont \xE9t\xE9 d\xE9pos\xE9s au contact d'un glacier.\
+                  \ Une des caract\xE9ristiques suivantes doit \xEAtre pr\xE9sente\
+                  \ : \r\n\r\nDes kettles ou une surface par ailleurs irr\xE9guli\xE8\
+                  re qui n'est pas simplement le r\xE9sultat de tassement et de compactage\
+                  \ normaux dans le limon, ni le r\xE9sultat de chenaux d'\xE9coulement\r\
+                  \nsouterrain.\r\nDes structures d'affaissement r\xE9sultant de la\
+                  \ perte de support due \xE0 la fonte du support de glace.\r\nLa\
+                  \ pr\xE9sence de nombreux blocs glaciels (pierres transport\xE9\
+                  es par la glace flottante) dans les limons lacustres."
+              GLMA:
+                title: Glacio-marin
+                description: Glacio-marin
+              LACU:
+                title: "S\xE9diments lacustres"
+                description: "S\xE9diment compos\xE9 g\xE9n\xE9ralement d'argile,\
+                  \ de limon et de sable fin stratifi\xE9s et d\xE9pos\xE9s au fond\
+                  \ du lac ou de sable stratifi\xE9 et moyennement bien tri\xE9 et\
+                  \ de mat\xE9riaux plus grossiers qui ont \xE9t\xE9 transport\xE9\
+                  s et d\xE9pos\xE9s par les vagues sur la plage ou dans la zone littorale;\
+                  \ il s'agit de mat\xE9riaux en suspension qui ont \xE9t\xE9 d\xE9\
+                  pos\xE9s dans des masses d'eau douce ou se sont accumul\xE9s \xE0\
+                  \ leurs marges sous l'effet des vagues; ex., s\xE9diments lacustres\
+                  \ et plages."
+              LATL:
+                title: Till lacustre
+                description: Till lacustre
+              MARI:
+                title: "D\xE9p\xF4ts marins"
+                description: "D\xE9p\xF4ts non consolid\xE9s d'argile, de limon, de\
+                  \ sable ou de gravier, bien \xE0 moyennement bien tri\xE9s et bien\
+                  \ \xE0 moyennement bien stratifi\xE9s (renfermant par endroits des\
+                  \ coquillages); ces mat\xE9riaux d'abord en suspension, se sont\
+                  \ d\xE9pos\xE9s dans des masses d'eau sal\xE9e ou saum\xE2tre ou\
+                  \ se sont accumul\xE9s \xE0 la lisi\xE8re de celles-ci sous l'effet\
+                  \ de ph\xE9nom\xE8nes littoraux comme l'action des vagues et de\
+                  \ la d\xE9rive littorale; les d\xE9p\xF4ts non fossilif\xE8res peuvent\
+                  \ \xEAtre consid\xE9r\xE9s comme des d\xE9p\xF4ts marins s'ils sont\
+                  \ situ\xE9s en un endroit que l'on peut raisonnablement consid\xE9\
+                  rer comme ayant \xE9t\xE9 recouvert d'eau sal\xE9e \xE0 l'\xE9poque\
+                  \ o\xF9 ces d\xE9p\xF4ts se sont form\xE9s."
+              RESD:
+                title: "S\xE9diments r\xE9siduels"
+                description: "Mat\xE9riau de sol min\xE9ral non consolid\xE9, m\xE9\
+                  t\xE9oris\xE9 ou partiellement alt\xE9r\xE9 qui s'accumule par d\xE9\
+                  sint\xE9gration sur place du substratum rocheux."
+              SAPR:
+                title: Saprolithe
+                description: "Ce mat\xE9riau consiste en roc alt\xE9r\xE9 et contient\
+                  \ une forte proportion de limons et d'argiles r\xE9siduels, form\xE9\
+                  s par alt\xE9ration, principalement par l'alt\xE9ration chimique.\r\
+                  \n\r\nLe roc demeure dans un \xE9tat coh\xE9rent, la relation entre\
+                  \ les grains n'est pas d\xE9rang\xE9e et aucun mouvement par gravit\xE9\
+                  \ n'appara\xEEt. Le processus est pr\xE9sum\xE9 \xEAtre \xE0 actif.\r\
+                  \nExemple: roche pourrie \xE0 noyaux de pierre."
+              SEPT:
+                title: "Tourbe s\xE9dimentaire"
+                description: "La terre coprog\xE8ne est compos\xE9e de d\xE9bris de\
+                  \ plantes aquatiques modifi\xE9es par des animaux aquatiques. En\
+                  \ suspension aqueuse, elle devient l\xE9g\xE8rement visqueuse; elle\
+                  \ est plastique mais non collante; elle se r\xE9tracte au s\xE9\
+                  chage pour former des mottes difficiles \xE0 r\xE9humidifier et\
+                  \ qui ont souvent tendance \xE0 se fissurer le long de plans horizontaux.\
+                  \ Elle a peu ou pas de fragments v\xE9g\xE9taux identifiables \xE0\
+                  \ l'oeil nu, un indice au pyrophosphate de 5 ou plus et une luminosit\xE9\
+                  \ de couleur inf\xE9rieure \xE0 5 \xE0 l'\xE9tat sec."
+              SPPT:
+                title: Tourbe de sphaigne
+                description: "Ces d\xE9p\xF4ts consistent en tourbe de sphaigne ou\
+                  \ de for\xEAt, form\xE9 sous un environnement ombrotrophique d\xFB\
+                  \ \xE0 la nature l\xE9g\xE8rement sur\xE9lev\xE9e de la tourbi\xE8\
+                  re. Elles sont souvent dissoci\xE9es de la nappe phr\xE9atique riche\
+                  \ en \xE9l\xE9ments nutritifs ou des sols min\xE9raux environnants."
+              TILL:
+                title: Till (morainique)
+                description: "Moraine (till) d\xE9pos\xE9e par la glace de l'\xE8\
+                  re glaciaire : m\xE9lange de blocs, de sable, de limon et d'argile."
+              UNDM:
+                title: "Min\xE9ral non diff\xE9renci\xE9"
+                description: "S\xE9rie de plus de trois types de mat\xE9riaux min\xE9\
+                  raux g\xE9n\xE9tiques qui affleurent sur un escarpement d'\xE9rosion;\
+                  \ cette classe complexe doit \xEAtre utilis\xE9e dans les cas o\xF9\
+                  \ les unit\xE9s se rapportant aux mat\xE9riaux g\xE9n\xE9tiques\
+                  \ individuels ne peuvent \xEAtre d\xE9limit\xE9es s\xE9par\xE9ment\
+                  \ \xE0 cause de l'\xE9chelle utilis\xE9e; ces mat\xE9riaux comportent\
+                  \ le colluvion qui provient de divers mat\xE9riaux g\xE9n\xE9tiques\
+                  \ et qui repose sur la pente de l'escarpement."
+              UNDO:
+                title: "Organique non diff\xE9renci\xE9"
+                description: "S\xE9rie de couches comportant plus de trois types de\
+                  \ mat\xE9riaux organiques (>30 % de mati\xE8re organique en poids)."
+              VOLC:
+                title: Volcanique
+                description: Cendre et ponce volcaniques.
+              RKUD:
+                title: "Non diff\xE9renci\xE9s"
+                description: "Assise rocheuse, non diff\xE9renci\xE9s"
+              RKIA:
+                title: "Ign\xE9e, acide"
+                description: "Ign\xE9e, assise rocheuse acide (granite dominant)"
+              RKIB:
+                title: "Ign\xE9e, de base"
+                description: "Ign\xE9e, assise rocheuse de base (basalte dominant)"
+              RKIC:
+                title: "Ign\xE9e, grossi\xE8re de base"
+                description: "Ign\xE9e, assise rocheuse grossi\xE8re de base (basalte\
+                  \ particulaire grossi\xE8re)"
+              RKIF:
+                title: "Ign\xE9e, de base \xE0 particule fine"
+                description: "Ign\xE9e, assise rocheuse de base \xE0 particule fine\
+                  \ (and\xE9sites dominant)"
+              RKCA:
+                title: Calcaire
+                description: "Assise rocheuse calcaire (gr\xE8s et schiste dominant)"
+              RKLS:
+                title: "Pierre \xE0 chaux"
+                description: "Assise rocheuse de pierre \xE0 chaux (dolomite et pierre\
+                  \ \xE0 chaux)"
+              RKSH:
+                title: Schisteuse
+                description: Assise rocheuse schisteuse
+              RKSS:
+                title: "Gr\xE8s"
+                description: "Assise rocheuse de gr\xE8s"
+              RKSM:
+                title: "Gr\xE8s fin et de pierre de boue"
+                description: "Gr\xE8s fin et assise rocheuse de pierre de boue"
+              RKSP:
+                title: Schiste et phyllithe
+                description: Schiste et assise rocheuse phyllithe
+              RKSA:
+                title: Ardoise
+                description: "Assise rocheuse d'ardoise"
+              RKQU:
+                title: Quartz
+                description: Assise rocheuse de quartz
+              RKGN:
+                title: Gneiss
+                description: Assise rocheuse de gneiss
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_ORDER3:
+            permissible_values:
+              BR:
+                title: Brunisolique
+                description: Brunisolique
+              CH:
+                title: "Chernoz\xE9mique"
+                description: "Chernoz\xE9mique"
+              CY:
+                title: Cryosolique
+                description: Cryosolique
+              GL:
+                title: Gleysolique
+                description: Gleysolique
+              LU:
+                title: Luvisolique
+                description: Luvisolique
+              OR:
+                title: Organique
+                description: Organique
+              PZ:
+                title: Podzolique
+                description: Podzolique
+              RG:
+                title: "R\xE9gosolique"
+                description: "R\xE9gosolique"
+              SZ:
+                title: Solonetzique
+                description: Solonetzique
+              VE:
+                title: Vertisolique
+                description: Vertisolique
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas"
+          NSDB_G_GROUP3:
+            permissible_values:
+              MB:
+                title: "Brunisol m\xE9lanique"
+                description: "Brunisol m\xE9lanique"
+              EB:
+                title: Brunisol eutrique
+                description: Brunisol eutrique
+              SB:
+                title: Brunisol sombrique
+                description: Brunisol sombrique
+              DYB:
+                title: Brunisol dystrique
+                description: Brunisol dystrique
+              BC:
+                title: Chernozem brun
+                description: Chernozem brun
+              DBC:
+                title: "Chernozem brun fonc\xE9"
+                description: "Chernozem brun fonc\xE9"
+              BLC:
+                title: Chernozem noir
+                description: Chernozem noir
+              DGC:
+                title: "Chernozem gris fonc\xE9"
+                description: "Chernozem gris fonc\xE9"
+              TC:
+                title: Cryosol turbique
+                description: Cryosol turbique
+              SC:
+                title: Cryosol statique
+                description: Cryosol statique
+              OC:
+                title: Cryosol organique
+                description: Cryosol organique
+              HG:
+                title: Gleysol humique
+                description: Gleysol humique
+              G:
+                title: Gleysol
+                description: Gleysol
+              LG:
+                title: Gleysol luvique
+                description: Gleysol luvique
+              GBL:
+                title: Luvisol brun-gris
+                description: Luvisol brun-gris
+              GL:
+                title: Luvisol gris
+                description: Luvisol gris
+              F:
+                title: Fibrisol
+                description: Fibrisol
+              M:
+                title: "M\xE9sisol"
+                description: "M\xE9sisol"
+              H:
+                title: Humisol
+                description: Humisol
+              FO:
+                title: Folisol
+                description: Folisol
+              HP:
+                title: Podzol humique
+                description: Podzol humique
+              FHP:
+                title: Podzol ferro-humique
+                description: Podzol ferro-humique
+              HFP:
+                title: Podzol humo-ferrique
+                description: Podzol humo-ferrique
+              R:
+                title: "R\xE9gosol"
+                description: "R\xE9gosol"
+              HR:
+                title: "R\xE9gosol humique"
+                description: "R\xE9gosol humique"
+              SZ:
+                title: Solonetz
+                description: Solonetz
+              SS:
+                title: "Solonetz solodis\xE9"
+                description: "Solonetz solodis\xE9"
+              SO:
+                title: Solod
+                description: Solod
+              VSZ:
+                title: Solonetz vertique
+                description: Solonetz vertique
+              V:
+                title: Vertisol
+                description: Vertisol
+              HV:
+                title: Vertisol humique
+                description: Vertisol humique
+          NSDB_S_GROUP3:
+            permissible_values:
+              O:
+                title: Vertisol humique orthique
+                description: Vertisol humique orthique
+              E:
+                title: "Chernozem noir \xE9luvial"
+                description: "Chernozem noir \xE9luvial"
+              GL:
+                title: "Vertisol humique gleyifi\xE9"
+                description: "Vertisol humique gleyifi\xE9"
+              GLE:
+                title: "Chernozem noir \xE9luvial gleyifi\xE9"
+                description: "Chernozem noir \xE9luvial gleyifi\xE9"
+              DU:
+                title: Podzol humo-ferrique durique
+                description: Podzol humo-ferrique durique
+              R:
+                title: "Gleysol r\xE9gosolique"
+                description: "Gleysol r\xE9gosolique"
+              CA:
+                title: "Chernozem gris fonc\xE9 calcaire"
+                description: "Chernozem gris fonc\xE9 calcaire"
+              SZ:
+                title: Luvisol gris solonetzique
+                description: Luvisol gris solonetzique
+              V:
+                title: Luvisol gris vertique
+                description: Luvisol gris vertique
+              GLR:
+                title: "Chernozem gris fonc\xE9 r\xE9gosolique gleyifi\xE9"
+                description: "Chernozem gris fonc\xE9 r\xE9gosolique gleyifi\xE9"
+              GLCA:
+                title: "Chernozem gris fonc\xE9 calcaire gleyifi\xE9"
+                description: "Chernozem gris fonc\xE9 calcaire gleyifi\xE9"
+              GLSZ:
+                title: "Luvisol gris solonetzique gleyifi\xE9"
+                description: "Luvisol gris solonetzique gleyifi\xE9"
+              GLV:
+                title: "Luvisol gris vertique gleyifi\xE9"
+                description: "Luvisol gris vertique gleyifi\xE9"
+              OE:
+                title: Cryosol statique eutrique orthique
+                description: Cryosol statique eutrique orthique
+              OD:
+                title: Cryosol statique dystrique orthique
+                description: Cryosol statique dystrique orthique
+              BRE:
+                title: Cryosol statique eutrique brunisolique
+                description: Cryosol statique eutrique brunisolique
+              BRD:
+                title: Cryosol statique dystrique brunisolique
+                description: Cryosol statique dystrique brunisolique
+              HE:
+                title: Folisol humique
+                description: Folisol humique
+              HD:
+                title: Cryosol statique dystrique histique
+                description: Cryosol statique dystrique histique
+              HR:
+                title: "Cryosol statique r\xE9gosolique histique"
+                description: "Cryosol statique r\xE9gosolique histique"
+              L:
+                title: Cryosol statique luvisolique
+                description: Cryosol statique luvisolique
+              FI:
+                title: Humisol fibrique
+                description: Humisol fibrique
+              ME:
+                title: "Humisol m\xE9sique"
+                description: "Humisol m\xE9sique"
+              HU:
+                title: Folisol humique
+                description: Folisol humique
+              TFI:
+                title: Humisol terrique fibrique
+                description: Humisol terrique fibrique
+              TME:
+                title: "Humisol terrique m\xE9sique"
+                description: "Humisol terrique m\xE9sique"
+              THU:
+                title: "M\xE9sisol terrique humique"
+                description: "M\xE9sisol terrique humique"
+              GC:
+                title: Cryosol organique glacique
+                description: Cryosol organique glacique
+              FE:
+                title: Gleysol luvique ferrique
+                description: Gleysol luvique ferrique
+              FR:
+                title: Podzol humo-ferrique fragique
+                description: Podzol humo-ferrique fragique
+              BR:
+                title: Luvisol gris brunisolique
+                description: Luvisol gris brunisolique
+              PZ:
+                title: Luvisol gris podzolique
+                description: Luvisol gris podzolique
+              GLBR:
+                title: "Luvisol gris brunisolique gleyifi\xE9"
+                description: "Luvisol gris brunisolique gleyifi\xE9"
+              GLPZ:
+                title: "Luvisol gris podzolique gleyifi\xE9"
+                description: "Luvisol gris podzolique gleyifi\xE9"
+              D:
+                title: "Luvisol gris fonc\xE9"
+                description: "Luvisol gris fonc\xE9"
+              GLD:
+                title: "Luvisol gris fonc\xE9 gleyifi\xE9"
+                description: "Luvisol gris fonc\xE9 gleyifi\xE9"
+              GLFR:
+                title: "Luvisol gris fragique gleyifi\xE9"
+                description: "Luvisol gris fragique gleyifi\xE9"
+              TY:
+                title: Humisol typique
+                description: Humisol typique
+              LM:
+                title: Humisol limnique
+                description: Humisol limnique
+              CU:
+                title: "R\xE9gosol humique cumulique"
+                description: "R\xE9gosol humique cumulique"
+              T:
+                title: Humisol terrique
+                description: Humisol terrique
+              HY:
+                title: Humisol hydrique
+                description: Humisol hydrique
+              HI:
+                title: Folisol histique
+                description: Folisol histique
+              LI:
+                title: Folisol lignique
+                description: Folisol lignique
+              OT:
+                title: "Podzol humo-ferrique \xE0 ortstein"
+                description: "Podzol humo-ferrique \xE0 ortstein"
+              P:
+                title: Podzol humo-ferrique placique
+                description: Podzol humo-ferrique placique
+              LU:
+                title: Podzol humo-ferrique luvisolique
+                description: Podzol humo-ferrique luvisolique
+              SM:
+                title: Podzol humo-ferrique sombrique
+                description: Podzol humo-ferrique sombrique
+              GLSM:
+                title: "Podzol humo-ferrique sombrique gleyifi\xE9"
+                description: "Podzol humo-ferrique sombrique gleyifi\xE9"
+              GLOT:
+                title: "Podzol humo-ferrique \xE0 ortstein gleyifi\xE9"
+                description: "Podzol humo-ferrique \xE0 ortstein gleyifi\xE9"
+              GLCU:
+                title: "R\xE9gosol humique cumulique gleyifi\xE9"
+                description: "R\xE9gosol humique cumulique gleyifi\xE9"
+              B:
+                title: Solonetz vertique brun
+                description: Solonetz vertique brun
+              DB:
+                title: "Solonetz vertique brun fonc\xE9"
+                description: "Solonetz vertique brun fonc\xE9"
+              BL:
+                title: Solonetz vertique noir
+                description: Solonetz vertique noir
+              A:
+                title: Solonetz alcalin
+                description: Solonetz alcalin
+              GLB:
+                title: "Solonetz vertique brun gleyifi\xE9"
+                description: "Solonetz vertique brun gleyifi\xE9"
+              GLDB:
+                title: "Solonetz vertique brun fonc\xE9 gleyifi\xE9"
+                description: "Solonetz vertique brun fonc\xE9 gleyifi\xE9"
+              GLBL:
+                title: "Solonetz vertique noir gleyifi\xE9"
+                description: "Solonetz vertique noir gleyifi\xE9"
+              DG:
+                title: "Solod gris fonc\xE9"
+                description: "Solod gris fonc\xE9"
+              G:
+                title: Solod gris
+                description: Solod gris
+              GLDG:
+                title: "Solod gris fonc\xE9 gleyifi\xE9"
+                description: "Solod gris fonc\xE9 gleyifi\xE9"
+              GLG:
+                title: "Solod gris gleyifi\xE9"
+                description: "Solod gris gleyifi\xE9"
+              GLC:
+                title: Vertisol humique gleysolique
+                description: Vertisol humique gleysolique
+          NSDB_HZN_MAS:
+            permissible_values:
+              A:
+                title: "Horizon min\xE9ral sup\xE9rieur"
+                description: "Horizon min\xE9ral form\xE9, \xE0 la surface ou tout\
+                  \ pr\xE8s, dans la zone de lessivage ou d'\xE9luviation de mat\xE9\
+                  riaux en solution ou en suspension, ou dans celle d'accumulation\
+                  \ maximale in situ de mati\xE8re organique, ou dans les deux \xE0\
+                  \ la fois. L'accumulation de mati\xE8re organique est habituellement\
+                  \ exprim\xE9e morphologiquement par l'aspect plus fonc\xE9 de la\
+                  \ couleur de la surface du sol (Ah). Inversement l'\xE9luviation\
+                  \ de la mati\xE8re organique se manifeste habituellement par une\
+                  \ couleur du sol plus claire, g\xE9n\xE9ralement dans la partie\
+                  \ sup\xE9rieure du solum (Ae). L'appauvrissement en argile de la\
+                  \ partie sup\xE9rieure du solum (Ae) se traduit par une texture\
+                  \ du sol plus grossi\xE8re par rapport aux couches sous-jacentes\
+                  \ du sous-sol. L'\xE9luviation en fer se manifeste g\xE9n\xE9ralement\
+                  \ par une couleur du sol plus p\xE2le ou moins rouge dans la partie\
+                  \ sup\xE9rieure du solum (Ae), par rapport \xE0 la partie sous-jacente\
+                  \ du sous-sol."
+              AB:
+                title: "Horizon de transition sup\xE9rieur"
+                description: "Transition graduelle. La dominance des horizons dans\
+                  \ une zone de transition peut \xEAtre montr\xE9e par d'ordre de\
+                  \ d\xE9signation de l'horizon, par exemple AB ou BA etc. Dans certains\
+                  \ cas, on peut ajouter des suffixes minuscules \xE9galement, p.\
+                  \ ex. ABg, ABgj etc."
+              AC:
+                title: "Horizon de transition sup\xE9rieur"
+                description: "Transition graduelle. La dominance des horizons dans\
+                  \ une zone de transition peut \xEAtre montr\xE9e par d'ordre de\
+                  \ d\xE9signation de l'horizon, par exemple AC ou BC etc. Dans certains\
+                  \ cas, on peut ajouter des suffixes minuscules \xE9galement, p.\
+                  \ ex. ACg, ACgj etc."
+              B:
+                title: "Horizon min\xE9ral du sous-sol"
+                description: "Horizon min\xE9ral caract\xE9ris\xE9 par l'enrichissement\
+                  \ en mati\xE8re organique, en sesquioxyde ou en argile ou par le\
+                  \ d\xE9veloppement de la structure du sol, ou un changement de la\
+                  \ couleur indiquant l'hydrolyse, la r\xE9duction ou l'oxydation.\
+                  \ Dans les horizons B, l'accumulation de mati\xE8re organique (Bh)\
+                  \ est commun\xE9ment mise en \xE9vidence par des couleurs relativement\
+                  \ fonc\xE9es, en comparaison avec l'horizon C. L'accumulation d'argile\
+                  \ est indiqu\xE9e par des textures de sol plus fines et par des\
+                  \ cutanes d'argile enrobant les peds et remplissant les pores (Bt).\
+                  \ La structure du sol qui se forme dans les horizons B comprend\
+                  \ les unit\xE9s prismatiques ou colonnaires avec enrobements ou\
+                  \ taches et des quantit\xE9s significatives de sodium \xE9changeable\
+                  \ (Bn) et d'autres changements de structure (Bm) \xE0 partir de\
+                  \ celle du mat\xE9riau parental. Les changements de couleur comprennent\
+                  \ la brunification relativement uniforme d\xFB \xE0 l'oxydation\
+                  \ du fer (Bm) ainsi que la marmorisation et la gleyification du\
+                  \ mat\xE9riau alt\xE9r\xE9 structuralement, associ\xE9s \xE0 une\
+                  \ r\xE9duction p\xE9riodique (Bg)."
+              BA:
+                title: Horizon de transition du sous-sol
+                description: "Transition graduelle. La dominance des horizons dans\
+                  \ une zone de transition peut \xEAtre montr\xE9e par d'ordre de\
+                  \ d\xE9signation de l'horizon, par exemple AB ou BA etc. Dans certains\
+                  \ cas, on peut ajouter des suffixes minuscules \xE9galement, p.\
+                  \ ex. BAg, BAgj etc."
+              BC:
+                title: Horizon de transition du sous-sol
+                description: "Transition graduelle. La dominance des horizons dans\
+                  \ une zone de transition peut \xEAtre montr\xE9e par d'ordre de\
+                  \ d\xE9signation de l'horizon, par exemple AC ou BC etc. Dans certains\
+                  \ cas, on peut ajouter des suffixes minuscules \xE9galement, p.\
+                  \ ex. BCg, BCgj etc."
+              C:
+                title: "Horizon min\xE9ral transversal"
+                description: "Horizon min\xE9ral comparativement non influenc\xE9\
+                  \ par les processus p\xE9dog\xE9niques agissant dans les horizons\
+                  \ A et B, \xE0 l'exception du processus de gleyification (Cg) et\
+                  \ de l'accumulation de carbonates de calcium et de magn\xE9sium\
+                  \ (Cca) ainsi que de sels plus solubles (Cs, Csa). La marne, la\
+                  \ terre de diatom\xE9es et le roc de duret\xE9 \u22643 sur l'\xE9\
+                  chelle de Mohs sont consid\xE9r\xE9s comme des horizons C."
+              CA: {}
+              CB: {}
+              F:
+                title: "Horizon organique partiellement d\xE9compos\xE9e"
+                description: "Horizon organique caract\xE9ris\xE9 par une accumulation\
+                  \ de mati\xE8re organique partiellement d\xE9compos\xE9e. Certaines\
+                  \ des structures originelles sont difficiles \xE0 reconna\xEEtre.\
+                  \ Le mat\xE9riau peut avoir \xE9t\xE9 partiellement fragment\xE9\
+                  \ par la faune du sol comme dans un moder, ou il peut former un\
+                  \ tapis partiellement d\xE9compos\xE9, infiltr\xE9 par des hyphes\
+                  \ fongiques, comme dans le mor."
+              FH: {}
+              H:
+                title: Horizon organique d&#39;origine indiscernable
+                description: "Horizon organique caract\xE9ris\xE9 par l'accumulation\
+                  \ de mati\xE8re organique d\xE9compos\xE9e dans laquelle il est\
+                  \ impossible de reconna\xEEtre les structures originelles. Cet horizon\
+                  \ diff\xE8re du F par son degr\xE9 d'humification plus \xE9lev\xE9\
+                  , d\xFB principalement \xE0 l'action d'organismes. Il est fr\xE9\
+                  quemment m\xE9lang\xE9 \xE0 des particules min\xE9rales, principalement\
+                  \ pr\xE8s de son point de contact avec un horizon min\xE9ral."
+              L:
+                title: "Horizon organique mal d\xE9compos\xE9e"
+                description: "Horizon organique caract\xE9ris\xE9 par une accumulation\
+                  \ de mati\xE8re organique dans lequel les structures d'origine sont\
+                  \ facilement rep\xE9rables."
+              LF: {}
+              LFH: {}
+              LH: {}
+              O:
+                title: "Horizon organique de mousses, de joncs et des mati\xE8res\
+                  \ ligneuses"
+                description: "Horizon organique d\xE9velopp\xE9 principalement \xE0\
+                  \ partir de mousses, de joncs et mat\xE9riaux ligneux."
+              R:
+                title: Couche de roc
+                description: "Cette couche de roc consolid\xE9 est trop dure pour\
+                  \ \xEAtre bris\xE9e \xE0 la main (> 3 sur l'\xE9chelle de Mohs)\
+                  \ ou creus\xE9e \xE0 la pelle lorsqu'\xE0 l'\xE9tat humide. Elle\
+                  \ ne rencontre pas les exigences d'un horizon C. La limite entre\
+                  \ la couche R et tout mat\xE9riau non consolid\xE9 la recouvrant\
+                  \ s'appelle un contact lithique."
+              W:
+                title: Couche d&#39;eau
+                description: "Cette couche d'eau peut \xEAtre pr\xE9sente dans les\
+                  \ sols gleysoliques, organiques ou cryosoliques. Dans les sols organiques,\
+                  \ les couches hydriques sont une sorte de couche W, comme le est\
+                  \ la formation de s\xE9gr\xE9gations de glace dans les sols cryosoliques."
+              '-': {}
+          NSDB_DOMSAND:
+            permissible_values:
+              VC:
+                title: "Tr\xE8s grossier"
+                description: "La fraction de sable dominante est de cat\xE9gorie 'tr\xE8\
+                  s grossier'."
+              C:
+                title: Grossier
+                description: "La fraction de sable dominante est de cat\xE9gorie 'grossier'."
+              M:
+                title: Moyen
+                description: "La fraction de sable dominante est de cat\xE9gorie 'moyen'."
+              F:
+                title: Fin
+                description: "La fraction de sable dominante est de cat\xE9gorie 'fin'."
+              VF:
+                title: "Tr\xE8s fin"
+                description: "La fraction de sable dominante est de cat\xE9gorie 'tr\xE8\
+                  s fin'"
+              '-':
+                title: Ne s&#39;applique pas
+                description: "La fraction de sable dominante ne s'applique pas."
+          NSDB_VONPOST:
+            permissible_values:
+              '01':
+                title: Couche de mousse vivante
+                description: "Couche de mousse vivante. G\xE9n\xE9ralement en surface,\
+                  \ de 2 \xE0 4 cm. Ne peut \xEAtre consid\xE9r\xE9e comme de la \xAB\
+                  \ tourbe \xBB car elle n\u2019est pas encore morte."
+              '02':
+                title: "Mat\xE9riel v\xE9g\xE9tal mort"
+                description: "La structure et la forme du mat\xE9riel v\xE9g\xE9tal\
+                  \ sont intactes. La seule diff\xE9rence entre les cat\xE9gories\
+                  \ 01 et 02 est qu\u2019une tourbe de la cat\xE9gorie 02 n\u2019\
+                  est pas vivante. Lorsque le mat\xE9riel est press\xE9, de l\u2019\
+                  eau claire \xE0 l\xE9g\xE8rement jaun\xE2tre s\u2019\xE9chappe.\
+                  \ L\u2019\xE9chantillon de tourbe est normalement de couleur jaune-orange\
+                  \ vif, surtout apr\xE8s avoir \xE9t\xE9 press\xE9. L\u2019\xE9chantillon\
+                  \ est spongieux ou \xE9lastique; lorsqu\u2019on le presse, l\u2019\
+                  \xE9chantillon reprend sa forme initiale et ne garde que peu ou\
+                  \ pas l\u2019empreinte de la main."
+              '03':
+                title: "Mat\xE9riel v\xE9g\xE9tal facile \xE0 distinguer"
+                description: "Le mat\xE9riel v\xE9g\xE9tal est toujours tr\xE8s facile\
+                  \ \xE0 distinguer, mais les \xAB tiges \xBB individuelles de sphaigne\
+                  \ se brisent en morceaux, au lieu d\u2019\xEAtre des longueurs continues\
+                  \ de tiges, etc. Lorsque le mat\xE9riel est press\xE9, de l\u2019\
+                  eau jaune avec quelques d\xE9bris v\xE9g\xE9taux (principalement\
+                  \ des feuilles) s\u2019\xE9chappe. La couleur de l\u2019\xE9chantillon\
+                  \ est un peu plus fonc\xE9e que celle d\u2019une tourbe de la cat\xE9\
+                  gorie 02. L\u2019\xE9chantillon est encore spongieux, mais moins\
+                  \ qu\u2019une tourbe de la cat\xE9gorie 02; lorsqu\u2019on la presse,\
+                  \ la tourbe revient \xE0 un point o\xF9 l\u2019on peut distinguer\
+                  \ une forme floue \xE0 assez d\xE9finie de l\u2019empreinte de la\
+                  \ main."
+              '04':
+                title: "Mat\xE9riel v\xE9g\xE9tal en d\xE9sint\xE9gration"
+                description: "Le mat\xE9riel v\xE9g\xE9tal n\u2019est pas aussi facile\
+                  \ \xE0 distinguer que celui de la cat\xE9gorie 03, car les morceaux\
+                  \ de tourbe, comme il est mentionn\xE9 plus haut, sont maintenant\
+                  \ en train de se d\xE9sint\xE9grer. Il y a souvent des tiges, des\
+                  \ branches et des feuilles individuelles. Lorsque le mat\xE9riel\
+                  \ est press\xE9, de l\u2019eau brun p\xE2le \xE0 brun avec beaucoup\
+                  \ de d\xE9bris s\u2019\xE9chappe. L\u2019\xE9chantillon n\u2019\
+                  est pas spongieux et, lorsqu\u2019on le frotte, une texture l\xE9\
+                  g\xE8rement savonneuse ou humique est constat\xE9e. En pressant\
+                  \ l\u2019\xE9chantillon, on obtient une empreinte parfaite de la\
+                  \ main. Il convient de noter qu\u2019apr\xE8s avoir press\xE9 l\u2019\
+                  \xE9chantillon de tourbe, la diff\xE9rence de forme entre les cat\xE9\
+                  gories 03 et 04 est que la tourbe de la cat\xE9gorie 03 est \xAB\
+                  \ arrondie \xBB, tandis que celle de la cat\xE9gorie 04 a des cr\xEA\
+                  tes nettes laiss\xE9es par les doigts. Aucune tourbe ne s\u2019\xE9\
+                  chappe entre les doigts."
+              '05':
+                title: "Partie du mat\xE9riel non structur\xE9"
+                description: "Le mat\xE9riel v\xE9g\xE9tal a atteint un stade de d\xE9\
+                  composition o\xF9 les  constituants individuels (branches, feuilles,\
+                  \ tige) commencent \xE0 se d\xE9sint\xE9grer, de sorte qu\u2019\
+                  un peu de mat\xE9riel amorphe ou non structur\xE9 est pr\xE9sent.\
+                  \ Lorsque le mat\xE9riel est press\xE9, de l\u2019eau nettement\
+                  \ brune s\u2019\xE9chappe. Ce liquide ne peut plus \xEAtre consid\xE9\
+                  r\xE9 comme de l\u2019eau, mais plut\xF4t une solution. L\u2019\xE9\
+                  chantillon a une texture savonneuse ou humique plus nette, mais\
+                  \ la rugosit\xE9 est toujours pr\xE9sente. Lorsque l\u2019\xE9chantillon\
+                  \ est press\xE9, une tr\xE8s petite quantit\xE9 de tourbe s\u2019\
+                  \xE9chappe entre les doigts."
+              '06':
+                title: "Moiti\xE9 du mat\xE9riel non structur\xE9"
+                description: "Le mat\xE9riel v\xE9g\xE9tal s\u2019est d\xE9compos\xE9\
+                  \ au point que pr\xE8s de la moiti\xE9 de l\u2019\xE9chantillon\
+                  \ est amorphe ou non structur\xE9. Les constituants de la plante\
+                  \ sont encore reconnaissables lors d\u2019un examen minutieux dans\
+                  \ la main. Lorsque le mat\xE9riel est press\xE9, de l\u2019eau brune\
+                  \ \xE0 brun fonc\xE9 s\u2019\xE9chappe. L\u2019\xE9chantillon est\
+                  \ p\xE2teux et tr\xE8s mall\xE9able. Lorsque l\u2019\xE9chantillon\
+                  \ est press\xE9, environ un tiers de la tourbe s\u2019\xE9chappe\
+                  \ entre les doigts sous forme de p\xE2te."
+              '07':
+                title: "Mat\xE9riel v\xE9g\xE9tal pratiquement indiscernable"
+                description: "Le mat\xE9riel v\xE9g\xE9tal d\u2019origine est pratiquement\
+                  \ indiscernable et un examen tr\xE8s minutieux dans la main est\
+                  \ n\xE9cessaire pour constater la pr\xE9sence de vagues structures.\
+                  \ Si l\u2019\xE9chantillon est \xAB manipul\xE9 \xBB, cette structure\
+                  \ dispara\xEEt. Il convient de noter que des \xE9l\xE9ments tels\
+                  \ que les racines de mauvaises herbes et de carex et les fibres\
+                  \ d\u2019Eriophorum sont souvent tr\xE8s r\xE9sistants \xE0 la d\xE9\
+                  composition, et peuvent \xEAtre pr\xE9sents dans leur \xE9tat \xAB\
+                  \ original \xBB dans les tourbes humifi\xE9es jusqu\u2019\xE0 la\
+                  \ cat\xE9gorie 07. Lorsque le mat\xE9riel est l\xE9g\xE8rement press\xE9\
+                  , une petite quantit\xE9 d\u2019eau tr\xE8s fonc\xE9e s\u2019\xE9\
+                  chappe. Lors du pressage final, plus de la moiti\xE9 de la tourbe\
+                  \ s\u2019\xE9chappe entre les doigts."
+              08:
+                title: "Pas de racines ou de fibres appr\xE9ciables"
+                description: "Les seuls restes v\xE9g\xE9taux reconnaissables sont\
+                  \ les racines ou les fibres d\u2019Eriophorum, lorsqu\u2019elles\
+                  \ sont pr\xE9sentes. Si des quantit\xE9s appr\xE9ciables de racines\
+                  \ ou de fibres sont pr\xE9sentes, la tourbe ne peut \xEAtre consid\xE9\
+                  r\xE9e comme \xE9tant de la cat\xE9gorie 08, m\xEAme si le reste\
+                  \ du mat\xE9riel l\u2019est. Il y a une \xAB quantit\xE9 appr\xE9\
+                  ciable \xBB de ces mati\xE8res lorsque celles-ci entravent le pressage\
+                  \ de la mati\xE8re amorphe restante. Si des morceaux ou des copeaux\
+                  \ de mauvaises herbes sont pr\xE9sents dans l\u2019\xE9chantillon,\
+                  \ quelle qu\u2019en soit la quantit\xE9, la tourbe doit \xEAtre\
+                  \ class\xE9e dans la cat\xE9gorie 07. Un pressage l\xE9ger ne produit\
+                  \ pas ou peu d\u2019eau. Lors du pressage final, plus des deux tiers\
+                  \ de la tourbe s\u2019\xE9chappent entre les doigts."
+              09:
+                title: "Amorphe et homog\xE8ne"
+                description: "Un \xE9chantillon tr\xE8s homog\xE8ne, amorphe, ne contenant\
+                  \ ni racines ni fibres. Il n\u2019y a pas d\u2019eau libre lors\
+                  \ du pressage, et la quasi-totalit\xE9 de l\u2019\xE9chantillon\
+                  \ s\u2019\xE9chappe entre les doigts."
+              '10':
+                title: "Homog\xE8ne \xE0 texture de pouding"
+                description: "Tr\xE8s rare \xE0 inexistant dans les tourbes non s\xE9\
+                  dimentaires. Dans les tourbes s\xE9dimentaires, la taille des particules\
+                  \ peut \xEAtre extr\xEAmement petite, ce qui donne une mati\xE8\
+                  re homog\xE8ne ayant une texture de \xAB pouding \xBB. Lorsqu\u2019\
+                  on le presse, tout l\u2019\xE9chantillon s\u2019\xE9chappe entre\
+                  \ les doigts."
+              '-9':
+                title: "Ne s\u2019applique pas"
+                description: "Ne s\u2019applique pas."

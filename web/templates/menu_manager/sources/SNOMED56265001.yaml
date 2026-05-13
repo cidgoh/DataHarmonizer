@@ -1,0 +1,234 @@
+id: http://snomed.info/id/
+name: SNOMED56265001
+title: Heart disease
+description: ''
+version: http://snomed.info/sct/900000000000207008/version/20251017
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes:
+  SNOMED: http://snomed.info/id/
+default_prefix: ''
+classes: {}
+enums:
+  SNOMED56265001:
+    name: SNOMED56265001
+    title: Heart disease
+    reachable_from:
+      api:
+        ols:
+          type: rest
+      source_nodes:
+        - 'SNOMED:56265001'
+      include_self: true
+    permissible_values:
+      'SNOMED:105981003':
+        text: 'SNOMED:105981003'
+        meaning: 'SNOMED:105981003'
+        title: Disorder of cardiac function
+        is_a: 'SNOMED:56265001'
+      'SNOMED:12060971000119104':
+        text: 'SNOMED:12060971000119104'
+        meaning: 'SNOMED:12060971000119104'
+        title: Malfunction of implanted cardiac electrode
+        is_a: 'SNOMED:56265001'
+      'SNOMED:1208342001':
+        text: 'SNOMED:1208342001'
+        meaning: 'SNOMED:1208342001'
+        title: Eye defects, arachnodactyly, cardiopathy syndrome
+        is_a: 'SNOMED:56265001'
+      'SNOMED:123596001':
+        text: 'SNOMED:123596001'
+        meaning: 'SNOMED:123596001'
+        title: Disorder of endocardium
+        is_a: 'SNOMED:56265001'
+      'SNOMED:123597005':
+        text: 'SNOMED:123597005'
+        meaning: 'SNOMED:123597005'
+        title: Healed bacterial endocarditis
+        is_a: 'SNOMED:56265001'
+      'SNOMED:127337006':
+        text: 'SNOMED:127337006'
+        meaning: 'SNOMED:127337006'
+        title: Acute heart disease
+        is_a: 'SNOMED:56265001'
+      'SNOMED:128238001':
+        text: 'SNOMED:128238001'
+        meaning: 'SNOMED:128238001'
+        title: Chronic heart disease
+        is_a: 'SNOMED:56265001'
+      'SNOMED:128403000':
+        text: 'SNOMED:128403000'
+        meaning: 'SNOMED:128403000'
+        title: Infectious disease of heart
+        is_a: 'SNOMED:56265001'
+      'SNOMED:128599005':
+        text: 'SNOMED:128599005'
+        meaning: 'SNOMED:128599005'
+        title: Structural disorder of heart
+        is_a: 'SNOMED:56265001'
+      'SNOMED:1351648007':
+        text: 'SNOMED:1351648007'
+        meaning: 'SNOMED:1351648007'
+        title: Autosomal recessive agammaglobulinemia due to folliculin interacting
+          protein 1 deficiency (disorder)
+        is_a: 'SNOMED:56265001'
+      'SNOMED:204407002':
+        text: 'SNOMED:204407002'
+        meaning: 'SNOMED:204407002'
+        title: Anomalous bands of heart
+        is_a: 'SNOMED:56265001'
+      'SNOMED:233816003':
+        text: 'SNOMED:233816003'
+        meaning: 'SNOMED:233816003'
+        title: Postoperative cardiac complication
+        is_a: 'SNOMED:56265001'
+      'SNOMED:233931008':
+        text: 'SNOMED:233931008'
+        meaning: 'SNOMED:233931008'
+        title: "Athlete's heart"
+        is_a: 'SNOMED:56265001'
+      'SNOMED:234225006':
+        text: 'SNOMED:234225006'
+        meaning: 'SNOMED:234225006'
+        title: Cardiac pacemaker re-entrant tachycardia
+        is_a: 'SNOMED:56265001'
+      'SNOMED:25569003':
+        text: 'SNOMED:25569003'
+        meaning: 'SNOMED:25569003'
+        title: Ventricular tachycardia
+        is_a: 'SNOMED:56265001'
+      'SNOMED:274121004':
+        text: 'SNOMED:274121004'
+        meaning: 'SNOMED:274121004'
+        title: Cardiac disease in pregnancy
+        is_a: 'SNOMED:56265001'
+      'SNOMED:297253000':
+        text: 'SNOMED:297253000'
+        meaning: 'SNOMED:297253000'
+        title: Cardiac glycogen phosphorylase kinase deficiency
+        is_a: 'SNOMED:56265001'
+      'SNOMED:301095005':
+        text: 'SNOMED:301095005'
+        meaning: 'SNOMED:301095005'
+        title: Cardiac finding
+      'SNOMED:362999008':
+        text: 'SNOMED:362999008'
+        meaning: 'SNOMED:362999008'
+        title: Cardiac complication of procedure
+        is_a: 'SNOMED:56265001'
+      'SNOMED:368009':
+        text: 'SNOMED:368009'
+        meaning: 'SNOMED:368009'
+        title: Heart valve disorder
+        is_a: 'SNOMED:56265001'
+      'SNOMED:371073003':
+        text: 'SNOMED:371073003'
+        meaning: 'SNOMED:371073003'
+        title: Postural orthostatic tachycardia syndrome
+        is_a: 'SNOMED:56265001'
+      'SNOMED:397841007':
+        text: 'SNOMED:397841007'
+        meaning: 'SNOMED:397841007'
+        title: Drug-induced bradycardia
+        is_a: 'SNOMED:56265001'
+      'SNOMED:40172005':
+        text: 'SNOMED:40172005'
+        meaning: 'SNOMED:40172005'
+        title: Cardiac complication
+        is_a: 'SNOMED:56265001'
+      'SNOMED:414024009':
+        text: 'SNOMED:414024009'
+        meaning: 'SNOMED:414024009'
+        title: Disorder of coronary artery
+        is_a: 'SNOMED:56265001'
+      'SNOMED:415991003':
+        text: 'SNOMED:415991003'
+        meaning: 'SNOMED:415991003'
+        title: Disorder of cardiac ventricle
+        is_a: 'SNOMED:56265001'
+      'SNOMED:424889004':
+        text: 'SNOMED:424889004'
+        meaning: 'SNOMED:424889004'
+        title: Sinistrocardia
+        is_a: 'SNOMED:56265001'
+      'SNOMED:430401005':
+        text: 'SNOMED:430401005'
+        meaning: 'SNOMED:430401005'
+        title: Heart disease caused by ionizing radiation (disorder)
+        is_a: 'SNOMED:56265001'
+      'SNOMED:430901004':
+        text: 'SNOMED:430901004'
+        meaning: 'SNOMED:430901004'
+        title: Fetal heart disorder
+        is_a: 'SNOMED:56265001'
+      'SNOMED:448898002':
+        text: 'SNOMED:448898002'
+        meaning: 'SNOMED:448898002'
+        title: Outflow tract abnormality in solitary indeterminate ventricle
+        is_a: 'SNOMED:56265001'
+      'SNOMED:4641009':
+        text: 'SNOMED:4641009'
+        meaning: 'SNOMED:4641009'
+        title: Myxedema heart disease (disorder)
+        is_a: 'SNOMED:56265001'
+      'SNOMED:48739004':
+        text: 'SNOMED:48739004'
+        meaning: 'SNOMED:48739004'
+        title: Miscarriage with cardiac arrest and/or cardiac failure
+        is_a: 'SNOMED:56265001'
+      'SNOMED:49483002':
+        text: 'SNOMED:49483002'
+        meaning: 'SNOMED:49483002'
+        title: Disorder of mediastinum
+      'SNOMED:49601007':
+        text: 'SNOMED:49601007'
+        meaning: 'SNOMED:49601007'
+        title: Disorder of cardiovascular system
+      'SNOMED:56265001':
+        text: 'SNOMED:56265001'
+        meaning: 'SNOMED:56265001'
+        title: Heart disease
+        is_a: 'SNOMED:301095005'
+      'SNOMED:57809008':
+        text: 'SNOMED:57809008'
+        meaning: 'SNOMED:57809008'
+        title: Myocardial disease
+        is_a: 'SNOMED:56265001'
+      'SNOMED:698247007':
+        text: 'SNOMED:698247007'
+        meaning: 'SNOMED:698247007'
+        title: Cardiac arrhythmia
+        is_a: 'SNOMED:56265001'
+      'SNOMED:713298006':
+        text: 'SNOMED:713298006'
+        meaning: 'SNOMED:713298006'
+        title: Heart disease co-occurrent with human immunodeficiency virus infection
+        is_a: 'SNOMED:56265001'
+      'SNOMED:717959008':
+        text: 'SNOMED:717959008'
+        meaning: 'SNOMED:717959008'
+        title: Cardiac complication of anesthesia during the puerperium (disorder)
+        is_a: 'SNOMED:56265001'
+      'SNOMED:86175003':
+        text: 'SNOMED:86175003'
+        meaning: 'SNOMED:86175003'
+        title: Injury of heart
+        is_a: 'SNOMED:56265001'
+      'SNOMED:870575001':
+        text: 'SNOMED:870575001'
+        meaning: 'SNOMED:870575001'
+        title: Atrial cardiopathy
+        is_a: 'SNOMED:56265001'
+      'SNOMED:90154003':
+        text: 'SNOMED:90154003'
+        meaning: 'SNOMED:90154003'
+        title: Papillary muscle disorder
+        is_a: 'SNOMED:56265001'
+      'SNOMED:95281009':
+        text: 'SNOMED:95281009'
+        meaning: 'SNOMED:95281009'
+        title: Sudden cardiac death
+        is_a: 'SNOMED:56265001'
+slots: {}

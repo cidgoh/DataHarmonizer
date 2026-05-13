@@ -1,0 +1,47 @@
+id: https://raw.githubusercontent.com/agrifooddatacanada/picklists_for_schemas/main/picklists/soil_aeration_status.csv
+name: AFCSoilAerationStatus
+title: Soil aeration status
+description: Qualitative oxygen availability status.
+version: ''
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes: {}
+default_prefix: ''
+classes: {}
+enums:
+  AFCSoilAerationStatus:
+    permissible_values:
+      AERW:
+        title: Well-aerated
+        description: Good oxygen availability
+      AERM:
+        title: Moderately aerated
+        description: Moderate oxygen availability
+      AERP:
+        title: Poorly aerated (anaerobic)
+        description: Low oxygen; anaerobic conditions
+slots: {}
+extensions:
+  locales:
+    tag: locales
+    value:
+      fr:
+        id: https://raw.githubusercontent.com/agrifooddatacanada/picklists_for_schemas/main/picklists/soil_aeration_status.csv
+        name: AFCSoilAerationStatus
+        version: ''
+        in_language: fr
+        description: "Statut qualitatif de disponibilit\xE9 en oxyg\xE8ne."
+        enums:
+          AFCSoilAerationStatus:
+            permissible_values:
+              AERW:
+                title: "Bien a\xE9r\xE9"
+                description: "Bonne disponibilit\xE9 en oxyg\xE8ne"
+              AERM:
+                title: "Mod\xE9r\xE9ment a\xE9r\xE9"
+                description: "Disponibilit\xE9 en oxyg\xE8ne mod\xE9r\xE9e"
+              AERP:
+                title: "Mal a\xE9r\xE9 (ana\xE9robie)"
+                description: "Faible oxyg\xE8ne; conditions ana\xE9robies"

@@ -1,0 +1,137 @@
+id: http://aims.fao.org/aos/agrovoc/
+name: agrovoc
+title: AGROVOC Multilingual Thesaurus
+description: AGROVOC is a multilingual, structured thesaurus coordinated by the Food
+  and Agriculture Organization (FAO) of the United Nations since the early 1980s.
+  It acts as a controlled vocabulary covering all areas of interest to FAO, such as
+  food, agriculture, fisheries, forestry, and the environment.
+version: ''
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes:
+  agrovoc: http://aims.fao.org/aos/agrovoc/
+default_prefix: ''
+classes: {}
+enums:
+  agrovoc:
+    name: agrovoc
+    title: AGROVOC Multilingual Thesaurus
+    reachable_from:
+      api:
+        agrovoc:
+          type: sparql
+      source_nodes:
+        - 'agrovoc:c_26950'
+      include_self: true
+    permissible_values:
+      'agrovoc:c_1ae90098':
+        text: 'agrovoc:c_1ae90098'
+        meaning: 'agrovoc:c_1ae90098'
+        title: community fishing
+        description: ' A fishing activity exerted in public or communal waters generally
+          designed to meet community needs'
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_1d3294ec':
+        text: 'agrovoc:c_1d3294ec'
+        meaning: 'agrovoc:c_1d3294ec'
+        title: fishing trips
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_26950':
+        text: 'agrovoc:c_26950'
+        meaning: 'agrovoc:c_26950'
+        title: fishing
+        description: '"Fishing" defines the extent of the activities that should be
+          regarded as fishing and include not only the harvesting or catching of fish
+          but also any activity undertaken to search for, attract and locate fish
+          prior to its being caught. "Fishing" is a general term; therefore it is
+          recommended to use specific terms such as "commercial fishing", "experimental
+          fishing", "sport fishing", etc. As an adjective is used for example: "fishing
+          activity", "fishing boat".'
+      'agrovoc:c_315a8892':
+        text: 'agrovoc:c_315a8892'
+        meaning: 'agrovoc:c_315a8892'
+        title: catch and release
+        is_a: 'agrovoc:c_34092'
+      'agrovoc:c_34092':
+        text: 'agrovoc:c_34092'
+        meaning: 'agrovoc:c_34092'
+        title: recreational fishing
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_34093':
+        text: 'agrovoc:c_34093'
+        meaning: 'agrovoc:c_34093'
+        title: sport fishing
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_5f08149a':
+        text: 'agrovoc:c_5f08149a'
+        meaning: 'agrovoc:c_5f08149a'
+        title: foreign fishing
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_69c4ff63':
+        text: 'agrovoc:c_69c4ff63'
+        meaning: 'agrovoc:c_69c4ff63'
+        title: commercial fishing
+        description: All fishing operations, including fishing operations on rivers,
+          lakes or canals, with the exception of subsistence fishing and recreational
+          fishing.
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_6b8179f0':
+        text: 'agrovoc:c_6b8179f0'
+        meaning: 'agrovoc:c_6b8179f0'
+        title: underfishing
+        description: ' Characteristic of a stock which may sustain catches higher
+          than current ones'
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_780a5969':
+        text: 'agrovoc:c_780a5969'
+        meaning: 'agrovoc:c_780a5969'
+        title: "Indigenous Peoples' fishing"
+        description: "Indigenous Peoples\u2019 fishing encompasses pre- and post-harvest\
+          \ activities such as the making of traditional fishing gear and boats, the\
+          \ capture of fish and aquatic animals for household consumption and subsistence\
+          \ purposes, rituals and celebrations, as well as post-harvest activities\
+          \ related to preparation, use and consumption. "
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_888f1814':
+        text: 'agrovoc:c_888f1814'
+        meaning: 'agrovoc:c_888f1814'
+        title: fee fishing
+        description: ' An enterprise in which catchable organisms are stocked into
+          ponds or lakes and customers pay for the privilege of fishing'
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_933736a0':
+        text: 'agrovoc:c_933736a0'
+        meaning: 'agrovoc:c_933736a0'
+        title: experimental fishing
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_b7eb8b6b':
+        text: 'agrovoc:c_b7eb8b6b'
+        meaning: 'agrovoc:c_b7eb8b6b'
+        title: illegal, unreported and unregulated fishing
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_be3ff8eb':
+        text: 'agrovoc:c_be3ff8eb'
+        meaning: 'agrovoc:c_be3ff8eb'
+        title: bait fishing
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_c77ca621':
+        text: 'agrovoc:c_c77ca621'
+        meaning: 'agrovoc:c_c77ca621'
+        title: ice fishing
+        is_a: 'agrovoc:c_26950'
+      'agrovoc:c_d5944fea':
+        text: 'agrovoc:c_d5944fea'
+        meaning: 'agrovoc:c_d5944fea'
+        title: illegal fishing
+        description: 'Illegal fishing can cover many types of offences in contravention
+          of national laws or RFMO conservation and management measures, especially
+          where a wide definition of fishing and related activities is included. '
+        is_a: 'agrovoc:c_b7eb8b6b'
+      'agrovoc:c_d908b249':
+        text: 'agrovoc:c_d908b249'
+        meaning: 'agrovoc:c_d908b249'
+        title: intermediate fishing
+        is_a: 'agrovoc:c_26950'
+slots: {}

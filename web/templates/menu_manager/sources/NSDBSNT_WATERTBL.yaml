@@ -1,0 +1,78 @@
+id: https://sis.agr.gc.ca/cansis/nsdb/soil/v2/snt/watertbl.html
+name: NSDBSNT_WATERTBL
+title: Water Table Characteristics
+description: Indicates the presence of a water table at a depth of 100cm, and identifies
+  its temporal characteristics.
+version: '2'
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes: {}
+default_prefix: ''
+classes: {}
+enums:
+  NSDB_WATERTBL:
+    name: WATERTBL
+    title: Water Table Characteristics
+    description: Indicates the presence of a water table at a depth of 100cm, and
+      identifies its temporal characteristics.
+    permissible_values:
+      YB:
+        title: Always
+        description: The water table is always present in the soil.
+      YG:
+        title: Growing season
+        description: The water table is present in the soil during the growing season.
+      YN:
+        title: Non growing season
+        description: The water table is present in the soil during the non growing
+          season.
+      YU:
+        title: Unspecified period
+        description: The water table is present in the soil during an unspecified
+          period.
+      'NO':
+        title: Never
+        description: The water table is not present in the soil at any time.
+      '-':
+        title: Not applicable
+        description: Not applicable.
+slots: {}
+extensions:
+  locales:
+    tag: locales
+    value:
+      fr:
+        id: https://sis.agr.gc.ca/siscan/nsdb/soil/v2/snt/watertbl.html
+        name: NSDBSNT_WATERTBL
+        version: '2'
+        in_language: fr
+        description: "Indique la pr\xE9sence d'une nappe phr\xE9atique \xE0 une profondeur\
+          \ de 100cm, ainsi que ses caract\xE9ristiques temporelles."
+        enums:
+          NSDB_WATERTBL:
+            permissible_values:
+              YB:
+                title: Toujours
+                description: "La nappe phr\xE9atique est toujours pr\xE9sente dans\
+                  \ le sol."
+              YG:
+                title: Saison de croissance
+                description: "La nappe phr\xE9atique est pr\xE9sente dans le sol pendant\
+                  \ la saison de croissance."
+              YN:
+                title: En dehors de la saison de croissance
+                description: "La nappe phr\xE9atique est pr\xE9sente dans le sol en\
+                  \ dehors de la saison de croissance."
+              YU:
+                title: "P\xE9riode ind\xE9termin\xE9e"
+                description: "La nappe phr\xE9atique est pr\xE9sente dans le sol pendant\
+                  \ une p\xE9riode ind\xE9termin\xE9e."
+              'NO':
+                title: Jamais
+                description: "La nappe phr\xE9atique n'est jamais pr\xE9sente dans\
+                  \ le sol."
+              '-':
+                title: Ne s&#39;applique pas
+                description: "Ne s'applique pas."

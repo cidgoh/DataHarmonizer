@@ -1,0 +1,71 @@
+id: https://www.nrcs.usda.gov/sites/default/files/2025-05/Field-Book-for-Describing-and-Sampling-Soils-Ver4.pdf
+name: NRCSSoilFieldBook
+title: USDA NRCS Field Book for Describing and Sampling Soils
+description: The U.S. Department of Agriculture Natural Resources Conservation Service
+  Field Book for Describing and Sampling Soils provides a standard for many soil description
+  variables.  This resource lists selected categorical picklists for soil type, etc.
+version: '4.0'
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes: {}
+default_prefix: ''
+classes: {}
+enums:
+  NRCSSoilFieldBook_SalinityClass:
+    name: NRCSSoilFieldBook_SalinityClass
+    title: Salinity Class
+    description: "Soil salinity classes are based on electrical conductivity from\
+      \ a saturation paste extract. Gypsum (CaSO4 \u2022 2H 2O) and salts more soluble\
+      \ than gypsum (e.g., Na, Mg, and Ca chlorides and sulfates) are the sole or\
+      \ major contributors to the saturated paste extract EC."
+    see_also: https://www.nrcs.usda.gov/sites/default/files/2025-05/Field-Book-for-Describing-and-Sampling-Soils-Ver4.pdf#page=141
+    permissible_values:
+      '0':
+        title: nonsaline
+        description: ECe < 2 dS/m
+      '1':
+        title: very slightly saline
+        description: ECe 2 to < 4 dS/m
+      '2':
+        title: slightly saline
+        description: ECe 4 to < 8 dS/m
+      '3':
+        title: moderately saline
+        description: ECe 8 to < 16 dS/m
+      '4':
+        title: strongly saline
+        description: "ECe \u2265 16 dS/m"
+  NRCSSoilFieldBook_ObservationMethod:
+    name: NRCSSoilFieldBook_ObservationMethod
+    title: Observation Method
+    description: For each layer, describe the Kind of sampling device or procedure
+      used to make observations of the site. Methods and tools for SAS are listed
+      in the following table.
+    see_also: https://www.nrcs.usda.gov/sites/default/files/2025-05/Field-Book-for-Describing-and-Sampling-Soils-Ver4.pdf#page=154
+    permissible_values:
+      BA:
+        title: bucket auger
+        description: 'device: open, closed, sand, or mud buckets (5-12 cm diam.)'
+      DA:
+        title: dutch or mud auger
+        description: 'device: an open, strap-sided bucket auger (5-10 cm diam.) with
+          a sharpened outer edge and a screw tip with a partial twist'
+      DV:
+        title: dive observation
+        description: 'method: a visual, onsite assessment performed under water'
+      MS:
+        title: Macaulay sampler
+        description: "device: a half-cylinder \u201Cgouge\u201D sampler with a hinged\
+          \ door that\u2019s pushed in and partially rotated to obtain a sample of\
+          \ soft sediments (e.g., organics)"
+      VT:
+        title: vibracore tube
+        description: 'device: a hollow tube (e.g., 4-8 cm diam.) vibrated into wet
+          sands, silts, or organics'
+      VO:
+        title: video
+        description: 'method: electronically recorded photo or sequential digital
+          images of a subaqueous setting or site'
+slots: {}

@@ -1,0 +1,37 @@
+id: https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=1326727
+name: STATSCAN1326727
+title: Classification of gender
+description: ''
+version: null
+license: ''
+in_language: en
+imports:
+  - 'linkml:types'
+prefixes:
+  statscan: https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=
+default_prefix: ''
+classes: {}
+enums:
+  STATSCAN1326727:
+    name: STATSCAN1326727
+    description: ''
+    permissible_values:
+      '1':
+        title: Man
+        description: This category includes persons whose reported gender is male.
+          It includes cisgender (cis) and transgender (trans) men.
+      '2':
+        title: Woman
+        description: This category includes persons whose reported gender is female.
+          It includes cisgender (cis) and transgender (trans) women.
+      '3':
+        title: Non-binary person
+        description: This category includes persons whose reported gender is not exclusively
+          male or female. It includes persons whose reported gender is, for example,
+          agender, pangender, genderqueer, genderfluid, or gender-nonconforming. It
+          also includes persons whose reported gender is Two-Spirit, a term specific
+          to some Indigenous peoples of North America.It includes persons whose reported
+          gender is both male and female, neither male nor female, or either male
+          or female in addition to another gender. It may also include those who reported
+          or were reported by proxy as questioning or in the process of deciding.
+slots: {}
