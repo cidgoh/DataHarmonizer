@@ -53,26 +53,34 @@ classes:
             tag: foreign_key
             value: GRDIIsolate.isolate_id
   Container: 
-    name: "Container"
+    name: Container
+    title:
+    description: Provides a structure of table names used to store data about GRDI Sample, Isolate and Test results.
     from_schema: "https://example.com/GRDI"
     attributes: 
       GRDISamples: 
-        name: "GRDISamples"
+        name: GRDISamples
+        title: GRDI Samples
+        description: A table of GRDI sample records.
         from_schema: "https://example.com/GRDI"
         multivalued: True
-        range: "GRDISample"
+        range: GRDISample
         inlined_as_list: True
       GRDIIsolates: 
-        name: "GRDIIsolates"
+        name: GRDIIsolates
+        title: GRDI Isolates
+        description: A table of each GRDI Sample's isolate records.
         from_schema: "https://example.com/GRDI"
-        multivalued: "true"
-        range: "GRDIIsolate"
+        multivalued: True
+        range: GRDIIsolate
         inlined_as_list: True
       AMRTests: 
-        name: "AMRTests"
+        name: AMRTests
+        title: AMR Tests
+        description: A table of AMR test result records for each GRDI Isolate.
         from_schema: "https://example.com/GRDI"
-        multivalued: "true"
-        range: "AMRTest"
+        multivalued: True
+        range: AMRTest
         inlined_as_list: True
 
     tree_root: True

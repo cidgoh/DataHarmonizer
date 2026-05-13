@@ -1083,24 +1083,32 @@ classes:
       - resistant_breakpoint
   Container:
     name: Container
+    title:
+    description: Provides a structure of table names used to store data about GRDI Sample, Isolate and Test results.
     from_schema: https://example.com/GRDI
     attributes:
       GRDISamples:
         name: GRDISamples
+        title: GRDI Samples
+        description: A table of GRDI sample records.
         from_schema: https://example.com/GRDI
         multivalued: true
         range: GRDISample
         inlined_as_list: true
       GRDIIsolates:
         name: GRDIIsolates
+        title: GRDI Isolates
+        description: A table of each GRDI Sample's isolate records.
         from_schema: https://example.com/GRDI
-        multivalued: 'true'
+        multivalued: true
         range: GRDIIsolate
         inlined_as_list: true
       AMRTests:
         name: AMRTests
+        title: AMR Tests
+        description: A table of AMR test result records for each GRDI Isolate.
         from_schema: https://example.com/GRDI
-        multivalued: 'true'
+        multivalued: true
         range: AMRTest
         inlined_as_list: true
     tree_root: true

@@ -6634,10 +6634,13 @@
     },
     "Container": {
       "name": "Container",
+      "description": "Provides a structure of table names used to store data about GRDI Sample, Isolate and Test results.",
       "from_schema": "https://example.com/GRDI",
       "attributes": {
         "GRDISamples": {
           "name": "GRDISamples",
+          "description": "A table of GRDI sample records.",
+          "title": "GRDI Samples",
           "from_schema": "https://example.com/GRDI",
           "alias": "GRDISamples",
           "owner": "Container",
@@ -6650,6 +6653,8 @@
         },
         "GRDIIsolates": {
           "name": "GRDIIsolates",
+          "description": "A table of each GRDI Sample's isolate records.",
+          "title": "GRDI Isolates",
           "from_schema": "https://example.com/GRDI",
           "alias": "GRDIIsolates",
           "owner": "Container",
@@ -6662,6 +6667,8 @@
         },
         "AMRTests": {
           "name": "AMRTests",
+          "description": "A table of AMR test result records for each GRDI Isolate.",
+          "title": "AMR Tests",
           "from_schema": "https://example.com/GRDI",
           "alias": "AMRTests",
           "owner": "Container",
