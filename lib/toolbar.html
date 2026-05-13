@@ -393,45 +393,53 @@
     </div>
   </div>
 
-  <div class="btn-group" role="group" style="margin-top:10px;width:100%" id="record-hierarchy-div">
-    <div class="input-group-append">
-      <span class="input-group-text" id="record-path" data-i18n="record-path">Display</span>
-      <select id="report_select_type" class="btn btn-primary">
-        <option value="all" data-i18n="all-records">All records</option>
-        <option value="" selected="selected" data-i18n="records-by-selected-key">Record(s) by selected key</option>
-        <!-- Only a single report for Field / Slot tab for now 
-        <optgroup id="slot_report_type" label="By field report:"> 
-          <option value="slot" data-i18n="schema-field">Schema field</option>
-          <option value="slot_usage" data-i18n="table-field-from-schema">Table field from schema</option>
-          <option value="attribute" data-i18n="table-field-stand-alone">Table field (stand-alone)</option>
-        </optgroup>
-        -->
-      </select>
-      <span class="input-group-text" style="background-color:#fdfdfd" id="record-hierarchy"></span>
+  <div class="btn-group align-items-center" role="group" style="margin-top:10px;width:100%" id="record-hierarchy-div">
+    <div class="btn-group" id="display-dropdown-btn-group" role="group">
+      <button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        id="display-menu-button"
+        data-i18n="display-menu-button"
+      >Display</button>
+      <div class="dropdown-menu" style="min-width:20rem">
+        <label class="dropdown-item mb-0">
+          <input type="radio" name="display-main-type" value="all" id="display-all-records-radio"
+                 style="float:right;width:1rem;height:1.5rem">
+          <span data-i18n="all-records">All records</span>
+        </label>
+        <label class="dropdown-item mb-0">
+          <input type="radio" name="display-main-type" value="" id="display-records-by-key-radio"
+                 checked style="float:right;width:1rem;height:1.5rem">
+          <span data-i18n="records-by-selected-key">Record(s) by selected key</span>
+        </label>
+        <!-- Fields-by-type section: shown only when the Field / Slot tab is active -->
+        <div id="slot_type_optgroup" style="display:none">
+          <div class="dropdown-divider"></div>
+          <div style="padding:0.25rem 1.5rem">
+            <span data-i18n="fields-by-type">Fields, by type:</span>
+          </div>
+          <label class="dropdown-item mb-0">
+            <input type="checkbox" value="slot" id="slot-type-slot" checked
+                   style="float:right;width:1rem;height:1.5rem">
+            <span data-i18n="slot-type-slot">Schema field</span>
+          </label>
+          <label class="dropdown-item mb-0">
+            <input type="checkbox" value="slot_usage" id="slot-type-slot_usage" checked
+                   style="float:right;width:1rem;height:1.5rem">
+            <span data-i18n="slot-type-slot_usage">Table field (from schema)</span>
+          </label>
+          <label class="dropdown-item mb-0">
+            <input type="checkbox" value="attribute" id="slot-type-attribute" checked
+                   style="float:right;width:1rem;height:1.5rem">
+            <span data-i18n="slot-type-attribute">Table field (stand-alone)</span>
+          </label>
+        </div>
+      </div>
     </div>
-
-      <!--
-      &nbsp;
-      <select id="slot_report_schema" class="btn btn-primary slot-report-select">
-        <option value=''>in any schema</option> 
-      </select>
-      &nbsp;
-      <select id="slot_report_class" class="btn btn-primary slot-report-select">
-        <option value=''>in any table</option>
-      </select>
-      &nbsp;
-      -->
-      <!--
-      <select id="slot_report_slot" class="btn btn-primary slot-report-select">
-        <option value=''>any field</option>
-      </select>
-      &nbsp;
-      <select id="slot_report_slot_group" class="btn btn-primary slot-report-select">
-        <option value=''>any field group</option>
-      </select>
-      -->
-
-
+    <span class="input-group-text ml-2" style="background-color:#fdfdfd" id="record-hierarchy"></span>
   </div>
 
 
