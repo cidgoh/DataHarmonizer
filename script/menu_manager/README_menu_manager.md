@@ -2,8 +2,24 @@
 
 **Authors:** Damion Dooley and Claude (Anthropic claude-sonnet-4-6)
 
-Fetches vocabulary sources, processes them into LinkML enum YAML files, and
-assembles them into a `schema.yaml` suitable for use with DataHarmonizer.
+Abstract
+
+Data specifications need to draw upon established or defacto-standards for measurement and metadata variable content, including picklist choices.  There are many online sources of controlled vocabulary that can go into data specifications, ranging from ontologies to SKOS vocabularies like AGROVOC, terminology portals like BioPortal or EMBL-EBI Ontology Lookup Service, and even web pages like STATSCAN or pdf documents from USDA.  
+
+Organizing and keeping up-to-date controlled vocabulary from all these sources is quite a challenge.  The menu_manager.py script and its library of /sources/ fetch-and-parse scripts enable retrieval of known-good vocabulary according to a configuration file for use by a particular project or more broadly, by an agency.
+
+Briefly, we recognize that:
+ - Each source can contain one or more variables and their picklist (categorical) choice specifications. 
+   - Some picklists are hierarchical. 
+   - Some are so large that a more dynamic API driven system for retrieving branches is required.
+ - We need the ability to download the resource as a whole, or just by selected variables.
+   - A configuration file holds the source URL of the resource, the format the resource is in, its version and download date.
+   - A resource can be downloaded again (as for example happens when different agencies run the script to keep their own infrastructures up to date over time.)
+ - We need a first pass to convert the relevant parts of these resources into a common format for detailing variables and picklists (enumerations).
+ - We use LinkML as the format for storing the variables.
+ - From this locally stored shared format, we can then use the configuration file to retrieve or omit certain branches of vocabulary, also taking into account term status (e.g. skip deprecated terms).
+
+The menu_manager.py script fetches vocabulary sources, processes them into LinkML enum YAML files, and assembles them into a `schema.yaml` suitable for use with DataHarmonizer.
 
 ---
 
