@@ -22,7 +22,7 @@
     "fr": "L'éditeur de schéma"
   },
   "load-schema-editor": {
-    "en": "Run editor",
+    "en": "Run schema editor",
     "fr": "Exécuter l'éditeur"
   },
   "schema-editor-menu": {
@@ -45,6 +45,10 @@
   "save-template-button": {
     "en": "Save selected schema (yaml format)",
     "fr": "Enregistrer le schéma sélectionné (format yaml)"
+  },
+  "preview-schema-button": {
+    "en": "Preview selected schema",
+    "fr": "Aperçu du schéma sélectionné"
   },
   "translation-form-button": {
     "en": "Translation form (for selected rows)",
