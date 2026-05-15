@@ -151,7 +151,7 @@ classes:
         name: name
         rank: 2
         slot_group: key
-        title: Class ID
+        title: Table ID
         pattern: ^([A-Z]+[a-z0-9]*)+$
         description: The coding name of this table (LinkML class).
         comments:
@@ -165,7 +165,6 @@ classes:
         rank: 3
         slot_group: attributes
         description: The plain language name of this table (LinkML class).
-        title: Title
         required: true
       description:
         name: description
@@ -232,7 +231,7 @@ classes:
         name: class_id
         rank: 2
         slot_group: key
-        title: Class ID
+        title: Table ID
         required: true
         description: The coding name of the table (LinkML class) that this unique key is in.
       name:
@@ -258,6 +257,7 @@ classes:
         name: notes
         rank: 6
         slot_group: technical
+        title: Editorial Notes
         description: Editorial notes about an element intended primarily for internal consumption
   SlotGroup:
     name: SlotGroup
@@ -304,7 +304,7 @@ classes:
       rank:
         name: rank
         rank: 4
-        slot_group: attribute
+        slot_group: attributes
         description: An integer which sets the order of this field relative to the others within a given table (LinkML slot's slot_usage rank).  This is a calculated field.  Adjust it by dragging and dropping this row to change order of field with respect to table or table section.
   Slot:
     name: Slot
@@ -320,17 +320,16 @@ classes:
           - name
     slots:
       - schema_id
-      - slot_type
-      - class_id
       - name
       - slot_group
+      - slot_type
+      - class_id
       - rank
       - slot_uri
       - title
       - description
       - comments
       - examples
-      - aliases
       - range
       - unit
       - required
@@ -348,9 +347,10 @@ classes:
       - equals_expression
       - inlined
       - inlined_as_list
+      - aliases
       - exact_mappings
-      - version
       - notes
+      - version
     slot_usage:
       schema_id:
         name: schema_id
@@ -361,23 +361,11 @@ classes:
         description: The coding name of the schema that this field (LinkML slot) is contained in.
         comments:
           - A schema has a list of fields it defines. A schema can also import other schemas' fields.
-      slot_type:
-        name: slot_type
-        rank: 2
-        slot_group: key
-      class_id:
-        name: class_id
-        rank: 3
-        slot_group: key
-        title: Table reuse
-        description: If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.
-        comments:
-          - A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.
       name:
         name: name
-        rank: 4
+        rank: 2
         slot_group: key
-        title: Slot ID
+        title: Field ID
         required: true
         pattern: ^[a-z]+[a-z0-9_]*$
         description: The coding name of this field (LinkML slot).
@@ -388,129 +376,141 @@ classes:
           - range: SchemaSlotMenu
       slot_group:
         name: slot_group
+        rank: 3
+        slot_group: key
+      slot_type:
+        name: slot_type
+        rank: 4
+        slot_group: key
+      class_id:
+        name: class_id
         rank: 5
-        slot_group: field attribute
+        slot_group: key
+        title: Table ID
+        description: If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.
+        comments:
+          - A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.
       rank:
         name: rank
         rank: 6
-        slot_group: table attribute
+        slot_group: attributes
         description: An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.
       slot_uri:
         name: slot_uri
         rank: 7
-        slot_group: field attribute
+        slot_group: attributes
       title:
         name: title
         rank: 8
-        slot_group: field attribute
+        slot_group: attributes
         description: The plain language name of this field (LinkML slot).
         comments:
           - This can be displayed in applications and documentation.
-        title: Title
         required: true
       description:
         name: description
         rank: 9
-        slot_group: field attribute
+        slot_group: attributes
         range: string
         required: true
         description: A plan text description of this field (LinkML slot).
       comments:
         name: comments
         rank: 10
-        slot_group: field attribute
+        slot_group: attributes
       examples:
         name: examples
         rank: 11
-        slot_group: field attribute
-      aliases:
-        name: aliases
-        rank: 12
-        slot_group: field attribute
+        slot_group: attributes
       range:
         name: range
-        rank: 13
-        slot_group: field attribute
+        rank: 12
+        slot_group: attributes
       unit:
         name: unit
-        rank: 14
-        slot_group: field attribute
+        rank: 13
+        slot_group: attributes
       required:
         name: required
-        rank: 15
-        slot_group: field attribute
+        rank: 14
+        slot_group: attributes
       recommended:
         name: recommended
-        rank: 16
-        slot_group: field attribute
+        rank: 15
+        slot_group: attributes
       identifier:
         name: identifier
-        rank: 17
-        slot_group: field attribute
+        rank: 16
+        slot_group: attributes
       multivalued:
         name: multivalued
-        rank: 18
-        slot_group: field attribute
+        rank: 17
+        slot_group: attributes
       minimum_value:
         name: minimum_value
-        rank: 19
-        slot_group: field attribute
+        rank: 18
+        slot_group: attributes
       maximum_value:
         name: maximum_value
-        rank: 20
-        slot_group: field attribute
+        rank: 19
+        slot_group: attributes
       minimum_cardinality:
         name: minimum_cardinality
-        rank: 21
-        slot_group: field attribute
+        rank: 20
+        slot_group: attributes
       maximum_cardinality:
         name: maximum_cardinality
-        rank: 22
-        slot_group: field attribute
+        rank: 21
+        slot_group: attributes
       todos:
         name: todos
-        rank: 23
-        slot_group: field attribute
+        rank: 22
+        slot_group: attributes
       pattern:
         name: pattern
-        rank: 24
-        slot_group: field attribute
+        rank: 23
+        slot_group: attributes
       structured_pattern:
         name: structured_pattern
-        rank: 25
-        slot_group: field attribute
+        rank: 24
+        slot_group: attributes
       ifabsent:
         name: ifabsent
-        rank: 26
-        slot_group: field attribute
+        rank: 25
+        slot_group: attributes
       equals_expression:
         name: equals_expression
-        rank: 27
-        slot_group: field attribute
+        rank: 26
+        slot_group: attributes
       inlined:
         name: inlined
-        rank: 28
-        slot_group: field attribute
+        rank: 27
+        slot_group: attributes
       inlined_as_list:
         name: inlined_as_list
+        rank: 28
+        slot_group: attributes
+      aliases:
+        name: aliases
         rank: 29
-        slot_group: field attribute
+        slot_group: attributes
       exact_mappings:
         name: exact_mappings
         rank: 30
-        slot_group: field attribute
+        slot_group: attributes
         title: Exact mappings
         description: A list of one or more Curies or URIs that point to terms that are semantically identical to this field (LinkML slot).
-      version:
-        name: version
-        rank: 31
-        slot_group: field attribute
-        description: A version number (or date) indicating when this field (LinkML slot) was introduced.
       notes:
         name: notes
-        rank: 32
-        slot_group: field attribute
+        rank: 31
+        slot_group: attributes
+        title: Editorial notes
         description: Editorial notes about this field (LinkML slot) intended primarily for internal consumption
+      version:
+        name: version
+        rank: 32
+        slot_group: attributes
+        description: A version number (or date) indicating when this field (LinkML slot) was introduced.
   Annotation:
     name: Annotation
     title: Annotation
@@ -563,7 +563,7 @@ classes:
       value:
         name: value
         rank: 6
-        slot_group: attribute
+        slot_group: attributes
         description: The annotation’s value, which can be a string or an object of any kind (in non-serialized data).
   Enum:
     name: Enum
@@ -594,7 +594,7 @@ classes:
         name: name
         rank: 2
         slot_group: key
-        title: Enum ID
+        title: Picklist ID
         required: true
         pattern: ^([A-Z]+[a-z0-9]*)+$
         description: The coding name of this pick list menu (LinkML enum) of terms.
@@ -608,18 +608,17 @@ classes:
       title:
         name: title
         rank: 3
-        slot_group: attribute
+        slot_group: attributes
         description: The plain language name of this pick list menu (LinkML enum) of terms.
         comments:
           - "The plain language \"Title\" label should mirror the \"Name\" label, and should use ordinary textual punctuation.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/title/"
         examples:
           - value: "- null value menu\n- Complications menu\n- Host Disease Menu\n- host (common name) menu"
-        title: Title
         required: true
       description:
         name: description
         rank: 4
-        slot_group: metadata
+        slot_group: attributes
         range: string
         description: A plain text description of this pick list (LinkML enum) menu.
         comments:
@@ -629,11 +628,11 @@ classes:
       enum_uri:
         name: enum_uri
         rank: 5
-        slot_group: metadata
+        slot_group: attributes
       inherits:
         name: inherits
         rank: 6
-        slot_group: metadata
+        slot_group: attributes
   PermissibleValue:
     name: PermissibleValue
     title: Picklist choices
@@ -649,11 +648,11 @@ classes:
       - schema_id
       - enum_id
       - text
-      - is_a
       - title
+      - is_a
       - description
-      - exact_mappings
       - meaning
+      - exact_mappings
       - notes
     slot_usage:
       schema_id:
@@ -678,55 +677,55 @@ classes:
         name: text
         rank: 3
         slot_group: key
-      is_a:
-        name: is_a
-        rank: 4
-        slot_group: attribute
-        title: Parent
-        range: WhitespaceMinimizedString
-        description: The parent term code (in the same enumeration) of this choice, if any.
-        comments:
-          - "Create a picklist hierarchy by declaring code (LinkML permissible_vaue key) that you wish to be the parent of the value. Only refer to a parent class/choice/permissible value that has already been created under the \"Class\" column within this specific picklist. When no parent class is declared, the associated \"class\" remains at the top level of the picklist menu.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/is_a/"
-        examples:
-          - value: "Input for \"Class: | Parent Class:\"\n- Class: Lower respiratory tract\n- Class: Bronchus | Parent Class: Lower respirtory tract\n- Class: Lung | Parent Class: Lower respiratory tract\n- Class: Bronchiole | Parent Class: Lung\n\nResulting Picklist:\n- Lower respiratory tract\n--- Bronchus\n--- Lung\n------Bronchiole"
       title:
         name: title
-        rank: 5
-        slot_group: attribute
-        title: title
+        rank: 4
+        slot_group: attributes
         description: The plain language title of this menu choice (LinkML PermissibleValue) to display. If none, the code will be displayed.
         comments:
           - 'Suggestion: If empty, the "Code" value will be displayed.'
         examples:
           - value: "Class: Nasopharynx (NP)\nUser Interface Label: rhinopharynx\n\nClass: UBERON:0001728\nUser Interface Label: Nasopharynx (NP)"
+      is_a:
+        name: is_a
+        rank: 5
+        slot_group: attributes
+        title: Parent Code
+        range: WhitespaceMinimizedString
+        description: For picklists which provide a hierarchy of choices, specify the parent code (within this picklist) of this choice, if any.
+        comments:
+          - "Create a picklist hierarchy by declaring code (LinkML permissible_vaue key) that you wish to be the parent of the value. Only refer to a parent class/choice/permissible value that has already been created under the \"Class\" column within this specific picklist. When no parent class is declared, the associated \"class\" remains at the top level of the picklist menu.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/is_a/"
+        examples:
+          - value: "Input for \"Class: | Parent Class:\"\n- Class: Lower respiratory tract\n- Class: Bronchus | Parent Class: Lower respirtory tract\n- Class: Lung | Parent Class: Lower respiratory tract\n- Class: Bronchiole | Parent Class: Lung\n\nResulting Picklist:\n- Lower respiratory tract\n--- Bronchus\n--- Lung\n------Bronchiole"
       description:
         name: description
         rank: 6
-        slot_group: metadata
+        slot_group: attributes
         range: string
         description: A plain text description of the meaning of this menu choice.
         comments:
           - "Plain language sentence(s) using ordinary textual punctuation. If using a URI/CURIE in the \"URI\" column, it is recommended to use the associated definition. When applicable, indicate the definition source(s) within square brackets \"[ ]\" after the description.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/description/"
         examples:
           - value: "Class: nasopharynx\nDescription: The section of the pharynx that lies above the soft palate. [UBERON:0001728]\n\nor \n\nThe uppermost of the three regions of the throat (pharynx), situated behind the nasal cavity and extending from the posterior nares to the level above the soft palate. [TFD][VHOG]"
+      meaning:
+        name: meaning
+        rank: 7
+        slot_group: attributes
       exact_mappings:
         name: exact_mappings
-        rank: 7
-        slot_group: metadata
+        rank: 8
+        slot_group: attributes
         title: Code mappings
         description: A list of terms from other schemas or terminology systems that mean exactly the same thing as this term.
         comments:
           - "This field is used to point to concepts in external standards that are fully equivalent to the current term, helping both people and software systems recognize that they refer to the same idea. It is aligned with skos:exactMatch and inherits its behavior and purpose from mappings.\n\n\"A skos:exactMatch link indicates a high degree of confidence that two concepts can be used interchangeably across a wide range of information retrieval applications.\" - https://www.w3.org/TR/skos-reference/#L4858\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/exact_mappings/"
         examples:
           - value: "Class: Pacific Biosciences [GENEPIO:0001927]\nMapping: ENA_GSC_MIxS_WW_ERC00023:PACBIO_SMRT\n\nNote: \"ENA_GSC_MIxS_WW_ERC00023\" is the database and submission type prefix used to identify the target export, while \"PACBIO_SMRT\" is the export format required for this specific class."
-      meaning:
-        name: meaning
-        rank: 8
-        slot_group: metadata
       notes:
         name: notes
         rank: 9
-        slot_group: metadata
+        slot_group: attributes
+        title: Editorial Notes
         description: Editorial notes about an element intended primarily for internal consumption
         comments:
           - "Plain language sentence(s), using ordinary textual punctuation, providing organization specific comments (E.g., curation information or schema editor comments).\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/notes/"
@@ -765,7 +764,7 @@ classes:
         name: enum_id
         rank: 2
         slot_group: key
-        title: Enum ID
+        title: Picklist ID
         range: Enum
         description: The coding name of the menu (enumeration) that this inclusion criteria pertains to.
       criteria:
@@ -827,13 +826,13 @@ classes:
       value:
         name: value
         rank: 3
-        slot_group: attribute
+        slot_group: attributes
         required: true
         description: The setting’s value, which is a regular expression that can be used in a LinkML structured_pattern expression field.
       description:
         name: description
         rank: 4
-        slot_group: attribute
+        slot_group: attributes
         range: string
         description: A plan text description of this setting.
   Rule:
@@ -872,11 +871,11 @@ classes:
       value:
         name: value
         rank: 3
-        slot_group: attribute
+        slot_group: attributes
       description:
         name: description
         rank: 4
-        slot_group: attribute
+        slot_group: attributes
         range: string
         description: A plain text description of this extension.  LinkML extensions allow saving any kind of object as a value of a key.
   Container:
@@ -1030,6 +1029,7 @@ slots:
     description: The URI the prefix expands to.
   title:
     name: title
+    title: Title
     range: WhitespaceMinimizedString
   class_uri:
     name: class_uri
@@ -1058,12 +1058,16 @@ slots:
       - See https://linkml.io/linkml/schemas/constraints.html
   notes:
     name: notes
-    title: Editorial Notes
     range: WhitespaceMinimizedString
   rank:
     name: rank
     title: Ordering
     range: integer
+  slot_group:
+    name: slot_group
+    title: Section
+    range: SchemaSlotGroupMenu
+    description: The name of a grouping to place this field (LinkML slot) within during presentation in a table.
   slot_type:
     name: slot_type
     title: Type
@@ -1072,11 +1076,6 @@ slots:
     description: 'The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.'
     comments:
       - "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
-  slot_group:
-    name: slot_group
-    title: Table section
-    range: SchemaSlotGroupMenu
-    description: The name of a grouping to place this field (LinkML slot) within during presentation in a table.
   slot_uri:
     name: slot_uri
     title: Semantic URI
@@ -1092,14 +1091,6 @@ slots:
     title: Examples
     range: WhitespaceMinimizedString
     description: A delimited field (LinkML slot) for including examples of string, numeric, date or categorical values.
-  aliases:
-    name: aliases
-    title: Aliases
-    range: WhitespaceMinimizedString
-    description: A list of other names that slot can be known by.
-    multivalued: true
-    comments:
-      - See https://linkml.io/linkml/schemas/metadata.html#providing-aliases
   range:
     name: range
     title: Range
@@ -1204,6 +1195,14 @@ slots:
     title: Inlined as list
     range: boolean
     description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.
+  aliases:
+    name: aliases
+    title: Aliases
+    range: WhitespaceMinimizedString
+    description: A list of other names that slot can be known by.
+    multivalued: true
+    comments:
+      - See https://linkml.io/linkml/schemas/metadata.html#providing-aliases
   exact_mappings:
     name: exact_mappings
     range: WhitespaceMinimizedString

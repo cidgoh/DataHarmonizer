@@ -135,7 +135,7 @@
             class="dropdown-item"
             id="copy-to-schema-menu-button"
             data-i18n="copy-to-schema-menu-button"
-            >Copy selected rows to schema...</span
+            >Copy to schema...</span
           >
           <span
             class="dropdown-item"
@@ -435,7 +435,7 @@
             <span data-i18n="fields-by-type">Fields, by type:</span>
           </div>
           <label class="dropdown-item mb-0">
-            <input type="checkbox" value="slot" id="slot-type-slot" checked
+            <input type="checkbox" value="slot" id="slot-type-slot"
                    style="float:right;width:1rem;height:1.5rem">
             <span data-i18n="slot-type-slot">Schema field</span>
           </label>
@@ -822,14 +822,14 @@
             </div>
             <div class="row">
               <div class="col">
-                <label for="copy-to-schema-select" data-i18n="copy-to-schema-select-label">Copy selected rows to schema:</label>
+                <label class="mb-1" for="copy-to-schema-select"><strong data-i18n="copy-to-schema-select-label">Copy to schema:</strong></label>
                 <select class="form-control" id="copy-to-schema-select"></select>
               </div>
             </div>
             <!-- Section 1: parent records (always copied) -->
             <div class="row mt-3" id="copy-parent-deps-row" style="display:none">
               <div class="col">
-                <small><strong>The following parent records will also be copied:</strong></small>
+                <small><strong>The following records and their parents will be copied:</strong></small>
                 <div id="copy-parent-deps-list" class="mt-1" style="max-height:150px;overflow-y:auto;font-size:0.85rem;border:1px solid #dee2e6;padding:8px;border-radius:4px;background:#f8f9fa"></div>
               </div>
             </div>

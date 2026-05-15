@@ -129,9 +129,25 @@ The Schema Editor lets you copy one or more rows from any tab into a different s
    - Right-click **within the highlighted selection** to preserve the multi-row selection while opening the context menu.
 3. Right-click the selection and choose **Copy to schema**.
 4. In the dialog that appears:
-   - Choose the **target schema** from the drop-down list. The schema(s) the selected rows belong to are shown as disabled and cannot be chosen as a target.
-   - Review the **Dependencies** list, if shown. Any structural items that must accompany the selection (see below) are listed here.
+   - Choose the **target schema** from the **Copy to schema** drop-down. The source schema(s) are shown as disabled and cannot be chosen as a target.
+   - Review the three optional sections described below.
 5. Click **Copy**. The rows are appended to the appropriate tabs of the target schema, and a confirmation message reports how many rows were written.
+
+#### Dialog sections
+
+**Section 1 — Selected rows and their parents (always copied)**
+This section is always visible. The selected rows are listed first, grouped under their tab name. Below them, any structural items they depend on that are not yet present in the target schema (e.g. a Table row that a Field refers to, or a base slot that a slot_usage customises) are listed. Everything in this section is always copied and cannot be individually deselected.
+
+**Section 2 — Dependent table records (optional)**
+Child records that belong to the selected rows — for example, Field rows that belong to a selected Table, or Enum value rows that belong to a selected Enum — are listed here. Uncheck the section to skip copying them entirely.
+
+**Section 3 — Copy picklists and picklist choices (optional)**
+Enumerations (picklists) referenced by the `range` attribute of selected or subordinate fields are listed here. Each enumeration has its own checkbox; expanding an enumeration shows a checkbox for each individual permissible value. All items are checked by default.
+
+- Uncheck an **enumeration** to skip that entire picklist and all its values.
+- Uncheck individual **permissible value** rows to copy the enumeration but exclude specific choices.
+
+> **Note:** If you choose not to copy a picklist that one or more fields reference in their `range`, those fields will show a validation error on the Field tab (broken enumeration reference). This is expected — you can resolve it later by either copying the missing picklist separately or updating the field's `range` to point to a picklist that already exists in the target schema.
 
 ### What gets copied automatically (dependencies)
 
