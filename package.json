@@ -36,7 +36,7 @@
     "flightcheck": "yarn format && yarn lint ; yarn test",
     "test": "jest tests/jest",
     "test:jest": "jest tests/jest",
-    "test:playwright": "playwright tests/playwright"
+    "test:playwright": "playwright test tests/playwright"
   },
   "peerDependencies": {
     "bootstrap": "4.x",
