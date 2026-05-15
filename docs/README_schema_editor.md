@@ -115,6 +115,50 @@ The **Preview** feature lets you test a schema in a live DataHarmonizer instance
 
 ---
 
+## Copying content from other schemas
+
+The Schema Editor lets you copy one or more rows from any tab into a different schema in the same editing session. This is useful when building a new schema that reuses tables, fields, or picklists that are already defined elsewhere.
+
+### How to copy rows to another schema
+
+1. Navigate to any Schema Editor tab (Table, Field, Enum, Enum value, etc.).
+2. **Select the rows** you want to copy.
+   - Click a single row to select it.
+   - Hold **Shift** and click another row to extend the selection across a contiguous range.
+   - Hold **Ctrl** (Windows / Linux) or **Cmd** (macOS) and click individual rows to add non-contiguous rows to the selection.
+   - Right-click **within the highlighted selection** to preserve the multi-row selection while opening the context menu.
+3. Right-click the selection and choose **Copy to schema**.
+4. In the dialog that appears:
+   - Choose the **target schema** from the drop-down list. The schema(s) the selected rows belong to are shown as disabled and cannot be chosen as a target.
+   - Review the **Dependencies** list, if shown. Any structural items that must accompany the selection (see below) are listed here.
+5. Click **Copy**. The rows are appended to the appropriate tabs of the target schema, and a confirmation message reports how many rows were written.
+
+### What gets copied automatically (dependencies)
+
+Before appending the selected rows, the editor checks whether any structural items they reference are already present in the target schema. Items that are missing are copied along automatically:
+
+| Situation | Auto-copied dependency |
+|-----------|------------------------|
+| A **slot_usage** or **attribute** row references a class (`class_id`) not in the target | That **Table** (class) row |
+| A **slot** row's `range` names an **Enum** not in the target | That **Enum** row and all its **Enum values** |
+| An **Enum value** row references an **Enum** not in the target | That **Enum** row and all its **Enum values** |
+| A **slot_usage** row references a base **slot** (schema-level field) not in the target | That base **Field** (slot) row |
+| **Enum** rows are directly selected | All **Enum values** for those enums (if the target has none yet) |
+
+Only `schema_id` is changed in copied rows; all other attributes — names, descriptions, constraints, `class_id`, `enum_id`, `range`, etc. — are preserved exactly as they appear in the source.
+
+### A note on accidental duplicates
+
+If a row you copy happens to have the same primary key (name) as a row that already exists in the target schema, both rows will be present after the copy. This is intentional: the editor cannot know whether the duplicate is an error or a deliberate variation. In such cases you may want to:
+
+- **Delete** the newly appended duplicate and leave the existing row unchanged, or
+- **Merge** the two rows manually by reviewing which attributes differ and deciding which values to keep, or
+- **Change the field type** — for example, if you copied a `slot_usage` row (a field that customises a schema-level slot for a specific table) but the target schema should treat it as a standalone `attribute` instead (or vice versa), simply edit the `slot_type` cell of the row you just copied from `slot_usage` to `attribute`. No other changes are needed; the field name, constraints, and class association remain the same.
+
+The **Display > Record(s) by selected key** filter (active by default) is useful here: select the target schema row, then navigate to the relevant tab to see all rows for that schema and spot duplicates quickly.
+
+---
+
 ## Multilingual Text Editing
 
 The Schema Editor provides a structured workflow for adding translations of schema metadata (titles, descriptions, examples, comments) into additional languages. This workflow has two parts: configuring which languages are supported, and then entering or fetching the translated text.
