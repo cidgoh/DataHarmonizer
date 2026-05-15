@@ -50,6 +50,30 @@
     "en": "Preview selected schema",
     "fr": "Aperçu du schéma sélectionné"
   },
+  "concise-view": {
+    "en": "Concise view",
+    "fr": "Vue concise"
+  },
+  "copy-to-schema-menu-button": {
+    "en": "Copy selected rows to schema...",
+    "fr": "Copier les lignes sélectionnées vers le schéma..."
+  },
+  "copy-to-schema-title": {
+    "en": "Copy rows to schema",
+    "fr": "Copier les lignes vers le schéma"
+  },
+  "copy-to-schema-select-label": {
+    "en": "Copy to schema:",
+    "fr": "Copier vers le schéma :"
+  },
+  "copy-to-schema-deps-title": {
+    "en": "The following items will also be copied as dependencies:",
+    "fr": "Les éléments suivants seront également copiés en tant que dépendances :"
+  },
+  "copy-to-schema-confirm": {
+    "en": "Copy",
+    "fr": "Copier"
+  },
   "translation-form-button": {
     "en": "Translation form (for selected rows)",
     "fr": "Formulaire de traduction (pour les lignes choisies)"
