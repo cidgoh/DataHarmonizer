@@ -254,7 +254,7 @@ export default {
         const outputRow = [];
         for (const [headerName, sources] of ExportHeaders) {
           // Otherwise apply source (many to one) to target field transform:
-          const value = dh.getMappedField(
+          let value = dh.getMappedField(
             headerName,
             inputRow,
             sources,
@@ -263,6 +263,18 @@ export default {
             ':',
             'BIOSAMPLE'
           );
+
+          // Convert host_age from months to years if host_age_unit is 'month'.
+          if (headerName === 'host_age' && value) {
+            const unit = inputRow[sourceFieldNameMap['host_age_unit']];
+            if (unit === 'month') {
+              const months = parseFloat(value);
+              if (!isNaN(months)) {
+                value = String(Math.floor(months / 12));
+              }
+            }
+          }
+
           // Note: isolation_source may be populated with Null Value parts.
           outputRow.push(value);
         }
