@@ -322,8 +322,8 @@ classes:
       - schema_id
       - name
       - slot_type
+      - class_name
       - slot_group
-      - class_id
       - rank
       - slot_uri
       - title
@@ -378,18 +378,18 @@ classes:
         name: slot_type
         rank: 3
         slot_group: key
-      slot_group:
-        name: slot_group
+      class_name:
+        name: class_name
         rank: 4
-        slot_group: key
-      class_id:
-        name: class_id
-        rank: 5
         slot_group: key
         title: Table ID
         description: If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.
         comments:
           - A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.
+      slot_group:
+        name: slot_group
+        rank: 5
+        slot_group: key
       rank:
         name: rank
         rank: 6
@@ -545,6 +545,8 @@ classes:
         name: class_name
         rank: 3
         slot_group: key
+        title: On table
+        description: If this annotation is attached to a table (LinkML class), provide the name of the table.
       slot_name:
         name: slot_name
         rank: 4
@@ -1071,6 +1073,9 @@ slots:
     description: 'The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.'
     comments:
       - "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
+  class_name:
+    name: class_name
+    range: SchemaClassMenu
   slot_group:
     name: slot_group
     title: Section
@@ -1213,11 +1218,6 @@ slots:
     range: SchemaAnnotationTypeMenu
     required: true
     description: A menu of schema element types this annotation could pertain to (Schema, Class, Slot; in future Enumeration …)
-  class_name:
-    name: class_name
-    title: On table
-    range: SchemaClassMenu
-    description: If this annotation is attached to a table (LinkML class), provide the name of the table.
   slot_name:
     name: slot_name
     title: On field
