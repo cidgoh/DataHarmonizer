@@ -1105,13 +1105,13 @@
             }
           ]
         },
-        "slot_group": {
-          "name": "slot_group",
+        "slot_type": {
+          "name": "slot_type",
           "rank": 3,
           "slot_group": "key"
         },
-        "slot_type": {
-          "name": "slot_type",
+        "slot_group": {
+          "name": "slot_group",
           "rank": 4,
           "slot_group": "key"
         },
@@ -1344,20 +1344,6 @@
             }
           ]
         },
-        "slot_group": {
-          "name": "slot_group",
-          "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
-          "title": "Section",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 3,
-          "alias": "slot_group",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "key",
-          "range": "SchemaSlotGroupMenu"
-        },
         "slot_type": {
           "name": "slot_type",
           "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
@@ -1366,7 +1352,7 @@
             "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 4,
+          "rank": 3,
           "alias": "slot_type",
           "owner": "Slot",
           "domain_of": [
@@ -1375,6 +1361,20 @@
           "slot_group": "key",
           "range": "SchemaSlotTypeMenu",
           "required": true
+        },
+        "slot_group": {
+          "name": "slot_group",
+          "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
+          "title": "Section",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "alias": "slot_group",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "key",
+          "range": "SchemaSlotGroupMenu"
         },
         "class_id": {
           "name": "class_id",
@@ -3605,16 +3605,6 @@
       ],
       "range": "integer"
     },
-    "slot_group": {
-      "name": "slot_group",
-      "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
-      "title": "Section",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "SchemaSlotGroupMenu"
-    },
     "slot_type": {
       "name": "slot_type",
       "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
@@ -3628,6 +3618,16 @@
       ],
       "range": "SchemaSlotTypeMenu",
       "required": true
+    },
+    "slot_group": {
+      "name": "slot_group",
+      "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
+      "title": "Section",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "SchemaSlotGroupMenu"
     },
     "slot_uri": {
       "name": "slot_uri",

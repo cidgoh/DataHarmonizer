@@ -321,8 +321,8 @@ classes:
     slots:
       - schema_id
       - name
-      - slot_group
       - slot_type
+      - slot_group
       - class_id
       - rank
       - slot_uri
@@ -374,12 +374,12 @@ classes:
         any_of:
           - range: WhitespaceMinimizedString
           - range: SchemaSlotMenu
-      slot_group:
-        name: slot_group
-        rank: 3
-        slot_group: key
       slot_type:
         name: slot_type
+        rank: 3
+        slot_group: key
+      slot_group:
+        name: slot_group
         rank: 4
         slot_group: key
       class_id:
@@ -1063,11 +1063,6 @@ slots:
     name: rank
     title: Ordering
     range: integer
-  slot_group:
-    name: slot_group
-    title: Section
-    range: SchemaSlotGroupMenu
-    description: The name of a grouping to place this field (LinkML slot) within during presentation in a table.
   slot_type:
     name: slot_type
     title: Type
@@ -1076,6 +1071,11 @@ slots:
     description: 'The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.'
     comments:
       - "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
+  slot_group:
+    name: slot_group
+    title: Section
+    range: SchemaSlotGroupMenu
+    description: The name of a grouping to place this field (LinkML slot) within during presentation in a table.
   slot_uri:
     name: slot_uri
     title: Semantic URI
