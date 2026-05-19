@@ -351,8 +351,8 @@
           "rank": 61,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "rank": 62,
           "slot_group": "Sample collection and processing"
         },
@@ -701,8 +701,8 @@
           "rank": 131,
           "slot_group": "Environmental conditions and measurements"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "rank": 132,
           "slot_group": "Environmental conditions and measurements"
         },
@@ -1096,8 +1096,8 @@
           "rank": 210,
           "slot_group": "Sequence information"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "rank": 211,
           "slot_group": "Sequence information"
         },
@@ -1360,6 +1360,16 @@
           "name": "experiment_intervention_details",
           "rank": 263,
           "slot_group": "Risk assessment information"
+        },
+        "authors": {
+          "name": "authors",
+          "rank": 264,
+          "slot_group": "Contributor acknowledgement"
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "rank": 265,
+          "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
@@ -3330,8 +3340,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental_protocol",
           "comments": [
@@ -3340,7 +3350,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 62,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol",
+          "alias": "experimental_protocol_name",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -5382,8 +5392,8 @@
           "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "description": "The numerical value of a measurement of dissolved oxygen.",
           "title": "dissolved oxygen measurement value",
           "comments": [
@@ -5397,7 +5407,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 132,
           "slot_uri": "GENEPIO:0000035",
-          "alias": "dissolved_oxygen_measurement_value",
+          "alias": "dissolved_oxygen_concentration_measurement_value",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -7209,6 +7219,11 @@
           "comments": [
             "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
           ],
+          "examples": [
+            {
+              "value": "Pepper Mild Mottle Virus (PMMV)"
+            }
+          ],
           "from_schema": "https://example.com/hpai",
           "rank": 196,
           "slot_uri": "GENEPIO:0100923",
@@ -7617,8 +7632,8 @@
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "description": "The name of the sequence file.",
           "title": "genome sequence file name",
           "comments": [
@@ -7632,7 +7647,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 211,
           "slot_uri": "GENEPIO:0101715",
-          "alias": "genome_sequence_file_name",
+          "alias": "genome_sequence_filename",
           "owner": "HPAI",
           "domain_of": [
             "HPAI",
@@ -9118,6 +9133,67 @@
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
           "recommended": true
+        },
+        "authors": {
+          "name": "authors",
+          "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+          "title": "authors",
+          "comments": [
+            "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh"
+            },
+            {
+              "value": "Fei Hu"
+            },
+            {
+              "value": "Joe Blogs"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 264,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "HPAI",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "description": "The DataHarmonizer software and template version provenance.",
+          "title": "DataHarmonizer provenance",
+          "comments": [
+            "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 265,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "dataharmonizer_provenance",
+          "owner": "HPAI",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "Provenance"
         }
       }
     },
@@ -9389,8 +9465,8 @@
           "rank": 51,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "rank": 52,
           "slot_group": "Sample collection and processing"
         },
@@ -9554,8 +9630,8 @@
           "rank": 84,
           "slot_group": "Sequence information"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "rank": 85,
           "slot_group": "Sequence information"
         },
@@ -9818,6 +9894,16 @@
           "name": "experiment_intervention_details",
           "rank": 137,
           "slot_group": "Risk assessment information"
+        },
+        "authors": {
+          "name": "authors",
+          "rank": 138,
+          "slot_group": "Contributor acknowledgement"
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "rank": 139,
+          "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
@@ -11434,8 +11520,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental_protocol",
           "comments": [
@@ -11444,7 +11530,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 52,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol",
+          "alias": "experimental_protocol_name",
           "owner": "HPAIFood",
           "domain_of": [
             "HPAI",
@@ -11987,6 +12073,11 @@
           "comments": [
             "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
           ],
+          "examples": [
+            {
+              "value": "Pepper Mild Mottle Virus (PMMV)"
+            }
+          ],
           "from_schema": "https://example.com/hpai",
           "rank": 70,
           "slot_uri": "GENEPIO:0100923",
@@ -12395,8 +12486,8 @@
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "description": "The name of the sequence file.",
           "title": "genome sequence file name",
           "comments": [
@@ -12410,7 +12501,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 85,
           "slot_uri": "GENEPIO:0101715",
-          "alias": "genome_sequence_file_name",
+          "alias": "genome_sequence_filename",
           "owner": "HPAIFood",
           "domain_of": [
             "HPAI",
@@ -13896,6 +13987,67 @@
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
           "recommended": true
+        },
+        "authors": {
+          "name": "authors",
+          "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+          "title": "authors",
+          "comments": [
+            "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh"
+            },
+            {
+              "value": "Fei Hu"
+            },
+            {
+              "value": "Joe Blogs"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 138,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "HPAIFood",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "description": "The DataHarmonizer software and template version provenance.",
+          "title": "DataHarmonizer provenance",
+          "comments": [
+            "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 139,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "dataharmonizer_provenance",
+          "owner": "HPAIFood",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "Provenance"
         }
       }
     },
@@ -14167,8 +14319,8 @@
           "rank": 51,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "rank": 52,
           "slot_group": "Sample collection and processing"
         },
@@ -14352,8 +14504,8 @@
           "rank": 88,
           "slot_group": "Environmental conditions and measurements"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "rank": 89,
           "slot_group": "Environmental conditions and measurements"
         },
@@ -14747,8 +14899,8 @@
           "rank": 167,
           "slot_group": "Sequence information"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "rank": 168,
           "slot_group": "Sequence information"
         },
@@ -15011,6 +15163,16 @@
           "name": "experiment_intervention_details",
           "rank": 220,
           "slot_group": "Risk assessment information"
+        },
+        "authors": {
+          "name": "authors",
+          "rank": 221,
+          "slot_group": "Contributor acknowledgement"
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "rank": 222,
+          "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
@@ -16613,8 +16775,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental_protocol",
           "comments": [
@@ -16623,7 +16785,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 52,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol",
+          "alias": "experimental_protocol_name",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -17669,8 +17831,8 @@
           "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "description": "The numerical value of a measurement of dissolved oxygen.",
           "title": "dissolved oxygen measurement value",
           "comments": [
@@ -17684,7 +17846,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 89,
           "slot_uri": "GENEPIO:0000035",
-          "alias": "dissolved_oxygen_measurement_value",
+          "alias": "dissolved_oxygen_concentration_measurement_value",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -19496,6 +19658,11 @@
           "comments": [
             "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
           ],
+          "examples": [
+            {
+              "value": "Pepper Mild Mottle Virus (PMMV)"
+            }
+          ],
           "from_schema": "https://example.com/hpai",
           "rank": 153,
           "slot_uri": "GENEPIO:0100923",
@@ -19904,8 +20071,8 @@
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "description": "The name of the sequence file.",
           "title": "genome sequence file name",
           "comments": [
@@ -19919,7 +20086,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 168,
           "slot_uri": "GENEPIO:0101715",
-          "alias": "genome_sequence_file_name",
+          "alias": "genome_sequence_filename",
           "owner": "HPAIWW",
           "domain_of": [
             "HPAI",
@@ -21405,6 +21572,67 @@
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
           "recommended": true
+        },
+        "authors": {
+          "name": "authors",
+          "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+          "title": "authors",
+          "comments": [
+            "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh"
+            },
+            {
+              "value": "Fei Hu"
+            },
+            {
+              "value": "Joe Blogs"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 221,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "HPAIWW",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "description": "The DataHarmonizer software and template version provenance.",
+          "title": "DataHarmonizer provenance",
+          "comments": [
+            "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 222,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "dataharmonizer_provenance",
+          "owner": "HPAIWW",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "Provenance"
         }
       }
     },
@@ -21676,8 +21904,8 @@
           "rank": 51,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "rank": 52,
           "slot_group": "Sample collection and processing"
         },
@@ -21861,8 +22089,8 @@
           "rank": 88,
           "slot_group": "Environmental conditions and measurements"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "rank": 89,
           "slot_group": "Environmental conditions and measurements"
         },
@@ -22256,8 +22484,8 @@
           "rank": 167,
           "slot_group": "Sequence information"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "rank": 168,
           "slot_group": "Sequence information"
         },
@@ -22520,6 +22748,16 @@
           "name": "experiment_intervention_details",
           "rank": 220,
           "slot_group": "Risk assessment information"
+        },
+        "authors": {
+          "name": "authors",
+          "rank": 221,
+          "slot_group": "Contributor acknowledgement"
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "rank": 222,
+          "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
@@ -24122,8 +24360,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental_protocol",
           "comments": [
@@ -24132,7 +24370,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 52,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol",
+          "alias": "experimental_protocol_name",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -25178,8 +25416,8 @@
           "slot_group": "Environmental conditions and measurements",
           "range": "WhitespaceMinimizedString"
         },
-        "dissolved_oxygen_measurement_value": {
-          "name": "dissolved_oxygen_measurement_value",
+        "dissolved_oxygen_concentration_measurement_value": {
+          "name": "dissolved_oxygen_concentration_measurement_value",
           "description": "The numerical value of a measurement of dissolved oxygen.",
           "title": "dissolved oxygen measurement value",
           "comments": [
@@ -25193,7 +25431,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 89,
           "slot_uri": "GENEPIO:0000035",
-          "alias": "dissolved_oxygen_measurement_value",
+          "alias": "dissolved_oxygen_concentration_measurement_value",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -27005,6 +27243,11 @@
           "comments": [
             "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
           ],
+          "examples": [
+            {
+              "value": "Pepper Mild Mottle Virus (PMMV)"
+            }
+          ],
           "from_schema": "https://example.com/hpai",
           "rank": 153,
           "slot_uri": "GENEPIO:0100923",
@@ -27413,8 +27656,8 @@
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "description": "The name of the sequence file.",
           "title": "genome sequence file name",
           "comments": [
@@ -27428,7 +27671,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 168,
           "slot_uri": "GENEPIO:0101715",
-          "alias": "genome_sequence_file_name",
+          "alias": "genome_sequence_filename",
           "owner": "HPAIEnviro",
           "domain_of": [
             "HPAI",
@@ -28914,6 +29157,67 @@
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
           "recommended": true
+        },
+        "authors": {
+          "name": "authors",
+          "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+          "title": "authors",
+          "comments": [
+            "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh"
+            },
+            {
+              "value": "Fei Hu"
+            },
+            {
+              "value": "Joe Blogs"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 221,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "HPAIEnviro",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "description": "The DataHarmonizer software and template version provenance.",
+          "title": "DataHarmonizer provenance",
+          "comments": [
+            "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 222,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "dataharmonizer_provenance",
+          "owner": "HPAIEnviro",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "Provenance"
         }
       }
     },
@@ -29165,8 +29469,8 @@
           "rank": 47,
           "slot_group": "Sample collection and processing"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "rank": 48,
           "slot_group": "Sample collection and processing"
         },
@@ -29495,8 +29799,8 @@
           "rank": 113,
           "slot_group": "Sequence information"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "rank": 114,
           "slot_group": "Sequence information"
         },
@@ -29759,6 +30063,16 @@
           "name": "experiment_intervention_details",
           "rank": 166,
           "slot_group": "Risk assessment information"
+        },
+        "authors": {
+          "name": "authors",
+          "rank": 167,
+          "slot_group": "Contributor acknowledgement"
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "rank": 168,
+          "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
@@ -31223,8 +31537,8 @@
           "slot_group": "Sample collection and processing",
           "range": "WhitespaceMinimizedString"
         },
-        "experimental_protocol": {
-          "name": "experimental_protocol",
+        "experimental_protocol_name": {
+          "name": "experimental_protocol_name",
           "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
           "title": "experimental_protocol",
           "comments": [
@@ -31233,7 +31547,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 48,
           "slot_uri": "GENEPIO:0101029",
-          "alias": "experimental_protocol",
+          "alias": "experimental_protocol_name",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -32772,6 +33086,11 @@
           "comments": [
             "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
           ],
+          "examples": [
+            {
+              "value": "Pepper Mild Mottle Virus (PMMV)"
+            }
+          ],
           "from_schema": "https://example.com/hpai",
           "rank": 99,
           "slot_uri": "GENEPIO:0100923",
@@ -33180,8 +33499,8 @@
           "slot_group": "Sequence information",
           "range": "WhitespaceMinimizedString"
         },
-        "genome_sequence_file_name": {
-          "name": "genome_sequence_file_name",
+        "genome_sequence_filename": {
+          "name": "genome_sequence_filename",
           "description": "The name of the sequence file.",
           "title": "genome sequence file name",
           "comments": [
@@ -33195,7 +33514,7 @@
           "from_schema": "https://example.com/hpai",
           "rank": 114,
           "slot_uri": "GENEPIO:0101715",
-          "alias": "genome_sequence_file_name",
+          "alias": "genome_sequence_filename",
           "owner": "HPAIHost",
           "domain_of": [
             "HPAI",
@@ -34681,6 +35000,67 @@
           "slot_group": "Risk assessment information",
           "range": "WhitespaceMinimizedString",
           "recommended": true
+        },
+        "authors": {
+          "name": "authors",
+          "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+          "title": "authors",
+          "comments": [
+            "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh"
+            },
+            {
+              "value": "Fei Hu"
+            },
+            {
+              "value": "Joe Blogs"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 167,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "HPAIHost",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "description": "The DataHarmonizer software and template version provenance.",
+          "title": "DataHarmonizer provenance",
+          "comments": [
+            "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+            }
+          ],
+          "from_schema": "https://example.com/hpai",
+          "rank": 168,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "dataharmonizer_provenance",
+          "owner": "HPAIHost",
+          "domain_of": [
+            "HPAI",
+            "HPAIFood",
+            "HPAIWW",
+            "HPAIEnviro",
+            "HPAIHost"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "Provenance"
         }
       }
     }
@@ -36409,8 +36789,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "experimental_protocol": {
-      "name": "experimental_protocol",
+    "experimental_protocol_name": {
+      "name": "experimental_protocol_name",
       "description": "The name of the overarching experimental methodology that was used to process the biomaterial.",
       "title": "experimental_protocol",
       "comments": [
@@ -38181,8 +38561,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "dissolved_oxygen_measurement_value": {
-      "name": "dissolved_oxygen_measurement_value",
+    "dissolved_oxygen_concentration_measurement_value": {
+      "name": "dissolved_oxygen_concentration_measurement_value",
       "description": "The numerical value of a measurement of dissolved oxygen.",
       "title": "dissolved oxygen measurement value",
       "comments": [
@@ -39752,6 +40132,11 @@
       "comments": [
         "Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample."
       ],
+      "examples": [
+        {
+          "value": "Pepper Mild Mottle Virus (PMMV)"
+        }
+      ],
       "from_schema": "https://example.com/hpai",
       "slot_uri": "GENEPIO:0100923",
       "domain_of": [
@@ -40100,8 +40485,8 @@
       ],
       "range": "WhitespaceMinimizedString"
     },
-    "genome_sequence_file_name": {
-      "name": "genome_sequence_file_name",
+    "genome_sequence_filename": {
+      "name": "genome_sequence_filename",
       "description": "The name of the sequence file.",
       "title": "genome sequence file name",
       "comments": [
@@ -41389,6 +41774,59 @@
       ],
       "range": "WhitespaceMinimizedString",
       "recommended": true
+    },
+    "authors": {
+      "name": "authors",
+      "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+      "title": "authors",
+      "comments": [
+        "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+      ],
+      "examples": [
+        {
+          "value": "Tejinder Singh"
+        },
+        {
+          "value": "Fei Hu"
+        },
+        {
+          "value": "Joe Blogs"
+        }
+      ],
+      "from_schema": "https://example.com/hpai",
+      "slot_uri": "GENEPIO:0001517",
+      "domain_of": [
+        "HPAI",
+        "HPAIFood",
+        "HPAIWW",
+        "HPAIEnviro",
+        "HPAIHost"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "dataharmonizer_provenance": {
+      "name": "dataharmonizer_provenance",
+      "description": "The DataHarmonizer software and template version provenance.",
+      "title": "DataHarmonizer provenance",
+      "comments": [
+        "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+      ],
+      "examples": [
+        {
+          "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+        }
+      ],
+      "from_schema": "https://example.com/hpai",
+      "slot_uri": "GENEPIO:0001518",
+      "domain_of": [
+        "HPAI",
+        "HPAIFood",
+        "HPAIWW",
+        "HPAIEnviro",
+        "HPAIHost"
+      ],
+      "range": "Provenance"
     }
   },
   "enums": {

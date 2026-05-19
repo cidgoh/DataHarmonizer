@@ -82,7 +82,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol
+      - experimental_protocol_name
       - experimental_specimen_role_type
       - experimental_specimen_details
       - available_data_types
@@ -152,7 +152,7 @@ classes:
       - turbidity_measurement_value
       - turbidity_measurement_unit
       - turbidity_measurement_method
-      - dissolved_oxygen_measurement_value
+      - dissolved_oxygen_concentration_measurement_value
       - dissolved_oxygen_measurement_unit
       - dissolved_oxygen_measurement_method
       - oxygen_reduction_potential_orp_measurement_value
@@ -231,7 +231,7 @@ classes:
       - r1_fastq_filename
       - r2_fastq_filename
       - fast5_filename
-      - genome_sequence_file_name
+      - genome_sequence_filename
       - assembly_filename
       - quality_control_method_name
       - quality_control_method_version
@@ -284,6 +284,8 @@ classes:
       - stage_of_production
       - experimental_intervention
       - experiment_intervention_details
+      - authors
+      - dataharmonizer_provenance
     slot_usage:
       specimen_sample_collector_sample_id:
         name: specimen_sample_collector_sample_id
@@ -529,8 +531,8 @@ classes:
         name: specimen_processing_details
         rank: 61
         slot_group: Sample collection and processing
-      experimental_protocol:
-        name: experimental_protocol
+      experimental_protocol_name:
+        name: experimental_protocol_name
         rank: 62
         slot_group: Sample collection and processing
       experimental_specimen_role_type:
@@ -809,8 +811,8 @@ classes:
         name: turbidity_measurement_method
         rank: 131
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_value:
-        name: dissolved_oxygen_measurement_value
+      dissolved_oxygen_concentration_measurement_value:
+        name: dissolved_oxygen_concentration_measurement_value
         rank: 132
         slot_group: Environmental conditions and measurements
       dissolved_oxygen_measurement_unit:
@@ -1125,8 +1127,8 @@ classes:
         name: fast5_filename
         rank: 210
         slot_group: Sequence information
-      genome_sequence_file_name:
-        name: genome_sequence_file_name
+      genome_sequence_filename:
+        name: genome_sequence_filename
         rank: 211
         slot_group: Sequence information
       assembly_filename:
@@ -1337,6 +1339,14 @@ classes:
         name: experiment_intervention_details
         rank: 263
         slot_group: Risk assessment information
+      authors:
+        name: authors
+        rank: 264
+        slot_group: Contributor acknowledgement
+      dataharmonizer_provenance:
+        name: dataharmonizer_provenance
+        rank: 265
+        slot_group: Contributor acknowledgement
   HPAIFood:
     name: HPAIFood
     title: HPAI Food
@@ -1397,7 +1407,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol
+      - experimental_protocol_name
       - experimental_specimen_role_type
       - experimental_specimen_details
       - available_data_types
@@ -1430,7 +1440,7 @@ classes:
       - r1_fastq_filename
       - r2_fastq_filename
       - fast5_filename
-      - genome_sequence_file_name
+      - genome_sequence_filename
       - assembly_filename
       - quality_control_method_name
       - quality_control_method_version
@@ -1483,6 +1493,8 @@ classes:
       - stage_of_production
       - experimental_intervention
       - experiment_intervention_details
+      - authors
+      - dataharmonizer_provenance
     slot_usage:
       specimen_sample_collector_sample_id:
         name: specimen_sample_collector_sample_id
@@ -1688,8 +1700,8 @@ classes:
         name: specimen_processing_details
         rank: 51
         slot_group: Sample collection and processing
-      experimental_protocol:
-        name: experimental_protocol
+      experimental_protocol_name:
+        name: experimental_protocol_name
         rank: 52
         slot_group: Sample collection and processing
       experimental_specimen_role_type:
@@ -1820,8 +1832,8 @@ classes:
         name: fast5_filename
         rank: 84
         slot_group: Sequence information
-      genome_sequence_file_name:
-        name: genome_sequence_file_name
+      genome_sequence_filename:
+        name: genome_sequence_filename
         rank: 85
         slot_group: Sequence information
       assembly_filename:
@@ -2032,6 +2044,14 @@ classes:
         name: experiment_intervention_details
         rank: 137
         slot_group: Risk assessment information
+      authors:
+        name: authors
+        rank: 138
+        slot_group: Contributor acknowledgement
+      dataharmonizer_provenance:
+        name: dataharmonizer_provenance
+        rank: 139
+        slot_group: Contributor acknowledgement
   HPAIWW:
     name: HPAIWW
     title: HPAI Wastewater
@@ -2092,7 +2112,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol
+      - experimental_protocol_name
       - experimental_specimen_role_type
       - experimental_specimen_details
       - available_data_types
@@ -2129,7 +2149,7 @@ classes:
       - turbidity_measurement_value
       - turbidity_measurement_unit
       - turbidity_measurement_method
-      - dissolved_oxygen_measurement_value
+      - dissolved_oxygen_concentration_measurement_value
       - dissolved_oxygen_measurement_unit
       - dissolved_oxygen_measurement_method
       - oxygen_reduction_potential_orp_measurement_value
@@ -2208,7 +2228,7 @@ classes:
       - r1_fastq_filename
       - r2_fastq_filename
       - fast5_filename
-      - genome_sequence_file_name
+      - genome_sequence_filename
       - assembly_filename
       - quality_control_method_name
       - quality_control_method_version
@@ -2261,6 +2281,8 @@ classes:
       - stage_of_production
       - experimental_intervention
       - experiment_intervention_details
+      - authors
+      - dataharmonizer_provenance
     slot_usage:
       specimen_sample_collector_sample_id:
         name: specimen_sample_collector_sample_id
@@ -2466,8 +2488,8 @@ classes:
         name: specimen_processing_details
         rank: 51
         slot_group: Sample collection and processing
-      experimental_protocol:
-        name: experimental_protocol
+      experimental_protocol_name:
+        name: experimental_protocol_name
         rank: 52
         slot_group: Sample collection and processing
       experimental_specimen_role_type:
@@ -2614,8 +2636,8 @@ classes:
         name: turbidity_measurement_method
         rank: 88
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_value:
-        name: dissolved_oxygen_measurement_value
+      dissolved_oxygen_concentration_measurement_value:
+        name: dissolved_oxygen_concentration_measurement_value
         rank: 89
         slot_group: Environmental conditions and measurements
       dissolved_oxygen_measurement_unit:
@@ -2930,8 +2952,8 @@ classes:
         name: fast5_filename
         rank: 167
         slot_group: Sequence information
-      genome_sequence_file_name:
-        name: genome_sequence_file_name
+      genome_sequence_filename:
+        name: genome_sequence_filename
         rank: 168
         slot_group: Sequence information
       assembly_filename:
@@ -3142,6 +3164,14 @@ classes:
         name: experiment_intervention_details
         rank: 220
         slot_group: Risk assessment information
+      authors:
+        name: authors
+        rank: 221
+        slot_group: Contributor acknowledgement
+      dataharmonizer_provenance:
+        name: dataharmonizer_provenance
+        rank: 222
+        slot_group: Contributor acknowledgement
   HPAIEnviro:
     name: HPAIEnviro
     title: HPAI Environmental
@@ -3202,7 +3232,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol
+      - experimental_protocol_name
       - experimental_specimen_role_type
       - experimental_specimen_details
       - available_data_types
@@ -3239,7 +3269,7 @@ classes:
       - turbidity_measurement_value
       - turbidity_measurement_unit
       - turbidity_measurement_method
-      - dissolved_oxygen_measurement_value
+      - dissolved_oxygen_concentration_measurement_value
       - dissolved_oxygen_measurement_unit
       - dissolved_oxygen_measurement_method
       - oxygen_reduction_potential_orp_measurement_value
@@ -3318,7 +3348,7 @@ classes:
       - r1_fastq_filename
       - r2_fastq_filename
       - fast5_filename
-      - genome_sequence_file_name
+      - genome_sequence_filename
       - assembly_filename
       - quality_control_method_name
       - quality_control_method_version
@@ -3371,6 +3401,8 @@ classes:
       - stage_of_production
       - experimental_intervention
       - experiment_intervention_details
+      - authors
+      - dataharmonizer_provenance
     slot_usage:
       specimen_sample_collector_sample_id:
         name: specimen_sample_collector_sample_id
@@ -3576,8 +3608,8 @@ classes:
         name: specimen_processing_details
         rank: 51
         slot_group: Sample collection and processing
-      experimental_protocol:
-        name: experimental_protocol
+      experimental_protocol_name:
+        name: experimental_protocol_name
         rank: 52
         slot_group: Sample collection and processing
       experimental_specimen_role_type:
@@ -3724,8 +3756,8 @@ classes:
         name: turbidity_measurement_method
         rank: 88
         slot_group: Environmental conditions and measurements
-      dissolved_oxygen_measurement_value:
-        name: dissolved_oxygen_measurement_value
+      dissolved_oxygen_concentration_measurement_value:
+        name: dissolved_oxygen_concentration_measurement_value
         rank: 89
         slot_group: Environmental conditions and measurements
       dissolved_oxygen_measurement_unit:
@@ -4040,8 +4072,8 @@ classes:
         name: fast5_filename
         rank: 167
         slot_group: Sequence information
-      genome_sequence_file_name:
-        name: genome_sequence_file_name
+      genome_sequence_filename:
+        name: genome_sequence_filename
         rank: 168
         slot_group: Sequence information
       assembly_filename:
@@ -4252,6 +4284,14 @@ classes:
         name: experiment_intervention_details
         rank: 220
         slot_group: Risk assessment information
+      authors:
+        name: authors
+        rank: 221
+        slot_group: Contributor acknowledgement
+      dataharmonizer_provenance:
+        name: dataharmonizer_provenance
+        rank: 222
+        slot_group: Contributor acknowledgement
   HPAIHost:
     name: HPAIHost
     title: HPAI Host
@@ -4308,7 +4348,7 @@ classes:
       - sample_storage_duration_unit
       - specimen_processing
       - specimen_processing_details
-      - experimental_protocol
+      - experimental_protocol_name
       - experimental_specimen_role_type
       - experimental_specimen_details
       - available_data_types
@@ -4374,7 +4414,7 @@ classes:
       - r1_fastq_filename
       - r2_fastq_filename
       - fast5_filename
-      - genome_sequence_file_name
+      - genome_sequence_filename
       - assembly_filename
       - quality_control_method_name
       - quality_control_method_version
@@ -4427,6 +4467,8 @@ classes:
       - stage_of_production
       - experimental_intervention
       - experiment_intervention_details
+      - authors
+      - dataharmonizer_provenance
     slot_usage:
       specimen_sample_collector_sample_id:
         name: specimen_sample_collector_sample_id
@@ -4616,8 +4658,8 @@ classes:
         name: specimen_processing_details
         rank: 47
         slot_group: Sample collection and processing
-      experimental_protocol:
-        name: experimental_protocol
+      experimental_protocol_name:
+        name: experimental_protocol_name
         rank: 48
         slot_group: Sample collection and processing
       experimental_specimen_role_type:
@@ -4880,8 +4922,8 @@ classes:
         name: fast5_filename
         rank: 113
         slot_group: Sequence information
-      genome_sequence_file_name:
-        name: genome_sequence_file_name
+      genome_sequence_filename:
+        name: genome_sequence_filename
         rank: 114
         slot_group: Sequence information
       assembly_filename:
@@ -5092,6 +5134,14 @@ classes:
         name: experiment_intervention_details
         rank: 166
         slot_group: Risk assessment information
+      authors:
+        name: authors
+        rank: 167
+        slot_group: Contributor acknowledgement
+      dataharmonizer_provenance:
+        name: dataharmonizer_provenance
+        rank: 168
+        slot_group: Contributor acknowledgement
 slots:
   specimen_sample_collector_sample_id:
     name: specimen_sample_collector_sample_id
@@ -5889,8 +5939,8 @@ slots:
       - Briefly describe the processes applied to the sample.
     examples:
       - value: 25 samples were pooled and further prepared as a single sample during library prep.
-  experimental_protocol:
-    name: experimental_protocol
+  experimental_protocol_name:
+    name: experimental_protocol_name
     slot_uri: GENEPIO:0101029
     title: experimental_protocol
     range: WhitespaceMinimizedString
@@ -6720,8 +6770,8 @@ slots:
       - Provide the name of the procedure or technology used to measure turbidity.
     examples:
       - value: Nephelometric method
-  dissolved_oxygen_measurement_value:
-    name: dissolved_oxygen_measurement_value
+  dissolved_oxygen_concentration_measurement_value:
+    name: dissolved_oxygen_concentration_measurement_value
     slot_uri: GENEPIO:0000035
     title: dissolved oxygen measurement value
     range: WhitespaceMinimizedString
@@ -7436,6 +7486,8 @@ slots:
     description: The description of the endogenous controls included when extracting a sample.
     comments:
       - Provide the names of endogenous controls that were used as a reference during extraction. If relevant, include titers of these controls, as well as whether any controls were expected but not identified in the sample.
+    examples:
+      - value: Pepper Mild Mottle Virus (PMMV)
   sequencing_project_name:
     name: sequencing_project_name
     slot_uri: GENEPIO:0100472
@@ -7580,8 +7632,8 @@ slots:
       - Provide the FAST5 filename.
     examples:
       - value: batch1a_sequences.fast5
-  genome_sequence_file_name:
-    name: genome_sequence_file_name
+  genome_sequence_filename:
+    name: genome_sequence_filename
     slot_uri: GENEPIO:0101715
     title: genome sequence file name
     range: WhitespaceMinimizedString
@@ -8130,6 +8182,29 @@ slots:
       - If an experimental intervention was applied in the survey, provide details in this field as free text.
     examples:
       - value: 2% cranberry solution mixed in feed
+  authors:
+    name: authors
+    slot_uri: GENEPIO:0001517
+    title: authors
+    range: WhitespaceMinimizedString
+    recommended: true
+    description: Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.
+    comments:
+      - Include the first and last names of all individuals that should be attributed, separated by a semicolon.
+    examples:
+      - value: Tejinder Singh
+      - value: Fei Hu
+      - value: Joe Blogs
+  dataharmonizer_provenance:
+    name: dataharmonizer_provenance
+    slot_uri: GENEPIO:0001518
+    title: DataHarmonizer provenance
+    range: Provenance
+    description: The DataHarmonizer software and template version provenance.
+    comments:
+      - The current software and template version information will be automatically generated in this field after the user utilizes the "validate" function. This information will be generated regardless as to whether the row is valid of not.
+    examples:
+      - value: DataHarmonizer v3.3.3, Influenza v1.0.0
 enums:
   NullValueMenu:
     name: NullValueMenu
