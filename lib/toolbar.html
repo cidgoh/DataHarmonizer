@@ -81,6 +81,7 @@
             id="load-template-url-button"
             data-toggle="modal"
             data-target="#load-template-url-modal"
+            data-i18n="load-template-url-button"
             >... from URL</span
           >
 
@@ -116,6 +117,7 @@
             id="load-schema-url-button"
             data-toggle="modal"
             data-target="#load-schema-url-modal"
+            data-i18n="load-schema-url-button"
             >Load schema from URL (yaml format)</span
           >
           <span
@@ -144,6 +146,7 @@
             data-i18n="translation-form-button"
             >Translation form (for chosen rows)</span
           >
+
           <label
             for="schema_expert"
             class="dropdown-item mb-0"
@@ -157,11 +160,35 @@
             />
           </label>
 
+          <span data-i18n="workspace">Workspace</span>
+
+          <span
+            class="dropdown-item"
+            id="clear-dropdown-workspace"
+            data-i18n="clear-dropdown-workspace"
+            >Clear</span
+          >
+          <!-- reusing open-file-input -->
+          <label
+            for="open-file-input" 
+            class="dropdown-item mb-0"
+            id="open-dropdown-workspace"
+            data-i18n="open-dropdown-workspace"
+            >Open</label
+          >
+          <span
+            class="dropdown-item"
+            data-toggle="modal"
+            id="save-as-dropdown-workspace"
+            data-i18n="save-as-dropdown-workspace"
+            >Save as</span
+          >
+
           <span
             class="dropdown-item" style="padding-left:0"
             id="load-data-manager-button"
             data-i18n="load-data-manager"
-            >Run data manager
+            >Run DataHarmonizer
           </span>
 
         </div>

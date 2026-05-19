@@ -21,9 +21,13 @@
     "en": "Schema editor",
     "fr": "L'éditeur de schéma"
   },
+  "load-data-manager": {
+    "en": "Run DataHarmonizer",
+    "fr": "Exécuter DataHarmonizer"
+  },
   "load-schema-editor": {
-    "en": "Run schema editor",
-    "fr": "Exécuter l'éditeur"
+    "en": "Run Schema Editor",
+    "fr": "Exécuter l'éditeur de schéma"
   },
   "schema-editor-menu": {
     "en": "Schema editor options",
@@ -34,17 +38,35 @@
     "fr": "Activer/désactiver le mode utilisateur expert"
   },
   "upload-template-yaml-dropdown-item": {
-    "en": "Load schema from file (yaml format)",
-    "fr": "Charger le schéma à partir du fichier (format yaml)"
+    "en": "Load schema from file (yaml)",
+    "fr": "Charger le schéma à partir du fichier (yaml)"
   },
-    "upload-template-uri": {
-    "en": "Load schema from URL (yaml format)",
-    "fr": "Charger le schéma à partir de l'URL (format yaml)"
+  "load-schema-url-button": {
+    "en": "Load schema from URL (yaml)",
+    "fr": "Charger le schéma à partir de l'URL (yaml)"
   },
-  
+
+  "workspace": {
+    "en": "Workspace",
+    "fr": "Espace de travail"
+  },
+
+  "clear-dropdown-workspace": {
+    "en": "Clear",
+    "fr": "Vider"
+  },
+  "open-dropdown-workspace": {
+    "en": "Open",
+    "fr": "Ouvrir"
+  },
+  "save-as-dropdown-workspace": {
+    "en": "Save as",
+    "fr": "Enregistrer sous"
+  },
+
   "save-template-button": {
-    "en": "Save selected schema (yaml format)",
-    "fr": "Enregistrer le schéma sélectionné (format yaml)"
+    "en": "Save selected schema (yaml)",
+    "fr": "Enregistrer le schéma sélectionné (yaml)"
   },
   "preview-schema-button": {
     "en": "Preview selected schema",
