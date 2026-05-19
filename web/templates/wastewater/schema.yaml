@@ -231,6 +231,8 @@ classes:
       - diagnostic_measurement_value_3
       - diagnostic_measurement_unit_3
       - diagnostic_measurement_method_3
+      - authors
+      - dataharmonizer_provenance
     slot_usage:
       specimen_sample_collector_sample_id:
         name: specimen_sample_collector_sample_id
@@ -1113,6 +1115,14 @@ classes:
         name: diagnostic_measurement_method_3
         rank: 212
         slot_group: Pathogen diagnostic testing
+      authors:
+        name: authors
+        rank: 213
+        slot_group: Contributor acknowledgement
+      dataharmonizer_provenance:
+        name: dataharmonizer_provenance
+        rank: 214
+        slot_group: Contributor acknowledgement
   WastewaterAMR:
     name: WastewaterAMR
     description: Specification for Wastewater AMR biosample data gathering
@@ -1335,6 +1345,8 @@ classes:
       - diagnostic_measurement_value_3
       - diagnostic_measurement_unit_3
       - diagnostic_measurement_method_3
+      - authors
+      - dataharmonizer_provenance
     slot_usage:
       specimen_sample_collector_sample_id:
         name: specimen_sample_collector_sample_id
@@ -2230,6 +2242,14 @@ classes:
         name: diagnostic_measurement_method_3
         rank: 215
         slot_group: Pathogen diagnostic testing
+      authors:
+        name: authors
+        rank: 216
+        slot_group: Contributor acknowledgement
+      dataharmonizer_provenance:
+        name: dataharmonizer_provenance
+        rank: 217
+        slot_group: Contributor acknowledgement
   WastewaterPathogenAgnostic:
     name: WastewaterPathogenAgnostic
     description: Specification for Wastewater Pathogen Agnostic biosample data gathering
@@ -2471,6 +2491,8 @@ classes:
       - diagnostic_measurement_value_3
       - diagnostic_measurement_unit_3
       - diagnostic_measurement_method_3
+      - authors
+      - dataharmonizer_provenance
     slot_usage:
       specimen_sample_collector_sample_id:
         name: specimen_sample_collector_sample_id
@@ -3442,6 +3464,14 @@ classes:
         name: diagnostic_measurement_method_3
         rank: 234
         slot_group: Pathogen diagnostic testing
+      authors:
+        name: authors
+        rank: 235
+        slot_group: Contributor acknowledgement
+      dataharmonizer_provenance:
+        name: dataharmonizer_provenance
+        rank: 236
+        slot_group: Contributor acknowledgement
 slots:
   specimen_sample_collector_sample_id:
     name: specimen_sample_collector_sample_id
@@ -6574,6 +6604,33 @@ slots:
       - Select a value from the pick list provided to describe the method used for a given diagnostic test.
     examples:
       - value: qPCR
+  authors:
+    name: authors
+    slot_uri: GENEPIO:0001517
+    title: authors
+    range: WhitespaceMinimizedString
+    recommended: true
+    description: Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.
+    exact_mappings:
+      - GISAID:Authors
+    comments:
+      - Include the first and last names of all individuals that should be attributed, separated by a semicolon.
+    examples:
+      - value: Tejinder Singh
+      - value: Fei Hu
+      - value: Joe Blogs
+  dataharmonizer_provenance:
+    name: dataharmonizer_provenance
+    slot_uri: GENEPIO:0001518
+    title: DataHarmonizer provenance
+    range: Provenance
+    description: The DataHarmonizer software and template version provenance.
+    exact_mappings:
+      - GISAID:DataHarmonizer%20provenance
+    comments:
+      - The current software and template version information will be automatically generated in this field after the user utilizes the "validate" function. This information will be generated regardless as to whether the row is valid of not.
+    examples:
+      - value: DataHarmonizer v3.3.3, Influenza v1.0.0
 enums:
   NullValueMenu:
     name: NullValueMenu

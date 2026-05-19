@@ -1174,6 +1174,16 @@
           "name": "diagnostic_measurement_method_3",
           "rank": 212,
           "slot_group": "Pathogen diagnostic testing"
+        },
+        "authors": {
+          "name": "authors",
+          "rank": 213,
+          "slot_group": "Contributor acknowledgement"
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "rank": 214,
+          "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
@@ -7604,6 +7614,69 @@
               "range": "NullValueMenu"
             }
           ]
+        },
+        "authors": {
+          "name": "authors",
+          "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+          "title": "authors",
+          "comments": [
+            "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh"
+            },
+            {
+              "value": "Fei Hu"
+            },
+            {
+              "value": "Joe Blogs"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "GISAID:Authors"
+          ],
+          "rank": 213,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "WastewaterSARS-CoV-2",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "description": "The DataHarmonizer software and template version provenance.",
+          "title": "DataHarmonizer provenance",
+          "comments": [
+            "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "GISAID:DataHarmonizer%20provenance"
+          ],
+          "rank": 214,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "dataharmonizer_provenance",
+          "owner": "WastewaterSARS-CoV-2",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "Provenance"
         }
       }
     },
@@ -8764,6 +8837,16 @@
           "name": "diagnostic_measurement_method_3",
           "rank": 215,
           "slot_group": "Pathogen diagnostic testing"
+        },
+        "authors": {
+          "name": "authors",
+          "rank": 216,
+          "slot_group": "Contributor acknowledgement"
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "rank": 217,
+          "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
@@ -15279,6 +15362,69 @@
               "range": "NullValueMenu"
             }
           ]
+        },
+        "authors": {
+          "name": "authors",
+          "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+          "title": "authors",
+          "comments": [
+            "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh"
+            },
+            {
+              "value": "Fei Hu"
+            },
+            {
+              "value": "Joe Blogs"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "GISAID:Authors"
+          ],
+          "rank": 216,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "description": "The DataHarmonizer software and template version provenance.",
+          "title": "DataHarmonizer provenance",
+          "comments": [
+            "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "GISAID:DataHarmonizer%20provenance"
+          ],
+          "rank": 217,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "dataharmonizer_provenance",
+          "owner": "WastewaterAMR",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "Provenance"
         }
       }
     },
@@ -16534,6 +16680,16 @@
           "name": "diagnostic_measurement_method_3",
           "rank": 234,
           "slot_group": "Pathogen diagnostic testing"
+        },
+        "authors": {
+          "name": "authors",
+          "rank": 235,
+          "slot_group": "Contributor acknowledgement"
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "rank": 236,
+          "slot_group": "Contributor acknowledgement"
         }
       },
       "attributes": {
@@ -23536,6 +23692,69 @@
               "range": "NullValueMenu"
             }
           ]
+        },
+        "authors": {
+          "name": "authors",
+          "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+          "title": "authors",
+          "comments": [
+            "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+          ],
+          "examples": [
+            {
+              "value": "Tejinder Singh"
+            },
+            {
+              "value": "Fei Hu"
+            },
+            {
+              "value": "Joe Blogs"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "GISAID:Authors"
+          ],
+          "rank": 235,
+          "slot_uri": "GENEPIO:0001517",
+          "alias": "authors",
+          "owner": "WastewaterPathogenAgnostic",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dataharmonizer_provenance": {
+          "name": "dataharmonizer_provenance",
+          "description": "The DataHarmonizer software and template version provenance.",
+          "title": "DataHarmonizer provenance",
+          "comments": [
+            "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+          ],
+          "examples": [
+            {
+              "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+            }
+          ],
+          "from_schema": "https://example.com/GRDI",
+          "exact_mappings": [
+            "GISAID:DataHarmonizer%20provenance"
+          ],
+          "rank": 236,
+          "slot_uri": "GENEPIO:0001518",
+          "alias": "dataharmonizer_provenance",
+          "owner": "WastewaterPathogenAgnostic",
+          "domain_of": [
+            "WastewaterSARS-CoV-2",
+            "WastewaterAMR",
+            "WastewaterPathogenAgnostic"
+          ],
+          "slot_group": "Contributor acknowledgement",
+          "range": "Provenance"
         }
       }
     }
@@ -29850,6 +30069,61 @@
           "range": "NullValueMenu"
         }
       ]
+    },
+    "authors": {
+      "name": "authors",
+      "description": "Names of individuals contributing to the processes of sample collection, sequence generation, analysis, and data submission.",
+      "title": "authors",
+      "comments": [
+        "Include the first and last names of all individuals that should be attributed, separated by a semicolon."
+      ],
+      "examples": [
+        {
+          "value": "Tejinder Singh"
+        },
+        {
+          "value": "Fei Hu"
+        },
+        {
+          "value": "Joe Blogs"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "GISAID:Authors"
+      ],
+      "slot_uri": "GENEPIO:0001517",
+      "domain_of": [
+        "WastewaterSARS-CoV-2",
+        "WastewaterAMR",
+        "WastewaterPathogenAgnostic"
+      ],
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "dataharmonizer_provenance": {
+      "name": "dataharmonizer_provenance",
+      "description": "The DataHarmonizer software and template version provenance.",
+      "title": "DataHarmonizer provenance",
+      "comments": [
+        "The current software and template version information will be automatically generated in this field after the user utilizes the \"validate\" function. This information will be generated regardless as to whether the row is valid of not."
+      ],
+      "examples": [
+        {
+          "value": "DataHarmonizer v3.3.3, Influenza v1.0.0"
+        }
+      ],
+      "from_schema": "https://example.com/GRDI",
+      "exact_mappings": [
+        "GISAID:DataHarmonizer%20provenance"
+      ],
+      "slot_uri": "GENEPIO:0001518",
+      "domain_of": [
+        "WastewaterSARS-CoV-2",
+        "WastewaterAMR",
+        "WastewaterPathogenAgnostic"
+      ],
+      "range": "Provenance"
     }
   },
   "enums": {
