@@ -49,27 +49,20 @@ python menu_manager.py -a https://example.org/some-valueset.json
 
 ## Command reference
 
-### `-b` — Build schema.yaml
+### `-a` — Add a source from a URL
 
-Create or update `schema.yaml` with the LinkML top-level structure, enums, and
-prefixes drawn from all sources in `menu_config.yaml`.
+Auto-detects the source type, downloads the file, adds an entry to
+`menu_config.yaml`, and runs initial processing.
 
 ```bash
-python menu_manager.py -b
+python menu_manager.py -a https://example.org/some-valueset.json
 ```
-
-On creation, populates default values.  On update, only adds missing keys —
-existing values are preserved.  Syncs enums from each source's YAML file and
-syncs prefixes from all sources stored in `menu_config.yaml`.
-
-When `-b` detects that an enum present in `schema.yaml` is no longer in its
-source file, it reports the enum key rather than deleting it automatically.
-This gives the operator the opportunity to manually review whether the menu
-item should be removed or retained.
 
 ---
 
 ### `-f` — Fetch (download) sources
+
+Re-download source files for sources already in `menu_config.yaml`.
 
 ```bash
 python menu_manager.py -f all          # fetch every source in menu_config.yaml
@@ -92,21 +85,29 @@ stores the resulting prefix dict in `menu_config.yaml`.
 
 ---
 
-### `-r` — Enum report
+### `-b` — Build schema.yaml
+
+Create or update `schema.yaml` with the LinkML top-level structure, enums, and
+prefixes drawn from all sources in `menu_config.yaml`.
 
 ```bash
-python menu_manager.py -r     # space-padded output
-python menu_manager.py -r -t  # tab-delimited output
+python menu_manager.py -b
 ```
 
-Generates a report of enum keys, titles, `source_domain`, and `source_schema`
-for all sources in `menu_config.yaml`.
+On creation, populates default values.  On update, only adds missing keys —
+existing values are preserved.  Syncs enums from each source's YAML file and
+syncs prefixes from all sources stored in `menu_config.yaml`.
+
+When `-b` detects that an enum present in `schema.yaml` is no longer in its
+source file, it reports the enum key rather than deleting it automatically.
+This gives the operator the opportunity to manually review whether the menu
+item should be removed or retained.
 
 ---
 
 ### `-l` — Expand `reachable_from` source nodes via API
 
-Always operates on `schema.yaml`.
+Always operates on `schema.yaml`; run after `-b`.
 
 ```bash
 python menu_manager.py -l                              # expand all enums with reachable_from.source_nodes
@@ -127,14 +128,16 @@ OLS4 is the default fallback.  BioPortal requires an `apikey` under
 
 ---
 
-### `-a` — Add a source from a URL
-
-Auto-detects the source type, downloads the file, adds an entry to
-`menu_config.yaml`, and runs initial processing.
+### `-r` — Enum report
 
 ```bash
-python menu_manager.py -a https://example.org/some-valueset.json
+python menu_manager.py -r     # space-padded output
+python menu_manager.py -r -t  # tab-delimited output
 ```
+
+Generates a report of enum keys, titles, `source_domain`, and `source_schema`
+for all sources in `menu_config.yaml`.  Can be run at any stage to inspect what
+is configured.
 
 ---
 
