@@ -323,11 +323,11 @@ td.tabFieldTd.attribute {
 
 td.tabFieldTd.slot_usage.inherited::before { 
   position:relative; 
-  content: "as per schema field";
+  content: "i";
   color: grey;
   border:1px solid grey;
   background-color: #edffed;
-  border-radius: 3px;
+  border-radius: 7px;
   top:1px;
   padding: 2px 5px;
 }
