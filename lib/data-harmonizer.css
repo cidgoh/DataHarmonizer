@@ -330,9 +330,11 @@ td.tabFieldTd.slot_usage.inherited::before {
   border-radius: 7px;
   top:1px;
   padding: 2px 5px;
+  margin-right:7px;
 }
-/* hide checkboxes in schema editor where field inherits from another. */
+/* hide checkboxes in schema editor where field inherits from another. 
 td.tabFieldTd.slot_usage.inherited input{display:none}
+*/
 
 /* Not sure how to display frozen column right side in header area
 .data-harmonizer-grid th.overlayEdge {
