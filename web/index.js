@@ -55,11 +55,11 @@ $(dhRoot).append(`
 const main = async function () {
   const context = new AppContext();
 
-  // Preview popup: schema passed via sessionStorage from the Schema Editor.
+  // Demo popup: schema passed via sessionStorage from the Schema Editor.
   // Skip menu.json / webpack schema loading entirely.
-  const previewParam = new URLSearchParams(location.search).get('preview');
-  if (previewParam) {
-    const stored = sessionStorage.getItem(`dh_preview_${previewParam}`);
+  const demoParam = new URLSearchParams(location.search).get('demo');
+  if (demoParam) {
+    const stored = sessionStorage.getItem(`dh_demo_${demoParam}`);
     if (stored) {
       const schema = JSON.parse(stored);
       // Container and dh_interface are coordination-only classes — never use as template.
