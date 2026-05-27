@@ -322,15 +322,16 @@ td.tabFieldTd.attribute {
 }
 
 td.tabFieldTd.slot_usage.inherited::before { 
-  position:relative; 
+  float:right;
   content: "i";
   color: grey;
   border:1px solid grey;
   background-color: #edffed;
-  border-radius: 7px;
+  font-weight: bold;
+  border-radius: 10px;
   top:1px;
-  padding: 2px 5px;
-  margin-right:7px;
+  padding: 1px 5px;
+  margin-right:2px;
 }
 /* hide checkboxes in schema editor where field inherits from another. 
 td.tabFieldTd.slot_usage.inherited input{display:none}
