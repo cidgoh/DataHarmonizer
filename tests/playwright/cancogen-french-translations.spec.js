@@ -10,9 +10,8 @@ import { test, expect } from '@playwright/test';
 import path from 'path';
 
 const TEST_FILE_NAME = 'canCOGeN-validTestData_3-0-0.xlsx';
-const EXAMPLE_FILE = path.resolve(
-  'web/templates/canada_covid19/exampleInput/' + TEST_FILE_NAME
-);
+//const EXAMPLE_FILE = path.resolve(
+//  'web/templates/canada_covid19/exampleInput/' + TEST_FILE_NAME);
 
 test('switch to French and verify interface, column headers, and menus', async ({ page }) => {
 
