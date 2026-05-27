@@ -162,6 +162,41 @@ A future option could support **multi-focus cascading**, where the user first na
 
 ---
 
+### Schema Editor dynamic menus (`hotSettingsMenuHooks` + `refreshMenus`)
+
+The Schema Editor drives several Handsontable dropdown columns whose option lists are computed from live HOT data: **SchemaMenu** (schema names), **SchemaClassMenu** (class names), **SchemaSlotMenu** (slot names), **SchemaSlotGroupMenu** (slot-group names), and **SchemaEnumMenu** (enum names). These are called *dynamic menus* because their contents change as the user edits the Schema, Class, Slot, SlotGroup, and Enum tabs.
+
+#### Trigger: `hotSettingsMenuHooks`
+
+`SchemaEditor.hotSettingsMenuHooks(dh, hot_settings, tab_name, keyColumns)` wires two HOT hooks on each tab:
+
+- **`afterChange`** — calls `refreshMenusForTab(tab_name)` only when a cell in one of the *key columns* for that tab changes. Non-key edits (e.g. changing a slot's `rank`, `required`, or `comments`) are ignored.
+- **`afterRemoveRow`** — always triggers, since removing any row may remove a named item from the menu.
+
+The `keyColumns` argument is an array of slot names resolved to column indices at registration time. The `afterChange` callback short-circuits immediately if no changed cell falls in that set — avoiding a full menu rebuild on every keystroke in irrelevant columns.
+
+| Tab | Columns that trigger a refresh |
+|-----|-------------------------------|
+| Schema | `name` |
+| Class | `name`, `schema_id`, `description` |
+| SlotGroup | `name`, `schema_id`, `class_id` |
+| Slot | `name`, `description` |
+| Enum | `name`, `description` |
+
+`refreshMenusForTab` calls `getMenusForTab(tab_name)` (which reads `TAB_MENU_MAP`) to determine which menus to rebuild — the tab's own menu plus any declared dependents in topological order. Unknown tab names fall back to rebuilding all `SCHEMAMENUS`.
+
+#### Static menu: `SchemaDataTypeMenu`
+
+`SchemaDataTypeMenu` (the built-in LinkML data types) is derived from `schema.types`, which never changes at runtime. It is populated once in `initMenus()` — including calling `updateColumnSettings` for any slot that references it — and is absent from `SCHEMAMENUS`, so it is never included in `refreshMenus()` sweeps.
+
+#### Updating Handsontable column source: `updateColumnSettings`
+
+When `refreshMenus` rebuilds a menu it calls `tab_dh.updateColumnSettings(colIdx, { source: newSource })`. This uses HOT's `updateSettings({ columns })` API rather than direct prototype assignment (`getColumnMeta(col).source = newSource`).
+
+The reason: HOT's meta system stores column sources in two places — the live column-meta prototype (used for prototype-chain lookups) **and** `hot.getSettings().columns[col]` (the authoritative settings record). Direct prototype assignment updates only the prototype; `getSettings().columns` stays stale at `[]`. The next time HOT processes column settings (e.g. on a render cycle), it reads from `getSettings().columns` and resets the prototype back to `[]`, making the dropdown appear empty. `updateColumnSettings` keeps both in sync.
+
+---
+
 ## DataHarmonizer Field/Slot Special Attributes
 
 When `AppContext.useTemplate()` processes a class's induced `attributes` dict, it augments each slot object with additional properties that the DH runtime needs for grid rendering, validation, and export. These properties are **not** part of the LinkML specification — they exist only in memory at runtime and are never written back to `schema.yaml`.
