@@ -1346,6 +1346,10 @@ enums:
       exclude:
         text: exclude
         title: exclude
+  SchemaTypeMenu:
+    name: SchemaTypeMenu
+    title: Types
+    permissible_values:
   SchemaMenu:
     name: SchemaMenu
     title: Schemas

@@ -4134,6 +4134,11 @@
         }
       }
     },
+    "SchemaTypeMenu": {
+      "name": "SchemaTypeMenu",
+      "title": "Types",
+      "from_schema": "https://example.com/DH_LinkML"
+    },
     "SchemaMenu": {
       "name": "SchemaMenu",
       "title": "Schemas",

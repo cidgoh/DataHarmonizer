@@ -307,6 +307,10 @@ enums:
           title: exclude
 
   # These menus are dynamically filled in
+  SchemaTypeMenu:
+    name: SchemaTypeMenu
+    title: Types
+    permissible_values:
   SchemaMenu:
     name: SchemaMenu
     title: Schemas
