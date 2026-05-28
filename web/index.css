@@ -1,10 +1,62 @@
 html,
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0;
+  overflow: hidden;
   /* Prevents track or mouse scroll gestures from triggering page navigation in chrome off of displayed page. */
   overscroll-behavior: contain;
+}
+
+/* Full-viewport flex column: grid row grows with browser height; toolbar and footer stay content-height */
+#dh-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+#dh-layout-toolbar {
+  flex: 0 0 auto;
+}
+
+#dh-layout-footer {
+  flex: 0 0 auto;
+  padding-top: 6px;
+  padding-bottom: 8px;
+  border-top: 1px solid silver;
+}
+
+#dh-layout-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#dh-layout-grid > .col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  min-height: 0;
+}
+
+#data-harmonizer-tabs {
+  flex: 0 0 auto;
+}
+
+#data-harmonizer-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#data-harmonizer-grid > .tab-pane {
+  height: 100%;
+}
+
+.dh-hot-root {
+  height: 100%;
 }
 
 /* For dh2-i18n-rc1 only! */

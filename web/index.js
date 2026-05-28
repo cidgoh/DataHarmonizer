@@ -79,7 +79,7 @@ const main = async function () {
           getSchema: async (s) =>
             Template.create(s).then((result) => result.current.schema),
         });
-        new Footer(dhFooterRoot, context);
+        new Footer(dhFooterRoot, context, { modeLabel: 'DataHarmonizer Demo' });
       });
     }
     return;
