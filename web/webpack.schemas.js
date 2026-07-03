@@ -50,6 +50,7 @@ module.exports = {
           context: 'templates',
           from: '**/exampleInput/*.*',
           to: '../templates/[path][name][ext]',
+          noErrorOnMissing: true,
         },
       ],
     }),
