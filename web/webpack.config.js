@@ -121,6 +121,7 @@ module.exports = (env, argv) => {
             context: 'templates',
             from: '**/*.pdf',
             to: 'templates/[path][name][ext]',
+            noErrorOnMissing: true,   
           },  
         ],
       })
