@@ -32,6 +32,7 @@ module.exports = {
           context: 'templates',
           from: '**/*.pdf',
           to: '../templates/[path][name][ext]',
+          noErrorOnMissing: true,
         },
         {
           context: 'templates',
