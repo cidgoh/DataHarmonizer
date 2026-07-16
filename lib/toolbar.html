@@ -463,7 +463,21 @@
         <div id="slot_type_optgroup" style="display:none">
           <div class="dropdown-divider"></div>
           <div style="padding:0.25rem 1.5rem">
-            <span data-i18n="fields-by-type">Fields, by type:</span>
+            <span data-i18n="field-order-by">Order by:</span>
+          </div>
+          <label class="dropdown-item mb-0">
+            <input type="radio" name="slot-order-type" value="structure" id="slot-order-structure" checked
+                   style="float:right;width:1rem;height:1.5rem">
+            <span data-i18n="slot-order-structure">Schema, table, section, rank</span>
+          </label>
+          <label class="dropdown-item mb-0">
+            <input type="radio" name="slot-order-type" value="label" id="slot-order-label"
+                   style="float:right;width:1rem;height:1.5rem">
+            <span data-i18n="slot-order-label">Field label, schema, table</span>
+          </label>
+          <div class="dropdown-divider"></div>
+          <div style="padding:0.25rem 1.5rem">
+            <span data-i18n="fields-by-type">Include rows by field type:</span>
           </div>
           <label class="dropdown-item mb-0">
             <input type="checkbox" value="slot" id="slot-type-slot"
