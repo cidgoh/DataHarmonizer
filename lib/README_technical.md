@@ -113,6 +113,30 @@ minimum_value: "{sample_collection_date}"
 
 ---
 
+## Schema Editor — Delete/Backspace key row removal
+
+In Schema Editor mode, pressing the Delete or Backspace key on a selected row removes the entire row (with a cascade-confirmation dialog when the row has dependents in other tabs), instead of HOT's default behaviour of clearing cell values.
+
+### Implementation
+
+The interception is registered in `SchemaEditor.hotSettingsMenuHooks()` via `dh.hot.addHook('beforeKeyDown', ...)`. The hook:
+
+1. Sets `event.isImmediatePropagationEnabled = false` — HOT's ShortcutManager checks this flag (not the native `stopImmediatePropagation`) to decide whether to continue processing the key as a shortcut, so this prevents `emptySelectedCells` from running.
+2. Closes any open cell editor without committing its value (`editor.close()`).
+3. Calls `dh.removeSelectedRows()`, which handles the cascade-confirm dialog and uses `hot.loadData()` to apply the deletion.
+
+### macOS keyboard note
+
+On macOS, the physical ⌫ Delete key (top-right of the main keyboard) sends `e.key = 'Backspace'`, **not** `'Delete'`. The forward-delete key (Fn+Delete) sends `'Delete'`. HOT registers both `[['Backspace'], ['Delete']]` for its built-in `emptySelectedCells` shortcut, so the `beforeKeyDown` hook must guard against both:
+
+```js
+if (e.key !== 'Delete' && e.key !== 'Backspace') return;
+```
+
+Guarding only `'Delete'` silently misses every keypress on macOS, allowing HOT's default cell-clearing behaviour to run instead.
+
+---
+
 ## Application modes: DataHarmonizer vs. Schema Editor
 
 The app runs in one of two modes determined entirely by which schema is loaded. The mode badge in the toolbar (`#dh-mode-badge`) reflects the current state.
