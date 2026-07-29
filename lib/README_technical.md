@@ -128,7 +128,7 @@ In Schema Editor mode, pressing Delete or Backspace behaves differently dependin
 The interception is registered in `SchemaEditor.hotSettingsMenuHooks()` via `dh.hot.addHook('beforeKeyDown', ...)`. The hook:
 
 1. Returns immediately if a cell editor is open (user is mid-edit).
-2. Checks whether the current selection spans **all columns** (`minCol === 0 && maxCol === countCols() - 1`). When clicking a row-number header HOT sets exactly this range. A partial cell selection fails this check and the key is passed through to HOT's normal `emptySelectedCells` handler.
+2. Checks whether the current selection spans **all columns** (`minCol <= 0 && maxCol === countCols() - 1`). When clicking a row-number header HOT v15 sets `from.col = -1` (via `offsettedTH(0) = 0 - countRowHeaders = -1`), so the check uses `<= 0` rather than `=== 0` to handle both row-header clicks (`-1`) and programmatic whole-row selections (`0`). A partial cell selection (where `minCol > 0`) fails this check and the key is passed through to HOT's normal `emptySelectedCells` handler.
 3. For whole-row selections: sets `event.isImmediatePropagationEnabled = false` (HOT's own flag — not the native `stopImmediatePropagation`) to block `emptySelectedCells`, then calls `dh.removeSelectedRows()` which handles the cascade-confirm dialog and uses `hot.loadData()` to apply the deletion.
 
 ### Known limitation — key-field cell clearing
