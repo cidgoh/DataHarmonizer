@@ -115,15 +115,25 @@ minimum_value: "{sample_collection_date}"
 
 ## Schema Editor — Delete/Backspace key row removal
 
-In Schema Editor mode, pressing the Delete or Backspace key on a selected row removes the entire row (with a cascade-confirmation dialog when the row has dependents in other tabs), instead of HOT's default behaviour of clearing cell values.
+In Schema Editor mode, pressing Delete or Backspace behaves differently depending on what is selected:
+
+| Selection | Key behaviour |
+|---|---|
+| **Whole row(s)** (row-number header clicked) | Cascade-confirm dialog → row(s) removed |
+| **Individual cell(s)** | HOT default — cell contents cleared |
+| **Cell editor open** (user is typing) | HOT default — character deleted in editor |
 
 ### Implementation
 
 The interception is registered in `SchemaEditor.hotSettingsMenuHooks()` via `dh.hot.addHook('beforeKeyDown', ...)`. The hook:
 
-1. Sets `event.isImmediatePropagationEnabled = false` — HOT's ShortcutManager checks this flag (not the native `stopImmediatePropagation`) to decide whether to continue processing the key as a shortcut, so this prevents `emptySelectedCells` from running.
-2. Closes any open cell editor without committing its value (`editor.close()`).
-3. Calls `dh.removeSelectedRows()`, which handles the cascade-confirm dialog and uses `hot.loadData()` to apply the deletion.
+1. Returns immediately if a cell editor is open (user is mid-edit).
+2. Checks whether the current selection spans **all columns** (`minCol === 0 && maxCol === countCols() - 1`). When clicking a row-number header HOT sets exactly this range. A partial cell selection fails this check and the key is passed through to HOT's normal `emptySelectedCells` handler.
+3. For whole-row selections: sets `event.isImmediatePropagationEnabled = false` (HOT's own flag — not the native `stopImmediatePropagation`) to block `emptySelectedCells`, then calls `dh.removeSelectedRows()` which handles the cascade-confirm dialog and uses `hot.loadData()` to apply the deletion.
+
+### Known limitation — key-field cell clearing
+
+If the user selects an **individual cell** in a key field (one that drives dependent records in another tab) and presses Delete, the cascade-confirm popup still appears. This is not from the row-deletion hook — the hook passes the key through to HOT's `emptySelectedCells`, which clears the cell value and fires `afterChange`. The existing `afterChange` cascade-dependency check then detects that a key field was cleared and shows the prompt. The behaviour is the same as manually clearing that cell via the editor. Fixing this would require suppressing the cascade check for single-cell clears, which is a separate concern.
 
 ### macOS keyboard note
 
