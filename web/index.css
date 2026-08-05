@@ -1,3 +1,18 @@
+body.schema-editor,
+body.schema-editor #data-harmonizer-tabs {
+  background-color: #faf7f1;
+}
+
+#data-harmonizer-tabs .nav-link {
+  background-color: #ffffff;
+  border-color: #dee2e6 #dee2e6 transparent;
+}
+
+.htCore thead tr:first-child th,
+.htCore thead tr:first-child td {
+  background-color: #ffffff;
+}
+
 html,
 body {
   width: 100%;
