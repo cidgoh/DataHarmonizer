@@ -30,6 +30,10 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './index.html',
       }),
+      new HtmlWebpackPlugin({
+        template: './schema_editor.html',
+        filename: 'schema_editor.html',
+      }),
       new CopyPlugin({
         // Covers all schema.json and schema.yaml including locales
         patterns: [
@@ -73,7 +77,10 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.html$/,
-          exclude: path.resolve(__dirname, 'index.html'),
+          exclude: [
+            path.resolve(__dirname, 'index.html'),
+            path.resolve(__dirname, 'schema_editor.html'),
+          ],
           type: 'asset/source',
         },
         {

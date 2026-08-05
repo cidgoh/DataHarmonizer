@@ -85,7 +85,8 @@ const main = async function () {
     return;
   }
 
-  context.reload(context.appConfig.template_path)
+  const isSchemaEditor = window.location.pathname.endsWith('schema_editor.html');
+  context.reload(isSchemaEditor ? 'schema_editor/Schema' : context.appConfig.template_path)
     .then(async (context) => {
     // FUTURE: Connect to locale of browser? Takes `lang` as argument (unused)
     initI18n((/* lang */) => {
