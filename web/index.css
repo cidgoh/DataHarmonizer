@@ -3,14 +3,20 @@ body.schema-editor #data-harmonizer-tabs {
   background-color: #faf7f1;
 }
 
+
 #data-harmonizer-tabs .nav-link {
   background-color: #ffffff;
-  border-color: #dee2e6 #dee2e6 transparent;
+  border-color: #dee2e6 #dee2e6 silver;
+}
+
+#data-harmonizer-tabs .nav-link.active {
+  border-bottom-color: transparent;
 }
 
 .htCore thead tr:first-child th,
 .htCore thead tr:first-child td {
   background-color: #ffffff;
+  border-top: 0;
 }
 
 html,
@@ -73,6 +79,7 @@ body {
 .dh-hot-root {
   height: 100%;
 }
+
 
 /* For dh2-i18n-rc1 only! */
 #data-harmonizer-tabs {
