@@ -806,7 +806,8 @@
           "owner": "UniqueKey",
           "domain_of": [
             "UniqueKey",
-            "SlotGroup"
+            "SlotGroup",
+            "Slot"
           ],
           "slot_group": "key",
           "range": "SchemaClassMenu",
@@ -1003,7 +1004,8 @@
           "owner": "SlotGroup",
           "domain_of": [
             "UniqueKey",
-            "SlotGroup"
+            "SlotGroup",
+            "Slot"
           ],
           "slot_group": "key",
           "range": "SchemaClassMenu",
@@ -1083,6 +1085,26 @@
           "slot_group": "key",
           "range": "SchemaMenu"
         },
+        "class_id": {
+          "name": "class_id",
+          "description": "If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.",
+          "title": "Table ID",
+          "comments": [
+            "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
+          ],
+          "rank": 2,
+          "slot_group": "key"
+        },
+        "slot_type": {
+          "name": "slot_type",
+          "rank": 3,
+          "slot_group": "key"
+        },
+        "slot_group": {
+          "name": "slot_group",
+          "rank": 4,
+          "slot_group": "key"
+        },
         "name": {
           "name": "name",
           "description": "The coding name of this field (LinkML slot).",
@@ -1090,7 +1112,7 @@
           "comments": [
             "This name is formatted as a standard lowercase **snake_case** formatted name.\nA field can be used in one or more tables. A field can be shown as a visible datatype column in a spreadsheet (DataHarmonizer template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
           ],
-          "rank": 2,
+          "rank": 5,
           "slot_group": "key",
           "required": true,
           "pattern": "^[a-z]+[a-z0-9_]*$",
@@ -1102,26 +1124,6 @@
               "range": "SchemaSlotMenu"
             }
           ]
-        },
-        "slot_type": {
-          "name": "slot_type",
-          "rank": 3,
-          "slot_group": "key"
-        },
-        "class_name": {
-          "name": "class_name",
-          "description": "If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.",
-          "title": "Table ID",
-          "comments": [
-            "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
-          ],
-          "rank": 4,
-          "slot_group": "key"
-        },
-        "slot_group": {
-          "name": "slot_group",
-          "rank": 5,
-          "slot_group": "key"
         },
         "rank": {
           "name": "rank",
@@ -1308,6 +1310,63 @@
           "range": "SchemaMenu",
           "required": true
         },
+        "class_id": {
+          "name": "class_id",
+          "annotations": {
+            "foreign_key": {
+              "tag": "foreign_key",
+              "value": "Class.name"
+            }
+          },
+          "description": "If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.",
+          "title": "Table ID",
+          "comments": [
+            "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 2,
+          "alias": "class_id",
+          "owner": "Slot",
+          "domain_of": [
+            "UniqueKey",
+            "SlotGroup",
+            "Slot"
+          ],
+          "slot_group": "key",
+          "range": "SchemaClassMenu"
+        },
+        "slot_type": {
+          "name": "slot_type",
+          "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
+          "title": "Type",
+          "comments": [
+            "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "alias": "slot_type",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "key",
+          "range": "SchemaSlotTypeMenu",
+          "required": true
+        },
+        "slot_group": {
+          "name": "slot_group",
+          "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
+          "title": "Section",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 4,
+          "alias": "slot_group",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "key",
+          "range": "SchemaSlotGroupMenu"
+        },
         "name": {
           "name": "name",
           "description": "The coding name of this field (LinkML slot).",
@@ -1316,7 +1375,7 @@
             "This name is formatted as a standard lowercase **snake_case** formatted name.\nA field can be used in one or more tables. A field can be shown as a visible datatype column in a spreadsheet (DataHarmonizer template) tab, and can define (in its range attribute) a basic number, date, string, picklist (categorical or ordinal), or other custom datatype.  A slot may also have a range pointing to more complex classes."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 2,
+          "rank": 5,
           "alias": "name",
           "owner": "Slot",
           "domain_of": [
@@ -1341,56 +1400,6 @@
               "range": "SchemaSlotMenu"
             }
           ]
-        },
-        "slot_type": {
-          "name": "slot_type",
-          "description": "The type of field (LinkML slot) that this field definition record pertains to: either a schema-level shared field, a schema field reused in a table, or a field only defined in a table.",
-          "title": "Type",
-          "comments": [
-            "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
-          ],
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 3,
-          "alias": "slot_type",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "key",
-          "range": "SchemaSlotTypeMenu",
-          "required": true
-        },
-        "class_name": {
-          "name": "class_name",
-          "description": "If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.",
-          "title": "Table ID",
-          "comments": [
-            "A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all."
-          ],
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 4,
-          "alias": "class_name",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot",
-            "Annotation"
-          ],
-          "slot_group": "key",
-          "range": "SchemaClassMenu"
-        },
-        "slot_group": {
-          "name": "slot_group",
-          "description": "The name of a grouping to place this field (LinkML slot) within during presentation in a table.",
-          "title": "Section",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 5,
-          "alias": "slot_group",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "key",
-          "range": "SchemaSlotGroupMenu"
         },
         "rank": {
           "name": "rank",
@@ -1873,8 +1882,6 @@
         },
         "class_name": {
           "name": "class_name",
-          "description": "If this annotation is attached to a table (LinkML class), provide the name of the table.",
-          "title": "On table",
           "rank": 3,
           "slot_group": "key"
         },
@@ -1959,7 +1966,6 @@
           "alias": "class_name",
           "owner": "Annotation",
           "domain_of": [
-            "Slot",
             "Annotation"
           ],
           "slot_group": "key",
@@ -3328,7 +3334,8 @@
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "UniqueKey",
-        "SlotGroup"
+        "SlotGroup",
+        "Slot"
       ],
       "range": "SchemaClassMenu"
     },
@@ -3611,15 +3618,6 @@
       ],
       "range": "SchemaSlotTypeMenu",
       "required": true
-    },
-    "class_name": {
-      "name": "class_name",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot",
-        "Annotation"
-      ],
-      "range": "SchemaClassMenu"
     },
     "slot_group": {
       "name": "slot_group",
@@ -3907,6 +3905,16 @@
       ],
       "range": "SchemaAnnotationTypeMenu",
       "required": true
+    },
+    "class_name": {
+      "name": "class_name",
+      "description": "If this annotation is attached to a table (LinkML class), provide the name of the table.",
+      "title": "On table",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Annotation"
+      ],
+      "range": "SchemaClassMenu"
     },
     "slot_name": {
       "name": "slot_name",
