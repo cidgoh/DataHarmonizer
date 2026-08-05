@@ -195,6 +195,40 @@ Columns carrying a `foreign_key` annotation are rendered read-only in the child 
 
 The Schema Editor template itself uses the 1-to-many pattern to represent LinkML schema components. Its tables correspond to: Schema (root), Class, Slot, Enum, Prefix, and other schema elements. Each child table has a `foreign_key` pointing to the Schema or Class table. This template also serves as a live editor — users can load an existing `schema.yaml`, edit it across multiple tabs, and save the result. It demonstrates that the 1-to-many pattern extends naturally to schemas with more than three levels of nesting and multiple sibling child tables under one parent.
 
+### Schema Editor class key fields
+
+| Class | Primary key slot(s) | `class_id` FK? | `class_name` ref? |
+|---|---|---|---|
+| Schema | `name` | — | — |
+| Prefix | `schema_id` + `prefix` | — | — |
+| Class | `schema_id` + `name` | — | — |
+| UniqueKey | `schema_id` + `class_id` + `name` | ✓ → `Class.name` | — |
+| SlotGroup | `schema_id` + `class_id` + `name` | ✓ → `Class.name` | — |
+| Slot | `schema_id` + `class_id` + `name` | ✓ → `Class.name` (slot_usage/attribute rows) | — |
+| Annotation | `schema_id` + `annotation_type` + `name` | — | ✓ contextual ref |
+| Enum | `schema_id` + `name` | — | — |
+| PermissibleValue | `schema_id` + `enum_id` + `text` | — | — |
+| EnumSource | `schema_id` + `enum_id` + `criteria` + `source_ontology` | — | — |
+
+### Four global FK slots
+
+Four slots are defined once at the global `slots` level of `schema.yaml` and reused across all classes that need them. Each carries a `foreign_key` annotation that DH reads to establish parent–child tab linkage:
+
+| Global slot | FK target |
+|---|---|
+| `schema_id` | `Schema.name` |
+| `class_id` | `Class.name` |
+| `slot_id` | `Slot.name` |
+| `enum_id` | `Enum.name` |
+
+Because these slots are defined globally and inherited via `slots:` lists, the `foreign_key` annotation only needs to be written once rather than repeated in every class's `slot_usage`.
+
+### `class_id` vs `class_name`
+
+Most child classes use **`class_id`** as their FK column referencing `Class.name`. This slot carries the `foreign_key` annotation and therefore drives tab-linkage, row-filtering, and cascade-delete behaviour in the DH runtime.
+
+The **Annotation** class is the exception: it uses **`class_name`** (alongside `slot_name`) as plain reference fields without the `foreign_key` annotation. This is because an annotation may be attached to a schema, a class, a slot, a slot_usage, or an attribute — the class and slot columns are contextually optional depending on `annotation_type`, so treating them as a hard FK would be incorrect. In `_buildSchemaYaml` this distinction is visible: every other child reads `record.class_id`, while the Annotation branch reads `record.class_name` and `record.slot_name`.
+
 ---
 
 ## Building a New 1-to-Many Schema
