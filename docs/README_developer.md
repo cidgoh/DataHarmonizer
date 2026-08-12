@@ -343,3 +343,86 @@ When saving to JSON, the currently active locale is written back into `in_langua
 | `findBestLocaleMatch()` | `lib/utils/templates.js` | Finds the best available locale for a user preference (exact, then language-code fallback) |
 | `check_locale(lang)` | `lib/Toolbar.js` | Synchronises the UI language to a data file's `in_language` value |
 | `initializeLocale()` | `lib/Toolbar.js` | Populates the locale dropdown and wires the change handler |
+
+---
+
+## Tests (`tests/playwright/`)
+
+Playwright end-to-end tests live in `tests/playwright/`. Run a specific test with:
+
+```
+npx playwright test tests/playwright/<spec-file>.spec.js
+```
+
+Set `headless: false` in `playwright.config.js` to watch tests in a browser during development.
+
+### HOT DOM structure — rules for writing selectors
+
+Every DataHarmonizer Handsontable instance uses `fixedColumnsLeft: 1`, which freezes the first **visible** data column. This splits the rendered DOM into two clones:
+
+| Clone | CSS class | Contents |
+|-------|-----------|----------|
+| Left clone | `.ht_clone_left` | Frozen column cells only |
+| Master | `.ht_master` | All other column cells (non-frozen) |
+
+Rules to keep in mind when writing selectors:
+
+- **`td:nth-of-type(N)` not `td:nth-child(N)`** — each HOT `<tbody>` row begins with a `<th>` row-number cell. `nth-child` counts it, `nth-of-type` does not. Always use `td:nth-of-type(N)`.
+- **Dropdown cells prepend `▼` (U+25BC)** — strip it with `.textContent.replace(/\u25bc/g, '').trim()` before any equality check.
+- **Scope reads to `.tab-pane.show`** — Bootstrap 4 keeps both the old and new pane in the DOM with `.show` during the tab-switch fade animation. Without scoping, a selector can hit cells in the departing (old) pane and return a false positive. Use `document.querySelector('.tab-pane.show')` as the root, and if switching between tabs wait for `document.querySelectorAll('.tab-pane.show').length === 1` before querying.
+
+### `hotCellLocator(page, rowIndex, colIdx)` — column routing
+
+The helper function in the test files routes column indices to the correct DOM clone:
+
+```js
+function hotCellLocator(page, rowIndex, colIdx) {
+  if (colIdx === 0) {
+    // Frozen column → left clone only
+    return page.locator('.tab-pane.show .ht_clone_left.handsontable tbody tr')
+      .nth(rowIndex).locator('td:nth-of-type(1)');
+  }
+  // Non-frozen columns → master, with +1 offset for the frozen-column placeholder td
+  return page.locator('.tab-pane.show .ht_master.handsontable tbody tr')
+    .nth(rowIndex).locator(`td:nth-of-type(${colIdx + 1})`);
+}
+```
+
+The `colIdx + 1` offset in the master accounts for a placeholder `<td>` HOT renders at position 1 for the frozen column (even though its content is in `.ht_clone_left`, the master still reserves the cell so column widths stay aligned).
+
+**Important:** `colIdx` here is the **logical DH column index** — the position of the column as it would appear visually to the user — not the raw position in the underlying data array. If a tab hides columns via the `hiddenColumns` plugin, those columns do not occupy a `<td>` in the rendered DOM, so they do not affect the `nth-of-type` count.
+
+### Per-tab frozen column mapping — the Class (Table) tab
+
+The Schema tab's data column order starts with `name` (Schema ID) as col 0, which `fixedColumnsLeft: 1` freezes directly. In the Class tab (Tables) the column order in `schema_slots.tsv` starts with `schema_id` (col 0), but **`schema_id` is hidden by the `hiddenColumns` plugin** at runtime. This shifts the first visible column to `name` (Table ID, data col 1), which becomes the frozen column.
+
+Consequence for `hotCellLocator` in Class-tab tests:
+
+| What you want to interact with | `colIdx` to pass | Lands in |
+|-------------------------------|-----------------|----------|
+| Table ID (`name`) | `0` | `.ht_clone_left` td:nth-of-type(1) |
+| Title | `1` | `.ht_master` td:nth-of-type(2) |
+| Description | `2` | `.ht_master` td:nth-of-type(3) |
+
+Using `colIdx=1` for the table name is an off-by-one error: it lands in the Title column, leaving the Table ID blank, which causes schema export to produce a class named `null`.
+
+The `schema_id` value itself is populated automatically by `DataHarmonizer.addRows()` (the FK from the currently selected Schema row is written into the new row via `hot.setDataAtCell` with source `'add_row'`). It does not need to be typed manually in tests; just verify that the add-row button correctly identified the FK before clicking it.
+
+### `ifabsent` defaults — when they fire
+
+`ifabsent` expressions in a slot definition (e.g. `ifabsent: string(Container)` on `root_class`) cause DataHarmonizer to fill a default value in two distinct situations, both implemented in `DataHarmonizer.js`:
+
+| Trigger | Hook | Condition | Behaviour |
+|---------|------|-----------|-----------|
+| User clicks `#add-row` | `afterCreateRow` (~line 1360) | Always — fires for every newly `alter()`'d row | Fills **all** columns that have an `ifabsent` value |
+| User enters edit mode (click/dblclick) on any cell | `afterBeginEditing` (~line 202) | Only when **every** source-data cell in that row is `null`, `undefined`, or `''` | Fills all **sibling** columns that have an `ifabsent` value (skips the cell being actively edited) |
+
+The second trigger means that typing directly into a `minRows` empty row (without ever pressing `#add-row`) still produces the same `ifabsent` defaults, as long as no data has been previously loaded into that row. This is the normal keyboard-first user workflow.
+
+In tests: when `dblclick` is called on the Schema tab's first row, `afterBeginEditing` fires and fills `root_class = "Container"` (and `in_language = "en"`, etc.) automatically. No explicit `#add-row` click is needed for the Schema tab.
+
+### `minRows: 5` and hidden rows after tab switch
+
+`DataHarmonizer.js` sets `minRows: 5`, so every HOT instance always holds at least 5 source rows (initially empty). When a FK-driven tab (Class, Slot, etc.) becomes active, `AppContext.tabFilter()` hides all rows whose FK column does not match the selected parent record. If the tab has never had data entered, all 5 `minRows` rows are hidden.
+
+When `addRows()` runs after clicking `#add-row`, it calls `hot.countRows()` — which counts **all** source rows, including hidden ones — to find the insertion index. The new row is inserted after the 5 hidden empty rows (source index 5) and is the only visible row. Its FK value is set in the HOT data model via `setDataAtCell`, confirmed by the `afterChange` hook firing, but the frozen clone-left cell may not re-render it immediately in the DOM. Tests should not depend on the FK column value appearing in the DOM right after `#add-row`; instead wait for a master-pane `<tr>` to appear, then type directly into the row.
