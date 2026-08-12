@@ -364,6 +364,9 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					slot_recommended =				bool(row.get('recommended', ''));
 					if slot_recommended == True:	slot['recommended'] = True;
 
+					slot_ifabsent =					row.get('ifabsent','');
+					if slot_ifabsent > '':			slot['ifabsent'] = slot_ifabsent;
+
 					slot_description =				row.get('description','');
 					if slot_description > '':			slot['description'] = slot_description;
 
