@@ -24,6 +24,7 @@ classes:
     slots:
       - name
       - id
+      - title
       - description
       - version
       - in_language
@@ -50,16 +51,22 @@ classes:
         name: id
         rank: 2
         slot_group: key
+      title:
+        name: title
+        rank: 3
+        slot_group: attributes
+        description: Plain language name of the schema.
+        required: true
       description:
         name: description
-        rank: 3
+        rank: 4
         slot_group: attributes
         description: The plain language description of this LinkML schema.
         range: string
         required: true
       version:
         name: version
-        rank: 4
+        rank: 5
         slot_group: attributes
         required: true
         description: The semantic version identifier for this LinkML schema.
@@ -70,23 +77,23 @@ classes:
           - See https://semver.org/
       in_language:
         name: in_language
-        rank: 5
+        rank: 6
         slot_group: attributes
       locales:
         name: locales
-        rank: 6
+        rank: 7
         slot_group: attributes
       default_prefix:
         name: default_prefix
-        rank: 7
+        rank: 8
         slot_group: attributes
       imports:
         name: imports
-        rank: 8
+        rank: 9
         slot_group: attributes
       see_also:
         name: see_also
-        rank: 9
+        rank: 10
         slot_group: attributes
         description: A delimited list of URLs to supporting documentation; or possibly a local relative file path containing such information.
   Prefix:
@@ -134,8 +141,8 @@ classes:
       - name
       - title
       - description
-      - version
       - see_also
+      - version
       - class_uri
       - is_a
       - tree_root
@@ -173,19 +180,19 @@ classes:
         description: The plain language description of this table (LinkML class).
         range: string
         required: true
-      version:
-        name: version
+      see_also:
+        name: see_also
         rank: 5
         slot_group: attributes
+        description: A delimited list of URLs to supporting documentation; or possibly a local file path containing such information.
+      version:
+        name: version
+        rank: 6
+        slot_group: technical
         description: A semantic version identifier for this table content.
         pattern: ^\d+\.\d+\.\d+$
         comments:
           - See https://semver.org/
-      see_also:
-        name: see_also
-        rank: 6
-        slot_group: attributes
-        description: A delimited list of URLs to supporting documentation; or possibly a local file path containing such information.
       class_uri:
         name: class_uri
         rank: 7
@@ -334,6 +341,7 @@ classes:
       - unit
       - required
       - recommended
+      - ifabsent
       - identifier
       - multivalued
       - minimum_value
@@ -394,7 +402,7 @@ classes:
         name: rank
         rank: 6
         slot_group: attributes
-        description: An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.
+        description: An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.  In Schema Editor, this is automatically set when on the Field tab by dragging fields into the desired order.
       slot_uri:
         name: slot_uri
         rank: 7
@@ -438,77 +446,85 @@ classes:
         name: recommended
         rank: 15
         slot_group: attributes
+      ifabsent:
+        name: ifabsent
+        rank: 26
+        slot_group: attributes
+        description: Specify a default value for a field (LinkML slot) using the syntax shown in the examples.
+        examples:
+          - value: 'For strings: string(default value)'
+          - value: 'For integer: int(42)'
+          - value: 'For float: float(0.5)'
+          - value: 'For boolean: True'
+          - value: 'For dates: date("2020-01-31")'
+          - value: 'For datetime: datetime("2020-01-31T12:00:00Z")'
       identifier:
         name: identifier
-        rank: 16
+        rank: 17
         slot_group: attributes
       multivalued:
         name: multivalued
-        rank: 17
+        rank: 18
         slot_group: attributes
       minimum_value:
         name: minimum_value
-        rank: 18
+        rank: 19
         slot_group: attributes
       maximum_value:
         name: maximum_value
-        rank: 19
+        rank: 20
         slot_group: attributes
       minimum_cardinality:
         name: minimum_cardinality
-        rank: 20
+        rank: 21
         slot_group: attributes
       maximum_cardinality:
         name: maximum_cardinality
-        rank: 21
+        rank: 22
         slot_group: attributes
       todos:
         name: todos
-        rank: 22
+        rank: 23
         slot_group: attributes
       pattern:
         name: pattern
-        rank: 23
+        rank: 24
         slot_group: attributes
       structured_pattern:
         name: structured_pattern
-        rank: 24
-        slot_group: attributes
-      ifabsent:
-        name: ifabsent
         rank: 25
         slot_group: attributes
       equals_expression:
         name: equals_expression
-        rank: 26
+        rank: 27
         slot_group: attributes
       inlined:
         name: inlined
-        rank: 27
+        rank: 28
         slot_group: attributes
       inlined_as_list:
         name: inlined_as_list
-        rank: 28
+        rank: 29
         slot_group: attributes
       aliases:
         name: aliases
-        rank: 29
+        rank: 30
         slot_group: attributes
       exact_mappings:
         name: exact_mappings
-        rank: 30
+        rank: 31
         slot_group: attributes
         title: Exact mappings
         description: A list of one or more Curies or URIs that point to terms that are semantically identical to this field (LinkML slot).
       notes:
         name: notes
-        rank: 31
+        rank: 32
         slot_group: attributes
         title: Editorial notes
         description: Editorial notes about this field (LinkML slot) intended primarily for internal consumption
       version:
         name: version
-        rank: 32
+        rank: 33
         slot_group: attributes
         description: A version number (or date) indicating when this field (LinkML slot) was introduced.
   Annotation:
@@ -970,6 +986,10 @@ slots:
       - Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development. This semantic metadata helps in the comparison of datasets.
     examples:
       - value: https://example.com/GRDI
+  title:
+    name: title
+    title: Title
+    range: WhitespaceMinimizedString
   description:
     name: description
     title: Description
@@ -1027,10 +1047,6 @@ slots:
     range: uri
     required: true
     description: The URI the prefix expands to.
-  title:
-    name: title
-    title: Title
-    range: WhitespaceMinimizedString
   class_uri:
     name: class_uri
     title: Semantic URI
@@ -1118,6 +1134,10 @@ slots:
     title: Recommended
     range: boolean
     description: A boolean TRUE indicates this field (LinkML slot) is a recommended data field.
+  ifabsent:
+    name: ifabsent
+    title: Default value
+    range: WhitespaceMinimizedString
   identifier:
     name: identifier
     title: Identifier
@@ -1166,18 +1186,6 @@ slots:
     title: Structured pattern
     range: WhitespaceMinimizedString
     description: This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.
-  ifabsent:
-    name: ifabsent
-    title: Default value
-    range: WhitespaceMinimizedString
-    description: Specify a default value for a field (LinkML slot) using the syntax shown in the examples.
-    examples:
-      - value: 'For strings: string(default value)'
-      - value: 'For integer: int(42)'
-      - value: 'For float: float(0.5)'
-      - value: 'For boolean: True'
-      - value: 'For dates: date("2020-01-31")'
-      - value: 'For datetime: datetime("2020-01-31T12:00:00Z")'
   equals_expression:
     name: equals_expression
     title: Calculated value

@@ -62,10 +62,17 @@
           "rank": 2,
           "slot_group": "key"
         },
+        "title": {
+          "name": "title",
+          "description": "Plain language name of the schema.",
+          "rank": 3,
+          "slot_group": "attributes",
+          "required": true
+        },
         "description": {
           "name": "description",
           "description": "The plain language description of this LinkML schema.",
-          "rank": 3,
+          "rank": 4,
           "slot_group": "attributes",
           "range": "string",
           "required": true
@@ -81,35 +88,35 @@
               "value": "1.2.3"
             }
           ],
-          "rank": 4,
+          "rank": 5,
           "slot_group": "attributes",
           "required": true,
           "pattern": "^\\d+\\.\\d+\\.\\d+$"
         },
         "in_language": {
           "name": "in_language",
-          "rank": 5,
+          "rank": 6,
           "slot_group": "attributes"
         },
         "locales": {
           "name": "locales",
-          "rank": 6,
+          "rank": 7,
           "slot_group": "attributes"
         },
         "default_prefix": {
           "name": "default_prefix",
-          "rank": 7,
+          "rank": 8,
           "slot_group": "attributes"
         },
         "imports": {
           "name": "imports",
-          "rank": 8,
+          "rank": 9,
           "slot_group": "attributes"
         },
         "see_also": {
           "name": "see_also",
           "description": "A delimited list of URLs to supporting documentation; or possibly a local relative file path containing such information.",
-          "rank": 9,
+          "rank": 10,
           "slot_group": "attributes"
         }
       },
@@ -171,12 +178,31 @@
           "range": "uri",
           "required": true
         },
+        "title": {
+          "name": "title",
+          "description": "Plain language name of the schema.",
+          "title": "Title",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 3,
+          "alias": "title",
+          "owner": "Schema",
+          "domain_of": [
+            "Schema",
+            "Class",
+            "Slot",
+            "Enum",
+            "PermissibleValue"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
         "description": {
           "name": "description",
           "description": "The plain language description of this LinkML schema.",
           "title": "Description",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 3,
+          "rank": 4,
           "alias": "description",
           "owner": "Schema",
           "domain_of": [
@@ -206,7 +232,7 @@
             }
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 4,
+          "rank": 5,
           "alias": "version",
           "owner": "Schema",
           "domain_of": [
@@ -232,7 +258,7 @@
             }
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 5,
+          "rank": 6,
           "alias": "in_language",
           "owner": "Schema",
           "domain_of": [
@@ -254,7 +280,7 @@
             }
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 6,
+          "rank": 7,
           "alias": "locales",
           "owner": "Schema",
           "domain_of": [
@@ -269,7 +295,7 @@
           "description": "A prefix to assume all classes and slots can be addressed by.",
           "title": "Default prefix",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 7,
+          "rank": 8,
           "alias": "default_prefix",
           "owner": "Schema",
           "domain_of": [
@@ -287,7 +313,7 @@
             "Currently only the default linkml:types is implemented."
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 8,
+          "rank": 9,
           "alias": "imports",
           "owner": "Schema",
           "domain_of": [
@@ -302,7 +328,7 @@
           "description": "A delimited list of URLs to supporting documentation; or possibly a local relative file path containing such information.",
           "title": "See Also",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 9,
+          "rank": 10,
           "alias": "see_also",
           "owner": "Schema",
           "domain_of": [
@@ -470,21 +496,21 @@
           "range": "string",
           "required": true
         },
+        "see_also": {
+          "name": "see_also",
+          "description": "A delimited list of URLs to supporting documentation; or possibly a local file path containing such information.",
+          "rank": 5,
+          "slot_group": "attributes"
+        },
         "version": {
           "name": "version",
           "description": "A semantic version identifier for this table content.",
           "comments": [
             "See https://semver.org/"
           ],
-          "rank": 5,
-          "slot_group": "attributes",
-          "pattern": "^\\d+\\.\\d+\\.\\d+$"
-        },
-        "see_also": {
-          "name": "see_also",
-          "description": "A delimited list of URLs to supporting documentation; or possibly a local file path containing such information.",
           "rank": 6,
-          "slot_group": "attributes"
+          "slot_group": "technical",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
         },
         "class_uri": {
           "name": "class_uri",
@@ -578,6 +604,7 @@
           "alias": "title",
           "owner": "Class",
           "domain_of": [
+            "Schema",
             "Class",
             "Slot",
             "Enum",
@@ -609,32 +636,12 @@
           "range": "string",
           "required": true
         },
-        "version": {
-          "name": "version",
-          "description": "A semantic version identifier for this table content.",
-          "title": "Version",
-          "comments": [
-            "See https://semver.org/"
-          ],
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 5,
-          "alias": "version",
-          "owner": "Class",
-          "domain_of": [
-            "Schema",
-            "Class",
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "WhitespaceMinimizedString",
-          "pattern": "^\\d+\\.\\d+\\.\\d+$"
-        },
         "see_also": {
           "name": "see_also",
           "description": "A delimited list of URLs to supporting documentation; or possibly a local file path containing such information.",
           "title": "See Also",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 6,
+          "rank": 5,
           "alias": "see_also",
           "owner": "Class",
           "domain_of": [
@@ -644,6 +651,26 @@
           "slot_group": "attributes",
           "range": "WhitespaceMinimizedString",
           "multivalued": true
+        },
+        "version": {
+          "name": "version",
+          "description": "A semantic version identifier for this table content.",
+          "title": "Version",
+          "comments": [
+            "See https://semver.org/"
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 6,
+          "alias": "version",
+          "owner": "Class",
+          "domain_of": [
+            "Schema",
+            "Class",
+            "Slot"
+          ],
+          "slot_group": "technical",
+          "range": "WhitespaceMinimizedString",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
         },
         "class_uri": {
           "name": "class_uri",
@@ -1127,7 +1154,7 @@
         },
         "rank": {
           "name": "rank",
-          "description": "An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.",
+          "description": "An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.  In Schema Editor, this is automatically set when on the Field tab by dragging fields into the desired order.",
           "rank": 6,
           "slot_group": "attributes"
         },
@@ -1184,94 +1211,115 @@
           "rank": 15,
           "slot_group": "attributes"
         },
+        "ifabsent": {
+          "name": "ifabsent",
+          "description": "Specify a default value for a field (LinkML slot) using the syntax shown in the examples.",
+          "examples": [
+            {
+              "value": "For strings: string(default value)"
+            },
+            {
+              "value": "For integer: int(42)"
+            },
+            {
+              "value": "For float: float(0.5)"
+            },
+            {
+              "value": "For boolean: True"
+            },
+            {
+              "value": "For dates: date(\"2020-01-31\")"
+            },
+            {
+              "value": "For datetime: datetime(\"2020-01-31T12:00:00Z\")"
+            }
+          ],
+          "rank": 26,
+          "slot_group": "attributes"
+        },
         "identifier": {
           "name": "identifier",
-          "rank": 16,
+          "rank": 17,
           "slot_group": "attributes"
         },
         "multivalued": {
           "name": "multivalued",
-          "rank": 17,
+          "rank": 18,
           "slot_group": "attributes"
         },
         "minimum_value": {
           "name": "minimum_value",
-          "rank": 18,
+          "rank": 19,
           "slot_group": "attributes"
         },
         "maximum_value": {
           "name": "maximum_value",
-          "rank": 19,
+          "rank": 20,
           "slot_group": "attributes"
         },
         "minimum_cardinality": {
           "name": "minimum_cardinality",
-          "rank": 20,
+          "rank": 21,
           "slot_group": "attributes"
         },
         "maximum_cardinality": {
           "name": "maximum_cardinality",
-          "rank": 21,
+          "rank": 22,
           "slot_group": "attributes"
         },
         "todos": {
           "name": "todos",
-          "rank": 22,
+          "rank": 23,
           "slot_group": "attributes"
         },
         "pattern": {
           "name": "pattern",
-          "rank": 23,
+          "rank": 24,
           "slot_group": "attributes"
         },
         "structured_pattern": {
           "name": "structured_pattern",
-          "rank": 24,
-          "slot_group": "attributes"
-        },
-        "ifabsent": {
-          "name": "ifabsent",
           "rank": 25,
           "slot_group": "attributes"
         },
         "equals_expression": {
           "name": "equals_expression",
-          "rank": 26,
+          "rank": 27,
           "slot_group": "attributes"
         },
         "inlined": {
           "name": "inlined",
-          "rank": 27,
+          "rank": 28,
           "slot_group": "attributes"
         },
         "inlined_as_list": {
           "name": "inlined_as_list",
-          "rank": 28,
+          "rank": 29,
           "slot_group": "attributes"
         },
         "aliases": {
           "name": "aliases",
-          "rank": 29,
+          "rank": 30,
           "slot_group": "attributes"
         },
         "exact_mappings": {
           "name": "exact_mappings",
           "description": "A list of one or more Curies or URIs that point to terms that are semantically identical to this field (LinkML slot).",
           "title": "Exact mappings",
-          "rank": 30,
+          "rank": 31,
           "slot_group": "attributes"
         },
         "notes": {
           "name": "notes",
           "description": "Editorial notes about this field (LinkML slot) intended primarily for internal consumption",
           "title": "Editorial notes",
-          "rank": 31,
+          "rank": 32,
           "slot_group": "attributes"
         },
         "version": {
           "name": "version",
           "description": "A version number (or date) indicating when this field (LinkML slot) was introduced.",
-          "rank": 32,
+          "rank": 33,
           "slot_group": "attributes"
         }
       },
@@ -1403,7 +1451,7 @@
         },
         "rank": {
           "name": "rank",
-          "description": "An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.",
+          "description": "An integer which sets the order of this field (LinkML slot) relative to the others within a given table.  This is the LinkML rank attribute.  In Schema Editor, this is automatically set when on the Field tab by dragging fields into the desired order.",
           "title": "Ordering",
           "from_schema": "https://example.com/DH_LinkML",
           "rank": 6,
@@ -1442,6 +1490,7 @@
           "alias": "title",
           "owner": "Slot",
           "domain_of": [
+            "Schema",
             "Class",
             "Slot",
             "Enum",
@@ -1572,136 +1621,6 @@
           "slot_group": "attributes",
           "range": "boolean"
         },
-        "identifier": {
-          "name": "identifier",
-          "description": "A boolean TRUE indicates this field (LinkML slot) is an identifier such that each of its row values must be unique within the table.  In LinkML, “If a slot is declared as an identifier then it serves as a unique key for members of that class. It can also be used for inlining as a dict in JSON serializations.”",
-          "title": "Identifier",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 16,
-          "alias": "identifier",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "boolean"
-        },
-        "multivalued": {
-          "name": "multivalued",
-          "description": "A boolean TRUE indicates this field (LinkML slot) can hold more than one values taken from its range.",
-          "title": "Multivalued",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 17,
-          "alias": "multivalued",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "boolean"
-        },
-        "minimum_value": {
-          "name": "minimum_value",
-          "description": "A minimum value which is appropriate for the range data type of the field (LinkML slot).",
-          "title": "Minimum value",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 18,
-          "alias": "minimum_value",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "integer"
-        },
-        "maximum_value": {
-          "name": "maximum_value",
-          "description": "A maximum value which is appropriate for the range data type of the field (LinkML slot).",
-          "title": "Maximum value",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 19,
-          "alias": "maximum_value",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "integer"
-        },
-        "minimum_cardinality": {
-          "name": "minimum_cardinality",
-          "description": "For a multivalued field (LinkML slot), a minimum count of values required.",
-          "title": "Minimum cardinality",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 20,
-          "alias": "minimum_cardinality",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "integer"
-        },
-        "maximum_cardinality": {
-          "name": "maximum_cardinality",
-          "description": "For a multivalued field (LinkML slot), a maximum count of values required.",
-          "title": "Maximum cardinality",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 21,
-          "alias": "maximum_cardinality",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "integer"
-        },
-        "todos": {
-          "name": "todos",
-          "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
-          "title": "Conditional",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 22,
-          "alias": "todos",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "WhitespaceMinimizedString",
-          "multivalued": true
-        },
-        "pattern": {
-          "name": "pattern",
-          "description": "A regular expression pattern used to validate a string field’s (LinkML slot)’s value content.",
-          "title": "Pattern",
-          "comments": [
-            "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
-          ],
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 23,
-          "alias": "pattern",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "WhitespaceMinimizedString"
-        },
-        "structured_pattern": {
-          "name": "structured_pattern",
-          "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
-          "title": "Structured pattern",
-          "from_schema": "https://example.com/DH_LinkML",
-          "rank": 24,
-          "alias": "structured_pattern",
-          "owner": "Slot",
-          "domain_of": [
-            "Slot"
-          ],
-          "slot_group": "attributes",
-          "range": "WhitespaceMinimizedString"
-        },
         "ifabsent": {
           "name": "ifabsent",
           "description": "Specify a default value for a field (LinkML slot) using the syntax shown in the examples.",
@@ -1727,8 +1646,138 @@
             }
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 25,
+          "rank": 26,
           "alias": "ifabsent",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
+        },
+        "identifier": {
+          "name": "identifier",
+          "description": "A boolean TRUE indicates this field (LinkML slot) is an identifier such that each of its row values must be unique within the table.  In LinkML, “If a slot is declared as an identifier then it serves as a unique key for members of that class. It can also be used for inlining as a dict in JSON serializations.”",
+          "title": "Identifier",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 17,
+          "alias": "identifier",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "boolean"
+        },
+        "multivalued": {
+          "name": "multivalued",
+          "description": "A boolean TRUE indicates this field (LinkML slot) can hold more than one values taken from its range.",
+          "title": "Multivalued",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 18,
+          "alias": "multivalued",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "boolean"
+        },
+        "minimum_value": {
+          "name": "minimum_value",
+          "description": "A minimum value which is appropriate for the range data type of the field (LinkML slot).",
+          "title": "Minimum value",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 19,
+          "alias": "minimum_value",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "integer"
+        },
+        "maximum_value": {
+          "name": "maximum_value",
+          "description": "A maximum value which is appropriate for the range data type of the field (LinkML slot).",
+          "title": "Maximum value",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 20,
+          "alias": "maximum_value",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "integer"
+        },
+        "minimum_cardinality": {
+          "name": "minimum_cardinality",
+          "description": "For a multivalued field (LinkML slot), a minimum count of values required.",
+          "title": "Minimum cardinality",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 21,
+          "alias": "minimum_cardinality",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "integer"
+        },
+        "maximum_cardinality": {
+          "name": "maximum_cardinality",
+          "description": "For a multivalued field (LinkML slot), a maximum count of values required.",
+          "title": "Maximum cardinality",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 22,
+          "alias": "maximum_cardinality",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "integer"
+        },
+        "todos": {
+          "name": "todos",
+          "description": "A delimited list of simple conditionals that pertain to this field (e.g. ‘<={today}’ , or ‘<={some_other_field_name}’.  This field may also include “work in progress” notes.",
+          "title": "Conditional",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 23,
+          "alias": "todos",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString",
+          "multivalued": true
+        },
+        "pattern": {
+          "name": "pattern",
+          "description": "A regular expression pattern used to validate a string field’s (LinkML slot)’s value content.",
+          "title": "Pattern",
+          "comments": [
+            "Regular expressions can begin with ^ to ensure start of string is tested, and $ to ensure up to end is tested."
+          ],
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 24,
+          "alias": "pattern",
+          "owner": "Slot",
+          "domain_of": [
+            "Slot"
+          ],
+          "slot_group": "attributes",
+          "range": "WhitespaceMinimizedString"
+        },
+        "structured_pattern": {
+          "name": "structured_pattern",
+          "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
+          "title": "Structured pattern",
+          "from_schema": "https://example.com/DH_LinkML",
+          "rank": 25,
+          "alias": "structured_pattern",
           "owner": "Slot",
           "domain_of": [
             "Slot"
@@ -1744,7 +1793,7 @@
             "See https://linkml.io/linkml/schemas/advanced.html#equals-expression"
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 26,
+          "rank": 27,
           "alias": "equals_expression",
           "owner": "Slot",
           "domain_of": [
@@ -1758,7 +1807,7 @@
           "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.",
           "title": "Inlined",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 27,
+          "rank": 28,
           "alias": "inlined",
           "owner": "Slot",
           "domain_of": [
@@ -1772,7 +1821,7 @@
           "description": "Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.",
           "title": "Inlined as list",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 28,
+          "rank": 29,
           "alias": "inlined_as_list",
           "owner": "Slot",
           "domain_of": [
@@ -1789,7 +1838,7 @@
             "See https://linkml.io/linkml/schemas/metadata.html#providing-aliases"
           ],
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 29,
+          "rank": 30,
           "alias": "aliases",
           "owner": "Slot",
           "domain_of": [
@@ -1804,7 +1853,7 @@
           "description": "A list of one or more Curies or URIs that point to terms that are semantically identical to this field (LinkML slot).",
           "title": "Exact mappings",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 30,
+          "rank": 31,
           "alias": "exact_mappings",
           "owner": "Slot",
           "domain_of": [
@@ -1820,7 +1869,7 @@
           "description": "Editorial notes about this field (LinkML slot) intended primarily for internal consumption",
           "title": "Editorial notes",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 31,
+          "rank": 32,
           "alias": "notes",
           "owner": "Slot",
           "domain_of": [
@@ -1836,7 +1885,7 @@
           "description": "A version number (or date) indicating when this field (LinkML slot) was introduced.",
           "title": "Version",
           "from_schema": "https://example.com/DH_LinkML",
-          "rank": 32,
+          "rank": 33,
           "alias": "version",
           "owner": "Slot",
           "domain_of": [
@@ -2209,6 +2258,7 @@
           "alias": "title",
           "owner": "Enum",
           "domain_of": [
+            "Schema",
             "Class",
             "Slot",
             "Enum",
@@ -2521,6 +2571,7 @@
           "alias": "title",
           "owner": "PermissibleValue",
           "domain_of": [
+            "Schema",
             "Class",
             "Slot",
             "Enum",
@@ -3403,6 +3454,19 @@
       "range": "uri",
       "required": true
     },
+    "title": {
+      "name": "title",
+      "title": "Title",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Schema",
+        "Class",
+        "Slot",
+        "Enum",
+        "PermissibleValue"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
     "description": {
       "name": "description",
       "title": "Description",
@@ -3523,18 +3587,6 @@
       ],
       "range": "uri",
       "required": true
-    },
-    "title": {
-      "name": "title",
-      "title": "Title",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Class",
-        "Slot",
-        "Enum",
-        "PermissibleValue"
-      ],
-      "range": "WhitespaceMinimizedString"
     },
     "class_uri": {
       "name": "class_uri",
@@ -3714,6 +3766,15 @@
       ],
       "range": "boolean"
     },
+    "ifabsent": {
+      "name": "ifabsent",
+      "title": "Default value",
+      "from_schema": "https://example.com/DH_LinkML",
+      "domain_of": [
+        "Slot"
+      ],
+      "range": "WhitespaceMinimizedString"
+    },
     "identifier": {
       "name": "identifier",
       "description": "A boolean TRUE indicates this field (LinkML slot) is an identifier such that each of its row values must be unique within the table.  In LinkML, “If a slot is declared as an identifier then it serves as a unique key for members of that class. It can also be used for inlining as a dict in JSON serializations.”",
@@ -3802,36 +3863,6 @@
       "name": "structured_pattern",
       "description": "This is a concatenation of regular expression patterns named in the settings table.  Each named expression gets replaced by its regular expression before validating the slot’s string value against it.",
       "title": "Structured pattern",
-      "from_schema": "https://example.com/DH_LinkML",
-      "domain_of": [
-        "Slot"
-      ],
-      "range": "WhitespaceMinimizedString"
-    },
-    "ifabsent": {
-      "name": "ifabsent",
-      "description": "Specify a default value for a field (LinkML slot) using the syntax shown in the examples.",
-      "title": "Default value",
-      "examples": [
-        {
-          "value": "For strings: string(default value)"
-        },
-        {
-          "value": "For integer: int(42)"
-        },
-        {
-          "value": "For float: float(0.5)"
-        },
-        {
-          "value": "For boolean: True"
-        },
-        {
-          "value": "For dates: date(\"2020-01-31\")"
-        },
-        {
-          "value": "For datetime: datetime(\"2020-01-31T12:00:00Z\")"
-        }
-      ],
       "from_schema": "https://example.com/DH_LinkML",
       "domain_of": [
         "Slot"
