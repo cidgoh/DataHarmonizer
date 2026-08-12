@@ -37,9 +37,6 @@ import YAML from 'yaml';
 
 // ── Helpers (shared with schema-editor-create-save.spec.js pattern) ────────────
 
-function hotText(td) {
-  return (td?.textContent ?? '').replace(/\u25bc/g, '').trim();
-}
 
 /**
  * Target a cell in the Schema / Class tab HOT grid.
@@ -137,14 +134,15 @@ async function scrollToSlotRow(page, name, slotTypeTitle, timeout = 20_000) {
 
 /**
  * Scroll the HOT master wrapper back to the top.
+ * (Defined for re-use in future tests that scroll down and need to reset.)
  */
-async function scrollHotToTop(page) {
-  await page.evaluate(() => {
-    const holder = document.querySelector('.tab-pane.show .ht_master .wtHolder');
-    if (holder) holder.scrollTop = 0;
-  });
-  await page.waitForTimeout(300);
-}
+// async function scrollHotToTop(page) {
+//   await page.evaluate(() => {
+//     const holder = document.querySelector('.tab-pane.show .ht_master .wtHolder');
+//     if (holder) holder.scrollTop = 0;
+//   });
+//   await page.waitForTimeout(300);
+// }
 
 // ── Test ───────────────────────────────────────────────────────────────────────
 

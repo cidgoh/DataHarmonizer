@@ -44,17 +44,17 @@ import YAML from 'yaml';
  * Note: pass options as the third argument (never as the second) so Playwright
  * doesn't mistake them for the `arg` parameter.
  */
-async function waitForCellText(page, text, timeout = 10_000) {
-  await page.waitForFunction(
-    (t) => {
-      function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
-      const tds = document.querySelectorAll('.ht_master.handsontable tbody td');
-      return Array.from(tds).some(td => hotText(td) === t);
-    },
-    text,            // ← passed as the `arg` to the page function
-    { timeout }      // ← options (third argument)
-  );
-}
+// async function waitForCellText(page, text, timeout = 10_000) {
+//   await page.waitForFunction(
+//     (t) => {
+//       function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
+//       const tds = document.querySelectorAll('.ht_master.handsontable tbody td');
+//       return Array.from(tds).some(td => hotText(td) === t);
+//     },
+//     text,            // ← passed as the `arg` to the page function
+//     { timeout }      // ← options (third argument)
+//   );
+// }
 
 /**
  * Wait for `text` to appear in at least `count` rows of the given column in
@@ -89,43 +89,43 @@ async function waitForColCellText(page, colIdx, text, count = 1, timeout = 10_00
  * contains the given text.
  * Col 0 is frozen in .ht_clone_left; other cols are in .ht_master.
  */
-function rowByColText(page, colIdx, text) {
-  const clone = colIdx === 0 ? '.ht_clone_left' : '.ht_master';
-  const nth   = colIdx === 0 ? 1 : colIdx + 1;
-  const scope = page.locator(`.tab-pane.show ${clone}.handsontable tbody tr`);
-  const escaped = text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return scope.filter({
-    has: page.locator(`td:nth-of-type(${nth})`, {
-      hasText: new RegExp(escaped),
-    }),
-  });
-}
+// function rowByColText(page, colIdx, text) {
+//   const clone = colIdx === 0 ? '.ht_clone_left' : '.ht_master';
+//   const nth   = colIdx === 0 ? 1 : colIdx + 1;
+//   const scope = page.locator(`.tab-pane.show ${clone}.handsontable tbody tr`);
+//   const escaped = text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+//   return scope.filter({
+//     has: page.locator(`td:nth-of-type(${nth})`, {
+//       hasText: new RegExp(escaped),
+//     }),
+//   });
+// }
 
 /**
  * Get the visual row index (0-based) of the first row whose column `colIdx`
  * contains `text`. Returns -1 if not found.
  * Col 0 is frozen in .ht_clone_left; other cols are in .ht_master.
  */
-async function findRowIndex(page, colIdx, text) {
-  return page.evaluate(
-    ([colIdx, text]) => {
-      function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
-      // Col 0 data lives in .ht_clone_left (frozen); other cols in .ht_master.
-      const clone = colIdx === 0 ? '.ht_clone_left' : '.ht_master';
-      const rows = document.querySelectorAll(
-        `.tab-pane.show ${clone}.handsontable tbody tr`
-      );
-      for (let i = 0; i < rows.length; i++) {
-        const tds = rows[i].querySelectorAll('td');
-        // In .ht_clone_left the only column is td[0]; in .ht_master td[N] = col N.
-        const nth = colIdx === 0 ? 0 : colIdx;
-        if (tds[nth] && hotText(tds[nth]) === text) return i;
-      }
-      return -1;
-    },
-    [colIdx, text]
-  );
-}
+// async function findRowIndex(page, colIdx, text) {
+//   return page.evaluate(
+//     ([colIdx, text]) => {
+//       function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
+//       // Col 0 data lives in .ht_clone_left (frozen); other cols in .ht_master.
+//       const clone = colIdx === 0 ? '.ht_clone_left' : '.ht_master';
+//       const rows = document.querySelectorAll(
+//         `.tab-pane.show ${clone}.handsontable tbody tr`
+//       );
+//       for (let i = 0; i < rows.length; i++) {
+//         const tds = rows[i].querySelectorAll('td');
+//         // In .ht_clone_left the only column is td[0]; in .ht_master td[N] = col N.
+//         const nth = colIdx === 0 ? 0 : colIdx;
+//         if (tds[nth] && hotText(tds[nth]) === text) return i;
+//       }
+//       return -1;
+//     },
+//     [colIdx, text]
+//   );
+// }
 
 /**
  * Return a Playwright locator for the cell at (rowIndex, colIdx) that can
