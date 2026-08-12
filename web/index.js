@@ -54,6 +54,8 @@ $(dhRoot).append(`
 // Make the top function asynchronous to allow for a data-loading/IO step
 const main = async function () {
   const context = new AppContext();
+  // Expose context for Playwright tests (diagnostics only — not production use).
+  window._appContext = context;
 
   // Demo popup: schema passed via sessionStorage from the Schema Editor.
   // Skip menu.json / webpack schema loading entirely.
