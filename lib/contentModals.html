@@ -122,7 +122,7 @@
 
   <!-- Generic dialog — replaces browser alert() and confirm() -->
   <div class="modal fade" id="dh-dialog-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header" id="dh-dialog-header" style="display:none">
           <h5 class="modal-title" id="dh-dialog-title"></h5>
@@ -134,6 +134,88 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" id="dh-dialog-cancel">Cancel</button>
           <button type="button" class="btn btn-primary" id="dh-dialog-ok">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Field Configuration modal — used by Schema Editor's Slot/Field tab -->
+  <div class="modal fade" id="field-key-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="field-key-modal-title">Field Configuration</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small">
+            <span style="background:#fff3cd;color:#333;padding:1px 4px">Required</span>
+            fields are highlighted. Leave <strong>Table</strong> empty to add the field
+            directly to the <em>schema field library</em>.
+          </p>
+          <table class="table table-sm table-borderless" id="field-key-modal-table">
+            <colgroup>
+              <col style="width:20%">
+              <col style="width:45%">
+              <col style="width:35%">
+            </colgroup>
+            <thead><tr>
+              <th></th><th>Value</th><th class="text-muted small">Description</th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td style="background:#fff3cd;font-weight:bold">Schema ID</td>
+                <td><select class="form-control form-control-sm" id="fkm-schema-id" autocomplete="off" data-lpignore="true"></select></td>
+                <td class="text-muted small">The schema this field belongs to.</td>
+              </tr>
+              <tr>
+                <td style="background:#fff3cd;font-weight:bold">Field ID</td>
+                <td>
+                  <input type="text" class="form-control form-control-sm" id="fkm-name" list="fkm-name-list" placeholder="snake_case_name" autocomplete="off" data-lpignore="true">
+                  <datalist id="fkm-name-list"></datalist>
+                </td>
+                <td class="text-muted small">Unique coded name. Use lowercase snake_case (letters, digits, underscores).</td>
+              </tr>
+              <tr>
+                <td>Title</td>
+                <td><input type="text" class="form-control form-control-sm" id="fkm-title" placeholder="Human-readable label" autocomplete="off" data-lpignore="true"></td>
+                <td class="text-muted small">Display label shown to data-entry users.</td>
+              </tr>
+              <tr>
+                <td>Table</td>
+                <td><select class="form-control form-control-sm" id="fkm-class-id" autocomplete="off" data-lpignore="true"></select></td>
+                <td class="text-muted small">Link to a table, or leave empty to add to the schema field library.</td>
+              </tr>
+              <tr id="fkm-slot-type-row">
+                <td>Field reuse</td>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="fkm-slot-type" id="fkm-type-slot-usage" value="slot_usage" checked>
+                    <label class="form-check-label" for="fkm-type-slot-usage" id="fkm-type-slot-usage-label">
+                      Inherit from schema field library (slot_usage)
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="fkm-slot-type" id="fkm-type-attribute" value="attribute">
+                    <label class="form-check-label" for="fkm-type-attribute">
+                      Standalone table attribute (attribute)
+                    </label>
+                  </div>
+                </td>
+                <td class="text-muted small" id="fkm-slot-type-help"></td>
+              </tr>
+              <tr>
+                <td>Section</td>
+                <td><select class="form-control form-control-sm" id="fkm-slot-group" autocomplete="off" data-lpignore="true"></select></td>
+                <td class="text-muted small">Optional display group / section heading for this field.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div id="fkm-error" class="text-danger small mt-1" style="display:none"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary btn-sm" id="fkm-confirm-btn">Save field</button>
         </div>
       </div>
     </div>
