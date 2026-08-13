@@ -181,11 +181,6 @@
                 <td><input type="text" class="form-control form-control-sm" id="fkm-title" placeholder="Human-readable label" autocomplete="off" data-lpignore="true"></td>
                 <td class="text-muted small">Display label shown to data-entry users.</td>
               </tr>
-              <tr>
-                <td>Table</td>
-                <td><select class="form-control form-control-sm" id="fkm-class-id" autocomplete="off" data-lpignore="true"></select></td>
-                <td class="text-muted small">Link to a table, or leave empty to add to the schema field library.</td>
-              </tr>
               <tr id="fkm-slot-type-row">
                 <td>Field reuse</td>
                 <td>
@@ -204,10 +199,26 @@
                 </td>
                 <td class="text-muted small" id="fkm-slot-type-help"></td>
               </tr>
+              <tr id="fkm-copy-inherited-row" style="display:none">
+                <td></td>
+                <td colspan="2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="fkm-copy-inherited" checked>
+                    <label class="form-check-label" for="fkm-copy-inherited">
+                      Copy schema-inherited field attributes
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Table</td>
+                <td><select class="form-control form-control-sm" id="fkm-class-id" autocomplete="off" data-lpignore="true"></select></td>
+                <td class="text-muted small">Link to a table, or leave empty to add to the schema field library.</td>
+              </tr>
               <tr>
                 <td>Section</td>
                 <td><select class="form-control form-control-sm" id="fkm-slot-group" autocomplete="off" data-lpignore="true"></select></td>
-                <td class="text-muted small">Optional display group / section heading for this field.</td>
+                <td class="text-muted small">Optional display group / section heading for this field. New sections can be added on the "Table section" tab.</td>
               </tr>
             </tbody>
           </table>

@@ -366,3 +366,24 @@ td.hide {
 .selectDepth_3 {padding-left:60px !important}
 .selectDepth_4 {padding-left:80px !important}
 .selectDepth_5 {padding-left:100px !important}
+
+/* Group header rows inside the key-value-list HOT dropdown */
+.dh-group-header {
+  font-weight: bold !important;
+  color: #555 !important;
+  background: #f0f0f0 !important;
+  cursor: default !important;
+  pointer-events: none !important;
+}
+
+/* Group header rows inside the Selectize multiselect dropdown */
+.dh-selectize-group-header {
+  font-weight: bold;
+  color: #555;
+  background: #f0f0f0;
+  padding: 4px 8px;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
