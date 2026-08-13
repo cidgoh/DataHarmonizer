@@ -878,8 +878,41 @@ def main():
                              "Cosmetic changes (reorderings, redundant name fields, "
                              "whitespace-only string wrapping) are tagged C-ADD / C-DEL / C-UPD "
                              "in the CHG column.")
+    parser.add_argument("--files", nargs=2, metavar=("OLD", "NEW"),
+                        help="Compare two YAML files directly instead of using git refs. "
+                             "Example: --files web/templates/grdi_1m/schema.yaml "
+                             "test-results/GRDI.yaml")
     args = parser.parse_args()
     maxlen = None if args.full else 120
+
+    # ── Direct file-to-file comparison (--files OLD NEW) ─────────────────────
+    if args.files:
+        old_path, new_path = args.files
+        try:
+            old_yaml = yaml.safe_load(open(old_path, encoding='utf-8').read())
+            new_yaml = yaml.safe_load(open(new_path, encoding='utf-8').read())
+        except FileNotFoundError as exc:
+            print(f"ERROR: {exc}", file=sys.stderr)
+            sys.exit(2)
+        substantive, enrichment, cosmetic = analyze(old_yaml, new_yaml)
+        n_cap = sum(1 for _, _, _, cap in substantive if cap)
+        print(f"\n{'='*70}")
+        print(f"FILE (old): {old_path}")
+        print(f"FILE (new): {new_path}")
+        if not substantive and not enrichment:
+            print("  No substantive changes (cosmetic/ordering only)")
+        else:
+            print_entries(substantive, "SUBSTANTIVE CHANGES", maxlen)
+            if enrichment:
+                print(f"\n  ENRICHMENT (title additions to permissible_values): {len(enrichment)}")
+        if cosmetic:
+            print(f"  COSMETIC (suppressed): {len(cosmetic)}")
+        print(f"\n{'='*70}")
+        print("TOTALS:")
+        print(f"  Substantive changes    : {len(substantive)} (of which case-only: {n_cap})")
+        print(f"  Enrichment (titles)    : {len(enrichment)}")
+        print(f"  Cosmetic (suppressed)  : {len(cosmetic)}")
+        return
 
     # Apply schema filter once; both summary and detail use the result.
     if args.schema:

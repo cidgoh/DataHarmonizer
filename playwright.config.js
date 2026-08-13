@@ -7,6 +7,7 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests/playwright',
+  testMatch: /.*\.(spec|test)\.[cm]?[jt]sx?$/,
   // Starts yarn dev and waits for it before any test runs.
   webServer: {
     command: 'yarn dev',

@@ -315,6 +315,20 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
   const removeRowItem = page.locator('.htItemWrapper').filter({ hasText: 'Remove row(s)' }).first();
   await removeRowItem.waitFor({ state: 'visible', timeout: 8_000 });
   await removeRowItem.click();
+
+  // The remove-row handler now shows a confirmation dialog (dhChoose).
+  // third_party_lab_sample_id is a slot_usage (not a schema field), so the
+  // Delete button is enabled.  Wait for the dialog then click Delete.
+  await page.waitForFunction(
+    () => document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+  // The Delete button is a dynamically-inserted btn-primary inserted before Cancel.
+  await page.locator('#dh-dialog-modal .modal-footer .btn-primary').first().click();
+  await page.waitForFunction(
+    () => !document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
   await page.waitForTimeout(500);
 
   // Confirm the row is gone from the visible DOM.
