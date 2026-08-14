@@ -857,6 +857,25 @@
                 <select class="form-control" id="copy-to-schema-select"></select>
               </div>
             </div>
+            <div class="row mt-2" id="copy-to-class-row" style="display:none">
+              <div class="col">
+                <label class="mb-1"><strong>Copy to table:</strong></label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="copy-class-mode"
+                         id="copy-class-assign" value="assign" checked>
+                  <label class="form-check-label" for="copy-class-assign">Assign to:</label>
+                </div>
+                <select class="form-control mt-1" id="copy-to-class-select"
+                        style="margin-left:1.25rem;width:calc(100% - 1.25rem)"></select>
+                <div class="form-check mt-2">
+                  <input class="form-check-input" type="radio" name="copy-class-mode"
+                         id="copy-class-preserve" value="preserve">
+                  <label class="form-check-label" for="copy-class-preserve">
+                    Preserve original table (copy table record to target schema if missing)
+                  </label>
+                </div>
+              </div>
+            </div>
             <!-- Section 1: parent records (always copied) -->
             <div class="row mt-3" id="copy-parent-deps-row" style="display:none">
               <div class="col">
