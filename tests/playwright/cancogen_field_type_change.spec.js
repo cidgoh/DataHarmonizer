@@ -25,68 +25,7 @@
 
 import { test, expect } from '@playwright/test';
 import path from 'path';
-
-// ── Helpers (copied from UX_task_1_covid19.spec.js) ──────────────────────────
-
-function hotCellLocator(page, rowIndex, colIdx) {
-  if (colIdx === 0) {
-    return page
-      .locator('.tab-pane.show .ht_clone_left.handsontable tbody tr')
-      .nth(rowIndex)
-      .locator('td:nth-of-type(1)');
-  }
-  return page
-    .locator('.tab-pane.show .ht_master.handsontable tbody tr')
-    .nth(rowIndex)
-    .locator(`td:nth-of-type(${colIdx + 1})`);
-}
-
-async function findRowIndex(page, colIdx, text) {
-  return page.evaluate(
-    ([colIdx, text]) => {
-      function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
-      const clone = colIdx === 0 ? '.ht_clone_left' : '.ht_master';
-      const rows  = document.querySelectorAll(`.tab-pane.show ${clone}.handsontable tbody tr`);
-      for (let i = 0; i < rows.length; i++) {
-        const tds = rows[i].querySelectorAll('td');
-        const nth = colIdx === 0 ? 0 : colIdx;
-        if (tds[nth] && ht(tds[nth]) === text) return i;
-      }
-      return -1;
-    },
-    [colIdx, text]
-  );
-}
-
-async function findSlotRowIndex(page, name, slotTypeTitle) {
-  return page.evaluate(
-    ([name, slotTypeTitle]) => {
-      function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
-      const scope = document.querySelector('.tab-pane.show');
-      const rows  = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
-      for (let i = 0; i < rows.length; i++) {
-        const tds = rows[i].querySelectorAll('td');
-        if (ht(tds[3]) === name && ht(tds[1]) === slotTypeTitle) return i;
-      }
-      return -1;
-    },
-    [name, slotTypeTitle]
-  );
-}
-
-async function scrollToSlotRow(page, name, slotTypeTitle, timeout = 20_000) {
-  const deadline = Date.now() + timeout;
-  while (Date.now() < deadline) {
-    const idx = await findSlotRowIndex(page, name, slotTypeTitle);
-    if (idx !== -1) return idx;
-    await page.evaluate(() => {
-      const holder = document.querySelector('.tab-pane.show .ht_master .wtHolder');
-      if (holder) holder.scrollTop += 300;
-    });
-    await page.waitForTimeout(200);
-  }
-  return -1;
-}
+import { hotCellLocator, findSlotRowIndex, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
 
 // ── Test ──────────────────────────────────────────────────────────────────────
 

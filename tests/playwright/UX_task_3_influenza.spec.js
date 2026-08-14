@@ -22,97 +22,7 @@ import { test, expect } from '@playwright/test';
 import path from 'path';
 import { readFileSync, mkdirSync } from 'fs';
 import YAML from 'yaml';
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-/**
- * Target a cell in the Schema / Class tab HOT grid.
- * Col 0 (name) is frozen in .ht_clone_left; other cols go to .ht_master.
- */
-function hotCellLocator(page, rowIndex, colIdx) {
-  if (colIdx === 0) {
-    return page
-      .locator('.tab-pane.show .ht_clone_left.handsontable tbody tr')
-      .nth(rowIndex)
-      .locator('td:nth-of-type(1)');
-  }
-  return page
-    .locator('.tab-pane.show .ht_master.handsontable tbody tr')
-    .nth(rowIndex)
-    .locator(`td:nth-of-type(${colIdx + 1})`);
-}
-
-/**
- * Target a cell in the Slot/Field tab .ht_master grid.
- * colIdx 0 = empty placeholder for frozen class_id; 1 = slot_type; 2 = slot_group;
- * 3 = name; 6 = title; 7 = description; 12 = required; 13 = recommended.
- */
-function slotCellLocator(page, rowIndex, colIdx) {
-  return page
-    .locator('.tab-pane.show .ht_master.handsontable tbody tr')
-    .nth(rowIndex)
-    .locator(`td:nth-of-type(${colIdx + 1})`);
-}
-
-/**
- * Find the 0-based DOM row index of a slot row matching both `name` (tds[3])
- * and `slotTypeTitle` (tds[1]) in the currently active tab's .ht_master.
- * Returns -1 if not found in the currently rendered DOM.
- */
-async function findSlotRowIndex(page, name, slotTypeTitle) {
-  return page.evaluate(
-    ([name, slotTypeTitle]) => {
-      function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
-      const scope = document.querySelector('.tab-pane.show');
-      const rows  = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
-      for (let i = 0; i < rows.length; i++) {
-        const tds = rows[i].querySelectorAll('td');
-        if (ht(tds[3]) === name && ht(tds[1]) === slotTypeTitle) return i;
-      }
-      return -1;
-    },
-    [name, slotTypeTitle]
-  );
-}
-
-/**
- * Find a row in Schema/Class tab .ht_master (or .ht_clone_left for col 0)
- * by colIdx + text. Returns -1 if not found.
- */
-async function findRowIndex(page, colIdx, text) {
-  return page.evaluate(
-    ([colIdx, text]) => {
-      function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
-      const clone = colIdx === 0 ? '.ht_clone_left' : '.ht_master';
-      const rows  = document.querySelectorAll(`.tab-pane.show ${clone}.handsontable tbody tr`);
-      for (let i = 0; i < rows.length; i++) {
-        const tds = rows[i].querySelectorAll('td');
-        const nth = colIdx === 0 ? 0 : colIdx;
-        if (tds[nth] && ht(tds[nth]) === text) return i;
-      }
-      return -1;
-    },
-    [colIdx, text]
-  );
-}
-
-/**
- * Scroll the Slot/Field tab HOT down incrementally until the row matching
- * `name` + `slotTypeTitle` appears in the DOM, then return its DOM index.
- */
-async function scrollToSlotRow(page, name, slotTypeTitle, timeout = 20_000) {
-  const deadline = Date.now() + timeout;
-  while (Date.now() < deadline) {
-    const idx = await findSlotRowIndex(page, name, slotTypeTitle);
-    if (idx !== -1) return idx;
-    await page.evaluate(() => {
-      const holder = document.querySelector('.tab-pane.show .ht_master .wtHolder');
-      if (holder) holder.scrollTop += 300;
-    });
-    await page.waitForTimeout(200);
-  }
-  return -1;
-}
+import { hotCellLocator, slotCellLocator, findSlotRowIndex, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
 
 // ── Test ───────────────────────────────────────────────────────────────────────
 
@@ -246,6 +156,14 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
   expect(localesValue, 'Influenza locales should be "fr" after adding French').toBe('fr');
 
   // ── 4. Navigate to Slot tab and add French title for "authors" ──────────────
+  // Enable Expert User mode — required by translationForm() for slot_usage rows
+  // because their translations are class-scoped, not global.
+  await page.evaluate(() => {
+    const cb = document.getElementById('schema_expert');
+    if (cb && !cb.checked) cb.click();
+  });
+  await page.waitForTimeout(200);
+
   // Switch to the Class tab and select the Influenza class so the Slot tab
   // is filtered to Influenza's fields.
   await page.click('#tab-bar-Class > a');
@@ -281,8 +199,8 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
 
   // Scroll until the "authors" slot_usage row ("Table field (from schema)") appears.
   // The slot_usage row is always visible when the Influenza class is selected.
-  // Right-clicking it in the Slot tab still uses TRANSLATABLE['Slot'] (key_name='name'),
-  // so the translation writes to fr.slots.authors.title — the global slot path.
+  // Right-clicking it uses TRANSLATABLE['SlotUsage'] (class-scoped path),
+  // so the translation writes to fr.classes.Influenza.slot_usage.authors.title.
   const authorsRowIdx = await scrollToSlotRow(page, 'authors', 'Table field (from schema)');
   expect(authorsRowIdx, '"authors" slot_usage row not found in Slot tab').not.toBe(-1);
 
@@ -312,7 +230,7 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
   );
 
   // The modal table has one row per locale.  The French (fr) title textarea
-  // has data-path="fr.slots.authors.title".  Fill it with "Auteurs".
+  // has data-path="fr.classes.Influenza.slot_usage.authors.title".  Fill it with "Auteurs".
   const frTitleTextarea = page
     .locator('#translate-modal textarea[name="title"][data-path^="fr."]')
     .first();
@@ -327,8 +245,8 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
   );
   await page.waitForTimeout(300);
 
-  // Verify: locales.fr.slots.authors.title = 'Auteurs' in the Schema row's
-  // cell metadata (where all locale data for the loaded schema is stored).
+  // Verify: locales.fr.classes.Influenza.slot_usage.authors.title = 'Auteurs' in the
+  // Schema row's cell metadata (where all locale data for the loaded schema is stored).
   const authorsTitle = await page.evaluate(() => {
     const dh  = window._appContext?.dhs?.Schema;
     const hot = dh?.hot;
@@ -337,10 +255,275 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
     for (let p = 0; p < hot.countSourceRows(); p++) {
       if (hot.getSourceDataAtCell(p, nameCol) === 'Influenza') {
         const meta = hot.getCellMeta(p, 0);
-        return meta?.locales?.fr?.slots?.authors?.title ?? null;
+        return meta?.locales?.fr?.classes?.Influenza?.slot_usage?.authors?.title ?? null;
       }
     }
     return null;
   });
   expect(authorsTitle, 'French title for "authors" should be "Auteurs"').toBe('Auteurs');
+
+  // ── 5. Add French description for "authors" ──────────────────────────────────
+  // Still in the Slot tab; authorsGroupCell is still in view from step 4.
+  // Open the Translations modal a second time on the same row.
+  await authorsGroupCell.scrollIntoViewIfNeeded();
+  await authorsGroupCell.click({ button: 'right' });
+
+  const translationsItem2 = page
+    .locator('.htItemWrapper')
+    .filter({ hasText: 'Translations' })
+    .first();
+  await translationsItem2.waitFor({ state: 'visible', timeout: 8_000 });
+  await translationsItem2.click();
+
+  await page.waitForFunction(
+    () => document.querySelector('#translate-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+
+  // The title textarea already shows "Auteurs" from step 4 and will be
+  // re-saved unchanged; only the description textarea needs filling.
+  const frDescription = 'Provenance des versions du logiciel et du modèle DataHarmonizer.';
+  const frDescTextarea = page
+    .locator('#translate-modal textarea[name="description"][data-path^="fr."]')
+    .first();
+  await frDescTextarea.waitFor({ state: 'visible', timeout: 5_000 });
+  await frDescTextarea.fill(frDescription);
+
+  await page.locator('#translation-save').first().click();
+  await page.waitForFunction(
+    () => !document.querySelector('#translate-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+  await page.waitForTimeout(300);
+
+  // Verify: locales.fr.classes.Influenza.slot_usage.authors.description is the French description.
+  const authorsDesc = await page.evaluate(() => {
+    const dh  = window._appContext?.dhs?.Schema;
+    const hot = dh?.hot;
+    if (!hot || !dh) return null;
+    const nameCol = dh.slot_name_to_column['name'];
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      if (hot.getSourceDataAtCell(p, nameCol) === 'Influenza') {
+        const meta = hot.getCellMeta(p, 0);
+        return meta?.locales?.fr?.classes?.Influenza?.slot_usage?.authors?.description ?? null;
+      }
+    }
+    return null;
+  });
+  expect(authorsDesc, 'French description for "authors" should be set').toBe(frDescription);
+
+  // ── 6. Add French comments note for "authors" ────────────────────────────────
+  // Re-open the Translations modal on the same authors row and fill the
+  // "comments" textarea with a note about how the translation was generated.
+  await authorsGroupCell.scrollIntoViewIfNeeded();
+  await authorsGroupCell.click({ button: 'right' });
+
+  const translationsItem3 = page
+    .locator('.htItemWrapper')
+    .filter({ hasText: 'Translations' })
+    .first();
+  await translationsItem3.waitFor({ state: 'visible', timeout: 8_000 });
+  await translationsItem3.click();
+
+  await page.waitForFunction(
+    () => document.querySelector('#translate-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+
+  const frComments = 'Translation generated via Google Translate.';
+  const frCommentsTextarea = page
+    .locator('#translate-modal textarea[name="comments"][data-path^="fr."]')
+    .first();
+  await frCommentsTextarea.waitFor({ state: 'visible', timeout: 5_000 });
+  await frCommentsTextarea.fill(frComments);
+
+  await page.locator('#translation-save').first().click();
+  await page.waitForFunction(
+    () => !document.querySelector('#translate-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+  await page.waitForTimeout(300);
+
+  // Verify: locales.fr.classes.Influenza.slot_usage.authors.comments contains the translation note.
+  const authorsComments = await page.evaluate(() => {
+    const dh  = window._appContext?.dhs?.Schema;
+    const hot = dh?.hot;
+    if (!hot || !dh) return null;
+    const nameCol = dh.slot_name_to_column['name'];
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      if (hot.getSourceDataAtCell(p, nameCol) === 'Influenza') {
+        const meta = hot.getCellMeta(p, 0);
+        return meta?.locales?.fr?.classes?.Influenza?.slot_usage?.authors?.comments ?? null;
+      }
+    }
+    return null;
+  });
+  expect(authorsComments, 'French comments for "authors" should contain translation note')
+    .toBe(frComments);
+
+  // ── 7. Add French title for "organism menu" (OrganismMenu enum) ─────────────
+  // Navigate to the Enum (Picklist) tab.
+  await page.click('#tab-bar-Enum > a');
+  await page.waitForFunction(
+    () => document.querySelector('#tab-bar-Enum .nav-link')?.classList.contains('active'),
+    null, { timeout: 5_000 }
+  );
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show').length === 1,
+    null, { timeout: 5_000 }
+  );
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show .ht_master.handsontable tbody tr').length > 0,
+    null, { timeout: 15_000 }
+  );
+  await page.waitForTimeout(500);
+
+  // Use the HOT API to scroll OrganismMenu into the visible viewport.
+  // Enum column order: col0=schema_id (frozen in .ht_clone_left), col1=name, col2=title, …
+  await page.evaluate(() => {
+    const dh  = window._appContext?.dhs?.Enum;
+    const hot = dh?.hot;
+    if (!hot || !dh) return;
+    const n2c = dh.slot_name_to_column;
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      if (hot.getSourceDataAtCell(p, n2c['name']) === 'OrganismMenu') {
+        const v = hot.toVisualRow(p);
+        hot.scrollViewportTo(v, 0, false, false);
+        break;
+      }
+    }
+  });
+
+  // Wait for the OrganismMenu row to appear in the rendered DOM.
+  // In the Enum tab schema_id (col0) is hidden; 'name' (col1) is frozen in
+  // .ht_clone_left — so look there at tds[0].
+  await page.waitForFunction(
+    () => {
+      const scope = document.querySelector('.tab-pane.show');
+      const rows  = (scope || document).querySelectorAll('.ht_clone_left.handsontable tbody tr');
+      for (const row of rows) {
+        const tds  = row.querySelectorAll('td');
+        const text = (tds[0]?.textContent ?? '').replace(/\u25bc/g, '').trim();
+        if (text === 'OrganismMenu') return true;
+      }
+      return false;
+    },
+    null, { timeout: 5_000 }
+  );
+
+  // Find the DOM row index via .ht_clone_left (colIdx=0 → name column).
+  const enumRowIdx = await findRowIndex(page, 0, 'OrganismMenu');
+  expect(enumRowIdx, 'OrganismMenu DOM row not found in Enum tab').not.toBe(-1);
+
+  // Right-click the frozen name cell (hotCellLocator col0 → .ht_clone_left td:nth-of-type(1)).
+  const enumNameCell = hotCellLocator(page, enumRowIdx, 0);
+  await enumNameCell.scrollIntoViewIfNeeded();
+  await enumNameCell.click({ button: 'right' });
+
+  // Click the 'Translations' context menu item.
+  // The item is enabled because the Influenza Schema row has locales (fr) and
+  // 'Enum' is listed in schemaEditor.TRANSLATABLE.
+  const translationsItemEnum = page
+    .locator('.htItemWrapper')
+    .filter({ hasText: 'Translations' })
+    .first();
+  await translationsItemEnum.waitFor({ state: 'visible', timeout: 8_000 });
+  await translationsItemEnum.click();
+
+  await page.waitForFunction(
+    () => document.querySelector('#translate-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+
+  // Fill the French (fr) title textarea — data-path will be "fr.enums.OrganismMenu.title".
+  const frEnumTitle = 'menu des organismes';
+  const frEnumTitleTextarea = page
+    .locator('#translate-modal textarea[name="title"][data-path^="fr."]')
+    .first();
+  await frEnumTitleTextarea.waitFor({ state: 'visible', timeout: 5_000 });
+  await frEnumTitleTextarea.fill(frEnumTitle);
+
+  await page.locator('#translation-save').first().click();
+  await page.waitForFunction(
+    () => !document.querySelector('#translate-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+  await page.waitForTimeout(300);
+
+  // Verify: locales.fr.enums.OrganismMenu.title = 'menu des organismes' in the Schema row meta.
+  const savedEnumTitle = await page.evaluate(() => {
+    const dh  = window._appContext?.dhs?.Schema;
+    const hot = dh?.hot;
+    if (!hot || !dh) return null;
+    const nameCol = dh.slot_name_to_column['name'];
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      if (hot.getSourceDataAtCell(p, nameCol) === 'Influenza') {
+        const meta = hot.getCellMeta(p, 0);
+        return meta?.locales?.fr?.enums?.OrganismMenu?.title ?? null;
+      }
+    }
+    return null;
+  });
+  expect(savedEnumTitle, 'French title for OrganismMenu should be "menu des organismes"').toBe(frEnumTitle);
+
+  // ── 8. Save schema as YAML and verify all French locale entries ──────────────
+  // Navigate back to the Schema tab to trigger the save context menu.
+  await page.click('#tab-bar-Schema > a');
+  await page.waitForFunction(
+    () => document.querySelector('#tab-bar-Schema .nav-link')?.classList.contains('active'),
+    null, { timeout: 5_000 }
+  );
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show').length === 1,
+    null, { timeout: 5_000 }
+  );
+
+  const influenzaRowIdxFinal = await findRowIndex(page, 0, 'Influenza');
+  expect(influenzaRowIdxFinal, 'Influenza row not found in Schema tab for save').not.toBe(-1);
+
+  // Intercept the window.prompt() that saveSchema() uses to collect the filename.
+  page.once('dialog', async dialog => { await dialog.accept('schema.yaml'); });
+
+  // Right-click the Influenza row → "Save as LinkML schema.yaml" → intercept download.
+  const tmpDir = path.resolve('tests/playwright/tmp');
+  mkdirSync(tmpDir, { recursive: true });
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    (async () => {
+      const influenzaCell = hotCellLocator(page, influenzaRowIdxFinal, 0);
+      await influenzaCell.click();
+      await page.waitForTimeout(200);
+      await influenzaCell.click({ button: 'right' });
+      const saveItem = page
+        .locator('.htItemWrapper')
+        .filter({ hasText: 'Save as LinkML schema.yaml' })
+        .first();
+      await saveItem.waitFor({ state: 'visible', timeout: 8_000 });
+      await saveItem.click();
+    })(),
+  ]);
+
+  const savedPath = path.join(tmpDir, 'influenza_test.yaml');
+  await download.saveAs(savedPath);
+
+  // Parse the saved YAML and verify every French locale entry is present.
+  // saveSchema() writes: extensions.locales = { tag: 'locales', value: metadata.locales }
+  const saved   = YAML.parse(readFileSync(savedPath, 'utf8'));
+  const locales = saved?.extensions?.locales?.value;
+
+  expect(locales?.fr?.classes?.Influenza?.slot_usage?.authors?.title,
+    'Saved YAML: fr.classes.Influenza.slot_usage.authors.title').toBe('Auteurs');
+  expect(locales?.fr?.classes?.Influenza?.slot_usage?.authors?.description,
+    'Saved YAML: fr.classes.Influenza.slot_usage.authors.description').toBe(frDescription);
+  expect(locales?.fr?.classes?.Influenza?.slot_usage?.authors?.comments,
+    'Saved YAML: fr.classes.Influenza.slot_usage.authors.comments').toBe(frComments);
+  expect(locales?.fr?.enums?.OrganismMenu?.title,
+    'Saved YAML: fr.enums.OrganismMenu.title').toBe(frEnumTitle);
+
+  // Verify that unfilled translation fields are absent (not saved as empty strings).
+  // translationUpdate() must skip nestedProperty.set() when the textarea is empty.
+  expect(locales?.fr?.classes?.Influenza?.slot_usage?.authors?.examples,
+    'Saved YAML: fr.classes.Influenza.slot_usage.authors.examples should be absent, not ""').toBeUndefined();
+  expect(locales?.fr?.enums?.OrganismMenu?.description,
+    'Saved YAML: fr.enums.OrganismMenu.description should be absent, not ""').toBeUndefined();
 });

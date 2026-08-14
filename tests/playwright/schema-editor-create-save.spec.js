@@ -20,24 +20,9 @@ import { test, expect } from '@playwright/test';
 import path from 'path';
 import { readFileSync, mkdirSync } from 'fs';
 import YAML from 'yaml';
+import { hotCellLocator, slotCellLocator, findSlotRowIndex } from './playwright_utils.js';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
-
-/**
- * HOT renders dropdown/autocomplete cells as "▼Value" (U+25BC arrow prepended).
- * Strip it before doing equality checks in browser-side waitForFunction calls.
- *
- * HOT structure notes:
- *  • Each tbody <tr> starts with a <th> row-number header — use td:nth-of-type(N)
- *    instead of td:nth-child(N) to count only <td> siblings.
- *  • ALL tabs (Schema, Class, Slot) use fixedColumnsLeft: 1, freezing the first
- *    data column in .ht_clone_left. The .ht_master col-0 td is an empty placeholder.
- *  • Schema/Class tabs: col 0 is the name/id field. Use hotCellLocator() which
- *    routes col 0 to .ht_clone_left and col 1+ to .ht_master.
- *  • Slot tab: col 0 (schema_id) is frozen in .ht_clone_left; ht_master tds[0] is
- *    an empty placeholder. Data cols 1-N map to ht_master tds[1]-tds[N].
- *    Use slotCellLocator() which always uses .ht_master tds[colIdx].
- */
 
 /**
  * Wait for text to appear in any td inside any HOT grid.
@@ -81,131 +66,6 @@ async function waitForColCellText(page, colIdx, text, count = 1, timeout = 10_00
     },
     [colIdx, text, count],
     { timeout }
-  );
-}
-
-/**
- * Find HOT tbody rows (in the active .tab-pane.show) whose column `colIdx`
- * contains the given text.
- * Col 0 is frozen in .ht_clone_left; other cols are in .ht_master.
- */
-// function rowByColText(page, colIdx, text) {
-//   const clone = colIdx === 0 ? '.ht_clone_left' : '.ht_master';
-//   const nth   = colIdx === 0 ? 1 : colIdx + 1;
-//   const scope = page.locator(`.tab-pane.show ${clone}.handsontable tbody tr`);
-//   const escaped = text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-//   return scope.filter({
-//     has: page.locator(`td:nth-of-type(${nth})`, {
-//       hasText: new RegExp(escaped),
-//     }),
-//   });
-// }
-
-/**
- * Get the visual row index (0-based) of the first row whose column `colIdx`
- * contains `text`. Returns -1 if not found.
- * Col 0 is frozen in .ht_clone_left; other cols are in .ht_master.
- */
-// async function findRowIndex(page, colIdx, text) {
-//   return page.evaluate(
-//     ([colIdx, text]) => {
-//       function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
-//       // Col 0 data lives in .ht_clone_left (frozen); other cols in .ht_master.
-//       const clone = colIdx === 0 ? '.ht_clone_left' : '.ht_master';
-//       const rows = document.querySelectorAll(
-//         `.tab-pane.show ${clone}.handsontable tbody tr`
-//       );
-//       for (let i = 0; i < rows.length; i++) {
-//         const tds = rows[i].querySelectorAll('td');
-//         // In .ht_clone_left the only column is td[0]; in .ht_master td[N] = col N.
-//         const nth = colIdx === 0 ? 0 : colIdx;
-//         if (tds[nth] && hotText(tds[nth]) === text) return i;
-//       }
-//       return -1;
-//     },
-//     [colIdx, text]
-//   );
-// }
-
-/**
- * Return a Playwright locator for the cell at (rowIndex, colIdx) that can
- * actually receive pointer events:
- *   - col 0 is frozen in .ht_clone_left → target the left clone
- *   - all other columns are in .ht_master
- *
- * colIdx is 0-based; rowIndex is the 0-based visual row within the active pane.
- * For the Slot tab (no fixedColumnsLeft), use slotCellLocator() instead.
- */
-function hotCellLocator(page, rowIndex, colIdx) {
-  if (colIdx === 0) {
-    // The first data column is frozen and only interactive via .ht_clone_left.
-    return page
-      .locator('.tab-pane.show .ht_clone_left.handsontable tbody tr')
-      .nth(rowIndex)
-      .locator('td:nth-of-type(1)');
-  }
-  return page
-    .locator('.tab-pane.show .ht_master.handsontable tbody tr')
-    .nth(rowIndex)
-    .locator(`td:nth-of-type(${colIdx + 1})`);
-}
-
-/**
- * Target a cell in the Slot tab HOT grid via .ht_master.
- *
- * The Slot tab uses fixedColumnsLeft: 1, but the hidden schema_id (col 0)
- * means the FIRST VISIBLE column is class_id (col 1), which becomes the
- * frozen column rendered in .ht_clone_left.  The .ht_master tds[0] is
- * therefore an empty placeholder for class_id.
- *
- * Pass colIdx as the ht_master td index (0-based):
- *   0 = placeholder for class_id (frozen in clone_left) — don't click
- *   1 = slot_type   ("Type" column)
- *   2 = slot_group  ("Section" column)
- *   3 = name        ("Field ID" column)
- *   4 = rank        ("Ordering" column)
- *   5 = slot_uri    ("Semantic URI" column)
- *   6 = title       ("Title" column)
- *   7 = description ("Description" column)
- */
-function slotCellLocator(page, rowIndex, colIdx) {
-  return page
-    .locator('.tab-pane.show .ht_master.handsontable tbody tr')
-    .nth(rowIndex)
-    .locator(`td:nth-of-type(${colIdx + 1})`);
-}
-
-/**
- * In the Slot tab, find the visual row index of the first row that matches
- * both `name` (ht_master tds[3] = "Field ID" column) and `slotTypeTitle`
- * (ht_master tds[1] = "Type" column display title) in .ht_master.
- *
- * Slot tab ht_master layout (tds[0] is placeholder for frozen class_id):
- *   tds[0]=placeholder, tds[1]=slot_type, tds[2]=slot_group, tds[3]=name
- *
- * HOT renders enum TITLES in the slot_type cell, so pass the display title:
- *   'Schema field'               → base slot row (class_id = '')
- *   'Table field (from schema)'  → slot_usage row
- *   'Table field (stand-alone)'  → attribute row
- *
- * Returns -1 if not found.
- */
-async function findSlotRowIndex(page, name, slotTypeTitle) {
-  return page.evaluate(
-    ([name, slotTypeTitle]) => {
-      function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
-      const scope = document.querySelector('.tab-pane.show');
-      const rows = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
-      for (let i = 0; i < rows.length; i++) {
-        const tds = rows[i].querySelectorAll('td');
-        // tds[3] = name ("Field ID"), tds[1] = slot_type title ("Type")
-        const rowName          = tds[3] ? hotText(tds[3]) : '';
-        const rowSlotTypeTitle = tds[1] ? hotText(tds[1]) : '';
-        if (rowName === name && rowSlotTypeTitle === slotTypeTitle) return i;
-      }
-      return -1;
-    },
-    [name, slotTypeTitle]
   );
 }
 
