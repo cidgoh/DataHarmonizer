@@ -63,7 +63,7 @@ import {
   scrollToSlotRow,
 } from './playwright_utils.js';
 
-test('UX_Task_4: create Test schema, add TestTable, load cancogen on row 2, copy organism to Test, verify in Field tab', async ({ page }) => {
+test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields, load cancogen on row 2, copy organism to Test, verify in Field tab (pre-existing fields intact)', async ({ page }) => {
   test.setTimeout(180_000);
 
   page.on('console', (msg) => {
@@ -177,6 +177,78 @@ test('UX_Task_4: create Test schema, add TestTable, load cancogen on row 2, copy
   await hotCellLocator(page, 0, 2).dblclick();
   await page.keyboard.type('Test table description');
   await page.keyboard.press('Enter');
+
+  // ── 4.5. Create 3 pre-existing Test fields in Field tab ──────────────────────
+  // Reproduces the user report: pre-existing Test schema slot_usage fields
+  // appeared to disappear after copying a field from CanCOGeN to Test schema.
+  // We create these BEFORE loading CanCOGeN so we can verify they survive.
+  //
+  // In the Slot tab, #add-row is overridden to open the Field Key Modal.
+  // When a Table (class_id) is selected, the modal derives slot_type from
+  // the "Field reuse" radio: slot_usage (default) or attribute.
+  // For a field not yet in the library (Case C), the modal inserts two rows:
+  //   1. A base slot (slot_type='slot') — hidden by the default filter
+  //   2. A slot_usage row            — visible by the default filter
+  await page.click('#tab-bar-Slot > a');
+  await page.waitForFunction(
+    () => document.querySelector('#tab-bar-Slot .nav-link')?.classList.contains('active'),
+    null, { timeout: 5_000 }
+  );
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show').length === 1,
+    null, { timeout: 5_000 }
+  );
+  await page.waitForFunction(
+    () => Array.from(document.querySelectorAll('.htCore th span'))
+           .some(s => s.textContent.trim() === 'Field ID'),
+    null,
+    { timeout: 10_000 }
+  );
+  await page.waitForTimeout(500);
+
+  // Helper: create one Test field via the Field Key Modal.
+  const createTestField = async (fieldName) => {
+    await page.click('#add-row');
+    await page.waitForFunction(
+      () => document.querySelector('#field-key-modal')?.classList.contains('show'),
+      null, { timeout: 8_000 }
+    );
+    // schema_id is locked to 'Test' in Records-by-key mode.
+    await page.selectOption('#fkm-class-id', { label: 'TestTable' });
+    await page.waitForTimeout(200);
+    await page.fill('#fkm-name', fieldName);
+    await page.waitForTimeout(200);
+    // slot_usage is the default radio once class_id + field name are set.
+    await page.click('#fkm-confirm-btn');
+    await page.waitForFunction(
+      () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+      null, { timeout: 8_000 }
+    );
+    await page.waitForTimeout(300);
+  };
+
+  await createTestField('pre_existing_a');
+  await createTestField('pre_existing_b');
+  await createTestField('pre_existing_c');
+
+  // Verify all 3 slot_usage rows are visible in the Field tab DOM
+  // (base slot rows are hidden by the default filter — that is expected).
+  const preExistingVisible = await page.evaluate(() => {
+    const rows = document.querySelectorAll(
+      '.tab-pane.show .ht_master.handsontable tbody tr'
+    );
+    const found = { pre_existing_a: false, pre_existing_b: false, pre_existing_c: false };
+    for (const row of rows) {
+      const tds  = row.querySelectorAll('td');
+      const name = (tds[3]?.textContent ?? '').replace(/\u25bc/g, '').trim();
+      if (name in found) found[name] = true;
+    }
+    return found;
+  });
+  expect(
+    Object.values(preExistingVisible).every(Boolean),
+    `All 3 pre-existing Test fields should be visible before copy: ${JSON.stringify(preExistingVisible)}`
+  ).toBe(true);
 
   // ── 5. Return to Schema tab ──────────────────────────────────────────────────
   await page.click('#tab-bar-Schema > a');
@@ -324,12 +396,19 @@ test('UX_Task_4: create Test schema, add TestTable, load cancogen on row 2, copy
     () => document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
     null, { timeout: 8_000 }
   );
+
   await page.click('#dh-dialog-ok');
+  // Bootstrap removes .show first, then completes the CSS fade (~300 ms) before
+  // removing the backdrop.  Using waitForSelector with an ID selector is
+  // unreliable here because each DH tab instance appends its own copy of
+  // contentModals.html, creating multiple #dh-dialog-modal elements; Playwright
+  // may match a different copy than the one actually shown.
+  // Instead wait on the modal-backdrop element that Bootstrap inserts into the
+  // DOM when any modal is open and removes only after the fade completes.
   await page.waitForFunction(
-    () => !document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
-    null, { timeout: 5_000 }
+    () => !document.querySelector('.modal-backdrop'),
+    null, { timeout: 8_000 }
   );
-  await page.waitForTimeout(300);
 
   // ── 8. Return to Schema tab → click Test schema ──────────────────────────────
   await page.click('#tab-bar-Schema > a');
@@ -424,4 +503,76 @@ test('UX_Task_4: create Test schema, add TestTable, load cancogen on row 2, copy
       '"organism" (slot_usage) in Test schema should have class_id "TestTable"'
     ).toBe(true);
   }
+
+  // ── 10. Verify source (CanCOGeN) organism records were not corrupted ─────────
+  // A HOT 15 bug: loadData() resets the row index mapper to natural order but
+  // does NOT re-apply the active multiColumnSorting.  This caused the copy to
+  // leave rows in insertion order (CanCOGeN interleaved with Test rows visually)
+  // and in subsequent _appendRowsToTab calls the wrong physical positions were
+  // targeted, corrupting existing CanCOGeN records.
+  // Fix: re-apply getSortConfig() after every loadData() in _appendRowsToTab.
+  // This assertion detects the corruption: the CanCOGeN organism slot_usage
+  // should still exist with its original class_id (not overwritten to 'TestTable').
+  const canCoGenOrganismIntact = await page.evaluate(() => {
+    const dh  = window._appContext?.dhs?.Slot;
+    const hot = dh?.hot;
+    if (!hot) return { ok: false, reason: 'no Slot DH found' };
+    const n2c = dh.slot_name_to_column;
+    const schemaIdCol = n2c['schema_id'] ?? n2c['schema_name'] ?? 0;
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      const schema   = hot.getSourceDataAtCell(p, schemaIdCol);
+      const name     = hot.getSourceDataAtCell(p, n2c['name']);
+      const slotType = hot.getSourceDataAtCell(p, n2c['slot_type']);
+      if (name === 'organism' && schema !== 'Test' && slotType === 'slot_usage') {
+        const classId = hot.getSourceDataAtCell(p, n2c['class_id']);
+        if (classId === 'TestTable') {
+          return { ok: false, reason: `CanCOGeN organism class_id overwritten to 'TestTable' (schema=${schema})` };
+        }
+        return { ok: true };
+      }
+    }
+    return { ok: false, reason: 'CanCOGeN organism slot_usage not found after copy — possible row displacement' };
+  });
+  expect(
+    canCoGenOrganismIntact.ok,
+    `CanCOGeN organism must remain intact after copy: ${canCoGenOrganismIntact.reason}`
+  ).toBe(true);
+
+  // ── 11. Verify pre-existing Test fields survived the copy ──────────────────
+  // Each pre-existing field should have both a base slot (slot_type='slot')
+  // and a slot_usage row (slot_type='slot_usage') in HOT source data after
+  // the copy.  If either is missing, the _appendRowsToTab call dropped them.
+  const preExistingFieldsIntact = await page.evaluate(() => {
+    const dh  = window._appContext?.dhs?.Slot;
+    const hot = dh?.hot;
+    if (!hot) return { ok: false, reason: 'no Slot DH found' };
+    const n2c = dh.slot_name_to_column;
+    const schemaIdCol = n2c['schema_id'] ?? n2c['schema_name'] ?? 0;
+    const names = ['pre_existing_a', 'pre_existing_b', 'pre_existing_c'];
+    const missingSlot      = [];
+    const missingSlotUsage = [];
+    for (const want of names) {
+      let hasSlot = false, hasSlotUsage = false;
+      for (let p = 0; p < hot.countSourceRows(); p++) {
+        const schema = hot.getSourceDataAtCell(p, schemaIdCol);
+        const name   = hot.getSourceDataAtCell(p, n2c['name']);
+        const type   = hot.getSourceDataAtCell(p, n2c['slot_type']);
+        if (schema === 'Test' && name === want) {
+          if (type === 'slot')       hasSlot      = true;
+          if (type === 'slot_usage') hasSlotUsage = true;
+        }
+      }
+      if (!hasSlot)      missingSlot.push(want);
+      if (!hasSlotUsage) missingSlotUsage.push(want);
+    }
+    const parts = [];
+    if (missingSlot.length)      parts.push(`missing base slot: ${missingSlot.join(', ')}`);
+    if (missingSlotUsage.length) parts.push(`missing slot_usage: ${missingSlotUsage.join(', ')}`);
+    if (parts.length) return { ok: false, reason: parts.join('; ') };
+    return { ok: true };
+  });
+  expect(
+    preExistingFieldsIntact.ok,
+    `Pre-existing Test fields must survive the copy: ${preExistingFieldsIntact.reason}`
+  ).toBe(true);
 });
