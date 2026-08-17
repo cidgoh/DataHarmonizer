@@ -397,6 +397,22 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   await page.keyboard.type('This is a schema slot which is reused by table');
   await page.keyboard.press('Tab');
 
+  // Editing a base-slot attribute triggers the "Schema field updated" propagation
+  // dialog (Part C of slot inheritance).  Give it a moment to appear, then
+  // dismiss it with "Keep existing table values" so the test can continue.
+  await page.waitForTimeout(400);
+  const propagateModal = page.locator('#dh-dialog-modal.show');
+  if (await propagateModal.count() > 0) {
+    await page.locator('#dh-dialog-modal .modal-footer .btn')
+      .filter({ hasText: 'Keep existing table values' })
+      .click();
+    await page.waitForFunction(
+      () => !document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
+      null,
+      { timeout: 5_000 }
+    );
+  }
+
   // ── 14. Save schema YAML ──────────────────────────────────────────────────
   await page.click('#file-menu-button');
 
