@@ -1,4 +1,4 @@
-/* Test: UX_Task_4_cancogen
+/* Test: UX_Task_4_covid19
  *
  * Multi-schema workflow in SchemaEditor:
  *
@@ -51,7 +51,7 @@
  *   colIdx=2 → master    td:3 = description
  *
  * To run:
- *   npx playwright test tests/playwright/UX_Task_4_cancogen.spec.js
+ *   npx playwright test tests/playwright/UX_Task_4_covid19.spec.js
  */
 
 import { test, expect } from '@playwright/test';

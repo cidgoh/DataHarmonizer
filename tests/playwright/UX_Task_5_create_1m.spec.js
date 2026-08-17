@@ -153,7 +153,7 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   await waitForCloneCellText(page, 'Schema1');
 
   await typeIntoCell(page, hotCellLocator(page, 0, 1), 'https://example.com/schema1');
-  await typeIntoCell(page, hotCellLocator(page, 0, 3), 'A test Schema with three tables');
+  await typeIntoCell(page, hotCellLocator(page, 0, 3), 'A test Schema with two tables');
   await typeIntoCell(page, hotCellLocator(page, 0, 4), '1.0.0');
   await typeIntoCell(page, hotCellLocator(page, 0, 7), 'SCHEMA1');
 
