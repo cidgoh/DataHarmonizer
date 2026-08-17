@@ -1,7 +1,7 @@
 /* Tests that switching to French correctly translates:
    1. The interface (File menu label -> "Fichier")
    2. CanCOGeN column headers (first column -> "ID du collecteur d'échantillons")
-   3. Cell dropdown menus (related_specimen_primary_id first option -> "Sans objet")
+   3. Cell dropdown menus (related_specimen_primary_id contains "Sans objet")
 
    Test this script alone with:
    npx playwright test tests/playwright/cancogen-french-translations.spec.js
@@ -49,8 +49,9 @@ test('switch to French and verify interface, column headers, and menus', async (
   );
   await relatedSpecimenCell.dblclick();
 
-  // 7. Verify the first entry in the dropdown menu is the French null value "Sans objet"
+  // 7. Verify the French null value "Sans objet" appears in the dropdown menu.
+  // The list is sorted alphabetically so "Sans objet" is not necessarily first.
   await page.waitForSelector('div.handsontableEditor.listbox', { timeout: 5_000 });
-  const firstDropdownOption = page.locator('div.handsontableEditor.listbox tr:first-child td').first();
-  await expect(firstDropdownOption).toHaveText('Sans objet');
+  const dropdownOptions = page.locator('div.handsontableEditor.listbox td');
+  await expect(dropdownOptions.filter({ hasText: 'Sans objet' }).first()).toBeVisible();
 });
