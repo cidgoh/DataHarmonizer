@@ -400,11 +400,13 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   expect(attrs['TestTable2'].inlined_as_list).toBe(true);
 
   // test_field_a: added to schema field library (slot) and linked to TestTable1 via slot_usage.
-  // The title 'Test Field A' was placed on the slot_usage row by the Field Key Modal;
-  // stripping keeps it since the base slot row has no title.
-  // The description was added to the base slot row post-modal.
+  // The Field Key Modal writes the title to the BASE slot so that all slot_usage
+  // rows inherit it automatically (LinkML semantics).  The slot_usage row does
+  // NOT duplicate the title.  The description was typed into the base slot row
+  // post-modal (step 13).
   const slots = schema.slots ?? {};
   expect(slots['test_field_a']).toBeDefined();
+  expect(slots['test_field_a'].title).toBe('Test Field A');
   expect(slots['test_field_a'].description).toBe('This is a schema slot which is reused by table');
 
   const table1 = classes['TestTable1'] ?? {};
@@ -414,7 +416,8 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   const slotUsage = table1.slot_usage ?? {};
   expect(slotUsage['test_field_a']).toBeDefined();
   expect(slotUsage['test_field_a'].name).toBe('test_field_a');
-  expect(slotUsage['test_field_a'].title).toBe('Test Field A');
+  // title is inherited from the base slot; slot_usage does not duplicate it.
+  expect(slotUsage['test_field_a'].title).toBeUndefined();
 
   // test_field_b: table-only attribute on TestTable2 — NOT in the schema slots library.
   expect(slots['test_field_b']).toBeUndefined();

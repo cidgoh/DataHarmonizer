@@ -504,6 +504,47 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
     ).toBe(true);
   }
 
+  // ── 9b. Verify schema_id displays 'Test' in non-concise view ────────────────
+  // The "missing Schema ID" symptom is caused by concise view hiding the
+  // schema_id FK column for ALL rows (by design in "Records by key" mode).
+  // This step confirms schema_id IS rendered correctly when concise view is off:
+  // every visible row in the frozen column (.ht_clone_left td) must show 'Test'.
+  //
+  // Temporarily disable concise view so schema_id becomes the frozen column.
+  // Use native DOM API (not $) so the event fires inside page.evaluate context.
+  await page.evaluate(() => {
+    const cb = document.getElementById('concise-view-checkbox');
+    if (cb) { cb.checked = false; cb.dispatchEvent(new Event('change', { bubbles: true })); }
+  });
+  await page.waitForTimeout(400); // HOT re-render with schema_id as frozen col.
+
+  const frozenCellSchemaIds = await page.evaluate(() => {
+    const rows = document.querySelectorAll(
+      '.tab-pane.show .ht_clone_left.handsontable tbody tr'
+    );
+    return Array.from(rows).map(row =>
+      (row.querySelector('td')?.textContent ?? '').replace(/\u25bc/g, '').trim()
+    );
+  });
+  // All visible rows are filtered to Test schema (tabFilter schema_id='Test'),
+  // so every frozen cell must show 'Test'.  Expect at least 4 rows:
+  // 3 pre-existing slot_usage + organism slot_usage.
+  expect(
+    frozenCellSchemaIds.length,
+    `Expected ≥4 visible rows (3 pre-existing + organism); got ${frozenCellSchemaIds.length}`
+  ).toBeGreaterThanOrEqual(4);
+  expect(
+    frozenCellSchemaIds.every(v => v === 'Test'),
+    `All visible rows must show schema_id='Test' in frozen column: ${JSON.stringify(frozenCellSchemaIds)}`
+  ).toBe(true);
+
+  // Restore concise view.
+  await page.evaluate(() => {
+    const cb = document.getElementById('concise-view-checkbox');
+    if (cb) { cb.checked = true; cb.dispatchEvent(new Event('change', { bubbles: true })); }
+  });
+  await page.waitForTimeout(300);
+
   // ── 10. Verify source (CanCOGeN) organism records were not corrupted ─────────
   // A HOT 15 bug: loadData() resets the row index mapper to natural order but
   // does NOT re-apply the active multiColumnSorting.  This caused the copy to
