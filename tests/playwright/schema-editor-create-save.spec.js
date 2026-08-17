@@ -69,6 +69,47 @@ async function waitForColCellText(page, colIdx, text, count = 1, timeout = 10_00
   );
 }
 
+/**
+ * Returns the visible name (frozen clone-left cell text) of the currently
+ * selected row in the active tab pane.  Falls back to reading the clone-left
+ * cell at the same visual index as the ht_master selected cell.
+ */
+async function getSelectedRowName(page) {
+  return page.evaluate(() => {
+    const text = el => (el?.textContent ?? '').replace(/\u25bc/g, '').trim();
+    const scope = document.querySelector('.tab-pane.show');
+    if (!scope) return null;
+    // Frozen clone-left cell carries .current when that column is selected.
+    const frozen = scope.querySelector('.ht_clone_left.handsontable tbody td.current');
+    if (frozen) return text(frozen);
+    // Otherwise find the selected master cell and map back to the clone row.
+    const cur = scope.querySelector('.ht_master.handsontable tbody td.current');
+    if (!cur) return null;
+    const allMasterRows = scope.querySelectorAll('.ht_master.handsontable tbody tr');
+    const ri = Array.from(allMasterRows).indexOf(cur.closest('tr'));
+    if (ri < 0) return null;
+    const cloneRow = scope.querySelectorAll('.ht_clone_left.handsontable tbody tr')[ri];
+    return text(cloneRow?.querySelector('td'));
+  });
+}
+
+/**
+ * Click a tab nav-link and wait for the Bootstrap transition to finish so
+ * that exactly one .tab-pane carries .show.
+ */
+async function waitForTabActive(page, tabBarId) {
+  await page.waitForFunction(
+    (id) => document.querySelector(`${id} .nav-link`)?.classList.contains('active'),
+    tabBarId,
+    { timeout: 5_000 }
+  );
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show').length === 1,
+    null,
+    { timeout: 5_000 }
+  );
+}
+
 // ── Test ──────────────────────────────────────────────────────────────────────
 
 test('SchemaEditor: create schema with two tables and verify saved YAML', async ({ page }) => {
@@ -426,4 +467,198 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   expect(table2Attrs['test_field_b']).toBeDefined();
   expect(table2Attrs['test_field_b'].title).toBe('Test Field B');
   expect(table2Attrs['test_field_b'].description).toBe('This is a table attribute, and is not in schema');
+});
+
+// ── Multi-schema navigation test ──────────────────────────────────────────────
+
+/**
+ * Regression test for the cursor/tab-state preservation bug:
+ *
+ *   Schema B selected → Table tab → add Table A + Table B (select B) →
+ *   SlotGroup tab → add section_one + section_two (select two) →
+ *   back to Table: Table B selected, SlotGroup enabled →
+ *   back to Schema: Schema B selected, Table + SlotGroup enabled →
+ *   back to Table: Table B still selected →
+ *   back to SlotGroup: section_two still selected, both sections visible.
+ */
+test('SchemaEditor: multi-schema navigation preserves cursor and tab state', async ({ page }) => {
+
+  // ── 1. Load Schema Editor ─────────────────────────────────────────────────
+  await page.goto('/schema_editor.html');
+  await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
+  await page.waitForSelector('.htCore', { timeout: 15_000 });
+  await page.waitForFunction(
+    () => Array.from(document.querySelectorAll('.htCore th span'))
+            .some(s => s.textContent.trim() === 'Schema ID'),
+    null,
+    { timeout: 15_000 }
+  );
+  await expect(page.locator('#tab-bar-Schema .nav-link')).toHaveClass(/active/);
+
+  // ── 2. Create Schema A in row 0 ──────────────────────────────────────────
+  const schemaRow0 = hotCellLocator(page, 0, 0);
+  await schemaRow0.click();
+  await schemaRow0.dblclick();
+  await page.keyboard.type('schema_a');
+  await page.keyboard.press('Tab');
+  await waitForColCellText(page, 0, 'schema_a', 1, 5_000);
+
+  // ── 3. Add Schema B via #add-row ─────────────────────────────────────────
+  await page.click('#add-row');
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show .ht_clone_left.handsontable tbody tr').length >= 2,
+    null,
+    { timeout: 10_000 }
+  );
+  await page.waitForTimeout(300);
+
+  const schemaBRowIdx = await page.evaluate(
+    () => document.querySelectorAll('.tab-pane.show .ht_clone_left.handsontable tbody tr').length - 1
+  );
+  const schemaBCell = hotCellLocator(page, schemaBRowIdx, 0);
+  await schemaBCell.click();
+  await schemaBCell.dblclick();
+  await page.keyboard.type('schema_b');
+  await page.keyboard.press('Tab');
+  await waitForColCellText(page, 0, 'schema_b', 1, 5_000);
+
+  // Re-click to ensure schema_b is the active FK context for child tabs.
+  await schemaBCell.click();
+
+  // ── 4. Navigate to Table tab ──────────────────────────────────────────────
+  await page.click('#tab-bar-Class > a');
+  await waitForTabActive(page, '#tab-bar-Class');
+
+  // ── 5. Add Table A ────────────────────────────────────────────────────────
+  await page.click('#add-row');
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show .ht_master.handsontable tbody tr').length >= 1,
+    null,
+    { timeout: 10_000 }
+  );
+  await page.waitForTimeout(300);
+
+  await hotCellLocator(page, 0, 0).click();
+  await hotCellLocator(page, 0, 0).dblclick();
+  await page.keyboard.type('table_a');
+  await page.keyboard.press('Tab');
+  await waitForColCellText(page, 0, 'table_a', 1, 5_000);
+
+  // ── 6. Add Table B ────────────────────────────────────────────────────────
+  await page.click('#add-row');
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show .ht_master.handsontable tbody tr').length >= 2,
+    null,
+    { timeout: 10_000 }
+  );
+  await page.waitForTimeout(300);
+
+  const tableBRowIdx = await page.evaluate(
+    () => document.querySelectorAll('.tab-pane.show .ht_master.handsontable tbody tr').length - 1
+  );
+  const tableBCell = hotCellLocator(page, tableBRowIdx, 0);
+  await tableBCell.click();
+  await tableBCell.dblclick();
+  await page.keyboard.type('table_b');
+  await page.keyboard.press('Tab');
+  await waitForColCellText(page, 0, 'table_b', 1, 5_000);
+
+  // Select table_b so it is the active FK context for SlotGroup rows.
+  await tableBCell.click();
+
+  // ── 7. Navigate to Table Section (SlotGroup) tab ──────────────────────────
+  await page.click('#tab-bar-SlotGroup > a');
+  await waitForTabActive(page, '#tab-bar-SlotGroup');
+
+  // ── 8. Add section_one ────────────────────────────────────────────────────
+  await page.click('#add-row');
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show .ht_clone_left.handsontable tbody tr').length >= 1,
+    null,
+    { timeout: 10_000 }
+  );
+  await page.waitForTimeout(300);
+
+  await hotCellLocator(page, 0, 0).click();
+  await hotCellLocator(page, 0, 0).dblclick();
+  await page.keyboard.type('section_one');
+  await page.keyboard.press('Tab');
+  await waitForColCellText(page, 0, 'section_one', 1, 5_000);
+
+  // ── 9. Add section_two ────────────────────────────────────────────────────
+  await page.click('#add-row');
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show .ht_clone_left.handsontable tbody tr').length >= 2,
+    null,
+    { timeout: 10_000 }
+  );
+  await page.waitForTimeout(300);
+
+  const section2RowIdx = await page.evaluate(
+    () => document.querySelectorAll('.tab-pane.show .ht_clone_left.handsontable tbody tr').length - 1
+  );
+  const section2Cell = hotCellLocator(page, section2RowIdx, 0);
+  await section2Cell.click();
+  await section2Cell.dblclick();
+  await page.keyboard.type('section_two');
+  await page.keyboard.press('Tab');
+  await waitForColCellText(page, 0, 'section_two', 1, 5_000);
+
+  // Leave cursor on section_two — the row we expect to remain selected after
+  // each round-trip navigation.
+  await section2Cell.click();
+
+  // ── Navigation assertions ─────────────────────────────────────────────────
+
+  // ── A. SlotGroup → Table ──────────────────────────────────────────────────
+  await page.click('#tab-bar-Class > a');
+  await waitForTabActive(page, '#tab-bar-Class');
+
+  expect(
+    await getSelectedRowName(page),
+    'Table B cursor should survive SlotGroup→Table navigation'
+  ).toBe('table_b');
+  await expect(
+    page.locator('#tab-bar-SlotGroup .nav-link'),
+    'SlotGroup tab should remain enabled when Table B is selected'
+  ).not.toHaveClass(/disabled/);
+
+  // ── B. Table → Schema ─────────────────────────────────────────────────────
+  await page.click('#tab-bar-Schema > a');
+  await waitForTabActive(page, '#tab-bar-Schema');
+
+  expect(
+    await getSelectedRowName(page),
+    'Schema B cursor should survive Table→Schema navigation'
+  ).toBe('schema_b');
+  await expect(
+    page.locator('#tab-bar-Class .nav-link'),
+    'Table tab should be enabled when Schema B is selected'
+  ).not.toHaveClass(/disabled/);
+  await expect(
+    page.locator('#tab-bar-SlotGroup .nav-link'),
+    'SlotGroup tab should remain enabled when Schema B is selected'
+  ).not.toHaveClass(/disabled/);
+
+  // ── C. Schema → Table ─────────────────────────────────────────────────────
+  await page.click('#tab-bar-Class > a');
+  await waitForTabActive(page, '#tab-bar-Class');
+
+  expect(
+    await getSelectedRowName(page),
+    'Table B cursor should survive Schema→Table navigation'
+  ).toBe('table_b');
+
+  // ── D. Table → SlotGroup ──────────────────────────────────────────────────
+  await page.click('#tab-bar-SlotGroup > a');
+  await waitForTabActive(page, '#tab-bar-SlotGroup');
+
+  expect(
+    await getSelectedRowName(page),
+    'section_two cursor should survive Table→SlotGroup navigation'
+  ).toBe('section_two');
+
+  // Both sections must still be visible (confirming the filter is correct).
+  await waitForColCellText(page, 0, 'section_one', 1, 3_000);
+  await waitForColCellText(page, 0, 'section_two', 1, 3_000);
 });
