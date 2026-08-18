@@ -441,6 +441,11 @@
           <span data-i18n="all-records">All records</span>
         </label>
         <label class="dropdown-item mb-0">
+          <input type="radio" name="display-main-type" value="schema" id="display-records-by-schema-radio"
+                 style="float:right;width:1rem;height:1.5rem">
+          <span data-i18n="records-by-selected-schema">Record(s) by selected schema</span>
+        </label>
+        <label class="dropdown-item mb-0">
           <input type="radio" name="display-main-type" value="" id="display-records-by-key-radio"
                  checked style="float:right;width:1rem;height:1.5rem">
           <span data-i18n="records-by-selected-key">Record(s) by selected key</span>
@@ -452,7 +457,12 @@
             <span data-i18n="field-order-by">Order by:</span>
           </div>
           <label class="dropdown-item mb-0">
-            <input type="radio" name="slot-order-type" value="structure" id="slot-order-structure" checked
+            <input type="radio" name="slot-order-type" value="rank" id="slot-order-rank" checked
+                   style="float:right;width:1rem;height:1.5rem">
+            <span data-i18n="slot-order-rank">Table, rank</span>
+          </label>
+          <label class="dropdown-item mb-0">
+            <input type="radio" name="slot-order-type" value="structure" id="slot-order-structure"
                    style="float:right;width:1rem;height:1.5rem">
             <span data-i18n="slot-order-structure">Schema, table, section, rank</span>
           </label>
