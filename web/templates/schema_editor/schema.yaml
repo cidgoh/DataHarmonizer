@@ -281,7 +281,6 @@ classes:
       - schema_id
       - class_id
       - name
-      - rank
     slot_usage:
       schema_id:
         name: schema_id
@@ -308,11 +307,6 @@ classes:
         any_of:
           - range: SchemaSlotGroupMenu
           - range: WhitespaceMinimizedString
-      rank:
-        name: rank
-        rank: 4
-        slot_group: attributes
-        description: An integer which sets the order of this field relative to the others within a given table (LinkML slot's slot_usage rank).  This is a calculated field.  Adjust it by dragging and dropping this row to change order of field with respect to table or table section.
   Slot:
     name: Slot
     title: Field

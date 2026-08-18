@@ -36,7 +36,6 @@ UniqueKey	key	schema_id	Schema ID	Schema			TRUE								The coding name of the sc
 SlotGroup	key	schema_id	Schema ID	SchemaMenu			TRUE								The coding name of the schema		
 	key	class_id	Table ID	SchemaClassMenu			TRUE								The name of a schema table (LinkML class).	A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.	
 	key	name	Section name	SchemaSlotGroupMenu;WhitespaceMinimizedString											A section name that groups fields as they appear within a table (LinkML Class)		
-	attributes	rank	Ordering	integer											An integer which sets the order of this field relative to the others within a given table (LinkML slot's slot_usage rank).  This is a calculated field.  Adjust it by dragging and dropping this row to change order of field with respect to table or table section.		
 																	
 Slot	key	schema_id	Schema ID	SchemaMenu			TRUE								The coding name of the schema that this field (LinkML slot) is contained in.	A schema has a list of fields it defines. A schema can also import other schemas' fields.	
 	key	class_id	Table ID	SchemaClassMenu											If this field definition row (LinkML slot) details a field’s use in a table (LinkML class), provide the table name.	A table field record may detail custom additions to a schema’s field (slot) definition.  Alternately as an “attribute”, a table field record may be entirely custom, and not reference any schema field (slot) at all.	
