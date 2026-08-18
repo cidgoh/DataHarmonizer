@@ -849,16 +849,18 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" data-i18n="copy-to-schema-title">Copy rows to schema</h5>
+          <h5 class="modal-title" data-i18n="copy-to-schema-title">Copy fields to schema</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="container-fluid">
-            <div class="row mb-2">
+            <!-- Section 1: fields to be copied (shown at top once a target schema is selected) -->
+            <div class="row mb-3" id="copy-parent-deps-row" style="display:none">
               <div class="col">
-                <div id="copy-to-schema-summary" class="text-muted small"></div>
+                <small><strong id="copy-parent-deps-label">The following fields will be copied:</strong></small>
+                <div id="copy-parent-deps-list" class="mt-1" style="max-height:150px;overflow-y:auto;font-size:0.85rem;border:1px solid #dee2e6;padding:8px;border-radius:4px;background:#f8f9fa"></div>
               </div>
             </div>
             <div class="row">
@@ -884,13 +886,6 @@
                     Preserve original table (copy table record to target schema if missing)
                   </label>
                 </div>
-              </div>
-            </div>
-            <!-- Section 1: parent records (always copied) -->
-            <div class="row mt-3" id="copy-parent-deps-row" style="display:none">
-              <div class="col">
-                <small><strong>The following records and their parents will be copied:</strong></small>
-                <div id="copy-parent-deps-list" class="mt-1" style="max-height:150px;overflow-y:auto;font-size:0.85rem;border:1px solid #dee2e6;padding:8px;border-radius:4px;background:#f8f9fa"></div>
               </div>
             </div>
             <!-- Section 2: dependent table records (optional) -->
