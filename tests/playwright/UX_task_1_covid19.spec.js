@@ -241,17 +241,10 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
   await page.selectOption('#fkm-class-id', 'CanCOGeNCovid19');
   await page.waitForTimeout(300);
 
-  // Type the snake_case field name — this triggers the slot-type radio row.
+  // Type the snake_case field name. In Add mode the type is controlled by
+  // the #fkm-field-type dropdown (defaults to slot_usage / table field).
   await page.fill('#fkm-name', 'diagnostic_pcr_protocol_4');
-  await page.waitForFunction(
-    () => document.querySelector('#fkm-slot-type-row')?.style.display !== 'none',
-    null,
-    { timeout: 3_000 }
-  );
-
-  // Default type for a new name not already in the schema library is slot_usage:
-  // one base-slot + one slot-usage row are created on confirm.
-  await page.check('#fkm-type-slot-usage');
+  // Default type is slot_usage: one base-slot + one slot-usage row are created on confirm.
   await page.fill('#fkm-title', 'Diagnostic PCR Protocol 4');
 
   await page.click('#fkm-confirm-btn');

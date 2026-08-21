@@ -136,12 +136,13 @@ test('first-use FKM slot_usage → attribute type change is reflected in source 
     null, { timeout: 8_000 }
   );
 
-  // Sanity-check: the slot_usage radio should be pre-selected.
-  const slotUsageChecked = await page.$eval('#fkm-type-slot-usage', el => el.checked);
-  expect(slotUsageChecked, 'slot_usage radio should be pre-selected when editing a slot_usage row').toBe(true);
+  // Sanity-check: in Edit mode the "change type" checkbox starts unchecked
+  // (no conversion requested by default).
+  const changeTypeChecked = await page.$eval('#fkm-change-type', el => el.checked);
+  expect(changeTypeChecked, '"change type" checkbox should be unchecked when editing a slot_usage row').toBe(false);
 
-  // ── 8. Select "Standalone table attribute (attribute)" ────────────────────
-  await page.click('#fkm-type-attribute');
+  // ── 8. Check "change to custom field" checkbox to convert to attribute ────
+  await page.check('#fkm-change-type');
   await page.waitForTimeout(200);
 
   // The "Copy schema-inherited field attributes" checkbox row should appear.

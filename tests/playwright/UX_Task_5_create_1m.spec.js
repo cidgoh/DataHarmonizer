@@ -111,16 +111,8 @@ async function addSlotUsageField(page, className, fieldName, title) {
 
   await page.fill('#fkm-name', fieldName);
 
-  // The slot-type-row appears for new fields (not yet in schema library).
-  // For existing fields it may already default to slot_usage without showing.
-  const typeRowAppears = await page.waitForFunction(
-    () => document.querySelector('#fkm-slot-type-row')?.style.display !== 'none',
-    null, { timeout: 3_000 }
-  ).then(() => true).catch(() => false);
-
-  if (typeRowAppears) {
-    await page.check('#fkm-type-slot-usage');
-  }
+  // In Add mode the slot-type-row is hidden; the type dropdown (#fkm-field-type)
+  // defaults to slot_usage (table field), which is what we want here.
 
   if (title) {
     await page.fill('#fkm-title', title);

@@ -278,19 +278,11 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   await page.selectOption('#fkm-class-id', 'TestTable1');
   await page.waitForTimeout(300);  // let rebuildSlotGroupDropdown + updateSlotTypeRow settle
 
-  // Type the snake_case field name — triggers updateSlotTypeRow to show the radio row.
+  // Type the snake_case field name.  In Add mode the type is set by the
+  // #fkm-field-type dropdown (defaults to slot_usage / table field).
   await page.fill('#fkm-name', 'test_field_a');
-  // Wait for the slot-type radio row to appear (field not yet in library → slot_usage default).
-  await page.waitForFunction(
-    () => document.querySelector('#fkm-slot-type-row')?.style.display !== 'none',
-    null,
-    { timeout: 3_000 }
-  );
-
-  // slot_usage is the default; set explicitly for clarity.
-  // Case C: field not yet in schema library → modal auto-inserts a base 'slot'
-  // row first, then a 'slot_usage' row linking it to TestTable1.
-  await page.check('#fkm-type-slot-usage');
+  // slot_usage is the default — Case C: field not yet in schema library →
+  // modal auto-inserts a base 'slot' row + a 'slot_usage' row for TestTable1.
 
   await page.fill('#fkm-title', 'Test Field A');
 
@@ -334,15 +326,10 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   await page.waitForTimeout(300);
 
   await page.fill('#fkm-name', 'test_field_b');
-  await page.waitForFunction(
-    () => document.querySelector('#fkm-slot-type-row')?.style.display !== 'none',
-    null,
-    { timeout: 3_000 }
-  );
 
-  // Choose 'attribute': standalone table field, NOT added to the schema library.
-  // One row is inserted: slot_type='attribute', class_id='TestTable2'.
-  await page.check('#fkm-type-attribute');
+  // Choose 'attribute' via the Type dropdown: standalone table field, NOT added
+  // to the schema library.  One row is inserted: slot_type='attribute', class_id='TestTable2'.
+  await page.selectOption('#fkm-field-type', 'attribute');
 
   await page.fill('#fkm-title', 'Test Field B');
 
