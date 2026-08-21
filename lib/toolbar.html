@@ -838,7 +838,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" data-i18n="copy-to-schema-title">Copy fields</h5>
+          <h5 class="modal-title" id="copy-to-schema-title">Copy fields</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -860,19 +860,21 @@
             </div>
             <div class="row mt-2" id="copy-to-class-row" style="display:none">
               <div class="col">
-                <label class="mb-1"><strong>Copy to table:</strong></label>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="copy-class-mode"
-                         id="copy-class-assign" value="assign" checked>
-                  <label class="form-check-label" for="copy-class-assign">Assign to:</label>
+                <label class="mb-1"><strong id="copy-to-class-label">Copy to class:</strong></label>
+                <div id="copy-class-assign-row">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="copy-class-mode"
+                           id="copy-class-assign" value="assign" checked>
+                    <label class="form-check-label" for="copy-class-assign">Assign to:</label>
+                  </div>
+                  <select class="form-control mt-1" id="copy-to-class-select"
+                          style="margin-left:1.25rem;width:calc(100% - 1.25rem)"></select>
                 </div>
-                <select class="form-control mt-1" id="copy-to-class-select"
-                        style="margin-left:1.25rem;width:calc(100% - 1.25rem)"></select>
                 <div class="form-check mt-2">
                   <input class="form-check-input" type="radio" name="copy-class-mode"
                          id="copy-class-preserve" value="preserve">
                   <label class="form-check-label" for="copy-class-preserve">
-                    Preserve original table (copy table record to target schema if missing)
+                    Preserve original class (copy class record to target schema if missing)
                   </label>
                 </div>
               </div>
@@ -892,7 +894,7 @@
               <div class="col">
                 <label class="mb-1">
                   <input type="checkbox" id="copy-include-picklists" checked>
-                  <strong>Copy picklists and picklist choices</strong>
+                  <strong id="copy-include-picklists-label">Copy picklists and picklist choices</strong>
                 </label>
                 <div id="copy-picklists-list" class="mt-1" style="max-height:150px;overflow-y:auto;font-size:0.85rem;border:1px solid #dee2e6;padding:8px;border-radius:4px;background:#f8f9fa"></div>
               </div>

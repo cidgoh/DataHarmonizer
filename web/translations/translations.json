@@ -37,6 +37,10 @@
     "en": "Toggle expert user mode",
     "fr": "Activer/désactiver le mode utilisateur expert"
   },
+  "schema-editor-linkml-terms": {
+    "en": "Use LinkML terminology",
+    "fr": "Utiliser la terminologie LinkML"
+  },
   "upload-template-yaml-dropdown-item": {
     "en": "Load schema from file (yaml)",
     "fr": "Charger le schéma à partir du fichier (yaml)"
@@ -75,6 +79,42 @@
   "concise-view": {
     "en": "Concise view",
     "fr": "Vue concise"
+  },
+  "context-menu-remove-rows": {
+    "en": "Remove row(s)",
+    "fr": "Supprimer la/les ligne(s)"
+  },
+  "context-menu-insert-row-above": {
+    "en": "Insert row above",
+    "fr": "Insérer une ligne au-dessus"
+  },
+  "context-menu-insert-row-below": {
+    "en": "Insert row below",
+    "fr": "Insérer une ligne en-dessous"
+  },
+  "context-menu-reset-filter": {
+    "en": "Reset filter",
+    "fr": "Réinitialiser le filtre"
+  },
+  "context-menu-load-schema": {
+    "en": "Load LinkML schema.yaml",
+    "fr": "Charger le schéma LinkML (yaml)"
+  },
+  "context-menu-save-schema": {
+    "en": "Save as LinkML schema.yaml",
+    "fr": "Enregistrer en tant que schéma LinkML (yaml)"
+  },
+  "context-menu-demo": {
+    "en": "Demo",
+    "fr": "Démo"
+  },
+  "context-menu-copy-to-schema": {
+    "en": "Copy to schema",
+    "fr": "Copier vers le schéma"
+  },
+  "context-menu-translations": {
+    "en": "Translations",
+    "fr": "Traductions"
   },
   "copy-to-schema-menu-button": {
     "en": "Copy selected rows to schema...",
@@ -192,6 +232,10 @@
     "en": "Settings",
     "fr": "Paramètres"
   },
+  "validate-by-column": {
+    "en": "Validate by column",
+    "fr": "Valider par colonne"
+  },
   "show-all-cols-dropdown-item": {
     "en": "Show all columns",
     "fr": "Afficher toutes les colonnes"
@@ -215,6 +259,10 @@
   "show-invalid-rows-dropdown-item": {
     "en": "Show invalid rows",
     "fr": "Afficher les lignes invalides"
+  },
+  "clear-all-tab-filters-dropdown-item": {
+    "en": "Show all rows (all tabs)",
+    "fr": "Afficher toutes les lignes (tous les onglets)"
   },
   "show-section-menu": {
     "en": "Show section:",
@@ -288,9 +336,17 @@
     "fr": "Affichage"
   },
 
+  "display-menu-button": {
+    "en": "Display",
+    "fr": "Affichage"
+  },
   "all-records": {
-    "en":"All records",
-    "fr":"Tous les enregistrements"
+    "en": "All records",
+    "fr": "Tous les enregistrements"
+  },
+  "records-by-selected-schema": {
+    "en": "Record(s) by selected schema",
+    "fr": "Enregistrement(s) par schéma sélectionné"
   },
   "records-by-selected-key": {
     "en": "Record(s) by selected key",
