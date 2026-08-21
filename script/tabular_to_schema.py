@@ -258,6 +258,42 @@ def isInteger(x):
     else:
         return True
 
+def promote_slot_groups(schema):
+	"""
+	After all classes have been processed, promote slot_group from class
+	slot_usage up to the schema-level slot definition wherever every class
+	that references a slot agrees on the same slot_group value.  Slots where
+	different classes assign different slot_group values are left as-is in
+	slot_usage so the per-class override is preserved.
+	"""
+	classes = schema.get('classes') or {}
+	schema_slots = schema.get('slots') or {}
+
+	# Build: slot_name -> {class_name: slot_group}
+	slot_groups = {}
+	for class_name, class_def in classes.items():
+		if not class_def:
+			continue
+		for slot_name, slot_def in (class_def.get('slot_usage') or {}).items():
+			if slot_def and 'slot_group' in slot_def:
+				slot_groups.setdefault(slot_name, {})[class_name] = slot_def['slot_group']
+
+	promoted = 0
+	kept = 0
+	for slot_name, class_map in slot_groups.items():
+		unique_groups = set(class_map.values())
+		if len(unique_groups) == 1 and slot_name in schema_slots:
+			# All classes agree — move slot_group to schema-level slot
+			schema_slots[slot_name]['slot_group'] = next(iter(unique_groups))
+			for class_name in class_map:
+				del classes[class_name]['slot_usage'][slot_name]['slot_group']
+			promoted += 1
+		else:
+			kept += 1
+
+	print(f"promote_slot_groups: promoted {promoted} to schema.slots; {kept} left in slot_usage (class-specific).")
+
+
 def set_classes(schema_slot_path, schema, locale_schemas, export_format, warnings):
 
 	with open(schema_slot_path) as tsvfile:
@@ -907,6 +943,7 @@ def make_linkml_schema(folder, file_name_base, menu = False):
 	# Process each slot given in tabular format.
 	set_classes(folder + r_schema_slots, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
 	set_enums(folder + r_schema_enums, SCHEMA, locale_schemas, EXPORT_FORMAT, warnings);
+	promote_slot_groups(SCHEMA);
 
 	if len(locale_schemas) > 0:
 		for lcode in locale_schemas.keys():
