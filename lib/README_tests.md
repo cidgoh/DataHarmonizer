@@ -520,18 +520,22 @@ await page.waitForFunction(
 // Select which class (table) the field belongs to
 await page.selectOption('#fkm-class-id', 'CanCOGeNCovid19');
 
-// Type the snake_case field name — triggers slot-type radio row to appear
+// Type the snake_case field name
 await page.fill('#fkm-name', 'my_new_field');
 
-// Wait for slot-type row to appear (only shown when field name is non-empty)
+// ── Add mode: choose slot type via the Type dropdown ──────────────────────────
+// The type defaults to slot_usage (table field).  To add a standalone attribute:
+await page.selectOption('#fkm-field-type', 'attribute');
+
+// ── Edit mode: convert slot_usage ↔ attribute via the "change type" checkbox ──
+// The checkbox label reads "change to custom field" (slot_usage) or
+// "change to derived field + schema field (if needed)" (attribute).
+// Unchecked = keep current type; checked = convert to the other type.
 await page.waitForFunction(
   () => document.querySelector('#fkm-slot-type-row')?.style.display !== 'none',
   null, { timeout: 3_000 }
 );
-
-// Choose slot type
-await page.check('#fkm-type-slot-usage');   // Table field (from schema) — adds base slot
-await page.check('#fkm-type-attribute');    // Table field (stand-alone) — no base slot
+await page.check('#fkm-change-type'); // tick to convert type
 
 // Set the title
 await page.fill('#fkm-title', 'My New Field');
@@ -556,10 +560,20 @@ rows visible" above).
 
 ### FKM slot types and what gets inserted
 
-| Radio | `slot_type` | Result |
+**Add mode** — type controlled by `#fkm-field-type` dropdown:
+
+| Dropdown value | `slot_type` | Result |
 |---|---|---|
-| `#fkm-type-slot-usage` | `slot_usage` | Inserts a base `slot` row + a `slot_usage` row linking the class |
-| `#fkm-type-attribute` | `attribute` | Inserts a single `attribute` row for the class |
+| `slot_usage` (default) | `slot_usage` | Inserts a base `slot` row + a `slot_usage` row linking the class |
+| `attribute` | `attribute` | Inserts a single `attribute` row for the class |
+
+**Edit mode** — type conversion controlled by `#fkm-change-type` checkbox:
+
+| Checkbox state | Effect |
+|---|---|
+| Unchecked (default) | Keep current type unchanged |
+| Checked (slot_usage row) | Convert to `attribute` |
+| Checked (attribute row) | Convert to `slot_usage`; inserts base `slot` if not yet in schema library |
 
 ---
 
