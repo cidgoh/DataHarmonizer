@@ -148,11 +148,6 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <p class="text-muted small">
-            <span style="background:#fff3cd;color:#333;padding:1px 4px">Required</span>
-            fields are highlighted. Leave <strong>Table</strong> empty to add the field
-            directly to the <em>schema field library</em>.
-          </p>
           <table class="table table-sm table-borderless" id="field-key-modal-table">
             <colgroup>
               <col style="width:20%">
@@ -166,12 +161,37 @@
               <tr>
                 <td style="background:#fff3cd;font-weight:bold">Schema ID</td>
                 <td><select class="form-control form-control-sm" id="fkm-schema-id" autocomplete="off" data-lpignore="true"></select></td>
-                <td class="text-muted small">The schema this field belongs to.</td>
+                <td class="text-muted small" id="fkm-schema-id-desc">The schema this field belongs to.</td>
               </tr>
               <tr>
-                <td style="background:#fff3cd;font-weight:bold">Field ID</td>
+                <td>Type</td>
                 <td>
-                  <input type="text" class="form-control form-control-sm" id="fkm-name" list="fkm-name-list" placeholder="snake_case_name" autocomplete="off" data-lpignore="true">
+                  <select class="form-control form-control-sm" id="fkm-field-type" autocomplete="off">
+                    <option value="slot"></option>
+                    <option value="slot_usage"></option>
+                    <option value="attribute"></option>
+                  </select>
+                </td>
+                <td class="text-muted small" id="fkm-field-type-desc"></td>
+              </tr>
+              <tr>
+                <td id="fkm-class-id-label">Table</td>
+                <td><select class="form-control form-control-sm" id="fkm-class-id" autocomplete="off" data-lpignore="true"></select></td>
+                <td class="text-muted small" id="fkm-class-id-desc"></td>
+              </tr>
+              <tr id="fkm-slot-type-row">
+                <td></td>
+                <td colspan="2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="fkm-change-type">
+                    <label class="form-check-label" id="fkm-change-type-label"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#fff3cd;font-weight:bold" id="fkm-field-id-label">Field ID</td>
+                <td>
+                  <input type="text" class="form-control form-control-sm" id="fkm-name" list="fkm-name-list" placeholder="snake_case_name" autocomplete="off" data-lpignore="true" style="font-weight:bold">
                   <datalist id="fkm-name-list"></datalist>
                 </td>
                 <td class="text-muted small">Unique coded name. Use lowercase snake_case (letters, digits, underscores).</td>
@@ -181,23 +201,10 @@
                 <td><input type="text" class="form-control form-control-sm" id="fkm-title" placeholder="Human-readable label" autocomplete="off" data-lpignore="true"></td>
                 <td class="text-muted small">Display label shown to data-entry users.</td>
               </tr>
-              <tr id="fkm-slot-type-row">
-                <td>Field reuse</td>
-                <td>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="fkm-slot-type" id="fkm-type-slot-usage" value="slot_usage" checked>
-                    <label class="form-check-label" for="fkm-type-slot-usage" id="fkm-type-slot-usage-label">
-                      Inherit from schema field library (slot_usage)
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="fkm-slot-type" id="fkm-type-attribute" value="attribute">
-                    <label class="form-check-label" for="fkm-type-attribute">
-                      Standalone table attribute (attribute)
-                    </label>
-                  </div>
-                </td>
-                <td class="text-muted small" id="fkm-slot-type-help"></td>
+              <tr>
+                <td id="fkm-slot-group-label">Section</td>
+                <td><select class="form-control form-control-sm" id="fkm-slot-group" autocomplete="off" data-lpignore="true"></select></td>
+                <td class="text-muted small" id="fkm-slot-group-desc">Optional display group / section heading for this field. New sections can be added on the "Table section" tab.</td>
               </tr>
               <tr id="fkm-copy-inherited-row" style="display:none">
                 <td></td>
@@ -210,21 +217,12 @@
                   </div>
                 </td>
               </tr>
-              <tr>
-                <td>Table</td>
-                <td><select class="form-control form-control-sm" id="fkm-class-id" autocomplete="off" data-lpignore="true"></select></td>
-                <td class="text-muted small">Link to a table, or leave empty to add to the schema field library.</td>
-              </tr>
-              <tr>
-                <td>Section</td>
-                <td><select class="form-control form-control-sm" id="fkm-slot-group" autocomplete="off" data-lpignore="true"></select></td>
-                <td class="text-muted small">Optional display group / section heading for this field. New sections can be added on the "Table section" tab.</td>
-              </tr>
             </tbody>
           </table>
           <div id="fkm-error" class="text-danger small mt-1" style="display:none"></div>
         </div>
         <div class="modal-footer">
+          <span class="text-muted small mr-auto" id="fkm-header-desc"></span>
           <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-primary btn-sm" id="fkm-confirm-btn">Save field</button>
         </div>

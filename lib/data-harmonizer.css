@@ -310,6 +310,11 @@ tr.translate_key td {
   text-overflow: unset; /* Add ellipsis for truncated text */
 }
 
+td.tabFieldTd.field-id-bold {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /* Handsontable assigns .htDimmed to any cell with .readOnly = true */
 td.tabFieldTd.slot {
   border-top:2px solid green;
