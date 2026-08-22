@@ -494,6 +494,7 @@ classes:
         name: exact_mappings
         rank: 31
         slot_group: attributes
+        multivalued: true
         title: Exact mappings
         description: A list of one or more Curies or URIs that point to terms that are semantically identical to this {{slot}}.
       notes:
@@ -707,6 +708,7 @@ classes:
         name: exact_mappings
         rank: 8
         slot_group: attributes
+        multivalued: true
         title: Code mappings
         description: A list of terms from other schemas or terminology systems that mean exactly the same thing as this term.
         comments:
@@ -1166,24 +1168,24 @@ slots:
     name: equals_expression
     title: Calculated value
     range: WhitespaceMinimizedString
-    description: Enables inferring (calculating) value based on other field (LinkML slot) values. This is a LinkML-script-processed expression, having the syntax of a python expression.
+    description: Enables inferring (calculating) value based on other {{slot}} values. This is a LinkML-script-processed expression, having the syntax of a python expression.
     comments:
       - See https://linkml.io/linkml/schemas/advanced.html#equals-expression
   inlined:
     name: inlined
     title: Inlined
     range: boolean
-    description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly or just represented by a key to another record.
+    description: Within the context of a JSON {{class}} representation, whether a complex (non-literal) {{slot's}} content should be represented directly or just represented by a key to another record.
   inlined_as_list:
     name: inlined_as_list
     title: Inlined as list
     range: boolean
-    description: Within the context of a JSON table representation, whether a complex (non-literal) field’s (LinkML slot’s) content should be represented directly as a JSON list of items.
+    description: Within the context of a JSON {{class}} representation, whether a complex (non-literal) {{slot's}} content should be represented directly as a JSON list of items.
   aliases:
     name: aliases
     title: Aliases
     range: WhitespaceMinimizedString
-    description: A list of other names that slot can be known by.
+    description: A list of other names that a {{slot}} can be known by.
     multivalued: true
     comments:
       - See https://linkml.io/linkml/schemas/metadata.html#providing-aliases
@@ -1196,17 +1198,17 @@ slots:
     title: Annotation on
     range: SchemaAnnotationTypeMenu
     required: true
-    description: A menu of schema element types this annotation could pertain to (Schema, Class, Slot; in future Enumeration …)
+    description: A menu of {{schema}} element types this annotation could pertain to ({{schema}}, {{class}}, {{slot}}; in future Enumeration …)
   class_name:
     name: class_name
     title: On table
     range: SchemaClassMenu
-    description: If this annotation is attached to a table (LinkML class), provide the name of the table.
+    description: If this annotation is attached to a {{class}}, provide the name of the {{class}}.
   slot_name:
     name: slot_name
     title: On field
     range: SchemaSlotMenu
-    description: If this annotation is attached to a field (LinkML slot), provide the name of the field.
+    description: If this annotation is attached to a {{slot}}, provide the name of the {{slot}}.
   value:
     name: value
     title: Value
@@ -1215,7 +1217,7 @@ slots:
     name: enum_uri
     title: Semantic URI
     range: uri
-    description: A URI for identifying this pick list’s (LinkML enum) semantic type.
+    description: A URI for identifying this {{enumeration's}} semantic type.
     comments:
       - This semantic metadata helps in the comparison of datasets.
     examples:
@@ -1224,7 +1226,7 @@ slots:
     name: inherits
     title: Inherits
     range: SchemaEnumMenu
-    description: Indicates that this menu inherits choices from another menu, and includes or excludes other values (for selection and validation).
+    description: Indicates that this {{enumeration}} inherits {{permissible values}} from another menu, and includes or excludes other values (for selection and validation).
     comments:
       - "Select a menu from the \"Inherits\" dropdown list or copy and paste the \"Picklist Name (CamelCase)\" value for the menu you wish to use. Currently you can only inherit from menus listed within the \"Picklist\" tab of the schema you are editing. If the dropdown list is not appearing try resizing your browser menu.\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/inherits/"
     examples:
@@ -1234,7 +1236,7 @@ slots:
     title: Code
     range: WhitespaceMinimizedString
     required: true
-    description: The code (LinkML permissible_value key) for the menu item choice.
+    description: The textual code for the {{permissible value}} item.
     comments:
       - A picklist's codes must be unique. Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice.
     examples:
@@ -1243,7 +1245,7 @@ slots:
     name: meaning
     title: Semantic URI
     range: uri
-    description: A URI for identifying this choice's semantic type.
+    description: A URI for identifying this item's semantic type.
     comments:
       - "Suggestion: Input a URI or CURIE (Compact uniform resource identifier).\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/meaning/\nhttps://en.wikipedia.org/wiki/Uniform_Resource_Identifier\nhttps://cthoyt.com/2021/09/14/curies.html"
     examples:
@@ -1297,7 +1299,7 @@ enums:
       attribute:
         text: attribute
         title: Table field (stand-alone)
-        description: A table field which is not reused from the schema.  The field imposes its own attribute values.
+        description: A type of {{class}} {{slot}} which is not reused from the {{schema}} or from another {{class}}, but rather has control of all its settings.
   SchemaAnnotationTypeMenu:
     name: SchemaAnnotationTypeMenu
     title: Annotation Type
@@ -1319,7 +1321,7 @@ enums:
       attribute:
         text: attribute
         title: Table field (independent)
-        description: A table field which is not reused from the schema.  The field can impose its own attribute values.
+        description: A type of {{class}} {{slot}} which is not linked to a {{schema}} {{slots}} {{slot}} and so can manage its own parameter values.
   EnumCriteriaMenu:
     name: EnumCriteriaMenu
     title: Criteria Menu
