@@ -110,7 +110,7 @@ async function openExamplesModal(page, vRow) {
     setTimeout(() => hot.getActiveEditor()?.beginEditing(), 50);
   }, vRow);
   await page.waitForFunction(
-    () => document.getElementById('multiselect-modal')?.classList.contains('show'),
+    () => !!document.querySelector('#multiselect-modal.show'),
     null, { timeout: 6_000 }
   );
   // Let Bootstrap animation finish and the 50 ms focus timeout fire.
@@ -118,24 +118,33 @@ async function openExamplesModal(page, vRow) {
 }
 
 /**
- * Add free-text entries to the open Selectize control by typing and pressing Enter.
+ * Add free-text entries to the open Selectize control via the Selectize JS API.
+ * Using the API is more reliable than UI typing+Enter because the onDropdownOpen
+ * slideDown animation can hide the dropdown before the Enter keypress is processed.
  */
 async function addSelectizeItems(page, ...items) {
-  const input = page.locator('#multiselect-text .selectize-input input');
-  for (const item of items) {
-    await input.pressSequentially(item, { delay: 30 });
-    await input.press('Enter');
-    await page.waitForTimeout(50); // let Selectize process the creation
-  }
+  await page.evaluate((newItems) => {
+    const shownModal = document.querySelector('[id="multiselect-modal"].show');
+    const select = shownModal?.querySelector('.multiselect');
+    if (!select?.selectize) return;
+    const sz = select.selectize;
+    for (const item of newItems) {
+      if (!sz.options[item]) {
+        sz.addOption({ value: item, label: item, _id: item, depth: 0 });
+      }
+      sz.addItem(item, /* silent = */ true);
+    }
+  }, items);
+  await page.waitForTimeout(50);
 }
 
 /**
  * Click the OK button in the multiselect modal, then wait for it to close.
  */
 async function confirmMultiselect(page) {
-  await page.locator('#multiselect-modal button[data-dismiss="modal"]').click();
+  await page.locator('#multiselect-modal.show button[data-dismiss="modal"]').click();
   await page.waitForFunction(
-    () => !document.getElementById('multiselect-modal')?.classList.contains('show'),
+    () => !document.querySelector('#multiselect-modal.show'),
     null, { timeout: 5_000 }
   );
 }
@@ -144,20 +153,27 @@ async function confirmMultiselect(page) {
  * Wait for #dh-dialog-modal to appear and return its body text.
  */
 async function waitForDhDialog(page) {
+  // There are multiple #dh-dialog-modal elements (one per DH instance).
+  // dhAlert() uses document.getElementById which always returns the first,
+  // so we scope to the open (.show) one using querySelector.
   await page.waitForFunction(
-    () => document.getElementById('dh-dialog-modal')?.classList.contains('show'),
+    () => !!document.querySelector('[id="dh-dialog-modal"].show'),
     null, { timeout: 6_000 }
   );
-  return page.locator('#dh-dialog-modal .modal-body').textContent();
+  return page.evaluate(
+    () => document.querySelector('[id="dh-dialog-modal"].show [id="dh-dialog-body"]')?.textContent ?? ''
+  );
 }
 
 /**
  * Dismiss the open #dh-dialog-modal via the OK button and wait for it to close.
  */
 async function dismissDhDialog(page) {
-  await page.locator('#dh-dialog-ok').click();
+  // Scope OK button click to the open (.show) dialog to avoid strict-mode
+  // violations when multiple #dh-dialog-modal elements exist in the DOM.
+  await page.locator('[id="dh-dialog-modal"].show [id="dh-dialog-ok"]').click();
   await page.waitForFunction(
-    () => !document.getElementById('dh-dialog-modal')?.classList.contains('show'),
+    () => !document.querySelector('[id="dh-dialog-modal"].show'),
     null, { timeout: 5_000 }
   );
 }
