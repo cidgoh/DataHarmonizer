@@ -132,6 +132,11 @@
           >
           <span
             class="dropdown-item"
+            id="compare-schemas-button"
+            >Compare schemas...</span
+          >
+          <span
+            class="dropdown-item"
             id="copy-to-schema-menu-button"
             data-i18n="copy-to-schema-menu-button"
             >Copy fields...</span
@@ -860,23 +865,8 @@
             </div>
             <div class="row mt-2" id="copy-to-class-row" style="display:none">
               <div class="col">
-                <label class="mb-1"><strong id="copy-to-class-label">Copy to class:</strong></label>
-                <div id="copy-class-assign-row">
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="copy-class-mode"
-                           id="copy-class-assign" value="assign" checked>
-                    <label class="form-check-label" for="copy-class-assign">Assign to:</label>
-                  </div>
-                  <select class="form-control mt-1" id="copy-to-class-select"
-                          style="margin-left:1.25rem;width:calc(100% - 1.25rem)"></select>
-                </div>
-                <div class="form-check mt-2">
-                  <input class="form-check-input" type="radio" name="copy-class-mode"
-                         id="copy-class-preserve" value="preserve">
-                  <label class="form-check-label" for="copy-class-preserve">
-                    Preserve original class (copy class record to target schema if missing)
-                  </label>
-                </div>
+                <label class="mb-1" for="copy-to-class-select"><strong id="copy-to-class-label">Copy to class:</strong></label>
+                <select class="form-control mt-1" id="copy-to-class-select"></select>
               </div>
             </div>
             <!-- Section 2: dependent table records (optional) -->
@@ -884,7 +874,7 @@
               <div class="col">
                 <label class="mb-1">
                   <input type="checkbox" id="copy-include-table-records" checked>
-                  <strong>Copy dependent table records</strong>
+                  <strong id="copy-dependent-records-label">Copy dependent table records</strong>
                 </label>
                 <div id="copy-table-records-list" class="mt-1" style="max-height:150px;overflow-y:auto;font-size:0.85rem;border:1px solid #dee2e6;padding:8px;border-radius:4px;background:#f8f9fa"></div>
               </div>
@@ -904,6 +894,50 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" data-i18n="template-cancel">Cancel</button>
           <button type="button" class="btn btn-primary" id="copy-to-schema-confirm-btn" data-i18n="copy-to-schema-confirm">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compare Schemas Modal -->
+  <div class="modal fade" id="compare-schemas-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="max-width:860px">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Compare Schemas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row align-items-end mb-3">
+              <div class="col">
+                <label class="mb-1" for="compare-schema-a-select"><strong>Schema A (baseline):</strong></label>
+                <select class="form-control" id="compare-schema-a-select"></select>
+              </div>
+              <div class="col">
+                <label class="mb-1" for="compare-schema-b-select"><strong>Schema B (compare to):</strong></label>
+                <select class="form-control" id="compare-schema-b-select"></select>
+              </div>
+              <div class="col-auto">
+                <button type="button" class="btn btn-primary" id="compare-schemas-run-btn">Report</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div id="compare-schemas-status" class="text-muted small mb-1" style="display:none"></div>
+                <div id="compare-schemas-results"
+                     style="max-height:480px; overflow-y:auto; font-family:monospace;
+                            font-size:0.82rem; border:1px solid #dee2e6;
+                            padding:10px; border-radius:4px; background:#f8f9fa; display:none">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

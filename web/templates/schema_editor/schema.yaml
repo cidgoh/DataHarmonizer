@@ -13,7 +13,7 @@ classes:
   Schema:
     name: Schema
     title: Schema
-    description: A view of loaded LinkML {{schemas}} and their descriptions. A {{schema}} contains {{classes}} that detail one or more DataHarmonizer templates, {{slots}}, and {{enumerations}} (which are menus of {{permissible_values}} that are used in {{slots}})
+    description: A view of loaded LinkML {{schemas}} and their descriptions. A {{schema}} contains {{classes}} that detail one or more DataHarmonizer templates, {{slots}}, and {{enumerations}} (which are menus of {{permissible values}} that are used in {{slots}})
     see_also:
       - templates/schema_editor/SOP.pdf
     unique_keys:
@@ -128,7 +128,7 @@ classes:
   Class:
     name: Class
     title: Class
-    description: A view of the current {{schema's}} {{class}} specifications. A {{class}} may be a top-level DataHarmonizer "template" that can be displayed in a spreadsheet tab, or it may be a subordinate 1-many {{class}} linked to a parent {{class}} by a primary-to-foreign key {{slot}} relationship.
+    description: A view of the current {{schema}}'s {{class}} specifications. A {{class}} may be a top-level DataHarmonizer "template" that can be displayed in a spreadsheet tab, or it may be a subordinate 1-many {{class}} linked to a parent {{class}} by a primary-to-foreign key {{slot}} relationship.
     unique_keys:
       class_key:
         description: A table (class) is uniquely identified by the schema it appears in as well as its name.
@@ -265,7 +265,7 @@ classes:
   SlotGroup:
     name: SlotGroup
     title: Slot Group
-    description: A view of the {{slot_groups}} ({{slot}} section names) of the current {{schema's}} {{classes}}.
+    description: A view of the {{slot groups}} ({{slot}} section names) of the current {{schema}}'s {{classes}}.
     unique_keys:
       slotgroup_key:
         description: A slot_group is a schema-wide section name shared across all tables (classes) in the schema.
@@ -300,7 +300,7 @@ classes:
   Slot:
     name: Slot
     title: Slot
-    description: A view of the {{slots}} used in the currently selected {{schema(s)}}. {{Schema}}-level {{slots}} can be reused in one or more {{class}} specifications, or can be stand-alone {{slots}} occuring directly as {{attributes}} in a single {{class}}. A {{slot}} defines a column in a template, and can be a basic number, date, string, or menu of one or more {{enumerations}}, or other single-{{slot}} datatype.
+    description: A view of the {{slots}} used in the currently selected {{schemas}}. {{Schema}}-level {{slots}} can be reused in one or more {{class}} specifications, or can be stand-alone {{slots}} occuring directly as {{attributes}} in a single {{class}}. A {{slot}} defines a column in a template, and can be a basic number, date, string, or menu of one or more {{enumerations}}, or other single-{{slot}} datatype.
     unique_keys:
       slot_key:
         description: A slot is uniquely identified by the schema it appears in as well as its name and any class that it may appear in.
@@ -351,12 +351,12 @@ classes:
         range: SchemaMenu
         description: The script-compatible name of the {{schema}} that this {{slot}} is contained in.
         comments:
-          - A schema has a list of fields it defines. A schema can also import other schemas' fields.
+          - A {{schema}} has a list of {{slots}} it defines. (In future the SchemaEditor will enable a {{schema}} to import other schemas' {{slots}}).
       class_id:
         name: class_id
         rank: 2
         slot_group: key
-        description: Provide a {{class}} name in order to locate this {{slot}} in the given {{class}}. Otherwise the {{slot}} will be located in the {{schema's}} list of {{slots}}.
+        description: Provide a {{class}} name in order to locate this {{slot}} in the given {{class}}. Otherwise the {{slot}} will be located in the {{schema}}'s list of {{slots}}.
       slot_type:
         name: slot_type
         rank: 2
@@ -369,7 +369,7 @@ classes:
         name: name
         rank: 5
         slot_group: key
-        title: Field ID
+        title: Slot ID
         required: true
         pattern: ^[a-z]+[a-z0-9_]*$
         description: The script-compatible name of this {{slot}}.
@@ -382,7 +382,7 @@ classes:
         name: rank
         rank: 6
         slot_group: attributes
-        description: An integer which sets the order of this {{slot}} relative to the others within a given {{class}}. In SchemaEditor, this is automatically set when on the {{slot}} tab by dragging {{slots}} into the desired order; this is also recalculated when {{slot_groups}} are reordered.
+        description: An integer which sets the order of this {{slot}} relative to the others within a given {{class}}. In SchemaEditor, this is automatically set when on the {{slot}} tab by dragging {{slots}} into the desired order; this is also recalculated when {{slot groups}} are reordered.
       slot_uri:
         name: slot_uri
         rank: 7
@@ -511,7 +511,7 @@ classes:
   Annotation:
     name: Annotation
     title: Annotation
-    description: An annotation is a {{slot}} attached directly to a {{schema}}, {{class}}, {{slot}}, {{enum}}, {{permissible_value}} or {{rule}}. An annotation is free to set its own {{slot}} attributes, it doesn't inherit anything from {{schema}} {{slots}}.  Like a {{class}} {{slot}}, an {{annotation}} can define a visible column in a template, and can be a basic number, date, string, {{Enum}} (categorical or ordinal), or other single-{{slot}} datatype.
+    description: An annotation is a {{slot}} attached directly to a {{schema}}, {{class}}, {{slot}}, {{enum}}, {{permissible value}} or {{rule}}. An annotation is free to set its own {{slot}} attributes, it doesn't inherit anything from {{schema}} {{slots}}.  Like a {{class}} {{slot}}, an {{annotation}} can define a visible column in a template, and can be a basic number, date, string, {{Enum}} (categorical or ordinal), or other single-{{slot}} datatype.
     unique_keys:
       annotation_key:
         description: An annotation is uniquely identified by the schema it appears in as well as its name and annotation type (schema, class, slot, slot_usage, attribute)
@@ -786,7 +786,7 @@ classes:
   Setting:
     name: Setting
     title: Setting
-    description: A view of settings associated with selected {{schema(s)}}. A setting is usually a regular expression that can be reused in a structured_pattern slot attribute. See:https://linkml.io/linkml/faq/modeling.html#can-i-reuse-regular-expression-patterns.
+    description: A view of settings associated with selected {{schemas}}. A setting is usually a regular expression that can be reused in a structured_pattern slot attribute. See:https://linkml.io/linkml/faq/modeling.html#can-i-reuse-regular-expression-patterns.
     unique_keys:
       settings_key:
         description: A setting is uniquely identified by the name key whose value is a regular expression.
@@ -829,11 +829,11 @@ classes:
   Rule:
     name: Rule
     title: Rule
-    description: A view of selected {{schema's}} rules that execute the change in state of one or more {{slots}}. Each rule has a "precondition" expression of constraints one or more {{slots}}' values and a postcondition expression stating what the same or other {{slot's}} values change to.
+    description: A view of selected {{schema}}'s rules that execute the change in state of one or more {{slots}}. Each rule has a "precondition" expression of constraints one or more {{slots}}' values and a postcondition expression stating what the same or other {{slot's}} values change to.
   Extension:
     name: Extension
     title: Extension
-    description: A view of selected {{schema(s)}} list of LinkML attribute-value pairs that are not directly part of the {{schema's}} {{class}}/{{slot}} standard structure. Locale information is held here.
+    description: A view of selected {{schemas}} list of LinkML attribute-value pairs that are not directly part of the {{schema}}'s {{class}}/{{slot}} standard structure. Locale information is held here.
     unique_keys:
       extension_key:
         description: A key which details each schema's extension.
@@ -960,7 +960,7 @@ slots:
     description: The unique URI for identifying this {{schema}}.
     identifier: true
     comments:
-      - Typically the schema can be downloaded from this URI, but currently it is often left as an example URI during schema development. This semantic metadata helps in the comparison of datasets.
+      - Typically the {{schema}} can be downloaded from this URI, but currently it is often left as an example URI during {{schema}} development. This semantic metadata helps in the comparison of datasets.
     examples:
       - value: https://example.com/GRDI
   title:
@@ -990,7 +990,7 @@ slots:
     description: For multilingual schemas, a list of (ISO 639-1) languages (codes) which translations can be provided for.
     multivalued: true
     comments:
-      - Language translations are held in the schema’s extensions.locales data structure.
+      - Language translations are held in the {{schema's}} extensions.locales data structure.
     examples:
       - value: French (fr)
   default_prefix:
@@ -1035,17 +1035,17 @@ slots:
     name: is_a
   tree_root:
     name: tree_root
-    title: Root Table
+    title: Root Class
     range: boolean
     description: A boolean indicating whether this is a specification for a top-level data container on which serializations are based.
     comments:
-      - Only one allowed per Schema. See https://linkml.io/linkml/data/csvs.html
+      - Only one allowed per {{schema}}. See https://linkml.io/linkml/data/csvs.html
   unique_key_slots:
     name: unique_key_slots
     title: Unique key slots
     range: SchemaSlotMenu
     required: true
-    description: A list of a {{class’s}} {{slots}} that make up a {{unique key}}
+    description: A list of a {{class's}} {{slots}} that make up a {{unique key}}
     multivalued: true
     comments:
       - See https://linkml.io/linkml/schemas/constraints.html
@@ -1061,7 +1061,7 @@ slots:
     title: Type
     range: SchemaSlotTypeMenu
     required: true
-    description: The type of {{slot}} that this {{slot}} definition record pertains to: either a {{schema}}-level shared {{slot}}, a {{schema slot}} reused in a {{class}}, or a {{slot}} only defined in a {{class}}.
+    description: "The type of {{slot}} that this {{slot}} definition record pertains to: either a {{schema}}-level shared {{slot}}, a {{schema slot}} reused in a {{class}}, or a {{slot}} only defined in a {{class}}."
     comments:
       - "In a LinkML schema, a field definition (LinkML slot definition) can exist within one of three contexts:\n1) A field which is defined at the schema level, and which can be shared by more than one table (LinkML class).\n2) A field which a table reuses from its schema's list of fields. Here a table cannot change any schema-defined attributes of the field; it can only add attribute values for empty attributes.  In LinkML such fields and their customized attributes appear in the table's \"slot_usage\" list.\n3) A field which is named only in a given table, and does not appear or inherit any attributes from the schema. (In LinkML such fields appear only in a table’s “attributes” list.)"
   slot_group:
@@ -1093,7 +1093,7 @@ slots:
       - range: SchemaClassMenu
       - range: SchemaEnumMenu
     required: true
-    description: The data type or {{enumeration}} range or ranges that a {{slot’s}} value can be validated by. If more than one, this appears in the {{slot’s}} specification as a list of "any of" or "one of" ranges.
+    description: The data type or {{enumeration}} range or ranges that a {{slot's}} value can be validated by. If more than one, this appears in the {{slot's}} specification as a list of "any of" or "one of" ranges.
     multivalued: true
   unit:
     name: unit
@@ -1106,7 +1106,7 @@ slots:
     range: boolean
     description: A boolean TRUE indicates this {{slot}} is a mandatory data {{slot}}.
     comments:
-      - A mandatory data field will fail validation if empty.
+      - A mandatory data {{slot}} will fail validation if empty.
   recommended:
     name: recommended
     title: Recommended
@@ -1163,7 +1163,7 @@ slots:
     name: structured_pattern
     title: Structured pattern
     range: WhitespaceMinimizedString
-    description: This is a concatenation of regular expression patterns which are made available in the {{schema's}} settings. Each named expression gets replaced by its regular expression before validating the {{slot's}} string value against it.
+    description: This is a concatenation of regular expression patterns which are made available in the {{schema}}'s settings. Each named expression gets replaced by its regular expression before validating the {{slot's}} string value against it.
   equals_expression:
     name: equals_expression
     title: Calculated value
@@ -1201,12 +1201,12 @@ slots:
     description: A menu of {{schema}} element types this annotation could pertain to ({{schema}}, {{class}}, {{slot}}; in future Enumeration …)
   class_name:
     name: class_name
-    title: On table
+    title: On class
     range: SchemaClassMenu
     description: If this annotation is attached to a {{class}}, provide the name of the {{class}}.
   slot_name:
     name: slot_name
-    title: On field
+    title: On slot
     range: SchemaSlotMenu
     description: If this annotation is attached to a {{slot}}, provide the name of the {{slot}}.
   value:
@@ -1217,7 +1217,7 @@ slots:
     name: enum_uri
     title: Semantic URI
     range: uri
-    description: A URI for identifying this {{enumeration's}} semantic type.
+    description: A URI for identifying this {{enumeration}}'s semantic type.
     comments:
       - This semantic metadata helps in the comparison of datasets.
     examples:
@@ -1238,7 +1238,7 @@ slots:
     required: true
     description: The textual code for the {{permissible value}} item.
     comments:
-      - A picklist's codes must be unique. Whether a picklist label or its code is saved in a data file depends on the data file format.  JSON formatted data files hold codes directly, and thus enforce standardization.  CSV, TSV, XLS, and XLSX data formats receive the choice's label.  This enables saving of multilingual data in language of choice.
+      - An {{enumeration's}} codes must be unique. Note that whether an {{enumeration}} label or its code is visible in a data file depends on the data file format. JSON formatted data files hold codes directly, and thus enforce standardization. CSV, TSV, XLS, and XLSX data formats receive the choice's label. This enables saving of multilingual data in language of choice.
     examples:
       - value: "- Lower respiratory tract\n- Bronchus\n- Lung\n- Bronchiole"
   meaning:

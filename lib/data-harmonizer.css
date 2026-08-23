@@ -391,4 +391,29 @@ td.hide {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   pointer-events: none;
+}/* ── Schema Comparison Report ──────────────────────────────────────────── */
+.compare-report { font-size: 0.85rem; }
+.compare-header { font-size: 0.88rem; }
+.compare-section { margin-bottom: 1rem; }
+.compare-section h6 {
+  font-size: 0.88rem;
+  color: #343a40;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 2px;
+  margin-bottom: 6px;
+  font-weight: 700;
 }
+.compare-entry {
+  margin-bottom: 0.4rem;
+  padding: 3px 6px;
+  background: #fff;
+  border-radius: 3px;
+  border-left: 3px solid #dee2e6;
+}
+.compare-path { font-weight: 600; word-break: break-all; color: #495057; }
+.compare-case-tag { font-style: italic; color: #6c757d; font-size: 0.8em; margin-left: 4px; }
+.compare-old { color: #dc3545; margin-left: 1rem; word-break: break-all; }
+.compare-old::before { content: "OLD: "; font-weight: 600; }
+.compare-new { color: #28a745; margin-left: 1rem; word-break: break-all; }
+.compare-new::before { content: "NEW: "; font-weight: 600; }
+.compare-summary { font-size: 0.85rem; border-top: 1px solid #dee2e6; padding-top: 6px; }
