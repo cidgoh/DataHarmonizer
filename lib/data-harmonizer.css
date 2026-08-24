@@ -394,15 +394,22 @@ td.hide {
 }/* ── Schema Comparison Report ──────────────────────────────────────────── */
 .compare-report { font-size: 0.85rem; }
 .compare-header { font-size: 0.88rem; }
-.compare-section { margin-bottom: 1rem; }
-.compare-section h6 {
+.compare-section { margin-bottom: 0.5rem; }
+.compare-section-summary {
   font-size: 0.88rem;
+  font-weight: 700;
   color: #343a40;
   border-bottom: 1px solid #dee2e6;
-  padding-bottom: 2px;
-  margin-bottom: 6px;
-  font-weight: 700;
+  padding: 3px 2px;
+  cursor: pointer;
+  user-select: none;
+  list-style: disclosure-closed;
 }
+.compare-section[open] > .compare-section-summary {
+  list-style: disclosure-open;
+  margin-bottom: 6px;
+}
+.compare-section-body { padding-left: 4px; }
 .compare-entry {
   margin-bottom: 0.4rem;
   padding: 3px 6px;
