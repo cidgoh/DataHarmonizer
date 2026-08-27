@@ -14,7 +14,7 @@ classes:
   Schema:
     name: Schema
     title: Schema
-    description: A view of loaded LinkML schemas and their descriptions.  A schema contains tables (LinkML classes) that detail one or more DataHarmonizer templates, fields/columns, and picklists (which are themselves LinkML classes, slots, and enumerations)
+    description: A schema contains a list of slots, classes and their own linked or custom slots, and enumerations (which are menus of permissible values that are used in slots). DataHarmonizer templates are composed of one or more interrelated classes which appear as tabs in the DataHarmonizer interface.
     see_also: 
       - templates/schema_editor/SOP.pdf
     unique_keys:
