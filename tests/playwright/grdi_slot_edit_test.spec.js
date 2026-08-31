@@ -259,6 +259,16 @@ test('UX_task_3: expert guard and multiselect edit of sample_plan_name examples 
   );
   await page.waitForTimeout(500);
 
+  // ── 5b. Show schema slot rows ─────────────────────────────────────────────
+  // Schema slot rows (slot_type='slot') are hidden by default via _slotTypeFilter.
+  // Make them visible so the seed step and modal-open steps can interact with them.
+  await page.evaluate(() => {
+    const dh = window._appContext?.dhs?.Slot;
+    dh?._slotTypeFilter?.add('slot');
+    dh?.hot?.render();
+  });
+  await page.waitForTimeout(300);
+
   // ── 6. Setup: seed examples on base slot and GRDISample slot_usage ────────
   // The non-expert guard for slot_usage rows fires only when the cell is
   // currently inheriting a value from the base slot (oldVal === baseVal, both

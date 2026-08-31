@@ -69,23 +69,44 @@ export function slotCellLocator(page, rowIndex, colIdx) {
 
 /**
  * Find the 0-based DOM row index of a slot row matching both `name` (tds[3])
- * and `slotTypeTitle` (tds[1]) in the currently active tab's .ht_master.
+ * and `slotTypeTitle` in the currently active tab's .ht_master.
  * Returns -1 if not found.
  *
- * HOT renders enum titles in the slot_type cell; pass the display title:
+ * Pass the display title:
  *   'Schema field'              → base slot   (slot_type = 'slot')
  *   'Table field (from schema)' → slot_usage  (slot_type = 'slot_usage')
  *   'Table field (stand-alone)' → attribute   (slot_type = 'attribute')
+ *
+ * The SchemaEditor renders the slot_type cell via DH_TERMS (e.g. 'derived field'
+ * for slot_usage) rather than the enum title.  To handle this, the slot type is
+ * identified primarily by the CSS class that SchemaEditor's cells() callback adds
+ * to every cell in the row (e.g. 'slot_usage', 'slot', 'attribute').  The text
+ * content of tds[1] is used as a fallback for regular DH tabs where those classes
+ * are not present and the key-value-list renderer shows the enum title directly.
  */
 export async function findSlotRowIndex(page, name, slotTypeTitle) {
   return page.evaluate(
     ([name, slotTypeTitle]) => {
       function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
+      // Map display titles to the CSS class added by SchemaEditor's cells() callback.
+      const titleToClass = {
+        'Schema field':              'slot',
+        'Table field (from schema)': 'slot_usage',
+        'Table field (stand-alone)': 'attribute',
+      };
+      const cssClass = titleToClass[slotTypeTitle] || null;
       const scope = document.querySelector('.tab-pane.show');
       const rows  = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
       for (let i = 0; i < rows.length; i++) {
         const tds = rows[i].querySelectorAll('td');
-        if (ht(tds[3]) === name && ht(tds[1]) === slotTypeTitle) return i;
+        if (ht(tds[3]) !== name) continue;
+        // Primary: CSS class check (SchemaEditor adds slot_type as a class to every td).
+        // Fallback: text content of tds[1] (regular DH key-value-list shows enum title).
+        const matchesCss  = cssClass && Array.from(tds).some(
+          td => td.classList.contains(cssClass)
+        );
+        if (!matchesCss && ht(tds[1]) !== slotTypeTitle) continue;
+        return i;
       }
       return -1;
     },
@@ -122,8 +143,19 @@ export async function findRowIndex(page, colIdx, text) {
  * Returns -1 if not found within `timeout` ms.
  *
  * Needed for large schemas where HOT's virtual rendering omits off-screen rows.
+ *
+ * Always resets scrollTop to 0 first so rows that sort to the top after a
+ * tab refresh (re-sort) are found even when the saved scroll position was
+ * further down the list.
  */
 export async function scrollToSlotRow(page, name, slotTypeTitle, timeout = 20_000) {
+  // Reset to the top so we scan from the beginning regardless of the
+  // previously-saved scroll position.
+  await page.evaluate(() => {
+    const holder = document.querySelector('.tab-pane.show .ht_master .wtHolder');
+    if (holder) holder.scrollTop = 0;
+  });
+  await page.waitForTimeout(200);
   const deadline = Date.now() + timeout;
   while (Date.now() < deadline) {
     const idx = await findSlotRowIndex(page, name, slotTypeTitle);
