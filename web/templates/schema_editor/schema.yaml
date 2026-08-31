@@ -177,41 +177,6 @@ classes:
         name: tree_root
         rank: 9
         slot_group: technical
-  SlotGroup:
-    name: SlotGroup
-    title: Slot Group
-    description: A view of the {{slot groups}} ({{slot}} section names) of the current {{schema}}'s {{classes}}.
-    unique_keys:
-      slotgroup_key:
-        description: A slot_group is a schema-wide section name shared across all tables (classes) in the schema.
-        unique_key_slots:
-          - schema_id
-          - name
-    slots:
-      - schema_id
-      - class_id
-      - name
-    slot_usage:
-      schema_id:
-        name: schema_id
-        rank: 1
-        slot_group: key
-        range: SchemaMenu
-        description: The coding name of the schema
-      class_id:
-        name: class_id
-        rank: 2
-        slot_group: key
-        description: The name of the {{class}} that this {{slot group}} occurs in, if any.
-      name:
-        name: name
-        rank: 3
-        slot_group: key
-        title: Section name
-        description: The name of a {{slot group}} that groups {{slots}} as they appear within a {{class}}.
-        any_of:
-          - range: SchemaSlotGroupMenu
-          - range: WhitespaceMinimizedString
   Slot:
     name: Slot
     title: Slot
@@ -587,59 +552,6 @@ classes:
           - "Plain language sentence(s), using ordinary textual punctuation, providing organization specific comments (E.g., curation information or schema editor comments).\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/notes/"
         examples:
           - value: Discuss with schema workgroup whether the we should add the abbreviation "(NP)" to the "User Interface Label" for the "nasopharynx" "Class".
-  Annotation:
-    name: Annotation
-    title: Annotation
-    description: An annotation is a {{slot}} attached directly to a {{schema}}, {{class}}, {{slot}}, {{enum}}, {{permissible value}} or {{rule}}. An annotation is free to set its own {{slot}} attributes, it doesn't inherit anything from {{schema}} {{slots}}.  Like a {{class}} {{slot}}, an {{annotation}} can define a visible column in a template, and can be a basic number, date, string, {{Enum}} (categorical or ordinal), or other single-{{slot}} datatype.
-    unique_keys:
-      annotation_key:
-        description: An annotation is uniquely identified by the schema it appears in as well as its name and annotation type (schema, class, slot, slot_usage, attribute)
-        unique_key_slots:
-          - schema_id
-          - annotation_type
-          - name
-    slots:
-      - schema_id
-      - annotation_type
-      - class_name
-      - slot_name
-      - name
-      - value
-    slot_usage:
-      schema_id:
-        name: schema_id
-        rank: 1
-        slot_group: key
-        range: Schema
-        description: The script-compatible name of the {{schema}} this {{annotation}} is located in.
-      annotation_type:
-        name: annotation_type
-        rank: 2
-        slot_group: key
-      class_name:
-        name: class_name
-        rank: 3
-        slot_group: key
-      slot_name:
-        name: slot_name
-        rank: 4
-        slot_group: key
-      name:
-        name: name
-        rank: 5
-        slot_group: key
-        title: Key
-        range: WhitespaceMinimizedString
-        required: true
-        pattern: ^[a-z]+[a-z0-9_]*$
-        description: The annotation key (i.e. coding name of the annotation).
-        comments:
-          - This is a lowercase **snake_case** formatted name in the LinkML standard naming convention.
-      value:
-        name: value
-        rank: 6
-        slot_group: attributes
-        description: The annotation’s value, which can be a string or an object of any kind (in non-serialized data).
   UniqueKey:
     name: UniqueKey
     title: Unique Key
@@ -696,6 +608,59 @@ classes:
         slot_group: technical
         title: Editorial Notes
         description: Editorial notes about an element intended primarily for internal consumption
+  Annotation:
+    name: Annotation
+    title: Annotation
+    description: An annotation is a {{slot}} attached directly to a {{schema}}, {{class}}, {{slot}}, {{enum}}, {{permissible value}} or {{rule}}. An annotation is free to set its own {{slot}} attributes, it doesn't inherit anything from {{schema}} {{slots}}.  Like a {{class}} {{slot}}, an {{annotation}} can define a visible column in a template, and can be a basic number, date, string, {{Enum}} (categorical or ordinal), or other single-{{slot}} datatype.
+    unique_keys:
+      annotation_key:
+        description: An annotation is uniquely identified by the schema it appears in as well as its name and annotation type (schema, class, slot, slot_usage, attribute)
+        unique_key_slots:
+          - schema_id
+          - annotation_type
+          - name
+    slots:
+      - schema_id
+      - annotation_type
+      - class_name
+      - slot_name
+      - name
+      - value
+    slot_usage:
+      schema_id:
+        name: schema_id
+        rank: 1
+        slot_group: key
+        range: Schema
+        description: The script-compatible name of the {{schema}} this {{annotation}} is located in.
+      annotation_type:
+        name: annotation_type
+        rank: 2
+        slot_group: key
+      class_name:
+        name: class_name
+        rank: 3
+        slot_group: key
+      slot_name:
+        name: slot_name
+        rank: 4
+        slot_group: key
+      name:
+        name: name
+        rank: 5
+        slot_group: key
+        title: Key
+        range: WhitespaceMinimizedString
+        required: true
+        pattern: ^[a-z]+[a-z0-9_]*$
+        description: The annotation key (i.e. coding name of the annotation).
+        comments:
+          - This is a lowercase **snake_case** formatted name in the LinkML standard naming convention.
+      value:
+        name: value
+        rank: 6
+        slot_group: attributes
+        description: The annotation’s value, which can be a string or an object of any kind (in non-serialized data).
   EnumSource:
     name: EnumSource
     title: Enum Source

@@ -57,18 +57,6 @@ classes:
         - class_id
         - name
 
-  SlotGroup:
-    name: SlotGroup
-    title: Table section
-    description: A view of the field section names (aka "slot groups") of the loaded schema(s) tables (LinkML classes).
-    unique_keys:
-      slotgroup_key:
-        description: A slot_group is specified in a table's (class's) slot_usage entry for a particular field (slot).
-        unique_key_slots:
-        - schema_id
-        - class_id
-        - name
-
   Slot:
     name: Slot
     title: Field
