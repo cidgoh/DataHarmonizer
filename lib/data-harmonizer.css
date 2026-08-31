@@ -423,4 +423,6 @@ td.hide {
 .compare-old::before { content: "OLD: "; font-weight: 600; }
 .compare-new { color: #28a745; margin-left: 1rem; word-break: break-all; }
 .compare-new::before { content: "NEW: "; font-weight: 600; }
+.compare-new.is-created::before { content: "CREATED: "; }
+.compare-old.is-deleted::before { content: "DELETED: "; }
 .compare-summary { font-size: 0.85rem; border-top: 1px solid #dee2e6; padding-top: 6px; }

@@ -17,6 +17,6 @@ export default defineConfig({
   },
   use: {
     baseURL: 'http://localhost:8081',
-    headless: false,   // set false while writing tests to watch
+    headless: process.env.HEADED !== '1',   // default headless; HEADED=1 npx playwright ... to watch
   },
 });
