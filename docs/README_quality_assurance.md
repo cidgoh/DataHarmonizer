@@ -51,7 +51,7 @@ export default defineConfig({
   },
   use: {
     baseURL: 'http://localhost:8080',
-    headless: true,   // set false while writing tests to watch
+    headless: process.env.HEADED !== '1',   // default headless; HEADED=1 npx playwright ... to watch
   },
 });
 ```
@@ -263,10 +263,59 @@ if (process.env.UPDATE_FIXTURES) {
 
 ---
 
+## Running tests — headed vs headless
+
+`playwright.config.js` controls the default browser display mode via the
+`HEADED` environment variable:
+
+```bash
+# Headless (default) — no browser window, fastest
+npx playwright test tests/playwright/tmp/add_edit_field_modal.spec.js
+
+# Headed — visible browser window, useful while writing or debugging tests
+HEADED=1 npx playwright test tests/playwright/tmp/add_edit_field_modal.spec.js
+
+# Headed with slow-motion (500 ms between actions) for step-by-step observation
+HEADED=1 npx playwright test tests/playwright/tmp/add_edit_field_modal.spec.js --slowmo=500
+```
+
+The `--headed` CLI flag is an alternative to `HEADED=1` and always opens a
+browser regardless of the config setting.
+
+---
+
 ## Authoring Tips
 
-- Run `playwright test --headed --slowmo=500` while writing tests to watch the browser in real time.
+- Use `HEADED=1 npx playwright test --slowmo=500` while writing tests to watch the browser in real time.
 - Use `await page.pause()` to drop into Playwright's interactive inspector mid-test.
 - The `webServer.reuseExistingServer` option means if `yarn dev` is already running, Playwright will use it rather than starting a second instance — useful during active development.
 - Handsontable's grid uses `dblclick()` to enter edit mode for most cell types. Picklist cells may require waiting for the dropdown overlay before interacting.
 - For tsv/csv output comparison, normalise line endings (`\r\n` → `\n`) before comparing strings to avoid platform-specific failures.
+
+---
+
+## Drag-and-drop validation (Slot tab)
+
+### What is automated
+
+`tests/playwright/slot_group_rerank.spec.js` covers the **Field Key Modal** path: changing a slot's type (slot_usage ↔ attribute) and section via the modal, then asserting that ranks re-sequence correctly. Run it with:
+
+```bash
+npx playwright test tests/playwright/slot_group_rerank.spec.js --headed
+```
+
+### What requires manual testing
+
+The `beforeRowMove` / `afterRowMove` validation hooks introduced in `SchemaEditor.js` intercept drag-and-drop gestures before and after HOT applies the move. Playwright can simulate `dragTo()`, but Handsontable's internal row-move plugin is sensitive to precise pointer coordinates and timing, making reliable drag-and-drop automation difficult. The following scenarios must be verified by hand:
+
+**Setup**: `yarn dev`, open SchemaEditor, load `web/templates/grdi_1m/schema.yaml`, go to the Slot (Field) tab.
+
+| Scenario | Steps | Expected result |
+|---|---|---|
+| **Cross-schema block** | With multiple schemas visible, drag a row from one schema into another schema's rows | Alert: "Fields cannot be moved to a different schema. Use the right-click 'Copy to schema…' menu…". Row stays in place. |
+| **slot_group constraint (non-expert)** | In normal (non-expert) mode, drag a `slot_usage` field into a section that differs from its base schema slot's `slot_group` | Alert listing the constrained field(s) and the blocked target section. Row stays in place. |
+| **slot_group constraint bypassed in expert mode** | Enable Expert User mode (File menu), then perform the same drag as above | No alert. Move succeeds; section and rank update. |
+| **Cross-class confirmation — cancel** | In expert mode, drag a field into a different class's rows | Confirm dialog appears. Click Cancel → row reverts to its original position. |
+| **Cross-class confirmation — confirm** | Same drag, click OK in the confirm dialog | Field's `class_id` changes to the target class; section auto-updates to match the drop location; ranks re-sequence for both the source and target classes. |
+| **Same-class, same section** | Drag a field within its own class, staying inside the same section | No dialog. Rank re-sequences; section unchanged. |
+| **Same-class, different section** | Drag a field within its own class to a different section (expert mode or no base slot_group constraint) | No dialog. Section auto-updates to match neighbours; ranks re-sequence. |
