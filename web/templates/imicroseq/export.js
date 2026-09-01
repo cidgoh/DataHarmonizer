@@ -8,77 +8,236 @@ export default {
    * @param {Object} xlsx SheetJS variable.
    */
 
+  /**
+   * NCBI BioSample - SARS-CoV-2 wastewater surveillance package (v1.0)
+   * https://www.ncbi.nlm.nih.gov/biosample/docs/packages/SARS-CoV-2.wwsurv.1.0/
+   * Ported verbatim from the wastewater template. Source columns are wired
+   * from each slot's `exact_mappings` prefixed `NCBI_BIOSAMPLE_SARS_COV_2_WWS`
+   * in schema.json (schema_slots.tsv column `EXPORT_NCBI_BIOSAMPLE_SARS_COV_2_WWS`).
+   */
+  NCBI_BIOSAMPLE_SARS_COV_2_WWS: {
+    fileType: 'xlsx',
+    status: 'published',
+    method: function(dh) {
+      const exportHeaders = new Map([
+        ["sample_name", []],
+        ["sample_title", []],
+        ["bioproject_accession", []],
+        ["organism", []],
+        ["collection_date", []],
+        ["geo_loc_name", []],
+        ["isolation_source", []],
+        ["ww_population", []],
+        ["ww_sample_duration", []],
+        ["ww_sample_matrix", []],
+        ["ww_sample_type", []],
+        ["ww_surv_target_1", []],
+        ["ww_surv_target_1_known_present", []],
+        ["collected_by", []],
+        ["purpose_of_ww_sampling", []],
+        ["purpose_of_ww_sequencing", []],
+        ["sequenced_by", []],
+        ["ww_endog_control_1", []],
+        ["ww_endog_control_1_conc", []],
+        ["ww_endog_control_1_protocol", []],
+        ["ww_endog_control_1_units", []],
+        ["ww_endog_control_2", []],
+        ["ww_endog_control_2_conc", []],
+        ["ww_endog_control_2_protocol", []],
+        ["ww_endog_control_2_units", []],
+        ["ww_flow", []],
+        ["ww_industrial_effluent_percent", []],
+        ["ww_ph", []],
+        ["ww_population_source", []],
+        ["ww_pre_treatment", []],
+        ["ww_primary_sludge_retention_time", []],
+        ["ww_processing_protocol", []],
+        ["ww_sample_salinity", []],
+        ["ww_sample_site", []],
+        ["ww_surv_jurisdiction", []],
+        ["ww_surv_system_sample_id", []],
+        ["ww_surv_target_1_conc", []],
+        ["ww_surv_target_1_conc_unit", []],
+        ["ww_surv_target_1_extract", []],
+        ["ww_surv_target_1_extract_unit", []],
+        ["ww_surv_target_1_gene", []],
+        ["ww_surv_target_1_protocol", []],
+        ["ww_surv_target_2", []],
+        ["ww_surv_target_2_conc", []],
+        ["ww_surv_target_2_conc_unit", []],
+        ["ww_surv_target_2_extract", []],
+        ["ww_surv_target_2_extract_unit", []],
+        ["ww_surv_target_2_gene", []],
+        ["ww_surv_target_2_known_present", []],
+        ["ww_surv_target_2_protocol", []],
+        ["ww_temperature", []],
+        ["ww_total_suspended_solids", []],
+        ["description", []],
+      ]);
+      const outputMatrix = [[...exportHeaders.keys()]];
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
+      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_BIOSAMPLE_SARS_COV_2_WWS');
+      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+      const outputRow = [];
+      let value;
+      for (const [headerName, sources] of exportHeaders) {
+
+        // organism header always "wastewater metagenome"
+        if (headerName === "organism") {
+        value = "wastewater metagenome";
+        } else {
+        value = dh.getMappedField(
+          headerName,
+          inputRow,
+          sources,
+          sourceFields,
+          sourceFieldNameMap,
+          '; ',
+          'NCBI_BIOSAMPLE_SARS_COV_2_WWS'
+        );
+        }
+        outputRow.push(value);
+      }
+      outputMatrix.push(outputRow);
+      }
+      return outputMatrix;
+    },
+   },
+
+  /**
+   * NCBI BioSample - PHA4GE wastewater surveillance package (v1.0)
+   * https://www.ncbi.nlm.nih.gov/biosample/docs/packages/PHA4GE.wwsurv.1.0/
+   *
+   * SCAFFOLD ONLY: the target column list and order below match the NCBI
+   * package spec, but the iMicroSeq schema does not yet carry
+   * `NCBI_BIOSAMPLE_PHA4GE_WWS` mappings, so most columns will export blank
+   * until an `EXPORT_NCBI_BIOSAMPLE_PHA4GE_WWS` column is populated in
+   * schema_slots.tsv and schema.json is regenerated.
+   */
+  NCBI_BIOSAMPLE_PHA4GE_WWS: {
+    fileType: 'xlsx',
+    status: 'draft',
+    method: function(dh) {
+      const exportHeaders = new Map([
+        ["sample_name", []],
+        ["sample_title", []],
+        ["bioproject_accession", []],
+        ["organism", []],
+        // Mandatory
+        ["collection_date", []],
+        ["geo_loc_name", []],
+        ["purpose_of_sampling", []],
+        // Optional
+        ["adjacent_environment", []],
+        ["collected_by", []],
+        ["collection_device", []],
+        ["collection_method", []],
+        ["diagnostic_measurement_1", []],
+        ["diagnostic_measurement_2", []],
+        ["diss_oxygen", []],
+        ["env_local_scale", []],
+        ["env_medium", []],
+        ["environmental_material_properties", []],
+        ["experimental_protocol", []],
+        ["experimental_specimen_role_type", []],
+        ["fecal_contamination_indicator", []],
+        ["fecal_contamination_value", []],
+        ["gene_symbol_1", []],
+        ["gene_symbol_2", []],
+        ["instantaneous_flow_rate", []],
+        ["isolate", []],
+        ["isolated_by", []],
+        ["lat_lon", []],
+        ["ph", []],
+        ["populated_area_type", []],
+        ["presamp_weather", []],
+        ["presampling_activity", []],
+        ["samp_mat_process", []],
+        ["samp_salinity", []],
+        ["samp_weather", []],
+        ["sample_collection_time_duration", []],
+        ["sampling_event_id", []],
+        ["sampling_site_id", []],
+        ["strain", []],
+        ["suspend_solids", []],
+        ["total_daily_flow_rate", []],
+        ["turbidity", []],
+        ["water_catchment_area_population", []],
+        ["ww_system_type", []],
+        ["description", []],
+      ]);
+      const outputMatrix = [[...exportHeaders.keys()]];
+      const sourceFields = dh.slots; //dh.getFields(dh.table);
+      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+      dh.getHeaderMap(exportHeaders, sourceFields, 'NCBI_BIOSAMPLE_PHA4GE_WWS');
+      for (const inputRow of dh.getTrimmedData(dh.hot)) {
+        const outputRow = [];
+        let value;
+        for (const [headerName, sources] of exportHeaders) {
+          value = dh.getMappedField(
+            headerName,
+            inputRow,
+            sources,
+            sourceFields,
+            sourceFieldNameMap,
+            '; ',
+            'NCBI_BIOSAMPLE_PHA4GE_WWS'
+          );
+          outputRow.push(value);
+        }
+        outputMatrix.push(outputRow);
+      }
+      return outputMatrix;
+    },
+  },
+
+  /**
+   * NCBI BioSample - Pathogen: environmental/food/other package (v1.0)
+   * https://www.ncbi.nlm.nih.gov/biosample/docs/packages/Pathogen.env.1.0/
+   *
+   * SCAFFOLD ONLY: column list/order match the NCBI package spec. The prefix
+   * `NCBI_BIOSAMPLE_Pathogen` matches the convention used by the grdi
+   * template, but the iMicroSeq schema does not yet carry these mappings, so
+   * most columns will export blank until an `EXPORT_NCBI_BIOSAMPLE_Pathogen`
+   * column is populated in schema_slots.tsv and schema.json is regenerated.
+   * NCBI requires at least one of `strain` / `isolate`.
+   */
   NCBI_BioSample_Pathogen: {
     fileType: 'xls',
-    status: 'published',
+    status: 'draft',
     method: function (dh) {
-      // Create an export table with template's headers (2nd row) and remaining rows of data
       const ExportHeaders = new Map([
-        ['sample_name', []], 					// *
-		['bioproject_accession',[]],			// *
-//		['attribute_package',[]],				
-//		['GISAID_accession',[]],
-//		['GISAID_virus_name',[]],
-//		['collection_date',[]],
-		['collected_by', []],					// *
-		['sequenced_by',       []],		 		// *`
-//		['sequence_submitted_by', []],
-
-		['sample collection date',[]],		// *
-
-        [										// *
-          'geo_loc_name',
-          ['geo_loc_name (country)', 'geo_loc_name (state/province/region)', 'geo_loc_name (site)'],
-        ],
+        ['sample_name', []],
+        ['sample_title', []],
+        ['bioproject_accession', []],
         ['organism', []],
-//        ['isolate', []],
-        [
-          'isolation_source',
-          [
-            'anatomical_material',
-            'anatomical_part',
-            'body_product',
-            'environmental_material',
-            'environmental_site',
-            'collection_device',
-            'collection_method',
-            'food_product',
-            'food_product_properties',
-            'food_packaging'
-          ],
-        ],
-        ['anatomical_material', []],
-        ['anatomical_part', []],
-        ['body_product', []],
-        ['environmental_material', []],
-        ['environmental_site', []],
-        ['collection_device', []],
-        ['collection_method', []],
-//        ['lab_host', []],
-//        ['passage_history', []],
-//        ['passage_method', []],
-        ['host', []],							// *
-        ['host_disease', []],					// *
-//        ['host_health_state', []],
-//        ['host_disease_outcome', []],
-//        ['host_age', []],
-//        ['host_age_unit',   []],	
-//				['host_age_bin',   []],	
-//        ['host_sex', []],
-//        ['host_subject_id', []],
-        ['purpose_of_sampling',[]],				// *
-        ['purpose_of_sequencing', []],			// *
-//      ['gene_name_1', []],
-//      ['diagnostic_PCR_CT_value_1', []],
-//      ['gene_name_2', []],
-//      ['diagnostic_PCR_CT_value_2', []],
-//      ['description',[]],
+        // Mandatory
+        ['collected_by', []],
+        ['collection_date', []],
+        ['geo_loc_name', []],
+        ['isolation_source', []],
+        ['lat_lon', []],
+        // At least one required (organism group)
+        ['strain', []],
+        ['isolate', []],
+        // Optional
+        ['culture_collection', []],
+        ['genotype', []],
+        ['passage_history', []],
+        ['pathotype', []],
+        ['serotype', []],
+        ['serovar', []],
+        ['specimen_voucher', []],
+        ['subgroup', []],
+        ['subtype', []],
+        ['description', []],
       ]);
 
       const sourceFields = dh.slots; //dh.getFields(dh.table);
       const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
       // Fills in the above mapping (or just set manually above)
-      dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_BIOSAMPLE_PATHOGEN');
+      dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_BIOSAMPLE_Pathogen');
 
       // Copy headers to 1st row of new export table
       const outputMatrix = [[...ExportHeaders.keys()]];
@@ -103,398 +262,6 @@ export default {
 
       return outputMatrix;
     },
-  },
-
-  NCBI_BioSample_Enterics: {
-    fileType: 'xls',
-    status: 'published',
-    method: function (dh) {
-      const ExportHeaders = new Map([
-        ['sample_name', []],
-        ['sample_title', []],
-        ['bioproject_accession', []],
-        ['strain', []],
-        ['isolate_name_alias', []],
-        ['culture_collection', []],
-        ['reference_material', []],
-        ['organism', []],
-        ['collected_by', []],
-        ['collection_date', []],
-        ['cult_isol_date', []],
-        ['geo_loc_name', []],
-        ['isolation_source', []],
-        ['source_type', []],
-        ['samp_collect_device', []],
-        ['purpose_of_sampling', []],
-        ['project_name', []],
-        ['ifsac_category', []],
-        ['lat_lon', []],
-        ['serotype', []],
-        ['serovar', []],
-        ['sequenced_by', []],
-        ['description', []],
-        ['host', []],
-        ['host_sex', []],
-        ['host_age', []],
-        ['host_disease', []],
-        ['host_subject_id', []],
-        ['animal_env', []],
-        ['host_tissue_sampled', []],
-        ['host_body_product', []],
-        ['host_variety', []],
-        ['host_animal_breed', []],
-        ['upstream_intervention', []],
-        ['host_am', []],
-        ['host_group_size', []],
-        ['host_housing', []],
-        ['food_origin', []],
-        ['intended_consumer', []],
-        ['spec_intended_cons', []],
-        ['food_source', []],
-        ['food_processing_method', []],
-        ['food_preserv_proc', []],
-        ['food_prod', []],
-        ['label_claims', []],
-        ['food_product_type', []],
-        ['food_industry_code', []],
-        ['food_industry_class', []],
-        ['food_additive', []],
-        ['food_contact_surf', []],
-        ['food_contain_wrap', []],
-        ['food_pack_medium', []],
-        ['food_pack_integrity', []],
-        ['food_quality_date', []],
-        ['food_prod_synonym', []],
-        ['facility_type', []],
-        ['building_setting', []],
-        ['coll_site_geo_feat', []],
-        ['food_type_processed', []],
-        ['location_in_facility', []],
-        ['env_monitoring_zone', []],
-        ['indoor_surf', []],
-        ['indoor_surf_subpart', []],
-        ['surf_material', []],
-        ['material_condition', []],
-        ['surface_orientation', []],
-        ['surf_temp', []],
-        ['biocide_used', []],
-        ['animal_intrusion', []],
-        ['env_broad_scale', []],
-        ['env_local_scale', []],
-        ['env_medium', []],
-        ['plant_growth_med', []],
-        ['plant_water_method', []],
-        ['rel_location', []],
-        ['soil_type', []],
-        ['farm_water_source', []],
-        ['fertilizer_admin', []],
-        ['food_clean_proc', []],
-        ['sanitizer_used_postharvest', []],
-        ['farm_equip', []],
-        ['extr_weather_event', []],
-        ['mechanical_damage', []]
-      ]);
-      const matchedValSets = {
-        'host_housing': new Set([
-          'Animal cage [ENVO:01000922]',
-          'Aquarium [ENVO:00002196]',
-          'Building [ENVO:00000073]',
-          'Barn [ENVO:03501257]',
-          'Breeder barn [ENVO:03501383]',
-          'Broiler barn [ENVO:03501386]',
-          'Sheep barn [ENVO:03501385]',
-          'Pigsty [ENVO:03501413]',
-          'Animal pen [ENVO:03501387]',
-          'Stall [EOL:0001903]',
-          'Poultry hatchery [ENVO:01001874]',
-          'Roost (bird) [ENVO:03501439]',
-          'Crate [ENVO:03501372]'
-        ]),
-        'env_local_scale': new Set([
-          'Agricultural Field [ENVO:00000114]',
-          'Alluvial fan [ENVO:00000314]',
-          'Artificial wetland [ENVO:03501406]',
-          'Breeding ground [ENVO:03501441]',
-          'Creek [ENVO:03501405]',
-          'Farm [ENVO:00000078]',
-          'Beef farm [ENVO:03501443]',
-          'Breeder farm [ENVO:03501384]',
-          'Dairy farm [ENVO:03501416]',
-          'Feedlot [ENVO:01000627]',
-          'Beef cattle feedlot [ENVO:03501444]',
-          'Fish farm [ENVO:00000294]',
-          'Research farm [ENVO:03501417]',
-          'Freshwater environment [ENVO:01000306]',
-          'Hatchery [ENVO:01001873]',
-          'Poultry hatchery [ENVO:01001874]',
-          'Lake [ENVO:00000020]',
-          'Manure lagoon (Anaerobic lagoon) [ENVO:03501423]',
-          'Manure pit [ENVO:01001872]',
-          'Marine environment [ENVO:01000320]',
-          'Benthic zone [ENVO:03501440]',
-          'Pelagic zone [ENVO:00000208]',
-          'Park [ENVO:00000562]',
-          'Pond [ENVO:00000033]',
-          'Reservoir [ENVO:00000025]',
-          'Irrigation reservoir [ENVO:00000450]',
-          'River [ENVO:00000022]',
-          'Roost (bird) [ENVO:03501439]',
-          'Rural area [ENVO:01000772]',
-          'Slough [ENVO:03501438]',
-          'Stream [ENVO:00000023]',
-          'Tributary [ENVO:00000495]',
-          'Water surface [ENVO:01001191]',
-          'Woodland area [ENVO:00000109]'
-        ]),
-        'facility_type': new Set([
-          'Abattoir [ENVO:01000925]',
-          'Dairy [ENVO:00003862]',
-          'Farm [ENVO:00000078]',
-          'Hatchery [ENVO:01001873]',
-          'Retail environment [ENVO:01001448]',
-          'Shop [ENVO:00002221]',
-          'Butcher shop [ENVO:03501396]',
-          'Supermarket [ENVO:01000984]',
-          'Manure digester facility [ENVO:03501422]'
-        ]),
-        'coll_site_geo_feat': new Set([
-          'Animal transportation equipment [AGRO:00000671]',
-          'Dead haul trailer [GENEPIO:0100896]',
-          'Dead haul truck [AGRO:00000673]',
-          'Live haul trailer [GENEPIO:0100897]',
-          'Live haul truck [AGRO:00000674]',
-          'Bulk tank [ENVO:03501379]',
-          'Animal feeding equipment [AGRO:00000675]',
-          'Animal feeder [AGRO:00000679]',
-          'Animal drinker [AGRO:00000680]',
-          'Feed pan [AGRO:00000676]',
-          'Watering bowl [AGRO:00000677]',
-          '"Belt [NCIT:C49844]',
-          'Boot [GSSO:012935]',
-          'Boot cover [OBI:0002806]',
-          'Broom [ENVO:03501431]',
-          'Bulk tank [ENVO:03501379]',
-          'Chick box [AGRO:00000678]',
-          'Chick pad [AGRO:00000672]',
-          'Cleaning equipment [ENVO:03501430]',
-          'Dumpster [ENVO:03501400]',
-          'Egg belt [AGRO:00000670]',
-          'Fan [NCIT:C49947]',
-          'Freezer [ENVO:03501415]',
-          'Freezer handle [ENVO:03501414]',
-          'Plucking belt [AGRO:00000669]'
-        ]),
-        'env_medium': new Set([
-          'Air [ENVO:00002005]',
-          'Alluvium [ENVO:01001202]',
-          'Animal feeding equipment [AGRO:00000675]',
-          'Animal feeder [AGRO:00000679]',
-          'Animal drinker [AGRO:00000680]',
-          'Feed pan [AGRO:00000676]',
-          'Watering bowl [AGRO:00000677]',
-          'Animal transportation equipment [AGRO:00000671]',
-          'Dead haul trailer [GENEPIO:0100896]',
-          'Dead haul truck [AGRO:00000673]',
-          'Live haul trailer [GENEPIO:0100897]',
-          'Live haul truck [AGRO:00000674]',
-          'Belt [NCIT:C49844]',
-          'Biosolids [ENVO:00002059]',
-          'Boot [GSSO:012935]',
-          'Boot cover [OBI:0002806]',
-          'Broom [ENVO:03501431]',
-          'Bulk tank [ENVO:03501379]',
-          'Chick box [AGRO:00000678]',
-          'Chick pad [AGRO:00000672]',
-          'Cleaning equipment [ENVO:03501430]',
-          'Compost [ENVO:00002170]',
-          'Contaminated water [ENVO:00002186]',
-          'Fecal slurry [ENVO:03501436]',
-          'Fluid from meat rinse [GENEPIO:0004323]',
-          'Effluent [ENVO:03501407]',
-          'Influent [ENVO:03501442]',
-          'Surface runoff [ENVO:03501408]',
-          'Poultry plucking water [AGRO_00000693]',
-          'Wastewater [ENVO:00002001]',
-          'Weep fluid [AGRO_00000692]',
-          'Crate [ENVO:03501372]',
-          'Dumpster [ENVO:03501400]',
-          'Dust [ENVO:00002008]',
-          'Egg belt [AGRO:00000670]',
-          'Fan [NCIT:C49947]',
-          'Freezer [ENVO:03501415]',
-          'Freezer handle [ENVO:03501414]',
-          'Manure [ENVO:00003031]',
-          'Animal manure [AGRO:00000079]',
-          'Pig manure [AGRO:00000080]',
-          'Manure digester equipment [ENVO:03501424]',
-          'Nest [ENVO:03501432]',
-          'Bird\'s nest [ENVO:00005805]',
-          'Permafrost [ENVO:00000134]',
-          'Plucking belt [AGRO:00000669]',
-          'Poultry fluff [UBERON:0008291]',
-          'Poultry litter [AGRO:00000080]',
-          'Sediment [ENVO:00002007]',
-          'Soil [ENVO:00001998]',
-          'Agricultural soil [ENVO:00002259]',
-          'Forest soil [ENVO:00002261]',
-          'Straw [ENVO:00003869]',
-          'Canola straw [FOODON:00004430]',
-          'Oat straw [FOODON:03309878]',
-          'Barley straw [FOODON:00004559]',
-          'Water [CHEBI:15377]',
-          'Drinking water [ENVO:00003064]',
-          'Groundwater [ENVO:01001004]',
-          'Surface water [ENVO:00002042]'
-        ]),
-        'food_processing_method': new Set([
-          'Food (cooked) [FOODON:00001181]',
-          'Food (cut) [FOODON:00004291]',
-          'Food (chopped) [FOODON:00002777]',
-          'Food (chunks) [FOODON:00004555]',
-          'Food (cubed) [FOODON:00004278]',
-          'Food (diced) [FOODON:00004549]',
-          'Food (grated) [FOODON:00004552]',
-          'Food (sliced) [FOODON:00002455]',
-          'Food (shredded) [FOODON:00004553]',
-          'Food (fresh) [FOODON:00002457]',
-          'Food (pulped) [FOODON:00004554]',
-          'Food (raw) [FOODON:03311126]',
-          'Food (unseasoned) [FOODON:00004287]',
-          'Meat (boneless) [FOODON:00003467]',
-          'Meat (skinless) [FOODON:00003468]',
-          'Meat (with bone) [FOODON:02010116]',
-          'Meat (with skin) [FOODON:02010111]'
-        ]),
-        'food_preserv_proc': new Set([
-          'Food (canned) [FOODON:00002418]',
-          'Food (dried) [FOODON:03307539]',
-          'Food (frozen) [FOODON:03302148]'
-        ]),
-      };
-
-      const sourceFields = dh.slots; //dh.getFields(dh.table);
-      const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-      // Fills in the above mapping (or just set manually above)
-      dh.getHeaderMap(ExportHeaders, sourceFields, 'NCBI_BIOSAMPLE_Enterics');
-
-      // Copy headers to 1st row of new export table
-      const outputMatrix = [[...ExportHeaders.keys()]];
-
-      for (const inputRow of dh.getTrimmedData(dh.hot)) {
-        const outputRow = [];
-        for (const [headerName, sources] of ExportHeaders) {
-          let value;
-          if (headerName === 'fertilizer_admin') {
-            value = dh.getIfThenField(
-              'presampling_activity',
-              'Fertilizer pre-treatment [GENEPIO:0100543]',
-              'presampling_activity_details',
-              inputRow,
-              sourceFieldNameMap
-              );
-          } else if (headerName === 'host_am') {
-            value = dh.getIfThenField(
-              'presampling_activity',
-              'Antimicrobial pre-treatment [GENEPIO:0100537]',
-              'presampling_activity_details',
-              inputRow,
-              sourceFieldNameMap
-              );
-          } else if (headerName === 'host_housing') {
-            value = dh.getMatchedValsField(
-              'environmental_site',
-              matchedValSets[headerName],
-              inputRow,
-              sourceFieldNameMap
-            )
-          } else if (headerName === 'env_local_scale') {
-            value = dh.getMatchedValsField(
-              'environmental_site',
-              matchedValSets[headerName],
-              inputRow,
-              sourceFieldNameMap
-            )
-          } else if (headerName === 'facility_type') {
-            value = dh.getMatchedValsField(
-              'environmental_site',
-              matchedValSets[headerName],
-              inputRow,
-              sourceFieldNameMap
-            )
-          } else if (headerName === 'coll_site_geo_feat') {
-            value = dh.getMatchedValsField(
-              'environmental_material',
-              matchedValSets[headerName],
-              inputRow,
-              sourceFieldNameMap
-            )
-          } else if (headerName === 'env_medium') {
-            value = dh.getMatchedValsField(
-              'environmental_material',
-              matchedValSets[headerName],
-              inputRow,
-              sourceFieldNameMap
-            )
-          } else if (headerName === 'food_processing_method') {
-            value = dh.getMatchedValsField(
-              'food_product_properties',
-              matchedValSets[headerName],
-              inputRow,
-              sourceFieldNameMap
-            )
-          } else if (headerName === 'food_preserv_proc') {
-            value = dh.getMatchedValsField(
-              'food_product_properties',
-              matchedValSets[headerName],
-              inputRow,
-              sourceFieldNameMap
-            );
-          } else if (headerName === 'source_type') {
-            const hostScientificName =
-              inputRow[sourceFieldNameMap['host_scientific_name']];
-            const foodProduct = inputRow[sourceFieldNameMap['food_product']];
-            const nullValsSet = new Set(
-              Object.keys(
-                dh.schema.enums.NullValueMenu.permissible_values
-              ).concat(['', null])
-            );
-
-            if (hostScientificName === 'Homo sapiens [NCBITaxon:9606]') {
-              value = 'Human';
-            } else if (nullValsSet.has(foodProduct)) {
-              value = 'Animal';
-            } else {
-              value = 'Food';
-            }
-          } else if (headerName === 'host') {
-            value = dh.getFirstNonNullField(
-              [
-                'host_scientific_name',
-                'host_common_name',
-                'host_food_production_name'
-              ],
-              inputRow,
-              sourceFieldNameMap
-            )
-          } else {
-            // Otherwise apply source (many to one) to target field transform:
-            value = dh.getMappedField(
-              headerName,
-              inputRow,
-              sources,
-              sourceFields,
-              sourceFieldNameMap,
-              ':',
-              'NCBI_BIOSAMPLE_Enterics'
-            );
-          }
-          outputRow.push(value);
-        }
-        outputMatrix.push(outputRow);
-      }
-
-      return outputMatrix;
-    }
   },
 
   NCBI_Antibiogram: {
