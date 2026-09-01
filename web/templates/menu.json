@@ -47,6 +47,17 @@
       }
     }
   },
+  "iMicroSeq": {
+    "folder": "imicroseq",
+    "id": "https://example.com/iMicroSeq",
+    "version": "0.0.1",
+    "templates": {
+      "iMicroSeq": {
+        "name": "iMicroSeq",
+        "display": true
+      }
+    }
+  },
   "PHACDexa": {
     "folder": "phac_dexa",
     "id": "https://example.com/PHAC_Dexa",
