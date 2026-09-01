@@ -2,7 +2,7 @@
 #validation-status-bar {
   display: none;
   position: fixed;
-  z-index:1;
+  z-index: 250; /* above HOT clone overlays (~210 max); below HOT editors/dropdowns (1059+) */
   max-width: 420px;
   padding: 4px 10px;
   font-size: 0.82rem;
@@ -124,7 +124,13 @@ td.draggable-mapping-item {
 
 /* Styling for current open user picklist editor */
 div.handsontableEditor div .wtSpreader {
-  width:auto; 
+  width:auto;
+}
+
+/* Make the filter TEXTAREA semi-transparent so the cell's existing label text
+   remains visible through the overlay when the dropdown is open. */
+textarea[data-hot-input].handsontableInput {
+  background: rgba(255,255,255,0.7);
 }
 
 div.handsontableEditor {}
