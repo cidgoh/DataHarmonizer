@@ -6,21 +6,90 @@ new tests.
 
 ---
 
-## Setup and startup
+## Running the tests
 
-**Start the dev server before running tests:**
 ```bash
-yarn dev          # typically http://localhost:8080
-npx playwright test tests/playwright/some.spec.js
+# All tests (headless, default)
+npx playwright test
+
+# Single test file
+npx playwright test tests/playwright/UX_task_1_covid19.spec.js
+
+# Multiple files
+npx playwright test tests/playwright/UX_task_1_covid19.spec.js tests/playwright/UX_task_3_influenza.spec.js
+
+# Watch mode (browser visible)
+HEADED=1 npx playwright test
+
+# Watch mode, single file
+HEADED=1 npx playwright test tests/playwright/UX_Task_5_create_1m.spec.js
 ```
 
-**`playwright.config.js`** sets `baseURL` and `headless`. Set `headless: false`
-while writing/debugging a test.
+`playwright.config.js` auto-starts `yarn dev` (http://localhost:8081) before any
+test and reuses an existing server if already running. Default timeout is 120 s;
+extend inside individual tests with `test.setTimeout(N)`.
+
+---
+
+## Test file organization
+
+All spec files live in `tests/playwright/`. Shared helpers are in
+`tests/playwright/playwright_utils.js`.
+
+### Main application tests (DataHarmonizer grid, not Schema Editor)
+
+| File | Description |
+|---|---|
+| `cancogen-main-app.spec.js` | Load CanCOGeN COVID-19 xlsx, edit a cell, save and verify; switch to French and verify UI translation |
+
+### Schema Editor — UX task end-to-end workflows
+
+Each UX task file exercises a complete workflow a researcher would perform:
+
+| File | Template | Theme |
+|---|---|---|
+| `UX_task_1_covid19.spec.js` | CanCOGeN COVID-19 | Load schema, edit a field attribute, remove/restore a field, save, verify diff report |
+| `UX_task_2_covid19.spec.js` | GRDI 1M | Set a field to Recommended; verify HOT source data |
+| `UX_task_3_influenza.spec.js` | Influenza | Load via right-click context menu, add French title/description/comments via Translation modal, save, verify |
+| `UX_Task_4_covid19.spec.js` | CanCOGeN COVID-19 + fresh Test schema | Create Test schema with pre-existing fields, load a second schema, copy a field between schemas, verify Field tab |
+| `UX_Task_5_create_1m.spec.js` | Fresh schema (two-table 1M pattern) | Create schema with Samples + Isolates tables, add `sample_id` and `isolate_id` fields, set range, add FK annotation, verify YAML |
+
+### Schema Editor — feature-level regression tests
+
+| File | Theme |
+|---|---|
+| `schema-editor-create-save.spec.js` | Create schema from scratch, verify YAML; regression for spurious cascade dialog on new Enum |
+| `grdi-slot-features.spec.js` | Expert-guard + slot cascade (examples column), UniqueKey multiselect, GRDI 1M schema |
+| `slot_group_rerank.spec.js` | FKM slot_group change re-ranks the slot within its new section |
+| `add_edit_field_modal.spec.js` | Field Key Modal (FKM) — comprehensive add/edit/convert/cancel/copy-inherited bundles using GRDI 1M |
+
+### Shared helpers — `playwright_utils.js`
+
+| Export | Purpose |
+|---|---|
+| `hotCellLocator(page, row, colIdx)` | Schema / Class tab cell locator (routes col 0 to `.ht_clone_left`) |
+| `slotCellLocator(page, row, colIdx)` | Slot tab `.ht_master` cell locator by DOM td index |
+| `slotNameCellLocator(page, row)` | Slot tab name cell via `.field-id-bold` CSS class |
+| `findRowIndex(page, colIdx, text)` | DOM row index by column + text (Schema/Class tabs) |
+| `findSlotRowIndex(page, name, slotTypeTitle)` | DOM row index for a Slot tab row by name + slot type |
+| `scrollToSlotRow(page, name, slotTypeTitle)` | Scroll HOT until a row is rendered, return its DOM index |
+| `goToTab(page, tabBarId)` | Click a tab nav-link and wait for Bootstrap transition |
+
+---
+
+## Setup and startup
+
+`playwright.config.js` starts the dev server automatically. For manual runs:
+
+```bash
+yarn dev          # http://localhost:8081
+npx playwright test tests/playwright/some.spec.js
+```
 
 **Per-test timeout:** Complex tests need longer timeouts. Set it inside the test:
 ```javascript
 test('my test', async ({ page }) => {
-  test.setTimeout(60_000);
+  test.setTimeout(120_000);
   ...
 });
 ```
@@ -114,32 +183,86 @@ row.locator('td:nth-child(2)')
 
 **Schema tab** (`#tab-bar-Schema`):
 
-| colIdx | HOT col | Location | Field |
-|---|---|---|---|
-| 0 | 0 | `.ht_clone_left` | Schema ID (name) |
-| 1 | 1 | `.ht_master` td 2 | (first non-frozen col) |
-| 2 | 2 | `.ht_master` td 3 | Title |
+| colIdx | Location | Field |
+|---|---|---|
+| 0 | `.ht_clone_left` | Schema ID (name) |
+| 1 | `.ht_master` td 2 | (first non-frozen col) |
+| 2 | `.ht_master` td 3 | Title |
 
 **Class tab** (`#tab-bar-Class`):
 
-| colIdx | HOT col | Location | Field |
-|---|---|---|---|
-| 0 | 0 | `.ht_clone_left` | Table ID (name) |
-| 1 | 1 | `.ht_master` td 2 | Title |
+| colIdx | Location | Field |
+|---|---|---|
+| 0 | `.ht_clone_left` | Table ID (name) |
+| 1 | `.ht_master` td 2 | Title |
 
-**Slot (Field) tab** (`#tab-bar-Slot`) — col 0 (`schema_id`) is hidden and
-frozen; `.ht_master tds[0]` is an empty placeholder:
+**Slot (Field) tab** (`#tab-bar-Slot`) — two DOM layouts depending on whether
+`schema_id` is hidden by concise view:
 
-| `.ht_master` td index | Field |
-|---|---|
-| 0 | placeholder (frozen class_id in `.ht_clone_left`) |
-| 1 | slot_type ("Type") |
-| 2 | slot_group ("Section") |
-| 3 | name ("Field ID") |
-| 4 | rank ("Ordering") |
-| 5 | slot_uri ("Semantic URI") |
-| 6 | title ("Title") |
-| 7 | description ("Description") |
+*When `schema_id` IS hidden* (concise view active + FK relations present, e.g. GRDI 1M):
+HOT 15 removes the td entirely from `.ht_master`.
+
+| `.ht_master` tds[] | HOT col | Field |
+|---|---|---|
+| tds[0] | 1 | class_id ("Class") |
+| tds[1] | 2 | slot_type ("Type") |
+| tds[2] | 3 | slot_group ("Section") |
+| tds[3] | 4 | name ("Field ID") ← has `field-id-bold` CSS class |
+| tds[4] | 5 | rank ("Ordering") |
+| tds[5] | 6 | slot_uri |
+| tds[6] | 7 | title |
+| tds[7] | 8 | description |
+| tds[8] | 9 | comments |
+| tds[9] | 10 | examples |
+| tds[10] | 11 | **range** |
+
+*When `schema_id` is visible* (fresh schema or concise view off):
+
+| `.ht_master` tds[] | HOT col | Field |
+|---|---|---|
+| tds[0] | 0 | schema_id |
+| tds[1] | 1 | class_id |
+| tds[2] | 2 | slot_type |
+| tds[3] | 3 | slot_group |
+| tds[4] | 4 | name ("Field ID") ← has `field-id-bold` CSS class |
+| tds[5] | 5 | rank |
+| tds[6] | 6 | slot_uri |
+| tds[7] | 7 | title |
+| tds[8] | 8 | description |
+| tds[9] | 9 | comments |
+| tds[10] | 10 | examples |
+| tds[11] | 11 | **range** |
+
+**Because the DOM td index for any column past `schema_id` shifts by one
+depending on visibility, always use one of these layout-independent approaches:**
+
+- Use the `field-id-bold` CSS class to locate the name ("Field ID") column.
+- Use the HOT source data API (`dh.slot_name_to_column['range']`) and compute
+  the DOM td index by counting non-hidden HOT columns (see "Finding a column
+  DOM index dynamically" below).
+
+### `field-id-bold` CSS class
+
+SchemaEditor's `cells()` callback adds `field-id-bold` to every td in the
+name ("Field ID") column. Use it to locate the name cell without knowing the
+exact td index:
+
+```javascript
+const nameTd = Array.from(row.querySelectorAll('td'))
+  .find(td => td.classList.contains('field-id-bold'));
+```
+
+### Slot type CSS classes
+
+SchemaEditor's `cells()` callback also adds the slot type string as a CSS class
+to **every td** in a slot row. Use it to distinguish slot types without reading
+the slot_type column value:
+
+```javascript
+const isSlotUsage = Array.from(tds).some(td => td.classList.contains('slot_usage'));
+const isAttribute = Array.from(tds).some(td => td.classList.contains('attribute'));
+const isBaseSlot  = Array.from(tds).some(td => td.classList.contains('slot'));
+```
 
 ### Stripping the dropdown arrow character
 
@@ -164,6 +287,11 @@ await page.waitForFunction(
   null,
   { timeout: 5_000 }
 );
+```
+
+Or use the `goToTab` helper from `playwright_utils.js`:
+```javascript
+await goToTab(page, '#tab-bar-Slot');
 ```
 
 ### Bootstrap 4 fade animation race condition
@@ -229,8 +357,7 @@ function hotCellLocator(page, rowIndex, colIdx) {
 
 ### `slotCellLocator(page, rowIndex, colIdx)` — Slot tab
 
-All Slot tab interaction goes through `.ht_master` using the td index from the
-column layout table above:
+All Slot tab interaction goes through `.ht_master` using the DOM td index:
 
 ```javascript
 function slotCellLocator(page, rowIndex, colIdx) {
@@ -241,6 +368,73 @@ function slotCellLocator(page, rowIndex, colIdx) {
 }
 ```
 
+`colIdx` is the **DOM td index** (0-based), which differs from the HOT column
+index when `schema_id` is hidden. Use `slotNameCellLocator` for the name column
+and dynamic column computation for other columns (see below).
+
+### `slotNameCellLocator(page, rowIndex)` — name cell by CSS class
+
+```javascript
+function slotNameCellLocator(page, rowIndex) {
+  return page
+    .locator('.tab-pane.show .ht_master.handsontable tbody tr')
+    .nth(rowIndex)
+    .locator('td.field-id-bold');
+}
+```
+
+### `findSlotRowIndex(page, name, slotTypeTitle)` — Slot tab row by name + type
+
+Uses `field-id-bold` and slot-type CSS class — layout-independent:
+
+```javascript
+async function findSlotRowIndex(page, name, slotTypeTitle) {
+  return page.evaluate(
+    ([name, slotTypeTitle]) => {
+      function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
+      const titleToClass = {
+        'Schema field':              'slot',
+        'Table field (from schema)': 'slot_usage',
+        'Table field (stand-alone)': 'attribute',
+      };
+      const cssClass = titleToClass[slotTypeTitle] || null;
+      const scope = document.querySelector('.tab-pane.show');
+      const rows  = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
+      for (let i = 0; i < rows.length; i++) {
+        const tds    = Array.from(rows[i].querySelectorAll('td'));
+        const nameTd = tds.find(td => td.classList.contains('field-id-bold'));
+        if (!nameTd || ht(nameTd) !== name) continue;
+        const matchesCss = cssClass && tds.some(td => td.classList.contains(cssClass));
+        if (!matchesCss && ht(rows[i].querySelectorAll('td')[0]) !== slotTypeTitle) continue;
+        return i;
+      }
+      return -1;
+    },
+    [name, slotTypeTitle]
+  );
+}
+```
+
+`slotTypeTitle` values:
+- `'Schema field'` — base slot row (slot_type = 'slot')
+- `'Table field (from schema)'` — slot_usage row
+- `'Table field (stand-alone)'` — attribute row
+
+### `scrollToSlotRow(page, name, slotTypeTitle)` — scroll until row is rendered
+
+HOT virtual rendering omits off-screen rows. For large schemas (e.g. GRDI 1M),
+scroll until the target row appears in the DOM:
+
+```javascript
+// From playwright_utils.js
+const rowIdx = await scrollToSlotRow(page, 'sample_plan_name', 'Table field (from schema)');
+expect(rowIdx, 'row not found').not.toBe(-1);
+```
+
+Always call `scrollToSlotRow` (or reset `scrollTop` to 0 manually) before
+right-clicking a row to open the context menu — HOT re-renders after tab
+switches, which shifts the DOM positions of existing rows.
+
 ### `findRowIndex(page, colIdx, text)` — visual row index by cell content
 
 ```javascript
@@ -249,9 +443,7 @@ async function findRowIndex(page, colIdx, text) {
     ([colIdx, text]) => {
       function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
       const clone = colIdx === 0 ? '.ht_clone_left' : '.ht_master';
-      const rows = document.querySelectorAll(
-        `.tab-pane.show ${clone}.handsontable tbody tr`
-      );
+      const rows  = document.querySelectorAll(`.tab-pane.show ${clone}.handsontable tbody tr`);
       for (let i = 0; i < rows.length; i++) {
         const tds = rows[i].querySelectorAll('td');
         const nth = colIdx === 0 ? 0 : colIdx;
@@ -264,31 +456,51 @@ async function findRowIndex(page, colIdx, text) {
 }
 ```
 
-### `findSlotRowIndex(page, name, slotTypeTitle)` — Slot tab row by name + type
+### Finding a column DOM index dynamically
+
+When you need to click a column whose DOM index depends on whether `schema_id`
+is hidden (e.g. the `range` column), compute it from HOT's `hiddenColumns`
+plugin rather than using a hardcoded index:
 
 ```javascript
-async function findSlotRowIndex(page, name, slotTypeTitle) {
-  return page.evaluate(
-    ([name, slotTypeTitle]) => {
-      function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
-      const scope = document.querySelector('.tab-pane.show');
-      const rows = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
-      for (let i = 0; i < rows.length; i++) {
-        const tds = rows[i].querySelectorAll('td');
-        if (tds[3] && hotText(tds[3]) === name &&
-            tds[1] && hotText(tds[1]) === slotTypeTitle) return i;
-      }
-      return -1;
-    },
-    [name, slotTypeTitle]
-  );
-}
-```
+const { rowIdx, rangeColDomIdx } = await page.evaluate(() => {
+  const dh  = window._appContext?.dhs?.Slot;
+  const hot = dh?.hot;
+  if (!hot || !dh) return { rowIdx: -1, rangeColDomIdx: -1 };
 
-`slotTypeTitle` values for the Slot tab:
-- `'Schema field'` — base slot row (class_id = '')
-- `'Table field (from schema)'` — slot_usage row
-- `'Table field (stand-alone)'` — attribute row
+  // Find the physical row by class_id + name + slot_type.
+  const scope    = document.querySelector('.tab-pane.show');
+  const masterRows = scope.querySelectorAll('.ht_master.handsontable tbody tr');
+  const ht = el => (el?.textContent ?? '').replace(/\u25bc/g, '').trim();
+
+  let rowIdx = -1;
+  for (let i = 0; i < masterRows.length; i++) {
+    const tds    = Array.from(masterRows[i].querySelectorAll('td'));
+    const nameTd = tds.find(td => td.classList.contains('field-id-bold'));
+    if (!nameTd || ht(nameTd) !== 'sample_id') continue;
+    if (!tds.some(td => td.classList.contains('slot_usage'))) continue;
+    // Verify class_id via HOT source data (DOM index i = HOT visual row i).
+    const physRow = hot.toPhysicalRow(i);
+    if (physRow == null) continue;
+    if (hot.getSourceDataAtCell(physRow, dh.slot_class_id_column) !== 'Isolates') continue;
+    rowIdx = i;
+    break;
+  }
+  if (rowIdx === -1) return { rowIdx: -1, rangeColDomIdx: -1 };
+
+  // Count visible columns before 'range' to get its DOM td index.
+  const rangeHotCol  = dh.slot_name_to_column['range'];
+  const hiddenPlugin = hot.getPlugin('hiddenColumns');
+  const hiddenCols   = new Set(hiddenPlugin?.getHiddenColumns() ?? []);
+  let domColIdx = 0;
+  for (let c = 0; c < rangeHotCol; c++) {
+    if (!hiddenCols.has(c)) domColIdx++;
+  }
+  return { rowIdx, rangeColDomIdx: domColIdx };
+});
+
+const rangeCell = slotCellLocator(page, rowIdx, rangeColDomIdx);
+```
 
 ---
 
@@ -400,8 +612,10 @@ await page.waitForTimeout(400); // let HOT render newly-visible rows
 
 Access pattern:
 ```javascript
-const hot = window._appContext?.dhs?.Slot?.hot;     // Slot tab HOT instance
-const hot = window._appContext?.dhs?.Schema?.hot;   // Schema tab HOT instance
+const hot = window._appContext?.dhs?.Slot?.hot;       // Slot tab HOT instance
+const hot = window._appContext?.dhs?.Schema?.hot;     // Schema tab HOT instance
+const hot = window._appContext?.dhs?.Class?.hot;      // Class tab HOT instance
+const hot = window._appContext?.dhs?.Annotation?.hot; // Annotation tab HOT instance
 ```
 
 Useful HOT introspection inside `page.evaluate()`:
@@ -443,6 +657,13 @@ HOT column lookup via slot name:
 ```javascript
 const dh  = window._appContext?.dhs?.Slot;
 const col = dh.slot_name_to_column['required'];
+
+// Slot tab shortcut properties
+dh.slot_name_column       // HOT column index for 'name'
+dh.slot_type_column       // HOT column index for 'slot_type'
+dh.slot_class_id_column   // HOT column index for 'class_id'
+dh.slot_group_column      // HOT column index for 'slot_group'
+dh.schema_name_column     // HOT column index for 'schema_id'
 ```
 
 ---
@@ -520,22 +741,14 @@ await page.waitForFunction(
 // Select which class (table) the field belongs to
 await page.selectOption('#fkm-class-id', 'CanCOGeNCovid19');
 
-// Type the snake_case field name
+// Select field type
+await page.selectOption('#fkm-field-type', 'slot_usage'); // or 'slot', 'attribute'
+
+// Free-text field name (shown when type is 'slot' or 'attribute')
 await page.fill('#fkm-name', 'my_new_field');
 
-// ── Add mode: choose slot type via the Type dropdown ──────────────────────────
-// The type defaults to slot_usage (table field).  To add a standalone attribute:
-await page.selectOption('#fkm-field-type', 'attribute');
-
-// ── Edit mode: convert slot_usage ↔ attribute via the "change type" checkbox ──
-// The checkbox label reads "change to custom field" (slot_usage) or
-// "change to derived field + schema field (if needed)" (attribute).
-// Unchecked = keep current type; checked = convert to the other type.
-await page.waitForFunction(
-  () => document.querySelector('#fkm-slot-type-row')?.style.display !== 'none',
-  null, { timeout: 3_000 }
-);
-await page.check('#fkm-change-type'); // tick to convert type
+// Strict picklist field name (shown when type is 'slot_usage')
+await page.selectOption('#fkm-name-select', 'existing_slot_name');
 
 // Set the title
 await page.fill('#fkm-title', 'My New Field');
@@ -552,28 +765,75 @@ await page.waitForFunction(
 await page.waitForTimeout(500); // allow HOT to process row insertion
 ```
 
+### FKM type behaviour
+
+| `#fkm-field-type` value | Name input | Effect |
+|---|---|---|
+| `slot_usage` (default) | `#fkm-name-select` (strict picklist) | Inserts base `slot` + `slot_usage` row |
+| `attribute` | `#fkm-name` (free text, always enabled) | Inserts single `attribute` row |
+| `slot` | `#fkm-name` (free text, **disabled in non-expert mode**) | Inserts base `slot` row only |
+
+**Pre-fill from context row:** When `#add-row` is clicked, the FKM pre-fills the
+type from the last selected row. If the selected row is a base `slot`, the FKM
+opens with type `slot` — which hides `#fkm-name-select`. Always explicitly set
+`#fkm-field-type` if your test depends on a particular type.
+
+**Expert mode required for `slot` type:** In non-expert mode, `#fkm-name` is
+disabled when type is `slot`. Enable expert mode before adding base slots.
+
+### Edit mode type conversion
+
+```javascript
+// ── Edit mode: convert slot_usage ↔ attribute via the "change type" checkbox ──
+await page.waitForFunction(
+  () => document.querySelector('#fkm-slot-type-row')?.style.display !== 'none',
+  null, { timeout: 3_000 }
+);
+await page.check('#fkm-change-type'); // tick to convert type
+```
+
+| Checkbox state | Effect |
+|---|---|
+| Unchecked (default) | Keep current type unchanged |
+| Checked (slot_usage row) | Convert to `attribute` |
+| Checked (attribute row) | Convert to `slot_usage`; inserts base `slot` if not in schema library |
+
 ### After FKM confirm — new rows may be hidden
 
 Newly inserted rows may still be hidden from a prior `tabFilter` pass. Trigger
 `refreshTabDisplay` with a tab switch (see "Tab switch to make newly inserted
 rows visible" above).
 
-### FKM slot types and what gets inserted
+---
 
-**Add mode** — type controlled by `#fkm-field-type` dropdown:
+## Generic alert/confirm dialog (`dh-dialog-modal`)
 
-| Dropdown value | `slot_type` | Result |
-|---|---|---|
-| `slot_usage` (default) | `slot_usage` | Inserts a base `slot` row + a `slot_usage` row linking the class |
-| `attribute` | `attribute` | Inserts a single `attribute` row for the class |
+DH replaces `window.alert()` and `window.confirm()` with a Bootstrap modal
+(`#dh-dialog-modal`). It appears after some cell edits (e.g. "Range updated"
+when a slot definition change cascades to other usages).
 
-**Edit mode** — type conversion controlled by `#fkm-change-type` checkbox:
+Dismiss a blocking alert:
+```javascript
+// Wait for dialog (it may appear a moment after the edit commits)
+await page.waitForTimeout(300);
+const hasDialog = await page.evaluate(
+  () => document.querySelector('#dh-dialog-modal')?.classList.contains('show')
+);
+if (hasDialog) {
+  await page.click('#dh-dialog-ok');
+  await page.waitForFunction(
+    () => !document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+}
+```
 
-| Checkbox state | Effect |
-|---|---|
-| Unchecked (default) | Keep current type unchanged |
-| Checked (slot_usage row) | Convert to `attribute` |
-| Checked (attribute row) | Convert to `slot_usage`; inserts base `slot` if not yet in schema library |
+For a confirm dialog (has both OK and Cancel):
+```javascript
+await page.click('#dh-dialog-ok');     // confirm
+// or
+await page.click('#dh-dialog-cancel'); // cancel
+```
 
 ---
 
@@ -716,7 +976,7 @@ Capture browser-side logs (useful for `console.log()` statements added to
 ```javascript
 const consoleLogs = [];
 page.on('console', msg => {
-  if (msg.type() === 'error' || msg.text().includes('[appendOne]')) {
+  if (msg.type() === 'error' || msg.text().startsWith('[myTag]')) {
     console.log(`[BROWSER ${msg.type()}]`, msg.text());
   }
 });
@@ -726,11 +986,19 @@ page.on('console', msg => {
 
 ## Expert mode
 
-Some Schema Editor operations require Expert User mode. Enable it via the
-Display menu in the toolbar:
+Some Schema Editor operations require Expert User mode. The most reliable way to
+enable it in tests is via direct DOM manipulation of the checkbox:
 
 ```javascript
-// Open Display menu and check Expert User checkbox
+await page.evaluate(() => {
+  const cb = document.getElementById('schema_expert');
+  if (cb && !cb.checked) cb.click();
+});
+await page.waitForTimeout(200);
+```
+
+Alternatively, via the Display menu:
+```javascript
 await page.click('#display-menu-button');
 await page.waitForSelector('#display-menu.show', { timeout: 5_000 });
 await page.check('#expert-mode-check');
@@ -745,6 +1013,11 @@ const isExpert = await page.evaluate(() => {
 });
 ```
 
+**Expert mode is required to:**
+- Add base schema slots (`slot` type) via the FKM
+- Edit inherited cell values in slot_usage rows without a cascade dialog
+- Override `slot_group` constraints when dragging rows
+
 ---
 
 ## Internationalization / language switching
@@ -754,6 +1027,45 @@ Switch the interface language via the top-right selector:
 ```javascript
 await page.selectOption('#select-translation-localization', 'fr');
 await expect(page.locator('#file-menu-button')).toContainText('Fichier');
+```
+
+### Translation modal
+
+The Translation modal (`#translate-modal`) allows adding per-locale overrides for
+field attributes. It is opened by right-clicking a slot row and choosing
+"Translate":
+
+```javascript
+// Right-click a cell to open the context menu
+await cell.click({ button: 'right' });
+await page.locator('.htContextMenu .htCore td').filter({ hasText: 'Translate' }).click();
+await page.waitForFunction(
+  () => document.querySelector('#translate-modal')?.classList.contains('show'),
+  null, { timeout: 5_000 }
+);
+
+// Edit a textarea (identified by its data-path attribute)
+const textarea = page.locator('#translate-modal.show #translate-modal-content textarea')
+  .filter({ has: page.locator('[data-path*="description"]') });
+await textarea.fill('French description text');
+
+// Confirm
+await page.locator('#translate-modal.show .modal-footer button').last().click();
+await page.waitForFunction(
+  () => !document.querySelector('#translate-modal')?.classList.contains('show'),
+  null, { timeout: 5_000 }
+);
+```
+
+**Stale DOM after Translation modal close:** HOT re-renders after the modal
+closes, shifting virtual row positions. Always re-find a slot row using
+`scrollToSlotRow` before the next right-click or locator operation:
+
+```javascript
+// Re-find the row after modal close
+const rowIdx = await scrollToSlotRow(page, 'authors', 'Table field (from schema)');
+const cell   = slotCellLocator(page, rowIdx, 2);
+await cell.click({ button: 'right' });
 ```
 
 ---
@@ -772,3 +1084,8 @@ await expect(page.locator('#file-menu-button')).toContainText('Fichier');
 | `waitForFunction` arg/options confusion | Second arg is the page-function arg, third is `{timeout}` |
 | Dropdown text comparison fails | Strip `▼` (U+25BC) with `.replace(/\u25bc/g, '').trim()` |
 | `page.evaluate()` can't pass Regexp | Pass as string and reconstruct inside, or use string matching |
+| Hardcoded `tds[N]` for Slot tab columns breaks on schema_id visibility change | Use `field-id-bold` class for name column; compute other column DOM indices dynamically |
+| Right-click on wrong slot row after HOT re-render | Call `scrollToSlotRow` to re-find the DOM row index before each right-click |
+| `hot.toVisualRow(physRow)` doesn't match DOM row | For small schemas, scan DOM rows and use `hot.toPhysicalRow(domIdx)` to verify source data |
+| FKM opens with wrong type due to pre-fill from selected row | Explicitly set `#fkm-field-type` at the start of FKM interaction |
+| `#dh-dialog-modal` intercepts pointer events after a cell edit | Dismiss with `#dh-dialog-ok` before interacting with other elements |

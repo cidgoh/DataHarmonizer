@@ -79,8 +79,12 @@
  * calls (currently 100-500 ms) by ~2×.
  *
  * ── Slot tab column layout (.ht_master tds, 0-based) ─────────────────────────
- *   tds[0]  placeholder (frozen class_id in .ht_clone_left)
- *   tds[1]  slot_type  ("Type")
+ *   The td index for name depends on whether schema_id is hidden by concise
+ *   view (HOT 15 removes hidden-column tds from the DOM).  Use the CSS class
+ *   "field-id-bold" (via slotNameCellLocator) to locate the name cell robustly.
+ *   Typical layout when schema_id IS hidden (GRDI 1M):
+ *   tds[0]  slot_type  ("Type")
+ *   tds[1]  class_id   ("Table ID")
  *   tds[2]  slot_group ("Section")
  *   tds[3]  name       ("Field ID") ← KEY_COLUMN: click opens FKM
  *   tds[4]  rank       ("Ordering")
@@ -93,7 +97,7 @@
 
 import { test, expect } from '@playwright/test';
 import path from 'path';
-import { slotCellLocator, scrollToSlotRow } from '../playwright_utils.js';
+import { slotNameCellLocator, scrollToSlotRow } from './playwright_utils.js';
 
 // ── Constants ──────────────────────────────────────────────────────────────────
 
@@ -183,13 +187,13 @@ async function waitFkmClosed(page) {
 
 /**
  * Scroll to a slot row and open the FKM in Edit mode by double-clicking the
- * name cell (tds[3]).  Double-click matches UX_task_1 precedent and reliably
- * triggers SchemaEditor's afterOnCellMouseDown hook on KEY_COLUMN cells.
+ * name cell (field-id-bold).  Double-click matches UX_task_1 precedent and
+ * reliably triggers SchemaEditor's afterOnCellMouseDown hook on KEY_COLUMN cells.
  */
 async function openEditFkm(page, slotTypeTitle, slotName) {
   const rowIdx = await scrollToSlotRow(page, slotName, slotTypeTitle, 15_000);
   if (rowIdx === -1) throw new Error(`Row not found: ${slotTypeTitle} / ${slotName}`);
-  const cell = slotCellLocator(page, rowIdx, 3);
+  const cell = slotNameCellLocator(page, rowIdx);
   await cell.scrollIntoViewIfNeeded();
   await cell.dblclick();
   await page.waitForFunction(

@@ -14,7 +14,6 @@
 import { test, expect } from '@playwright/test';
 import path from 'path';
 import { readFileSync, mkdirSync } from 'fs';
-import { spawnSync } from 'child_process';
 import YAML from 'yaml';
 import { hotCellLocator, findSlotRowIndex, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
 
@@ -562,19 +561,4 @@ test('UX_task_2: GRDI template editing', async ({ page }) => {
     ).toBe(true);
   }
 
-  // ── Step 7b: Run script/diff_schemas.py for a human-readable structured diff
-  // Uses the existing repo diff tool (YAML object comparison via DeepDiff, not
-  // text diff) to print substantive changes between source and saved schemas.
-  const diffResult = spawnSync(
-    'python3',
-    ['script/diff_schemas.py', '--files', sourceFile, outputFile],
-    { encoding: 'utf-8', cwd: path.resolve('.') }
-  );
-  if (diffResult.status === 0) {
-    console.log('\n── script/diff_schemas.py output ──────────────────────────────────\n' +
-      diffResult.stdout);
-  } else {
-    console.warn('diff_schemas.py exited with status', diffResult.status,
-      diffResult.stderr || diffResult.stdout);
-  }
 });

@@ -94,35 +94,72 @@ async function waitForCloneCellText(page, text, timeout = 8_000) {
 }
 
 /**
- * Open the Field Key Modal (#add-row), select `className`, enter `fieldName`
- * and `title`, choose slot_usage type, then confirm.
- * If the slot already exists in the schema library the slot-type-row may not
- * appear — the function handles both cases gracefully.
+ * Add a slot_usage field to `className`.
+ *
+ * In Add mode the FKM shows a strict picklist (#fkm-name-select) for slot_usage
+ * type — not the free-text #fkm-name input.  The picklist only lists slots that
+ * already exist in the schema.  If the slot does not yet exist this function
+ * first creates the base 'slot' row (using the free-text input available when
+ * type = 'slot'), then opens the FKM again to add the slot_usage.
  */
 async function addSlotUsageField(page, className, fieldName, title) {
+  // Step A: If the base schema slot doesn't exist yet, add it first.
+  const slotExists = await page.evaluate((name) => {
+    const dh  = window._appContext?.dhs?.Slot;
+    const hot = dh?.hot;
+    if (!hot || !dh) return false;
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      if (hot.getSourceDataAtCell(p, dh.slot_type_column) === 'slot' &&
+          hot.getSourceDataAtCell(p, dh.slot_name_column) === name) return true;
+    }
+    return false;
+  }, fieldName);
+
+  if (!slotExists) {
+    await page.click('#add-row');
+    await page.waitForFunction(
+      () => document.querySelector('#field-key-modal')?.classList.contains('show'),
+      null, { timeout: 5_000 }
+    );
+    {
+      const fkm = page.locator('#field-key-modal.show');
+      // Switch to 'slot' — shows #fkm-name free-text input.
+      await fkm.locator('#fkm-field-type').selectOption('slot');
+      await page.waitForTimeout(300);
+      await fkm.locator('#fkm-name').fill(fieldName);
+      if (title) await fkm.locator('#fkm-title').fill(title);
+      await fkm.locator('#fkm-confirm-btn').click();
+      await page.waitForFunction(
+        () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+        null, { timeout: 5_000 }
+      );
+    }
+    await page.waitForTimeout(300);
+  }
+
+  // Step B: Add slot_usage — pick the slot from the strict picklist.
+  // The FKM may pre-fill with 'slot' type from the context row (the base slot
+  // just added). Explicitly set to 'slot_usage' so #fkm-name-select is shown.
   await page.click('#add-row');
   await page.waitForFunction(
     () => document.querySelector('#field-key-modal')?.classList.contains('show'),
     null, { timeout: 5_000 }
   );
-
-  await page.selectOption('#fkm-class-id', className);
-  await page.waitForTimeout(300);
-
-  await page.fill('#fkm-name', fieldName);
-
-  // In Add mode the slot-type-row is hidden; the type dropdown (#fkm-field-type)
-  // defaults to slot_usage (table field), which is what we want here.
-
-  if (title) {
-    await page.fill('#fkm-title', title);
+  {
+    const fkm = page.locator('#field-key-modal.show');
+    // Ensure slot_usage type is selected (FKM may pre-fill with 'slot').
+    await fkm.locator('#fkm-field-type').selectOption('slot_usage');
+    await page.waitForTimeout(200);
+    await fkm.locator('#fkm-class-id').selectOption(className);
+    await page.waitForTimeout(300);
+    await fkm.locator('#fkm-name-select').selectOption(fieldName);
+    await page.waitForTimeout(200);
+    await fkm.locator('#fkm-confirm-btn').click();
+    await page.waitForFunction(
+      () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+      null, { timeout: 5_000 }
+    );
   }
-
-  await page.click('#fkm-confirm-btn');
-  await page.waitForFunction(
-    () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
-    null, { timeout: 5_000 }
-  );
 }
 
 // ── Test ──────────────────────────────────────────────────────────────────────
@@ -228,16 +265,28 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   // ── 8. Add "sample_id" schema-field to Samples table ─────────────────────
   // slot_usage type: creates a base schema-level slot AND a slot_usage row
   // for Samples — mirroring GRDISample.sample_collector_sample_id in GRDI-1M.
+  // Expert mode is required to add a base schema slot (the FKM disables #fkm-name
+  // for non-expert users when the type is 'slot').
+  await page.evaluate(() => {
+    const cb = document.getElementById('schema_expert');
+    if (cb && !cb.checked) cb.click();
+  });
+  await page.waitForTimeout(200);
+
   await addSlotUsageField(page, 'Samples', 'sample_id', 'Sample Identifier');
 
-  // Wait for sample_id to appear in the Slot tab DOM (base slot row is always visible).
+  // Wait for sample_id to appear in the Slot tab DOM.
+  // Use the field-id-bold CSS class (SchemaEditor's cells() callback) to locate
+  // the name column — robust against schema_id being hidden or visible.
   await page.waitForFunction(
     () => {
       const ht = td => (td?.textContent ?? '').replace(/\u25bc/g, '').trim();
       const scope = document.querySelector('.tab-pane.show');
       const rows = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
       for (const row of rows) {
-        if (ht(row.querySelectorAll('td')[3]) === 'sample_id') return true;
+        const tds = Array.from(row.querySelectorAll('td'));
+        const nameTd = tds.find(td => td.classList.contains('field-id-bold'));
+        if (nameTd && ht(nameTd) === 'sample_id') return true;
       }
       return false;
     },
@@ -284,26 +333,56 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   await page.waitForTimeout(300);
 
   // ── 12. Find Isolates.sample_id row and set range = "Samples" ─────────────
-  // In the Slot tab with Isolates context, find the row where
-  // class_id (clone-left) = "Isolates" AND name (tds[3]) = "sample_id".
-  const sampleIdIsolatesRowIdx = await page.evaluate(() => {
-    const ht = el => (el?.textContent ?? '').replace(/\u25bc/g, '').trim();
+  // Scan DOM rows and use hot.toPhysicalRow(domIdx) to verify class_id from
+  // source data.  This avoids relying on hot.toVisualRow() (which can diverge
+  // from DOM row order when the sort is being re-applied) and is robust even
+  // when there are multiple slot_usage rows named "sample_id" (one per class).
+  const { sampleIdIsolatesRowIdx, rangeColDomIdx } = await page.evaluate(() => {
+    const dh  = window._appContext?.dhs?.Slot;
+    const hot = dh?.hot;
+    if (!hot || !dh) return { sampleIdIsolatesRowIdx: -1, rangeColDomIdx: -1 };
+
+    const ht    = el => (el?.textContent ?? '').replace(/\u25bc/g, '').trim();
     const scope = document.querySelector('.tab-pane.show');
-    const cloneRows = scope.querySelectorAll('.ht_clone_left.handsontable tbody tr');
+    if (!scope) return { sampleIdIsolatesRowIdx: -1, rangeColDomIdx: -1 };
+
+    // Scan all rendered DOM rows in .ht_master.
     const masterRows = scope.querySelectorAll('.ht_master.handsontable tbody tr');
-    for (let i = 0; i < Math.min(cloneRows.length, masterRows.length); i++) {
-      const cloneTd  = cloneRows[i]?.querySelector('td');
-      const masterTds = masterRows[i].querySelectorAll('td');
-      if (ht(cloneTd) === 'Isolates' && ht(masterTds[3]) === 'sample_id') return i;
+    let rowIdx = -1;
+    for (let i = 0; i < masterRows.length; i++) {
+      const tds    = Array.from(masterRows[i].querySelectorAll('td'));
+      // Name column has 'field-id-bold' CSS class.
+      const nameTd = tds.find(td => td.classList.contains('field-id-bold'));
+      if (!nameTd || ht(nameTd) !== 'sample_id') continue;
+      // Slot type check: SchemaEditor adds slot_type as a CSS class to every td.
+      if (!tds.some(td => td.classList.contains('slot_usage'))) continue;
+      // Verify class_id via HOT source data (DOM row i = HOT visual row i for
+      // fully-rendered grids; hot.toPhysicalRow converts to source data index).
+      const physRow = hot.toPhysicalRow(i);
+      if (physRow == null) continue;
+      const classId = hot.getSourceDataAtCell(physRow, dh.slot_class_id_column);
+      if (classId !== 'Isolates') continue;
+      rowIdx = i;
+      break;
     }
-    return -1;
+    if (rowIdx === -1) return { sampleIdIsolatesRowIdx: -1, rangeColDomIdx: -1 };
+
+    // Compute DOM td index for 'range' accounting for hidden columns.
+    const rangeHotCol  = dh.slot_name_to_column['range'];
+    const hiddenPlugin = hot.getPlugin('hiddenColumns');
+    const hiddenCols   = new Set(hiddenPlugin?.getHiddenColumns() ?? []);
+    let domColIdx = 0;
+    for (let c = 0; c < rangeHotCol; c++) {
+      if (!hiddenCols.has(c)) domColIdx++;
+    }
+
+    return { sampleIdIsolatesRowIdx: rowIdx, rangeColDomIdx: domColIdx };
   });
   expect(sampleIdIsolatesRowIdx,
     'sample_id slot_usage row for Isolates not found in Slot tab').not.toBe(-1);
 
-  // range is ht_master tds[10] → slotCellLocator colIdx=10.
-  // It is a multiselect combining SchemaTypeMenu + SchemaClassMenu + SchemaEnumMenu.
-  const rangeCell = slotCellLocator(page, sampleIdIsolatesRowIdx, 10);
+  // 'range' column is a multiselect combining SchemaTypeMenu + SchemaClassMenu + SchemaEnumMenu.
+  const rangeCell = slotCellLocator(page, sampleIdIsolatesRowIdx, rangeColDomIdx);
   await rangeCell.scrollIntoViewIfNeeded();
   await rangeCell.dblclick();
 
@@ -331,6 +410,22 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
     null, { timeout: 5_000 }
   );
   await page.waitForTimeout(300);
+
+  // A "Range updated" informational dialog may appear listing tables that reuse
+  // this field's definition.  Dismiss it if visible.
+  {
+    const hasDialog = await page.evaluate(
+      () => document.querySelector('#dh-dialog-modal')?.classList.contains('show')
+    );
+    if (hasDialog) {
+      await page.click('#dh-dialog-ok');
+      await page.waitForFunction(
+        () => !document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
+        null, { timeout: 5_000 }
+      );
+      await page.waitForTimeout(200);
+    }
+  }
 
   // ── 13. Enable Expert User mode to expose the Annotation tab ─────────────────
   await page.evaluate(() => {

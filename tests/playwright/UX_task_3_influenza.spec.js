@@ -263,10 +263,13 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
   expect(authorsTitle, 'French title for "authors" should be "Auteurs"').toBe('Auteurs');
 
   // ── 5. Add French description for "authors" ──────────────────────────────────
-  // Still in the Slot tab; authorsGroupCell is still in view from step 4.
-  // Open the Translations modal a second time on the same row.
-  await authorsGroupCell.scrollIntoViewIfNeeded();
-  await authorsGroupCell.click({ button: 'right' });
+  // Re-find the authors row: HOT may have re-rendered after step 4's modal close,
+  // shifting virtual rows so that the previous DOM position now shows a different slot.
+  const authorsRowIdx5 = await scrollToSlotRow(page, 'authors', 'Table field (from schema)');
+  expect(authorsRowIdx5, '"authors" slot_usage row not found before step 5').not.toBe(-1);
+  const authorsGroupCell5 = slotCellLocator(page, authorsRowIdx5, 2);
+  await authorsGroupCell5.scrollIntoViewIfNeeded();
+  await authorsGroupCell5.click({ button: 'right' });
 
   const translationsItem2 = page
     .locator('.htItemWrapper')
@@ -313,10 +316,12 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
   expect(authorsDesc, 'French description for "authors" should be set').toBe(frDescription);
 
   // ── 6. Add French comments note for "authors" ────────────────────────────────
-  // Re-open the Translations modal on the same authors row and fill the
-  // "comments" textarea with a note about how the translation was generated.
-  await authorsGroupCell.scrollIntoViewIfNeeded();
-  await authorsGroupCell.click({ button: 'right' });
+  // Re-find the authors row again: same HOT re-render issue as step 5.
+  const authorsRowIdx6 = await scrollToSlotRow(page, 'authors', 'Table field (from schema)');
+  expect(authorsRowIdx6, '"authors" slot_usage row not found before step 6').not.toBe(-1);
+  const authorsGroupCell6 = slotCellLocator(page, authorsRowIdx6, 2);
+  await authorsGroupCell6.scrollIntoViewIfNeeded();
+  await authorsGroupCell6.click({ button: 'right' });
 
   const translationsItem3 = page
     .locator('.htItemWrapper')

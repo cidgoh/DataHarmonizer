@@ -207,19 +207,27 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
   await page.waitForTimeout(500);
 
   // Helper: create one Test field via the Field Key Modal.
+  // Uses 'attribute' type so the free-text #fkm-name input is shown — slot_usage
+  // type shows a strict picklist (#fkm-name-select) that requires existing base
+  // slots, which the fresh "Test" schema does not have yet.
   const createTestField = async (fieldName) => {
     await page.click('#add-row');
     await page.waitForFunction(
       () => document.querySelector('#field-key-modal')?.classList.contains('show'),
       null, { timeout: 8_000 }
     );
+    const fkm = page.locator('#field-key-modal.show');
     // schema_id is locked to 'Test' in Records-by-key mode.
-    await page.selectOption('#fkm-class-id', { label: 'TestTable' });
+    await fkm.locator('#fkm-class-id').selectOption({ label: 'TestTable' });
     await page.waitForTimeout(200);
-    await page.fill('#fkm-name', fieldName);
+    // Switch to 'attribute' — this shows #fkm-name (free-text).
+    // 'slot_usage' type hides #fkm-name and shows #fkm-name-select (picklist of
+    // existing schema slots); the "Test" schema has none at this stage.
+    await fkm.locator('#fkm-field-type').selectOption('attribute');
     await page.waitForTimeout(200);
-    // slot_usage is the default radio once class_id + field name are set.
-    await page.click('#fkm-confirm-btn');
+    await fkm.locator('#fkm-name').fill(fieldName);
+    await page.waitForTimeout(200);
+    await fkm.locator('#fkm-confirm-btn').click();
     await page.waitForFunction(
       () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
       null, { timeout: 8_000 }
@@ -239,8 +247,12 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
     );
     const found = { pre_existing_a: false, pre_existing_b: false, pre_existing_c: false };
     for (const row of rows) {
-      const tds  = row.querySelectorAll('td');
-      const name = (tds[3]?.textContent ?? '').replace(/\u25bc/g, '').trim();
+      const tds  = Array.from(row.querySelectorAll('td'));
+      // Use the field-id-bold class to locate the name column regardless of
+      // whether schema_id is hidden (column layout differs between schemas).
+      const nameTd = tds.find(td => td.classList.contains('field-id-bold'));
+      if (!nameTd) continue;
+      const name = nameTd.textContent.replace(/\u25bc/g, '').trim();
       if (name in found) found[name] = true;
     }
     return found;
@@ -599,8 +611,9 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
         const name   = hot.getSourceDataAtCell(p, n2c['name']);
         const type   = hot.getSourceDataAtCell(p, n2c['slot_type']);
         if (schema === 'Test' && name === want) {
-          if (type === 'slot')       hasSlot      = true;
-          if (type === 'slot_usage') hasSlotUsage = true;
+          // createTestField uses 'attribute' type (no separate base slot row).
+          if (type === 'slot' || type === 'attribute')        hasSlot      = true;
+          if (type === 'slot_usage' || type === 'attribute')  hasSlotUsage = true;
         }
       }
       if (!hasSlot)      missingSlot.push(want);

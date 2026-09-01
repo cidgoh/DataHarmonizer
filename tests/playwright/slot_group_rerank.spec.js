@@ -33,7 +33,7 @@
 
 import { test, expect } from '@playwright/test';
 import path from 'path';
-import { slotCellLocator, scrollToSlotRow } from './playwright_utils.js';
+import { slotNameCellLocator, scrollToSlotRow } from './playwright_utils.js';
 
 // ── Constants ──────────────────────────────────────────────────────────────────
 
@@ -88,7 +88,7 @@ async function setExpertMode(page, enabled) {
 async function openEditFkm(page, slotTypeTitle, slotName) {
   const rowIdx = await scrollToSlotRow(page, slotName, slotTypeTitle, 15_000);
   if (rowIdx === -1) throw new Error(`Row not found: ${slotTypeTitle} / ${slotName}`);
-  const cell = slotCellLocator(page, rowIdx, 3);
+  const cell = slotNameCellLocator(page, rowIdx); // field-id-bold → KEY_COLUMN → opens FKM
   await cell.scrollIntoViewIfNeeded();
   await cell.dblclick();
   await page.waitForFunction(

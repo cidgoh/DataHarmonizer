@@ -229,30 +229,52 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
   );
   expect(afterRemoveIdx).toBe(-1);
 
-  // ── 10. Add new field via Field Key Modal ───────────────────────────────────
+  // ── 10a. Add base schema slot via FKM ──────────────────────────────────────
+  // In Add mode, slot_usage type shows #fkm-name-select (strict picklist of
+  // existing slots), not #fkm-name (free text).  A new field must be registered
+  // as a schema slot first, then linked as a slot_usage in a second FKM open.
   await page.click('#add-row');
   await page.waitForFunction(
     () => document.querySelector('#field-key-modal')?.classList.contains('show'),
     null,
     { timeout: 5_000 }
   );
-
-  // Set the class to CanCOGeNCovid19.
-  await page.selectOption('#fkm-class-id', 'CanCOGeNCovid19');
+  {
+    const fkm = page.locator('#field-key-modal.show');
+    // Switch to 'slot' type — shows #fkm-name free-text input.
+    await fkm.locator('#fkm-field-type').selectOption('slot');
+    await page.waitForTimeout(300);
+    await fkm.locator('#fkm-name').fill('diagnostic_pcr_protocol_4');
+    await fkm.locator('#fkm-title').fill('Diagnostic PCR Protocol 4');
+    await fkm.locator('#fkm-confirm-btn').click();
+    await page.waitForFunction(
+      () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+      null, { timeout: 5_000 }
+    );
+  }
   await page.waitForTimeout(300);
 
-  // Type the snake_case field name. In Add mode the type is controlled by
-  // the #fkm-field-type dropdown (defaults to slot_usage / table field).
-  await page.fill('#fkm-name', 'diagnostic_pcr_protocol_4');
-  // Default type is slot_usage: one base-slot + one slot-usage row are created on confirm.
-  await page.fill('#fkm-title', 'Diagnostic PCR Protocol 4');
-
-  await page.click('#fkm-confirm-btn');
+  // ── 10b. Add slot_usage linking the new base slot to CanCOGeNCovid19 ────────
+  await page.click('#add-row');
   await page.waitForFunction(
-    () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+    () => document.querySelector('#field-key-modal')?.classList.contains('show'),
     null,
     { timeout: 5_000 }
   );
+  {
+    const fkm = page.locator('#field-key-modal.show');
+    // Type defaults to 'slot_usage'; select the class first.
+    await fkm.locator('#fkm-class-id').selectOption('CanCOGeNCovid19');
+    await page.waitForTimeout(300);
+    // Pick the newly-created base slot from the strict picklist.
+    await fkm.locator('#fkm-name-select').selectOption('diagnostic_pcr_protocol_4');
+    await page.waitForTimeout(200);
+    await fkm.locator('#fkm-confirm-btn').click();
+    await page.waitForFunction(
+      () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+      null, { timeout: 5_000 }
+    );
+  }
   await page.waitForTimeout(400);
 
   // ── 11. Tab-switch to trigger refreshTabDisplay, then locate new field ───────

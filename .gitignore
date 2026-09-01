@@ -245,6 +245,9 @@ web/templates/manifest.json
 .notes/
 .jj/
 
+# Playwright test output (generated files, recreated on each run)
+tests/playwright/tmp/
+
 # deprecated modules
 lib/utils/1m_dep.js
 script/google_api_key.json

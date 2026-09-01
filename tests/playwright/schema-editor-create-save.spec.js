@@ -1,18 +1,19 @@
-/* Test the SchemaEditor:
- *   - Load schema_editor.html
- *   - Type directly into the first (minRows) Schema row; entering edit mode triggers
- *     DataHarmonizer's afterBeginEditing hook which fills ifabsent defaults including
- *     root_class = "Container" for any completely-empty row
- *   - Enter schema name and title
- *   - Switch to Table tab, add two tables
- *   - Switch to Slot tab:
- *     - Add schema slot test_field_a (slot_usage linked to TestTable1)
- *     - Add table attribute test_field_b (standalone, not in schema library)
- *     - Add descriptions to both fields after modal confirmation
- *   - Save schema YAML and verify Container class, slots, and class attributes
+/* SchemaEditor tests that work with a fresh schema (no file upload):
  *
- * To run headfully during development, set headless: false in playwright.config.js.
- * To run this specific test:
+ *   1. SchemaEditor: create schema with two tables and verify saved YAML
+ *      Full end-to-end: create a schema, add two table classes, add fields
+ *      (schema slot + table attribute) via the Field Key Modal, add descriptions,
+ *      save as YAML, and assert the LinkML structure.
+ *
+ *   2. SchemaEditor: no spurious cascade dialog when naming a new picklist
+ *      Regression: a brand-new Enum row must not trigger a cascade-key-change
+ *      dialog because its enum_id is still empty.
+ *
+ *   3. Schema tab: all typed characters reach the cell (4 input patterns)
+ *      Regression: clicking a fresh Schema tab row must not swallow the first
+ *      keypress.  Four interaction patterns are each tested in isolation.
+ *
+ * Run all:
  *   npx playwright test tests/playwright/schema-editor-create-save.spec.js
  */
 
@@ -113,13 +114,10 @@ async function waitForTabActive(page, tabBarId) {
 // ── Test ──────────────────────────────────────────────────────────────────────
 
 test('SchemaEditor: create schema with two tables and verify saved YAML', async ({ page }) => {
+  test.setTimeout(60_000);
 
-  // Capture browser console.log/warn/error for debugging.
-  const consoleLogs = [];
   page.on('console', msg => {
-    if (msg.type() === 'log' || msg.type() === 'info') {
-      consoleLogs.push(msg.text());
-    }
+    if (msg.type() === 'error') console.log('[BROWSER error]', msg.text());
   });
 
   // ── 1. Load the Schema Editor ────────────────────────────────────────────
@@ -263,9 +261,23 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
     { timeout: 5_000 }
   );
 
-  // ── 10. Add schema slot test_field_a via Field Key Modal ──────────────────
+  // ── 9.5. Enable expert user mode ─────────────────────────────────────────
+  // Creating a schema-level slot (type = 'slot') in the FKM requires expert
+  // mode.  Enable it before opening the modal so the confirm button is active.
+  await page.evaluate(() => {
+    const cb = document.getElementById('schema_expert');
+    if (cb && !cb.checked) cb.click();
+  });
+  await page.waitForTimeout(200);
+
+  // ── 10a. Create base schema slot 'test_field_a' ───────────────────────────
+  // The FKM now requires two separate operations to create a schema slot + its
+  // slot_usage link.  First: add the base schema slot (type = 'slot').
+  // This registers 'test_field_a' in the slot library so step 10b can reference
+  // it from the slot_usage strict-picklist dropdown.
+  //
   // Clicking #add-row in the Slot tab calls showFieldKeyModal() instead of
-  // inserting a raw row — so clicking it opens the Field Key Modal.
+  // inserting a raw row.
   await page.click('#add-row');
   await page.waitForFunction(
     () => document.querySelector('#field-key-modal')?.classList.contains('show'),
@@ -273,41 +285,58 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
     { timeout: 5_000 }
   );
 
-  // Schema ID is pre-filled from the currently selected schema (disabled in
-  // single-schema mode). Select table TestTable1 from the class dropdown.
-  await page.selectOption('#fkm-class-id', 'TestTable1');
-  await page.waitForTimeout(300);  // let rebuildSlotGroupDropdown + updateSlotTypeRow settle
+  // Scope all interactions to the visible modal (#field-key-modal.show) so that
+  // Playwright does not accidentally target one of the other 10 hidden instances.
+  {
+    const fkm = page.locator('#field-key-modal.show');
+    // Switch type to 'slot' (schema-level field, expert only).
+    await fkm.locator('#fkm-field-type').selectOption('slot');
+    await page.waitForTimeout(300);   // let updateSlotTypeRow show #fkm-name input
+    await fkm.locator('#fkm-name').fill('test_field_a');
+    await fkm.locator('#fkm-title').fill('Test Field A');
+    await fkm.locator('#fkm-confirm-btn').click();
+    await page.waitForFunction(
+      () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+      null,
+      { timeout: 5_000 }
+    );
+  }
 
-  // Type the snake_case field name.  In Add mode the type is set by the
-  // #fkm-field-type dropdown (defaults to slot_usage / table field).
-  await page.fill('#fkm-name', 'test_field_a');
-  // slot_usage is the default — Case C: field not yet in schema library →
-  // modal auto-inserts a base 'slot' row + a 'slot_usage' row for TestTable1.
-
-  await page.fill('#fkm-title', 'Test Field A');
-
-  // Confirm: inserts base 'slot' row (schema library entry) + 'slot_usage' row.
-  await page.click('#fkm-confirm-btn');
+  // ── 10b. Add slot_usage of test_field_a to TestTable1 ────────────────────
+  // Second: link the base schema slot to TestTable1 as a slot_usage row.
+  // The FKM defaults to type='slot_usage' on re-open.  The strict picklist
+  // (#fkm-name-select) is populated from the HOT source data and now includes
+  // 'test_field_a' from step 10a.
+  await page.click('#add-row');
   await page.waitForFunction(
-    () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+    () => document.querySelector('#field-key-modal')?.classList.contains('show'),
     null,
     { timeout: 5_000 }
   );
 
-  // Wait for the base slot row (class_id='') to appear.
-  // The slot_usage row (class_id='TestTable1') is filtered out in the TestTable2
-  // context but still exists in the HOT data model and will appear in YAML.
+  {
+    const fkm = page.locator('#field-key-modal.show');
+    // Type defaults to 'slot_usage' on each FKM open — no explicit set needed.
+    await fkm.locator('#fkm-class-id').selectOption('TestTable1');
+    await page.waitForTimeout(300);   // let rebuildSlotGroupDropdown settle
+    await fkm.locator('#fkm-name-select').selectOption('test_field_a');
+    await page.waitForTimeout(200);   // let updateSlotTypeRow pre-fill title
+    await fkm.locator('#fkm-confirm-btn').click();
+    await page.waitForFunction(
+      () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+      null,
+      { timeout: 5_000 }
+    );
+  }
+
+  // Wait for the base slot row to exist in the HOT source data.
+  // Checking source data directly is more reliable than DOM cell text because
+  // it is independent of the concise-view frozen-column layout.
   await page.waitForFunction(
     () => {
-      function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
-      const scope = document.querySelector('.tab-pane.show');
-      const rows = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
-      let count = 0;
-      for (const row of rows) {
-        const tds = row.querySelectorAll('td');
-        if (tds[3] && hotText(tds[3]) === 'test_field_a') count++;
-      }
-      return count >= 1;
+      const dh = window._appContext?.dhs?.Slot;
+      if (!dh?.hot) return false;
+      return dh.hot.getSourceData().some(r => r[dh.slot_name_column] === 'test_field_a');
     },
     null,
     { timeout: 10_000 }
@@ -322,35 +351,31 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
     { timeout: 5_000 }
   );
 
-  await page.selectOption('#fkm-class-id', 'TestTable2');
-  await page.waitForTimeout(300);
+  {
+    const fkm2 = page.locator('#field-key-modal.show');
+    await fkm2.locator('#fkm-class-id').selectOption('TestTable2');
+    // Switch to 'attribute' first — this shows #fkm-name (the free-text input).
+    // In the default 'slot_usage' mode #fkm-name is hidden; without switching
+    // the type first, the fill() call below would fail with "not visible".
+    await fkm2.locator('#fkm-field-type').selectOption('attribute');
+    await page.waitForTimeout(300);   // let updateSlotTypeRow show #fkm-name input
 
-  await page.fill('#fkm-name', 'test_field_b');
+    await fkm2.locator('#fkm-name').fill('test_field_b');
+    await fkm2.locator('#fkm-title').fill('Test Field B');
+    await fkm2.locator('#fkm-confirm-btn').click();
+    await page.waitForFunction(
+      () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
+      null,
+      { timeout: 5_000 }
+    );
+  }
 
-  // Choose 'attribute' via the Type dropdown: standalone table field, NOT added
-  // to the schema library.  One row is inserted: slot_type='attribute', class_id='TestTable2'.
-  await page.selectOption('#fkm-field-type', 'attribute');
-
-  await page.fill('#fkm-title', 'Test Field B');
-
-  await page.click('#fkm-confirm-btn');
-  await page.waitForFunction(
-    () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
-    null,
-    { timeout: 5_000 }
-  );
-
-  // Wait for the attribute row to appear. tds[3] = name in Slot tab ht_master.
+  // Wait for the attribute row to exist in HOT source data.
   await page.waitForFunction(
     () => {
-      function hotText(td) { return td.textContent.replace(/\u25bc/g, '').trim(); }
-      const scope = document.querySelector('.tab-pane.show');
-      const rows = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
-      for (const row of rows) {
-        const tds = row.querySelectorAll('td');
-        if (tds[3] && hotText(tds[3]) === 'test_field_b') return true;
-      }
-      return false;
+      const dh = window._appContext?.dhs?.Slot;
+      if (!dh?.hot) return false;
+      return dh.hot.getSourceData().some(r => r[dh.slot_name_column] === 'test_field_b');
     },
     null,
     { timeout: 10_000 }
@@ -362,8 +387,8 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   const attrRowIdx = await findSlotRowIndex(page, 'test_field_b', 'Table field (stand-alone)');
   expect(attrRowIdx).not.toBe(-1);
 
-  // description = ht_master tds[7] → slotCellLocator colIdx=7 → td:nth-of-type(8).
-  const fieldBDescCell = slotCellLocator(page, attrRowIdx, 7);
+  // description = ht_master tds[8] → slotCellLocator colIdx=8 → td:nth-of-type(9).
+  const fieldBDescCell = slotCellLocator(page, attrRowIdx, 8);
   await fieldBDescCell.click();
   await fieldBDescCell.dblclick();
   await page.keyboard.type('This is a table attribute, and is not in schema');
@@ -382,27 +407,26 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   const baseSlotRowIdx = await findSlotRowIndex(page, 'test_field_a', 'Schema field');
   expect(baseSlotRowIdx).not.toBe(-1);
 
-  // description = ht_master tds[7] → slotCellLocator colIdx=7 → td:nth-of-type(8).
-  const fieldADescCell = slotCellLocator(page, baseSlotRowIdx, 7);
+  // description = ht_master tds[8] → slotCellLocator colIdx=8 → td:nth-of-type(9).
+  const fieldADescCell = slotCellLocator(page, baseSlotRowIdx, 8);
   await fieldADescCell.click();
   await fieldADescCell.dblclick();
   await page.keyboard.type('This is a schema slot which is reused by table');
   await page.keyboard.press('Tab');
 
-  // Editing a base-slot attribute triggers the "Schema field updated" propagation
-  // dialog (Part C of slot inheritance).  Give it a moment to appear, then
-  // dismiss it with "Keep existing table values" so the test can continue.
-  await page.waitForTimeout(400);
-  const propagateModal = page.locator('#dh-dialog-modal.show');
-  if (await propagateModal.count() > 0) {
-    await page.locator('#dh-dialog-modal .modal-footer .btn')
-      .filter({ hasText: 'Keep existing table values' })
-      .click();
+  // Editing a base-slot attribute triggers the "Schema field updated" info
+  // dialog (dhAlert) that lists the inheriting tables.  It has a single "OK"
+  // button — wait for the modal to be visible, then dismiss it.
+  try {
+    await page.waitForSelector('#dh-dialog-modal.show', { timeout: 3_000 });
+    await page.click('#dh-dialog-ok');
     await page.waitForFunction(
       () => !document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
       null,
       { timeout: 5_000 }
     );
+  } catch (_) {
+    // No propagation dialog appeared — OK to continue.
   }
 
   // ── 14. Save schema YAML ──────────────────────────────────────────────────
@@ -477,3 +501,263 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   expect(table2Attrs['test_field_b'].description).toBe('This is a table attribute, and is not in schema');
 });
 
+// ── Shared helpers for picklist and typing regression tests ───────────────────
+
+/**
+ * Wait for the Schema Editor to finish loading (loading screen hidden,
+ * HOT initialised, 'Schema ID' column header visible).
+ */
+async function waitForSchemaEditor(page) {
+  await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
+  await page.waitForSelector('.htCore', { timeout: 15_000 });
+  await page.waitForFunction(
+    () => Array.from(document.querySelectorAll('.htCore th span'))
+            .some(s => s.textContent.trim() === 'Schema ID'),
+    null, { timeout: 15_000 }
+  );
+  await expect(page.locator('#tab-bar-Schema .nav-link')).toHaveClass(/active/);
+}
+
+/**
+ * Navigate to a tab and wait for its pane to become the only visible one.
+ */
+async function goToTab(page, tabBarId) {
+  await page.click(`${tabBarId} > a`);
+  await page.waitForFunction(
+    (id) => document.querySelector(`${id} .nav-link`)?.classList.contains('active'),
+    tabBarId, { timeout: 5_000 }
+  );
+  await page.waitForFunction(
+    () => document.querySelectorAll('.tab-pane.show').length === 1,
+    null, { timeout: 5_000 }
+  );
+}
+
+/** Wait for `text` to appear in clone-left (col 0) of the active tab pane. */
+async function waitForCloneCellText(page, text, timeout = 8_000) {
+  await page.waitForFunction(
+    (t) => {
+      const ht = el => (el?.textContent ?? '').replace(/\u25bc/g, '').trim();
+      const scope = document.querySelector('.tab-pane.show');
+      if (!scope) return false;
+      return Array.from(scope.querySelectorAll('.ht_clone_left.handsontable tbody td'))
+               .some(td => ht(td) === t);
+    },
+    text,
+    { timeout }
+  );
+}
+
+/** Click cell, double-click to open editor, type value, confirm with Tab. */
+async function typeIntoCell(page, cell, value) {
+  await cell.click();
+  await cell.dblclick();
+  await page.keyboard.type(value);
+  await page.keyboard.press('Tab');
+}
+
+/** Read the visible text of the Schema-ID (frozen col-0) cell of row `ri`. */
+async function schemaIdCellText(page, ri = 0) {
+  return page.evaluate((ri) => {
+    function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
+    const scope = document.querySelector('.tab-pane.show');
+    const row = scope?.querySelectorAll('.ht_clone_left.handsontable tbody tr')[ri];
+    return ht(row?.querySelector('td'));
+  }, ri);
+}
+
+
+// ── Picklist cascade regression ───────────────────────────────────────────────
+
+test.describe('SchemaEditor: picklist cascade regression', () => {
+  /* Regression: no spurious cascade-key-change dialog when naming a new picklist.
+   *
+   * Steps: create schema_a, add picklist PA with choices a/b/c, then add a new
+   * empty picklist PB and type its name.  The system must NOT show a dialog
+   * claiming existing PermissibleValue records will be changed (the bug was that
+   * the search used only schema_id, finding PA's PVs because PB's enum_id was
+   * still empty).
+   */
+  test('no spurious cascade dialog when naming a new picklist', async ({ page }) => {
+
+    page.on('console', msg => {
+      if (msg.type() === 'error') console.log('[BROWSER error]', msg.text());
+    });
+
+    // ── 1. Load ──────────────────────────────────────────────────────────────
+    await page.goto('/schema_editor.html');
+    await waitForSchemaEditor(page);
+
+    // ── 2. Create schema_a ───────────────────────────────────────────────────
+    await typeIntoCell(page, hotCellLocator(page, 0, 0), 'schema_a');
+    await waitForCloneCellText(page, 'schema_a');
+    await hotCellLocator(page, 0, 0).click();
+
+    // ── 3. Go to Enum (Picklist) tab ─────────────────────────────────────────
+    await goToTab(page, '#tab-bar-Enum');
+
+    // ── 4. Add picklist PA ───────────────────────────────────────────────────
+    await page.click('#add-row');
+    await page.waitForTimeout(300);
+    await typeIntoCell(page, hotCellLocator(page, 0, 0), 'PA');
+    await waitForCloneCellText(page, 'PA');
+    await hotCellLocator(page, 0, 0).click();
+
+    // ── 5. Go to PermissibleValue tab and add choices a, b, c ────────────────
+    await goToTab(page, '#tab-bar-PermissibleValue');
+
+    for (const choice of ['a', 'b', 'c']) {
+      await page.click('#add-row');
+      await page.waitForTimeout(300);
+      const rowCount = await page.evaluate(
+        () => document.querySelectorAll('.tab-pane.show .ht_clone_left.handsontable tbody tr').length
+      );
+      await typeIntoCell(page, hotCellLocator(page, rowCount - 1, 0), choice);
+      await waitForCloneCellText(page, choice);
+    }
+
+    // ── 6. Return to Enum tab ────────────────────────────────────────────────
+    await goToTab(page, '#tab-bar-Enum');
+    await waitForCloneCellText(page, 'PA');
+
+    // ── 7. Add a new empty picklist PB ───────────────────────────────────────
+    await page.click('#add-row');
+    await page.waitForFunction(
+      () => document.querySelectorAll('.tab-pane.show .ht_clone_left.handsontable tbody tr').length >= 2,
+      null, { timeout: 10_000 }
+    );
+    await page.waitForTimeout(300);
+
+    const pbRowIdx = await page.evaluate(
+      () => document.querySelectorAll('.tab-pane.show .ht_clone_left.handsontable tbody tr').length - 1
+    );
+
+    // ── 8. Type 'PB' — must NOT trigger any dialog ───────────────────────────
+    const dialogs = [];
+    page.once('dialog', async (dialog) => {
+      dialogs.push({ type: dialog.type(), message: dialog.message() });
+      await dialog.accept();
+    });
+
+    await typeIntoCell(page, hotCellLocator(page, pbRowIdx, 0), 'PB');
+    await page.waitForTimeout(500);
+
+    // ── 9. Assert: no Bootstrap modal should have appeared ────────────────────
+    const modalVisible = await page.evaluate(
+      () => document.querySelector('#dh-dialog-modal')?.classList.contains('show') ?? false
+    );
+    expect(
+      modalVisible,
+      'No cascade-key-change Bootstrap modal should appear when naming a brand-new picklist'
+    ).toBe(false);
+
+    await waitForCloneCellText(page, 'PB');
+  });
+});
+
+// ── Schema tab typing regression ──────────────────────────────────────────────
+
+test.describe('Schema tab: all typed characters reach the cell', () => {
+  /* Regression: first character typed into a fresh Schema tab row was silently
+   * dropped.  The cause: clicking a new row triggers afterSelection →
+   * refreshMenusForTab, which disrupts HOT's keyboard-listener state so the
+   * first keypress opens the editor but is not recorded as text.
+   *
+   * Four input patterns are each verified in a fresh browser context.
+   */
+
+  test('Case A – single click then type "Test" (raw user workflow)', async ({ page }) => {
+    await page.goto('/schema_editor.html');
+    await waitForSchemaEditor(page);
+
+    const cell = hotCellLocator(page, 0, 0);
+    await cell.click();
+    await page.keyboard.type('Test');
+    await page.keyboard.press('Tab');
+
+    await page.waitForFunction(
+      () => {
+        function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
+        const scope = document.querySelector('.tab-pane.show');
+        const row = scope?.querySelectorAll('.ht_clone_left.handsontable tbody tr')[0];
+        return ht(row?.querySelector('td')).length > 0;
+      },
+      null, { timeout: 3_000 }
+    ).catch(() => {});
+
+    const domVal = await schemaIdCellText(page, 0);
+    expect(domVal, 'DOM cell should contain "Test" (all 4 chars)').toBe('Test');
+  });
+
+  test('Case B – double-click then type "Test" (enters edit mode explicitly)', async ({ page }) => {
+    await page.goto('/schema_editor.html');
+    await waitForSchemaEditor(page);
+
+    const cell = hotCellLocator(page, 0, 0);
+    await cell.dblclick();
+    await page.keyboard.type('Test');
+    await page.keyboard.press('Tab');
+
+    await page.waitForFunction(
+      () => {
+        function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
+        const scope = document.querySelector('.tab-pane.show');
+        const row = scope?.querySelectorAll('.ht_clone_left.handsontable tbody tr')[0];
+        return ht(row?.querySelector('td')).length > 0;
+      },
+      null, { timeout: 3_000 }
+    ).catch(() => {});
+
+    const domVal = await schemaIdCellText(page, 0);
+    expect(domVal, 'DOM cell should contain "Test" (all 4 chars)').toBe('Test');
+  });
+
+  test('Case C – single click, press Enter to open editor, then type "Test"', async ({ page }) => {
+    await page.goto('/schema_editor.html');
+    await waitForSchemaEditor(page);
+
+    const cell = hotCellLocator(page, 0, 0);
+    await cell.click();
+    await page.keyboard.press('Enter');
+    await page.keyboard.type('Test');
+    await page.keyboard.press('Tab');
+
+    await page.waitForFunction(
+      () => {
+        function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
+        const scope = document.querySelector('.tab-pane.show');
+        const row = scope?.querySelectorAll('.ht_clone_left.handsontable tbody tr')[0];
+        return ht(row?.querySelector('td')).length > 0;
+      },
+      null, { timeout: 3_000 }
+    ).catch(() => {});
+
+    const domVal = await schemaIdCellText(page, 0);
+    expect(domVal, 'DOM cell should contain "Test" (all 4 chars)').toBe('Test');
+  });
+
+  test('Case D – single click, small delay, then type "Test" (lets setTimeout(0) flush first)', async ({ page }) => {
+    await page.goto('/schema_editor.html');
+    await waitForSchemaEditor(page);
+
+    const cell = hotCellLocator(page, 0, 0);
+    await cell.click();
+    // Give the deferred refreshMenusForTab time to complete before typing.
+    await page.waitForTimeout(100);
+    await page.keyboard.type('Test');
+    await page.keyboard.press('Tab');
+
+    await page.waitForFunction(
+      () => {
+        function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
+        const scope = document.querySelector('.tab-pane.show');
+        const row = scope?.querySelectorAll('.ht_clone_left.handsontable tbody tr')[0];
+        return ht(row?.querySelector('td')).length > 0;
+      },
+      null, { timeout: 3_000 }
+    ).catch(() => {});
+
+    const domVal = await schemaIdCellText(page, 0);
+    expect(domVal, 'DOM cell should contain "Test" (all 4 chars)').toBe('Test');
+  });
+});

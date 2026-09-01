@@ -7,19 +7,24 @@
  *   Col 0 is frozen in .ht_clone_left (name / Table ID).
  *   All other cols are in .ht_master, 1-based td index = colIdx + 1.
  *
- * Slot (Field) tab  — fixedColumnsLeft:1; hidden schema_id (col 0) means
- *   class_id (col 1) is the frozen column in .ht_clone_left.
- *   .ht_master tds (0-based):
- *     tds[0]  = placeholder for frozen class_id
- *     tds[1]  = slot_type  ("Type")
- *     tds[2]  = slot_group ("Section")
- *     tds[3]  = name       ("Field ID")   ← KEY_COLUMN: left-click opens FKM
- *     tds[4]  = rank       ("Ordering")
- *     tds[5]  = slot_uri
- *     tds[6]  = title
- *     tds[7]  = description
- *     tds[12] = required   (checkbox)
- *     tds[13] = recommended (checkbox)
+ * Slot (Field) tab — fixedColumnsLeft=2 (in key + concise-view mode).
+ *   slot_type (col 1) is frozen in .ht_clone_left AND still rendered in
+ *   .ht_master.  schema_id (col 0) may or may not be hidden:
+ *
+ *   • When schema_id IS hidden by concise view (e.g. loaded GRDI 1M):
+ *     HOT 15 removes the td entirely from ht_master.
+ *     tds[0] = slot_type, tds[1] = class_id, tds[2] = slot_group,
+ *     tds[3] = name ("Field ID"), tds[4] = rank, tds[5] = slot_uri,
+ *     tds[6] = title, tds[7] = description
+ *
+ *   • When schema_id is NOT hidden (e.g. fresh schema with no FK relations):
+ *     tds[0] = schema_id, tds[1] = slot_type, tds[2] = class_id,
+ *     tds[3] = slot_group, tds[4] = name ("Field ID"), tds[5] = rank,
+ *     tds[6] = slot_uri, tds[7] = title, tds[8] = description
+ *
+ *   To avoid depending on the exact index, use slotNameCellLocator() and
+ *   findSlotRowIndex() which identify the name column by the CSS class
+ *   "field-id-bold" added by SchemaEditor's cells() callback.
  *
  * HOT prepends ▼ (U+25BC) to dropdown/autocomplete cells — strip before
  * any text comparison.
@@ -51,11 +56,10 @@ export function hotCellLocator(page, rowIndex, colIdx) {
  * Return a Playwright locator for the cell at (rowIndex, colIdx) in the
  * Slot/Field tab .ht_master grid.
  *
- * The Slot tab freezes class_id in .ht_clone_left; .ht_master tds[0] is an
- * empty placeholder.  Pass colIdx as the 0-based .ht_master td index:
- *   0 = placeholder (frozen class_id — don't click)
- *   1 = slot_type, 2 = slot_group, 3 = name, 4 = rank, 5 = slot_uri,
- *   6 = title, 7 = description, 12 = required, 13 = recommended
+ * CAUTION: the td index in .ht_master depends on whether schema_id is hidden
+ * by concise view (see header comment).  Prefer slotNameCellLocator() for the
+ * name ("Field ID") column, which uses the "field-id-bold" CSS class instead
+ * of a fixed index.
  *
  * KEY_COLUMNs (slot_type, slot_group, name, class_id, schema_name):
  *   left-click opens the Field Key Modal; right-click opens the context menu.
@@ -68,8 +72,22 @@ export function slotCellLocator(page, rowIndex, colIdx) {
 }
 
 /**
- * Find the 0-based DOM row index of a slot row matching both `name` (tds[3])
- * and `slotTypeTitle` in the currently active tab's .ht_master.
+ * Return a Playwright locator for the name ("Field ID") cell of a slot row in
+ * .ht_master, using the "field-id-bold" CSS class added by SchemaEditor's
+ * cells() callback.  Works regardless of whether schema_id is hidden.
+ *
+ * Double-clicking this cell opens the Field Key Modal.
+ */
+export function slotNameCellLocator(page, rowIndex) {
+  return page
+    .locator('.tab-pane.show .ht_master.handsontable tbody tr')
+    .nth(rowIndex)
+    .locator('td.field-id-bold');
+}
+
+/**
+ * Find the 0-based DOM row index of a slot row matching both `name` and
+ * `slotTypeTitle` in the currently active tab's .ht_master.
  * Returns -1 if not found.
  *
  * Pass the display title:
@@ -77,12 +95,14 @@ export function slotCellLocator(page, rowIndex, colIdx) {
  *   'Table field (from schema)' → slot_usage  (slot_type = 'slot_usage')
  *   'Table field (stand-alone)' → attribute   (slot_type = 'attribute')
  *
- * The SchemaEditor renders the slot_type cell via DH_TERMS (e.g. 'derived field'
- * for slot_usage) rather than the enum title.  To handle this, the slot type is
- * identified primarily by the CSS class that SchemaEditor's cells() callback adds
- * to every cell in the row (e.g. 'slot_usage', 'slot', 'attribute').  The text
- * content of tds[1] is used as a fallback for regular DH tabs where those classes
- * are not present and the key-value-list renderer shows the enum title directly.
+ * The name cell is located by the "field-id-bold" CSS class added by
+ * SchemaEditor's cells() callback — this works regardless of whether schema_id
+ * is hidden by concise view (HOT 15 removes hidden-column tds from the DOM,
+ * so a fixed td index is unreliable across schema configurations).
+ *
+ * The slot type is matched by the CSS class that SchemaEditor adds to every td
+ * in the row (e.g. 'slot_usage', 'slot', 'attribute').  The text content of
+ * the first td is used as a fallback for non-SchemaEditor grids.
  */
 export async function findSlotRowIndex(page, name, slotTypeTitle) {
   return page.evaluate(
@@ -98,14 +118,15 @@ export async function findSlotRowIndex(page, name, slotTypeTitle) {
       const scope = document.querySelector('.tab-pane.show');
       const rows  = (scope || document).querySelectorAll('.ht_master.handsontable tbody tr');
       for (let i = 0; i < rows.length; i++) {
-        const tds = rows[i].querySelectorAll('td');
-        if (ht(tds[3]) !== name) continue;
+        const tds     = rows[i].querySelectorAll('td');
+        const tdArr   = Array.from(tds);
+        // Locate the name cell by CSS class (robust across schema configurations).
+        const nameTd  = tdArr.find(td => td.classList.contains('field-id-bold'));
+        if (!nameTd || ht(nameTd) !== name) continue;
         // Primary: CSS class check (SchemaEditor adds slot_type as a class to every td).
-        // Fallback: text content of tds[1] (regular DH key-value-list shows enum title).
-        const matchesCss  = cssClass && Array.from(tds).some(
-          td => td.classList.contains(cssClass)
-        );
-        if (!matchesCss && ht(tds[1]) !== slotTypeTitle) continue;
+        // Fallback: text content of tds[0] (first visible td).
+        const matchesCss = cssClass && tdArr.some(td => td.classList.contains(cssClass));
+        if (!matchesCss && ht(tds[0]) !== slotTypeTitle) continue;
         return i;
       }
       return -1;
