@@ -1,6 +1,6 @@
 # DataHarmonizer
 
-A standardized browser-based spreadsheet editor and validator that can be run offline and locally, which works of of [LinkML](https://linkml.io/) data specifications. This open source project, created by the Centre for Infectious Disease Genomics and One Health (CIDGOH) at Simon Fraser University, is now a collaboration with contributions from the National Microbiome Data Collaborative (NMDC), the LinkML development team, and others. Read the open-source DataHarmonizer [manuscript](#manuscript) for more about the application's theory and design.
+A standardized browser-based spreadsheet editor and validator that can be run offline and locally, which works off of [LinkML](https://linkml.io/) data specifications. This open source project, created by the Centre for Infectious Disease Genomics and One Health (CIDGOH) at Simon Fraser University, is now a collaboration with contributions from the National Microbiome Data Collaborative (NMDC), the LinkML development team, and others. Read the open-source DataHarmonizer [manuscript](#manuscript) for more about the application's theory and design.
 
 Watch Rhiannon Cameron and Damion Dooley describe this application on [YouTube](https://www.youtube.com/watch?v=rdN2_Vhwb8E&t=38s&ab_channel=CANARIEInc.) at the Canadian Research Software Conference (CRSC2021).
 
@@ -30,7 +30,7 @@ This repository contains a full DataHarmonizer development environment including
 
 # Stand-Alone DataHarmonizer Functionality
 
-In addition to API use, as detailed in the **Development** section, the development environment includes a script for generating a stand-alone browser-based version of DataHarmonizer that includes templates for detailing **SARS-CoV-2 and Monkeypox** sample contextual data.  More infectious disease templates will be included in the comming year. Other organizations are adopting this version of DataHarmonizer for their own data management purposes.
+In addition to API use, as detailed in the **Development** section, the development environment includes a script for generating a stand-alone browser-based version of DataHarmonizer that includes templates for detailing **SARS-CoV-2 and Monkeypox** sample contextual data.  More infectious disease templates will be included in the coming year. Other organizations are adopting this version of DataHarmonizer for their own data management purposes.
 
 ## Select Template
 
