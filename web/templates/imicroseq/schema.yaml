@@ -839,6 +839,8 @@ slots:
       - NCBI_SRA:sample_name
       - ENA_GSC_MIxS_WW_ERC00023:source%20material%20identifiers
       - iMicroSeq_Portal:specimen%20collector%20sample%20ID
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:sample_name
+      - NCBI_BIOSAMPLE_Pathogen:sample_name
     comments:
       - Store the collector sample ID. If this number is considered identifiable information, provide an alternative ID. Be sure to store the key that maps between the original and alternative IDs for traceability and follow up if necessary. Every collector sample ID from a single submitter must be unique. It can have any format, but we suggest that you make it concise, unique and consistent within your lab.
     examples:
@@ -855,6 +857,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE:collection_site_id
       - ENA_SEWAGE_ERC00036:name%20of%20the%20sampling%20site
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:sampling_site_id
     comments:
       - Store the ID for the site from which a sample was taken. The "site" is user defined (e.g. it may be a building and its environs, a specific entity within an environment). Please use the same site ID for all samples from a given site, regardless of when these samples were taken. Any important changes in site location, should be represented with a new site ID.
     examples:
@@ -868,6 +871,8 @@ slots:
       - range: NullValueMenu
     recommended: true
     description: The user-defined identifier assigned to a specific event during which one or more samples are taken, from one or more sites.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:sampling_event_id
     comments:
       - Store the ID for the event during which a sample or samples were taken. For example, an event could be one person taking samples from multiple sites, or multiple people taking samples from one site.
     examples:
@@ -887,6 +892,8 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:bioproject_accession
       - NCBI_BIOSAMPLE:bioproject_accession
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:bioproject_accession
+      - NCBI_BIOSAMPLE_Pathogen:bioproject_accession
     comments:
       - Store the BioProject accession number. BioProjects are an organizing tool that links together raw sequence data, assemblies, and their associated metadata. Each province will be assigned a different bioproject accession number by the National Microbiology Lab. A valid NCBI BioProject accession has prefix PRJN e.g., PRJNA12345, and is created once at the beginning of a new sequencing project.
     examples:
@@ -977,6 +984,8 @@ slots:
     exact_mappings:
       - ENA_SEWAGE_ERC00036:surveillance%20target
       - iMicroSeq_Portal:organism
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:organism
+      - NCBI_BIOSAMPLE_Pathogen:organism
     comments:
       - 'Provide the official nomenclature for the organism(s) present in the sample. Multiple organisms can be entered, separated by semicolons. Avoid abbreviations. Search for taxonomic names here: ncbi.nlm.nih.gov/taxonomy.'
     examples:
@@ -1008,6 +1017,7 @@ slots:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:description
       - NCBI_BIOSAMPLE:purpose_of_ww_sampling
       - iMicroSeq_Portal:purpose%20of%20sampling
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:purpose_of_sampling
     comments:
       - The reason a sample was collected may provide information about potential biases in sampling strategy. Provide the purpose of sampling from the picklist in the template. Most likely, the sample was collected for Public health surveillance. The reason why a sample was originally collected may differ from the reason why it was selected for sequencing, which should be indicated in the "purpose of sequencing" field.
     examples:
@@ -1026,6 +1036,8 @@ slots:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:collected_by
       - NCBI_BIOSAMPLE:collected_by
       - iMicroSeq_Portal:sample%20collected%20by
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:collected_by
+      - NCBI_BIOSAMPLE_Pathogen:collected_by
     comments:
       - The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions.
     examples:
@@ -1071,6 +1083,8 @@ slots:
       - ENA_GSC_MIxS_WW_ERC00023:collection%20date
       - ENA_SEWAGE_ERC00036:collection%20date
       - iMicroSeq_Portal:sample%20collection%20date
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:collection_date
+      - NCBI_BIOSAMPLE_Pathogen:collection_date
     comments:
       - Sample collection date is critical for surveillance and many types of analyses. For samples taken at a single point in time, use this field to capture the date the sample was collected. If your sample was collected continuously over an interval, use this field to capture the sample collection start date. Required granularity includes year, month and day. The date should be provided in ISO 8601 standard format "YYYY-MM-DD".
     examples:
@@ -1109,6 +1123,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_sample_duration
       - NCBI_BIOSAMPLE:ww_sample_duration
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:sample_collection_time_duration
     comments:
       - Provide the numerical value of time.
     examples:
@@ -1132,6 +1147,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_sample_duration
       - NCBI_BIOSAMPLE:ww_sample_duration
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:sample_collection_time_duration
     comments:
       - Provide the units from the pick list.
     examples:
@@ -1152,6 +1168,8 @@ slots:
       - ENA_GSC_MIxS_WW_ERC00023:geographic%20location%20%28country%20and/or%20sea%29
       - ENA_SEWAGE_ERC00036:geographic%20location%20%28country%20and/or%20sea%29
       - iMicroSeq_Portal:geo_loc_name%20%28country%29
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:geo_loc_name
+      - NCBI_BIOSAMPLE_Pathogen:geo_loc_name
     comments:
       - If known, select a value from the pick list.
     examples:
@@ -1171,6 +1189,8 @@ slots:
       - ENA_GSC_MIxS_WW_ERC00023:geographic%20location%20%28region%20and%20locality%29
       - ENA_SEWAGE_ERC00036:geographic%20location%20%28region%20and%20locality%29
       - iMicroSeq_Portal:geo_loc_name%20%28state/province/territory%29
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:geo_loc_name
+      - NCBI_BIOSAMPLE_Pathogen:geo_loc_name
     comments:
       - 'Provide the state/province/territory name from the GAZ geography ontology. Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/ga'
     examples:
@@ -1201,6 +1221,8 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:geo_loc_name
       - NCBI_BIOSAMPLE:geo_loc_name
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:geo_loc_name
+      - NCBI_BIOSAMPLE_Pathogen:geo_loc_name
     comments:
       - 'Provide the city name from the GAZ geography ontology. Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz'
     examples:
@@ -1255,6 +1277,7 @@ slots:
       - NCBI_BIOSAMPLE:description
       - ENA_GSC_MIxS_WW_ERC00023:local%20environmental%20context
       - iMicroSeq_Portal:environmental%20site
+      - NCBI_BIOSAMPLE_Pathogen:isolation_source
     comments:
       - Provide a descriptor of the environmental site sampled. Use the picklist provided in the template. If not applicable, choose a null value.
     examples:
@@ -1268,6 +1291,8 @@ slots:
       - range: NullValueMenu
     description: An environmental location in the natural or built environment, that is proximal to a sampling location and which can impact a sample.
     multivalued: true
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:adjacent_environment
     comments:
       - Provide a descriptor of the environmental site close to the sampling site. Use the picklist provided in the template. If not applicable, choose a null value.
     examples:
@@ -1313,6 +1338,7 @@ slots:
       - NCBI_BIOSAMPLE:ww_pre_treatment
       - NCBI_BIOSAMPLE:ww_sample_matrix
       - ENA_GSC_MIxS_WW_ERC00023:sample%20material%20processing
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:presampling_activity
     comments:
       - If there was an activity that would affect the sample prior to collection (this is different than sample processing), provide the activities by selecting one or more values from the template pick list. If the information is unknown or cannot be provided, leave blank or provide a null value.
     examples:
@@ -1351,6 +1377,8 @@ slots:
       - NCBI_BIOSAMPLE:ww_sample_type
       - ENA_GSC_MIxS_WW_ERC00023:sample%20collection%20device
       - iMicroSeq_Portal:collection%20device
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:collection_device
+      - NCBI_BIOSAMPLE_Pathogen:isolation_source
     comments:
       - Provide a descriptor of the device used for sampling. Use the picklist provided in the template. If not applicable, choose a null value.
     examples:
@@ -1373,6 +1401,8 @@ slots:
       - NCBI_BIOSAMPLE:ww_sample_type
       - ENA_GSC_MIxS_WW_ERC00023:sample%20collection%20method
       - iMicroSeq_Portal:collection%20method
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:collection_method
+      - NCBI_BIOSAMPLE_Pathogen:isolation_source
     comments:
       - Provide a descriptor of the collection method used for sampling. Use the picklist provided in the template. If not applicable, choose a null value.
     examples:
@@ -1400,6 +1430,8 @@ slots:
       - ENA_GSC_MIxS_WW_ERC00023:wastewater%20type
       - ENA_SEWAGE_ERC00036:sewage%20type
       - iMicroSeq_Portal:environmental%20material
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:env_medium
+      - NCBI_BIOSAMPLE_Pathogen:isolation_source
     comments:
       - Provide a descriptor of the environmental material sampled. Use the picklist provided in the template. If not applicable, choose a null value.
     examples:
@@ -1416,6 +1448,7 @@ slots:
     multivalued: true
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:description
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:environmental_material_properties
     comments:
       - Provide the environmental material properties by selecting descriptors from the pick list.
     examples:
@@ -1435,6 +1468,7 @@ slots:
       - GISAID:anatomical_material
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:host_tissue_sampled
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:isolation_source
+      - NCBI_BIOSAMPLE_Pathogen:isolation_source
     comments:
       - An anatomical material is a substance taken from the body. If applicable, select the standardized term and ontology ID for the anatomical material from the picklist provided. Multiple values can be provided, separated by a semi-colon.
     examples:
@@ -1454,6 +1488,7 @@ slots:
       - GISAID:isolation_source
       - GISAID:anatomical_part
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:isolation_source
+      - NCBI_BIOSAMPLE_Pathogen:isolation_source
     comments:
       - An anatomical part is a structure or location in the body. If applicable, select the standardized term and ontology ID for the anatomical material from the picklist provided. Multiple values can be provided, separated by a semi-colon.
     examples:
@@ -1473,6 +1508,7 @@ slots:
       - GISAID:body_product
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:host_body_product
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:isolation_source
+      - NCBI_BIOSAMPLE_Pathogen:isolation_source
     comments:
       - A body product is a substance produced by the body but meant to be excreted/secreted (i.e. not part of the body). If applicable, select the standardized term and ontology ID for the body product from the picklist provided. Multiple values can be provided, separated by a semi-colon.
     examples:
@@ -1487,6 +1523,8 @@ slots:
       - range: NullValueMenu
     description: The type of role that the sample represents in the experiment.
     multivalued: true
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:experimental_specimen_role_type
     comments:
       - Samples can play different types of roles in experiments. A sample under study in one experiment may act as a control or be a replicate of another sample in another experiment. This field is used to distinguish samples under study from controls, replicates, etc. If the sample acted as an experimental control or a replicate, select a role type from the picklist. If the sample was not a control, leave blank or select "Not Applicable".
     examples:
@@ -1546,6 +1584,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_processing_protocol
       - NCBI_BIOSAMPLE:ww_processing_protocol
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:experimental_protocol
     comments:
       - Provide the url of the experimental protocol.
     examples:
@@ -1641,6 +1680,8 @@ slots:
       - range: PopulatedAreaTypeMenu
       - range: NullValueMenu
     description: A type of area that is populated by humans to different degrees.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:populated_area_type
     comments:
       - Provide the populated area type from the pick list.
     examples:
@@ -1656,6 +1697,7 @@ slots:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_population
       - NCBI_BIOSAMPLE:ww_population
       - ENA_SEWAGE_ERC00036:population%20size%20of%20the%20catchment%20area
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:water_catchment_area_population
     comments:
       - Where known, provide the numerical value of population size, i.e. the number of people.
     examples:
@@ -1687,6 +1729,8 @@ slots:
     recommended: true
     description: Weather conditions prior to collection that may affect the sample.
     multivalued: true
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:presamp_weather
     comments:
       - Provide the weather conditions prior to sample collection by selecting a value from the picklist.
     examples:
@@ -1701,6 +1745,8 @@ slots:
     recommended: true
     description: The state of the atmosphere at a place and time as regards heat, dryness, sunshine, wind, rain, etc.
     multivalued: true
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:samp_weather
     comments:
       - Provide the weather conditions at the time of sample collection by selecting a value from the picklist.
     examples:
@@ -1791,6 +1837,7 @@ slots:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_ph
       - NCBI_BIOSAMPLE:ww_ph
       - ENA_GSC_MIxS_WW_ERC00023:pH
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:ph
     comments:
       - Provide the numerical value of the measured pH.
     examples:
@@ -1806,6 +1853,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_flow
       - NCBI_BIOSAMPLE:ww_flow
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:total_daily_flow_rate
     comments:
       - Provide the numerical value of the measured flow rate.
     examples:
@@ -1821,6 +1869,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_flow
       - NCBI_BIOSAMPLE:ww_flow
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:total_daily_flow_rate
     comments:
       - Provide the units of the measured flow rate by selecting a value from the pick list.
     examples:
@@ -1835,6 +1884,7 @@ slots:
     description: The numerical value of a measured instantaneous fluid flow rate.
     exact_mappings:
       - NCBI_BIOSAMPLE:instantaneous_flow
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:instantaneous_flow_rate
     comments:
       - Provide the numerical value of the measured flow rate.
     examples:
@@ -1849,6 +1899,7 @@ slots:
     description: The units of a measured instantaneous fluid flow rate.
     exact_mappings:
       - NCBI_BIOSAMPLE:instantaneous_flow
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:instantaneous_flow_rate
     comments:
       - Provide the units of the measured flow rate by selecting a value from the pick list.
     examples:
@@ -1862,6 +1913,8 @@ slots:
       - range: NullValueMenu
     recommended: true
     description: The numerical value of a measurement of turbidity.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:turbidity
     comments:
       - Provide the numerical value of the measured turbidity.
     examples:
@@ -1875,6 +1928,8 @@ slots:
       - range: NullValueMenu
     recommended: true
     description: The units of a measurement of turbidity.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:turbidity
     comments:
       - Provide the units of the measured turbidity by selecting a value from the pick list.
     examples:
@@ -1911,6 +1966,8 @@ slots:
       - range: WhitespaceMinimizedString
       - range: NullValueMenu
     description: The numerical value of a measurement of salinity.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:samp_salinity
     comments:
       - Provide the numerical value of the measured salinity.
     examples:
@@ -1935,6 +1992,8 @@ slots:
       - range: WhitespaceMinimizedString
       - range: NullValueMenu
     description: The numerical value of a measurement of dissolved oxygen.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:diss_oxygen
     comments:
       - Provide the numerical value of the measured dissolved oxygen.
     examples:
@@ -1987,6 +2046,7 @@ slots:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_total_suspended_solids
       - NCBI_BIOSAMPLE:ww_total_suspended_solids
       - ENA_GSC_MIxS_WW_ERC00023:suspended%20solids
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:suspend_solids
     comments:
       - Provide the numerical value of the measured TSS.
     examples:
@@ -2003,6 +2063,7 @@ slots:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_total_suspended_solids
       - NCBI_BIOSAMPLE:ww_total_suspended_solids
       - ENA_GSC_MIxS_WW_ERC00023:suspended%20solids
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:suspend_solids
     comments:
       - Provide the units of the measured TSS by selecting a value from the pick list.
     examples:
@@ -2016,6 +2077,8 @@ slots:
       - range: NullValueMenu
     recommended: true
     description: A gene, virus, bacteria, or substance used to measure the quality of water in regards to fecal contamination.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:fecal_contamination_indicator
     comments:
       - If a fecal contamination indicator was measured, select it from the picklist.
     examples:
@@ -2029,6 +2092,8 @@ slots:
       - range: NullValueMenu
     recommended: true
     description: The numerical value of a measurement of fecal contamination.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:fecal_contamination_value
     comments:
       - Provide the numerical value of the measured fecal contamination.
     examples:
@@ -2074,6 +2139,7 @@ slots:
       - GISAID:host
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:isolation_source
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:host
+      - NCBI_BIOSAMPLE_Pathogen:isolation_source
     comments:
       - If the sample is directly from a host, either a common or scientific name must be provided (although both can be included), by selecting a value from the picklist. If known, select the scientific name from the picklist provided.
     examples:
@@ -2139,6 +2205,9 @@ slots:
       - range: NullValueMenu
     recommended: true
     description: The user-defined identifier for the isolate, as provided by the laboratory that originally isolated the isolate.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:isolate
+      - NCBI_BIOSAMPLE_Pathogen:isolate
     comments:
       - Provide the isolate_ID created by the lab that first isolated the isolate (i.e. the original isolate ID). If the information is unknown or cannot be provided, leave blank or provide a null value. If only an alternate isolate ID is known (e.g. the ID from your lab, if your lab did not isolate the isolate from the original sample), make asure to include it in the alternative_isolate_ID field.
     examples:
@@ -2166,6 +2235,8 @@ slots:
     description: The strain identifier.
     exact_mappings:
       - GISAID:Virus%20name
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:strain
+      - NCBI_BIOSAMPLE_Pathogen:strain
     comments:
       - If the isolate represents or is derived from, a lab reference strain or strain from a type culture collection, provide the strain identifier.
     examples:
@@ -2178,6 +2249,8 @@ slots:
       - range: WhitespaceMinimizedString
       - range: NullValueMenu
     description: The name of the agency, organization or institution with which the individual who performed the isolation procedure is affiliated.
+    exact_mappings:
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:isolated_by
     comments:
       - Provide the name of the agency, organization or institution that isolated the original isolate in full (avoid abbreviations). If the information is unknown or cannot be provided, leave blank or provide a null value.
     examples:
@@ -2728,6 +2801,8 @@ slots:
       - range: NullValueMenu
     recommended: true
     description: The designation of the subtype of a virus (scheme-dependent)
+    exact_mappings:
+      - NCBI_BIOSAMPLE_Pathogen:subtype
     comments:
       - Provide the subtype designation.
     examples:
@@ -2833,6 +2908,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_1_gene
       - NCBI_BIOSAMPLE:ww_surv_target_1_gene
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:gene_symbol_1
     comments:
       - 'Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
     examples:
@@ -2863,6 +2939,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_1_conc
       - NCBI_BIOSAMPLE:ww_surv_target_1_conc
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:diagnostic_measurement_1
     comments:
       - Provide the numerical result of a diagnostic test (no need to include units). This includes pcr Ct values.
     examples:
@@ -2935,6 +3012,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_gene
       - NCBI_BIOSAMPLE:ww_surv_target_2_gene
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:gene_symbol_2
     comments:
       - 'Provide the full name of the gene used in the test. Standardized gene names can be found in the Gene Ontology using this look-up service: https://bit.ly/2Sq1LbI'
     examples:
@@ -2965,6 +3043,7 @@ slots:
     exact_mappings:
       - NCBI_BIOSAMPLE_SARS_COV_2_WWS:ww_surv_target_2_conc
       - NCBI_BIOSAMPLE:ww_surv_target_2_conc
+      - NCBI_BIOSAMPLE_PHA4GE_WWS:diagnostic_measurement_2
     comments:
       - Provide the numerical result of a diagnostic test (no need to include units).
     examples:
@@ -3115,6 +3194,8 @@ enums:
           - ENA_GSC_MIxS_WW_ERC00023:not%20applicable
           - ENA_SEWAGE_ERC00036:not%20applicable
           - iMicroSeq_Portal:not%20applicable
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:not%20applicable
+          - NCBI_BIOSAMPLE_Pathogen:not%20applicable
       Missing [GENEPIO:0001618]:
         text: Missing [GENEPIO:0001618]
         title: Missing [GENEPIO:0001618]
@@ -3128,6 +3209,8 @@ enums:
           - ENA_GSC_MIxS_WW_ERC00023:missing
           - ENA_SEWAGE_ERC00036:missing
           - iMicroSeq_Portal:missing
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:missing
+          - NCBI_BIOSAMPLE_Pathogen:missing
       Not Collected [GENEPIO:0001620]:
         text: Not Collected [GENEPIO:0001620]
         title: Not Collected [GENEPIO:0001620]
@@ -3141,6 +3224,8 @@ enums:
           - ENA_GSC_MIxS_WW_ERC00023:not%20collected
           - ENA_SEWAGE_ERC00036:not%20collected
           - iMicroSeq_Portal:not%20collected
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:not%20collected
+          - NCBI_BIOSAMPLE_Pathogen:not%20collected
       Not Provided [GENEPIO:0001668]:
         text: Not Provided [GENEPIO:0001668]
         title: Not Provided [GENEPIO:0001668]
@@ -3154,6 +3239,8 @@ enums:
           - ENA_GSC_MIxS_WW_ERC00023:not%20provided
           - ENA_SEWAGE_ERC00036:not%20provided
           - iMicroSeq_Portal:not%20provided
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:not%20provided
+          - NCBI_BIOSAMPLE_Pathogen:not%20provided
       Restricted Access [GENEPIO:0001810]:
         text: Restricted Access [GENEPIO:0001810]
         title: Restricted Access [GENEPIO:0001810]
@@ -3167,6 +3254,8 @@ enums:
           - ENA_GSC_MIxS_WW_ERC00023:restricted%20access
           - ENA_SEWAGE_ERC00036:restricted%20access
           - iMicroSeq_Portal:restricted%20access
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:restricted%20access
+          - NCBI_BIOSAMPLE_Pathogen:restricted%20access
   TaxonomicIdentificationProcessMenu:
     name: TaxonomicIdentificationProcessMenu
     title:
@@ -3210,6 +3299,8 @@ enums:
           - NCBI_BIOSAMPLE:Afghanistan
           - ENA_GSC_MIxS_WW_ERC00023:Afghanistan
           - ENA_SEWAGE_ERC00036:Afghanistan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Afghanistan
+          - NCBI_BIOSAMPLE_Pathogen:Afghanistan
       Albania [GAZ:00002953]:
         text: Albania [GAZ:00002953]
         title: Albania [GAZ:00002953]
@@ -3220,6 +3311,8 @@ enums:
           - NCBI_BIOSAMPLE:Albania
           - ENA_GSC_MIxS_WW_ERC00023:Albania
           - ENA_SEWAGE_ERC00036:Albania
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Albania
+          - NCBI_BIOSAMPLE_Pathogen:Albania
       Algeria [GAZ:00000563]:
         text: Algeria [GAZ:00000563]
         title: Algeria [GAZ:00000563]
@@ -3230,6 +3323,8 @@ enums:
           - NCBI_BIOSAMPLE:Algeria
           - ENA_GSC_MIxS_WW_ERC00023:Algeria
           - ENA_SEWAGE_ERC00036:Algeria
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Algeria
+          - NCBI_BIOSAMPLE_Pathogen:Algeria
       American Samoa [GAZ:00003957]:
         text: American Samoa [GAZ:00003957]
         title: American Samoa [GAZ:00003957]
@@ -3240,6 +3335,8 @@ enums:
           - NCBI_BIOSAMPLE:American%20Samoa
           - ENA_GSC_MIxS_WW_ERC00023:American%20Samoa
           - ENA_SEWAGE_ERC00036:American%20Samoa
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:American%20Samoa
+          - NCBI_BIOSAMPLE_Pathogen:American%20Samoa
       Andorra [GAZ:00002948]:
         text: Andorra [GAZ:00002948]
         title: Andorra [GAZ:00002948]
@@ -3250,6 +3347,8 @@ enums:
           - NCBI_BIOSAMPLE:Andorra
           - ENA_GSC_MIxS_WW_ERC00023:Andorra
           - ENA_SEWAGE_ERC00036:Andorra
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Andorra
+          - NCBI_BIOSAMPLE_Pathogen:Andorra
       Angola [GAZ:00001095]:
         text: Angola [GAZ:00001095]
         title: Angola [GAZ:00001095]
@@ -3260,6 +3359,8 @@ enums:
           - NCBI_BIOSAMPLE:Angola
           - ENA_GSC_MIxS_WW_ERC00023:Angola
           - ENA_SEWAGE_ERC00036:Angola
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Angola
+          - NCBI_BIOSAMPLE_Pathogen:Angola
       Anguilla [GAZ:00009159]:
         text: Anguilla [GAZ:00009159]
         title: Anguilla [GAZ:00009159]
@@ -3270,6 +3371,8 @@ enums:
           - NCBI_BIOSAMPLE:Anguilla
           - ENA_GSC_MIxS_WW_ERC00023:Anguilla
           - ENA_SEWAGE_ERC00036:Anguilla
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Anguilla
+          - NCBI_BIOSAMPLE_Pathogen:Anguilla
       Antarctica [GAZ:00000462]:
         text: Antarctica [GAZ:00000462]
         title: Antarctica [GAZ:00000462]
@@ -3280,6 +3383,8 @@ enums:
           - NCBI_BIOSAMPLE:Antarctica
           - ENA_GSC_MIxS_WW_ERC00023:Antarctica
           - ENA_SEWAGE_ERC00036:Antarctica
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Antarctica
+          - NCBI_BIOSAMPLE_Pathogen:Antarctica
       Antigua and Barbuda [GAZ:00006883]:
         text: Antigua and Barbuda [GAZ:00006883]
         title: Antigua and Barbuda [GAZ:00006883]
@@ -3290,6 +3395,8 @@ enums:
           - NCBI_BIOSAMPLE:Antigua%20and%20Barbuda
           - ENA_GSC_MIxS_WW_ERC00023:Antigua%20and%20Barbuda
           - ENA_SEWAGE_ERC00036:Antigua%20and%20Barbuda
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Antigua%20and%20Barbuda
+          - NCBI_BIOSAMPLE_Pathogen:Antigua%20and%20Barbuda
       Argentina [GAZ:00002928]:
         text: Argentina [GAZ:00002928]
         title: Argentina [GAZ:00002928]
@@ -3300,6 +3407,8 @@ enums:
           - NCBI_BIOSAMPLE:Argentina
           - ENA_GSC_MIxS_WW_ERC00023:Argentina
           - ENA_SEWAGE_ERC00036:Argentina
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Argentina
+          - NCBI_BIOSAMPLE_Pathogen:Argentina
       Armenia [GAZ:00004094]:
         text: Armenia [GAZ:00004094]
         title: Armenia [GAZ:00004094]
@@ -3310,6 +3419,8 @@ enums:
           - NCBI_BIOSAMPLE:Armenia
           - ENA_GSC_MIxS_WW_ERC00023:Armenia
           - ENA_SEWAGE_ERC00036:Armenia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Armenia
+          - NCBI_BIOSAMPLE_Pathogen:Armenia
       Aruba [GAZ:00004025]:
         text: Aruba [GAZ:00004025]
         title: Aruba [GAZ:00004025]
@@ -3320,6 +3431,8 @@ enums:
           - NCBI_BIOSAMPLE:Aruba
           - ENA_GSC_MIxS_WW_ERC00023:Aruba
           - ENA_SEWAGE_ERC00036:Aruba
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Aruba
+          - NCBI_BIOSAMPLE_Pathogen:Aruba
       Ashmore and Cartier Islands [GAZ:00005901]:
         text: Ashmore and Cartier Islands [GAZ:00005901]
         title: Ashmore and Cartier Islands [GAZ:00005901]
@@ -3330,6 +3443,8 @@ enums:
           - NCBI_BIOSAMPLE:Ashmore%20and%20Cartier%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Ashmore%20and%20Cartier%20Islands
           - ENA_SEWAGE_ERC00036:Ashmore%20and%20Cartier%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Ashmore%20and%20Cartier%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Ashmore%20and%20Cartier%20Islands
       Australia [GAZ:00000463]:
         text: Australia [GAZ:00000463]
         title: Australia [GAZ:00000463]
@@ -3340,6 +3455,8 @@ enums:
           - NCBI_BIOSAMPLE:Australia
           - ENA_GSC_MIxS_WW_ERC00023:Australia
           - ENA_SEWAGE_ERC00036:Australia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Australia
+          - NCBI_BIOSAMPLE_Pathogen:Australia
       Austria [GAZ:00002942]:
         text: Austria [GAZ:00002942]
         title: Austria [GAZ:00002942]
@@ -3350,6 +3467,8 @@ enums:
           - NCBI_BIOSAMPLE:Austria
           - ENA_GSC_MIxS_WW_ERC00023:Austria
           - ENA_SEWAGE_ERC00036:Austria
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Austria
+          - NCBI_BIOSAMPLE_Pathogen:Austria
       Azerbaijan [GAZ:00004941]:
         text: Azerbaijan [GAZ:00004941]
         title: Azerbaijan [GAZ:00004941]
@@ -3360,6 +3479,8 @@ enums:
           - NCBI_BIOSAMPLE:Azerbaijan
           - ENA_GSC_MIxS_WW_ERC00023:Azerbaijan
           - ENA_SEWAGE_ERC00036:Azerbaijan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Azerbaijan
+          - NCBI_BIOSAMPLE_Pathogen:Azerbaijan
       Bahamas [GAZ:00002733]:
         text: Bahamas [GAZ:00002733]
         title: Bahamas [GAZ:00002733]
@@ -3370,6 +3491,8 @@ enums:
           - NCBI_BIOSAMPLE:Bahamas
           - ENA_GSC_MIxS_WW_ERC00023:Bahamas
           - ENA_SEWAGE_ERC00036:Bahamas
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bahamas
+          - NCBI_BIOSAMPLE_Pathogen:Bahamas
       Bahrain [GAZ:00005281]:
         text: Bahrain [GAZ:00005281]
         title: Bahrain [GAZ:00005281]
@@ -3380,6 +3503,8 @@ enums:
           - NCBI_BIOSAMPLE:Bahrain
           - ENA_GSC_MIxS_WW_ERC00023:Bahrain
           - ENA_SEWAGE_ERC00036:Bahrain
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bahrain
+          - NCBI_BIOSAMPLE_Pathogen:Bahrain
       Baker Island [GAZ:00007117]:
         text: Baker Island [GAZ:00007117]
         title: Baker Island [GAZ:00007117]
@@ -3390,6 +3515,8 @@ enums:
           - NCBI_BIOSAMPLE:Baker%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Baker%20Island
           - ENA_SEWAGE_ERC00036:Baker%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Baker%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Baker%20Island
       Bangladesh [GAZ:00003750]:
         text: Bangladesh [GAZ:00003750]
         title: Bangladesh [GAZ:00003750]
@@ -3400,6 +3527,8 @@ enums:
           - NCBI_BIOSAMPLE:Bangladesh
           - ENA_GSC_MIxS_WW_ERC00023:Bangladesh
           - ENA_SEWAGE_ERC00036:Bangladesh
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bangladesh
+          - NCBI_BIOSAMPLE_Pathogen:Bangladesh
       Barbados [GAZ:00001251]:
         text: Barbados [GAZ:00001251]
         title: Barbados [GAZ:00001251]
@@ -3410,6 +3539,8 @@ enums:
           - NCBI_BIOSAMPLE:Barbados
           - ENA_GSC_MIxS_WW_ERC00023:Barbados
           - ENA_SEWAGE_ERC00036:Barbados
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Barbados
+          - NCBI_BIOSAMPLE_Pathogen:Barbados
       Bassas da India [GAZ:00005810]:
         text: Bassas da India [GAZ:00005810]
         title: Bassas da India [GAZ:00005810]
@@ -3420,6 +3551,8 @@ enums:
           - NCBI_BIOSAMPLE:Bassas%20da%20India
           - ENA_GSC_MIxS_WW_ERC00023:Bassas%20da%20India
           - ENA_SEWAGE_ERC00036:Bassas%20da%20India
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bassas%20da%20India
+          - NCBI_BIOSAMPLE_Pathogen:Bassas%20da%20India
       Belarus [GAZ:00006886]:
         text: Belarus [GAZ:00006886]
         title: Belarus [GAZ:00006886]
@@ -3430,6 +3563,8 @@ enums:
           - NCBI_BIOSAMPLE:Belarus
           - ENA_GSC_MIxS_WW_ERC00023:Belarus
           - ENA_SEWAGE_ERC00036:Belarus
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Belarus
+          - NCBI_BIOSAMPLE_Pathogen:Belarus
       Belgium [GAZ:00002938]:
         text: Belgium [GAZ:00002938]
         title: Belgium [GAZ:00002938]
@@ -3440,6 +3575,8 @@ enums:
           - NCBI_BIOSAMPLE:Belgium
           - ENA_GSC_MIxS_WW_ERC00023:Belgium
           - ENA_SEWAGE_ERC00036:Belgium
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Belgium
+          - NCBI_BIOSAMPLE_Pathogen:Belgium
       Belize [GAZ:00002934]:
         text: Belize [GAZ:00002934]
         title: Belize [GAZ:00002934]
@@ -3450,6 +3587,8 @@ enums:
           - NCBI_BIOSAMPLE:Belize
           - ENA_GSC_MIxS_WW_ERC00023:Belize
           - ENA_SEWAGE_ERC00036:Belize
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Belize
+          - NCBI_BIOSAMPLE_Pathogen:Belize
       Benin [GAZ:00000904]:
         text: Benin [GAZ:00000904]
         title: Benin [GAZ:00000904]
@@ -3460,6 +3599,8 @@ enums:
           - NCBI_BIOSAMPLE:Benin
           - ENA_GSC_MIxS_WW_ERC00023:Benin
           - ENA_SEWAGE_ERC00036:Benin
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Benin
+          - NCBI_BIOSAMPLE_Pathogen:Benin
       Bermuda [GAZ:00001264]:
         text: Bermuda [GAZ:00001264]
         title: Bermuda [GAZ:00001264]
@@ -3470,6 +3611,8 @@ enums:
           - NCBI_BIOSAMPLE:Bermuda
           - ENA_GSC_MIxS_WW_ERC00023:Bermuda
           - ENA_SEWAGE_ERC00036:Bermuda
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bermuda
+          - NCBI_BIOSAMPLE_Pathogen:Bermuda
       Bhutan [GAZ:00003920]:
         text: Bhutan [GAZ:00003920]
         title: Bhutan [GAZ:00003920]
@@ -3480,6 +3623,8 @@ enums:
           - NCBI_BIOSAMPLE:Bhutan
           - ENA_GSC_MIxS_WW_ERC00023:Bhutan
           - ENA_SEWAGE_ERC00036:Bhutan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bhutan
+          - NCBI_BIOSAMPLE_Pathogen:Bhutan
       Bolivia [GAZ:00002511]:
         text: Bolivia [GAZ:00002511]
         title: Bolivia [GAZ:00002511]
@@ -3490,6 +3635,8 @@ enums:
           - NCBI_BIOSAMPLE:Bolivia
           - ENA_GSC_MIxS_WW_ERC00023:Bolivia
           - ENA_SEWAGE_ERC00036:Bolivia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bolivia
+          - NCBI_BIOSAMPLE_Pathogen:Bolivia
       Borneo [GAZ:00025355]:
         text: Borneo [GAZ:00025355]
         title: Borneo [GAZ:00025355]
@@ -3500,6 +3647,8 @@ enums:
           - NCBI_BIOSAMPLE:Borneo
           - ENA_GSC_MIxS_WW_ERC00023:Borneo
           - ENA_SEWAGE_ERC00036:Borneo
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Borneo
+          - NCBI_BIOSAMPLE_Pathogen:Borneo
       Bosnia and Herzegovina [GAZ:00006887]:
         text: Bosnia and Herzegovina [GAZ:00006887]
         title: Bosnia and Herzegovina [GAZ:00006887]
@@ -3510,6 +3659,8 @@ enums:
           - NCBI_BIOSAMPLE:Bosnia%20and%20Herzegovina
           - ENA_GSC_MIxS_WW_ERC00023:Bosnia%20and%20Herzegovina
           - ENA_SEWAGE_ERC00036:Bosnia%20and%20Herzegovina
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bosnia%20and%20Herzegovina
+          - NCBI_BIOSAMPLE_Pathogen:Bosnia%20and%20Herzegovina
       Botswana [GAZ:00001097]:
         text: Botswana [GAZ:00001097]
         title: Botswana [GAZ:00001097]
@@ -3520,6 +3671,8 @@ enums:
           - NCBI_BIOSAMPLE:Botswana
           - ENA_GSC_MIxS_WW_ERC00023:Botswana
           - ENA_SEWAGE_ERC00036:Botswana
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Botswana
+          - NCBI_BIOSAMPLE_Pathogen:Botswana
       Bouvet Island [GAZ:00001453]:
         text: Bouvet Island [GAZ:00001453]
         title: Bouvet Island [GAZ:00001453]
@@ -3530,6 +3683,8 @@ enums:
           - NCBI_BIOSAMPLE:Bouvet%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Bouvet%20Island
           - ENA_SEWAGE_ERC00036:Bouvet%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bouvet%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Bouvet%20Island
       Brazil [GAZ:00002828]:
         text: Brazil [GAZ:00002828]
         title: Brazil [GAZ:00002828]
@@ -3540,6 +3695,8 @@ enums:
           - NCBI_BIOSAMPLE:Brazil
           - ENA_GSC_MIxS_WW_ERC00023:Brazil
           - ENA_SEWAGE_ERC00036:Brazil
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Brazil
+          - NCBI_BIOSAMPLE_Pathogen:Brazil
       British Virgin Islands [GAZ:00003961]:
         text: British Virgin Islands [GAZ:00003961]
         title: British Virgin Islands [GAZ:00003961]
@@ -3550,6 +3707,8 @@ enums:
           - NCBI_BIOSAMPLE:British%20Virgin%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:British%20Virgin%20Islands
           - ENA_SEWAGE_ERC00036:British%20Virgin%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:British%20Virgin%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:British%20Virgin%20Islands
       Brunei [GAZ:00003901]:
         text: Brunei [GAZ:00003901]
         title: Brunei [GAZ:00003901]
@@ -3560,6 +3719,8 @@ enums:
           - NCBI_BIOSAMPLE:Brunei
           - ENA_GSC_MIxS_WW_ERC00023:Brunei
           - ENA_SEWAGE_ERC00036:Brunei
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Brunei
+          - NCBI_BIOSAMPLE_Pathogen:Brunei
       Bulgaria [GAZ:00002950]:
         text: Bulgaria [GAZ:00002950]
         title: Bulgaria [GAZ:00002950]
@@ -3570,6 +3731,8 @@ enums:
           - NCBI_BIOSAMPLE:Bulgaria
           - ENA_GSC_MIxS_WW_ERC00023:Bulgaria
           - ENA_SEWAGE_ERC00036:Bulgaria
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Bulgaria
+          - NCBI_BIOSAMPLE_Pathogen:Bulgaria
       Burkina Faso [GAZ:00000905]:
         text: Burkina Faso [GAZ:00000905]
         title: Burkina Faso [GAZ:00000905]
@@ -3580,6 +3743,8 @@ enums:
           - NCBI_BIOSAMPLE:Burkina%20Faso
           - ENA_GSC_MIxS_WW_ERC00023:Burkina%20Faso
           - ENA_SEWAGE_ERC00036:Burkina%20Faso
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Burkina%20Faso
+          - NCBI_BIOSAMPLE_Pathogen:Burkina%20Faso
       Burundi [GAZ:00001090]:
         text: Burundi [GAZ:00001090]
         title: Burundi [GAZ:00001090]
@@ -3590,6 +3755,8 @@ enums:
           - NCBI_BIOSAMPLE:Burundi
           - ENA_GSC_MIxS_WW_ERC00023:Burundi
           - ENA_SEWAGE_ERC00036:Burundi
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Burundi
+          - NCBI_BIOSAMPLE_Pathogen:Burundi
       Cambodia [GAZ:00006888]:
         text: Cambodia [GAZ:00006888]
         title: Cambodia [GAZ:00006888]
@@ -3600,6 +3767,8 @@ enums:
           - NCBI_BIOSAMPLE:Cambodia
           - ENA_GSC_MIxS_WW_ERC00023:Cambodia
           - ENA_SEWAGE_ERC00036:Cambodia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Cambodia
+          - NCBI_BIOSAMPLE_Pathogen:Cambodia
       Cameroon [GAZ:00001093]:
         text: Cameroon [GAZ:00001093]
         title: Cameroon [GAZ:00001093]
@@ -3610,6 +3779,8 @@ enums:
           - NCBI_BIOSAMPLE:Cameroon
           - ENA_GSC_MIxS_WW_ERC00023:Cameroon
           - ENA_SEWAGE_ERC00036:Cameroon
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Cameroon
+          - NCBI_BIOSAMPLE_Pathogen:Cameroon
       Canada [GAZ:00002560]:
         text: Canada [GAZ:00002560]
         title: Canada [GAZ:00002560]
@@ -3620,6 +3791,8 @@ enums:
           - NCBI_BIOSAMPLE:Canada
           - ENA_GSC_MIxS_WW_ERC00023:Canada
           - ENA_SEWAGE_ERC00036:Canada
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Canada
+          - NCBI_BIOSAMPLE_Pathogen:Canada
       Cape Verde [GAZ:00001227]:
         text: Cape Verde [GAZ:00001227]
         title: Cape Verde [GAZ:00001227]
@@ -3630,6 +3803,8 @@ enums:
           - NCBI_BIOSAMPLE:Cape%20Verde
           - ENA_GSC_MIxS_WW_ERC00023:Cape%20Verde
           - ENA_SEWAGE_ERC00036:Cape%20Verde
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Cape%20Verde
+          - NCBI_BIOSAMPLE_Pathogen:Cape%20Verde
       Cayman Islands [GAZ:00003986]:
         text: Cayman Islands [GAZ:00003986]
         title: Cayman Islands [GAZ:00003986]
@@ -3640,6 +3815,8 @@ enums:
           - NCBI_BIOSAMPLE:Cayman%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Cayman%20Islands
           - ENA_SEWAGE_ERC00036:Cayman%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Cayman%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Cayman%20Islands
       Central African Republic [GAZ:00001089]:
         text: Central African Republic [GAZ:00001089]
         title: Central African Republic [GAZ:00001089]
@@ -3650,6 +3827,8 @@ enums:
           - NCBI_BIOSAMPLE:Central%20African%20Republic
           - ENA_GSC_MIxS_WW_ERC00023:Central%20African%20Republic
           - ENA_SEWAGE_ERC00036:Central%20African%20Republic
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Central%20African%20Republic
+          - NCBI_BIOSAMPLE_Pathogen:Central%20African%20Republic
       Chad [GAZ:00000586]:
         text: Chad [GAZ:00000586]
         title: Chad [GAZ:00000586]
@@ -3660,6 +3839,8 @@ enums:
           - NCBI_BIOSAMPLE:Chad
           - ENA_GSC_MIxS_WW_ERC00023:Chad
           - ENA_SEWAGE_ERC00036:Chad
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Chad
+          - NCBI_BIOSAMPLE_Pathogen:Chad
       Chile [GAZ:00002825]:
         text: Chile [GAZ:00002825]
         title: Chile [GAZ:00002825]
@@ -3670,6 +3851,8 @@ enums:
           - NCBI_BIOSAMPLE:Chile
           - ENA_GSC_MIxS_WW_ERC00023:Chile
           - ENA_SEWAGE_ERC00036:Chile
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Chile
+          - NCBI_BIOSAMPLE_Pathogen:Chile
       China [GAZ:00002845]:
         text: China [GAZ:00002845]
         title: China [GAZ:00002845]
@@ -3680,6 +3863,8 @@ enums:
           - NCBI_BIOSAMPLE:China
           - ENA_GSC_MIxS_WW_ERC00023:China
           - ENA_SEWAGE_ERC00036:China
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:China
+          - NCBI_BIOSAMPLE_Pathogen:China
       Christmas Island [GAZ:00005915]:
         text: Christmas Island [GAZ:00005915]
         title: Christmas Island [GAZ:00005915]
@@ -3690,6 +3875,8 @@ enums:
           - NCBI_BIOSAMPLE:Christmas%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Christmas%20Island
           - ENA_SEWAGE_ERC00036:Christmas%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Christmas%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Christmas%20Island
       Clipperton Island [GAZ:00005838]:
         text: Clipperton Island [GAZ:00005838]
         title: Clipperton Island [GAZ:00005838]
@@ -3700,6 +3887,8 @@ enums:
           - NCBI_BIOSAMPLE:Clipperton%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Clipperton%20Island
           - ENA_SEWAGE_ERC00036:Clipperton%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Clipperton%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Clipperton%20Island
       Cocos Islands [GAZ:00009721]:
         text: Cocos Islands [GAZ:00009721]
         title: Cocos Islands [GAZ:00009721]
@@ -3710,6 +3899,8 @@ enums:
           - NCBI_BIOSAMPLE:Cocos%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Cocos%20Islands
           - ENA_SEWAGE_ERC00036:Cocos%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Cocos%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Cocos%20Islands
       Colombia [GAZ:00002929]:
         text: Colombia [GAZ:00002929]
         title: Colombia [GAZ:00002929]
@@ -3720,6 +3911,8 @@ enums:
           - NCBI_BIOSAMPLE:Colombia
           - ENA_GSC_MIxS_WW_ERC00023:Colombia
           - ENA_SEWAGE_ERC00036:Colombia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Colombia
+          - NCBI_BIOSAMPLE_Pathogen:Colombia
       Comoros [GAZ:00005820]:
         text: Comoros [GAZ:00005820]
         title: Comoros [GAZ:00005820]
@@ -3730,6 +3923,8 @@ enums:
           - NCBI_BIOSAMPLE:Comoros
           - ENA_GSC_MIxS_WW_ERC00023:Comoros
           - ENA_SEWAGE_ERC00036:Comoros
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Comoros
+          - NCBI_BIOSAMPLE_Pathogen:Comoros
       Cook Islands [GAZ:00053798]:
         text: Cook Islands [GAZ:00053798]
         title: Cook Islands [GAZ:00053798]
@@ -3740,6 +3935,8 @@ enums:
           - NCBI_BIOSAMPLE:Cook%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Cook%20Islands
           - ENA_SEWAGE_ERC00036:Cook%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Cook%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Cook%20Islands
       Coral Sea Islands [GAZ:00005917]:
         text: Coral Sea Islands [GAZ:00005917]
         title: Coral Sea Islands [GAZ:00005917]
@@ -3750,6 +3947,8 @@ enums:
           - NCBI_BIOSAMPLE:Coral%20Sea%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Coral%20Sea%20Islands
           - ENA_SEWAGE_ERC00036:Coral%20Sea%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Coral%20Sea%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Coral%20Sea%20Islands
       Costa Rica [GAZ:00002901]:
         text: Costa Rica [GAZ:00002901]
         title: Costa Rica [GAZ:00002901]
@@ -3760,6 +3959,8 @@ enums:
           - NCBI_BIOSAMPLE:Costa%20Rica
           - ENA_GSC_MIxS_WW_ERC00023:Costa%20Rica
           - ENA_SEWAGE_ERC00036:Costa%20Rica
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Costa%20Rica
+          - NCBI_BIOSAMPLE_Pathogen:Costa%20Rica
       Cote d'Ivoire [GAZ:00000906]:
         text: Cote d'Ivoire [GAZ:00000906]
         title: Cote d'Ivoire [GAZ:00000906]
@@ -3770,6 +3971,8 @@ enums:
           - NCBI_BIOSAMPLE:Cote%20d%27Ivoire
           - ENA_GSC_MIxS_WW_ERC00023:Cote%20d%27Ivoire
           - ENA_SEWAGE_ERC00036:Cote%20d%27Ivoire
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Cote%20d%27Ivoire
+          - NCBI_BIOSAMPLE_Pathogen:Cote%20d%27Ivoire
       Croatia [GAZ:00002719]:
         text: Croatia [GAZ:00002719]
         title: Croatia [GAZ:00002719]
@@ -3780,6 +3983,8 @@ enums:
           - NCBI_BIOSAMPLE:Croatia
           - ENA_GSC_MIxS_WW_ERC00023:Croatia
           - ENA_SEWAGE_ERC00036:Croatia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Croatia
+          - NCBI_BIOSAMPLE_Pathogen:Croatia
       Cuba [GAZ:00003762]:
         text: Cuba [GAZ:00003762]
         title: Cuba [GAZ:00003762]
@@ -3790,6 +3995,8 @@ enums:
           - NCBI_BIOSAMPLE:Cuba
           - ENA_GSC_MIxS_WW_ERC00023:Cuba
           - ENA_SEWAGE_ERC00036:Cuba
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Cuba
+          - NCBI_BIOSAMPLE_Pathogen:Cuba
       Curacao [GAZ:00012582]:
         text: Curacao [GAZ:00012582]
         title: Curacao [GAZ:00012582]
@@ -3800,6 +4007,8 @@ enums:
           - NCBI_BIOSAMPLE:Curacao
           - ENA_GSC_MIxS_WW_ERC00023:Curacao
           - ENA_SEWAGE_ERC00036:Curacao
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Curacao
+          - NCBI_BIOSAMPLE_Pathogen:Curacao
       Cyprus [GAZ:00004006]:
         text: Cyprus [GAZ:00004006]
         title: Cyprus [GAZ:00004006]
@@ -3810,6 +4019,8 @@ enums:
           - NCBI_BIOSAMPLE:Cyprus
           - ENA_GSC_MIxS_WW_ERC00023:Cyprus
           - ENA_SEWAGE_ERC00036:Cyprus
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Cyprus
+          - NCBI_BIOSAMPLE_Pathogen:Cyprus
       Czech Republic [GAZ:00002954]:
         text: Czech Republic [GAZ:00002954]
         title: Czech Republic [GAZ:00002954]
@@ -3820,6 +4031,8 @@ enums:
           - NCBI_BIOSAMPLE:Czech%20Republic
           - ENA_GSC_MIxS_WW_ERC00023:Czech%20Republic
           - ENA_SEWAGE_ERC00036:Czech%20Republic
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Czech%20Republic
+          - NCBI_BIOSAMPLE_Pathogen:Czech%20Republic
       Democratic Republic of the Congo [GAZ:00001086]:
         text: Democratic Republic of the Congo [GAZ:00001086]
         title: Democratic Republic of the Congo [GAZ:00001086]
@@ -3830,6 +4043,8 @@ enums:
           - NCBI_BIOSAMPLE:Democratic%20Republic%20of%20the%20Congo
           - ENA_GSC_MIxS_WW_ERC00023:Democratic%20Republic%20of%20the%20Congo
           - ENA_SEWAGE_ERC00036:Democratic%20Republic%20of%20the%20Congo
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Democratic%20Republic%20of%20the%20Congo
+          - NCBI_BIOSAMPLE_Pathogen:Democratic%20Republic%20of%20the%20Congo
       Denmark [GAZ:00005852]:
         text: Denmark [GAZ:00005852]
         title: Denmark [GAZ:00005852]
@@ -3840,6 +4055,8 @@ enums:
           - NCBI_BIOSAMPLE:Denmark
           - ENA_GSC_MIxS_WW_ERC00023:Denmark
           - ENA_SEWAGE_ERC00036:Denmark
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Denmark
+          - NCBI_BIOSAMPLE_Pathogen:Denmark
       Djibouti [GAZ:00000582]:
         text: Djibouti [GAZ:00000582]
         title: Djibouti [GAZ:00000582]
@@ -3850,6 +4067,8 @@ enums:
           - NCBI_BIOSAMPLE:Djibouti
           - ENA_GSC_MIxS_WW_ERC00023:Djibouti
           - ENA_SEWAGE_ERC00036:Djibouti
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Djibouti
+          - NCBI_BIOSAMPLE_Pathogen:Djibouti
       Dominica [GAZ:00006890]:
         text: Dominica [GAZ:00006890]
         title: Dominica [GAZ:00006890]
@@ -3860,6 +4079,8 @@ enums:
           - NCBI_BIOSAMPLE:Dominica
           - ENA_GSC_MIxS_WW_ERC00023:Dominica
           - ENA_SEWAGE_ERC00036:Dominica
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Dominica
+          - NCBI_BIOSAMPLE_Pathogen:Dominica
       Dominican Republic [GAZ:00003952]:
         text: Dominican Republic [GAZ:00003952]
         title: Dominican Republic [GAZ:00003952]
@@ -3870,6 +4091,8 @@ enums:
           - NCBI_BIOSAMPLE:Dominican%20Republic
           - ENA_GSC_MIxS_WW_ERC00023:Dominican%20Republic
           - ENA_SEWAGE_ERC00036:Dominican%20Republic
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Dominican%20Republic
+          - NCBI_BIOSAMPLE_Pathogen:Dominican%20Republic
       Ecuador [GAZ:00002912]:
         text: Ecuador [GAZ:00002912]
         title: Ecuador [GAZ:00002912]
@@ -3880,6 +4103,8 @@ enums:
           - NCBI_BIOSAMPLE:Ecuador
           - ENA_GSC_MIxS_WW_ERC00023:Ecuador
           - ENA_SEWAGE_ERC00036:Ecuador
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Ecuador
+          - NCBI_BIOSAMPLE_Pathogen:Ecuador
       Egypt [GAZ:00003934]:
         text: Egypt [GAZ:00003934]
         title: Egypt [GAZ:00003934]
@@ -3890,6 +4115,8 @@ enums:
           - NCBI_BIOSAMPLE:Egypt
           - ENA_GSC_MIxS_WW_ERC00023:Egypt
           - ENA_SEWAGE_ERC00036:Egypt
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Egypt
+          - NCBI_BIOSAMPLE_Pathogen:Egypt
       El Salvador [GAZ:00002935]:
         text: El Salvador [GAZ:00002935]
         title: El Salvador [GAZ:00002935]
@@ -3900,6 +4127,8 @@ enums:
           - NCBI_BIOSAMPLE:El%20Salvador
           - ENA_GSC_MIxS_WW_ERC00023:El%20Salvador
           - ENA_SEWAGE_ERC00036:El%20Salvador
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:El%20Salvador
+          - NCBI_BIOSAMPLE_Pathogen:El%20Salvador
       Equatorial Guinea [GAZ:00001091]:
         text: Equatorial Guinea [GAZ:00001091]
         title: Equatorial Guinea [GAZ:00001091]
@@ -3910,6 +4139,8 @@ enums:
           - NCBI_BIOSAMPLE:Equatorial%20Guinea
           - ENA_GSC_MIxS_WW_ERC00023:Equatorial%20Guinea
           - ENA_SEWAGE_ERC00036:Equatorial%20Guinea
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Equatorial%20Guinea
+          - NCBI_BIOSAMPLE_Pathogen:Equatorial%20Guinea
       Eritrea [GAZ:00000581]:
         text: Eritrea [GAZ:00000581]
         title: Eritrea [GAZ:00000581]
@@ -3920,6 +4151,8 @@ enums:
           - NCBI_BIOSAMPLE:Eritrea
           - ENA_GSC_MIxS_WW_ERC00023:Eritrea
           - ENA_SEWAGE_ERC00036:Eritrea
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Eritrea
+          - NCBI_BIOSAMPLE_Pathogen:Eritrea
       Estonia [GAZ:00002959]:
         text: Estonia [GAZ:00002959]
         title: Estonia [GAZ:00002959]
@@ -3930,6 +4163,8 @@ enums:
           - NCBI_BIOSAMPLE:Estonia
           - ENA_GSC_MIxS_WW_ERC00023:Estonia
           - ENA_SEWAGE_ERC00036:Estonia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Estonia
+          - NCBI_BIOSAMPLE_Pathogen:Estonia
       Eswatini [GAZ:00001099]:
         text: Eswatini [GAZ:00001099]
         title: Eswatini [GAZ:00001099]
@@ -3940,6 +4175,8 @@ enums:
           - NCBI_BIOSAMPLE:Eswatini
           - ENA_GSC_MIxS_WW_ERC00023:Eswatini
           - ENA_SEWAGE_ERC00036:Eswatini
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Eswatini
+          - NCBI_BIOSAMPLE_Pathogen:Eswatini
       Ethiopia [GAZ:00000567]:
         text: Ethiopia [GAZ:00000567]
         title: Ethiopia [GAZ:00000567]
@@ -3950,6 +4187,8 @@ enums:
           - NCBI_BIOSAMPLE:Ethiopia
           - ENA_GSC_MIxS_WW_ERC00023:Ethiopia
           - ENA_SEWAGE_ERC00036:Ethiopia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Ethiopia
+          - NCBI_BIOSAMPLE_Pathogen:Ethiopia
       Europa Island [GAZ:00005811]:
         text: Europa Island [GAZ:00005811]
         title: Europa Island [GAZ:00005811]
@@ -3960,6 +4199,8 @@ enums:
           - NCBI_BIOSAMPLE:Europa%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Europa%20Island
           - ENA_SEWAGE_ERC00036:Europa%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Europa%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Europa%20Island
       Falkland Islands (Islas Malvinas) [GAZ:00001412]:
         text: Falkland Islands (Islas Malvinas) [GAZ:00001412]
         title: Falkland Islands (Islas Malvinas) [GAZ:00001412]
@@ -3970,6 +4211,8 @@ enums:
           - NCBI_BIOSAMPLE:Falkland%20Islands%20%28Islas%20Malvinas%29
           - ENA_GSC_MIxS_WW_ERC00023:Falkland%20Islands%20%28Islas%20Malvinas%29
           - ENA_SEWAGE_ERC00036:Falkland%20Islands%20%28Islas%20Malvinas%29
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Falkland%20Islands%20%28Islas%20Malvinas%29
+          - NCBI_BIOSAMPLE_Pathogen:Falkland%20Islands%20%28Islas%20Malvinas%29
       Faroe Islands [GAZ:00059206]:
         text: Faroe Islands [GAZ:00059206]
         title: Faroe Islands [GAZ:00059206]
@@ -3980,6 +4223,8 @@ enums:
           - NCBI_BIOSAMPLE:Faroe%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Faroe%20Islands
           - ENA_SEWAGE_ERC00036:Faroe%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Faroe%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Faroe%20Islands
       Fiji [GAZ:00006891]:
         text: Fiji [GAZ:00006891]
         title: Fiji [GAZ:00006891]
@@ -3990,6 +4235,8 @@ enums:
           - NCBI_BIOSAMPLE:Fiji
           - ENA_GSC_MIxS_WW_ERC00023:Fiji
           - ENA_SEWAGE_ERC00036:Fiji
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Fiji
+          - NCBI_BIOSAMPLE_Pathogen:Fiji
       Finland [GAZ:00002937]:
         text: Finland [GAZ:00002937]
         title: Finland [GAZ:00002937]
@@ -4000,6 +4247,8 @@ enums:
           - NCBI_BIOSAMPLE:Finland
           - ENA_GSC_MIxS_WW_ERC00023:Finland
           - ENA_SEWAGE_ERC00036:Finland
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Finland
+          - NCBI_BIOSAMPLE_Pathogen:Finland
       France [GAZ:00003940]:
         text: France [GAZ:00003940]
         title: France [GAZ:00003940]
@@ -4010,6 +4259,8 @@ enums:
           - NCBI_BIOSAMPLE:France
           - ENA_GSC_MIxS_WW_ERC00023:France
           - ENA_SEWAGE_ERC00036:France
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:France
+          - NCBI_BIOSAMPLE_Pathogen:France
       French Guiana [GAZ:00002516]:
         text: French Guiana [GAZ:00002516]
         title: French Guiana [GAZ:00002516]
@@ -4020,6 +4271,8 @@ enums:
           - NCBI_BIOSAMPLE:French%20Guiana
           - ENA_GSC_MIxS_WW_ERC00023:French%20Guiana
           - ENA_SEWAGE_ERC00036:French%20Guiana
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:French%20Guiana
+          - NCBI_BIOSAMPLE_Pathogen:French%20Guiana
       French Polynesia [GAZ:00002918]:
         text: French Polynesia [GAZ:00002918]
         title: French Polynesia [GAZ:00002918]
@@ -4030,6 +4283,8 @@ enums:
           - NCBI_BIOSAMPLE:French%20Polynesia
           - ENA_GSC_MIxS_WW_ERC00023:French%20Polynesia
           - ENA_SEWAGE_ERC00036:French%20Polynesia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:French%20Polynesia
+          - NCBI_BIOSAMPLE_Pathogen:French%20Polynesia
       French Southern and Antarctic Lands [GAZ:00003753]:
         text: French Southern and Antarctic Lands [GAZ:00003753]
         title: French Southern and Antarctic Lands [GAZ:00003753]
@@ -4040,6 +4295,8 @@ enums:
           - NCBI_BIOSAMPLE:French%20Southern%20and%20Antarctic%20Lands
           - ENA_GSC_MIxS_WW_ERC00023:French%20Southern%20and%20Antarctic%20Lands
           - ENA_SEWAGE_ERC00036:French%20Southern%20and%20Antarctic%20Lands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:French%20Southern%20and%20Antarctic%20Lands
+          - NCBI_BIOSAMPLE_Pathogen:French%20Southern%20and%20Antarctic%20Lands
       Gabon [GAZ:00001092]:
         text: Gabon [GAZ:00001092]
         title: Gabon [GAZ:00001092]
@@ -4050,6 +4307,8 @@ enums:
           - NCBI_BIOSAMPLE:Gabon
           - ENA_GSC_MIxS_WW_ERC00023:Gabon
           - ENA_SEWAGE_ERC00036:Gabon
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Gabon
+          - NCBI_BIOSAMPLE_Pathogen:Gabon
       Gambia [GAZ:00000907]:
         text: Gambia [GAZ:00000907]
         title: Gambia [GAZ:00000907]
@@ -4060,6 +4319,8 @@ enums:
           - NCBI_BIOSAMPLE:Gambia
           - ENA_GSC_MIxS_WW_ERC00023:Gambia
           - ENA_SEWAGE_ERC00036:Gambia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Gambia
+          - NCBI_BIOSAMPLE_Pathogen:Gambia
       Gaza Strip [GAZ:00009571]:
         text: Gaza Strip [GAZ:00009571]
         title: Gaza Strip [GAZ:00009571]
@@ -4070,6 +4331,8 @@ enums:
           - NCBI_BIOSAMPLE:Gaza%20Strip
           - ENA_GSC_MIxS_WW_ERC00023:Gaza%20Strip
           - ENA_SEWAGE_ERC00036:Gaza%20Strip
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Gaza%20Strip
+          - NCBI_BIOSAMPLE_Pathogen:Gaza%20Strip
       Georgia [GAZ:00004942]:
         text: Georgia [GAZ:00004942]
         title: Georgia [GAZ:00004942]
@@ -4080,6 +4343,8 @@ enums:
           - NCBI_BIOSAMPLE:Georgia
           - ENA_GSC_MIxS_WW_ERC00023:Georgia
           - ENA_SEWAGE_ERC00036:Georgia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Georgia
+          - NCBI_BIOSAMPLE_Pathogen:Georgia
       Germany [GAZ:00002646]:
         text: Germany [GAZ:00002646]
         title: Germany [GAZ:00002646]
@@ -4090,6 +4355,8 @@ enums:
           - NCBI_BIOSAMPLE:Germany
           - ENA_GSC_MIxS_WW_ERC00023:Germany
           - ENA_SEWAGE_ERC00036:Germany
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Germany
+          - NCBI_BIOSAMPLE_Pathogen:Germany
       Ghana [GAZ:00000908]:
         text: Ghana [GAZ:00000908]
         title: Ghana [GAZ:00000908]
@@ -4100,6 +4367,8 @@ enums:
           - NCBI_BIOSAMPLE:Ghana
           - ENA_GSC_MIxS_WW_ERC00023:Ghana
           - ENA_SEWAGE_ERC00036:Ghana
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Ghana
+          - NCBI_BIOSAMPLE_Pathogen:Ghana
       Gibraltar [GAZ:00003987]:
         text: Gibraltar [GAZ:00003987]
         title: Gibraltar [GAZ:00003987]
@@ -4110,6 +4379,8 @@ enums:
           - NCBI_BIOSAMPLE:Gibraltar
           - ENA_GSC_MIxS_WW_ERC00023:Gibraltar
           - ENA_SEWAGE_ERC00036:Gibraltar
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Gibraltar
+          - NCBI_BIOSAMPLE_Pathogen:Gibraltar
       Glorioso Islands [GAZ:00005808]:
         text: Glorioso Islands [GAZ:00005808]
         title: Glorioso Islands [GAZ:00005808]
@@ -4120,6 +4391,8 @@ enums:
           - NCBI_BIOSAMPLE:Glorioso%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Glorioso%20Islands
           - ENA_SEWAGE_ERC00036:Glorioso%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Glorioso%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Glorioso%20Islands
       Greece [GAZ:00002945]:
         text: Greece [GAZ:00002945]
         title: Greece [GAZ:00002945]
@@ -4130,6 +4403,8 @@ enums:
           - NCBI_BIOSAMPLE:Greece
           - ENA_GSC_MIxS_WW_ERC00023:Greece
           - ENA_SEWAGE_ERC00036:Greece
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Greece
+          - NCBI_BIOSAMPLE_Pathogen:Greece
       Greenland [GAZ:00001507]:
         text: Greenland [GAZ:00001507]
         title: Greenland [GAZ:00001507]
@@ -4140,6 +4415,8 @@ enums:
           - NCBI_BIOSAMPLE:Greenland
           - ENA_GSC_MIxS_WW_ERC00023:Greenland
           - ENA_SEWAGE_ERC00036:Greenland
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Greenland
+          - NCBI_BIOSAMPLE_Pathogen:Greenland
       Grenada [GAZ:02000573]:
         text: Grenada [GAZ:02000573]
         title: Grenada [GAZ:02000573]
@@ -4150,6 +4427,8 @@ enums:
           - NCBI_BIOSAMPLE:Grenada
           - ENA_GSC_MIxS_WW_ERC00023:Grenada
           - ENA_SEWAGE_ERC00036:Grenada
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Grenada
+          - NCBI_BIOSAMPLE_Pathogen:Grenada
       Guadeloupe [GAZ:00067142]:
         text: Guadeloupe [GAZ:00067142]
         title: Guadeloupe [GAZ:00067142]
@@ -4160,6 +4439,8 @@ enums:
           - NCBI_BIOSAMPLE:Guadeloupe
           - ENA_GSC_MIxS_WW_ERC00023:Guadeloupe
           - ENA_SEWAGE_ERC00036:Guadeloupe
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Guadeloupe
+          - NCBI_BIOSAMPLE_Pathogen:Guadeloupe
       Guam [GAZ:00003706]:
         text: Guam [GAZ:00003706]
         title: Guam [GAZ:00003706]
@@ -4170,6 +4451,8 @@ enums:
           - NCBI_BIOSAMPLE:Guam
           - ENA_GSC_MIxS_WW_ERC00023:Guam
           - ENA_SEWAGE_ERC00036:Guam
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Guam
+          - NCBI_BIOSAMPLE_Pathogen:Guam
       Guatemala [GAZ:00002936]:
         text: Guatemala [GAZ:00002936]
         title: Guatemala [GAZ:00002936]
@@ -4180,6 +4463,8 @@ enums:
           - NCBI_BIOSAMPLE:Guatemala
           - ENA_GSC_MIxS_WW_ERC00023:Guatemala
           - ENA_SEWAGE_ERC00036:Guatemala
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Guatemala
+          - NCBI_BIOSAMPLE_Pathogen:Guatemala
       Guernsey [GAZ:00001550]:
         text: Guernsey [GAZ:00001550]
         title: Guernsey [GAZ:00001550]
@@ -4190,6 +4475,8 @@ enums:
           - NCBI_BIOSAMPLE:Guernsey
           - ENA_GSC_MIxS_WW_ERC00023:Guernsey
           - ENA_SEWAGE_ERC00036:Guernsey
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Guernsey
+          - NCBI_BIOSAMPLE_Pathogen:Guernsey
       Guinea [GAZ:00000909]:
         text: Guinea [GAZ:00000909]
         title: Guinea [GAZ:00000909]
@@ -4200,6 +4487,8 @@ enums:
           - NCBI_BIOSAMPLE:Guinea
           - ENA_GSC_MIxS_WW_ERC00023:Guinea
           - ENA_SEWAGE_ERC00036:Guinea
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Guinea
+          - NCBI_BIOSAMPLE_Pathogen:Guinea
       Guinea-Bissau [GAZ:00000910]:
         text: Guinea-Bissau [GAZ:00000910]
         title: Guinea-Bissau [GAZ:00000910]
@@ -4210,6 +4499,8 @@ enums:
           - NCBI_BIOSAMPLE:Guinea-Bissau
           - ENA_GSC_MIxS_WW_ERC00023:Guinea-Bissau
           - ENA_SEWAGE_ERC00036:Guinea-Bissau
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Guinea-Bissau
+          - NCBI_BIOSAMPLE_Pathogen:Guinea-Bissau
       Guyana [GAZ:00002522]:
         text: Guyana [GAZ:00002522]
         title: Guyana [GAZ:00002522]
@@ -4220,6 +4511,8 @@ enums:
           - NCBI_BIOSAMPLE:Guyana
           - ENA_GSC_MIxS_WW_ERC00023:Guyana
           - ENA_SEWAGE_ERC00036:Guyana
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Guyana
+          - NCBI_BIOSAMPLE_Pathogen:Guyana
       Haiti [GAZ:00003953]:
         text: Haiti [GAZ:00003953]
         title: Haiti [GAZ:00003953]
@@ -4230,6 +4523,8 @@ enums:
           - NCBI_BIOSAMPLE:Haiti
           - ENA_GSC_MIxS_WW_ERC00023:Haiti
           - ENA_SEWAGE_ERC00036:Haiti
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Haiti
+          - NCBI_BIOSAMPLE_Pathogen:Haiti
       Heard Island and McDonald Islands [GAZ:00009718]:
         text: Heard Island and McDonald Islands [GAZ:00009718]
         title: Heard Island and McDonald Islands [GAZ:00009718]
@@ -4240,6 +4535,8 @@ enums:
           - NCBI_BIOSAMPLE:Heard%20Island%20and%20McDonald%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Heard%20Island%20and%20McDonald%20Islands
           - ENA_SEWAGE_ERC00036:Heard%20Island%20and%20McDonald%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Heard%20Island%20and%20McDonald%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Heard%20Island%20and%20McDonald%20Islands
       Honduras [GAZ:00002894]:
         text: Honduras [GAZ:00002894]
         title: Honduras [GAZ:00002894]
@@ -4250,6 +4547,8 @@ enums:
           - NCBI_BIOSAMPLE:Honduras
           - ENA_GSC_MIxS_WW_ERC00023:Honduras
           - ENA_SEWAGE_ERC00036:Honduras
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Honduras
+          - NCBI_BIOSAMPLE_Pathogen:Honduras
       Hong Kong [GAZ:00003203]:
         text: Hong Kong [GAZ:00003203]
         title: Hong Kong [GAZ:00003203]
@@ -4260,6 +4559,8 @@ enums:
           - NCBI_BIOSAMPLE:Hong%20Kong
           - ENA_GSC_MIxS_WW_ERC00023:Hong%20Kong
           - ENA_SEWAGE_ERC00036:Hong%20Kong
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Hong%20Kong
+          - NCBI_BIOSAMPLE_Pathogen:Hong%20Kong
       Howland Island [GAZ:00007120]:
         text: Howland Island [GAZ:00007120]
         title: Howland Island [GAZ:00007120]
@@ -4270,6 +4571,8 @@ enums:
           - NCBI_BIOSAMPLE:Howland%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Howland%20Island
           - ENA_SEWAGE_ERC00036:Howland%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Howland%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Howland%20Island
       Hungary [GAZ:00002952]:
         text: Hungary [GAZ:00002952]
         title: Hungary [GAZ:00002952]
@@ -4280,6 +4583,8 @@ enums:
           - NCBI_BIOSAMPLE:Hungary
           - ENA_GSC_MIxS_WW_ERC00023:Hungary
           - ENA_SEWAGE_ERC00036:Hungary
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Hungary
+          - NCBI_BIOSAMPLE_Pathogen:Hungary
       Iceland [GAZ:00000843]:
         text: Iceland [GAZ:00000843]
         title: Iceland [GAZ:00000843]
@@ -4290,6 +4595,8 @@ enums:
           - NCBI_BIOSAMPLE:Iceland
           - ENA_GSC_MIxS_WW_ERC00023:Iceland
           - ENA_SEWAGE_ERC00036:Iceland
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Iceland
+          - NCBI_BIOSAMPLE_Pathogen:Iceland
       India [GAZ:00002839]:
         text: India [GAZ:00002839]
         title: India [GAZ:00002839]
@@ -4300,6 +4607,8 @@ enums:
           - NCBI_BIOSAMPLE:India
           - ENA_GSC_MIxS_WW_ERC00023:India
           - ENA_SEWAGE_ERC00036:India
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:India
+          - NCBI_BIOSAMPLE_Pathogen:India
       Indonesia [GAZ:00003727]:
         text: Indonesia [GAZ:00003727]
         title: Indonesia [GAZ:00003727]
@@ -4310,6 +4619,8 @@ enums:
           - NCBI_BIOSAMPLE:Indonesia
           - ENA_GSC_MIxS_WW_ERC00023:Indonesia
           - ENA_SEWAGE_ERC00036:Indonesia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Indonesia
+          - NCBI_BIOSAMPLE_Pathogen:Indonesia
       Iran [GAZ:00004474]:
         text: Iran [GAZ:00004474]
         title: Iran [GAZ:00004474]
@@ -4320,6 +4631,8 @@ enums:
           - NCBI_BIOSAMPLE:Iran
           - ENA_GSC_MIxS_WW_ERC00023:Iran
           - ENA_SEWAGE_ERC00036:Iran
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Iran
+          - NCBI_BIOSAMPLE_Pathogen:Iran
       Iraq [GAZ:00004483]:
         text: Iraq [GAZ:00004483]
         title: Iraq [GAZ:00004483]
@@ -4330,6 +4643,8 @@ enums:
           - NCBI_BIOSAMPLE:Iraq
           - ENA_GSC_MIxS_WW_ERC00023:Iraq
           - ENA_SEWAGE_ERC00036:Iraq
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Iraq
+          - NCBI_BIOSAMPLE_Pathogen:Iraq
       Ireland [GAZ:00002943]:
         text: Ireland [GAZ:00002943]
         title: Ireland [GAZ:00002943]
@@ -4340,6 +4655,8 @@ enums:
           - NCBI_BIOSAMPLE:Ireland
           - ENA_GSC_MIxS_WW_ERC00023:Ireland
           - ENA_SEWAGE_ERC00036:Ireland
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Ireland
+          - NCBI_BIOSAMPLE_Pathogen:Ireland
       Isle of Man [GAZ:00052477]:
         text: Isle of Man [GAZ:00052477]
         title: Isle of Man [GAZ:00052477]
@@ -4350,6 +4667,8 @@ enums:
           - NCBI_BIOSAMPLE:Isle%20of%20Man
           - ENA_GSC_MIxS_WW_ERC00023:Isle%20of%20Man
           - ENA_SEWAGE_ERC00036:Isle%20of%20Man
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Isle%20of%20Man
+          - NCBI_BIOSAMPLE_Pathogen:Isle%20of%20Man
       Israel [GAZ:00002476]:
         text: Israel [GAZ:00002476]
         title: Israel [GAZ:00002476]
@@ -4360,6 +4679,8 @@ enums:
           - NCBI_BIOSAMPLE:Israel
           - ENA_GSC_MIxS_WW_ERC00023:Israel
           - ENA_SEWAGE_ERC00036:Israel
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Israel
+          - NCBI_BIOSAMPLE_Pathogen:Israel
       Italy [GAZ:00002650]:
         text: Italy [GAZ:00002650]
         title: Italy [GAZ:00002650]
@@ -4370,6 +4691,8 @@ enums:
           - NCBI_BIOSAMPLE:Italy
           - ENA_GSC_MIxS_WW_ERC00023:Italy
           - ENA_SEWAGE_ERC00036:Italy
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Italy
+          - NCBI_BIOSAMPLE_Pathogen:Italy
       Jamaica [GAZ:00003781]:
         text: Jamaica [GAZ:00003781]
         title: Jamaica [GAZ:00003781]
@@ -4380,6 +4703,8 @@ enums:
           - NCBI_BIOSAMPLE:Jamaica
           - ENA_GSC_MIxS_WW_ERC00023:Jamaica
           - ENA_SEWAGE_ERC00036:Jamaica
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Jamaica
+          - NCBI_BIOSAMPLE_Pathogen:Jamaica
       Jan Mayen [GAZ:00005853]:
         text: Jan Mayen [GAZ:00005853]
         title: Jan Mayen [GAZ:00005853]
@@ -4390,6 +4715,8 @@ enums:
           - NCBI_BIOSAMPLE:Jan%20Mayen
           - ENA_GSC_MIxS_WW_ERC00023:Jan%20Mayen
           - ENA_SEWAGE_ERC00036:Jan%20Mayen
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Jan%20Mayen
+          - NCBI_BIOSAMPLE_Pathogen:Jan%20Mayen
       Japan [GAZ:00002747]:
         text: Japan [GAZ:00002747]
         title: Japan [GAZ:00002747]
@@ -4400,6 +4727,8 @@ enums:
           - NCBI_BIOSAMPLE:Japan
           - ENA_GSC_MIxS_WW_ERC00023:Japan
           - ENA_SEWAGE_ERC00036:Japan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Japan
+          - NCBI_BIOSAMPLE_Pathogen:Japan
       Jarvis Island [GAZ:00007118]:
         text: Jarvis Island [GAZ:00007118]
         title: Jarvis Island [GAZ:00007118]
@@ -4410,6 +4739,8 @@ enums:
           - NCBI_BIOSAMPLE:Jarvis%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Jarvis%20Island
           - ENA_SEWAGE_ERC00036:Jarvis%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Jarvis%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Jarvis%20Island
       Jersey [GAZ:00001551]:
         text: Jersey [GAZ:00001551]
         title: Jersey [GAZ:00001551]
@@ -4420,6 +4751,8 @@ enums:
           - NCBI_BIOSAMPLE:Jersey
           - ENA_GSC_MIxS_WW_ERC00023:Jersey
           - ENA_SEWAGE_ERC00036:Jersey
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Jersey
+          - NCBI_BIOSAMPLE_Pathogen:Jersey
       Johnston Atoll [GAZ:00007114]:
         text: Johnston Atoll [GAZ:00007114]
         title: Johnston Atoll [GAZ:00007114]
@@ -4430,6 +4763,8 @@ enums:
           - NCBI_BIOSAMPLE:Johnston%20Atoll
           - ENA_GSC_MIxS_WW_ERC00023:Johnston%20Atoll
           - ENA_SEWAGE_ERC00036:Johnston%20Atoll
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Johnston%20Atoll
+          - NCBI_BIOSAMPLE_Pathogen:Johnston%20Atoll
       Jordan [GAZ:00002473]:
         text: Jordan [GAZ:00002473]
         title: Jordan [GAZ:00002473]
@@ -4440,6 +4775,8 @@ enums:
           - NCBI_BIOSAMPLE:Jordan
           - ENA_GSC_MIxS_WW_ERC00023:Jordan
           - ENA_SEWAGE_ERC00036:Jordan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Jordan
+          - NCBI_BIOSAMPLE_Pathogen:Jordan
       Juan de Nova Island [GAZ:00005809]:
         text: Juan de Nova Island [GAZ:00005809]
         title: Juan de Nova Island [GAZ:00005809]
@@ -4450,6 +4787,8 @@ enums:
           - NCBI_BIOSAMPLE:Juan%20de%20Nova%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Juan%20de%20Nova%20Island
           - ENA_SEWAGE_ERC00036:Juan%20de%20Nova%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Juan%20de%20Nova%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Juan%20de%20Nova%20Island
       Kazakhstan [GAZ:00004999]:
         text: Kazakhstan [GAZ:00004999]
         title: Kazakhstan [GAZ:00004999]
@@ -4460,6 +4799,8 @@ enums:
           - NCBI_BIOSAMPLE:Kazakhstan
           - ENA_GSC_MIxS_WW_ERC00023:Kazakhstan
           - ENA_SEWAGE_ERC00036:Kazakhstan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Kazakhstan
+          - NCBI_BIOSAMPLE_Pathogen:Kazakhstan
       Kenya [GAZ:00001101]:
         text: Kenya [GAZ:00001101]
         title: Kenya [GAZ:00001101]
@@ -4470,6 +4811,8 @@ enums:
           - NCBI_BIOSAMPLE:Kenya
           - ENA_GSC_MIxS_WW_ERC00023:Kenya
           - ENA_SEWAGE_ERC00036:Kenya
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Kenya
+          - NCBI_BIOSAMPLE_Pathogen:Kenya
       Kerguelen Archipelago [GAZ:00005682]:
         text: Kerguelen Archipelago [GAZ:00005682]
         title: Kerguelen Archipelago [GAZ:00005682]
@@ -4480,6 +4823,8 @@ enums:
           - NCBI_BIOSAMPLE:Kerguelen%20Archipelago
           - ENA_GSC_MIxS_WW_ERC00023:Kerguelen%20Archipelago
           - ENA_SEWAGE_ERC00036:Kerguelen%20Archipelago
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Kerguelen%20Archipelago
+          - NCBI_BIOSAMPLE_Pathogen:Kerguelen%20Archipelago
       Kingman Reef [GAZ:00007116]:
         text: Kingman Reef [GAZ:00007116]
         title: Kingman Reef [GAZ:00007116]
@@ -4490,6 +4835,8 @@ enums:
           - NCBI_BIOSAMPLE:Kingman%20Reef
           - ENA_GSC_MIxS_WW_ERC00023:Kingman%20Reef
           - ENA_SEWAGE_ERC00036:Kingman%20Reef
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Kingman%20Reef
+          - NCBI_BIOSAMPLE_Pathogen:Kingman%20Reef
       Kiribati [GAZ:00006894]:
         text: Kiribati [GAZ:00006894]
         title: Kiribati [GAZ:00006894]
@@ -4500,6 +4847,8 @@ enums:
           - NCBI_BIOSAMPLE:Kiribati
           - ENA_GSC_MIxS_WW_ERC00023:Kiribati
           - ENA_SEWAGE_ERC00036:Kiribati
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Kiribati
+          - NCBI_BIOSAMPLE_Pathogen:Kiribati
       Kosovo [GAZ:00011337]:
         text: Kosovo [GAZ:00011337]
         title: Kosovo [GAZ:00011337]
@@ -4510,6 +4859,8 @@ enums:
           - NCBI_BIOSAMPLE:Kosovo
           - ENA_GSC_MIxS_WW_ERC00023:Kosovo
           - ENA_SEWAGE_ERC00036:Kosovo
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Kosovo
+          - NCBI_BIOSAMPLE_Pathogen:Kosovo
       Kuwait [GAZ:00005285]:
         text: Kuwait [GAZ:00005285]
         title: Kuwait [GAZ:00005285]
@@ -4520,6 +4871,8 @@ enums:
           - NCBI_BIOSAMPLE:Kuwait
           - ENA_GSC_MIxS_WW_ERC00023:Kuwait
           - ENA_SEWAGE_ERC00036:Kuwait
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Kuwait
+          - NCBI_BIOSAMPLE_Pathogen:Kuwait
       Kyrgyzstan [GAZ:00006893]:
         text: Kyrgyzstan [GAZ:00006893]
         title: Kyrgyzstan [GAZ:00006893]
@@ -4530,6 +4883,8 @@ enums:
           - NCBI_BIOSAMPLE:Kyrgyzstan
           - ENA_GSC_MIxS_WW_ERC00023:Kyrgyzstan
           - ENA_SEWAGE_ERC00036:Kyrgyzstan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Kyrgyzstan
+          - NCBI_BIOSAMPLE_Pathogen:Kyrgyzstan
       Laos [GAZ:00006889]:
         text: Laos [GAZ:00006889]
         title: Laos [GAZ:00006889]
@@ -4540,6 +4895,8 @@ enums:
           - NCBI_BIOSAMPLE:Laos
           - ENA_GSC_MIxS_WW_ERC00023:Laos
           - ENA_SEWAGE_ERC00036:Laos
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Laos
+          - NCBI_BIOSAMPLE_Pathogen:Laos
       Latvia [GAZ:00002958]:
         text: Latvia [GAZ:00002958]
         title: Latvia [GAZ:00002958]
@@ -4550,6 +4907,8 @@ enums:
           - NCBI_BIOSAMPLE:Latvia
           - ENA_GSC_MIxS_WW_ERC00023:Latvia
           - ENA_SEWAGE_ERC00036:Latvia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Latvia
+          - NCBI_BIOSAMPLE_Pathogen:Latvia
       Lebanon [GAZ:00002478]:
         text: Lebanon [GAZ:00002478]
         title: Lebanon [GAZ:00002478]
@@ -4560,6 +4919,8 @@ enums:
           - NCBI_BIOSAMPLE:Lebanon
           - ENA_GSC_MIxS_WW_ERC00023:Lebanon
           - ENA_SEWAGE_ERC00036:Lebanon
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Lebanon
+          - NCBI_BIOSAMPLE_Pathogen:Lebanon
       Lesotho [GAZ:00001098]:
         text: Lesotho [GAZ:00001098]
         title: Lesotho [GAZ:00001098]
@@ -4570,6 +4931,8 @@ enums:
           - NCBI_BIOSAMPLE:Lesotho
           - ENA_GSC_MIxS_WW_ERC00023:Lesotho
           - ENA_SEWAGE_ERC00036:Lesotho
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Lesotho
+          - NCBI_BIOSAMPLE_Pathogen:Lesotho
       Liberia [GAZ:00000911]:
         text: Liberia [GAZ:00000911]
         title: Liberia [GAZ:00000911]
@@ -4580,6 +4943,8 @@ enums:
           - NCBI_BIOSAMPLE:Liberia
           - ENA_GSC_MIxS_WW_ERC00023:Liberia
           - ENA_SEWAGE_ERC00036:Liberia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Liberia
+          - NCBI_BIOSAMPLE_Pathogen:Liberia
       Libya [GAZ:00000566]:
         text: Libya [GAZ:00000566]
         title: Libya [GAZ:00000566]
@@ -4590,6 +4955,8 @@ enums:
           - NCBI_BIOSAMPLE:Libya
           - ENA_GSC_MIxS_WW_ERC00023:Libya
           - ENA_SEWAGE_ERC00036:Libya
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Libya
+          - NCBI_BIOSAMPLE_Pathogen:Libya
       Liechtenstein [GAZ:00003858]:
         text: Liechtenstein [GAZ:00003858]
         title: Liechtenstein [GAZ:00003858]
@@ -4600,6 +4967,8 @@ enums:
           - NCBI_BIOSAMPLE:Liechtenstein
           - ENA_GSC_MIxS_WW_ERC00023:Liechtenstein
           - ENA_SEWAGE_ERC00036:Liechtenstein
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Liechtenstein
+          - NCBI_BIOSAMPLE_Pathogen:Liechtenstein
       Line Islands [GAZ:00007144]:
         text: Line Islands [GAZ:00007144]
         title: Line Islands [GAZ:00007144]
@@ -4610,6 +4979,8 @@ enums:
           - NCBI_BIOSAMPLE:Line%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Line%20Islands
           - ENA_SEWAGE_ERC00036:Line%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Line%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Line%20Islands
       Lithuania [GAZ:00002960]:
         text: Lithuania [GAZ:00002960]
         title: Lithuania [GAZ:00002960]
@@ -4620,6 +4991,8 @@ enums:
           - NCBI_BIOSAMPLE:Lithuania
           - ENA_GSC_MIxS_WW_ERC00023:Lithuania
           - ENA_SEWAGE_ERC00036:Lithuania
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Lithuania
+          - NCBI_BIOSAMPLE_Pathogen:Lithuania
       Luxembourg [GAZ:00002947]:
         text: Luxembourg [GAZ:00002947]
         title: Luxembourg [GAZ:00002947]
@@ -4630,6 +5003,8 @@ enums:
           - NCBI_BIOSAMPLE:Luxembourg
           - ENA_GSC_MIxS_WW_ERC00023:Luxembourg
           - ENA_SEWAGE_ERC00036:Luxembourg
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Luxembourg
+          - NCBI_BIOSAMPLE_Pathogen:Luxembourg
       Macau [GAZ:00003202]:
         text: Macau [GAZ:00003202]
         title: Macau [GAZ:00003202]
@@ -4640,6 +5015,8 @@ enums:
           - NCBI_BIOSAMPLE:Macau
           - ENA_GSC_MIxS_WW_ERC00023:Macau
           - ENA_SEWAGE_ERC00036:Macau
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Macau
+          - NCBI_BIOSAMPLE_Pathogen:Macau
       Madagascar [GAZ:00001108]:
         text: Madagascar [GAZ:00001108]
         title: Madagascar [GAZ:00001108]
@@ -4650,6 +5027,8 @@ enums:
           - NCBI_BIOSAMPLE:Madagascar
           - ENA_GSC_MIxS_WW_ERC00023:Madagascar
           - ENA_SEWAGE_ERC00036:Madagascar
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Madagascar
+          - NCBI_BIOSAMPLE_Pathogen:Madagascar
       Malawi [GAZ:00001105]:
         text: Malawi [GAZ:00001105]
         title: Malawi [GAZ:00001105]
@@ -4660,6 +5039,8 @@ enums:
           - NCBI_BIOSAMPLE:Malawi
           - ENA_GSC_MIxS_WW_ERC00023:Malawi
           - ENA_SEWAGE_ERC00036:Malawi
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Malawi
+          - NCBI_BIOSAMPLE_Pathogen:Malawi
       Malaysia [GAZ:00003902]:
         text: Malaysia [GAZ:00003902]
         title: Malaysia [GAZ:00003902]
@@ -4670,6 +5051,8 @@ enums:
           - NCBI_BIOSAMPLE:Malaysia
           - ENA_GSC_MIxS_WW_ERC00023:Malaysia
           - ENA_SEWAGE_ERC00036:Malaysia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Malaysia
+          - NCBI_BIOSAMPLE_Pathogen:Malaysia
       Maldives [GAZ:00006924]:
         text: Maldives [GAZ:00006924]
         title: Maldives [GAZ:00006924]
@@ -4680,6 +5063,8 @@ enums:
           - NCBI_BIOSAMPLE:Maldives
           - ENA_GSC_MIxS_WW_ERC00023:Maldives
           - ENA_SEWAGE_ERC00036:Maldives
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Maldives
+          - NCBI_BIOSAMPLE_Pathogen:Maldives
       Mali [GAZ:00000584]:
         text: Mali [GAZ:00000584]
         title: Mali [GAZ:00000584]
@@ -4690,6 +5075,8 @@ enums:
           - NCBI_BIOSAMPLE:Mali
           - ENA_GSC_MIxS_WW_ERC00023:Mali
           - ENA_SEWAGE_ERC00036:Mali
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Mali
+          - NCBI_BIOSAMPLE_Pathogen:Mali
       Malta [GAZ:00004017]:
         text: Malta [GAZ:00004017]
         title: Malta [GAZ:00004017]
@@ -4700,6 +5087,8 @@ enums:
           - NCBI_BIOSAMPLE:Malta
           - ENA_GSC_MIxS_WW_ERC00023:Malta
           - ENA_SEWAGE_ERC00036:Malta
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Malta
+          - NCBI_BIOSAMPLE_Pathogen:Malta
       Marshall Islands [GAZ:00007161]:
         text: Marshall Islands [GAZ:00007161]
         title: Marshall Islands [GAZ:00007161]
@@ -4710,6 +5099,8 @@ enums:
           - NCBI_BIOSAMPLE:Marshall%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Marshall%20Islands
           - ENA_SEWAGE_ERC00036:Marshall%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Marshall%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Marshall%20Islands
       Martinique [GAZ:00067143]:
         text: Martinique [GAZ:00067143]
         title: Martinique [GAZ:00067143]
@@ -4720,6 +5111,8 @@ enums:
           - NCBI_BIOSAMPLE:Martinique
           - ENA_GSC_MIxS_WW_ERC00023:Martinique
           - ENA_SEWAGE_ERC00036:Martinique
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Martinique
+          - NCBI_BIOSAMPLE_Pathogen:Martinique
       Mauritania [GAZ:00000583]:
         text: Mauritania [GAZ:00000583]
         title: Mauritania [GAZ:00000583]
@@ -4730,6 +5123,8 @@ enums:
           - NCBI_BIOSAMPLE:Mauritania
           - ENA_GSC_MIxS_WW_ERC00023:Mauritania
           - ENA_SEWAGE_ERC00036:Mauritania
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Mauritania
+          - NCBI_BIOSAMPLE_Pathogen:Mauritania
       Mauritius [GAZ:00003745]:
         text: Mauritius [GAZ:00003745]
         title: Mauritius [GAZ:00003745]
@@ -4740,6 +5135,8 @@ enums:
           - NCBI_BIOSAMPLE:Mauritius
           - ENA_GSC_MIxS_WW_ERC00023:Mauritius
           - ENA_SEWAGE_ERC00036:Mauritius
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Mauritius
+          - NCBI_BIOSAMPLE_Pathogen:Mauritius
       Mayotte [GAZ:00003943]:
         text: Mayotte [GAZ:00003943]
         title: Mayotte [GAZ:00003943]
@@ -4750,6 +5147,8 @@ enums:
           - NCBI_BIOSAMPLE:Mayotte
           - ENA_GSC_MIxS_WW_ERC00023:Mayotte
           - ENA_SEWAGE_ERC00036:Mayotte
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Mayotte
+          - NCBI_BIOSAMPLE_Pathogen:Mayotte
       Mexico [GAZ:00002852]:
         text: Mexico [GAZ:00002852]
         title: Mexico [GAZ:00002852]
@@ -4760,6 +5159,8 @@ enums:
           - NCBI_BIOSAMPLE:Mexico
           - ENA_GSC_MIxS_WW_ERC00023:Mexico
           - ENA_SEWAGE_ERC00036:Mexico
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Mexico
+          - NCBI_BIOSAMPLE_Pathogen:Mexico
       Micronesia [GAZ:00005862]:
         text: Micronesia [GAZ:00005862]
         title: Micronesia [GAZ:00005862]
@@ -4770,6 +5171,8 @@ enums:
           - NCBI_BIOSAMPLE:Micronesia
           - ENA_GSC_MIxS_WW_ERC00023:Micronesia
           - ENA_SEWAGE_ERC00036:Micronesia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Micronesia
+          - NCBI_BIOSAMPLE_Pathogen:Micronesia
       Midway Islands [GAZ:00007112]:
         text: Midway Islands [GAZ:00007112]
         title: Midway Islands [GAZ:00007112]
@@ -4780,6 +5183,8 @@ enums:
           - NCBI_BIOSAMPLE:Midway%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Midway%20Islands
           - ENA_SEWAGE_ERC00036:Midway%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Midway%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Midway%20Islands
       Moldova [GAZ:00003897]:
         text: Moldova [GAZ:00003897]
         title: Moldova [GAZ:00003897]
@@ -4790,6 +5195,8 @@ enums:
           - NCBI_BIOSAMPLE:Moldova
           - ENA_GSC_MIxS_WW_ERC00023:Moldova
           - ENA_SEWAGE_ERC00036:Moldova
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Moldova
+          - NCBI_BIOSAMPLE_Pathogen:Moldova
       Monaco [GAZ:00003857]:
         text: Monaco [GAZ:00003857]
         title: Monaco [GAZ:00003857]
@@ -4800,6 +5207,8 @@ enums:
           - NCBI_BIOSAMPLE:Monaco
           - ENA_GSC_MIxS_WW_ERC00023:Monaco
           - ENA_SEWAGE_ERC00036:Monaco
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Monaco
+          - NCBI_BIOSAMPLE_Pathogen:Monaco
       Mongolia [GAZ:00008744]:
         text: Mongolia [GAZ:00008744]
         title: Mongolia [GAZ:00008744]
@@ -4810,6 +5219,8 @@ enums:
           - NCBI_BIOSAMPLE:Mongolia
           - ENA_GSC_MIxS_WW_ERC00023:Mongolia
           - ENA_SEWAGE_ERC00036:Mongolia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Mongolia
+          - NCBI_BIOSAMPLE_Pathogen:Mongolia
       Montenegro [GAZ:00006898]:
         text: Montenegro [GAZ:00006898]
         title: Montenegro [GAZ:00006898]
@@ -4820,6 +5231,8 @@ enums:
           - NCBI_BIOSAMPLE:Montenegro
           - ENA_GSC_MIxS_WW_ERC00023:Montenegro
           - ENA_SEWAGE_ERC00036:Montenegro
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Montenegro
+          - NCBI_BIOSAMPLE_Pathogen:Montenegro
       Montserrat [GAZ:00003988]:
         text: Montserrat [GAZ:00003988]
         title: Montserrat [GAZ:00003988]
@@ -4830,6 +5243,8 @@ enums:
           - NCBI_BIOSAMPLE:Montserrat
           - ENA_GSC_MIxS_WW_ERC00023:Montserrat
           - ENA_SEWAGE_ERC00036:Montserrat
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Montserrat
+          - NCBI_BIOSAMPLE_Pathogen:Montserrat
       Morocco [GAZ:00000565]:
         text: Morocco [GAZ:00000565]
         title: Morocco [GAZ:00000565]
@@ -4840,6 +5255,8 @@ enums:
           - NCBI_BIOSAMPLE:Morocco
           - ENA_GSC_MIxS_WW_ERC00023:Morocco
           - ENA_SEWAGE_ERC00036:Morocco
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Morocco
+          - NCBI_BIOSAMPLE_Pathogen:Morocco
       Mozambique [GAZ:00001100]:
         text: Mozambique [GAZ:00001100]
         title: Mozambique [GAZ:00001100]
@@ -4850,6 +5267,8 @@ enums:
           - NCBI_BIOSAMPLE:Mozambique
           - ENA_GSC_MIxS_WW_ERC00023:Mozambique
           - ENA_SEWAGE_ERC00036:Mozambique
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Mozambique
+          - NCBI_BIOSAMPLE_Pathogen:Mozambique
       Myanmar [GAZ:00006899]:
         text: Myanmar [GAZ:00006899]
         title: Myanmar [GAZ:00006899]
@@ -4860,6 +5279,8 @@ enums:
           - NCBI_BIOSAMPLE:Myanmar
           - ENA_GSC_MIxS_WW_ERC00023:Myanmar
           - ENA_SEWAGE_ERC00036:Myanmar
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Myanmar
+          - NCBI_BIOSAMPLE_Pathogen:Myanmar
       Namibia [GAZ:00001096]:
         text: Namibia [GAZ:00001096]
         title: Namibia [GAZ:00001096]
@@ -4870,6 +5291,8 @@ enums:
           - NCBI_BIOSAMPLE:Namibia
           - ENA_GSC_MIxS_WW_ERC00023:Namibia
           - ENA_SEWAGE_ERC00036:Namibia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Namibia
+          - NCBI_BIOSAMPLE_Pathogen:Namibia
       Nauru [GAZ:00006900]:
         text: Nauru [GAZ:00006900]
         title: Nauru [GAZ:00006900]
@@ -4880,6 +5303,8 @@ enums:
           - NCBI_BIOSAMPLE:Nauru
           - ENA_GSC_MIxS_WW_ERC00023:Nauru
           - ENA_SEWAGE_ERC00036:Nauru
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Nauru
+          - NCBI_BIOSAMPLE_Pathogen:Nauru
       Navassa Island [GAZ:00007119]:
         text: Navassa Island [GAZ:00007119]
         title: Navassa Island [GAZ:00007119]
@@ -4890,6 +5315,8 @@ enums:
           - NCBI_BIOSAMPLE:Navassa%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Navassa%20Island
           - ENA_SEWAGE_ERC00036:Navassa%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Navassa%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Navassa%20Island
       Nepal [GAZ:00004399]:
         text: Nepal [GAZ:00004399]
         title: Nepal [GAZ:00004399]
@@ -4900,6 +5327,8 @@ enums:
           - NCBI_BIOSAMPLE:Nepal
           - ENA_GSC_MIxS_WW_ERC00023:Nepal
           - ENA_SEWAGE_ERC00036:Nepal
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Nepal
+          - NCBI_BIOSAMPLE_Pathogen:Nepal
       Netherlands [GAZ:00002946]:
         text: Netherlands [GAZ:00002946]
         title: Netherlands [GAZ:00002946]
@@ -4910,6 +5339,8 @@ enums:
           - NCBI_BIOSAMPLE:Netherlands
           - ENA_GSC_MIxS_WW_ERC00023:Netherlands
           - ENA_SEWAGE_ERC00036:Netherlands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Netherlands
+          - NCBI_BIOSAMPLE_Pathogen:Netherlands
       New Caledonia [GAZ:00005206]:
         text: New Caledonia [GAZ:00005206]
         title: New Caledonia [GAZ:00005206]
@@ -4920,6 +5351,8 @@ enums:
           - NCBI_BIOSAMPLE:New%20Caledonia
           - ENA_GSC_MIxS_WW_ERC00023:New%20Caledonia
           - ENA_SEWAGE_ERC00036:New%20Caledonia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:New%20Caledonia
+          - NCBI_BIOSAMPLE_Pathogen:New%20Caledonia
       New Zealand [GAZ:00000469]:
         text: New Zealand [GAZ:00000469]
         title: New Zealand [GAZ:00000469]
@@ -4930,6 +5363,8 @@ enums:
           - NCBI_BIOSAMPLE:New%20Zealand
           - ENA_GSC_MIxS_WW_ERC00023:New%20Zealand
           - ENA_SEWAGE_ERC00036:New%20Zealand
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:New%20Zealand
+          - NCBI_BIOSAMPLE_Pathogen:New%20Zealand
       Nicaragua [GAZ:00002978]:
         text: Nicaragua [GAZ:00002978]
         title: Nicaragua [GAZ:00002978]
@@ -4940,6 +5375,8 @@ enums:
           - NCBI_BIOSAMPLE:Nicaragua
           - ENA_GSC_MIxS_WW_ERC00023:Nicaragua
           - ENA_SEWAGE_ERC00036:Nicaragua
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Nicaragua
+          - NCBI_BIOSAMPLE_Pathogen:Nicaragua
       Niger [GAZ:00000585]:
         text: Niger [GAZ:00000585]
         title: Niger [GAZ:00000585]
@@ -4950,6 +5387,8 @@ enums:
           - NCBI_BIOSAMPLE:Niger
           - ENA_GSC_MIxS_WW_ERC00023:Niger
           - ENA_SEWAGE_ERC00036:Niger
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Niger
+          - NCBI_BIOSAMPLE_Pathogen:Niger
       Nigeria [GAZ:00000912]:
         text: Nigeria [GAZ:00000912]
         title: Nigeria [GAZ:00000912]
@@ -4960,6 +5399,8 @@ enums:
           - NCBI_BIOSAMPLE:Nigeria
           - ENA_GSC_MIxS_WW_ERC00023:Nigeria
           - ENA_SEWAGE_ERC00036:Nigeria
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Nigeria
+          - NCBI_BIOSAMPLE_Pathogen:Nigeria
       Niue [GAZ:00006902]:
         text: Niue [GAZ:00006902]
         title: Niue [GAZ:00006902]
@@ -4970,6 +5411,8 @@ enums:
           - NCBI_BIOSAMPLE:Niue
           - ENA_GSC_MIxS_WW_ERC00023:Niue
           - ENA_SEWAGE_ERC00036:Niue
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Niue
+          - NCBI_BIOSAMPLE_Pathogen:Niue
       Norfolk Island [GAZ:00005908]:
         text: Norfolk Island [GAZ:00005908]
         title: Norfolk Island [GAZ:00005908]
@@ -4980,6 +5423,8 @@ enums:
           - NCBI_BIOSAMPLE:Norfolk%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Norfolk%20Island
           - ENA_SEWAGE_ERC00036:Norfolk%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Norfolk%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Norfolk%20Island
       North Korea [GAZ:00002801]:
         text: North Korea [GAZ:00002801]
         title: North Korea [GAZ:00002801]
@@ -4990,6 +5435,8 @@ enums:
           - NCBI_BIOSAMPLE:North%20Korea
           - ENA_GSC_MIxS_WW_ERC00023:North%20Korea
           - ENA_SEWAGE_ERC00036:North%20Korea
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:North%20Korea
+          - NCBI_BIOSAMPLE_Pathogen:North%20Korea
       North Macedonia [GAZ:00006895]:
         text: North Macedonia [GAZ:00006895]
         title: North Macedonia [GAZ:00006895]
@@ -5000,6 +5447,8 @@ enums:
           - NCBI_BIOSAMPLE:North%20Macedonia
           - ENA_GSC_MIxS_WW_ERC00023:North%20Macedonia
           - ENA_SEWAGE_ERC00036:North%20Macedonia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:North%20Macedonia
+          - NCBI_BIOSAMPLE_Pathogen:North%20Macedonia
       North Sea [GAZ:00002284]:
         text: North Sea [GAZ:00002284]
         title: North Sea [GAZ:00002284]
@@ -5010,6 +5459,8 @@ enums:
           - NCBI_BIOSAMPLE:North%20Sea
           - ENA_GSC_MIxS_WW_ERC00023:North%20Sea
           - ENA_SEWAGE_ERC00036:North%20Sea
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:North%20Sea
+          - NCBI_BIOSAMPLE_Pathogen:North%20Sea
       Northern Mariana Islands [GAZ:00003958]:
         text: Northern Mariana Islands [GAZ:00003958]
         title: Northern Mariana Islands [GAZ:00003958]
@@ -5020,6 +5471,8 @@ enums:
           - NCBI_BIOSAMPLE:Northern%20Mariana%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Northern%20Mariana%20Islands
           - ENA_SEWAGE_ERC00036:Northern%20Mariana%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Northern%20Mariana%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Northern%20Mariana%20Islands
       Norway [GAZ:00002699]:
         text: Norway [GAZ:00002699]
         title: Norway [GAZ:00002699]
@@ -5030,6 +5483,8 @@ enums:
           - NCBI_BIOSAMPLE:Norway
           - ENA_GSC_MIxS_WW_ERC00023:Norway
           - ENA_SEWAGE_ERC00036:Norway
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Norway
+          - NCBI_BIOSAMPLE_Pathogen:Norway
       Oman [GAZ:00005283]:
         text: Oman [GAZ:00005283]
         title: Oman [GAZ:00005283]
@@ -5040,6 +5495,8 @@ enums:
           - NCBI_BIOSAMPLE:Oman
           - ENA_GSC_MIxS_WW_ERC00023:Oman
           - ENA_SEWAGE_ERC00036:Oman
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Oman
+          - NCBI_BIOSAMPLE_Pathogen:Oman
       Pakistan [GAZ:00005246]:
         text: Pakistan [GAZ:00005246]
         title: Pakistan [GAZ:00005246]
@@ -5050,6 +5507,8 @@ enums:
           - NCBI_BIOSAMPLE:Pakistan
           - ENA_GSC_MIxS_WW_ERC00023:Pakistan
           - ENA_SEWAGE_ERC00036:Pakistan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Pakistan
+          - NCBI_BIOSAMPLE_Pathogen:Pakistan
       Palau [GAZ:00006905]:
         text: Palau [GAZ:00006905]
         title: Palau [GAZ:00006905]
@@ -5060,6 +5519,8 @@ enums:
           - NCBI_BIOSAMPLE:Palau
           - ENA_GSC_MIxS_WW_ERC00023:Palau
           - ENA_SEWAGE_ERC00036:Palau
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Palau
+          - NCBI_BIOSAMPLE_Pathogen:Palau
       Panama [GAZ:00002892]:
         text: Panama [GAZ:00002892]
         title: Panama [GAZ:00002892]
@@ -5070,6 +5531,8 @@ enums:
           - NCBI_BIOSAMPLE:Panama
           - ENA_GSC_MIxS_WW_ERC00023:Panama
           - ENA_SEWAGE_ERC00036:Panama
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Panama
+          - NCBI_BIOSAMPLE_Pathogen:Panama
       Papua New Guinea [GAZ:00003922]:
         text: Papua New Guinea [GAZ:00003922]
         title: Papua New Guinea [GAZ:00003922]
@@ -5080,6 +5543,8 @@ enums:
           - NCBI_BIOSAMPLE:Papua%20New%20Guinea
           - ENA_GSC_MIxS_WW_ERC00023:Papua%20New%20Guinea
           - ENA_SEWAGE_ERC00036:Papua%20New%20Guinea
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Papua%20New%20Guinea
+          - NCBI_BIOSAMPLE_Pathogen:Papua%20New%20Guinea
       Paracel Islands [GAZ:00010832]:
         text: Paracel Islands [GAZ:00010832]
         title: Paracel Islands [GAZ:00010832]
@@ -5090,6 +5555,8 @@ enums:
           - NCBI_BIOSAMPLE:Paracel%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Paracel%20Islands
           - ENA_SEWAGE_ERC00036:Paracel%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Paracel%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Paracel%20Islands
       Paraguay [GAZ:00002933]:
         text: Paraguay [GAZ:00002933]
         title: Paraguay [GAZ:00002933]
@@ -5100,6 +5567,8 @@ enums:
           - NCBI_BIOSAMPLE:Paraguay
           - ENA_GSC_MIxS_WW_ERC00023:Paraguay
           - ENA_SEWAGE_ERC00036:Paraguay
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Paraguay
+          - NCBI_BIOSAMPLE_Pathogen:Paraguay
       Peru [GAZ:00002932]:
         text: Peru [GAZ:00002932]
         title: Peru [GAZ:00002932]
@@ -5110,6 +5579,8 @@ enums:
           - NCBI_BIOSAMPLE:Peru
           - ENA_GSC_MIxS_WW_ERC00023:Peru
           - ENA_SEWAGE_ERC00036:Peru
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Peru
+          - NCBI_BIOSAMPLE_Pathogen:Peru
       Philippines [GAZ:00004525]:
         text: Philippines [GAZ:00004525]
         title: Philippines [GAZ:00004525]
@@ -5120,6 +5591,8 @@ enums:
           - NCBI_BIOSAMPLE:Philippines
           - ENA_GSC_MIxS_WW_ERC00023:Philippines
           - ENA_SEWAGE_ERC00036:Philippines
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Philippines
+          - NCBI_BIOSAMPLE_Pathogen:Philippines
       Pitcairn Islands [GAZ:00005867]:
         text: Pitcairn Islands [GAZ:00005867]
         title: Pitcairn Islands [GAZ:00005867]
@@ -5130,6 +5603,8 @@ enums:
           - NCBI_BIOSAMPLE:Pitcairn%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Pitcairn%20Islands
           - ENA_SEWAGE_ERC00036:Pitcairn%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Pitcairn%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Pitcairn%20Islands
       Poland [GAZ:00002939]:
         text: Poland [GAZ:00002939]
         title: Poland [GAZ:00002939]
@@ -5140,6 +5615,8 @@ enums:
           - NCBI_BIOSAMPLE:Poland
           - ENA_GSC_MIxS_WW_ERC00023:Poland
           - ENA_SEWAGE_ERC00036:Poland
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Poland
+          - NCBI_BIOSAMPLE_Pathogen:Poland
       Portugal [GAZ:00004126]:
         text: Portugal [GAZ:00004126]
         title: Portugal [GAZ:00004126]
@@ -5150,6 +5627,8 @@ enums:
           - NCBI_BIOSAMPLE:Portugal
           - ENA_GSC_MIxS_WW_ERC00023:Portugal
           - ENA_SEWAGE_ERC00036:Portugal
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Portugal
+          - NCBI_BIOSAMPLE_Pathogen:Portugal
       Puerto Rico [GAZ:00006935]:
         text: Puerto Rico [GAZ:00006935]
         title: Puerto Rico [GAZ:00006935]
@@ -5160,6 +5639,8 @@ enums:
           - NCBI_BIOSAMPLE:Puerto%20Rico
           - ENA_GSC_MIxS_WW_ERC00023:Puerto%20Rico
           - ENA_SEWAGE_ERC00036:Puerto%20Rico
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Puerto%20Rico
+          - NCBI_BIOSAMPLE_Pathogen:Puerto%20Rico
       Qatar [GAZ:00005286]:
         text: Qatar [GAZ:00005286]
         title: Qatar [GAZ:00005286]
@@ -5170,6 +5651,8 @@ enums:
           - NCBI_BIOSAMPLE:Qatar
           - ENA_GSC_MIxS_WW_ERC00023:Qatar
           - ENA_SEWAGE_ERC00036:Qatar
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Qatar
+          - NCBI_BIOSAMPLE_Pathogen:Qatar
       Republic of the Congo [GAZ:00001088]:
         text: Republic of the Congo [GAZ:00001088]
         title: Republic of the Congo [GAZ:00001088]
@@ -5180,6 +5663,8 @@ enums:
           - NCBI_BIOSAMPLE:Republic%20of%20the%20Congo
           - ENA_GSC_MIxS_WW_ERC00023:Republic%20of%20the%20Congo
           - ENA_SEWAGE_ERC00036:Republic%20of%20the%20Congo
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Republic%20of%20the%20Congo
+          - NCBI_BIOSAMPLE_Pathogen:Republic%20of%20the%20Congo
       Reunion [GAZ:00003945]:
         text: Reunion [GAZ:00003945]
         title: Reunion [GAZ:00003945]
@@ -5190,6 +5675,8 @@ enums:
           - NCBI_BIOSAMPLE:Reunion
           - ENA_GSC_MIxS_WW_ERC00023:Reunion
           - ENA_SEWAGE_ERC00036:Reunion
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Reunion
+          - NCBI_BIOSAMPLE_Pathogen:Reunion
       Romania [GAZ:00002951]:
         text: Romania [GAZ:00002951]
         title: Romania [GAZ:00002951]
@@ -5200,6 +5687,8 @@ enums:
           - NCBI_BIOSAMPLE:Romania
           - ENA_GSC_MIxS_WW_ERC00023:Romania
           - ENA_SEWAGE_ERC00036:Romania
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Romania
+          - NCBI_BIOSAMPLE_Pathogen:Romania
       Ross Sea [GAZ:00023304]:
         text: Ross Sea [GAZ:00023304]
         title: Ross Sea [GAZ:00023304]
@@ -5210,6 +5699,8 @@ enums:
           - NCBI_BIOSAMPLE:Ross%20Sea
           - ENA_GSC_MIxS_WW_ERC00023:Ross%20Sea
           - ENA_SEWAGE_ERC00036:Ross%20Sea
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Ross%20Sea
+          - NCBI_BIOSAMPLE_Pathogen:Ross%20Sea
       Russia [GAZ:00002721]:
         text: Russia [GAZ:00002721]
         title: Russia [GAZ:00002721]
@@ -5220,6 +5711,8 @@ enums:
           - NCBI_BIOSAMPLE:Russia
           - ENA_GSC_MIxS_WW_ERC00023:Russia
           - ENA_SEWAGE_ERC00036:Russia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Russia
+          - NCBI_BIOSAMPLE_Pathogen:Russia
       Rwanda [GAZ:00001087]:
         text: Rwanda [GAZ:00001087]
         title: Rwanda [GAZ:00001087]
@@ -5230,6 +5723,8 @@ enums:
           - NCBI_BIOSAMPLE:Rwanda
           - ENA_GSC_MIxS_WW_ERC00023:Rwanda
           - ENA_SEWAGE_ERC00036:Rwanda
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Rwanda
+          - NCBI_BIOSAMPLE_Pathogen:Rwanda
       Saint Helena [GAZ:00000849]:
         text: Saint Helena [GAZ:00000849]
         title: Saint Helena [GAZ:00000849]
@@ -5240,6 +5735,8 @@ enums:
           - NCBI_BIOSAMPLE:Saint%20Helena
           - ENA_GSC_MIxS_WW_ERC00023:Saint%20Helena
           - ENA_SEWAGE_ERC00036:Saint%20Helena
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Saint%20Helena
+          - NCBI_BIOSAMPLE_Pathogen:Saint%20Helena
       Saint Kitts and Nevis [GAZ:00006906]:
         text: Saint Kitts and Nevis [GAZ:00006906]
         title: Saint Kitts and Nevis [GAZ:00006906]
@@ -5250,6 +5747,8 @@ enums:
           - NCBI_BIOSAMPLE:Saint%20Kitts%20and%20Nevis
           - ENA_GSC_MIxS_WW_ERC00023:Saint%20Kitts%20and%20Nevis
           - ENA_SEWAGE_ERC00036:Saint%20Kitts%20and%20Nevis
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Saint%20Kitts%20and%20Nevis
+          - NCBI_BIOSAMPLE_Pathogen:Saint%20Kitts%20and%20Nevis
       Saint Lucia [GAZ:00006909]:
         text: Saint Lucia [GAZ:00006909]
         title: Saint Lucia [GAZ:00006909]
@@ -5260,6 +5759,8 @@ enums:
           - NCBI_BIOSAMPLE:Saint%20Lucia
           - ENA_GSC_MIxS_WW_ERC00023:Saint%20Lucia
           - ENA_SEWAGE_ERC00036:Saint%20Lucia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Saint%20Lucia
+          - NCBI_BIOSAMPLE_Pathogen:Saint%20Lucia
       Saint Pierre and Miquelon [GAZ:00003942]:
         text: Saint Pierre and Miquelon [GAZ:00003942]
         title: Saint Pierre and Miquelon [GAZ:00003942]
@@ -5270,6 +5771,8 @@ enums:
           - NCBI_BIOSAMPLE:Saint%20Pierre%20and%20Miquelon
           - ENA_GSC_MIxS_WW_ERC00023:Saint%20Pierre%20and%20Miquelon
           - ENA_SEWAGE_ERC00036:Saint%20Pierre%20and%20Miquelon
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Saint%20Pierre%20and%20Miquelon
+          - NCBI_BIOSAMPLE_Pathogen:Saint%20Pierre%20and%20Miquelon
       Saint Martin [GAZ:00005841]:
         text: Saint Martin [GAZ:00005841]
         title: Saint Martin [GAZ:00005841]
@@ -5280,6 +5783,8 @@ enums:
           - NCBI_BIOSAMPLE:Saint%20Martin
           - ENA_GSC_MIxS_WW_ERC00023:Saint%20Martin
           - ENA_SEWAGE_ERC00036:Saint%20Martin
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Saint%20Martin
+          - NCBI_BIOSAMPLE_Pathogen:Saint%20Martin
       Saint Vincent and the Grenadines [GAZ:02000565]:
         text: Saint Vincent and the Grenadines [GAZ:02000565]
         title: Saint Vincent and the Grenadines [GAZ:02000565]
@@ -5290,6 +5795,8 @@ enums:
           - NCBI_BIOSAMPLE:Saint%20Vincent%20and%20the%20Grenadines
           - ENA_GSC_MIxS_WW_ERC00023:Saint%20Vincent%20and%20the%20Grenadines
           - ENA_SEWAGE_ERC00036:Saint%20Vincent%20and%20the%20Grenadines
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Saint%20Vincent%20and%20the%20Grenadines
+          - NCBI_BIOSAMPLE_Pathogen:Saint%20Vincent%20and%20the%20Grenadines
       Samoa [GAZ:00006910]:
         text: Samoa [GAZ:00006910]
         title: Samoa [GAZ:00006910]
@@ -5300,6 +5807,8 @@ enums:
           - NCBI_BIOSAMPLE:Samoa
           - ENA_GSC_MIxS_WW_ERC00023:Samoa
           - ENA_SEWAGE_ERC00036:Samoa
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Samoa
+          - NCBI_BIOSAMPLE_Pathogen:Samoa
       San Marino [GAZ:00003102]:
         text: San Marino [GAZ:00003102]
         title: San Marino [GAZ:00003102]
@@ -5310,6 +5819,8 @@ enums:
           - NCBI_BIOSAMPLE:San%20Marino
           - ENA_GSC_MIxS_WW_ERC00023:San%20Marino
           - ENA_SEWAGE_ERC00036:San%20Marino
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:San%20Marino
+          - NCBI_BIOSAMPLE_Pathogen:San%20Marino
       Sao Tome and Principe [GAZ:00006927]:
         text: Sao Tome and Principe [GAZ:00006927]
         title: Sao Tome and Principe [GAZ:00006927]
@@ -5320,6 +5831,8 @@ enums:
           - NCBI_BIOSAMPLE:Sao%20Tome%20and%20Principe
           - ENA_GSC_MIxS_WW_ERC00023:Sao%20Tome%20and%20Principe
           - ENA_SEWAGE_ERC00036:Sao%20Tome%20and%20Principe
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Sao%20Tome%20and%20Principe
+          - NCBI_BIOSAMPLE_Pathogen:Sao%20Tome%20and%20Principe
       Saudi Arabia [GAZ:00005279]:
         text: Saudi Arabia [GAZ:00005279]
         title: Saudi Arabia [GAZ:00005279]
@@ -5330,6 +5843,8 @@ enums:
           - NCBI_BIOSAMPLE:Saudi%20Arabia
           - ENA_GSC_MIxS_WW_ERC00023:Saudi%20Arabia
           - ENA_SEWAGE_ERC00036:Saudi%20Arabia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Saudi%20Arabia
+          - NCBI_BIOSAMPLE_Pathogen:Saudi%20Arabia
       Senegal [GAZ:00000913]:
         text: Senegal [GAZ:00000913]
         title: Senegal [GAZ:00000913]
@@ -5340,6 +5855,8 @@ enums:
           - NCBI_BIOSAMPLE:Senegal
           - ENA_GSC_MIxS_WW_ERC00023:Senegal
           - ENA_SEWAGE_ERC00036:Senegal
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Senegal
+          - NCBI_BIOSAMPLE_Pathogen:Senegal
       Serbia [GAZ:00002957]:
         text: Serbia [GAZ:00002957]
         title: Serbia [GAZ:00002957]
@@ -5350,6 +5867,8 @@ enums:
           - NCBI_BIOSAMPLE:Serbia
           - ENA_GSC_MIxS_WW_ERC00023:Serbia
           - ENA_SEWAGE_ERC00036:Serbia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Serbia
+          - NCBI_BIOSAMPLE_Pathogen:Serbia
       Seychelles [GAZ:00006922]:
         text: Seychelles [GAZ:00006922]
         title: Seychelles [GAZ:00006922]
@@ -5360,6 +5879,8 @@ enums:
           - NCBI_BIOSAMPLE:Seychelles
           - ENA_GSC_MIxS_WW_ERC00023:Seychelles
           - ENA_SEWAGE_ERC00036:Seychelles
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Seychelles
+          - NCBI_BIOSAMPLE_Pathogen:Seychelles
       Sierra Leone [GAZ:00000914]:
         text: Sierra Leone [GAZ:00000914]
         title: Sierra Leone [GAZ:00000914]
@@ -5370,6 +5891,8 @@ enums:
           - NCBI_BIOSAMPLE:Sierra%20Leone
           - ENA_GSC_MIxS_WW_ERC00023:Sierra%20Leone
           - ENA_SEWAGE_ERC00036:Sierra%20Leone
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Sierra%20Leone
+          - NCBI_BIOSAMPLE_Pathogen:Sierra%20Leone
       Singapore [GAZ:00003923]:
         text: Singapore [GAZ:00003923]
         title: Singapore [GAZ:00003923]
@@ -5380,6 +5903,8 @@ enums:
           - NCBI_BIOSAMPLE:Singapore
           - ENA_GSC_MIxS_WW_ERC00023:Singapore
           - ENA_SEWAGE_ERC00036:Singapore
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Singapore
+          - NCBI_BIOSAMPLE_Pathogen:Singapore
       Sint Maarten [GAZ:00012579]:
         text: Sint Maarten [GAZ:00012579]
         title: Sint Maarten [GAZ:00012579]
@@ -5390,6 +5915,8 @@ enums:
           - NCBI_BIOSAMPLE:Sint%20Maarten
           - ENA_GSC_MIxS_WW_ERC00023:Sint%20Maarten
           - ENA_SEWAGE_ERC00036:Sint%20Maarten
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Sint%20Maarten
+          - NCBI_BIOSAMPLE_Pathogen:Sint%20Maarten
       Slovakia [GAZ:00002956]:
         text: Slovakia [GAZ:00002956]
         title: Slovakia [GAZ:00002956]
@@ -5400,6 +5927,8 @@ enums:
           - NCBI_BIOSAMPLE:Slovakia
           - ENA_GSC_MIxS_WW_ERC00023:Slovakia
           - ENA_SEWAGE_ERC00036:Slovakia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Slovakia
+          - NCBI_BIOSAMPLE_Pathogen:Slovakia
       Slovenia [GAZ:00002955]:
         text: Slovenia [GAZ:00002955]
         title: Slovenia [GAZ:00002955]
@@ -5410,6 +5939,8 @@ enums:
           - NCBI_BIOSAMPLE:Slovenia
           - ENA_GSC_MIxS_WW_ERC00023:Slovenia
           - ENA_SEWAGE_ERC00036:Slovenia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Slovenia
+          - NCBI_BIOSAMPLE_Pathogen:Slovenia
       Solomon Islands [GAZ:00005275]:
         text: Solomon Islands [GAZ:00005275]
         title: Solomon Islands [GAZ:00005275]
@@ -5420,6 +5951,8 @@ enums:
           - NCBI_BIOSAMPLE:Solomon%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Solomon%20Islands
           - ENA_SEWAGE_ERC00036:Solomon%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Solomon%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Solomon%20Islands
       Somalia [GAZ:00001104]:
         text: Somalia [GAZ:00001104]
         title: Somalia [GAZ:00001104]
@@ -5430,6 +5963,8 @@ enums:
           - NCBI_BIOSAMPLE:Somalia
           - ENA_GSC_MIxS_WW_ERC00023:Somalia
           - ENA_SEWAGE_ERC00036:Somalia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Somalia
+          - NCBI_BIOSAMPLE_Pathogen:Somalia
       South Africa [GAZ:00001094]:
         text: South Africa [GAZ:00001094]
         title: South Africa [GAZ:00001094]
@@ -5440,6 +5975,8 @@ enums:
           - NCBI_BIOSAMPLE:South%20Africa
           - ENA_GSC_MIxS_WW_ERC00023:South%20Africa
           - ENA_SEWAGE_ERC00036:South%20Africa
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:South%20Africa
+          - NCBI_BIOSAMPLE_Pathogen:South%20Africa
       South Georgia and the South Sandwich Islands [GAZ:00003990]:
         text: South Georgia and the South Sandwich Islands [GAZ:00003990]
         title: South Georgia and the South Sandwich Islands [GAZ:00003990]
@@ -5450,6 +5987,8 @@ enums:
           - NCBI_BIOSAMPLE:South%20Georgia%20and%20the%20South%20Sandwich%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:South%20Georgia%20and%20the%20South%20Sandwich%20Islands
           - ENA_SEWAGE_ERC00036:South%20Georgia%20and%20the%20South%20Sandwich%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:South%20Georgia%20and%20the%20South%20Sandwich%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:South%20Georgia%20and%20the%20South%20Sandwich%20Islands
       South Korea [GAZ:00002802]:
         text: South Korea [GAZ:00002802]
         title: South Korea [GAZ:00002802]
@@ -5460,6 +5999,8 @@ enums:
           - NCBI_BIOSAMPLE:South%20Korea
           - ENA_GSC_MIxS_WW_ERC00023:South%20Korea
           - ENA_SEWAGE_ERC00036:South%20Korea
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:South%20Korea
+          - NCBI_BIOSAMPLE_Pathogen:South%20Korea
       South Sudan [GAZ:00233439]:
         text: South Sudan [GAZ:00233439]
         title: South Sudan [GAZ:00233439]
@@ -5470,6 +6011,8 @@ enums:
           - NCBI_BIOSAMPLE:South%20Sudan
           - ENA_GSC_MIxS_WW_ERC00023:South%20Sudan
           - ENA_SEWAGE_ERC00036:South%20Sudan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:South%20Sudan
+          - NCBI_BIOSAMPLE_Pathogen:South%20Sudan
       Spain [GAZ:00000591]:
         text: Spain [GAZ:00000591]
         title: Spain [GAZ:00000591]
@@ -5480,6 +6023,8 @@ enums:
           - NCBI_BIOSAMPLE:Spain
           - ENA_GSC_MIxS_WW_ERC00023:Spain
           - ENA_SEWAGE_ERC00036:Spain
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Spain
+          - NCBI_BIOSAMPLE_Pathogen:Spain
       Spratly Islands [GAZ:00010831]:
         text: Spratly Islands [GAZ:00010831]
         title: Spratly Islands [GAZ:00010831]
@@ -5490,6 +6035,8 @@ enums:
           - NCBI_BIOSAMPLE:Spratly%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Spratly%20Islands
           - ENA_SEWAGE_ERC00036:Spratly%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Spratly%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Spratly%20Islands
       Sri Lanka [GAZ:00003924]:
         text: Sri Lanka [GAZ:00003924]
         title: Sri Lanka [GAZ:00003924]
@@ -5500,6 +6047,8 @@ enums:
           - NCBI_BIOSAMPLE:Sri%20Lanka
           - ENA_GSC_MIxS_WW_ERC00023:Sri%20Lanka
           - ENA_SEWAGE_ERC00036:Sri%20Lanka
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Sri%20Lanka
+          - NCBI_BIOSAMPLE_Pathogen:Sri%20Lanka
       State of Palestine [GAZ:00002475]:
         text: State of Palestine [GAZ:00002475]
         title: State of Palestine [GAZ:00002475]
@@ -5510,6 +6059,8 @@ enums:
           - NCBI_BIOSAMPLE:State%20of%20Palestine
           - ENA_GSC_MIxS_WW_ERC00023:State%20of%20Palestine
           - ENA_SEWAGE_ERC00036:State%20of%20Palestine
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:State%20of%20Palestine
+          - NCBI_BIOSAMPLE_Pathogen:State%20of%20Palestine
       Sudan [GAZ:00000560]:
         text: Sudan [GAZ:00000560]
         title: Sudan [GAZ:00000560]
@@ -5520,6 +6071,8 @@ enums:
           - NCBI_BIOSAMPLE:Sudan
           - ENA_GSC_MIxS_WW_ERC00023:Sudan
           - ENA_SEWAGE_ERC00036:Sudan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Sudan
+          - NCBI_BIOSAMPLE_Pathogen:Sudan
       Suriname [GAZ:00002525]:
         text: Suriname [GAZ:00002525]
         title: Suriname [GAZ:00002525]
@@ -5530,6 +6083,8 @@ enums:
           - NCBI_BIOSAMPLE:Suriname
           - ENA_GSC_MIxS_WW_ERC00023:Suriname
           - ENA_SEWAGE_ERC00036:Suriname
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Suriname
+          - NCBI_BIOSAMPLE_Pathogen:Suriname
       Svalbard [GAZ:00005396]:
         text: Svalbard [GAZ:00005396]
         title: Svalbard [GAZ:00005396]
@@ -5540,6 +6095,8 @@ enums:
           - NCBI_BIOSAMPLE:Svalbard
           - ENA_GSC_MIxS_WW_ERC00023:Svalbard
           - ENA_SEWAGE_ERC00036:Svalbard
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Svalbard
+          - NCBI_BIOSAMPLE_Pathogen:Svalbard
       Sweden [GAZ:00002729]:
         text: Sweden [GAZ:00002729]
         title: Sweden [GAZ:00002729]
@@ -5550,6 +6107,8 @@ enums:
           - NCBI_BIOSAMPLE:Swaziland
           - ENA_GSC_MIxS_WW_ERC00023:Swaziland
           - ENA_SEWAGE_ERC00036:Swaziland
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Swaziland
+          - NCBI_BIOSAMPLE_Pathogen:Swaziland
       Switzerland [GAZ:00002941]:
         text: Switzerland [GAZ:00002941]
         title: Switzerland [GAZ:00002941]
@@ -5560,6 +6119,8 @@ enums:
           - NCBI_BIOSAMPLE:Sweden
           - ENA_GSC_MIxS_WW_ERC00023:Sweden
           - ENA_SEWAGE_ERC00036:Sweden
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Sweden
+          - NCBI_BIOSAMPLE_Pathogen:Sweden
       Syria [GAZ:00002474]:
         text: Syria [GAZ:00002474]
         title: Syria [GAZ:00002474]
@@ -5570,6 +6131,8 @@ enums:
           - NCBI_BIOSAMPLE:Switzerland
           - ENA_GSC_MIxS_WW_ERC00023:Switzerland
           - ENA_SEWAGE_ERC00036:Switzerland
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Switzerland
+          - NCBI_BIOSAMPLE_Pathogen:Switzerland
       Taiwan [GAZ:00005341]:
         text: Taiwan [GAZ:00005341]
         title: Taiwan [GAZ:00005341]
@@ -5580,6 +6143,8 @@ enums:
           - NCBI_BIOSAMPLE:Syria
           - ENA_GSC_MIxS_WW_ERC00023:Syria
           - ENA_SEWAGE_ERC00036:Syria
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Syria
+          - NCBI_BIOSAMPLE_Pathogen:Syria
       Tajikistan [GAZ:00006912]:
         text: Tajikistan [GAZ:00006912]
         title: Tajikistan [GAZ:00006912]
@@ -5590,6 +6155,8 @@ enums:
           - NCBI_BIOSAMPLE:Taiwan
           - ENA_GSC_MIxS_WW_ERC00023:Taiwan
           - ENA_SEWAGE_ERC00036:Taiwan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Taiwan
+          - NCBI_BIOSAMPLE_Pathogen:Taiwan
       Tanzania [GAZ:00001103]:
         text: Tanzania [GAZ:00001103]
         title: Tanzania [GAZ:00001103]
@@ -5600,6 +6167,8 @@ enums:
           - NCBI_BIOSAMPLE:Tajikistan
           - ENA_GSC_MIxS_WW_ERC00023:Tajikistan
           - ENA_SEWAGE_ERC00036:Tajikistan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Tajikistan
+          - NCBI_BIOSAMPLE_Pathogen:Tajikistan
       Thailand [GAZ:00003744]:
         text: Thailand [GAZ:00003744]
         title: Thailand [GAZ:00003744]
@@ -5610,6 +6179,8 @@ enums:
           - NCBI_BIOSAMPLE:Tanzania
           - ENA_GSC_MIxS_WW_ERC00023:Tanzania
           - ENA_SEWAGE_ERC00036:Tanzania
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Tanzania
+          - NCBI_BIOSAMPLE_Pathogen:Tanzania
       Timor-Leste [GAZ:00006913]:
         text: Timor-Leste [GAZ:00006913]
         title: Timor-Leste [GAZ:00006913]
@@ -5620,6 +6191,8 @@ enums:
           - NCBI_BIOSAMPLE:Thailand
           - ENA_GSC_MIxS_WW_ERC00023:Thailand
           - ENA_SEWAGE_ERC00036:Thailand
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Thailand
+          - NCBI_BIOSAMPLE_Pathogen:Thailand
       Togo [GAZ:00000915]:
         text: Togo [GAZ:00000915]
         title: Togo [GAZ:00000915]
@@ -5630,6 +6203,8 @@ enums:
           - NCBI_BIOSAMPLE:Timor-Leste
           - ENA_GSC_MIxS_WW_ERC00023:Timor-Leste
           - ENA_SEWAGE_ERC00036:Timor-Leste
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Timor-Leste
+          - NCBI_BIOSAMPLE_Pathogen:Timor-Leste
       Tokelau [GAZ:00260188]:
         text: Tokelau [GAZ:00260188]
         title: Tokelau [GAZ:00260188]
@@ -5640,6 +6215,8 @@ enums:
           - NCBI_BIOSAMPLE:Togo
           - ENA_GSC_MIxS_WW_ERC00023:Togo
           - ENA_SEWAGE_ERC00036:Togo
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Togo
+          - NCBI_BIOSAMPLE_Pathogen:Togo
       Tonga [GAZ:00006916]:
         text: Tonga [GAZ:00006916]
         title: Tonga [GAZ:00006916]
@@ -5650,6 +6227,8 @@ enums:
           - NCBI_BIOSAMPLE:Tokelau
           - ENA_GSC_MIxS_WW_ERC00023:Tokelau
           - ENA_SEWAGE_ERC00036:Tokelau
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Tokelau
+          - NCBI_BIOSAMPLE_Pathogen:Tokelau
       Trinidad and Tobago [GAZ:00003767]:
         text: Trinidad and Tobago [GAZ:00003767]
         title: Trinidad and Tobago [GAZ:00003767]
@@ -5660,6 +6239,8 @@ enums:
           - NCBI_BIOSAMPLE:Tonga
           - ENA_GSC_MIxS_WW_ERC00023:Tonga
           - ENA_SEWAGE_ERC00036:Tonga
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Tonga
+          - NCBI_BIOSAMPLE_Pathogen:Tonga
       Tromelin Island [GAZ:00005812]:
         text: Tromelin Island [GAZ:00005812]
         title: Tromelin Island [GAZ:00005812]
@@ -5670,6 +6251,8 @@ enums:
           - NCBI_BIOSAMPLE:Trinidad%20and%20Tobago
           - ENA_GSC_MIxS_WW_ERC00023:Trinidad%20and%20Tobago
           - ENA_SEWAGE_ERC00036:Trinidad%20and%20Tobago
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Trinidad%20and%20Tobago
+          - NCBI_BIOSAMPLE_Pathogen:Trinidad%20and%20Tobago
       Tunisia [GAZ:00000562]:
         text: Tunisia [GAZ:00000562]
         title: Tunisia [GAZ:00000562]
@@ -5680,6 +6263,8 @@ enums:
           - NCBI_BIOSAMPLE:Tromelin%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Tromelin%20Island
           - ENA_SEWAGE_ERC00036:Tromelin%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Tromelin%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Tromelin%20Island
       Turkey [GAZ:00000558]:
         text: Turkey [GAZ:00000558]
         title: Turkey [GAZ:00000558]
@@ -5690,6 +6275,8 @@ enums:
           - NCBI_BIOSAMPLE:Tunisia
           - ENA_GSC_MIxS_WW_ERC00023:Tunisia
           - ENA_SEWAGE_ERC00036:Tunisia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Tunisia
+          - NCBI_BIOSAMPLE_Pathogen:Tunisia
       Turkmenistan [GAZ:00005018]:
         text: Turkmenistan [GAZ:00005018]
         title: Turkmenistan [GAZ:00005018]
@@ -5700,6 +6287,8 @@ enums:
           - NCBI_BIOSAMPLE:Turkey
           - ENA_GSC_MIxS_WW_ERC00023:Turkey
           - ENA_SEWAGE_ERC00036:Turkey
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Turkey
+          - NCBI_BIOSAMPLE_Pathogen:Turkey
       Turks and Caicos Islands [GAZ:00003955]:
         text: Turks and Caicos Islands [GAZ:00003955]
         title: Turks and Caicos Islands [GAZ:00003955]
@@ -5710,6 +6299,8 @@ enums:
           - NCBI_BIOSAMPLE:Turkmenistan
           - ENA_GSC_MIxS_WW_ERC00023:Turkmenistan
           - ENA_SEWAGE_ERC00036:Turkmenistan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Turkmenistan
+          - NCBI_BIOSAMPLE_Pathogen:Turkmenistan
       Tuvalu [GAZ:00009715]:
         text: Tuvalu [GAZ:00009715]
         title: Tuvalu [GAZ:00009715]
@@ -5720,6 +6311,8 @@ enums:
           - NCBI_BIOSAMPLE:Turks%20and%20Caicos%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Turks%20and%20Caicos%20Islands
           - ENA_SEWAGE_ERC00036:Turks%20and%20Caicos%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Turks%20and%20Caicos%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Turks%20and%20Caicos%20Islands
       United States of America [GAZ:00002459]:
         text: United States of America [GAZ:00002459]
         title: United States of America [GAZ:00002459]
@@ -5730,6 +6323,8 @@ enums:
           - NCBI_BIOSAMPLE:Tuvalu
           - ENA_GSC_MIxS_WW_ERC00023:Tuvalu
           - ENA_SEWAGE_ERC00036:Tuvalu
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Tuvalu
+          - NCBI_BIOSAMPLE_Pathogen:Tuvalu
       Uganda [GAZ:00001102]:
         text: Uganda [GAZ:00001102]
         title: Uganda [GAZ:00001102]
@@ -5740,6 +6335,8 @@ enums:
           - NCBI_BIOSAMPLE:United%20States%20of%20America
           - ENA_GSC_MIxS_WW_ERC00023:United%20States%20of%20America
           - ENA_SEWAGE_ERC00036:United%20States%20of%20America
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:United%20States%20of%20America
+          - NCBI_BIOSAMPLE_Pathogen:United%20States%20of%20America
       Ukraine [GAZ:00002724]:
         text: Ukraine [GAZ:00002724]
         title: Ukraine [GAZ:00002724]
@@ -5750,6 +6347,8 @@ enums:
           - NCBI_BIOSAMPLE:Uganda
           - ENA_GSC_MIxS_WW_ERC00023:Uganda
           - ENA_SEWAGE_ERC00036:Uganda
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Uganda
+          - NCBI_BIOSAMPLE_Pathogen:Uganda
       United Arab Emirates [GAZ:00005282]:
         text: United Arab Emirates [GAZ:00005282]
         title: United Arab Emirates [GAZ:00005282]
@@ -5760,6 +6359,8 @@ enums:
           - NCBI_BIOSAMPLE:Ukraine
           - ENA_GSC_MIxS_WW_ERC00023:Ukraine
           - ENA_SEWAGE_ERC00036:Ukraine
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Ukraine
+          - NCBI_BIOSAMPLE_Pathogen:Ukraine
       United Kingdom [GAZ:00002637]:
         text: United Kingdom [GAZ:00002637]
         title: United Kingdom [GAZ:00002637]
@@ -5770,6 +6371,8 @@ enums:
           - NCBI_BIOSAMPLE:United%20Arab%20Emirates
           - ENA_GSC_MIxS_WW_ERC00023:United%20Arab%20Emirates
           - ENA_SEWAGE_ERC00036:United%20Arab%20Emirates
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:United%20Arab%20Emirates
+          - NCBI_BIOSAMPLE_Pathogen:United%20Arab%20Emirates
       Uruguay [GAZ:00002930]:
         text: Uruguay [GAZ:00002930]
         title: Uruguay [GAZ:00002930]
@@ -5780,6 +6383,8 @@ enums:
           - NCBI_BIOSAMPLE:United%20Kingdom
           - ENA_GSC_MIxS_WW_ERC00023:United%20Kingdom
           - ENA_SEWAGE_ERC00036:United%20Kingdom
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:United%20Kingdom
+          - NCBI_BIOSAMPLE_Pathogen:United%20Kingdom
       Uzbekistan [GAZ:00004979]:
         text: Uzbekistan [GAZ:00004979]
         title: Uzbekistan [GAZ:00004979]
@@ -5790,6 +6395,8 @@ enums:
           - NCBI_BIOSAMPLE:Uruguay
           - ENA_GSC_MIxS_WW_ERC00023:Uruguay
           - ENA_SEWAGE_ERC00036:Uruguay
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Uruguay
+          - NCBI_BIOSAMPLE_Pathogen:Uruguay
       Vanuatu [GAZ:00006918]:
         text: Vanuatu [GAZ:00006918]
         title: Vanuatu [GAZ:00006918]
@@ -5800,6 +6407,8 @@ enums:
           - NCBI_BIOSAMPLE:Uzbekistan
           - ENA_GSC_MIxS_WW_ERC00023:Uzbekistan
           - ENA_SEWAGE_ERC00036:Uzbekistan
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Uzbekistan
+          - NCBI_BIOSAMPLE_Pathogen:Uzbekistan
       Venezuela [GAZ:00002931]:
         text: Venezuela [GAZ:00002931]
         title: Venezuela [GAZ:00002931]
@@ -5810,6 +6419,8 @@ enums:
           - NCBI_BIOSAMPLE:Vanuatu
           - ENA_GSC_MIxS_WW_ERC00023:Vanuatu
           - ENA_SEWAGE_ERC00036:Vanuatu
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Vanuatu
+          - NCBI_BIOSAMPLE_Pathogen:Vanuatu
       Viet Nam [GAZ:00003756]:
         text: Viet Nam [GAZ:00003756]
         title: Viet Nam [GAZ:00003756]
@@ -5820,6 +6431,8 @@ enums:
           - NCBI_BIOSAMPLE:Venezuela
           - ENA_GSC_MIxS_WW_ERC00023:Venezuela
           - ENA_SEWAGE_ERC00036:Venezuela
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Venezuela
+          - NCBI_BIOSAMPLE_Pathogen:Venezuela
       Virgin Islands [GAZ:00003959]:
         text: Virgin Islands [GAZ:00003959]
         title: Virgin Islands [GAZ:00003959]
@@ -5830,6 +6443,8 @@ enums:
           - NCBI_BIOSAMPLE:Viet%20Nam
           - ENA_GSC_MIxS_WW_ERC00023:Viet%20Nam
           - ENA_SEWAGE_ERC00036:Viet%20Nam
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Viet%20Nam
+          - NCBI_BIOSAMPLE_Pathogen:Viet%20Nam
       Wake Island [GAZ:00007111]:
         text: Wake Island [GAZ:00007111]
         title: Wake Island [GAZ:00007111]
@@ -5840,6 +6455,8 @@ enums:
           - NCBI_BIOSAMPLE:Virgin%20Islands
           - ENA_GSC_MIxS_WW_ERC00023:Virgin%20Islands
           - ENA_SEWAGE_ERC00036:Virgin%20Islands
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Virgin%20Islands
+          - NCBI_BIOSAMPLE_Pathogen:Virgin%20Islands
       Wallis and Futuna [GAZ:00007191]:
         text: Wallis and Futuna [GAZ:00007191]
         title: Wallis and Futuna [GAZ:00007191]
@@ -5850,6 +6467,8 @@ enums:
           - NCBI_BIOSAMPLE:Wake%20Island
           - ENA_GSC_MIxS_WW_ERC00023:Wake%20Island
           - ENA_SEWAGE_ERC00036:Wake%20Island
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Wake%20Island
+          - NCBI_BIOSAMPLE_Pathogen:Wake%20Island
       West Bank [GAZ:00009572]:
         text: West Bank [GAZ:00009572]
         title: West Bank [GAZ:00009572]
@@ -5860,6 +6479,8 @@ enums:
           - NCBI_BIOSAMPLE:Wallis%20and%20Futuna
           - ENA_GSC_MIxS_WW_ERC00023:Wallis%20and%20Futuna
           - ENA_SEWAGE_ERC00036:Wallis%20and%20Futuna
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Wallis%20and%20Futuna
+          - NCBI_BIOSAMPLE_Pathogen:Wallis%20and%20Futuna
       Western Sahara [GAZ:00000564]:
         text: Western Sahara [GAZ:00000564]
         title: Western Sahara [GAZ:00000564]
@@ -5870,6 +6491,8 @@ enums:
           - NCBI_BIOSAMPLE:West%20Bank
           - ENA_GSC_MIxS_WW_ERC00023:West%20Bank
           - ENA_SEWAGE_ERC00036:West%20Bank
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:West%20Bank
+          - NCBI_BIOSAMPLE_Pathogen:West%20Bank
       Yemen [GAZ:00005284]:
         text: Yemen [GAZ:00005284]
         title: Yemen [GAZ:00005284]
@@ -5880,6 +6503,8 @@ enums:
           - NCBI_BIOSAMPLE:Western%20Sahara
           - ENA_GSC_MIxS_WW_ERC00023:Western%20Sahara
           - ENA_SEWAGE_ERC00036:Western%20Sahara
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Western%20Sahara
+          - NCBI_BIOSAMPLE_Pathogen:Western%20Sahara
       Zambia [GAZ:00001107]:
         text: Zambia [GAZ:00001107]
         title: Zambia [GAZ:00001107]
@@ -5890,6 +6515,8 @@ enums:
           - NCBI_BIOSAMPLE:Yemen
           - ENA_GSC_MIxS_WW_ERC00023:Yemen
           - ENA_SEWAGE_ERC00036:Yemen
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Yemen
+          - NCBI_BIOSAMPLE_Pathogen:Yemen
       Zimbabwe [GAZ:00001106]:
         text: Zimbabwe [GAZ:00001106]
         title: Zimbabwe [GAZ:00001106]
@@ -5900,6 +6527,8 @@ enums:
           - NCBI_BIOSAMPLE:Zambia
           - ENA_GSC_MIxS_WW_ERC00023:Zambia
           - ENA_SEWAGE_ERC00036:Zambia
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Zambia
+          - NCBI_BIOSAMPLE_Pathogen:Zambia
   GeoLocNameStateProvinceTerritoryMenu:
     name: GeoLocNameStateProvinceTerritoryMenu
     title:
@@ -7723,6 +8352,8 @@ enums:
           - NCBI_BIOSAMPLE:mm
           - ENA_GSC_MIxS_WW_ERC00023:mm
           - ENA_SEWAGE_ERC00036:mm
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:mm
+          - NCBI_BIOSAMPLE_Pathogen:mm
       centimeter (cm) [UO:0000015]:
         text: centimeter (cm) [UO:0000015]
         title: centimeter (cm) [UO:0000015]
@@ -7733,6 +8364,8 @@ enums:
           - NCBI_BIOSAMPLE:cm
           - ENA_GSC_MIxS_WW_ERC00023:cm
           - ENA_SEWAGE_ERC00036:cm
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:cm
+          - NCBI_BIOSAMPLE_Pathogen:cm
       meter (m) [UO:0000008]:
         text: meter (m) [UO:0000008]
         title: meter (m) [UO:0000008]
@@ -7743,6 +8376,8 @@ enums:
           - NCBI_BIOSAMPLE:mm
           - ENA_GSC_MIxS_WW_ERC00023:mm
           - ENA_SEWAGE_ERC00036:mm
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:mm
+          - NCBI_BIOSAMPLE_Pathogen:mm
       inch (in) [UO:0010011]:
         text: inch (in) [UO:0010011]
         title: inch (in) [UO:0010011]
@@ -7753,6 +8388,8 @@ enums:
           - NCBI_BIOSAMPLE:in
           - ENA_GSC_MIxS_WW_ERC00023:in
           - ENA_SEWAGE_ERC00036:in
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:in
+          - NCBI_BIOSAMPLE_Pathogen:in
       foot (ft) [UO:0010013]:
         text: foot (ft) [UO:0010013]
         title: foot (ft) [UO:0010013]
@@ -7763,6 +8400,8 @@ enums:
           - NCBI_BIOSAMPLE:ft
           - ENA_GSC_MIxS_WW_ERC00023:ft
           - ENA_SEWAGE_ERC00036:ft
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:ft
+          - NCBI_BIOSAMPLE_Pathogen:ft
   DepthUnitsMenu:
     name: DepthUnitsMenu
     title:
@@ -7801,6 +8440,8 @@ enums:
           - NCBI_BIOSAMPLE:m%5E3/s
           - ENA_GSC_MIxS_WW_ERC00023:m%5E3/s
           - ENA_SEWAGE_ERC00036:m%5E3/s
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:m%5E3/s
+          - NCBI_BIOSAMPLE_Pathogen:m%5E3/s
       cubic meter per minute (m^3/min) [GENEPIO:0102193]:
         text: cubic meter per minute (m^3/min) [GENEPIO:0102193]
         title: cubic meter per minute (m^3/min) [GENEPIO:0102193]
@@ -7811,6 +8452,8 @@ enums:
           - NCBI_BIOSAMPLE:m%5E3/min
           - ENA_GSC_MIxS_WW_ERC00023:m%5E3/min
           - ENA_SEWAGE_ERC00036:m%5E3/min
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:m%5E3/min
+          - NCBI_BIOSAMPLE_Pathogen:m%5E3/min
       cubic meter per hour (m^3/h) [GENEPIO:0102194]:
         text: cubic meter per hour (m^3/h) [GENEPIO:0102194]
         title: cubic meter per hour (m^3/h) [GENEPIO:0102194]
@@ -7821,6 +8464,8 @@ enums:
           - NCBI_BIOSAMPLE:m%5E3/h
           - ENA_GSC_MIxS_WW_ERC00023:m%5E3/h
           - ENA_SEWAGE_ERC00036:m%5E3/h
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:m%5E3/h
+          - NCBI_BIOSAMPLE_Pathogen:m%5E3/h
       cubic meter per day (m^3/day) [GENEPIO:0102224]:
         text: cubic meter per day (m^3/day) [GENEPIO:0102224]
         title: cubic meter per day (m^3/day) [GENEPIO:0102224]
@@ -7836,6 +8481,8 @@ enums:
           - NCBI_BIOSAMPLE:L/s
           - ENA_GSC_MIxS_WW_ERC00023:L/s
           - ENA_SEWAGE_ERC00036:L/s
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:L/s
+          - NCBI_BIOSAMPLE_Pathogen:L/s
       liter per minute (L/min) [GENEPIO:0102196]:
         text: liter per minute (L/min) [GENEPIO:0102196]
         title: liter per minute (L/min) [GENEPIO:0102196]
@@ -7846,6 +8493,8 @@ enums:
           - NCBI_BIOSAMPLE:L/min
           - ENA_GSC_MIxS_WW_ERC00023:L/min
           - ENA_SEWAGE_ERC00036:L/min
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:L/min
+          - NCBI_BIOSAMPLE_Pathogen:L/min
       liter per hour (L/h) [GENEPIO:0102197]:
         text: liter per hour (L/h) [GENEPIO:0102197]
         title: liter per hour (L/h) [GENEPIO:0102197]
@@ -7856,6 +8505,8 @@ enums:
           - NCBI_BIOSAMPLE:L/h
           - ENA_GSC_MIxS_WW_ERC00023:L/h
           - ENA_SEWAGE_ERC00036:L/h
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:L/h
+          - NCBI_BIOSAMPLE_Pathogen:L/h
       liter per day (L/day) [GENEPIO:0102198]:
         text: liter per day (L/day) [GENEPIO:0102198]
         title: liter per day (L/day) [GENEPIO:0102198]
@@ -7866,6 +8517,8 @@ enums:
           - NCBI_BIOSAMPLE:L/day
           - ENA_GSC_MIxS_WW_ERC00023:L/day
           - ENA_SEWAGE_ERC00036:L/day
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:L/day
+          - NCBI_BIOSAMPLE_Pathogen:L/day
       megaliters per day (ML/day) [GENEPIO:0102223]:
         text: megaliters per day (ML/day) [GENEPIO:0102223]
         title: megaliters per day (ML/day) [GENEPIO:0102223]
@@ -7881,6 +8534,8 @@ enums:
           - NCBI_BIOSAMPLE:MG/D
           - ENA_GSC_MIxS_WW_ERC00023:MG/D
           - ENA_SEWAGE_ERC00036:MG/D
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:MG/D
+          - NCBI_BIOSAMPLE_Pathogen:MG/D
   InstantaneousFlowRateMeasurementUnitMenu:
     name: InstantaneousFlowRateMeasurementUnitMenu
     title:
@@ -7895,6 +8550,8 @@ enums:
           - NCBI_BIOSAMPLE:m%5E3/s
           - ENA_GSC_MIxS_WW_ERC00023:m%5E3/s
           - ENA_SEWAGE_ERC00036:m%5E3/s
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:m%5E3/s
+          - NCBI_BIOSAMPLE_Pathogen:m%5E3/s
       cubic meter per minute (m^3/min) [GENEPIO:0102193]:
         text: cubic meter per minute (m^3/min) [GENEPIO:0102193]
         title: cubic meter per minute (m^3/min) [GENEPIO:0102193]
@@ -7905,6 +8562,8 @@ enums:
           - NCBI_BIOSAMPLE:m%5E3/min
           - ENA_GSC_MIxS_WW_ERC00023:m%5E3/min
           - ENA_SEWAGE_ERC00036:m%5E3/min
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:m%5E3/min
+          - NCBI_BIOSAMPLE_Pathogen:m%5E3/min
       cubic meter per hour (m^3/h) [GENEPIO:0102194]:
         text: cubic meter per hour (m^3/h) [GENEPIO:0102194]
         title: cubic meter per hour (m^3/h) [GENEPIO:0102194]
@@ -7915,6 +8574,8 @@ enums:
           - NCBI_BIOSAMPLE:m%5E3/h
           - ENA_GSC_MIxS_WW_ERC00023:m%5E3/h
           - ENA_SEWAGE_ERC00036:m%5E3/h
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:m%5E3/h
+          - NCBI_BIOSAMPLE_Pathogen:m%5E3/h
       cubic meter per day (m^3/day) [GENEPIO:0102224]:
         text: cubic meter per day (m^3/day) [GENEPIO:0102224]
         title: cubic meter per day (m^3/day) [GENEPIO:0102224]
@@ -7930,6 +8591,8 @@ enums:
           - NCBI_BIOSAMPLE:L/s
           - ENA_GSC_MIxS_WW_ERC00023:L/s
           - ENA_SEWAGE_ERC00036:L/s
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:L/s
+          - NCBI_BIOSAMPLE_Pathogen:L/s
       liter per minute (L/min) [GENEPIO:0102196]:
         text: liter per minute (L/min) [GENEPIO:0102196]
         title: liter per minute (L/min) [GENEPIO:0102196]
@@ -7940,6 +8603,8 @@ enums:
           - NCBI_BIOSAMPLE:L/min
           - ENA_GSC_MIxS_WW_ERC00023:L/min
           - ENA_SEWAGE_ERC00036:L/min
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:L/min
+          - NCBI_BIOSAMPLE_Pathogen:L/min
       liter per hour (L/h) [GENEPIO:0102197]:
         text: liter per hour (L/h) [GENEPIO:0102197]
         title: liter per hour (L/h) [GENEPIO:0102197]
@@ -7950,6 +8615,8 @@ enums:
           - NCBI_BIOSAMPLE:L/h
           - ENA_GSC_MIxS_WW_ERC00023:L/h
           - ENA_SEWAGE_ERC00036:L/h
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:L/h
+          - NCBI_BIOSAMPLE_Pathogen:L/h
       liter per day (L/day) [GENEPIO:0102198]:
         text: liter per day (L/day) [GENEPIO:0102198]
         title: liter per day (L/day) [GENEPIO:0102198]
@@ -7960,6 +8627,8 @@ enums:
           - NCBI_BIOSAMPLE:L/day
           - ENA_GSC_MIxS_WW_ERC00023:L/day
           - ENA_SEWAGE_ERC00036:L/day
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:L/day
+          - NCBI_BIOSAMPLE_Pathogen:L/day
       megaliters per day (ML/day) [GENEPIO:0102223]:
         text: megaliters per day (ML/day) [GENEPIO:0102223]
         title: megaliters per day (ML/day) [GENEPIO:0102223]
@@ -7975,6 +8644,8 @@ enums:
           - NCBI_BIOSAMPLE:MG/D
           - ENA_GSC_MIxS_WW_ERC00023:MG/D
           - ENA_SEWAGE_ERC00036:MG/D
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:MG/D
+          - NCBI_BIOSAMPLE_Pathogen:MG/D
   TurbidityMeasurementUnitMenu:
     name: TurbidityMeasurementUnitMenu
     title:
@@ -7989,6 +8660,8 @@ enums:
           - NCBI_BIOSAMPLE:NTU
           - ENA_GSC_MIxS_WW_ERC00023:NTU
           - ENA_SEWAGE_ERC00036:NTU
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:NTU
+          - NCBI_BIOSAMPLE_Pathogen:NTU
       formazin nephelometric unit (FNU) [UO:0000318]:
         text: formazin nephelometric unit (FNU) [UO:0000318]
         title: formazin nephelometric unit (FNU) [UO:0000318]
@@ -7999,6 +8672,8 @@ enums:
           - NCBI_BIOSAMPLE:FNU
           - ENA_GSC_MIxS_WW_ERC00023:FNU
           - ENA_SEWAGE_ERC00036:FNU
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:FNU
+          - NCBI_BIOSAMPLE_Pathogen:FNU
   ConductivityMeasurementUnitMenu:
     name: ConductivityMeasurementUnitMenu
     title:
@@ -8045,6 +8720,8 @@ enums:
           - NCBI_BIOSAMPLE:mg/L
           - ENA_GSC_MIxS_WW_ERC00023:mg/L
           - ENA_SEWAGE_ERC00036:mg/L
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:mg/L
+          - NCBI_BIOSAMPLE_Pathogen:mg/L
       kilogram per cubic meter (kg/m^3) [UO:0000083]:
         text: kilogram per cubic meter (kg/m^3) [UO:0000083]
         title: kilogram per cubic meter (kg/m^3) [UO:0000083]
@@ -8055,6 +8732,8 @@ enums:
           - NCBI_BIOSAMPLE:kg/m%5E3
           - ENA_GSC_MIxS_WW_ERC00023:kg/m%5E3
           - ENA_SEWAGE_ERC00036:kg/m%5E3
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:kg/m%5E3
+          - NCBI_BIOSAMPLE_Pathogen:kg/m%5E3
       part per million (ppm) [UO:0000169]:
         text: part per million (ppm) [UO:0000169]
         title: part per million (ppm) [UO:0000169]
@@ -8065,6 +8744,8 @@ enums:
           - NCBI_BIOSAMPLE:ppm
           - ENA_GSC_MIxS_WW_ERC00023:ppm
           - ENA_SEWAGE_ERC00036:ppm
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:ppm
+          - NCBI_BIOSAMPLE_Pathogen:ppm
   CarbonaceousBiochemicalOxygenDemandCbodMeasurementUnitMenu:
     name: CarbonaceousBiochemicalOxygenDemandCbodMeasurementUnitMenu
     title:
@@ -8079,6 +8760,8 @@ enums:
           - NCBI_BIOSAMPLE:mg/L
           - ENA_GSC_MIxS_WW_ERC00023:mg/L
           - ENA_SEWAGE_ERC00036:mg/L
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:mg/L
+          - NCBI_BIOSAMPLE_Pathogen:mg/L
       microgram per liter (ug/L) [UO:0000301]:
         text: microgram per liter (ug/L) [UO:0000301]
         title: microgram per liter (ug/L) [UO:0000301]
@@ -8098,6 +8781,8 @@ enums:
           - NCBI_BIOSAMPLE:%25
           - ENA_GSC_MIxS_WW_ERC00023:%25
           - ENA_SEWAGE_ERC00036:%25
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:%25
+          - NCBI_BIOSAMPLE_Pathogen:%25
       gram per liter (g/L) [UO:0000175]:
         text: gram per liter (g/L) [UO:0000175]
         title: gram per liter (g/L) [UO:0000175]
@@ -8108,6 +8793,8 @@ enums:
           - NCBI_BIOSAMPLE:g/L
           - ENA_GSC_MIxS_WW_ERC00023:g/L
           - ENA_SEWAGE_ERC00036:g/L
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:g/L
+          - NCBI_BIOSAMPLE_Pathogen:g/L
       milligram per liter (mg/L) [UO:0000273]:
         text: milligram per liter (mg/L) [UO:0000273]
         title: milligram per liter (mg/L) [UO:0000273]
@@ -8118,6 +8805,8 @@ enums:
           - NCBI_BIOSAMPLE:mg/L
           - ENA_GSC_MIxS_WW_ERC00023:mg/L
           - ENA_SEWAGE_ERC00036:mg/L
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:mg/L
+          - NCBI_BIOSAMPLE_Pathogen:mg/L
       microgram per liter (ug/L) [UO:0000301]:
         text: microgram per liter (ug/L) [UO:0000301]
         title: microgram per liter (ug/L) [UO:0000301]
@@ -8191,6 +8880,8 @@ enums:
           - NCBI_BIOSAMPLE:log10%20GC/100%20mL
           - ENA_GSC_MIxS_WW_ERC00023:log10%20GC/100%20mL
           - ENA_SEWAGE_ERC00036:log10%20GC/100%20mL
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:log10%20GC/100%20mL
+          - NCBI_BIOSAMPLE_Pathogen:log10%20GC/100%20mL
       copies per liter (C/L) [GENEPIO:0102202]:
         text: copies per liter (C/L) [GENEPIO:0102202]
         title: copies per liter (C/L) [GENEPIO:0102202]
@@ -8201,6 +8892,8 @@ enums:
           - NCBI_BIOSAMPLE:GC/L
           - ENA_GSC_MIxS_WW_ERC00023:GC/L
           - ENA_SEWAGE_ERC00036:GC/L
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:GC/L
+          - NCBI_BIOSAMPLE_Pathogen:GC/L
       PCR quantification cycle (Ct value) [UO:0010077]:
         text: PCR quantification cycle (Ct value) [UO:0010077]
         title: PCR quantification cycle (Ct value) [UO:0010077]
@@ -8211,6 +8904,8 @@ enums:
           - NCBI_BIOSAMPLE:PCR%20quantification%20cycle
           - ENA_GSC_MIxS_WW_ERC00023:PCR%20quantification%20cycle
           - ENA_SEWAGE_ERC00036:PCR%20quantification%20cycle
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:PCR%20quantification%20cycle
+          - NCBI_BIOSAMPLE_Pathogen:PCR%20quantification%20cycle
       log10 copies per nanogram total DNA (log10 C/ ng) [GENEPIO:0102211]:
         text: log10 copies per nanogram total DNA (log10 C/ ng) [GENEPIO:0102211]
         title: log10 copies per nanogram total DNA (log10 C/ ng) [GENEPIO:0102211]
@@ -8221,6 +8916,8 @@ enums:
           - NCBI_BIOSAMPLE:log10%20GC/ng
           - ENA_GSC_MIxS_WW_ERC00023:log10%20GC/ng
           - ENA_SEWAGE_ERC00036:log10%20GC/ng
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:log10%20GC/ng
+          - NCBI_BIOSAMPLE_Pathogen:log10%20GC/ng
   HostCommonNameMenu:
     name: HostCommonNameMenu
     title:
@@ -9343,6 +10040,8 @@ enums:
           - NCBI_SRA:Hybrid%20Selection
           - ENA_GSC_MIxS_WW_ERC00023:Hybridization%20capture
           - ENA_SEWAGE_ERC00036:Hybridization%20capture
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Hybridization%20capture
+          - NCBI_BIOSAMPLE_Pathogen:Hybridization%20capture
       Hybridization capture [GENEPIO:0001950]:
         text: Hybridization capture [GENEPIO:0001950]
         title: Hybridization capture [GENEPIO:0001950]
@@ -9369,6 +10068,8 @@ enums:
           - NCBI_SRA:Other
           - ENA_GSC_MIxS_WW_ERC00023:rRNA%20depletion%20method
           - ENA_SEWAGE_ERC00036:rRNA%20depletion%20method
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:rRNA%20depletion%20method
+          - NCBI_BIOSAMPLE_Pathogen:rRNA%20depletion%20method
   QualityControlDeterminationMenu:
     name: QualityControlDeterminationMenu
     title:
@@ -9384,6 +10085,8 @@ enums:
           - NCBI_SRA:no%20quality%20control%20issues%20identified
           - ENA_GSC_MIxS_WW_ERC00023:no%20quality%20control%20issues%20identified
           - ENA_SEWAGE_ERC00036:no%20quality%20control%20issues%20identified
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:no%20quality%20control%20issues%20identified
+          - NCBI_BIOSAMPLE_Pathogen:no%20quality%20control%20issues%20identified
       Sequence passed quality control [GENEPIO:0100563]:
         text: Sequence passed quality control [GENEPIO:0100563]
         title: Sequence passed quality control [GENEPIO:0100563]
@@ -9395,6 +10098,8 @@ enums:
           - NCBI_SRA:Sequence%20passed%20quality%20control
           - ENA_GSC_MIxS_WW_ERC00023:Sequence%20passed%20quality%20control
           - ENA_SEWAGE_ERC00036:Sequence%20passed%20quality%20control
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Sequence%20passed%20quality%20control
+          - NCBI_BIOSAMPLE_Pathogen:Sequence%20passed%20quality%20control
       Sequence failed quality control [GENEPIO:0100564]:
         text: Sequence failed quality control [GENEPIO:0100564]
         title: Sequence failed quality control [GENEPIO:0100564]
@@ -9406,6 +10111,8 @@ enums:
           - NCBI_SRA:Sequence%20failed%20quality%20control
           - ENA_GSC_MIxS_WW_ERC00023:Sequence%20failed%20quality%20control
           - ENA_SEWAGE_ERC00036:Sequence%20failed%20quality%20control
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Sequence%20failed%20quality%20control
+          - NCBI_BIOSAMPLE_Pathogen:Sequence%20failed%20quality%20control
       Minor quality control issues identified [GENEPIO:0100565]:
         text: Minor quality control issues identified [GENEPIO:0100565]
         title: Minor quality control issues identified [GENEPIO:0100565]
@@ -9417,6 +10124,8 @@ enums:
           - NCBI_SRA:minor%20quality%20control%20issues%20identified
           - ENA_GSC_MIxS_WW_ERC00023:minor%20quality%20control%20issues%20identified
           - ENA_SEWAGE_ERC00036:minor%20quality%20control%20issues%20identified
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:minor%20quality%20control%20issues%20identified
+          - NCBI_BIOSAMPLE_Pathogen:minor%20quality%20control%20issues%20identified
       Sequence flagged for potential quality control issues [GENEPIO:0100566]:
         text: Sequence flagged for potential quality control issues [GENEPIO:0100566]
         title: Sequence flagged for potential quality control issues [GENEPIO:0100566]
@@ -9428,6 +10137,8 @@ enums:
           - NCBI_SRA:sequence%20flagged%20for%20potential%20quality%20control%20issues
           - ENA_GSC_MIxS_WW_ERC00023:sequence%20flagged%20for%20potential%20quality%20control%20issues
           - ENA_SEWAGE_ERC00036:sequence%20flagged%20for%20potential%20quality%20control%20issues
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:sequence%20flagged%20for%20potential%20quality%20control%20issues
+          - NCBI_BIOSAMPLE_Pathogen:sequence%20flagged%20for%20potential%20quality%20control%20issues
       Quality control not performed [GENEPIO:0100567]:
         text: Quality control not performed [GENEPIO:0100567]
         title: Quality control not performed [GENEPIO:0100567]
@@ -9439,6 +10150,8 @@ enums:
           - NCBI_SRA:not%20performed
           - ENA_GSC_MIxS_WW_ERC00023:not%20performed
           - ENA_SEWAGE_ERC00036:not%20performed
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:not%20performed
+          - NCBI_BIOSAMPLE_Pathogen:not%20performed
   QualityControlIssuesMenu:
     name: QualityControlIssuesMenu
     title:
@@ -9454,6 +10167,8 @@ enums:
           - NCBI_SRA:low%20quality%20sequence
           - ENA_GSC_MIxS_WW_ERC00023:low%20quality%20sequence
           - ENA_SEWAGE_ERC00036:low%20quality%20sequence
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:low%20quality%20sequence
+          - NCBI_BIOSAMPLE_Pathogen:low%20quality%20sequence
       Sequence contaminated [GENEPIO:0100569]:
         text: Sequence contaminated [GENEPIO:0100569]
         title: Sequence contaminated [GENEPIO:0100569]
@@ -9465,6 +10180,8 @@ enums:
           - NCBI_SRA:sequenced%20contaminated
           - ENA_GSC_MIxS_WW_ERC00023:sequenced%20contaminated
           - ENA_SEWAGE_ERC00036:sequenced%20contaminated
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:sequenced%20contaminated
+          - NCBI_BIOSAMPLE_Pathogen:sequenced%20contaminated
       Low average genome coverage [GENEPIO:0100570]:
         text: Low average genome coverage [GENEPIO:0100570]
         title: Low average genome coverage [GENEPIO:0100570]
@@ -9476,6 +10193,8 @@ enums:
           - NCBI_SRA:low%20average%20genome%20coverage
           - ENA_GSC_MIxS_WW_ERC00023:low%20average%20genome%20coverage
           - ENA_SEWAGE_ERC00036:low%20average%20genome%20coverage
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:low%20average%20genome%20coverage
+          - NCBI_BIOSAMPLE_Pathogen:low%20average%20genome%20coverage
       Low percent genome captured [GENEPIO:0100571]:
         text: Low percent genome captured [GENEPIO:0100571]
         title: Low percent genome captured [GENEPIO:0100571]
@@ -9487,6 +10206,8 @@ enums:
           - NCBI_SRA:low%20%25%20genome%20captured
           - ENA_GSC_MIxS_WW_ERC00023:low%20%25%20genome%20captured
           - ENA_SEWAGE_ERC00036:low%20%25%20genome%20captured
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:low%20%25%20genome%20captured
+          - NCBI_BIOSAMPLE_Pathogen:low%20%25%20genome%20captured
       Read lengths shorter than expected [GENEPIO:0100572]:
         text: Read lengths shorter than expected [GENEPIO:0100572]
         title: Read lengths shorter than expected [GENEPIO:0100572]
@@ -9498,6 +10219,8 @@ enums:
           - NCBI_SRA:read%20lengths%20shorter%20than%20expected
           - ENA_GSC_MIxS_WW_ERC00023:read%20lengths%20shorter%20than%20expected
           - ENA_SEWAGE_ERC00036:read%20lengths%20shorter%20than%20expected
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:read%20lengths%20shorter%20than%20expected
+          - NCBI_BIOSAMPLE_Pathogen:read%20lengths%20shorter%20than%20expected
       Sequence amplification artifacts [GENEPIO:0100573]:
         text: Sequence amplification artifacts [GENEPIO:0100573]
         title: Sequence amplification artifacts [GENEPIO:0100573]
@@ -9509,6 +10232,8 @@ enums:
           - NCBI_SRA:sequence%20amplification%20artifacts
           - ENA_GSC_MIxS_WW_ERC00023:sequence%20amplification%20artifacts
           - ENA_SEWAGE_ERC00036:sequence%20amplification%20artifacts
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:sequence%20amplification%20artifacts
+          - NCBI_BIOSAMPLE_Pathogen:sequence%20amplification%20artifacts
       Low signal to noise ratio [GENEPIO:0100574]:
         text: Low signal to noise ratio [GENEPIO:0100574]
         title: Low signal to noise ratio [GENEPIO:0100574]
@@ -9520,6 +10245,8 @@ enums:
           - NCBI_SRA:low%20signal%20to%20noise%20ratio
           - ENA_GSC_MIxS_WW_ERC00023:low%20signal%20to%20noise%20ratio
           - ENA_SEWAGE_ERC00036:low%20signal%20to%20noise%20ratio
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:low%20signal%20to%20noise%20ratio
+          - NCBI_BIOSAMPLE_Pathogen:low%20signal%20to%20noise%20ratio
       Low coverage of characteristic mutations [GENEPIO:0100575]:
         text: Low coverage of characteristic mutations [GENEPIO:0100575]
         title: Low coverage of characteristic mutations [GENEPIO:0100575]
@@ -9531,6 +10258,8 @@ enums:
           - NCBI_SRA:low%20coverage%20of%20characteristic%20mutations
           - ENA_GSC_MIxS_WW_ERC00023:low%20coverage%20of%20characteristic%20mutations
           - ENA_SEWAGE_ERC00036:low%20coverage%20of%20characteristic%20mutations
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:low%20coverage%20of%20characteristic%20mutations
+          - NCBI_BIOSAMPLE_Pathogen:low%20coverage%20of%20characteristic%20mutations
   DiagnosticTargetPresenceMenu:
     name: DiagnosticTargetPresenceMenu
     title:
@@ -9559,6 +10288,8 @@ enums:
           - NCBI_BIOSAMPLE:GC/L
           - ENA_GSC_MIxS_WW_ERC00023:GC/L
           - ENA_SEWAGE_ERC00036:GC/L
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:GC/L
+          - NCBI_BIOSAMPLE_Pathogen:GC/L
       copies per liter (C/L) [GENEPIO:0102202]:
         text: copies per liter (C/L) [GENEPIO:0102202]
         title: copies per liter (C/L) [GENEPIO:0102202]
@@ -9586,6 +10317,8 @@ enums:
           - NCBI_BIOSAMPLE:Ct
           - ENA_GSC_MIxS_WW_ERC00023:Ct
           - ENA_SEWAGE_ERC00036:Ct
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:Ct
+          - NCBI_BIOSAMPLE_Pathogen:Ct
       colony forming units per milliliter (CFU/mL) [UO:0000213]:
         text: colony forming units per milliliter (CFU/mL) [UO:0000213]
         title: colony forming units per milliliter (CFU/mL) [UO:0000213]
@@ -9596,6 +10329,8 @@ enums:
           - NCBI_BIOSAMPLE:CFU/ml
           - ENA_GSC_MIxS_WW_ERC00023:CFU/ml
           - ENA_SEWAGE_ERC00036:CFU/ml
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:CFU/ml
+          - NCBI_BIOSAMPLE_Pathogen:CFU/ml
       colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]:
         text: colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]
         title: colony forming units per 100 milliliter (CFU/100 mL) [GENEPIO:0102203]
@@ -9606,6 +10341,8 @@ enums:
           - NCBI_BIOSAMPLE:CFU/100%20mL
           - ENA_GSC_MIxS_WW_ERC00023:CFU/100%20mL
           - ENA_SEWAGE_ERC00036:CFU/100%20mL
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:CFU/100%20mL
+          - NCBI_BIOSAMPLE_Pathogen:CFU/100%20mL
       colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]:
         text: colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]
         title: colony forming units per grams total solids (CFU/gTS) [GENEPIO:0102204]
@@ -9616,6 +10353,8 @@ enums:
           - NCBI_BIOSAMPLE:CFU/gTS
           - ENA_GSC_MIxS_WW_ERC00023:CFU/gTS
           - ENA_SEWAGE_ERC00036:CFU/gTS
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:CFU/gTS
+          - NCBI_BIOSAMPLE_Pathogen:CFU/gTS
       most probable number per milliliter (MPN/mL) [GENEPIO:0102205]:
         text: most probable number per milliliter (MPN/mL) [GENEPIO:0102205]
         title: most probable number per milliliter (MPN/mL) [GENEPIO:0102205]
@@ -9626,6 +10365,8 @@ enums:
           - NCBI_BIOSAMPLE:MPN/mL
           - ENA_GSC_MIxS_WW_ERC00023:MPN/mL
           - ENA_SEWAGE_ERC00036:MPN/mL
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:MPN/mL
+          - NCBI_BIOSAMPLE_Pathogen:MPN/mL
       most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]:
         text: most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]
         title: most probable number per 100 milliliter (MPN/100 mL) [GENEPIO:0102206]
@@ -9636,6 +10377,8 @@ enums:
           - NCBI_BIOSAMPLE:MPN/100%20mL
           - ENA_GSC_MIxS_WW_ERC00023:MPN/100%20mL
           - ENA_SEWAGE_ERC00036:MPN/100%20mL
+          - NCBI_BIOSAMPLE_PHA4GE_WWS:MPN/100%20mL
+          - NCBI_BIOSAMPLE_Pathogen:MPN/100%20mL
   DiagnosticMeasurementMethodMenu:
     name: DiagnosticMeasurementMethodMenu
     title:
