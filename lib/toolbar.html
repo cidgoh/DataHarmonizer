@@ -149,32 +149,6 @@
             >Translation form (for chosen rows)</span
           >
 
-          <label
-            for="schema_expert"
-            class="dropdown-item mb-0"
-            id="schema-editor-expert-user"
-            ><span data-i18n="schema-editor-expert-options">Toggle expert user mode</span>
-            <input
-              type="checkbox"
-              class="form-control"
-              style="width:1rem;height:1.5rem;float:right"
-              id="schema_expert"
-            />
-          </label>
-
-          <label
-            for="schema_linkml_terms"
-            class="dropdown-item mb-0"
-            id="schema-editor-linkml-terms"
-            ><span data-i18n="schema-editor-linkml-terms">Use LinkML terminology</span>
-            <input
-              type="checkbox"
-              class="form-control"
-              style="width:1rem;height:1.5rem;float:right"
-              id="schema_linkml_terms"
-            />
-          </label>
-
           <span data-i18n="workspace">Workspace</span>
 
           <span
@@ -218,26 +192,6 @@
         Settings
       </button>
       <div class="dropdown-menu">
-        <label for="concise-view-checkbox" class="dropdown-item mb-0" id="concise-view-item" style="display:none"
-          ><span data-i18n="concise-view">Concise view</span>
-          <input
-            type="checkbox"
-            class="form-control"
-            style="width:1rem;height:1.5rem;float:right"
-            id="concise-view-checkbox"
-            checked
-          />
-        </label>
-        <label for="validate_by_column" class="dropdown-item mb-0"
-          ><span data-i18n="validate-by-column">Validate &amp; search by column</span>
-          <input
-            type="checkbox"
-            class="form-control"
-            style="width:1rem;height:1.5rem;float:right"
-            id="validate_by_column"
-            checked
-          />
-        </label>
         <span
           class="dropdown-item disabled"
           id="show-all-cols-dropdown-item"
@@ -256,13 +210,37 @@
           data-i18n="show-recommended-cols-dropdown-item"
           >Show required + recommended columns</span
         >
-        <div style="padding: 0.25rem 1.5rem" id="show-section-menu">
-          <span id="section-label" data-i18n="show-section-menu"
-            >Show section:</span
-          >
+        <details id="show-section-details" style="padding: 0.25rem 1.5rem">
+          <summary id="section-label" style="cursor:pointer; user-select:none">
+            <span data-i18n="show-section-menu">Show section:</span>
+            <span id="section-active-summary" style="font-style:italic; font-size:0.85em; color:#555; margin-left:0.3em"></span>
+          </summary>
           <div id="section-menu"></div>
-        </div>
+        </details>
 
+        <span
+          class="dropdown-item"
+          id="jump-to-dropdown-item"
+          data-i18n="jump-to-dropdown-item"
+          data-toggle="modal"
+          data-target="#jump-to-modal"
+          >Jump to...</span
+        >
+        <span
+          class="dropdown-item"
+          id="fill-dropdown-item"
+          data-i18n="fill-dropdown-item"
+          data-toggle="modal"
+          data-target="#fill-modal"
+          >Fill column...</span
+        >
+        <span
+          class="dropdown-item"
+          id="reset-col-widths-dropdown-item"
+          data-i18n="reset-col-widths-dropdown-item"
+          >Reset column widths</span
+        >
+        <div class="dropdown-divider"></div>
         <span
           class="dropdown-item hidden-dropdown-item"
           id="show-all-rows-dropdown-item"
@@ -288,23 +266,47 @@
           data-i18n="clear-all-tab-filters-dropdown-item"
           >Show all rows (all tabs)</span
         >
-
-        <span
-          class="dropdown-item"
-          id="jump-to-dropdown-item"
-          data-i18n="jump-to-dropdown-item"
-          data-toggle="modal"
-          data-target="#jump-to-modal"
-          >Jump to...</span
-        >
-        <span
-          class="dropdown-item"
-          id="fill-dropdown-item"
-          data-i18n="fill-dropdown-item"
-          data-toggle="modal"
-          data-target="#fill-modal"
-          >Fill column...</span
-        >
+        <div class="dropdown-divider"></div>
+        <label for="concise-view-checkbox" class="dropdown-item mb-0" id="concise-view-item" style="display:none"
+          ><span data-i18n="concise-view">Concise view</span>
+          <input
+            type="checkbox"
+            class="form-control"
+            style="width:1rem;height:1.5rem;float:right"
+            id="concise-view-checkbox"
+            checked
+          />
+        </label>
+        <label for="validate_by_column" class="dropdown-item mb-0"
+          ><span data-i18n="validate-by-column">Validate &amp; search by column</span>
+          <input
+            type="checkbox"
+            class="form-control"
+            style="width:1rem;height:1.5rem;float:right"
+            id="validate_by_column"
+            checked
+          />
+        </label>
+        <div id="schema-editor-settings-section" style="display:none">
+          <label for="schema_expert" class="dropdown-item mb-0" id="schema-editor-expert-user"
+            ><span data-i18n="schema-editor-expert-options">Toggle expert user mode</span>
+            <input
+              type="checkbox"
+              class="form-control"
+              style="width:1rem;height:1.5rem;float:right"
+              id="schema_expert"
+            />
+          </label>
+          <label for="schema_linkml_terms" class="dropdown-item mb-0" id="schema-editor-linkml-terms"
+            ><span data-i18n="schema-editor-linkml-terms">Use LinkML terminology</span>
+            <input
+              type="checkbox"
+              class="form-control"
+              style="width:1rem;height:1.5rem;float:right"
+              id="schema_linkml_terms"
+            />
+          </label>
+        </div>
       </div>
     </div>
     <button

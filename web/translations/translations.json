@@ -276,6 +276,10 @@
     "en": "Fill column...",
     "fr": "Remplir la colonne..."
   },
+  "reset-col-widths-dropdown-item": {
+    "en": "Reset column widths",
+    "fr": "Réinitialiser les largeurs de colonnes"
+  },
 
   "validate-btn": {
     "en": "Validate",

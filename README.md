@@ -56,9 +56,9 @@ standardized vocabulary. You can then browse through the errors using the **Next
 
 ![validating cells and checking next error](./images/validatingCells.gif)
 
-Double click any column headers for information on the template's vocabulary. This usually includes the definition of the field, guidance on filling in the field, and examples of how data might look structured according to the constraints of the validator.
+Click any column header for information on the template's vocabulary. This usually includes the definition of the field, guidance on filling in the field, and examples of how data might look structured according to the constraints of the validator.
 
-![double click headers for more info](./images/doubleClickHeaders.gif)
+![click headers for more info](./images/doubleClickHeaders.gif)
 
 You can quickly navigate to a column by selecting **Settings** > **Jump to...**. An in-app window will appear, select the desired column header from the drop-down list or begin typing its name to narrow down the list options. Selecting the column header from the drop down list will immediately relocate you to that column on the spreadsheet.
 
@@ -69,6 +69,8 @@ You can also automatically fill a column with a specified value, but only in row
 ![fill column, in rows with corresponding sample IDs, with specified value](./images/fillColumn.gif)
 
 For _more information_ on available application features, select the **Help** button followed by **Getting Started** from within the DataHarmonizer application or navigate to the [**Getting Started**](https://github.com/cidgoh/DataHarmonizer/wiki/DataHarmonizer---Getting-Started) GitHub wiki..
+
+Column widths can be adjusted by dragging any column border in the header row. These custom widths are saved per template in your browser and will be restored automatically the next time you load that template. To revert to the default widths, select **Settings** > **Reset column widths**.
 
 ## Example Data
 
