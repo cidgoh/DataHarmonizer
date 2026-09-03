@@ -130,7 +130,8 @@ div.handsontableEditor div .wtSpreader {
 /* Make the filter TEXTAREA semi-transparent so the cell's existing label text
    remains visible through the overlay when the dropdown is open. */
 textarea[data-hot-input].handsontableInput {
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.85);
+  max-width: 380px !important;
 }
 
 div.handsontableEditor {}

@@ -233,8 +233,8 @@
     "fr": "Paramètres"
   },
   "validate-by-column": {
-    "en": "Validate by column",
-    "fr": "Valider par colonne"
+    "en": "Validate & search by column",
+    "fr": "Valider et rechercher par colonne"
   },
   "show-all-cols-dropdown-item": {
     "en": "Show all columns",
@@ -321,9 +321,18 @@
     "fr": "Fichier téléchargé"
   },
 
-  "search-field": { 
+  "search-field": {
     "en": "Search",
     "fr": "Rechercher"
+  },
+
+  "search-hidden-hint-line1": {
+    "en": "Text found in filtered record(s)",
+    "fr": "Texte trouvé dans des enregistrement(s) filtrés"
+  },
+  "search-hidden-hint-line2": {
+    "en": "Broaden Display filter to view",
+    "fr": "Élargir le filtre d'affichage pour voir"
   },
 
    "tooltip-require-selection": {

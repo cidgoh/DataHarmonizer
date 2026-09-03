@@ -229,7 +229,7 @@
           />
         </label>
         <label for="validate_by_column" class="dropdown-item mb-0"
-          ><span data-i18n="validate-by-column">Validate by column</span>
+          ><span data-i18n="validate-by-column">Validate &amp; search by column</span>
           <input
             type="checkbox"
             class="form-control"
@@ -431,13 +431,19 @@
     </div>
   </div>
 
-  <div class="btn-group" role="group" style="float:right">
-    <div class="input-group-prepend">
-      <input id="search-field" type="search" data-i18n="[placeholder]search-field" placeholder="Search" class="input-group-text" style="text-align:left;width:130px"> 
+  <div style="float:right;margin-right:30px">
+    <div class="btn-group" role="group">
+      <div class="input-group-prepend">
+        <input id="search-field" type="search" data-i18n="[placeholder]search-field" placeholder="Search" class="input-group-text" style="text-align:left;width:130px">
+      </div>
+      <div class="input-group-append" style="width:50px">
+        <button class="btn btn-secondary small" id="previous-search-button" type="submit">&lt;</button>
+        <button class="btn btn-secondary small" id="next-search-button" type="submit">&gt;</button>
+      </div>
     </div>
-    <div class="input-group-append" style="width:50px">
-      <button class="btn btn-secondary small" id="previous-search-button" type="submit">&lt;</button>
-      <button class="btn btn-secondary small" id="next-search-button" type="submit">&gt;</button>
+    <div id="search-hidden-hint" style="display:none;font-size:0.75em;color:#888;text-align:left;line-height:1.3;padding-top:3px;">
+      <span data-i18n="search-hidden-hint-line1">Text found in filtered record(s)</span><br>
+      <span data-i18n="search-hidden-hint-line2">Broaden Display filter to view</span>
     </div>
   </div>
 
@@ -458,7 +464,7 @@
                  style="float:right;width:1rem;height:1.5rem">
           <span data-i18n="all-records">All records</span>
         </label>
-        <label class="dropdown-item mb-0">
+        <label class="dropdown-item mb-0" style="display:none">
           <input type="radio" name="display-main-type" value="schema" id="display-records-by-schema-radio"
                  style="float:right;width:1rem;height:1.5rem">
           <span data-i18n="records-by-selected-schema">Record(s) by selected schema</span>

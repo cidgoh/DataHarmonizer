@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
+  const isDev = argv.mode === 'development';
+
   var config = {
     context: path.resolve(__dirname),
     entry: './index.js',
@@ -29,10 +31,12 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
+        templateParameters: { isDev },
       }),
       new HtmlWebpackPlugin({
         template: './schema_editor.html',
         filename: 'schema_editor.html',
+        templateParameters: { isDev },
       }),
       new CopyPlugin({
         // Covers all schema.json and schema.yaml including locales
