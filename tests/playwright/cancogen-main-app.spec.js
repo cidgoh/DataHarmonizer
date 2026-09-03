@@ -9,6 +9,15 @@
  *      Switches the locale to French and confirms the File menu label, a
  *      French column header, and picklist values are all translated.
  *
+ *   3. search "2025" — 3rd result lands in "r1 fastq filename" column
+ *      Loads the example xlsx, switches to row-first search order, searches
+ *      for "2025", navigates to the 3rd result, and verifies the selected
+ *      cell is in the "r1 fastq filename" column.
+ *      Background: the file has 3 data rows, each containing "2025" in four
+ *      columns (col 0 specimen ID, col 25 isolate, col 115 r1 fastq filename,
+ *      col 116 r2 fastq filename).  In row-first order the 3rd hit is
+ *      row 0 / col 115.  Scroll-to-centre cannot be verified in Playwright.
+ *
  * Run all:
  *   npx playwright test tests/playwright/cancogen-main-app.spec.js
  */
@@ -114,4 +123,86 @@ test('switch to French and verify interface, column headers, and menus', async (
   await page.waitForSelector('div.handsontableEditor.listbox', { timeout: 5_000 });
   const dropdownOptions = page.locator('div.handsontableEditor.listbox td');
   await expect(dropdownOptions.filter({ hasText: 'Sans objet' }).first()).toBeVisible();
+});
+
+// ── Test 3: search "2025" — 3rd result is in "r1 fastq filename" ─────────────
+
+test('search "2025" — 3rd result lands in "r1 fastq filename" column', async ({ page }) => {
+
+  // 1. Load the app and wait for Handsontable to render.
+  await page.goto('/');
+  await page.waitForSelector('.htCore', { timeout: 15_000 });
+
+  // 2. Load the example file.
+  await page.setInputFiles('#open-file-input', EXAMPLE_FILE);
+  await page.waitForFunction(() =>
+    document.querySelector('.htCore tbody td')?.textContent?.trim().length > 0
+  );
+
+  // 3. Switch to row-first search navigation so results are ordered
+  //    left-to-right across each row before moving to the next row.
+  //    The default checkbox state is "checked" (column-first); unchecking it
+  //    gives row-first order where the 3 data rows each contribute four hits
+  //    in column order: col 0 (specimen ID), col 25 (isolate),
+  //    col 115 (r1 fastq filename), col 116 (r2 fastq filename).
+  //    The 3rd overall hit is therefore row 0 / col 115 = "r1 fastq filename".
+  //
+  //    #validate_by_column lives inside a collapsed Bootstrap dropdown so it
+  //    is not reachable by Playwright's click/uncheck actions.  Manipulate it
+  //    directly in the page and fire the change event that the Toolbar
+  //    handler listens for.
+  await page.evaluate(() => {
+    const cb = document.getElementById('validate_by_column');
+    if (cb && cb.checked) {
+      cb.checked = false;
+      cb.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  });
+
+  // 4. Type "2025" into the search field and trigger the search handler.
+  await page.fill('#search-field', '2025');
+  await page.dispatchEvent('#search-field', 'keyup');
+
+  // Wait for the navigation buttons to appear (confirms results were found).
+  await expect(page.locator('#next-search-button')).toBeVisible({ timeout: 5_000 });
+
+  // 5. Navigate to the 3rd result (three clicks of the Next button).
+  await page.click('#next-search-button'); // → result 1  (row 0, specimen ID)
+  await page.click('#next-search-button'); // → result 2  (row 0, isolate)
+  await page.click('#next-search-button'); // → result 3  (row 0, r1 fastq filename)
+
+  // 6. Wait for HOT to render the selection on the 3rd result cell.
+  await page.waitForSelector('.ht_master .htCore tbody td.current', { timeout: 5_000 });
+
+  // 6b. Verify the cell is actually visible in the browser viewport — i.e. that
+  //     DH's scrollTo() has scrolled it into view and not merely selected it
+  //     off-screen.  HOT uses virtual rendering so a cell that is far outside
+  //     the visible area will not even exist in the DOM; the fact that we
+  //     found td.current above is already a strong signal.  This assertion
+  //     (Intersection Observer) confirms at least 50 % of the cell's area
+  //     intersects the window viewport.
+  await expect(
+    page.locator('.ht_master .htCore tbody td.current')
+  ).toBeInViewport({ ratio: 0.5 });
+
+  // 7. Identify which column the selected cell is in, then read its header text.
+  //    HOT renders each data row as: <th> (row number) + <td> <td> … (data cols).
+  //    The field-label header row mirrors this layout, so the <th> at the same
+  //    childElement index as the selected <td> carries that column's label.
+  const colHeaderText = await page.evaluate(() => {
+    const cell = document.querySelector('.ht_master .htCore tbody td.current');
+    if (!cell) return null;
+    // Position of the selected td among all children of its row
+    // (index 0 is the row-number <th>, data columns start at index 1).
+    const colPos = Array.from(cell.parentElement.children).indexOf(cell);
+    // Last <tr> in the header = field-label row.
+    const headerRow = document.querySelector('.ht_master .htCore thead tr:last-child');
+    if (!headerRow) return null;
+    const th = headerRow.children[colPos];
+    // Prefer the data-ref attribute (set by DH from the slot title); fall back
+    // to textContent for columns that don't carry data-ref.
+    return th?.getAttribute('data-ref') ?? th?.textContent?.trim() ?? null;
+  });
+
+  expect(colHeaderText).toContain('r1 fastq filename');
 });

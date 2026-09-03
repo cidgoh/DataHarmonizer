@@ -311,10 +311,10 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       await page.waitForTimeout(200);
 
       const errVis = await page.$eval(
-        '#fkm-error', el => el.style.display !== 'none' && el.offsetParent !== null
+        '#fkm-warn', el => el.style.display !== 'none' && el.offsetParent !== null
       );
       expect(errVis).toBe(true);
-      const errTxt = await page.$eval('#fkm-error', el => el.textContent.toLowerCase());
+      const errTxt = await page.$eval('#fkm-warn', el => el.textContent.toLowerCase());
       expect(errTxt).toContain('expert');
 
       const sgVis = await page.$eval('#fkm-slot-group-new', el => el.style.display !== 'none');
@@ -346,7 +346,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       );
       expect(open).toBe(true);
 
-      const err = await page.$eval('#fkm-error', el => el.textContent.toLowerCase());
+      const err = await page.$eval('#fkm-warn', el => el.textContent.toLowerCase());
       expect(err).toContain('expert');
 
       await page.click('#field-key-modal button[data-dismiss="modal"]');
@@ -362,7 +362,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       await page.waitForTimeout(200);
 
       const errGone = await page.$eval(
-        '#fkm-error', el => el.style.display === 'none' || el.textContent.trim() === ''
+        '#fkm-warn', el => el.style.display === 'none' || el.textContent.trim() === ''
       );
       expect(errGone).toBe(true);
 
@@ -516,19 +516,20 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       const tblHid = await page.$eval('#fkm-class-id', el => el.closest('tr')?.style.display === 'none');
       expect(tblHid).toBe(true);
 
-      const errVis = await page.$eval('#fkm-error',
+      const errVis = await page.$eval('#fkm-warn',
         el => el.style.display !== 'none' && el.offsetParent !== null);
       expect(errVis).toBe(true);
-      const err = await page.$eval('#fkm-error', el => el.textContent.toLowerCase());
+      const err = await page.$eval('#fkm-warn', el => el.textContent.toLowerCase());
       expect(err).toContain('expert');
 
       const saveDisabled = await page.$eval('#fkm-confirm-btn', el => el.disabled);
       expect(saveDisabled).toBe(true);
 
       const sgNewVis = await page.$eval('#fkm-slot-group-new', el => el.style.display !== 'none');
-      const sgNotDis = await page.$eval('#fkm-slot-group-new', el => !el.disabled);
+      const sgDis    = await page.$eval('#fkm-slot-group-new', el => el.disabled);
       expect(sgNewVis).toBe(true);
-      expect(sgNotDis).toBe(true);
+      // Non-expert schema slot edit: Section is visible but disabled (read-only).
+      expect(sgDis).toBe(true);
 
       await page.click('#field-key-modal button[data-dismiss="modal"]');
       await waitFkmClosed(page);
@@ -545,7 +546,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
         () => document.querySelector('#field-key-modal')?.classList.contains('show') ?? false
       );
       expect(open).toBe(true);
-      const err = await page.$eval('#fkm-error', el => el.textContent.toLowerCase());
+      const err = await page.$eval('#fkm-warn', el => el.textContent.toLowerCase());
       expect(err).toContain('expert');
 
       await page.click('#field-key-modal button[data-dismiss="modal"]');
@@ -1144,6 +1145,9 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       const errGone = await page.$eval(
         '#fkm-error', el => el.style.display === 'none' || el.textContent.trim() === '');
       expect(errGone).toBe(true);
+      const warnGone = await page.$eval(
+        '#fkm-warn', el => el.style.display === 'none' || el.textContent.trim() === '');
+      expect(warnGone).toBe(true);
 
       const saveOK = await page.$eval('#fkm-confirm-btn', el => !el.disabled);
       expect(saveOK).toBe(true);
