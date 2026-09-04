@@ -314,7 +314,7 @@ The `beforeRowMove` / `afterRowMove` validation hooks introduced in `SchemaEdito
 |---|---|---|
 | **Cross-schema block** | With multiple schemas visible, drag a row from one schema into another schema's rows | Alert: "Fields cannot be moved to a different schema. Use the right-click 'Copy to schema…' menu…". Row stays in place. |
 | **slot_group constraint (non-expert)** | In normal (non-expert) mode, drag a `slot_usage` field into a section that differs from its base schema slot's `slot_group` | Alert listing the constrained field(s) and the blocked target section. Row stays in place. |
-| **slot_group constraint bypassed in expert mode** | Enable Expert User mode (File menu), then perform the same drag as above | No alert. Move succeeds; section and rank update. |
+| **slot_group constraint bypassed in expert mode** | Enable Expert User mode (Settings menu), then perform the same drag as above | No alert. Move succeeds; section and rank update. |
 | **Cross-class confirmation — cancel** | In expert mode, drag a field into a different class's rows | Confirm dialog appears. Click Cancel → row reverts to its original position. |
 | **Cross-class confirmation — confirm** | Same drag, click OK in the confirm dialog | Field's `class_id` changes to the target class; section auto-updates to match the drop location; ranks re-sequence for both the source and target classes. |
 | **Same-class, same section** | Drag a field within its own class, staying inside the same section | No dialog. Rank re-sequences; section unchanged. |

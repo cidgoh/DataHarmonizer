@@ -32,8 +32,8 @@ By default the Schema Editor shows the tabs needed for routine schema authoring:
 
 Some advanced structural tabs are hidden by default. To reveal them:
 
-1. Open the **File** menu.
-2. Under **Schema Editor options**, tick the **Toggle expert user mode** checkbox.
+1. Open the **Settings** menu.
+2. Tick the **Toggle expert user mode** checkbox.
 
 The following additional tabs appear:
 
