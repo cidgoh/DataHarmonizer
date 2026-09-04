@@ -22,7 +22,7 @@ import { test, expect } from '@playwright/test';
 import path from 'path';
 import { readFileSync, mkdirSync } from 'fs';
 import YAML from 'yaml';
-import { hotCellLocator, slotCellLocator, findSlotRowIndex, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
+import { hotCellLocator, slotCellLocator, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
 
 // ── Test ───────────────────────────────────────────────────────────────────────
 

@@ -15,7 +15,7 @@ import { test, expect } from '@playwright/test';
 import path from 'path';
 import { readFileSync, mkdirSync } from 'fs';
 import YAML from 'yaml';
-import { hotCellLocator, findSlotRowIndex, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
+import { hotCellLocator, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
 
 // ── Test ──────────────────────────────────────────────────────────────────────
 

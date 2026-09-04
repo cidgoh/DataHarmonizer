@@ -70,47 +70,6 @@ async function waitForColCellText(page, colIdx, text, count = 1, timeout = 10_00
   );
 }
 
-/**
- * Returns the visible name (frozen clone-left cell text) of the currently
- * selected row in the active tab pane.  Falls back to reading the clone-left
- * cell at the same visual index as the ht_master selected cell.
- */
-async function getSelectedRowName(page) {
-  return page.evaluate(() => {
-    const text = el => (el?.textContent ?? '').replace(/\u25bc/g, '').trim();
-    const scope = document.querySelector('.tab-pane.show');
-    if (!scope) return null;
-    // Frozen clone-left cell carries .current when that column is selected.
-    const frozen = scope.querySelector('.ht_clone_left.handsontable tbody td.current');
-    if (frozen) return text(frozen);
-    // Otherwise find the selected master cell and map back to the clone row.
-    const cur = scope.querySelector('.ht_master.handsontable tbody td.current');
-    if (!cur) return null;
-    const allMasterRows = scope.querySelectorAll('.ht_master.handsontable tbody tr');
-    const ri = Array.from(allMasterRows).indexOf(cur.closest('tr'));
-    if (ri < 0) return null;
-    const cloneRow = scope.querySelectorAll('.ht_clone_left.handsontable tbody tr')[ri];
-    return text(cloneRow?.querySelector('td'));
-  });
-}
-
-/**
- * Click a tab nav-link and wait for the Bootstrap transition to finish so
- * that exactly one .tab-pane carries .show.
- */
-async function waitForTabActive(page, tabBarId) {
-  await page.waitForFunction(
-    (id) => document.querySelector(`${id} .nav-link`)?.classList.contains('active'),
-    tabBarId,
-    { timeout: 5_000 }
-  );
-  await page.waitForFunction(
-    () => document.querySelectorAll('.tab-pane.show').length === 1,
-    null,
-    { timeout: 5_000 }
-  );
-}
-
 // ── Test ──────────────────────────────────────────────────────────────────────
 
 test('SchemaEditor: create schema with two tables and verify saved YAML', async ({ page }) => {

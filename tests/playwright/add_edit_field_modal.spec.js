@@ -678,7 +678,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       });
 
       if (yamlText && typeof yamlText === 'string') {
-        const slotsBlock = yamlText.match(/^slots:\n((?:  [\s\S]*?\n)*)/m)?.[1] ?? '';
+        const slotsBlock = yamlText.match(/^slots:\n((?:[ ]{2}[\s\S]*?\n)*)/m)?.[1] ?? '';
         const rankInSlots = /^\s+rank:\s*\d/m.test(slotsBlock);
         expect(rankInSlots, 'schema.slots block contains rank keys').toBe(false);
 
