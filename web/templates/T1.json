@@ -1,0 +1,18 @@
+{
+  "schema": "https://example.com/DH_LinkML",
+  "version": "2.0.0",
+  "in_language": "en",
+  "container": {
+    "Schemas": [],
+    "Prefixes": [],
+    "Settings": [],
+    "Extensions": [],
+    "Enums": [],
+    "PermissibleValues": [],
+    "EnumSources": [],
+    "Slots": [],
+    "Annotations": [],
+    "Classes": [],
+    "UniqueKeys": []
+  }
+}
