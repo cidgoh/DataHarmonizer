@@ -333,6 +333,13 @@ td.tabFieldTd.attribute {
   background-color: lightyellow;
 }
 
+/* Search results: override row-type backgrounds so htSearchResult tan shows on all types */
+td.tabFieldTd.slot.htSearchResult,
+td.tabFieldTd.attribute.htSearchResult {
+  background: #fcedd9;
+  color: #583707;
+}
+
 td.tabFieldTd.slot_usage.inherited::before { 
   float:right;
   content: "i";
