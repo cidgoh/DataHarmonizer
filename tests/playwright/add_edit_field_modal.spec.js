@@ -55,6 +55,7 @@
  *   §15 File load — schema.slots have unique non-null integer ranks
  *   §16 File load — slot_usage rows have non-null integer ranks
  *   §17 Round-trip — schema.slots rank omitted; slot_usage rank present
+ *   §18 Orphan slot_usage validation — rename bypasses UI; validation flags error
  *
  * ── Test bundling ─────────────────────────────────────────────────────────────
  * Tests are grouped into bundles to minimise browser-open/close overhead.
@@ -65,6 +66,7 @@
  *     §1          modifies app context — must be isolated
  *     §13c/§13d   convert the same slot_usage row — each needs a fresh schema
  *     §14c/§14e   dynamic slot selection — may collide when run in sequence
+ *     §18         mutates HOT source data directly — must be isolated
  *
  *   NON-EXPERT cancel/read-only bundle  (§2a §2b §2c §6a §6b §7a §7b §7c
  *                                        §8 §12a §12b §13a §13b §15 §16 §17)
@@ -310,12 +312,14 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       await page.selectOption('#fkm-field-type', 'slot');
       await page.waitForTimeout(200);
 
-      const errVis = await page.$eval(
-        '#fkm-warn', el => el.style.display !== 'none' && el.offsetParent !== null
+      // In Add mode, selecting the schema-slot type shows #fkm-type-expert-note
+      // (not #fkm-warn, which is reserved for modal-open and save-attempt paths).
+      const noteVis = await page.$eval(
+        '#fkm-type-expert-note', el => el.style.display !== 'none' && el.offsetParent !== null
       );
-      expect(errVis).toBe(true);
-      const errTxt = await page.$eval('#fkm-warn', el => el.textContent.toLowerCase());
-      expect(errTxt).toContain('expert');
+      expect(noteVis).toBe(true);
+      const noteTxt = await page.$eval('#fkm-type-expert-note', el => el.textContent.toLowerCase());
+      expect(noteTxt).toContain('expert');
 
       const sgVis = await page.$eval('#fkm-slot-group-new', el => el.style.display !== 'none');
       expect(sgVis).toBe(true);
@@ -329,25 +333,27 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       await waitFkmClosed(page);
     });
 
-    // ── §2b non-expert: clicking Save with schema field type keeps modal open ──
-    await test.step('§2b non-expert: clicking Save keeps modal open with expert error', async () => {
+    // ── §2b non-expert: Save is disabled and the expert note explains why ────────
+    await test.step('§2b non-expert: Save button disabled; expert note visible', async () => {
       await openAddFkm(page);
       await page.selectOption('#fkm-field-type', 'slot');
-      await page.evaluate(() => {
-        const n = document.getElementById('fkm-name');
-        if (n) n.value = 'test_slot_nonexpert_2b';
-      });
-      await page.waitForTimeout(100);
-      await page.click('#fkm-confirm-btn', { force: true });
-      await page.waitForTimeout(300);
+      await page.waitForTimeout(200);
 
+      // Save button should be disabled — non-expert cannot save a schema slot.
+      const saveDisabled = await page.$eval('#fkm-confirm-btn', el => el.disabled);
+      expect(saveDisabled).toBe(true);
+
+      // The expert note (not #fkm-warn) carries the explanatory message in Add mode.
+      const noteTxt = await page.$eval('#fkm-type-expert-note', el => el.textContent.toLowerCase());
+      expect(noteTxt).toContain('expert');
+
+      // Force-clicking the disabled button leaves the modal open (Save is blocked).
+      await page.click('#fkm-confirm-btn', { force: true });
+      await page.waitForTimeout(200);
       const open = await page.evaluate(
         () => document.querySelector('#field-key-modal')?.classList.contains('show') ?? false
       );
       expect(open).toBe(true);
-
-      const err = await page.$eval('#fkm-warn', el => el.textContent.toLowerCase());
-      expect(err).toContain('expert');
 
       await page.click('#field-key-modal button[data-dismiss="modal"]');
       await waitFkmClosed(page);
@@ -361,10 +367,14 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       await page.selectOption('#fkm-field-type', 'slot_usage');
       await page.waitForTimeout(200);
 
-      const errGone = await page.$eval(
+      const noteGone = await page.$eval(
+        '#fkm-type-expert-note', el => el.style.display === 'none' || el.textContent.trim() === ''
+      );
+      expect(noteGone).toBe(true);
+      const warnGone = await page.$eval(
         '#fkm-warn', el => el.style.display === 'none' || el.textContent.trim() === ''
       );
-      expect(errGone).toBe(true);
+      expect(warnGone).toBe(true);
 
       await page.click('#field-key-modal button[data-dismiss="modal"]');
       await waitFkmClosed(page);
@@ -1576,6 +1586,59 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       }, [CLASS_SAMPLE, slotName]);
       expect(usageTitle).toBe(baseTitle);
     }
+  });
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // §18 standalone — orphan slot_usage validation (bypasses UI rename)
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  test('§18 Orphan slot_usage validation: name not in schema.slots is flagged after validate', async ({ page }) => {
+    const ORPHAN_NAME = 'nonexistent_orphan_slot_18';
+
+    // 1. Find the physical row of SLOT_COLLECTOR_ID slot_usage in CLASS_SAMPLE
+    //    and rename it directly in HOT source data, bypassing the FKM UI.
+    const physRow = await page.evaluate(([cls, slotName, orphanName]) => {
+      const dh  = window._appContext?.dhs?.Slot;
+      const hot = dh?.hot;
+      if (!hot) return -1;
+      for (let p = 0; p < hot.countSourceRows(); p++) {
+        if (hot.getSourceDataAtCell(p, dh.slot_type_column)     === 'slot_usage' &&
+            hot.getSourceDataAtCell(p, dh.slot_class_id_column) === cls &&
+            hot.getSourceDataAtCell(p, dh.slot_name_column)     === slotName) {
+          hot.setSourceDataAtCell(p, dh.slot_name_column, orphanName);
+          hot.render();
+          return p;
+        }
+      }
+      return -1;
+    }, [CLASS_SAMPLE, SLOT_COLLECTOR_ID, ORPHAN_NAME]);
+
+    expect(physRow, 'slot_usage row for SLOT_COLLECTOR_ID not found in HOT source data').toBeGreaterThanOrEqual(0);
+
+    // 2. Run full validation (async — populates dh.invalid_cells keyed by physical row).
+    await page.evaluate(async () => {
+      await window._appContext.dhs.Slot.validate();
+    });
+    await page.waitForTimeout(300);
+
+    // 3. Assert that invalid_cells flags the slot_name_column of that physical row.
+    const hasError = await page.evaluate(([phys]) => {
+      const dh = window._appContext?.dhs?.Slot;
+      if (!dh) return false;
+      const colStr = String(dh.slot_name_column);
+      return !!dh.invalid_cells?.[phys]?.[colStr];
+    }, [physRow]);
+
+    expect(hasError, 'Expected invalid_cells to flag the orphan slot_usage name column').toBe(true);
+
+    // 4. Confirm that the name cell has the invalid-cell CSS class in the DOM.
+    //    Scroll to bring the row into HOT's virtual render window first.
+    const rowIdx = await scrollToSlotRow(page, ORPHAN_NAME, 'Table field (from schema)', 10_000);
+    expect(rowIdx, 'Renamed slot_usage row not found in DOM after validation').not.toBe(-1);
+
+    const hasClass = await slotNameCellLocator(page, rowIdx)
+      .evaluate(el => el.classList.contains('invalid-cell'));
+    expect(hasClass, 'Name cell should have invalid-cell CSS class').toBe(true);
   });
 
 });
