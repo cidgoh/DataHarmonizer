@@ -174,16 +174,23 @@ test('search "2025" — 3rd result lands in "r1 fastq filename" column', async (
   // 6. Wait for HOT to render the selection on the 3rd result cell.
   await page.waitForSelector('.ht_master .htCore tbody td.current', { timeout: 5_000 });
 
-  // 6b. Verify the cell is actually visible in the browser viewport — i.e. that
-  //     DH's scrollTo() has scrolled it into view and not merely selected it
-  //     off-screen.  HOT uses virtual rendering so a cell that is far outside
-  //     the visible area will not even exist in the DOM; the fact that we
-  //     found td.current above is already a strong signal.  This assertion
-  //     (Intersection Observer) confirms at least 50 % of the cell's area
-  //     intersects the window viewport.
-  await expect(
-    page.locator('.ht_master .htCore tbody td.current')
-  ).toBeInViewport({ ratio: 0.5 });
+  // 6b. Verify that DH's scrollTo() has actually scrolled the HOT master table
+  //     to bring the cell into the visible horizontal area of the table — i.e.
+  //     it was not merely selected off-screen.
+  //     Note: toBeInViewport (IntersectionObserver root=null) cannot be used
+  //     here because in headless 1280×720 mode the HOT table container is
+  //     positioned below the browser window's fold; the cell is correctly
+  //     visible within HOT but outside the browser viewport rectangle.
+  //     We instead check that the cell's left/right bounds fall within the
+  //     master wtHolder's horizontal extent, which directly tests the scroll.
+  await page.waitForFunction(() => {
+    const master = document.querySelector('.ht_master .wtHolder');
+    const cell   = document.querySelector('.ht_master .htCore tbody td.current');
+    if (!master || !cell) return false;
+    const masterRect = master.getBoundingClientRect();
+    const cellRect   = cell.getBoundingClientRect();
+    return cellRect.left >= masterRect.left && cellRect.right <= masterRect.right + 1;
+  }, { timeout: 5_000 });
 
   // 7. Identify which column the selected cell is in, then read its header text.
   //    HOT renders each data row as: <th> (row number) + <td> <td> … (data cols).

@@ -943,7 +943,7 @@ slots:
     name: in_language
     title: Default language
     range: LanguagesMenu
-    description: This is the default language (ISO 639-1 Code) that the given {{schema}} {{class}}, {{slot}} and {{enumeration}} titles, descriptions and other textual items are in.
+    description: This is the default language (stored as an ISO 639-1 Code) that the given {{schema}} {{class}}, {{slot}} and {{enumeration}} titles, descriptions and other textual items are in.
     comments:
       - This is often “en” for English.
     examples:
@@ -952,7 +952,7 @@ slots:
     name: locales
     title: Translations
     range: LanguagesMenu
-    description: For multilingual schemas, a list of (ISO 639-1) languages (codes) which translations can be provided for.
+    description: For multilingual schemas, a list of languages (stored as their ISO 639-1 codes) which translations can be provided for.
     multivalued: true
     comments:
       - Language translations are held in the {{schema's}} extensions.locales data structure.
