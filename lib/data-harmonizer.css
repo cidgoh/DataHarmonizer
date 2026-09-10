@@ -293,6 +293,10 @@ background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%
   background-color:#EFE; 
   margin-top:15px;
 }
+.schema-derived-hint {
+  display: none;
+  margin-top: 3px;
+}
 tr.translation-input td textarea {
   min-height:3lh;
   max-height:10lh;
