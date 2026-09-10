@@ -1045,14 +1045,22 @@
   <div class="modal" id="field-mapping-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document" style="max-width:800px !important">
       <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" data-i18n="field-mapping-title">Header Mismatch Detected</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div class="modal-body">
           <div class="container-fluid">
             <div class="row">
               <div class="col" id="field-mapping-description">
-                <span data-i18n="field-mapping-mismatch"></span>: 
-                <strong><span id="field-mapping-data-file-name"></span></strong>.
-                <span data-i18n="field-mapping-explanation"></span>
-                <span data-i18n="field-mapping-json-note"></span>
+                <details>
+                  <summary>
+                    <span data-i18n="field-mapping-description-summary">Some template fields do not match the fields in your selected data file </span><strong><span id="field-mapping-data-file-name"></span></strong>.
+                  </summary>
+                  <span data-i18n="field-mapping-description-detail">Unmatched fields appear in orange and can be corrected by dragging the appropriate data field to the corresponding template row; any field left unmapped will not have its data imported. Yellow highlights mark column numbers for fields that already match but appear in a different order than in the template; this has no effect on the imported data because matching fields are automatically aligned. In the case of JSON files that contain only fields with values, you may see many unmatched template fields; these do not need to be mapped.</span>
+                </details>
               </div>
             </div>
             <div class="row my-3 border" id="field-mapping-comparison-row">
@@ -1061,8 +1069,8 @@
                   <table id="field-mapping-table">
                     <thead>
                       <tr>
-                        <th data-i18n="field-mapping-template-field">template field</th>
-                        <th data-i18n="field-mapping-data-table-field">data table field</th>
+                        <th data-i18n="field-mapping-template-field">Template Field</th>
+                        <th data-i18n="field-mapping-data-table-field">Data Table Field</th>
                       </tr>
                     </thead>
                     <!-- TBODYs are dynamically written for each tab and its sections -->
@@ -1074,7 +1082,7 @@
 
             <div class="row mt-3">
               <div class="col">
-                <input type = "checkbox" checked id="field-mapping-concise-checkbox" style="width:1.3rem; height:1.3rem">
+                <input type = "checkbox" id="field-mapping-concise-checkbox" style="width:1.3rem; height:1.3rem">
                 <label for="field-mapping-concise-checkbox" data-i18n="field-mapping-concise-label">Show concise form</label>
               </div>
               <div class="col">
@@ -1086,7 +1094,7 @@
                   id="field-mapping-reset-btn"
                   data-i18n="field-mapping-reset"
                 >
-                  Reset form
+                  Reset Mapping
                 </button>
 
                 <button
@@ -1103,23 +1111,35 @@
           </div>
 
           <div class="container-fluid" id="field-mapping-profiles">
+            <details>
+            <summary data-i18n="field-mapping-custom-library-title">Custom Mapping Library</summary>
             <div class="row mt-3">
               <div class="col">
-                <b>Custom Mapping Library</b>
                 <select id="field-mapping-select" style="width:100%;height:35px">
-                  <option readonly value="" data-i18n="field-mapping-select-prompt">Apply a mapping profile</option>
+                  <option disabled selected value="" data-i18n="field-mapping-select-prompt">Select a profile</option>
                 </select>
                 <textarea id="field-mapping-display" data-i18n="field-mapping-textarea-placeholder" placeholder="The selected profile's mapping rules will be displayed here." style="width:100%; height:90px; white-space: pre; font-size:.8rem;margin-top:5px" readonly></textarea>
 
-                <button
-                  type="button"
-                  class="btn btn-secondary small"
-                  data-i18n="field-mapping-delete-btn"
-                  id="field-mapping-delete-btn"
-                  disabled
-                >
-                  Delete selected profile
-                </button> 
+                <div style="display:flex; justify-content:space-between; margin-top:4px">
+                  <button
+                    type="button"
+                    class="btn btn-secondary small"
+                    data-i18n="field-mapping-apply-profile-btn"
+                    id="field-mapping-apply-profile-btn"
+                    disabled
+                  >
+                    Apply profile
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary small"
+                    data-i18n="field-mapping-delete-btn"
+                    id="field-mapping-delete-btn"
+                    disabled
+                  >
+                    Delete profile
+                  </button>
+                </div>
 
               </div>
               <div class="col" style="padding:5px">
@@ -1139,9 +1159,10 @@
             </div>
             <div class="row">
               <div class="col">
-                
+
               </div>
             </div>
+            </details>
           </div>
 
         </div>

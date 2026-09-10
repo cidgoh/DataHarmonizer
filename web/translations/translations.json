@@ -173,17 +173,13 @@
     "en": "\n\n NOTE: {{count}} header(s) match the \"{{locale}}\" locale — try switching the language before loading.",
     "fr": "\n\n REMARQUE : {{count}} en-tête(s) correspondent au paramètre régional \"{{locale}}\" — essayez de changer la langue avant de charger."
   },
-  "field-mapping-mismatch": {
-    "en": "One or more template header field names do not exactly match those in the selected data file",
-    "fr": "Un ou plusieurs noms de champs d'en-tête du modèle ne correspondent pas exactement à ceux du fichier de données sélectionné."
+  "field-mapping-description-summary": {
+    "en": "Some template fields do not match the fields in your selected data file ",
+    "fr": "Certains champs du modèle ne correspondent pas aux champs de votre fichier de données sélectionné "
   },
-  "field-mapping-explanation": {
-    "en": "Unmatched field(s) - shown in orange - might be remedied by dragging the appropriate data field to the matching template field row. Field ordering of matching fields (marked in yellow) is automatically handled. Not all schema fields need to be mapped (but key fields may be critical).",
-    "fr": "Les champs non appariés (affichés en orange) peuvent être corrigés en faisant glisser le champ de données approprié vers la ligne du champ de modèle correspondant. L'ordre des champs correspondants (marqués en jaune) est géré automatiquement. Il n'est pas nécessaire de mapper tous les champs du schéma (mais certains champs clés peuvent être essentiels). "
-  },
- "field-mapping-json-note": {
-    "en": "In the case of a JSON data file that only contains fields with values, many other unmatched template fields may be displayed. These do not need to be matched.",
-    "fr": ""
+  "field-mapping-description-detail": {
+    "en": "Unmatched fields appear in orange and can be corrected by dragging the appropriate data field to the corresponding template row; any field left unmapped will not have its data imported. Yellow highlights mark column numbers for fields that already match but appear in a different order than in the template; this has no effect on the imported data because matching fields are automatically aligned. In the case of JSON files that contain only fields with values, you may see many unmatched template fields; these do not need to be mapped.",
+    "fr": "Les champs non appariés apparaissent en orange et peuvent être corrigés en faisant glisser le champ de données approprié vers la ligne de modèle correspondante ; tout champ non mappé ne verra pas ses données importées. Les surbrillances jaunes indiquent les numéros de colonne des champs qui correspondent déjà mais apparaissent dans un ordre différent de celui du modèle ; cela n'a aucun effet sur les données importées car les champs correspondants sont automatiquement alignés. Dans le cas de fichiers JSON qui ne contiennent que des champs avec des valeurs, vous pouvez voir de nombreux champs de modèle non appariés ; ceux-ci n'ont pas besoin d'être mappés."
   },
 
   "field-mapping-textarea-placeholder": {
@@ -201,9 +197,19 @@
     "fr": "Enregistrer le profil"
   },
 
+  "field-mapping-select-prompt": {
+    "en": "Select a profile",
+    "fr": "Sélectionner un profil"
+  },
+
+  "field-mapping-apply-profile-btn": {
+    "en": "Apply profile",
+    "fr": "Appliquer le profil"
+  },
+
   "field-mapping-delete-btn": {
-    "en": "Delete selected profile",
-    "fr": "Supprimer le profil sélectionné"
+    "en": "Delete profile",
+    "fr": "Supprimer le profil"
   },
 
   "field-mapping-library": {
@@ -211,21 +217,33 @@
     "fr": "Cette bibliothèque (stockée dans la mémoire persistante de votre navigateur) fournit des profils contenant des correspondances personnalisées entre les champs du fichier de données et les champs du modèle. Chargez un profil donné dans le formulaire ci-dessus en le sélectionnant dans le menu. Enregistrez ou mettez à jour la correspondance du formulaire ci-dessus ici:"
   },
 
+  "field-mapping-title": {
+    "en": "Header Mismatch Detected",
+    "fr": "Incompatibilité d'en-têtes détectée"
+  },
   "field-mapping-template-field": {
-    "en": "template field",
+    "en": "Template {{Slot}}",
     "fr": "Champ du modèle"
   },
   "field-mapping-data-table-field": {
-    "en": "data table field",
+    "en": "Data Table Field",
     "fr": "Champ du tableau de données"
-  },  
+  },
   "field-mapping-concise-label": {
     "en": "Show concise form",
     "fr": "Afficher une forme concise"
   },
+  "field-mapping-reset": {
+    "en": "Reset Mapping",
+    "fr": "Réinitialiser le mappage"
+  },
   "field-mapping-apply": {
     "en": "Apply mapping",
     "fr": "Appliquer le mappage"
+  },
+  "field-mapping-custom-library-title": {
+    "en": "Custom Mapping Library",
+    "fr": "Bibliothèque de mappage personnalisée"
   },
 
   "settings-menu-button": {
