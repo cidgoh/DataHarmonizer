@@ -42,12 +42,12 @@
     "fr": "Utiliser la terminologie LinkML"
   },
   "upload-template-yaml-dropdown-item": {
-    "en": "Load schema from file (yaml)",
-    "fr": "Charger le schéma à partir du fichier (yaml)"
+    "en": "Load schema from file",
+    "fr": "Charger le schéma à partir du fichier"
   },
   "load-schema-url-button": {
-    "en": "Load schema from URL (yaml)",
-    "fr": "Charger le schéma à partir de l'URL (yaml)"
+    "en": "Load schema from URL",
+    "fr": "Charger le schéma à partir de l'URL"
   },
 
   "workspace": {
