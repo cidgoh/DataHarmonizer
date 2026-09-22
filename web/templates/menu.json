@@ -236,8 +236,8 @@
     "id": "https://w3id.org/kaiiam/mifc",
     "version": null,
     "templates": {
-      "Resource": {
-        "name": "Resource",
+      "MIFCResource": {
+        "name": "MIFCResource",
         "display": true
       },
       "Food": {
