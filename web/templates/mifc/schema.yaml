@@ -21,6 +21,7 @@ prefixes:
   example: https://example.org/
   FDC: https://fdc.nal.usda.gov/
   PTFI: https://foodperiodictable.org/
+  obo: http://purl.obolibrary.org/obo/
 default_prefix: mifc
 default_range: string
 
@@ -632,41 +633,71 @@ enums:
   FoodPreservationState: # See FOODON Characteristics TODO add cooked terms or make separate enum for it. PFTI separates this into two fields.
     permissible_values:
       air-dried:
+        meaning: obo:FOODON_03000623
       artificially dried:
+        meaning: obo:FOODON_03000624
       brined:
+        meaning: obo:FOODON_03000656
       candied:
+        meaning: obo:FOODON_03000699
       canned:
+        meaning: obo:FOODON_03000629
       cured:
+        meaning: obo:FOODON_03000635
       dried:
+        meaning: obo:FOODON_00004723
       fermented:
+        meaning: obo:FOODON_03000506
       freeze-dried:
+        meaning: obo:FOODON_03000625
       fresh:
+        meaning: obo:FOODON_00004722
       heat treated:
+        meaning: obo:FOODON_03440022
       irradiated:
+        meaning: obo:FOODON_03000503
       jellied:
+        meaning: obo:FOODON_03000702
       kippered:
+        meaning: obo:FOODON_03000658
       naturally dried:
+        meaning: obo:FOODON_03000620
       pasteurized:
+        meaning: obo:FOODON_03000505
       pickled:
+        meaning: obo:FOODON_03000703
       raw:
+        meaning: obo:FOODON_00004348
       shelf stable:
+        meaning: obo:FOODON_03000499
       sun-dried:
+        meaning: obo:FOODON_03000621
       ultraviolet light exposed:
+        meaning: obo:FOODON_03000501
   FoodStorageTemperatureState:
     permissible_values:
       chilled:
+        meaning: obo:FOODON_00004725
       foodsafe chilled:
+        meaning: obo:FOODON_00004730
       frozen:
+        meaning: obo:PATO_0001985
       refrigerated:
+        meaning: obo:FOODON_03000534
   FoodRipenessState:
     permissible_values:
       ripe:
+        meaning: obo:FOODON_03530052
       overripe:
+        meaning: obo:FOODON_00003346
       unripe:
+        meaning: obo:FOODON_03530051
       slightly ripe:
+        meaning: obo:FOODON_00003347
   FoodAcquisitionLocationType:
     permissible_values:
       field:
+        meaning: obo:ENVO_01000352
       fresh market:
       small grocery:
       supermarket:
@@ -676,39 +707,61 @@ enums:
   FoodCookingMethod:
     permissible_values:
       baked:
+        meaning: obo:FOODON_03000556
       blanched:
       boiled:
       braised:
+        meaning: obo:FOODON_03000584
       broiled:
+        meaning: obo:FOODON_03000560
       cooked:
+        meaning: obo:FOODON_03000550
       dry-heat cooked:
+        meaning: obo:FOODON_03000554
       dry-roasted:
       fried:
       grilled:
+        meaning: obo:FOODON_03000563
       heated:
+        meaning: obo:FOODON_03440022
       microwaved:
+        meaning: obo:FOODON_03000582
       moist-heat cooked:
       oil-roasted:
       pan-broiled:
+        meaning: obo:FOODON_03000611
       pan-browned:
       pan-fried:
+        meaning: obo:FOODON_03000602
       parboiled:
       partially fried:
+        meaning: obo:FOODON_03000605
       poached:
       precooked:
+        meaning: obo:FOODON_03000552
       refried:
+        meaning: obo:FOODON_03000608
       roasted:
+        meaning: obo:FOODON_03000568
       sauteed:
+        meaning: obo:FOODON_03000595
       simmered:
+        meaning: obo:FOODON_03000586
       slow-roasted:
       smoked:
+        meaning: obo:FOODON_03000709
       spit-roasted:
       steamed:
+        meaning: obo:FOODON_03000587
       stewed:
       stir-fried:
+        meaning: obo:FOODON_03000597
       toasted:
+        meaning: obo:FOODON_03000565
       uncooked:
+        meaning: obo:FOODON_03000553
       unheated:
+        meaning: obo:FOODON_03000545
   SkosMatchType:
     permissible_values:
       skos:exactMatch:
