@@ -1,0 +1,38 @@
+id: NewSchema
+name: My_New_Schema
+title: My New Schema
+description: A new schema that reuses fields from the Canadian Covid19 CanCOGeN specification.
+version: 0.0.0
+in_language: en
+default_prefix: NewSchema
+imports:
+  - linkml:types
+prefixes: {}
+classes:
+  Container:
+    name: Container
+    tree_root: true
+    attributes: {}
+slots: {}
+enums: {}
+types:
+  token:
+    name: token
+    typeof: string
+    description: 'Equivalent to an xs:token. A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: Equivalent to an xs:token. Name is preserved here for backward compatibility.
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
+settings: {}
+extensions: {}
