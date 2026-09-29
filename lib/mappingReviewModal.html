@@ -1,0 +1,34 @@
+<div id="mapping-review-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Review Suggested Mappings</h5>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row font-weight-bold mb-2">
+            <div class="col-5">Original value</div>
+            <div class="col-7">Replacement</div>
+          </div>
+          <div id="mapping-review-rows"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="apply-mappings-btn"
+        >
+          Apply replacements
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
