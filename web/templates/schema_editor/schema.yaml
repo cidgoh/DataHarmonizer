@@ -475,6 +475,7 @@ classes:
       - description
       - meaning
       - exact_mappings
+      - broad_mappings
       - notes
     slot_usage:
       schema_id:
@@ -536,15 +537,25 @@ classes:
         rank: 8
         slot_group: attributes
         multivalued: true
-        title: Code mappings
+        title: Exact mappings
         description: A list of terms from other schemas or terminology systems that mean exactly the same thing as this term.
         comments:
           - "This field is used to point to concepts in external standards that are fully equivalent to the current term, helping both people and software systems recognize that they refer to the same idea. It is aligned with skos:exactMatch and inherits its behavior and purpose from mappings.\n\n\"A skos:exactMatch link indicates a high degree of confidence that two concepts can be used interchangeably across a wide range of information retrieval applications.\" - https://www.w3.org/TR/skos-reference/#L4858\n\nFor more information see\nhttps://linkml.io/linkml-model/latest/docs/exact_mappings/"
         examples:
           - value: "Class: Pacific Biosciences [GENEPIO:0001927]\nMapping: ENA_GSC_MIxS_WW_ERC00023:PACBIO_SMRT\n\nNote: \"ENA_GSC_MIxS_WW_ERC00023\" is the database and submission type prefix used to identify the target export, while \"PACBIO_SMRT\" is the export format required for this specific class."
+      broad_mappings:
+        name: broad_mappings
+        rank: 9
+        slot_group: attributes
+        multivalued: true
+        title: Broad mappings
+        range: WhitespaceMinimizedString
+        description: A list of terms from other schemas or terminology systems that this term would be semantically categorized under.
+        comments:
+          - "This aligns with skos:broadMatch"
       notes:
         name: notes
-        rank: 9
+        rank: 10
         slot_group: attributes
         title: Editorial Notes
         description: Editorial notes about an element intended primarily for internal consumption
@@ -1156,6 +1167,10 @@ slots:
       - See https://linkml.io/linkml/schemas/metadata.html#providing-aliases
   exact_mappings:
     name: exact_mappings
+    range: WhitespaceMinimizedString
+    multivalued: true
+  broad_mappings:
+    name: broad_mappings
     range: WhitespaceMinimizedString
     multivalued: true
   annotation_type:

@@ -448,6 +448,9 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 					# Exact_mappings
 					set_mappings(slot, row, export_format);
 
+					slot_broad_mappings = row.get('broad_mappings','');
+					if slot_broad_mappings > '': slot['broad_mappings'] = [m.strip() for m in slot_broad_mappings.split(';')];
+
 					slot_comments =			row.get('comments','');
 					if slot_comments > '':	slot['comments'] = [doubleQuoted(slot_comments)];
 
@@ -477,7 +480,7 @@ def set_classes(schema_slot_path, schema, locale_schemas, export_format, warning
 						generic_slot = schema['slots'][slot_name];
 
 						field_list = [field for field in row];
-						field_list.extend(['any_of','exact_mappings']);
+						field_list.extend(['any_of','exact_mappings','broad_mappings']);
 						
 						for field in field_list:
 							if not (field == None): # skip empty fields
@@ -673,6 +676,9 @@ def set_enums(enum_path, schema, locale_schemas, export_format, warnings):
 
 				# Export mappings can be established for any enumeration items too.
 				set_mappings(choice, row, export_format);
+
+				choice_broad_mappings = row.get('broad_mappings','');
+				if choice_broad_mappings > '': choice['broad_mappings'] = [m.strip() for m in choice_broad_mappings.split(';')];
 
 				enum['permissible_values'][choice_text] = choice;
 
