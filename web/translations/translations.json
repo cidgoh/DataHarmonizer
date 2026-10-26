@@ -530,6 +530,10 @@
     "en": "Examples",
     "fr": "Exemples"
   },
+  "help-sidebar__unit": {
+    "en": "Unit",
+    "fr": "Unité"
+  },
   "help-sidebar__guidance": {
     "en": "Guidance",
     "fr": "Conseils"

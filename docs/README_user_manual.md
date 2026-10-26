@@ -69,16 +69,54 @@ DataHarmonizer provides three ways to load a schema that is not part of the bund
 
 #### File → Load Template (file browser)
 
-Opens a file-picker. Accepts `.yaml` (preferred) or `.json` schema files from your local machine. A `.yaml` file is processed through the same induction logic as the server-fetch path — `linkml:types` built-ins are injected, and the full `is_a` / `slot_usage` inheritance chain is computed — so no separate build step is needed.
+Opens a file-picker. Accepts `.yaml` (preferred) or `.json` schema files from your local machine. A `.yaml` file is processed through the same induction logic as the server-fetch path — `linkml:types` built-ins are injected, and the full `is_a` / `slot_usage` inheritance chain is computed — so no separate build step is needed. A `.json` file may be either a compiled DataHarmonizer `schema.json` or an OCA bundle (see [OCA bundles](#oca-bundles-overlays-capture-architecture) below).
 
 #### File → Load Template from URL
 
-Opens a dialog for a URL pointing to a `schema.yaml` file. DataHarmonizer fetches the file, processes it identically to the file-upload path, and adds the resulting templates to the dropdown.
+Opens a dialog for a URL pointing to a `schema.yaml` file, or to a `.json` OCA bundle. DataHarmonizer fetches the file, processes it identically to the file-upload path, and adds the resulting templates to the dropdown.
 
 This path is useful for:
 - Comparing two versions of the same schema side by side (each gets a uniquely named menu entry).
 - Loading a schema hosted on GitHub Raw or any public HTTPS endpoint without downloading it first.
 - Quickly testing a remote schema without modifying the local installation.
+
+#### OCA bundles (Overlays Capture Architecture)
+
+DataHarmonizer can load an [OCA](https://github.com/agrifooddatacanada/OCA_package_standard) schema bundle as a template, using either of the two loading methods above. Both the older `bundle` format (`{ "bundle": { "capture_base": … } }`) and the newer `oca_package` format (`{ "type": "oca_package/…", "oca_bundle": { "bundle": … } }`) are recognised. Detection is automatic: any `.json` file whose content has a `capture_base` with `attributes` is treated as OCA, so no special option needs to be chosen.
+
+The bundle is converted in the browser into a LinkML schema, then loaded like any other `schema.yaml`. When conversion succeeds, a green **"OCA bundle converted and loaded as LinkML schema."** message appears briefly in the toolbar. The same conversion is used when an OCA bundle is loaded into the [Schema Editor](README_schema_editor.md), so a bundle can also be opened there, refined, and saved as a LinkML `schema.yaml`.
+
+The conversion produces one data-entry template, named after the OCA `meta` overlay's `name` (converted to PascalCase, e.g. "Chicken gut health" → `ChickenGutHealth`), plus a `Container` class so the template can be saved and loaded as JSON. OCA bundle parts map to LinkML as follows:
+
+| OCA bundle part | LinkML / DataHarmonizer result |
+|---|---|
+| `capture_base.attributes` | One schema-level slot (`schema.slots.<field>`) per attribute, listed in the template class's `slots` in OCA order. Each also gets a `slot_usage` entry with its `rank` (column order) |
+| Attribute type `Text` / `Numeric` / `Boolean` / `DateTime` | `string` / `decimal` / `boolean` / `datetime`. `Numeric` with a format pattern like `[0-9]{3}` becomes `integer` |
+| Attribute type `Array[…]` | Multivalued field of the inner type |
+| `meta` overlay `name`, `description`, `language` | Schema and template title, description, and `in_language` |
+| `label` overlay | Field titles (column headers) |
+| `information` overlay | Field descriptions |
+| `conformance` overlay `M` / `O` | `required` / `recommended` |
+| `format` overlay | Field `pattern` (regular expression), for non-picklist fields |
+| `cardinality` overlay, e.g. `1-4` | `minimum_cardinality` / `maximum_cardinality`. A maximum above 1 makes the field multivalued |
+| `entry_code` + `entry` overlays | A picklist (enum) per field: codes become permissible values, entry labels become their titles |
+| `unit` overlay | Field `unit` (`ucum_code`), shown as **Unit** in the column help (help sidebar and field description popup); the overlay's `metric_system` (e.g. `SI`) becomes the schema annotation `metric_system` |
+| `capture_base.flagged_attributes` | `identifying_factor` annotation, which marks sensitive or identifying fields |
+
+Notes and limitations:
+
+- **Languages:** the language of the first `meta` overlay is the schema's primary language (`in_language`), and its `meta`, `label`, `information`, and `entry` overlays supply the default text. Overlays in each **other language** (e.g. `fra`) are converted into a translation under the schema's `extensions.locales` (e.g. `fr`). Select that language in the toolbar's language menu to see translated column titles, descriptions, and picklist labels. In the Schema Editor, the converted schema lists those locales and their translations can be edited and saved. Three-letter OCA language codes are mapped to two-letter codes where known (`eng` → `en`, `fra` → `fr`, …). Translations map as follows:
+
+  | OCA overlay (other language) | Translation path in `extensions.locales.value.<lang>` |
+  |---|---|
+  | `meta` `name` / `description` | `title` / `description`, and `classes.<Class>.title` / `description` |
+  | `label` | `slots.<field>.title` |
+  | `information` | `slots.<field>.description` |
+  | `entry` | `enums.<field>.permissible_values.<code>.title` |
+- The `character_encoding` overlay is ignored.
+- Picklist fields display entry labels (e.g. "Brahma") in the dropdown but store the entry **codes** (e.g. `B`), which is what gets saved in JSON data files.
+- The generated schema has a placeholder `id` (`https://example.com/<SchemaName>`) and version `0.0.1`. Saved JSON data files record this `id` in their `schema` field. To give the schema a permanent identity, open the bundle in the Schema Editor, set its `id` and version, and save it as `schema.yaml`.
+- A sample bundle is provided at `web/templates/oca_test/oca_bundle.json`.
 
 #### How root classes are determined
 

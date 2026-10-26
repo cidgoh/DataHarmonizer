@@ -57,7 +57,7 @@ You can load any `schema.yaml` file into the Schema Editor from two places.
 
 1. Open the **File** menu.
 2. Click **Upload Schema** (or the equivalent schema file input).
-3. Select a `schema.yaml` file from your local filesystem.
+3. Select a `schema.yaml` file from your local filesystem. An OCA bundle `.json` file can also be selected; it is converted to LinkML automatically (see [OCA bundles](README_user_manual.md#oca-bundles-overlays-capture-architecture) in the user manual).
 4. The schema is parsed and its contents are distributed across the Schema Editor tabs — one row per schema element.
 
 ### Via the right-click context menu
