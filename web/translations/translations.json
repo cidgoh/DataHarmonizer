@@ -116,6 +116,10 @@
     "en": "Translations",
     "fr": "Traductions"
   },
+  "context-menu-translations-pivot": {
+    "en": "Translations (pivot view)",
+    "fr": "Traductions (vue pivot)"
+  },
   "copy-to-schema-menu-button": {
     "en": "Copy selected rows to schema...",
     "fr": "Copier les lignes sélectionnées vers le schéma..."
@@ -253,6 +257,10 @@
   "validate-by-column": {
     "en": "Validate & search by column",
     "fr": "Valider et rechercher par colonne"
+  },
+  "smooth-search-navigation": {
+    "en": "Smooth search navigation",
+    "fr": "Navigation de recherche fluide"
   },
   "show-all-cols-dropdown-item": {
     "en": "Show all columns",

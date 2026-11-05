@@ -124,6 +124,31 @@
     </div>
   </div>
 
+  <div class="modal fade" id="translate-pivot-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="translate-pivot-modal-title">Locale Translations (pivot)</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding-bottom:0">
+          <div id="translate-pivot-locale-controls"
+               style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;padding:0.4rem 0 0.75rem;">
+            <!-- locale checkboxes injected here -->
+          </div>
+          <div id="translate-pivot-hot-container"
+               style="height:60vh;overflow:hidden;"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"
+                  data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary"
+                  id="translate-pivot-save">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Generic dialog — replaces browser alert() and confirm() -->
   <div class="modal fade" id="dh-dialog-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">

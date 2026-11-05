@@ -232,22 +232,9 @@ classes:
         description: The script-compatible name of the {{schema}} that this {{slot}} is contained in.
         comments:
           - A {{schema}} has a list of {{slots}} it defines. (In future the SchemaEditor will enable a {{schema}} to import other schemas' {{slots}}).
-      class_id:
-        name: class_id
-        rank: 2
-        slot_group: key
-        description: Provide a {{class}} name in order to locate this {{slot}} in the given {{class}}. Otherwise the {{slot}} will be located in the {{schema}}'s list of {{slots}}.
-      slot_type:
-        name: slot_type
-        rank: 2
-        slot_group: key
-      slot_group:
-        name: slot_group
-        rank: 4
-        slot_group: key
       name:
         name: name
-        rank: 5
+        rank: 2
         slot_group: key
         title: Slot ID
         required: true
@@ -258,6 +245,19 @@ classes:
         any_of:
           - range: WhitespaceMinimizedString
           - range: SchemaSlotMenu
+      slot_type:
+        name: slot_type
+        rank: 3
+        slot_group: key
+      class_id:
+        name: class_id
+        rank: 4
+        slot_group: key
+        description: Provide a {{class}} name in order to locate this {{slot}} in the given {{class}}. Otherwise the {{slot}} will be located in the {{schema}}'s list of {{slots}}.
+      slot_group:
+        name: slot_group
+        rank: 5
+        slot_group: key
       rank:
         name: rank
         rank: 6
