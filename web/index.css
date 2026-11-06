@@ -5,11 +5,12 @@ body.schema-editor #data-harmonizer-tabs {
 
 
 #data-harmonizer-tabs .nav-link {
-  background-color: #ffffff;
+  background-color: #f4f4f4;
   border-color: #888;
 }
 
 #data-harmonizer-tabs .nav-link.active {
+  background-color: #ffffff;
   border-bottom-color: transparent;
 }
 
@@ -155,12 +156,41 @@ body {
   border: 1px solid #888;
 }
 
-/* Schema tab: left-pad the entire Setting column so the HOT has breathing
-   room from the Prefix/Setting divider.  Padding on the column div (not on
-   .dh-lower-panel-body) is required because HOT measures its parent's
-   clientWidth and would overflow CSS padding applied to its direct container. */
-#schema-lower-panel > div:last-child {
-  padding-left: 10px;
+/* Schema tab lower-panel: mini tab strip (Prefix / Setting / Extension) */
+.dh-lower-tab-strip {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+
+/* Labels inside the strip share the .dh-lower-panel-label base style but
+   default to "inactive" appearance (closed bottom, greyed background). */
+.dh-lower-tab-strip > .dh-lower-panel-label {
+  cursor: pointer;
+  margin-left: 4px;
+  border-bottom-color: #888;
+  background-color: #f4f4f4;
+}
+.dh-lower-tab-strip > .dh-lower-panel-label:first-child {
+  margin-left: 8px;
+}
+/* Active label: bottom border merges with body below. */
+.dh-lower-tab-strip > .dh-lower-panel-label.active {
+  border-bottom-color: #ffffff;
+  background-color: #ffffff;
+}
+
+/* Compact sizing for the Add row(s) control in the secondary strip. */
+#schema-lower-panel .dh-lower-tab-strip .form-control,
+#schema-lower-panel .dh-lower-tab-strip .input-group-text {
+  height: 2em !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+#schema-lower-panel .dh-lower-tab-strip .btn {
+  height: 2.1em !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* For dh2-i18n-rc1 only! */
