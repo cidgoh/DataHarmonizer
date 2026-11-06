@@ -147,6 +147,88 @@ Guarding only `'Delete'` silently misses every keypress on macOS, allowing HOT's
 
 ---
 
+## Schema Editor — split-panel tab layout
+
+Several Schema Editor tabs display a primary Handsontable on top with one or more related secondary Handsontables in a lower panel. The machinery for this lives in `SchemaEditor.js`.
+
+### `_initTabbedSplitLayout(primaryDHName, secondarySpecs, options)`
+
+The shared engine. Each caller passes:
+
+| Parameter | Type | Description |
+|---|---|---|
+| `primaryDHName` | `string` | Key into `AppContext.dhs` for the top HOT (e.g. `'Enum'`) |
+| `secondarySpecs` | `Array<{name, label}>` | Secondary DHs in tab order. `name` is the `dhs` key; `label` is the tab button text |
+| `options.panelId` | `string` | `id` attr placed on the lower-panel `<div>` |
+| `options.splitRatio` | `string` | CSS length for the primary pane height (default `'45%'`) |
+| `options.expertOnly` | `boolean` | When `true`, the lower panel is hidden unless expert mode is on |
+
+Each call is registered in `this._splitLayouts` (a `Map`) under the key `'${primaryDHName}/tabbed'`. Calling the method again for the same primary DH is a no-op (guarded by the map).
+
+**What it builds:**
+
+- A `.dh-lower-panel` div absolutely positioned below the primary pane, containing:
+  - A `.dh-lower-tab-strip` with one `.dh-lower-panel-label` button per secondary DH
+  - A `.dh-lower-panel-body` wrapper per secondary DH (only the active one is `display:block`)
+  - An "Add row(s)" input group 50 px to the right of the tab labels, wired to the active secondary DH
+- Delegated `click` handler on the lower panel for `.secondary-header-text` → field-description modal (secondary DHs are reparented into the lower panel, so the original `$(dh.root)` delegation no longer receives events)
+- `showSplit()` / `hideSplit()` functions registered in the layout map
+- A `resizeActive()` callback in the map entry, called by `_resizeActiveSplitPanels()` after concise-view toggles
+- Hides the top-level Bootstrap tab-bar entry (`#tab-bar-${name}`) for every embedded secondary DH
+- Registers `afterSelectionEnd` on the primary DH to call `showSplit()` and filter secondaries by FK
+- Registers `afterRemoveRow` / `afterCreateRow` on the primary DH to keep secondary FK filters current
+
+### Current configurations
+
+```javascript
+// Enum tab: Permissible Values + Enum Source below
+_initEnumSplitLayout() {
+  this._initTabbedSplitLayout('Enum', [
+    { name: 'PermissibleValue', label: 'Permissible Values' },
+    { name: 'EnumSource',       label: 'Enum Source' },
+  ], { panelId: 'enum-pv-lower-panel', splitRatio: '45%' });
+}
+
+// Class tab: Unique Keys below
+_initClassUniqueKeySplitLayout() {
+  this._initTabbedSplitLayout('Class', [
+    { name: 'UniqueKey', label: 'Unique Keys' },
+  ], { panelId: 'class-uk-lower-panel', splitRatio: '52%' });
+}
+
+// Schema tab: Prefix / Setting / Extension below (expert-only)
+_initSchemaTabSplitLayout() {
+  this._initTabbedSplitLayout('Schema', [
+    { name: 'Prefix',    label: 'Prefix' },
+    { name: 'Setting',   label: 'Setting' },
+    { name: 'Extension', label: 'Extension' },
+  ], { panelId: 'schema-lower-panel', splitRatio: '45%', expertOnly: true });
+}
+```
+
+### Expert-only top-level tabs (`SCHEMA_EDITOR_EXPERT_TABS` in `Toolbar.js`)
+
+DHs embedded in a lower panel are hidden from the top-level tab bar by `_initTabbedSplitLayout` at init time. They must therefore be absent from `SCHEMA_EDITOR_EXPERT_TABS`, which only lists tabs that exist as standalone top-level entries:
+
+```javascript
+// Toolbar.js
+// Prefix, Setting, UniqueKey, Extension, and EnumSource are excluded: they are
+// embedded in their primary tab's lower split panel and are never standalone tabs.
+const SCHEMA_EDITOR_EXPERT_TABS = '#tab-bar-Annotation, #tab-bar-Translation';
+```
+
+When adding a new secondary DH, remove its `#tab-bar-*` selector from this constant.
+
+### `_initSplitLayout` (always-open variant)
+
+A simpler always-open layout (single secondary DH, no tab strip) is preserved in `_initSplitLayout`. It has no current callers but is kept for layouts where the secondary panel should be permanently visible rather than toggled by a tab strip.
+
+### `_resizeActiveSplitPanels()`
+
+Called by `Toolbar.js` after the concise-view toggle changes column visibility. Iterates every entry in `this._splitLayouts` and invokes its `resizeActive()` callback (if the lower panel is currently visible) via a 50 ms `setTimeout` to allow the DOM to settle before `_applyFitWidth` reads column widths.
+
+---
+
 ## Application modes: DataHarmonizer vs. Schema Editor
 
 The app runs in one of two modes determined entirely by which schema is loaded. The mode badge in the toolbar (`#dh-mode-badge`) reflects the current state.
