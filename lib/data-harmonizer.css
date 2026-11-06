@@ -366,9 +366,11 @@ td.tabFieldTd.slot_usage.inherited input{display:none}
 }
 */
 
-/* Handsontable class. Marks right side of frozen columns */
-.ht_clone_left {
-  border-right: 2px solid black !important;
+/* Handsontable class. Marks right side of frozen columns.
+   Applied to .htCore (the <table> element) rather than the clone container
+   so the line only spans actual rows, not the empty space below them. */
+.ht_clone_inline_start.ht_clone_left .htCore {
+  border-right: 2px solid black;
 }
 
 /* Handsontable class.  Enables clipped display of frozen column identifier fields */

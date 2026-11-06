@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  background-color: white;
+  background-color: #f0f0f0;
   transition-property: right;
   transition-timing-function: ease;
   border:0;
@@ -26,6 +26,15 @@
   overflow-x: hidden;
   overflow-y: auto;
   margin: 8px;
+  /* Sit above HOT's frozen-header clones.  HOT uses z-indexes up to 210 for
+     its clone overlays (.ht_clone_top etc.), so 300 beats them all while
+     staying below Bootstrap modals (~1050) and HOT autocomplete (~1059+).
+     position:relative is required for z-index to take effect.
+     Putting z-index here (not on .help-sidebar) avoids creating a stacking
+     context on the sidebar shell, which would trap the toggler's z-index:200
+     and prevent it from being clickable. */
+  position: relative;
+  z-index: 300;
 }
 
 .help-sidebar__placeholder {

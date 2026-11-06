@@ -6,7 +6,7 @@ body.schema-editor #data-harmonizer-tabs {
 
 #data-harmonizer-tabs .nav-link {
   background-color: #ffffff;
-  border-color: #dee2e6 #dee2e6 silver;
+  border-color: #888;
 }
 
 #data-harmonizer-tabs .nav-link.active {
@@ -80,6 +80,88 @@ body {
   height: 100%;
 }
 
+
+/* ── 1-M shared-tab split layout ─────────────────────────────────────────── */
+
+/* position:relative so the absolutely-positioned lower panel is contained.
+   Added by showSplit() / removed by hideSplit() via _initSplitLayout(). */
+#data-harmonizer-grid.dh-split-active {
+  position: relative;
+}
+
+/* The active primary tab pane is capped at 45%.
+   Also set via inline setProperty() in JS as a belt-and-suspenders measure. */
+#data-harmonizer-grid.dh-split-active > .tab-pane.active {
+  height: 45% !important;
+  min-height: 0 !important;
+  border-bottom: 1px solid #888;
+  border-left: 1px solid #888;
+  border-right: 1px solid #888;
+}
+
+/* Lower panel: absolutely positioned below the primary pane.
+   top: calc(45% + 6px) leaves a 6px gap beneath the primary table.
+   Created by _initSplitLayout() with class="dh-lower-panel". */
+.dh-lower-panel {
+  display: none;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.dh-lower-panel.visible {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: calc(45% + 6px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* isolation:isolate creates a stacking context that traps HOT's internal
+     clone z-indexes (e.g. .ht_clone_top ~101-120) inside the panel.
+     Unlike z-index:1, it does NOT give the panel a numeric z-index, so the
+     help-sidebar shell (appended to grid *after* this panel by showSplit())
+     naturally paints above it via DOM order at the same z-index:auto level.
+     help-sidebar__content (z-index:110 in the grid context) also beats the
+     panel's z-index:auto, keeping the sidebar text in front of HOT headers. */
+  isolation: isolate;
+}
+
+/* Label that looks like a mini Bootstrap tab (rounded top, 3-sided border,
+   bottom merges into the body below). Used in _initSplitLayout() and
+   _initSchemaTabSplitLayout(). */
+.dh-lower-panel-label {
+  flex-shrink: 0;
+  align-self: flex-start;
+  padding: 5px 14px;
+  margin-left: 8px;
+  margin-bottom: -1px;
+  background-color: #ffffff;
+  border: 1px solid #888;
+  border-bottom-color: #ffffff;
+  border-radius: 4px 4px 0 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #495057;
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+/* Bordered body that the lower-panel HOT sits inside. */
+.dh-lower-panel-body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid #888;
+}
+
+/* Schema tab: left-pad the entire Setting column so the HOT has breathing
+   room from the Prefix/Setting divider.  Padding on the column div (not on
+   .dh-lower-panel-body) is required because HOT measures its parent's
+   clientWidth and would overflow CSS padding applied to its direct container. */
+#schema-lower-panel > div:last-child {
+  padding-left: 10px;
+}
 
 /* For dh2-i18n-rc1 only! */
 #data-harmonizer-tabs {
