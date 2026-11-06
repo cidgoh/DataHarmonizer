@@ -7,6 +7,11 @@
   transition-timing-function: ease;
   border:0;
   /*border-left: 1px solid #ddd;*/
+  /* Sit above HOT clone overlays (~210) so the sidebar background isn't obscured
+     by e.g. .ht_clone_top at the top of the pane. z-index on the shell is safe
+     here: the toggler inside gets hoisted with the sidebar stacking context and
+     remains clickable. */
+  z-index: 350;
 }
 
 .help-sidebar__toggler {
@@ -26,15 +31,9 @@
   overflow-x: hidden;
   overflow-y: auto;
   margin: 8px;
-  /* Sit above HOT's frozen-header clones.  HOT uses z-indexes up to 210 for
-     its clone overlays (.ht_clone_top etc.), so 300 beats them all while
-     staying below Bootstrap modals (~1050) and HOT autocomplete (~1059+).
-     position:relative is required for z-index to take effect.
-     Putting z-index here (not on .help-sidebar) avoids creating a stacking
-     context on the sidebar shell, which would trap the toggler's z-index:200
-     and prevent it from being clickable. */
+  /* position:relative needed so that content scrolls correctly within the
+     sidebar's own stacking context (z-index: 350 on .help-sidebar). */
   position: relative;
-  z-index: 300;
 }
 
 .help-sidebar__placeholder {
