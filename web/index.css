@@ -4,6 +4,10 @@ body.schema-editor #data-harmonizer-tabs {
 }
 
 
+#data-harmonizer-tabs {
+  border-bottom: none;
+}
+
 #data-harmonizer-tabs .nav-link {
   background-color: #f4f4f4;
   border-color: #888;
@@ -90,14 +94,16 @@ body {
   position: relative;
 }
 
-/* The active primary tab pane is capped at 45%.
+/* All active tab panes get a consistent border. */
+#data-harmonizer-grid > .tab-pane.active {
+  border: 1px solid #888;
+}
+
+/* The active primary tab pane is capped at 45% when a lower panel is visible.
    Also set via inline setProperty() in JS as a belt-and-suspenders measure. */
 #data-harmonizer-grid.dh-split-active > .tab-pane.active {
   height: 45% !important;
   min-height: 0 !important;
-  border-bottom: 1px solid #888;
-  border-left: 1px solid #888;
-  border-right: 1px solid #888;
 }
 
 /* Lower panel: absolutely positioned below the primary pane.
@@ -180,23 +186,19 @@ body {
   background-color: #ffffff;
 }
 
-/* Compact sizing for the Add row(s) control in the secondary strip. */
-#schema-lower-panel .dh-lower-tab-strip .form-control,
-#schema-lower-panel .dh-lower-tab-strip .input-group-text {
+/* Compact sizing for the Add row(s) control in every lower-panel tab strip. */
+.dh-lower-panel .dh-lower-tab-strip .form-control,
+.dh-lower-panel .dh-lower-tab-strip .input-group-text {
   height: 2em !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
-#schema-lower-panel .dh-lower-tab-strip .btn {
+.dh-lower-panel .dh-lower-tab-strip .btn {
   height: 2.1em !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
-/* For dh2-i18n-rc1 only! */
-#data-harmonizer-tabs {
-  /* display: none; */
-}
 
 
 .add-rows-input {
