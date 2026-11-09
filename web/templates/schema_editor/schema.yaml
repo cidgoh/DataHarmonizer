@@ -660,7 +660,7 @@ classes:
         name: name
         rank: 5
         slot_group: key
-        title: Key
+        title: Name
         range: WhitespaceMinimizedString
         required: true
         pattern: ^[a-z]+[a-z0-9_]*$
