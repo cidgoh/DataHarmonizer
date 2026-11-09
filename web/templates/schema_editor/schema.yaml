@@ -234,7 +234,7 @@ classes:
           - A {{schema}} has a list of {{slots}} it defines. (In future the SchemaEditor will enable a {{schema}} to import other schemas' {{slots}}).
       name:
         name: name
-        rank: 2
+        rank: 3
         slot_group: key
         title: Slot ID
         required: true
@@ -247,11 +247,11 @@ classes:
           - range: SchemaSlotMenu
       slot_type:
         name: slot_type
-        rank: 3
+        rank: 4
         slot_group: key
       class_id:
         name: class_id
-        rank: 4
+        rank: 2
         slot_group: key
         description: Provide a {{class}} name in order to locate this {{slot}} in the given {{class}}. Otherwise the {{slot}} will be located in the {{schema}}'s list of {{slots}}.
       slot_group:
