@@ -141,13 +141,6 @@
             data-i18n="copy-to-schema-menu-button"
             >Copy fields...</span
           >
-          <span
-            class="dropdown-item"
-            data-toggle="modal"
-            id="translation-form-button"
-            data-i18n="translation-form-button"
-            >Translation form (for chosen rows)</span
-          >
 
           <span data-i18n="workspace">Workspace</span>
 
@@ -478,22 +471,16 @@
       >Display</button>
       <div class="dropdown-menu" style="min-width:20rem">
         <label class="dropdown-item mb-0">
-          <input type="radio" name="display-main-type" value="all" id="display-all-records-radio"
+          <input type="checkbox" id="show-all-records-cb"
                  style="float:right;width:1rem;height:1.5rem">
           <span data-i18n="all-records">All records</span>
         </label>
-        <!-- "Record(s) by selected schema" option — commented out pending further work; restore when ready
-        <label class="dropdown-item mb-0" style="display:none">
-          <input type="radio" name="display-main-type" value="schema" id="display-records-by-schema-radio"
-                 style="float:right;width:1rem;height:1.5rem">
-          <span data-i18n="records-by-selected-schema">Record(s) by selected schema</span>
-        </label>
-        -->
-        <label class="dropdown-item mb-0">
-          <input type="radio" name="display-main-type" value="" id="display-records-by-key-radio"
-                 checked style="float:right;width:1rem;height:1.5rem">
-          <span data-i18n="records-by-selected-key">Record(s) by selected key</span>
-        </label>
+        <!-- Hidden radios kept for backward compat — code throughout reads display-main-type.
+             Synced to per-tab show-all state by SchemaEditor on tab switch / Toolbar on checkbox change. -->
+        <div style="display:none">
+          <input type="radio" name="display-main-type" value="all" id="display-all-records-radio">
+          <input type="radio" name="display-main-type" value="" id="display-records-by-key-radio" checked>
+        </div>
         <!-- Field order section: shown only when the Field / Slot tab is active -->
         <div id="slot_type_optgroup" style="display:none">
           <div class="dropdown-divider"></div>

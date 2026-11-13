@@ -35,23 +35,16 @@
  *   tds[6]  = title
  *   tds[7]  = description
  *
- * Schema tab columns (hotCellLocator colIdx; no hidden cols):
- *   colIdx=0 → clone_left td:1 = name           (frozen, "Schema ID")
- *   colIdx=1 → master    td:2 = id              ("URI")
- *   colIdx=2 → master    td:3 = title
- *   colIdx=3 → master    td:4 = description
- *   colIdx=4 → master    td:5 = version
- *   colIdx=5 → master    td:6 = in_language     (skip)
- *   colIdx=6 → master    td:7 = locales         (skip)
- *   colIdx=7 → master    td:8 = default_prefix
+ * Schema tab columns (resolved at runtime via dhColIndex — see code):
+ *   col 0 (frozen): name ("Schema ID")
+ *   non-frozen cols: id, title, description, version, in_language, locales, default_prefix
  *
  * Class tab columns (schema_id hidden by concise view):
- *   colIdx=0 → clone_left td:1 = name  (frozen, "Table ID")
- *   colIdx=1 → master    td:2 = title
- *   colIdx=2 → master    td:3 = description
+ *   col 0 (frozen): name ("Table ID")
+ *   non-frozen cols: title, description
  *
  * To run:
- *   npx playwright test tests/playwright/UX_Task_4_covid19.spec.js
+ *   npx playwright test tests/playwright/SCHEMA_UX_Task_4_covid19.spec.js
  */
 
 import { test, expect } from '@playwright/test';
@@ -60,7 +53,9 @@ import {
   hotCellLocator,
   slotCellLocator,
   findRowIndex,
-  scrollToSlotRow,
+  scrollToClassSlotRow,
+  classSlotCellLocator,
+  dhColIndex,
 } from './playwright_utils.js';
 
 test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields, load cancogen on row 2, copy organism to Test, verify in Field tab (pre-existing fields intact)', async ({ page }) => {
@@ -101,28 +96,30 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
   );
 
   // ── 3. Fill remaining Schema tab fields for row 1 ───────────────────────────
-  // URI (id, colIdx 1)
-  await hotCellLocator(page, 0, 1).dblclick();
+  // Resolve column indices once; this survives future column reordering.
+  const schemaIdCol      = await dhColIndex(page, 'Schema', 'id');
+  const schemaTitleCol   = await dhColIndex(page, 'Schema', 'title');
+  const schemaDescCol    = await dhColIndex(page, 'Schema', 'description');
+  const schemaVersionCol = await dhColIndex(page, 'Schema', 'version');
+  const schemaPrefixCol  = await dhColIndex(page, 'Schema', 'default_prefix');
+
+  await hotCellLocator(page, 0, schemaIdCol).dblclick();
   await page.keyboard.type('https://example.com/Test.yaml');
   await page.keyboard.press('Tab');
 
-  // Title (colIdx 2)
-  await hotCellLocator(page, 0, 2).dblclick();
+  await hotCellLocator(page, 0, schemaTitleCol).dblclick();
   await page.keyboard.type('Test Schema');
   await page.keyboard.press('Tab');
 
-  // Description (colIdx 3)
-  await hotCellLocator(page, 0, 3).dblclick();
+  await hotCellLocator(page, 0, schemaDescCol).dblclick();
   await page.keyboard.type('Test Schema description');
   await page.keyboard.press('Tab');
 
-  // Version (colIdx 4)
-  await hotCellLocator(page, 0, 4).dblclick();
+  await hotCellLocator(page, 0, schemaVersionCol).dblclick();
   await page.keyboard.type('1.0.0');
   await page.keyboard.press('Tab');
 
-  // Default prefix (colIdx 7 — colIdx 5=in_language, 6=locales are skipped)
-  await hotCellLocator(page, 0, 7).dblclick();
+  await hotCellLocator(page, 0, schemaPrefixCol).dblclick();
   await page.keyboard.type('TEST');
   await page.keyboard.press('Enter');
 
@@ -160,21 +157,20 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
   );
   await page.waitForTimeout(300);
 
-  // Class tab (schema_id hidden by concise view):
-  //   colIdx=0 → clone_left = Table ID (name)
-  //   colIdx=1 → master     = title
-  //   colIdx=2 → master     = description
+  const classTitleCol = await dhColIndex(page, 'Class', 'title');
+  const classDescCol  = await dhColIndex(page, 'Class', 'description');
+
   const tableIdCell = hotCellLocator(page, 0, 0);
   await tableIdCell.click();
   await tableIdCell.dblclick();
   await page.keyboard.type('TestTable');
   await page.keyboard.press('Tab');
 
-  await hotCellLocator(page, 0, 1).dblclick();
+  await hotCellLocator(page, 0, classTitleCol).dblclick();
   await page.keyboard.type('Test Table');
   await page.keyboard.press('Tab');
 
-  await hotCellLocator(page, 0, 2).dblclick();
+  await hotCellLocator(page, 0, classDescCol).dblclick();
   await page.keyboard.type('Test table description');
   await page.keyboard.press('Enter');
 
@@ -344,31 +340,33 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
   );
   await page.waitForTimeout(500);
 
-  const organismRowIdx = await scrollToSlotRow(
+  const organismRowIdx = await scrollToClassSlotRow(
     page, 'organism', 'Table field (from schema)'
   );
-  expect(organismRowIdx, '"organism" field not found in CanCOGeNCovid19 Field tab').not.toBe(-1);
+  expect(organismRowIdx, '"organism" field not found in CanCOGeNCovid19 Field tab').toBeGreaterThanOrEqual(0);
 
   // ── 6. Right-click organism → "Copy to schema" ───────────────────────────────
-  // Use the title column (ht_master tds[6] = colIdx 6) — a plain text cell that
-  // will not open the Field Key Modal on right-click.
+  // Use the title column — a plain text cell that will not open the Field Key
+  // Modal on right-click.  Resolve the column index by name so the test
+  // survives future column reordering.
   //
-  // HOT virtual rendering: after scrollToSlotRow the row is in DOM, but a
+  // HOT virtual rendering: after scrollToClassSlotRow the row is in DOM, but a
   // subsequent left-click or waitForTimeout can cause HOT to re-render and
   // scroll the row off-screen.  Re-scroll right before each interaction so
   // the row stays in the DOM for the action.
-  let organismCell = slotCellLocator(page, organismRowIdx, 6);
+  const csTitleColIdx = await dhColIndex(page, 'ClassSlot', 'title');
+  let organismCell = classSlotCellLocator(page, organismRowIdx, csTitleColIdx);
   await organismCell.scrollIntoViewIfNeeded();
   await organismCell.click();
   await page.waitForTimeout(300);
 
   // Re-scroll to keep organism visible before right-click (HOT virtualisation
   // may have shifted the viewport between the left-click and the right-click).
-  const latestOrganismIdx = await scrollToSlotRow(
+  const latestOrganismIdx = await scrollToClassSlotRow(
     page, 'organism', 'Table field (from schema)'
   );
-  if (latestOrganismIdx !== -1) {
-    organismCell = slotCellLocator(page, latestOrganismIdx, 6);
+  if (latestOrganismIdx >= 0) {
+    organismCell = classSlotCellLocator(page, latestOrganismIdx, csTitleColIdx);
   }
   await organismCell.scrollIntoViewIfNeeded();
   await page.waitForTimeout(200);
@@ -467,10 +465,10 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
   });
   await page.waitForTimeout(300);
 
-  const copiedOrganismIdx = await scrollToSlotRow(
+  const copiedOrganismIdx = await scrollToClassSlotRow(
     page, 'organism', 'Table field (from schema)'
-  );
-  if (copiedOrganismIdx === -1) {
+  ).catch(() => -1);
+  if (copiedOrganismIdx < 0) {
     // slot_usage not visible under the default filter; check for a base-slot copy.
     const copiedAsBaseSlot = await page.evaluate(() => {
       const dh  = window._appContext?.dhs?.Slot;
@@ -493,8 +491,9 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
     ).toBe(true);
   } else {
     // slot_usage found — verify class_id was reassigned to TestTable.
+    // slot_usage rows are in the ClassSlot DH.
     const classIdCorrect = await page.evaluate(() => {
-      const dh  = window._appContext?.dhs?.Slot;
+      const dh  = window._appContext?.dhs?.ClassSlot;
       const hot = dh?.hot;
       if (!hot) return false;
       const n2c = dh.slot_name_to_column;
@@ -566,10 +565,11 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
   // Fix: re-apply getSortConfig() after every loadData() in _appendRowsToTab.
   // This assertion detects the corruption: the CanCOGeN organism slot_usage
   // should still exist with its original class_id (not overwritten to 'TestTable').
+  // slot_usage rows for CanCOGeN organism are in the ClassSlot DH.
   const canCoGenOrganismIntact = await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
-    if (!hot) return { ok: false, reason: 'no Slot DH found' };
+    if (!hot) return { ok: false, reason: 'no ClassSlot DH found' };
     const n2c = dh.slot_name_to_column;
     const schemaIdCol = n2c['schema_id'] ?? n2c['schema_name'] ?? 0;
     for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -595,29 +595,39 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
   // Each pre-existing field should have both a base slot (slot_type='slot')
   // and a slot_usage row (slot_type='slot_usage') in HOT source data after
   // the copy.  If either is missing, the _appendRowsToTab call dropped them.
+  // createTestField uses 'attribute' type (ClassSlot DH); 'slot' rows are in Slot DH.
   const preExistingFieldsIntact = await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
-    const hot = dh?.hot;
-    if (!hot) return { ok: false, reason: 'no Slot DH found' };
-    const n2c = dh.slot_name_to_column;
-    const schemaIdCol = n2c['schema_id'] ?? n2c['schema_name'] ?? 0;
+    const slotDh = window._appContext?.dhs?.Slot;
+    const csDh   = window._appContext?.dhs?.ClassSlot;
+    if (!slotDh?.hot && !csDh?.hot) return { ok: false, reason: 'no Slot or ClassSlot DH found' };
     const names = ['pre_existing_a', 'pre_existing_b', 'pre_existing_c'];
     const missingSlot      = [];
     const missingSlotUsage = [];
-    for (const want of names) {
-      let hasSlot = false, hasSlotUsage = false;
-      for (let p = 0; p < hot.countSourceRows(); p++) {
-        const schema = hot.getSourceDataAtCell(p, schemaIdCol);
-        const name   = hot.getSourceDataAtCell(p, n2c['name']);
-        const type   = hot.getSourceDataAtCell(p, n2c['slot_type']);
-        if (schema === 'Test' && name === want) {
-          // createTestField uses 'attribute' type (no separate base slot row).
-          if (type === 'slot' || type === 'attribute')        hasSlot      = true;
-          if (type === 'slot_usage' || type === 'attribute')  hasSlotUsage = true;
+
+    function checkHot(dh) {
+      if (!dh?.hot) return {};
+      const n2c = dh.slot_name_to_column;
+      const schemaIdCol = n2c['schema_id'] ?? n2c['schema_name'] ?? 0;
+      const hasSlot = {}, hasSlotUsage = {};
+      for (let p = 0; p < dh.hot.countSourceRows(); p++) {
+        const schema = dh.hot.getSourceDataAtCell(p, schemaIdCol);
+        const name   = dh.hot.getSourceDataAtCell(p, n2c['name']);
+        const type   = dh.hot.getSourceDataAtCell(p, n2c['slot_type']);
+        if (schema === 'Test' && names.includes(name)) {
+          if (type === 'slot' || type === 'attribute')        hasSlot[name]      = true;
+          if (type === 'slot_usage' || type === 'attribute')  hasSlotUsage[name] = true;
         }
       }
-      if (!hasSlot)      missingSlot.push(want);
-      if (!hasSlotUsage) missingSlotUsage.push(want);
+      return { hasSlot, hasSlotUsage };
+    }
+
+    const slotResult = checkHot(slotDh);
+    const csResult   = checkHot(csDh);
+    for (const want of names) {
+      const hs = slotResult.hasSlot?.[want] || csResult.hasSlot?.[want];
+      const hu = slotResult.hasSlotUsage?.[want] || csResult.hasSlotUsage?.[want];
+      if (!hs) missingSlot.push(want);
+      if (!hu) missingSlotUsage.push(want);
     }
     const parts = [];
     if (missingSlot.length)      parts.push(`missing base slot: ${missingSlot.join(', ')}`);

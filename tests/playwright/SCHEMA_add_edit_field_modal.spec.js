@@ -99,7 +99,7 @@
 
 import { test, expect } from '@playwright/test';
 import path from 'path';
-import { slotNameCellLocator, scrollToSlotRow } from './playwright_utils.js';
+import { slotNameCellLocator, scrollToSlotRow, scrollToClassSlotRow } from './playwright_utils.js';
 
 // ── Constants ──────────────────────────────────────────────────────────────────
 
@@ -185,19 +185,96 @@ async function waitFkmClosed(page) {
     () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
     null, { timeout: 6_000 }
   );
+  // Bootstrap 4 removes 'show' at the START of the hide animation, then runs a 300ms
+  // CSS transition.  During that transition _isTransitioning=true which causes any
+  // subsequent .modal('show') call to be silently ignored.  Wait for the transition to
+  // finish before the next openEditFkm call.
+  await page.waitForFunction(
+    () => {
+      const el = document.getElementById('field-key-modal');
+      if (!el) return true;
+      // display:none is set after the transition finishes.
+      return getComputedStyle(el).display === 'none';
+    },
+    null, { timeout: 2_000 }
+  );
+  // Bootstrap 4's backdrop removal fires ~150 ms AFTER display:none is set.
+  // If show() is called while the old backdrop is still being removed, Bootstrap
+  // creates a new backdrop; then the old removal callback sets this._backdrop = null,
+  // breaking the emulateTransitionEnd chain that calls _showElement().
+  // Wait until all backdrops are gone before proceeding.
+  await page.waitForFunction(
+    () => !document.querySelector('.modal-backdrop'),
+    null, { timeout: 2_000 }
+  );
 }
 
 /**
- * Scroll to a slot row and open the FKM in Edit mode by double-clicking the
- * name cell (field-id-bold).  Double-click matches UX_task_1 precedent and
- * reliably triggers SchemaEditor's afterOnCellMouseDown hook on KEY_COLUMN cells.
+ * Scroll to a slot row and open the FKM in Edit mode.
+ *
+ * Schema slot rows ('Schema field') are in .tab-pane.show (Slot DH):
+ *   HOT uses a two-click-to-edit pattern — first click selects the cell,
+ *   second click on the already-selected cell opens the FKM.
+ *
+ * Class slot rows ('Table field (from schema)', 'Table field (stand-alone)')
+ * are in #slot-lower-panel (ClassSlot DH):
+ *   Simulated clicks on the split-layout panel are unreliable, so the FKM
+ *   is opened directly via JavaScript (se.showFieldKeyModal).
  */
 async function openEditFkm(page, slotTypeTitle, slotName) {
-  const rowIdx = await scrollToSlotRow(page, slotName, slotTypeTitle, 15_000);
-  if (rowIdx === -1) throw new Error(`Row not found: ${slotTypeTitle} / ${slotName}`);
-  const cell = slotNameCellLocator(page, rowIdx);
-  await cell.scrollIntoViewIfNeeded();
-  await cell.dblclick();
+  const isClassSlot = slotTypeTitle === 'Table field (from schema)' ||
+                      slotTypeTitle === 'Table field (stand-alone)';
+  if (isClassSlot) {
+    // The ClassSlot lower panel has a name filter driven by the currently selected
+    // schema slot in the Slot DH.  After editing a different schema slot, that filter
+    // may hide the target row in the DOM.  The JS evaluate below searches source data
+    // directly (bypassing visual filters), so we only need to wait for the ClassSlot
+    // DH to be populated — no DOM-visible row check required.
+    await page.waitForFunction(
+      () => (window._appContext?.dhs?.ClassSlot?.hot?.countSourceRows() ?? 0) > 0,
+      null, { timeout: 15_000 }
+    );
+    await page.waitForTimeout(200);
+    const slotTypeMap = {
+      'Table field (from schema)': 'slot_usage',
+      'Table field (stand-alone)': 'attribute',
+    };
+    const result = await page.evaluate(([slotName, slotTypeValue]) => {
+      const classDH = window._appContext?.dhs?.ClassSlot;
+      const se = window._appContext?.schemaEditor;
+      if (!classDH) return { ok: false, reason: 'no classDH' };
+      if (!se) return { ok: false, reason: 'no schemaEditor' };
+      const hot = classDH.hot;
+      for (let physRow = 0; physRow < hot.countSourceRows(); physRow++) {
+        const name = hot.getSourceDataAtCell(physRow, classDH.slot_name_column);
+        const type = hot.getSourceDataAtCell(physRow, classDH.slot_type_column);
+        if (name === slotName && type === slotTypeValue) {
+          const visualRow = hot.toVisualRow(physRow);
+          if (visualRow !== null && visualRow >= 0) {
+            try {
+              se.showFieldKeyModal(classDH, visualRow);
+              return { ok: true };
+            } catch (e) {
+              return { ok: false, reason: 'showFieldKeyModal threw: ' + String(e.message) };
+            }
+          }
+          return { ok: false, reason: `visualRow invalid: physRow=${physRow} visualRow=${visualRow}` };
+        }
+      }
+      return { ok: false, reason: `no visible row for: name=${slotName} type=${slotTypeValue}` };
+    }, [slotName, slotTypeMap[slotTypeTitle] || slotTypeTitle]);
+    if (!result.ok) throw new Error(`Could not open FKM for ClassSlot: ${slotTypeTitle} / ${slotName}: ${result.reason}`);
+  } else {
+    const rowIdx = await scrollToSlotRow(page, slotName, slotTypeTitle, 15_000);
+    if (rowIdx === -1) throw new Error(`Row not found: ${slotTypeTitle} / ${slotName}`);
+    const cell = slotNameCellLocator(page, rowIdx);
+    await cell.scrollIntoViewIfNeeded();
+    // HOT uses a two-click-to-edit pattern: first click selects the cell,
+    // second click on the already-selected cell opens the FKM modal.
+    await cell.click({ force: true });
+    await page.waitForTimeout(150);
+    await cell.click({ force: true });
+  }
   await page.waitForFunction(
     () => document.querySelector('#field-key-modal')?.classList.contains('show'),
     null, { timeout: 5_000 }
@@ -241,7 +318,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
   test.beforeEach(async ({ page }) => {
     test.setTimeout(120_000);
     page.on('console', (msg) => {
-      if (msg.type() === 'error') console.log('[BROWSER error]', msg.text());
+      if (msg.type() === 'error' || msg.type() === 'warning') console.log('[BROWSER ' + msg.type() + ']', msg.text());
     });
     await loadGrdi1m(page);
     await goToSlotTab(page);
@@ -640,7 +717,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
     // ── §16 File load: slot_usage rows have non-null integer ranks ─────────────
     await test.step('§16 File load: slot_usage rows have non-null integer ranks', async () => {
       const rows = await page.evaluate(([cls]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return null;
         const rankCol = dh.slot_name_to_column['rank'];
@@ -696,7 +773,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
         expect(rankInUsage, 'slot_usage blocks should contain rank keys').toBe(true);
       } else {
         const usageHasRank = await page.evaluate(([cls]) => {
-          const dh = window._appContext?.dhs?.Slot;
+          const dh = window._appContext?.dhs?.ClassSlot;
           const hot = dh?.hot;
           if (!hot) return false;
           const rankCol = dh.slot_name_to_column['rank'];
@@ -758,20 +835,21 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
     // ── §10a slot_usage: rank is after last existing peer in slot_group ─────────
     await test.step('§10a slot_usage: rank is after last existing peer in slot_group', async () => {
       const slotToAdd = await page.evaluate(([cls, grp]) => {
-        const dh = window._appContext?.dhs?.Slot;
-        const hot = dh?.hot;
-        if (!hot) return null;
+        // slot_usage rows are in ClassSlot DH; schema (base) slots are in Slot DH.
+        const csDh = window._appContext?.dhs?.ClassSlot;
+        const slotDh = window._appContext?.dhs?.Slot;
+        if (!csDh?.hot || !slotDh?.hot) return null;
         const existingUsage = new Set();
-        for (let p = 0; p < hot.countSourceRows(); p++) {
-          if (hot.getSourceDataAtCell(p, dh.slot_type_column) === 'slot_usage' &&
-              hot.getSourceDataAtCell(p, dh.slot_class_id_column) === cls) {
-            existingUsage.add(hot.getSourceDataAtCell(p, dh.slot_name_column));
+        for (let p = 0; p < csDh.hot.countSourceRows(); p++) {
+          if (csDh.hot.getSourceDataAtCell(p, csDh.slot_type_column) === 'slot_usage' &&
+              csDh.hot.getSourceDataAtCell(p, csDh.slot_class_id_column) === cls) {
+            existingUsage.add(csDh.hot.getSourceDataAtCell(p, csDh.slot_name_column));
           }
         }
-        for (let p = 0; p < hot.countSourceRows(); p++) {
-          if (hot.getSourceDataAtCell(p, dh.slot_type_column) !== 'slot') continue;
-          if (hot.getSourceDataAtCell(p, dh.slot_group_column) !== grp) continue;
-          const name = hot.getSourceDataAtCell(p, dh.slot_name_column);
+        for (let p = 0; p < slotDh.hot.countSourceRows(); p++) {
+          if (slotDh.hot.getSourceDataAtCell(p, slotDh.slot_type_column) !== 'slot') continue;
+          if (slotDh.hot.getSourceDataAtCell(p, slotDh.slot_group_column) !== grp) continue;
+          const name = slotDh.hot.getSourceDataAtCell(p, slotDh.slot_name_column);
           if (!existingUsage.has(name)) return name;
         }
         return null;
@@ -783,7 +861,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       }
 
       const maxRankBefore = await page.evaluate(([cls, grp]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return 0;
         const rankCol = dh.slot_name_to_column['rank'];
@@ -809,7 +887,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       await refreshSlotTab(page);
 
       const newRank = await page.evaluate(([cls, name]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return null;
         const rankCol = dh.slot_name_to_column['rank'];
@@ -830,19 +908,20 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
     // ── §10b slot_usage ungrouped: new slot_usage appears in HOT data ──────────
     await test.step('§10b slot_usage ungrouped: new slot_usage appears in HOT data', async () => {
       const slotToAdd = await page.evaluate(([cls]) => {
-        const dh = window._appContext?.dhs?.Slot;
-        const hot = dh?.hot;
-        if (!hot) return null;
+        // slot_usage rows are in ClassSlot DH; schema (base) slots are in Slot DH.
+        const csDh = window._appContext?.dhs?.ClassSlot;
+        const slotDh = window._appContext?.dhs?.Slot;
+        if (!csDh?.hot || !slotDh?.hot) return null;
         const existingUsage = new Set();
-        for (let p = 0; p < hot.countSourceRows(); p++) {
-          if (hot.getSourceDataAtCell(p, dh.slot_type_column) === 'slot_usage' &&
-              hot.getSourceDataAtCell(p, dh.slot_class_id_column) === cls) {
-            existingUsage.add(hot.getSourceDataAtCell(p, dh.slot_name_column));
+        for (let p = 0; p < csDh.hot.countSourceRows(); p++) {
+          if (csDh.hot.getSourceDataAtCell(p, csDh.slot_type_column) === 'slot_usage' &&
+              csDh.hot.getSourceDataAtCell(p, csDh.slot_class_id_column) === cls) {
+            existingUsage.add(csDh.hot.getSourceDataAtCell(p, csDh.slot_name_column));
           }
         }
-        for (let p = 0; p < hot.countSourceRows(); p++) {
-          if (hot.getSourceDataAtCell(p, dh.slot_type_column) !== 'slot') continue;
-          const name = hot.getSourceDataAtCell(p, dh.slot_name_column);
+        for (let p = 0; p < slotDh.hot.countSourceRows(); p++) {
+          if (slotDh.hot.getSourceDataAtCell(p, slotDh.slot_type_column) !== 'slot') continue;
+          const name = slotDh.hot.getSourceDataAtCell(p, slotDh.slot_name_column);
           if (!existingUsage.has(name)) return name;
         }
         return null;
@@ -865,7 +944,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       await refreshSlotTab(page);
 
       const found = await page.evaluate(([cls, name]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return false;
         for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -882,7 +961,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
     // ── §10c attribute: rank is after last existing peer in slot_group ─────────
     await test.step('§10c attribute: rank is after last existing peer in slot_group', async () => {
       const maxRankBefore = await page.evaluate(([cls, grp]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return 0;
         const rankCol = dh.slot_name_to_column['rank'];
@@ -908,7 +987,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       await refreshSlotTab(page);
 
       const newRank = await page.evaluate(([cls, name]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return null;
         const rankCol = dh.slot_name_to_column['rank'];
@@ -1188,7 +1267,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       // _slotTypeFilter persists through tab switches; schema slots remain visible.
 
       const usageUpdated = await page.evaluate(([slotName, grp]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return false;
         for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -1257,7 +1336,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       expect(schemaUpdated).toBe(true);
 
       const usageUpdated = await page.evaluate(([name]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return false;
         for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -1319,7 +1398,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
       await refreshSlotTab(page);
 
       const grpOK = await page.evaluate(([cls, name, grp]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return false;
         for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -1393,7 +1472,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
     await refreshSlotTab(page);
 
     const isAttr = await page.evaluate(([slotName]) => {
-      const dh = window._appContext?.dhs?.Slot;
+      const dh = window._appContext?.dhs?.ClassSlot;
       const hot = dh?.hot;
       if (!hot) return false;
       for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -1434,7 +1513,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
     await refreshSlotTab(page);
 
     const isAttr = await page.evaluate(([slotName]) => {
-      const dh = window._appContext?.dhs?.Slot;
+      const dh = window._appContext?.dhs?.ClassSlot;
       const hot = dh?.hot;
       if (!hot) return false;
       for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -1447,7 +1526,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
 
     if (baseTitle) {
       const attrTitle = await page.evaluate(([slotName]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return null;
         const titleCol = dh.slot_name_to_column['title'];
@@ -1469,19 +1548,20 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
 
   test('§14c Change type enabled when attribute name matches an existing schema slot', async ({ page }) => {
     const slotName = await page.evaluate(([cls]) => {
-      const dh = window._appContext?.dhs?.Slot;
-      const hot = dh?.hot;
-      if (!hot) return null;
+      // slot_usage rows are in ClassSlot DH; schema (base) slots are in Slot DH.
+      const csDh = window._appContext?.dhs?.ClassSlot;
+      const slotDh = window._appContext?.dhs?.Slot;
+      if (!csDh?.hot || !slotDh?.hot) return null;
       const existing = new Set();
-      for (let p = 0; p < hot.countSourceRows(); p++) {
-        if (hot.getSourceDataAtCell(p, dh.slot_type_column) === 'slot_usage' &&
-            hot.getSourceDataAtCell(p, dh.slot_class_id_column) === cls) {
-          existing.add(hot.getSourceDataAtCell(p, dh.slot_name_column));
+      for (let p = 0; p < csDh.hot.countSourceRows(); p++) {
+        if (csDh.hot.getSourceDataAtCell(p, csDh.slot_type_column) === 'slot_usage' &&
+            csDh.hot.getSourceDataAtCell(p, csDh.slot_class_id_column) === cls) {
+          existing.add(csDh.hot.getSourceDataAtCell(p, csDh.slot_name_column));
         }
       }
-      for (let p = 0; p < hot.countSourceRows(); p++) {
-        if (hot.getSourceDataAtCell(p, dh.slot_type_column) !== 'slot') continue;
-        const name = hot.getSourceDataAtCell(p, dh.slot_name_column);
+      for (let p = 0; p < slotDh.hot.countSourceRows(); p++) {
+        if (slotDh.hot.getSourceDataAtCell(p, slotDh.slot_type_column) !== 'slot') continue;
+        const name = slotDh.hot.getSourceDataAtCell(p, slotDh.slot_name_column);
         if (name && !existing.has(name)) return name;
       }
       return null;
@@ -1510,19 +1590,20 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
 
   test('§14e Successful attribute → slot_usage conversion copies base slot values', async ({ page }) => {
     const slotName = await page.evaluate(([cls]) => {
-      const dh = window._appContext?.dhs?.Slot;
-      const hot = dh?.hot;
-      if (!hot) return null;
+      // slot_usage rows are in ClassSlot DH; schema (base) slots are in Slot DH.
+      const csDh = window._appContext?.dhs?.ClassSlot;
+      const slotDh = window._appContext?.dhs?.Slot;
+      if (!csDh?.hot || !slotDh?.hot) return null;
       const existing = new Set();
-      for (let p = 0; p < hot.countSourceRows(); p++) {
-        if (hot.getSourceDataAtCell(p, dh.slot_type_column) === 'slot_usage' &&
-            hot.getSourceDataAtCell(p, dh.slot_class_id_column) === cls) {
-          existing.add(hot.getSourceDataAtCell(p, dh.slot_name_column));
+      for (let p = 0; p < csDh.hot.countSourceRows(); p++) {
+        if (csDh.hot.getSourceDataAtCell(p, csDh.slot_type_column) === 'slot_usage' &&
+            csDh.hot.getSourceDataAtCell(p, csDh.slot_class_id_column) === cls) {
+          existing.add(csDh.hot.getSourceDataAtCell(p, csDh.slot_name_column));
         }
       }
-      for (let p = 0; p < hot.countSourceRows(); p++) {
-        if (hot.getSourceDataAtCell(p, dh.slot_type_column) !== 'slot') continue;
-        const name = hot.getSourceDataAtCell(p, dh.slot_name_column);
+      for (let p = 0; p < slotDh.hot.countSourceRows(); p++) {
+        if (slotDh.hot.getSourceDataAtCell(p, slotDh.slot_type_column) !== 'slot') continue;
+        const name = slotDh.hot.getSourceDataAtCell(p, slotDh.slot_name_column);
         if (name && !existing.has(name)) return name;
       }
       return null;
@@ -1556,7 +1637,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
     await refreshSlotTab(page);
 
     const isUsage = await page.evaluate(([cls, name]) => {
-      const dh = window._appContext?.dhs?.Slot;
+      const dh = window._appContext?.dhs?.ClassSlot;
       const hot = dh?.hot;
       if (!hot) return false;
       for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -1571,7 +1652,7 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
 
     if (baseTitle) {
       const usageTitle = await page.evaluate(([cls, name]) => {
-        const dh = window._appContext?.dhs?.Slot;
+        const dh = window._appContext?.dhs?.ClassSlot;
         const hot = dh?.hot;
         if (!hot) return null;
         const titleCol = dh.slot_name_to_column['title'];
@@ -1597,8 +1678,9 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
 
     // 1. Find the physical row of SLOT_COLLECTOR_ID slot_usage in CLASS_SAMPLE
     //    and rename it directly in HOT source data, bypassing the FKM UI.
+    //    slot_usage rows are in the ClassSlot DH.
     const physRow = await page.evaluate(([cls, slotName, orphanName]) => {
-      const dh  = window._appContext?.dhs?.Slot;
+      const dh  = window._appContext?.dhs?.ClassSlot;
       const hot = dh?.hot;
       if (!hot) return -1;
       for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -1617,13 +1699,13 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
 
     // 2. Run full validation (async — populates dh.invalid_cells keyed by physical row).
     await page.evaluate(async () => {
-      await window._appContext.dhs.Slot.validate();
+      await window._appContext.dhs.ClassSlot.validate();
     });
     await page.waitForTimeout(300);
 
     // 3. Assert that invalid_cells flags the slot_name_column of that physical row.
     const hasError = await page.evaluate(([phys]) => {
-      const dh = window._appContext?.dhs?.Slot;
+      const dh = window._appContext?.dhs?.ClassSlot;
       if (!dh) return false;
       const colStr = String(dh.slot_name_column);
       return !!dh.invalid_cells?.[phys]?.[colStr];
@@ -1632,11 +1714,15 @@ test.describe('Add/Edit Field Modal — grdi_1m', () => {
     expect(hasError, 'Expected invalid_cells to flag the orphan slot_usage name column').toBe(true);
 
     // 4. Confirm that the name cell has the invalid-cell CSS class in the DOM.
-    //    Scroll to bring the row into HOT's virtual render window first.
-    const rowIdx = await scrollToSlotRow(page, ORPHAN_NAME, 'Table field (from schema)', 10_000);
-    expect(rowIdx, 'Renamed slot_usage row not found in DOM after validation').not.toBe(-1);
+    //    Scroll to bring the row into ClassSlot's virtual render window first.
+    const rowIdx = await scrollToClassSlotRow(page, ORPHAN_NAME, 'Table field (from schema)', 10_000);
+    expect(rowIdx, 'Renamed slot_usage row not found in DOM after validation').toBeGreaterThanOrEqual(0);
 
-    const hasClass = await slotNameCellLocator(page, rowIdx)
+    // The orphan slot_usage row is in the ClassSlot lower panel (#slot-lower-panel).
+    const hasClass = await page
+      .locator('#slot-lower-panel .ht_master .htCore tbody tr')
+      .nth(rowIdx)
+      .locator('td.field-id-bold')
       .evaluate(el => el.classList.contains('invalid-cell'));
     expect(hasClass, 'Name cell should have invalid-cell CSS class').toBe(true);
   });

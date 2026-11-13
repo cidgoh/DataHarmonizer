@@ -78,77 +78,6 @@
     </div>
   </div>
 
-  <div class="modal fade" id="translate-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="translate-modal-title" data-i18n="translate-local">Locale Translations</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col">
-                <div id="translate-modal-inner">
-                  <div id="translate-modal-content">
-
-                  </div>
-                  <div style="display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0;">
-                    <div class="form-check" id="translation-show-defaults" style="display:none; margin-right:auto;">
-                      <input class="form-check-input" type="checkbox" id="translation-show-defaults-cb">
-                      <label class="form-check-label" for="translation-show-defaults-cb" id="translation-show-defaults-label"></label>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                      data-i18n="template-cancel"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      id="translation-save"
-                      data-i18n="template-save"
-                    >
-                      Save
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="translate-pivot-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="translate-pivot-modal-title">Locale Translations (pivot)</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body" style="padding-bottom:0">
-          <div id="translate-pivot-locale-controls"
-               style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;padding:0.4rem 0 0.75rem;">
-            <!-- locale checkboxes injected here -->
-          </div>
-          <div id="translate-pivot-hot-container"
-               style="height:60vh;overflow:hidden;"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary"
-                  data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary"
-                  id="translate-pivot-save">Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Generic dialog — replaces browser alert() and confirm() -->
   <div class="modal fade" id="dh-dialog-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
@@ -209,15 +138,6 @@
                 <td><select class="form-control form-control-sm" id="fkm-class-id" autocomplete="off" data-lpignore="true"></select></td>
                 <td class="text-muted small" id="fkm-class-id-desc"></td>
               </tr>
-              <tr id="fkm-slot-type-row">
-                <td></td>
-                <td colspan="2">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="fkm-change-type">
-                    <label class="form-check-label" id="fkm-change-type-label"></label>
-                  </div>
-                </td>
-              </tr>
               <tr id="fkm-also-derive-row" style="display:none">
                 <td></td>
                 <td>
@@ -251,17 +171,7 @@
                 <td><select class="form-control form-control-sm" id="fkm-slot-group" autocomplete="off" data-lpignore="true"></select><input type="text" class="form-control form-control-sm mt-1" id="fkm-slot-group-new" list="fkm-slot-group-list" placeholder="— none — or type new section name" autocomplete="off" data-lpignore="true" style="display:none"><datalist id="fkm-slot-group-list"></datalist></td>
                 <td class="text-muted small" id="fkm-slot-group-desc">Optional display group / section heading for this field. Sections are managed by editing the Section column on the Field tab.</td>
               </tr>
-              <tr id="fkm-copy-inherited-row" style="display:none">
-                <td></td>
-                <td colspan="2">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="fkm-copy-inherited" checked>
-                    <label class="form-check-label" for="fkm-copy-inherited">
-                      Copy schema-inherited field attributes
-                    </label>
-                  </div>
-                </td>
-              </tr>
+
             </tbody>
           </table>
           <div id="fkm-error" class="text-danger small mt-1" style="display:none"></div>

@@ -190,3 +190,173 @@ export async function scrollToSlotRow(page, name, slotTypeTitle, timeout = 20_00
   }
   return -1;
 }
+
+/**
+ * Find the row index in the ClassSlot lower-panel HOT for a slot with the given name.
+ * slotTypeTitle is optional — pass display title e.g. 'Table field (from schema)' or
+ * 'Table field (stand-alone)'.  The type is matched via the CSS class SchemaEditor
+ * adds to every td in the row ('slot_usage', 'attribute', 'slot').
+ */
+export async function findClassSlotRowIndex(page, name, slotTypeTitle = null) {
+  return await page.evaluate(
+    ([name, slotTypeTitle]) => {
+      function ht(td) { return (td?.textContent ?? '').replace(/\u25bc/g, '').trim(); }
+      // Map display titles to the CSS class added by SchemaEditor's cells() callback.
+      const titleToClass = {
+        'Schema field':              'slot',
+        'Table field (from schema)': 'slot_usage',
+        'Table field (stand-alone)': 'attribute',
+      };
+      const cssClass = slotTypeTitle ? (titleToClass[slotTypeTitle] || null) : null;
+      const panel = document.getElementById('slot-lower-panel');
+      if (!panel) return -1;
+      const rows = panel.querySelectorAll('.ht_master .htCore tbody tr');
+      for (let i = 0; i < rows.length; i++) {
+        const cells = Array.from(rows[i].querySelectorAll('td'));
+        // Locate name cell by 'field-id-bold' CSS class (robust across schema configs).
+        const nameTd = cells.find(td => td.classList.contains('field-id-bold'));
+        if (!nameTd || ht(nameTd) !== name) continue;
+        if (!slotTypeTitle) return i;
+        // Check CSS class (primary) or fall back to text content.
+        if (cssClass) {
+          if (cells.some(td => td.classList.contains(cssClass))) return i;
+        } else {
+          if (cells.some(td => ht(td) === slotTypeTitle)) return i;
+        }
+      }
+      return -1;
+    },
+    [name, slotTypeTitle]
+  );
+}
+
+/**
+ * Scroll the ClassSlot lower-panel HOT to the row for the given slot name and return its index.
+ */
+export async function scrollToClassSlotRow(page, name, slotTypeTitle = null, timeout = 5000) {
+  const startTime = Date.now();
+  while (Date.now() - startTime < timeout) {
+    const idx = await findClassSlotRowIndex(page, name, slotTypeTitle);
+    if (idx >= 0) return idx;
+    await page.waitForTimeout(100);
+  }
+  throw new Error(`ClassSlot row not found for name="${name}" slotTypeTitle="${slotTypeTitle}" after ${timeout}ms`);
+}
+
+/**
+ * Returns a Playwright locator for a cell in the ClassSlot lower-panel HOT.
+ */
+export function classSlotCellLocator(page, rowIndex, colIdx) {
+  return page.locator(`#slot-lower-panel .ht_master .htCore tbody tr:nth-child(${rowIndex + 1}) td:nth-child(${colIdx + 1})`);
+}
+
+// ── Column-name resolution helpers ────────────────────────────────────────────
+//
+// These async helpers let callers identify columns by slot name rather than
+// a hardcoded index, so tests survive column reordering, insertions, and
+// deletions.
+//
+// Two complementary approaches are exported:
+//
+//   1. dhColIndex(page, dhName, slotName)
+//      Returns the DOM td index (0-based) for a named column.  Useful when
+//      the same column is referenced multiple times in one test — fetch once,
+//      cache in a const, pass to the synchronous locator helpers.
+//
+//   2. hotCellByName / slotCellByName / classSlotCellByName
+//      Async "named" variants of the locator helpers.  Ideal for one-off uses
+//      where the extra variable is unnecessary overhead.
+//
+// Both approaches use dh.slot_name_to_column (the DH runtime mapping) and
+// account for hidden columns (HOT 15 removes hidden-column tds from the DOM).
+//
+// Example — one-off use:
+//   const cell = await hotCellByName(page, 0, 'Schema', 'title');
+//   await cell.dblclick();
+//
+// Example — repeated use (cache the index):
+//   const descColIdx = await dhColIndex(page, 'ClassSlot', 'description');
+//   const cell1 = classSlotCellLocator(page, row1, descColIdx);
+//   const cell2 = classSlotCellLocator(page, row2, descColIdx);
+
+/**
+ * Resolve the DOM td index (0-based) for a column identified by its slot name
+ * in the given DH instance.
+ *
+ * Uses dh.slot_name_to_column to find the physical column index, then counts
+ * the non-hidden columns before it to obtain the actual DOM td position
+ * (HOT 15 removes hidden-column tds from .ht_master, shifting subsequent tds).
+ *
+ * Returns -1 if the DH instance or column name is not found.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {string} dhName   - Key in window._appContext.dhs
+ *                            (e.g. 'Schema', 'Class', 'Slot', 'ClassSlot',
+ *                             'Enum', 'UniqueKey', 'Annotation')
+ * @param {string} slotName - Slot name as in slot_name_to_column
+ *                            (e.g. 'title', 'description', 'locales')
+ * @returns {Promise<number>} DOM td index (0-based), or -1 if not found.
+ */
+export async function dhColIndex(page, dhName, slotName) {
+  return page.evaluate(([dhName, slotName]) => {
+    const dh  = window._appContext?.dhs?.[dhName];
+    const hot = dh?.hot;
+    if (!hot || !dh) return -1;
+    const physCol = dh.slot_name_to_column[slotName];
+    if (physCol === undefined) return -1;
+    const hiddenPlugin = hot.getPlugin('hiddenColumns');
+    const hiddenCols   = new Set(hiddenPlugin?.getHiddenColumns() ?? []);
+    let domCol = 0;
+    for (let c = 0; c < physCol; c++) {
+      if (!hiddenCols.has(c)) domCol++;
+    }
+    return domCol;
+  }, [dhName, slotName]);
+}
+
+/**
+ * Async variant of hotCellLocator that resolves `slotName` to a column index
+ * at runtime.  For the Schema and Class tabs, which use fixedColumnsLeft=1 with
+ * no hidden columns, the name column (col 0) is still reached via the synchronous
+ * hotCellLocator(page, row, 0) — this helper is intended for non-frozen columns.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {number} rowIndex - 0-based visual row index
+ * @param {string} dhName   - Key in window._appContext.dhs
+ * @param {string} slotName - Column's slot name (e.g. 'title', 'description')
+ * @returns {Promise<import('@playwright/test').Locator>}
+ */
+export async function hotCellByName(page, rowIndex, dhName, slotName) {
+  const colIdx = await dhColIndex(page, dhName, slotName);
+  return hotCellLocator(page, rowIndex, colIdx);
+}
+
+/**
+ * Async variant of slotCellLocator that resolves `slotName` to a column index
+ * at runtime.  For use with the Slot/Field tab .ht_master grid.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {number} rowIndex - 0-based visual row index
+ * @param {string} dhName   - Key in window._appContext.dhs (typically 'Slot')
+ * @param {string} slotName - Column's slot name (e.g. 'description', 'title')
+ * @returns {Promise<import('@playwright/test').Locator>}
+ */
+export async function slotCellByName(page, rowIndex, dhName, slotName) {
+  const colIdx = await dhColIndex(page, dhName, slotName);
+  return slotCellLocator(page, rowIndex, colIdx);
+}
+
+/**
+ * Async variant of classSlotCellLocator that resolves `slotName` to a column
+ * index at runtime.  For use with the ClassSlot lower-panel HOT.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {number} rowIndex - 0-based visual row index
+ * @param {string} dhName   - Key in window._appContext.dhs (typically 'ClassSlot')
+ * @param {string} slotName - Column's slot name (e.g. 'title', 'slot_group')
+ * @returns {Promise<import('@playwright/test').Locator>}
+ */
+export async function classSlotCellByName(page, rowIndex, dhName, slotName) {
+  const colIdx = await dhColIndex(page, dhName, slotName);
+  return classSlotCellLocator(page, rowIndex, colIdx);
+}

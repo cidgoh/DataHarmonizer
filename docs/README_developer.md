@@ -426,3 +426,41 @@ In tests: when `dblclick` is called on the Schema tab's first row, `afterBeginEd
 `DataHarmonizer.js` sets `minRows: 5`, so every HOT instance always holds at least 5 source rows (initially empty). When a FK-driven tab (Class, Slot, etc.) becomes active, `AppContext.tabFilter()` hides all rows whose FK column does not match the selected parent record. If the tab has never had data entered, all 5 `minRows` rows are hidden.
 
 When `addRows()` runs after clicking `#add-row`, it calls `hot.countRows()` — which counts **all** source rows, including hidden ones — to find the insertion index. The new row is inserted after the 5 hidden empty rows (source index 5) and is the only visible row. Its FK value is set in the HOT data model via `setDataAtCell`, confirmed by the `afterChange` hook firing, but the frozen clone-left cell may not re-render it immediately in the DOM. Tests should not depend on the FK column value appearing in the DOM right after `#add-row`; instead wait for a master-pane `<tr>` to appear, then type directly into the row.
+
+---
+
+## DH_LinkML Schema — `Annotation` class
+
+### Why `Annotation` has no `class_id` or `slot_id` FK slot
+
+The `Annotation` class deliberately omits a hardcoded foreign-key slot pointing to `Class` or `Slot`. The reason is that annotations in LinkML can be attached to any schema element — the schema itself, a class, a slot, an enum, a prefix, or a permissible value. Each annotation row therefore belongs conceptually to a *heterogeneous* set of parent objects; there is no single parent table that a FK column could reference without artificially restricting annotations to one element type.
+
+The only stable FK shared by all annotation rows is `schema_id`, which is inherited from the global `schema_id` slot (`foreign_key: Schema.name`). Class-level annotations carry an *optional* `class_id` column; slot-level annotations carry an *optional* `slot_name` column (pending rename — see below). Neither is a true FK in the cascade sense, because they are optional on a class that can legitimately have rows with neither set (schema-wide annotations).
+
+### Naming convention — pending `class_name` → `class_id` and `slot_name` → `slot_id` renames
+
+All other FK slots in the DH_LinkML schema follow the `_id` suffix convention and carry an explicit `foreign_key` annotation (`schema_id`, `class_id`, `enum_id`, `slot_id`). The `Annotation` class currently uses `class_name` and `slot_name` — legacy names that predate this convention. They should be brought in line:
+
+**`class_name` → `class_id`**
+
+| File | Change |
+|------|--------|
+| `web/templates/schema_editor/schema.yaml` | Annotation `slots:` list: `class_name` → `class_id`; Annotation `slot_usage:` key: `class_name:` → `class_id:`; remove or retain global `class_name` slot depending on whether anything else references it |
+| `web/templates/schema_editor/schema_core.yaml` | `unique_keys.annotation_key.unique_key_slots`: replace `class_name` with `class_id` |
+| `lib/SchemaEditor.js` | Audit all 31+ hits for `class_name` — most are local JS variable names. Confirm none are `slot_name_to_column['class_name']` lookups against the Annotation DH instance |
+
+The global `class_id` slot (`range: SchemaClassMenu`, `foreign_key: Class.name`, ~line 903 in `schema.yaml`) is the intended target. When `Annotation` inherits it via `slots:`, the `slot_usage` override must **not** impose `required: true` — schema-level and slot-level annotations have no `class_id` value.
+
+**`slot_name` → `slot_id`**
+
+Trickier: `slot_id` is already used as the PK-equivalent slot on the `Slot` class. Verify there is no collision in the global `slots:` dict before renaming. The same `required: false` caveat applies — only slot-level annotations carry this field.
+
+### Both `class_name`/`class_id` and `slot_name`/`slot_id` are optional on `Annotation`
+
+| Annotation scope | `class_id` | `slot_name` / `slot_id` |
+|------------------|-----------|------------------------|
+| Schema-level | — | — |
+| Class-level | set | — |
+| Slot-level | set | set |
+
+The cascade delete / rename machinery (`AppContext.js`) does not treat these columns as cascade FKs (they are not registered in `crudGetRelations`) precisely because `Annotation` rows are not exclusively owned by a single parent class.

@@ -27,14 +27,14 @@
  *   tds[13] = recommended (checkbox)
  *
  * To run this test:
- *   npx playwright test tests/playwright/UX_task_1_covid19.spec.js
+ *   npx playwright test tests/playwright/SCHEMA_UX_task_1_covid19.spec.js
  */
 
 import { test, expect } from '@playwright/test';
 import path from 'path';
 import { readFileSync, mkdirSync } from 'fs';
 import YAML from 'yaml';
-import { hotCellLocator, slotCellLocator, findSlotRowIndex, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
+import { hotCellLocator, slotCellLocator, findSlotRowIndex, findRowIndex, scrollToSlotRow, scrollToClassSlotRow, findClassSlotRowIndex, classSlotCellLocator, dhColIndex } from './playwright_utils.js';
 
 // ── Test ───────────────────────────────────────────────────────────────────────
 
@@ -149,10 +149,10 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
   // (loadSchemaYAML copies base-slot values into slot_usage for display).
   // Clicking the required checkbox sets slot_usage.case_id.required = true.
   // Clicking the recommended checkbox unsets slot_usage.case_id.recommended.
-  const caseIdRowIdx = await scrollToSlotRow(
+  const caseIdRowIdx = await scrollToClassSlotRow(
     page, 'case_id', 'Table field (from schema)'
   );
-  expect(caseIdRowIdx).not.toBe(-1);
+  expect(caseIdRowIdx).toBeGreaterThanOrEqual(0);
 
   // ── 7-8. Set Required = true, Recommended = false for case_id slot_usage ───
   // HOT checkbox cells toggle on mousedown.  In headless Playwright the HOT
@@ -164,7 +164,7 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
   // required:  null → true   (add override: this field is required)
   // recommended: true → false (override: suppress inherited recommended flag)
   await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
     if (!hot || !dh) return;
     const n2c = dh.slot_name_to_column;
@@ -186,16 +186,16 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
   // third_party_lab_sample_id is also in "Database Identifiers", rank 3 (just
   // above case_id at rank 4), so it is also in the rendered viewport range.
   // scrollToSlotRow starts from the current scroll position and finds it quickly.
-  const tplsRowIdx = await scrollToSlotRow(
+  const tplsRowIdx = await scrollToClassSlotRow(
     page, 'third_party_lab_sample_id', 'Table field (from schema)'
   );
-  expect(tplsRowIdx).not.toBe(-1);
+  expect(tplsRowIdx).toBeGreaterThanOrEqual(0);
 
   // Left-click first to select the row in HOT, then right-click to open
-  // the context menu.  scrollToSlotRow renders the row in HOT's DOM but it
-  // may be outside the visible HOT viewport; scrollIntoViewIfNeeded() brings
-  // it into view so the pointer events land on the correct cell.
-  const tplsCell = slotCellLocator(page, tplsRowIdx, 6); // title column — plain cell
+  // the context menu.  Use the title column (plain text, won't open the FKM).
+  // Resolve the column index by name so the test survives future reordering.
+  const csTitleColIdx = await dhColIndex(page, 'ClassSlot', 'title');
+  const tplsCell = classSlotCellLocator(page, tplsRowIdx, csTitleColIdx);
   await tplsCell.scrollIntoViewIfNeeded();
   await tplsCell.click();
   await page.waitForTimeout(300);
@@ -223,8 +223,8 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
   );
   await page.waitForTimeout(500);
 
-  // Confirm the row is gone from the visible DOM.
-  const afterRemoveIdx = await findSlotRowIndex(
+  // Confirm the row is gone from the ClassSlot lower-panel DOM.
+  const afterRemoveIdx = await findClassSlotRowIndex(
     page, 'third_party_lab_sample_id', 'Table field (from schema)'
   );
   expect(afterRemoveIdx).toBe(-1);
@@ -299,7 +299,7 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
   // After re-sort, the new field (slot_group=null) sorts first alphabetically.
   // Use scrollViewportTo to ensure HOT has rendered the row in the DOM.
   const newSlotVisual = await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
     if (!hot || !dh) return -1;
     for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -317,21 +317,22 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
     .not.toBe(-1);
   await page.waitForTimeout(400);
 
-  const newSlotRowIdx = await findSlotRowIndex(
+  const newSlotRowIdx = await findClassSlotRowIndex(
     page, 'diagnostic_pcr_protocol_4', 'Table field (from schema)'
   );
   expect(newSlotRowIdx, 'diagnostic_pcr_protocol_4 not in DOM after tab switch + scroll')
-    .not.toBe(-1);
+    .toBeGreaterThanOrEqual(0);
 
   // ── 12. Open FKM Edit mode and set section to "Pathogen diagnostic testing" ──
-  // Double-clicking a slot_usage row in the Field tab opens the Field Key Modal
-  // in "Edit Field" mode.  The FKM's #fkm-slot-group <select> is populated from
-  // the schema's slot-group definitions — use it to set the section, rather than
-  // attempting to type directly into the HOT cell.
+  // Double-clicking a slot_usage row in the ClassSlot lower-panel opens the
+  // Field Key Modal in "Edit Field" mode.  The FKM's #fkm-slot-group <select>
+  // is populated from the schema's slot-group definitions.
+  // Use the 'field-id-bold' CSS class that SchemaEditor adds to the name cell —
+  // more robust than a fixed td index which shifts when columns are added/hidden.
   const newFieldNameCell = page
-    .locator('.tab-pane.show .ht_master.handsontable tbody tr')
+    .locator('#slot-lower-panel .ht_master .htCore tbody tr')
     .nth(newSlotRowIdx)
-    .locator('td:nth-of-type(4)'); // tds[3] = name / Field ID column
+    .locator('td.field-id-bold');
   await newFieldNameCell.scrollIntoViewIfNeeded();
   await newFieldNameCell.dblclick();
 

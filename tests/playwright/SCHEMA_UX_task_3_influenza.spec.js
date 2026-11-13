@@ -22,7 +22,7 @@ import { test, expect } from '@playwright/test';
 import path from 'path';
 import { readFileSync, mkdirSync } from 'fs';
 import YAML from 'yaml';
-import { hotCellLocator, slotCellLocator, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
+import { hotCellLocator, slotCellLocator, findRowIndex, scrollToClassSlotRow, classSlotCellLocator, dhColIndex } from './playwright_utils.js';
 
 // ── Test ───────────────────────────────────────────────────────────────────────
 
@@ -92,13 +92,10 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
   expect(influenzaRowIdx, 'Influenza schema row not found after load').not.toBe(-1);
 
   // ── 3. Add French (fr) language translation ─────────────────────────────────
-  // The "Translations" column (locales, colIdx 6 in Schema tab) is multivalued.
-  // Double-clicking it fires HOT's afterBeginEditing → DH opens #multiselect-modal
-  // with a selectize.js multi-select populated from LanguagesMenu.
-  // After selecting "French (fr)" and clicking Ok, beforeChange intercepts the
-  // multiselect_change and calls setLocales(), which shows a dhConfirm dialog
-  // before committing the locale.
-  const localesCell = hotCellLocator(page, influenzaRowIdx, 6);
+  // The "Translations" column (locales) is multivalued.  Resolve the index at
+  // runtime so the test survives future column reordering.
+  const localesColIdx = await dhColIndex(page, 'Schema', 'locales');
+  const localesCell = hotCellLocator(page, influenzaRowIdx, localesColIdx);
   await localesCell.scrollIntoViewIfNeeded();
   await localesCell.dblclick();
 
@@ -201,14 +198,14 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
   // The slot_usage row is always visible when the Influenza class is selected.
   // Right-clicking it uses TRANSLATABLE['SlotUsage'] (class-scoped path),
   // so the translation writes to fr.classes.Influenza.slot_usage.authors.title.
-  const authorsRowIdx = await scrollToSlotRow(page, 'authors', 'Table field (from schema)');
-  expect(authorsRowIdx, '"authors" slot_usage row not found in Slot tab').not.toBe(-1);
+  const authorsRowIdx = await scrollToClassSlotRow(page, 'authors', 'Table field (from schema)');
+  expect(authorsRowIdx, '"authors" slot_usage row not found in Slot tab').toBeGreaterThanOrEqual(0);
 
-  // KEY_COLUMNS for the Slot tab include slot_group (tds[2]), slot_type (tds[1]),
-  // name (tds[3]) and more — a left-click on any of them opens the FKM.
-  // However, SchemaEditor's afterOnCellMouseDown guard (event.button === 2)
-  // skips the FKM for right-clicks, so go directly to right-click.
-  const authorsGroupCell = slotCellLocator(page, authorsRowIdx, 2);
+  // Right-click a plain non-KEY column to open the context menu without
+  // triggering the Field Key Modal.  Resolve the slot_group column index by
+  // name so the test survives future column reordering.
+  const csSlotGroupColIdx = await dhColIndex(page, 'ClassSlot', 'slot_group');
+  const authorsGroupCell = classSlotCellLocator(page, authorsRowIdx, csSlotGroupColIdx);
   await authorsGroupCell.scrollIntoViewIfNeeded();
   await authorsGroupCell.click({ button: 'right' });
 
@@ -265,9 +262,9 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
   // ── 5. Add French description for "authors" ──────────────────────────────────
   // Re-find the authors row: HOT may have re-rendered after step 4's modal close,
   // shifting virtual rows so that the previous DOM position now shows a different slot.
-  const authorsRowIdx5 = await scrollToSlotRow(page, 'authors', 'Table field (from schema)');
-  expect(authorsRowIdx5, '"authors" slot_usage row not found before step 5').not.toBe(-1);
-  const authorsGroupCell5 = slotCellLocator(page, authorsRowIdx5, 2);
+  const authorsRowIdx5 = await scrollToClassSlotRow(page, 'authors', 'Table field (from schema)');
+  expect(authorsRowIdx5, '"authors" slot_usage row not found before step 5').toBeGreaterThanOrEqual(0);
+  const authorsGroupCell5 = classSlotCellLocator(page, authorsRowIdx5, csSlotGroupColIdx);
   await authorsGroupCell5.scrollIntoViewIfNeeded();
   await authorsGroupCell5.click({ button: 'right' });
 
@@ -317,9 +314,9 @@ test('_influenza: load via right-click menu, edit, save, verify', async ({ page 
 
   // ── 6. Add French comments note for "authors" ────────────────────────────────
   // Re-find the authors row again: same HOT re-render issue as step 5.
-  const authorsRowIdx6 = await scrollToSlotRow(page, 'authors', 'Table field (from schema)');
-  expect(authorsRowIdx6, '"authors" slot_usage row not found before step 6').not.toBe(-1);
-  const authorsGroupCell6 = slotCellLocator(page, authorsRowIdx6, 2);
+  const authorsRowIdx6 = await scrollToClassSlotRow(page, 'authors', 'Table field (from schema)');
+  expect(authorsRowIdx6, '"authors" slot_usage row not found before step 6').toBeGreaterThanOrEqual(0);
+  const authorsGroupCell6 = classSlotCellLocator(page, authorsRowIdx6, csSlotGroupColIdx);
   await authorsGroupCell6.scrollIntoViewIfNeeded();
   await authorsGroupCell6.click({ button: 'right' });
 

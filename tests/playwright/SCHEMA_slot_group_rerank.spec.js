@@ -27,13 +27,13 @@
  *     • All GRDISample class slot ranks remain unique non-null integers.
  *
  * To run:
- *   npx playwright test tests/playwright/slot_group_rerank.spec.js
- *   npx playwright test tests/playwright/slot_group_rerank.spec.js --headed
+ *   npx playwright test tests/playwright/SCHEMA_slot_group_rerank.spec.js
+ *   npx playwright test tests/playwright/SCHEMA_slot_group_rerank.spec.js --headed
  */
 
 import { test, expect } from '@playwright/test';
 import path from 'path';
-import { slotNameCellLocator, scrollToSlotRow } from './playwright_utils.js';
+import { slotNameCellLocator, scrollToClassSlotRow } from './playwright_utils.js';
 
 // ── Constants ──────────────────────────────────────────────────────────────────
 
@@ -86,9 +86,8 @@ async function setExpertMode(page, enabled) {
 }
 
 async function openEditFkm(page, slotTypeTitle, slotName) {
-  const rowIdx = await scrollToSlotRow(page, slotName, slotTypeTitle, 15_000);
-  if (rowIdx === -1) throw new Error(`Row not found: ${slotTypeTitle} / ${slotName}`);
-  const cell = slotNameCellLocator(page, rowIdx); // field-id-bold → KEY_COLUMN → opens FKM
+  const rowIdx = await scrollToClassSlotRow(page, slotName, slotTypeTitle, 15_000);
+  const cell = page.locator(`#slot-lower-panel .ht_master .htCore tbody tr:nth-child(${rowIdx + 1}) td.field-id-bold`); // field-id-bold → KEY_COLUMN → opens FKM
   await cell.scrollIntoViewIfNeeded();
   await cell.dblclick();
   await page.waitForFunction(
@@ -128,7 +127,7 @@ async function refreshSlotTab(page) {
 async function getSlotInfo(page, slotName, classId) {
   return page.evaluate(
     ([slotName, classId]) => {
-      const dh  = window._appContext?.dhs?.Slot;
+      const dh  = window._appContext?.dhs?.ClassSlot;
       const hot = dh?.hot;
       if (!hot || !dh) return null;
       const rankCol = dh.slot_name_to_column['rank'];
@@ -154,7 +153,7 @@ async function getSlotInfo(page, slotName, classId) {
 async function getAllClassSlots(page, classId) {
   return page.evaluate(
     ([classId]) => {
-      const dh  = window._appContext?.dhs?.Slot;
+      const dh  = window._appContext?.dhs?.ClassSlot;
       const hot = dh?.hot;
       if (!hot || !dh) return [];
       const rankCol = dh.slot_name_to_column['rank'];

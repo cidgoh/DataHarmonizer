@@ -185,6 +185,24 @@ body {
   border-bottom-color: #ffffff;
   background-color: #ffffff;
 }
+/* Disabled label: greyed out, not clickable. */
+.dh-lower-tab-strip > .dh-lower-panel-label.disabled {
+  color: #aaa;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* "All records" toggle appearing right after the secondary tab labels. */
+.dh-lower-tab-strip > .dh-lower-show-all {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 12px;
+  padding: 4px 10px;
+  font-size: 0.82rem;
+  color: #495057;
+  cursor: pointer;
+  white-space: nowrap;
+}
 
 /* Compact sizing for the Add row(s) control in every lower-panel tab strip. */
 .dh-lower-panel .dh-lower-tab-strip .form-control,
@@ -203,6 +221,26 @@ body {
 
 .add-rows-input {
   max-width: 60px;
+}
+
+/* Inherited-value indicator: slot_usage cells showing a value inherited from
+   the base schema slot definition get a small grey [i] badge in the top-right
+   corner.  position:relative on the td lets ::after be absolutely positioned
+   inside the cell without disturbing the cell's text content. */
+td.inherited {
+  position: relative;
+}
+td.inherited::after {
+  content: '[i]';
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  font-size: 0.65em;
+  color: #aaa;
+  font-style: italic;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* MAKING BOOTSTRAP tab states more pronounced */

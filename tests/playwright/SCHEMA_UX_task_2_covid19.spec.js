@@ -8,14 +8,14 @@
  *         GRDIIsolate has Recommended = true in the HOT source data.
  *
  * To run this test:
- *   npx playwright test tests/playwright/UX_task_2_covid19.spec.js
+ *   npx playwright test tests/playwright/SCHEMA_UX_task_2_covid19.spec.js
  */
 
 import { test, expect } from '@playwright/test';
 import path from 'path';
 import { readFileSync, mkdirSync } from 'fs';
 import YAML from 'yaml';
-import { hotCellLocator, findRowIndex, scrollToSlotRow } from './playwright_utils.js';
+import { hotCellLocator, findRowIndex, scrollToClassSlotRow } from './playwright_utils.js';
 
 // ── Test ──────────────────────────────────────────────────────────────────────
 
@@ -103,13 +103,13 @@ test('UX_task_2: GRDI template editing', async ({ page }) => {
   // The base slot has recommended: null, so the inherited-edit dialog will not
   // fire — no special source tag needed, but we use 'cascade_confirm' for
   // consistency with other programmatic HOT writes in this test suite.
-  const scsRowIdx = await scrollToSlotRow(
+  const scsRowIdx = await scrollToClassSlotRow(
     page, 'sample_collector_sample_id', 'Table field (from schema)'
   );
-  expect(scsRowIdx, 'sample_collector_sample_id slot_usage row not found in GRDIIsolate').not.toBe(-1);
+  expect(scsRowIdx, 'sample_collector_sample_id slot_usage row not found in GRDIIsolate').toBeGreaterThanOrEqual(0);
 
   await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
     if (!hot || !dh) return;
     const n2c = dh.slot_name_to_column;
@@ -128,7 +128,7 @@ test('UX_task_2: GRDI template editing', async ({ page }) => {
   // ── Step 1 result: Recommended column is TRUE for sample_collector_sample_id
   // in GRDIIsolate's field group.
   const recommendedValue = await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
     if (!hot || !dh) return null;
     const n2c = dh.slot_name_to_column;
@@ -177,13 +177,13 @@ test('UX_task_2: GRDI template editing', async ({ page }) => {
   );
   await page.waitForTimeout(500);
 
-  const scsRowIdxSample = await scrollToSlotRow(
+  const scsRowIdxSample = await scrollToClassSlotRow(
     page, 'sample_collector_sample_id', 'Table field (from schema)'
   );
-  expect(scsRowIdxSample, 'sample_collector_sample_id slot_usage row not found in GRDISample').not.toBe(-1);
+  expect(scsRowIdxSample, 'sample_collector_sample_id slot_usage row not found in GRDISample').toBeGreaterThanOrEqual(0);
 
   await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
     if (!hot || !dh) return;
     const n2c = dh.slot_name_to_column;
@@ -204,7 +204,7 @@ test('UX_task_2: GRDI template editing', async ({ page }) => {
   // ── Step 2 result: Recommended column is TRUE for sample_collector_sample_id
   // in GRDISample's field group.
   const recommendedValueSample = await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
     if (!hot || !dh) return null;
     const n2c = dh.slot_name_to_column;
@@ -266,7 +266,7 @@ test('UX_task_2: GRDI template editing', async ({ page }) => {
   // GRDISample.  The base slot has range: null (ranges are expressed via
   // any_of), so this override lands cleanly with no inherited-edit dialog.
   await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
     if (!hot || !dh) return;
     const n2c = dh.slot_name_to_column;
@@ -284,7 +284,7 @@ test('UX_task_2: GRDI template editing', async ({ page }) => {
 
   // ── Step 4 result: Range column shows "NullValueMenu" for the slot_usage row
   const rangeVal = await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
     if (!hot || !dh) return null;
     const n2c = dh.slot_name_to_column;

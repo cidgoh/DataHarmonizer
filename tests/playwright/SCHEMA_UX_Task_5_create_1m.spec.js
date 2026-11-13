@@ -24,10 +24,9 @@
  *                                   isolate_id with class_id = "Isolates"
  *   - Isolates.sample_id has range = "Samples"  (FK reference to Samples table)
  *
- * Schema tab column layout (name frozen at col 0):
- *   col 0 (frozen): name      col 3: description   col 7: default_prefix
- *   col 1: id (URI)           col 4: version
- *   col 2: title              col 5: in_language
+ * Schema tab column layout (name frozen at col 0; non-frozen cols resolved at
+ * runtime via dhColIndex — see code):
+ *   col 0 (frozen): name  |  id, title, description, version, default_prefix, …
  *
  * Slot tab ht_master column layout (schema_id hidden, class_id frozen):
  *   tds[0]=placeholder  tds[3]=name   tds[6]=title  tds[9]=examples
@@ -35,14 +34,14 @@
  *   tds[2]=slot_group   tds[5]=slot_uri  tds[8]=comments  tds[10]=range
  *
  * Run:
- *   npx playwright test tests/playwright/UX_Task_5_create_1m.spec.js
+ *   npx playwright test tests/playwright/SCHEMA_UX_Task_5_create_1m.spec.js
  */
 
 import { test, expect } from '@playwright/test';
 import path from 'path';
 import { mkdirSync, readFileSync } from 'fs';
 import YAML from 'yaml';
-import { hotCellLocator, slotCellLocator } from './playwright_utils.js';
+import { hotCellLocator, slotCellLocator, classSlotCellLocator, dhColIndex } from './playwright_utils.js';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -176,15 +175,19 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   await waitForSchemaEditor(page);
 
   // ── 2. Enter schema details ────────────────────────────────────────────────
-  // Schema tab: col 0 (frozen) = name, col 1 = id, col 3 = description,
-  //             col 4 = version, col 7 = default_prefix.
   await typeIntoCell(page, hotCellLocator(page, 0, 0), 'Schema1');
   await waitForCloneCellText(page, 'Schema1');
 
-  await typeIntoCell(page, hotCellLocator(page, 0, 1), 'https://example.com/schema1');
-  await typeIntoCell(page, hotCellLocator(page, 0, 3), 'A test Schema with two tables');
-  await typeIntoCell(page, hotCellLocator(page, 0, 4), '1.0.0');
-  await typeIntoCell(page, hotCellLocator(page, 0, 7), 'SCHEMA1');
+  // Resolve non-frozen Schema tab column indices by name.
+  const schemaIdCol      = await dhColIndex(page, 'Schema', 'id');
+  const schemaDescCol    = await dhColIndex(page, 'Schema', 'description');
+  const schemaVersionCol = await dhColIndex(page, 'Schema', 'version');
+  const schemaPrefixCol  = await dhColIndex(page, 'Schema', 'default_prefix');
+
+  await typeIntoCell(page, hotCellLocator(page, 0, schemaIdCol),      'https://example.com/schema1');
+  await typeIntoCell(page, hotCellLocator(page, 0, schemaDescCol),    'A test Schema with two tables');
+  await typeIntoCell(page, hotCellLocator(page, 0, schemaVersionCol), '1.0.0');
+  await typeIntoCell(page, hotCellLocator(page, 0, schemaPrefixCol),  'SCHEMA1');
 
   // Re-select Schema1 so it is the active FK context for tables.
   await hotCellLocator(page, 0, 0).click();
@@ -205,9 +208,10 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   );
   await page.waitForTimeout(300);
 
+  const classTitleCol = await dhColIndex(page, 'Class', 'title');
   await typeIntoCell(page, hotCellLocator(page, 0, 0), 'Samples');
   await waitForCloneCellText(page, 'Samples');
-  await typeIntoCell(page, hotCellLocator(page, 0, 1), 'Samples');
+  await typeIntoCell(page, hotCellLocator(page, 0, classTitleCol), 'Samples');
 
   // ── 5. Create the "Isolates" table ────────────────────────────────────────
   await page.click('#add-row');
@@ -222,7 +226,7 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   );
   await typeIntoCell(page, hotCellLocator(page, isolatesTableRowIdx, 0), 'Isolates');
   await waitForCloneCellText(page, 'Isolates');
-  await typeIntoCell(page, hotCellLocator(page, isolatesTableRowIdx, 1), 'Isolates');
+  await typeIntoCell(page, hotCellLocator(page, isolatesTableRowIdx, classTitleCol), 'Isolates');
 
   // ── 6. Assert: two Table rows with matching Name and Title ─────────────────
   const tableData = await page.evaluate(() => {
@@ -338,16 +342,17 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   // from DOM row order when the sort is being re-applied) and is robust even
   // when there are multiple slot_usage rows named "sample_id" (one per class).
   const { sampleIdIsolatesRowIdx, rangeColDomIdx } = await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
+    // slot_usage rows are in the ClassSlot DH and rendered in #slot-lower-panel.
+    const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
     if (!hot || !dh) return { sampleIdIsolatesRowIdx: -1, rangeColDomIdx: -1 };
 
     const ht    = el => (el?.textContent ?? '').replace(/\u25bc/g, '').trim();
-    const scope = document.querySelector('.tab-pane.show');
+    const scope = document.getElementById('slot-lower-panel');
     if (!scope) return { sampleIdIsolatesRowIdx: -1, rangeColDomIdx: -1 };
 
     // Scan all rendered DOM rows in .ht_master.
-    const masterRows = scope.querySelectorAll('.ht_master.handsontable tbody tr');
+    const masterRows = scope.querySelectorAll('.ht_master .htCore tbody tr');
     let rowIdx = -1;
     for (let i = 0; i < masterRows.length; i++) {
       const tds    = Array.from(masterRows[i].querySelectorAll('td'));
@@ -379,10 +384,11 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
     return { sampleIdIsolatesRowIdx: rowIdx, rangeColDomIdx: domColIdx };
   });
   expect(sampleIdIsolatesRowIdx,
-    'sample_id slot_usage row for Isolates not found in Slot tab').not.toBe(-1);
+    'sample_id slot_usage row for Isolates not found in ClassSlot panel').toBeGreaterThanOrEqual(0);
 
   // 'range' column is a multiselect combining SchemaTypeMenu + SchemaClassMenu + SchemaEnumMenu.
-  const rangeCell = slotCellLocator(page, sampleIdIsolatesRowIdx, rangeColDomIdx);
+  // The ClassSlot lower-panel HOT is in #slot-lower-panel.
+  const rangeCell = classSlotCellLocator(page, sampleIdIsolatesRowIdx, rangeColDomIdx);
   await rangeCell.scrollIntoViewIfNeeded();
   await rangeCell.dblclick();
 
@@ -491,28 +497,33 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   console.log(`Schema saved to: ${outputFile}`);
 
   // ── 15. Final assertions ───────────────────────────────────────────────────
+  // slot_usage rows (which carry class_id) are in ClassSlot DH.
+  // Base slot rows (slot_type='slot') are in Slot DH.
   const slotData = await page.evaluate(() => {
-    const dh  = window._appContext?.dhs?.Slot;
-    const hot = dh?.hot;
-    if (!hot || !dh) return null;
-    const nameCol  = dh.slot_name_to_column['name'];
-    const classCol = dh.slot_name_to_column['class_id'];
-    const rangeCol = dh.slot_name_to_column['range'];
     const rows = [];
-    for (let p = 0; p < hot.countSourceRows(); p++) {
-      const name = hot.getSourceDataAtCell(p, nameCol);
-      if (name === 'sample_id' || name === 'isolate_id') {
-        rows.push({
-          name,
-          class_id: hot.getSourceDataAtCell(p, classCol) ?? '',
-          range:    hot.getSourceDataAtCell(p, rangeCol) ?? '',
-        });
+    function collectFrom(dh) {
+      const hot = dh?.hot;
+      if (!hot || !dh) return;
+      const nameCol  = dh.slot_name_to_column['name'];
+      const classCol = dh.slot_name_to_column['class_id'];
+      const rangeCol = dh.slot_name_to_column['range'];
+      for (let p = 0; p < hot.countSourceRows(); p++) {
+        const name = hot.getSourceDataAtCell(p, nameCol);
+        if (name === 'sample_id' || name === 'isolate_id') {
+          rows.push({
+            name,
+            class_id: hot.getSourceDataAtCell(p, classCol) ?? '',
+            range:    hot.getSourceDataAtCell(p, rangeCol) ?? '',
+          });
+        }
       }
     }
-    return rows;
+    collectFrom(window._appContext?.dhs?.Slot);
+    collectFrom(window._appContext?.dhs?.ClassSlot);
+    return rows.length > 0 ? rows : null;
   });
 
-  expect(slotData, 'Slot HOT data not accessible').not.toBeNull();
+  expect(slotData, 'Slot/ClassSlot HOT data not accessible').not.toBeNull();
 
   // sample_id should exist for Samples (as the primary sample identifier).
   const sampleIdSamples = slotData.find(r => r.name === 'sample_id' && r.class_id === 'Samples');

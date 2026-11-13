@@ -101,6 +101,7 @@ module.exports = (env, argv) => {
     },
     devServer: {
       hot: true,
+      port: 8081,
       watchFiles: [path.resolve(__dirname, 'index.html')],
     },
   };

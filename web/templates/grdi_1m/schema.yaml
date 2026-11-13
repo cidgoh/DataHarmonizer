@@ -1122,6 +1122,7 @@ slots:
     name: alternative_sample_id
     slot_uri: GENEPIO:0100427
     title: alternative_sample_ID
+    slot_group: Sample collection and processing
     range: WhitespaceMinimizedString
     required: true
     description: An alternative sample_ID assigned to the sample by another organization.

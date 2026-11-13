@@ -13,7 +13,7 @@
  * Schema : web/templates/grdi_1m/schema.yaml
  *
  * Run all:
- *   npx playwright test tests/playwright/grdi-slot-features.spec.js
+ *   npx playwright test tests/playwright/SCHEMA_grdi_slot_features.spec.js
  */
 
 import { test, expect } from '@playwright/test';
@@ -53,11 +53,17 @@ async function goToTab(page, tabBarId) {
 
 // ── Helpers for expert-guard + cascade tests ──────────────────────────────────
 
-/** Return the visual row index for the first HOT row matching slotName + slotType, or -1. */
+/** Return the visual row index for the first HOT row matching slotName + slotType, or -1.
+ * For slot_type='slot_usage' or 'attribute', the row is in the ClassSlot DH.
+ * For slot_type='slot', the row is in the Slot DH.
+ */
 async function findSlotVisualRow(page, slotName, slotType) {
   return page.evaluate(
     ([slotName, slotType]) => {
-      const dh  = window._appContext?.dhs?.Slot;
+      const isClassSlot = slotType === 'slot_usage' || slotType === 'attribute';
+      const dh  = isClassSlot
+        ? window._appContext?.dhs?.ClassSlot
+        : window._appContext?.dhs?.Slot;
       const hot = dh?.hot;
       if (!hot || !dh) return -1;
       for (let p = 0; p < hot.countSourceRows(); p++) {
@@ -72,11 +78,17 @@ async function findSlotVisualRow(page, slotName, slotType) {
   );
 }
 
-/** Return the current value of 'examples' for the given slot row. */
+/** Return the current value of 'examples' for the given slot row.
+ * For slot_type='slot_usage' or 'attribute', the row is in the ClassSlot DH.
+ * For slot_type='slot', the row is in the Slot DH.
+ */
 async function getExamplesValue(page, slotName, slotType) {
   return page.evaluate(
     ([slotName, slotType]) => {
-      const dh  = window._appContext?.dhs?.Slot;
+      const isClassSlot = slotType === 'slot_usage' || slotType === 'attribute';
+      const dh  = isClassSlot
+        ? window._appContext?.dhs?.ClassSlot
+        : window._appContext?.dhs?.Slot;
       const hot = dh?.hot;
       if (!hot || !dh) return undefined;
       const physCol = dh.slot_name_to_column['examples'];
@@ -96,10 +108,14 @@ async function getExamplesValue(page, slotName, slotType) {
 /**
  * Scroll the Slot tab to the examples cell of the given visual row, select it,
  * and trigger HOT's beginEditing() — which opens the multiselect modal.
+ * For slot_type='slot_usage'/'attribute' rows, uses ClassSlot DH; for 'slot' uses Slot DH.
  */
-async function openExamplesModal(page, vRow) {
-  await page.evaluate((vRow) => {
-    const dh  = window._appContext?.dhs?.Slot;
+async function openExamplesModal(page, vRow, slotType = 'slot') {
+  await page.evaluate(([vRow, slotType]) => {
+    const isClassSlot = slotType === 'slot_usage' || slotType === 'attribute';
+    const dh  = isClassSlot
+      ? window._appContext?.dhs?.ClassSlot
+      : window._appContext?.dhs?.Slot;
     const hot = dh?.hot;
     if (!hot || !dh) return;
     const physCol = dh.slot_name_to_column['examples'];
@@ -109,7 +125,7 @@ async function openExamplesModal(page, vRow) {
     hot.selectCell(vRow, visCol);
     // Small delay lets HOT prepare the editor before we open it.
     setTimeout(() => hot.getActiveEditor()?.beginEditing(), 50);
-  }, vRow);
+  }, [vRow, slotType]);
   await page.waitForFunction(
     () => !!document.querySelector('#multiselect-modal.show'),
     null, { timeout: 6_000 }
@@ -284,24 +300,34 @@ test.describe('SchemaEditor GRDI: expert guard and slot cascade', () => {
     await page.waitForTimeout(300);
 
     // ── 6. Setup: seed examples on base slot and GRDISample slot_usage ────────
+    // Base slot (slot_type='slot') is in Slot DH; slot_usage is in ClassSlot DH.
     await page.evaluate(() => {
-      const dh  = window._appContext?.dhs?.Slot;
-      const hot = dh?.hot;
-      if (!hot || !dh) return;
-      const physCol = dh.slot_name_to_column['examples'];
-      if (physCol === undefined) return;
-      for (let p = 0; p < hot.countSourceRows(); p++) {
-        const slotType = hot.getSourceDataAtCell(p, dh.slot_type_column);
-        const name     = hot.getSourceDataAtCell(p, dh.slot_name_column);
-        if (name !== 'sample_plan_name') continue;
-        const v = hot.toVisualRow(p);
-        if (v === null) continue;
-        if (slotType === 'slot') {
-          hot.setDataAtCell(v, physCol, 'preset_example', 'cascade_confirm');
-        } else if (slotType === 'slot_usage') {
-          const classId = hot.getSourceDataAtCell(p, dh.slot_class_id_column);
-          if (classId === 'GRDISample') {
-            hot.setDataAtCell(v, physCol, 'preset_example', 'cascade_confirm');
+      const slotDh = window._appContext?.dhs?.Slot;
+      const csDh   = window._appContext?.dhs?.ClassSlot;
+      // Seed base slot
+      if (slotDh?.hot) {
+        const physCol = slotDh.slot_name_to_column['examples'];
+        if (physCol !== undefined) {
+          for (let p = 0; p < slotDh.hot.countSourceRows(); p++) {
+            if (slotDh.hot.getSourceDataAtCell(p, slotDh.slot_type_column) === 'slot' &&
+                slotDh.hot.getSourceDataAtCell(p, slotDh.slot_name_column) === 'sample_plan_name') {
+              const v = slotDh.hot.toVisualRow(p);
+              if (v !== null) slotDh.hot.setDataAtCell(v, physCol, 'preset_example', 'cascade_confirm');
+            }
+          }
+        }
+      }
+      // Seed slot_usage
+      if (csDh?.hot) {
+        const physCol = csDh.slot_name_to_column['examples'];
+        if (physCol !== undefined) {
+          for (let p = 0; p < csDh.hot.countSourceRows(); p++) {
+            if (csDh.hot.getSourceDataAtCell(p, csDh.slot_type_column) === 'slot_usage' &&
+                csDh.hot.getSourceDataAtCell(p, csDh.slot_name_column) === 'sample_plan_name' &&
+                csDh.hot.getSourceDataAtCell(p, csDh.slot_class_id_column) === 'GRDISample') {
+              const v = csDh.hot.toVisualRow(p);
+              if (v !== null) csDh.hot.setDataAtCell(v, physCol, 'preset_example', 'cascade_confirm');
+            }
           }
         }
       }
@@ -344,7 +370,7 @@ test.describe('SchemaEditor GRDI: expert guard and slot cascade', () => {
       .toBe('preset_example');
 
     // ── 10. Attempt 2 (non-expert): GRDISample slot_usage → guard fires ───────
-    await openExamplesModal(page, suVRow);
+    await openExamplesModal(page, suVRow, 'slot_usage');
     await addSelectizeItems(page, 'foo', 'bar');
     await confirmMultiselect(page);
 
@@ -442,7 +468,14 @@ test.describe('SchemaEditor GRDI: unique_key_slots multiselect', () => {
     // Allow refreshMenus (including UniqueKeySlotMenu) to complete.
     await page.waitForTimeout(500);
 
-    // ── 3. Navigate to Class tab and select GRDISample ────────────────────────
+    // ── 3. Enable Expert User mode so the UniqueKey tab is visible during cascade ──
+    await page.evaluate(() => {
+      const cb = document.getElementById('schema_expert');
+      if (cb && !cb.checked) cb.click();
+    });
+    await page.waitForTimeout(200);
+
+    // ── 3b. Navigate to Class tab and select GRDISample ───────────────────────
     await goToTab(page, '#tab-bar-Class');
     await page.waitForFunction(
       () => document.querySelectorAll(
@@ -463,12 +496,22 @@ test.describe('SchemaEditor GRDI: unique_key_slots multiselect', () => {
       .first().locator('td:nth-of-type(1)').click();
     await page.waitForTimeout(300);
 
-    // ── 4. Navigate to UniqueKey (Table Key) tab ──────────────────────────────
-    await goToTab(page, '#tab-bar-UniqueKey');
+    // ── 4. Wait for UniqueKey lower panel rows ───────────────────────────────
+    // UniqueKey is embedded in the Class tab's lower panel (class-uk-lower-panel),
+    // not a standalone Bootstrap tab pane.  Navigating to #tab-bar-UniqueKey
+    // would hide the lower panel and show an empty pane, so we stay on the
+    // Class tab and poll the DH directly for visible rows.
     await page.waitForFunction(
-      () => document.querySelectorAll(
-        '.tab-pane.show .ht_master.handsontable tbody tr'
-      ).length > 0,
+      () => {
+        const dh  = window._appContext?.dhs?.UniqueKey;
+        const hot = dh?.hot;
+        if (!hot) return false;
+        for (let p = 0; p < hot.countSourceRows(); p++) {
+          const v = hot.toVisualRow(p);
+          if (v !== null && v >= 0) return true;
+        }
+        return false;
+      },
       null, { timeout: 10_000 }
     );
     await page.waitForTimeout(300);
@@ -565,7 +608,8 @@ test.describe('SchemaEditor GRDI: unique_key_slots multiselect', () => {
       const modal    = document.querySelector('[id="multiselect-modal"].show');
       const selectize = modal?.querySelector('.multiselect')?.selectize;
       if (!selectize) return false;
-      const dh  = window._appContext?.dhs?.Slot;
+      // slot_usage and attribute rows are in ClassSlot DH.
+      const dh  = window._appContext?.dhs?.ClassSlot;
       const hot = dh?.hot;
       if (!hot || !dh) return false;
       const classIdCol = dh.slot_class_id_column;
