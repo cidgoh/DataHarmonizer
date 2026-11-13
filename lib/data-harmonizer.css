@@ -401,6 +401,12 @@ td.tabFieldTd.slot_usage.inherited input{display:none}
   background-color: #eaf4ff !important;
 }
 
+/* Translation tab: "Field" column (non-pivot) and "Language" column (pivot) —
+   each row's primary identifier — are always bold. */
+#translation-tab-hot-container td.translation-field-bold {
+  font-weight: bold !important;
+}
+
 /* Translation tab: title rows are bold */
 #translation-tab-hot-container td.translation-title-row {
   font-weight: bold !important;
