@@ -128,7 +128,9 @@ div.handsontableEditor div .wtSpreader {
 }
 
 /* Make the filter TEXTAREA semi-transparent so the cell's existing label text
-   remains visible through the overlay when the dropdown is open. */
+   remains visible through the overlay when the dropdown is open.
+   max-width caps width on clipped cells; height constraints are set per cell
+   type in afterBeginEditing so they can vary between clipped and multi-line. */
 textarea[data-hot-input].handsontableInput {
   background: rgba(255,255,255,0.85);
   max-width: 380px !important;
@@ -310,15 +312,19 @@ tr.translate_key td {
 }
 
 .handsontable td.tabFieldTd { /* .htDimmed */
-  /* height:20px !important; 
+  /* height:20px !important;
   overflow-y:hidden !important; */
   white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
   text-overflow: ellipsis; /* Add ellipsis for truncated text */
 }
+/* Selection does NOT expand row height — content stays truncated until editing. */
 
-.handsontable td.tabFieldTd.current {  /* .htDimmed */
-  white-space: normal; /* Prevent text from wrapping */
-  text-overflow: unset; /* Add ellipsis for truncated text */
+/* Second-click expand: a read-only cell that the user has second-clicked to read
+   its full content gets white-space:normal so text wraps and HOT auto-sizes the row. */
+.handsontable td.tabFieldTd.tabFieldTd-expanded {
+  white-space: normal;
+  text-overflow: unset;
 }
 
 td.tabFieldTd.field-id-bold {
