@@ -234,6 +234,29 @@ Each locale row in the translation popup includes a **google** button on the rig
 
 ---
 
+## Picklist Display Order
+
+By default, DataHarmonizer **preserves the order in which permissible values appear in `schema.yaml`** when building dropdown lists and multi-select menus. This means you can control the display sequence simply by ordering the values in the YAML file.
+
+**Automatic alphabetical sorting** is applied only when all three of the following conditions hold:
+
+1. The schema defines at least one **translation locale** (a value in the `locales` column of the Schema tab, or `extensions.locales` in the YAML).
+2. **No key** in the enumeration is numeric (e.g. `'1'`, `'2'`, `'9'`). Numeric keys indicate an ordered scale — severity ratings, quality grades, and similar sequences must retain their defined sequence.
+3. **Every key equals its `title`**. When a schema author assigns short codes as keys (e.g. `grain_1` / `Grain Type 1`) the key itself carries domain-defined order and is left untouched. When every key *is* the display label (e.g. both key and title are `Moist`) there is no domain ordering, so alphabetical presentation is natural.
+
+### Implications for schema authors
+
+| Situation | Behaviour |
+|-----------|-----------|
+| Scale of 1–9 (or any numeric keys) | **Preserved** — numeric keys always keep schema order. |
+| Codes differ from titles (`grain_1` / `Grain Type 1`) | **Preserved** — key/title mismatch signals a code system with its own order. |
+| Schema has no translation locales | **Preserved** — single-language schemas keep the author's declared order. |
+| Non-numeric keys equal their titles, schema has locales | **Sorted alphabetically** — appropriate for text-label enumerations in multilingual schemas. |
+
+> **Tip:** If you have a text-label enumeration that should display in a specific non-alphabetical order **and** your schema has locales, make the keys differ slightly from the titles (e.g. prefix them with `0_`, `1_`, `2_` or use a code-style key) so DataHarmonizer treats them as an ordered code system.
+
+---
+
 ## Notes on Workflow
 
 - The Schema Editor is itself a DataHarmonizer 1-to-many schema. The **Schema** tab is the root parent; all other tabs (Table, Field, Enum, etc.) are child tabs linked to it by a `schema_id` foreign key. See `README_1_to_many.md` for the general 1-to-many model.
