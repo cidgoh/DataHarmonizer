@@ -369,18 +369,16 @@ test('UX_task_2: GRDI template editing', async ({ page }) => {
   });
   await page.waitForTimeout(400);
 
-  // Switch to the PermissibleValue (Picklist choices) tab.
-  await page.click('#tab-bar-PermissibleValue > a');
+  // PermissibleValue is shown as a lower panel under the Enum tab when an enum
+  // row is selected — it is not a primary tab (its main tab-bar entry is hidden).
+  // Selecting NullValueMenu above fires afterSelectionEnd → tabFilter → shows the
+  // lower panel.  Wait for the panel to become visible and for data to load.
   await page.waitForFunction(
-    () => document.querySelector('#tab-bar-PermissibleValue .nav-link')?.classList.contains('active'),
-    null, { timeout: 5_000 }
+    () => document.querySelector('#enum-pv-lower-panel')?.classList.contains('visible'),
+    null, { timeout: 8_000 }
   );
   await page.waitForFunction(
-    () => document.querySelectorAll('.tab-pane.show').length === 1,
-    null, { timeout: 5_000 }
-  );
-  await page.waitForFunction(
-    () => document.querySelectorAll('.tab-pane.show .ht_master.handsontable tbody tr').length > 0,
+    () => (window._appContext?.dhs?.PermissibleValue?.hot?.countRows() ?? 0) > 0,
     null, { timeout: 15_000 }
   );
   await page.waitForTimeout(500);

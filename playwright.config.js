@@ -18,5 +18,8 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:8081',
     headless: process.env.HEADED !== '1',   // default headless; HEADED=1 npx playwright ... to watch
+    launchOptions: {
+      slowMo: parseInt(process.env.PWSLOW || '0'),  // PWSLOW=1000 adds 1-second delay between actions
+    },
   },
 });

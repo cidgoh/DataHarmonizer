@@ -46,10 +46,17 @@ async function setupSchemaEditor(page) {
     null,
     { timeout: 15_000 }
   );
-  // "Display: All records" enables every tab.
+  // "Display: All records" enables every tab, persistently across tab switches.
+  // Setting per-tab show-all for all DHs ensures show.bs.tab keeps the radio
+  // set to 'all' when switching tabs, so setDHTabStatus never re-disables them.
   await page.evaluate(() => {
+    const se = window._appContext?.schemaEditor;
+    if (se) {
+      Object.keys(window._appContext?.dhs ?? {}).forEach(name => se._setTabShowAll(name, true));
+    }
     const radio = document.getElementById('display-all-records-radio');
-    if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change', { bubbles: true })); }
+    if (radio) radio.checked = true;
+    window._appContext?.refreshTabDisplay();
   });
   await page.waitForFunction(
     () => !document.querySelector('#tab-bar-Enum')?.classList.contains('disabled'),
@@ -443,7 +450,7 @@ test.describe('PermissibleValue CRUD (Schema Editor)', () => {
   }
 
   /**
-   * Click the lower-panel Add button to add one PV row.
+   * Add one PV row via the PermissibleValue DH's addRows() API.
    * addRows() auto-populates schema_id and enum_id FKs from the selected Enum.
    * Returns the new PV row index (before-count).
    */
@@ -451,9 +458,9 @@ test.describe('PermissibleValue CRUD (Schema Editor)', () => {
     const pvCountBefore = await page.evaluate(
       () => window._appContext?.dhs?.PermissibleValue?.hot?.countRows() ?? 0
     );
-    await page.locator(
-      '#enum-pv-lower-panel .dh-lower-tab-strip .btn.btn-primary.btn-sm'
-    ).click();
+    await page.evaluate(
+      () => window._appContext?.dhs?.PermissibleValue?.addRows('insert_row_below', 1)
+    );
     await page.waitForTimeout(300);
     return pvCountBefore; // new row was appended at this index
   }

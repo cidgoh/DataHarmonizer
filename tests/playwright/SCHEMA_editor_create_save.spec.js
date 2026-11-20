@@ -172,6 +172,10 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
   await page.keyboard.press('Enter');
 
   // ── 8. Add second table row ──────────────────────────────────────────────
+  // After selecting TestTable1, the lower panel (UniqueKey) becomes eligible
+  // and the #add-row-target dropdown auto-switches to that secondary DH.
+  // Explicitly target the primary DH so the click adds a Class row.
+  await page.selectOption('#add-row-target', 'Class');
   await page.click('#add-row');
 
   // Wait for a second row to appear in the master pane.
@@ -599,6 +603,10 @@ test.describe('SchemaEditor: picklist cascade regression', () => {
     await waitForCloneCellText(page, 'PA');
 
     // ── 7. Add a new empty picklist PB ───────────────────────────────────────
+    // After adding PA with PV choices, the PermissibleValue lower panel is
+    // eligible and #add-row-target auto-switches to PermissibleValue.
+    // Explicitly target the primary Enum DH so the click adds an Enum row.
+    await page.selectOption('#add-row-target', 'Enum');
     await page.click('#add-row');
     // Use Enum DH countRows() — the DOM selector '.tab-pane.show .ht_clone_left tbody tr'
     // now also matches the PV lower-panel HOT rows (3 PV rows + Enum rows), giving a

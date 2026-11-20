@@ -235,12 +235,22 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
   await createTestField('pre_existing_b');
   await createTestField('pre_existing_c');
 
-  // Verify all 3 slot_usage rows are visible in the Field tab DOM
-  // (base slot rows are hidden by the default filter — that is expected).
+  // Verify all 3 attribute rows are visible in the ClassSlot lower panel.
+  // attribute-type fields live in the ClassSlot DH (lower panel), not the
+  // primary Slot tab HOT which shows only schema-level 'slot' rows.
+  // Wait for the lower panel to render at least 3 rows before querying DOM.
+  await page.waitForFunction(
+    () => {
+      const panel = document.getElementById('slot-lower-panel');
+      if (!panel) return false;
+      return panel.querySelectorAll('.ht_master.handsontable tbody tr').length >= 3;
+    },
+    null, { timeout: 10_000 }
+  );
   const preExistingVisible = await page.evaluate(() => {
-    const rows = document.querySelectorAll(
-      '.tab-pane.show .ht_master.handsontable tbody tr'
-    );
+    const panel = document.getElementById('slot-lower-panel');
+    if (!panel) return { pre_existing_a: false, pre_existing_b: false, pre_existing_c: false };
+    const rows = panel.querySelectorAll('.ht_master.handsontable tbody tr');
     const found = { pre_existing_a: false, pre_existing_b: false, pre_existing_c: false };
     for (const row of rows) {
       const tds  = Array.from(row.querySelectorAll('td'));
@@ -407,14 +417,13 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
     null, { timeout: 8_000 }
   );
 
-  await page.click('#dh-dialog-ok');
+  // Scope the click to the visible modal — multiple DH instances each inject
+  // a copy of contentModals.html so there are multiple #dh-dialog-ok elements.
+  // Playwright must click the one inside #dh-dialog-modal.show (the visible one).
+  await page.locator('#dh-dialog-modal.show #dh-dialog-ok').click();
   // Bootstrap removes .show first, then completes the CSS fade (~300 ms) before
-  // removing the backdrop.  Using waitForSelector with an ID selector is
-  // unreliable here because each DH tab instance appends its own copy of
-  // contentModals.html, creating multiple #dh-dialog-modal elements; Playwright
-  // may match a different copy than the one actually shown.
-  // Instead wait on the modal-backdrop element that Bootstrap inserts into the
-  // DOM when any modal is open and removes only after the fade completes.
+  // removing the backdrop.  Wait on the modal-backdrop element that Bootstrap
+  // inserts for any open modal and removes only after the fade completes.
   await page.waitForFunction(
     () => !document.querySelector('.modal-backdrop'),
     null, { timeout: 8_000 }
@@ -436,13 +445,13 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
   await page.waitForTimeout(300);
 
   // ── 9. Switch to Field tab; verify "organism" appears in Test schema ──────────
-  // Primary case (slot_usage copied): the slot_usage row is visible under the
-  // default slot_type filter (slot_usage + attribute checked by default).
-  // Also, _analyzeCopyDependencies automatically copies the base slot as a
-  // dependency, so Test schema gains both a slot and a slot_usage organism.
+  // In the split layout all Test schema fields (attribute + slot_usage) live in
+  // the ClassSlot lower panel.  The primary Slot panel only shows schema-level
+  // 'slot' rows; for a freshly created schema those are absent, so we wait on
+  // the lower panel instead.
   //
-  // Fallback case (base slot copied directly): slot_type='slot' is hidden by
-  // the default filter — confirmed via HOT source data instead of DOM.
+  // Primary case (slot_usage copied): visible in ClassSlot lower panel.
+  // Fallback case (base slot only): confirmed via Slot DH source data.
   await page.click('#tab-bar-Slot > a');
   await page.waitForFunction(
     () => document.querySelector('#tab-bar-Slot .nav-link')?.classList.contains('active'),
@@ -452,15 +461,16 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
     () => document.querySelectorAll('.tab-pane.show').length === 1,
     null, { timeout: 5_000 }
   );
+  // Wait for ClassSlot lower panel to have at least the 3 pre-existing rows.
   await page.waitForFunction(
     () => document.querySelectorAll(
-      '.tab-pane.show .ht_master.handsontable tbody tr'
-    ).length > 0,
+      '#slot-lower-panel .ht_master.handsontable tbody tr'
+    ).length >= 3,
     null, { timeout: 15_000 }
   );
-  // Scroll to top: copy appends rows at the bottom and HOT may be scrolled down.
+  // Scroll lower panel to top (copy appends at the bottom).
   await page.evaluate(() => {
-    const holder = document.querySelector('.tab-pane.show .ht_master .wtHolder');
+    const holder = document.querySelector('#slot-lower-panel .ht_master .wtHolder');
     if (holder) holder.scrollTop = 0;
   });
   await page.waitForTimeout(300);
@@ -515,46 +525,35 @@ test('UX_Task_4: create Test schema, add TestTable, create 3 pre-existing fields
     ).toBe(true);
   }
 
-  // ── 9b. Verify schema_id displays 'Test' in non-concise view ────────────────
-  // The "missing Schema ID" symptom is caused by concise view hiding the
-  // schema_id FK column for ALL rows (by design in "Records by key" mode).
-  // This step confirms schema_id IS rendered correctly when concise view is off:
-  // every visible row in the frozen column (.ht_clone_left td) must show 'Test'.
-  //
-  // Temporarily disable concise view so schema_id becomes the frozen column.
-  // Use native DOM API (not $) so the event fires inside page.evaluate context.
-  await page.evaluate(() => {
-    const cb = document.getElementById('concise-view-checkbox');
-    if (cb) { cb.checked = false; cb.dispatchEvent(new Event('change', { bubbles: true })); }
+  // ── 9b. Verify schema_id = 'Test' for all TestTable ClassSlot rows ───────────
+  // In the split layout all visible rows are in the ClassSlot lower panel.
+  // The primary Slot panel is empty for a schema with only attribute/slot_usage
+  // rows, so the original .ht_clone_left DOM check is replaced with a HOT
+  // source data check on the ClassSlot DH.  Expect 4 rows in Test schema:
+  // 3 pre-existing attributes + copied organism slot_usage.
+  const classSlotSchemaOk = await page.evaluate(() => {
+    const dh  = window._appContext?.dhs?.ClassSlot;
+    const hot = dh?.hot;
+    if (!hot) return { ok: false, reason: 'ClassSlot DH not found' };
+    const n2c = dh.slot_name_to_column;
+    const schemaIdCol = n2c['schema_id'] ?? n2c['schema_name'] ?? 0;
+    const names = ['pre_existing_a', 'pre_existing_b', 'pre_existing_c', 'organism'];
+    // The ClassSlot DH contains rows from ALL schemas; filter to Test only.
+    const foundInTest = new Set();
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      const schema = hot.getSourceDataAtCell(p, schemaIdCol);
+      if (schema !== 'Test') continue;
+      const name = hot.getSourceDataAtCell(p, n2c['name']);
+      if (names.includes(name)) foundInTest.add(name);
+    }
+    const missing = names.filter(n => !foundInTest.has(n));
+    if (missing.length) return { ok: false, reason: `not found with schema_id='Test': ${missing.join(', ')}` };
+    return { ok: true };
   });
-  await page.waitForTimeout(400); // HOT re-render with schema_id as frozen col.
-
-  const frozenCellSchemaIds = await page.evaluate(() => {
-    const rows = document.querySelectorAll(
-      '.tab-pane.show .ht_clone_left.handsontable tbody tr'
-    );
-    return Array.from(rows).map(row =>
-      (row.querySelector('td')?.textContent ?? '').replace(/\u25bc/g, '').trim()
-    );
-  });
-  // All visible rows are filtered to Test schema (tabFilter schema_id='Test'),
-  // so every frozen cell must show 'Test'.  Expect at least 4 rows:
-  // 3 pre-existing slot_usage + organism slot_usage.
   expect(
-    frozenCellSchemaIds.length,
-    `Expected ≥4 visible rows (3 pre-existing + organism); got ${frozenCellSchemaIds.length}`
-  ).toBeGreaterThanOrEqual(4);
-  expect(
-    frozenCellSchemaIds.every(v => v === 'Test'),
-    `All visible rows must show schema_id='Test' in frozen column: ${JSON.stringify(frozenCellSchemaIds)}`
+    classSlotSchemaOk.ok,
+    `All Test schema ClassSlot fields must have schema_id='Test': ${classSlotSchemaOk.reason}`
   ).toBe(true);
-
-  // Restore concise view.
-  await page.evaluate(() => {
-    const cb = document.getElementById('concise-view-checkbox');
-    if (cb) { cb.checked = true; cb.dispatchEvent(new Event('change', { bubbles: true })); }
-  });
-  await page.waitForTimeout(300);
 
   // ── 10. Verify source (CanCOGeN) organism records were not corrupted ─────────
   // A HOT 15 bug: loadData() resets the row index mapper to natural order but

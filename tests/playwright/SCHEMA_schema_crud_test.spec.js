@@ -56,10 +56,17 @@ async function setupSchemaEditor(page) {
     null,
     { timeout: 15_000 }
   );
-  // "Display: All records" enables every tab.
+  // "Display: All records" enables every tab, persistently across tab switches.
+  // Setting per-tab show-all for all DHs ensures show.bs.tab keeps the radio
+  // set to 'all' when switching tabs, so setDHTabStatus never re-disables them.
   await page.evaluate(() => {
+    const se = window._appContext?.schemaEditor;
+    if (se) {
+      Object.keys(window._appContext?.dhs ?? {}).forEach(name => se._setTabShowAll(name, true));
+    }
     const radio = document.getElementById('display-all-records-radio');
-    if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change', { bubbles: true })); }
+    if (radio) radio.checked = true;
+    window._appContext?.refreshTabDisplay();
   });
   await page.waitForFunction(
     () => !document.querySelector('#tab-bar-Class')?.classList.contains('disabled'),
@@ -202,16 +209,17 @@ async function createAndSelectSchemaRow(page, schemaName) {
 }
 
 /**
- * Click the lower-panel Add button to add one row to whichever secondary DH
- * is currently active.  Returns the before-count (new row index).
+ * Add one row to the named secondary DH via its addRows() API.
+ * addRows() auto-populates schema_id FK from the selected Schema row.
+ * Returns the before-count (new row index).
  */
 async function addSubTabRow(page, dhName) {
   const countBefore = await page.evaluate(
     n => window._appContext?.dhs?.[n]?.hot?.countRows() ?? 0, dhName
   );
-  await page.locator(
-    '#schema-lower-panel .dh-lower-tab-strip .btn.btn-primary.btn-sm'
-  ).click();
+  await page.evaluate(
+    n => window._appContext?.dhs?.[n]?.addRows('insert_row_below', 1), dhName
+  );
   await page.waitForTimeout(300);
   return countBefore; // new row was appended at this index
 }

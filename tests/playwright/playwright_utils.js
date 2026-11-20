@@ -232,13 +232,26 @@ export async function findClassSlotRowIndex(page, name, slotTypeTitle = null) {
 
 /**
  * Scroll the ClassSlot lower-panel HOT to the row for the given slot name and return its index.
+ * Mirrors scrollToSlotRow: resets to top first, then advances 300 px per tick so HOT's
+ * virtual renderer exposes off-screen rows (e.g. rank-82 'authors' in the Influenza schema).
  */
-export async function scrollToClassSlotRow(page, name, slotTypeTitle = null, timeout = 5000) {
-  const startTime = Date.now();
-  while (Date.now() - startTime < timeout) {
+export async function scrollToClassSlotRow(page, name, slotTypeTitle = null, timeout = 20_000) {
+  // Reset to top so rows sorted to the top of the list are found first.
+  await page.evaluate(() => {
+    const holder = document.querySelector('#slot-lower-panel .ht_master .wtHolder');
+    if (holder) holder.scrollTop = 0;
+  });
+  await page.waitForTimeout(200);
+  const deadline = Date.now() + timeout;
+  while (Date.now() < deadline) {
     const idx = await findClassSlotRowIndex(page, name, slotTypeTitle);
     if (idx >= 0) return idx;
-    await page.waitForTimeout(100);
+    // Advance the lower-panel HOT 300 px and wait for re-render.
+    await page.evaluate(() => {
+      const holder = document.querySelector('#slot-lower-panel .ht_master .wtHolder');
+      if (holder) holder.scrollTop += 300;
+    });
+    await page.waitForTimeout(200);
   }
   throw new Error(`ClassSlot row not found for name="${name}" slotTypeTitle="${slotTypeTitle}" after ${timeout}ms`);
 }

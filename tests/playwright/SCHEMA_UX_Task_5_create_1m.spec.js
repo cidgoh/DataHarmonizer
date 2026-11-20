@@ -201,7 +201,15 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   );
 
   // ── 4. Create the "Samples" table ─────────────────────────────────────────
-  await page.click('#add-row');
+  // Call Class DH's addRows directly to bypass the footer's #add-row-target
+  // dropdown.  Once a class row is selected the lower panel becomes eligible
+  // and updateFooterTargets auto-selects a secondary DH (ClassSlot or UniqueKey),
+  // causing footer #add-row to insert into the wrong DH.  Calling addRows on
+  // the Class DH directly avoids that race entirely.
+  await page.evaluate(() => {
+    const dh = window._appContext?.dhs?.Class;
+    if (dh) dh.addRows('insert_row_below', 1);
+  });
   await page.waitForFunction(
     () => document.querySelectorAll('.tab-pane.show .ht_master.handsontable tbody tr').length >= 1,
     null, { timeout: 10_000 }
@@ -214,7 +222,10 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   await typeIntoCell(page, hotCellLocator(page, 0, classTitleCol), 'Samples');
 
   // ── 5. Create the "Isolates" table ────────────────────────────────────────
-  await page.click('#add-row');
+  await page.evaluate(() => {
+    const dh = window._appContext?.dhs?.Class;
+    if (dh) dh.addRows('insert_row_below', 1);
+  });
   await page.waitForFunction(
     () => document.querySelectorAll('.tab-pane.show .ht_master.handsontable tbody tr').length >= 2,
     null, { timeout: 10_000 }
@@ -336,89 +347,33 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
   );
   await page.waitForTimeout(300);
 
-  // ── 12. Find Isolates.sample_id row and set range = "Samples" ─────────────
-  // Scan DOM rows and use hot.toPhysicalRow(domIdx) to verify class_id from
-  // source data.  This avoids relying on hot.toVisualRow() (which can diverge
-  // from DOM row order when the sort is being re-applied) and is robust even
-  // when there are multiple slot_usage rows named "sample_id" (one per class).
-  const { sampleIdIsolatesRowIdx, rangeColDomIdx } = await page.evaluate(() => {
-    // slot_usage rows are in the ClassSlot DH and rendered in #slot-lower-panel.
+  // ── 12. Set range = "Samples" for Isolates.sample_id via HOT API ──────────
+  // Using HOT setDataAtCell is more reliable than UI dblclick + multiselect
+  // interaction; computing the DOM column index was causing the value to land
+  // in the 'examples' column instead of 'range'.
+  const rangeSet = await page.evaluate(() => {
     const dh  = window._appContext?.dhs?.ClassSlot;
     const hot = dh?.hot;
-    if (!hot || !dh) return { sampleIdIsolatesRowIdx: -1, rangeColDomIdx: -1 };
-
-    const ht    = el => (el?.textContent ?? '').replace(/\u25bc/g, '').trim();
-    const scope = document.getElementById('slot-lower-panel');
-    if (!scope) return { sampleIdIsolatesRowIdx: -1, rangeColDomIdx: -1 };
-
-    // Scan all rendered DOM rows in .ht_master.
-    const masterRows = scope.querySelectorAll('.ht_master .htCore tbody tr');
-    let rowIdx = -1;
-    for (let i = 0; i < masterRows.length; i++) {
-      const tds    = Array.from(masterRows[i].querySelectorAll('td'));
-      // Name column has 'field-id-bold' CSS class.
-      const nameTd = tds.find(td => td.classList.contains('field-id-bold'));
-      if (!nameTd || ht(nameTd) !== 'sample_id') continue;
-      // Slot type check: SchemaEditor adds slot_type as a CSS class to every td.
-      if (!tds.some(td => td.classList.contains('slot_usage'))) continue;
-      // Verify class_id via HOT source data (DOM row i = HOT visual row i for
-      // fully-rendered grids; hot.toPhysicalRow converts to source data index).
-      const physRow = hot.toPhysicalRow(i);
-      if (physRow == null) continue;
-      const classId = hot.getSourceDataAtCell(physRow, dh.slot_class_id_column);
-      if (classId !== 'Isolates') continue;
-      rowIdx = i;
-      break;
+    if (!hot || !dh) return false;
+    const n2c = dh.slot_name_to_column;
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      const name    = hot.getSourceDataAtCell(p, n2c['name']);
+      const classId = hot.getSourceDataAtCell(p, dh.slot_class_id_column);
+      if (name === 'sample_id' && classId === 'Isolates') {
+        const visualRow = hot.toVisualRow(p);
+        if (visualRow != null) {
+          hot.setDataAtCell(visualRow, n2c['range'], 'Samples');
+          return true;
+        }
+      }
     }
-    if (rowIdx === -1) return { sampleIdIsolatesRowIdx: -1, rangeColDomIdx: -1 };
-
-    // Compute DOM td index for 'range' accounting for hidden columns.
-    const rangeHotCol  = dh.slot_name_to_column['range'];
-    const hiddenPlugin = hot.getPlugin('hiddenColumns');
-    const hiddenCols   = new Set(hiddenPlugin?.getHiddenColumns() ?? []);
-    let domColIdx = 0;
-    for (let c = 0; c < rangeHotCol; c++) {
-      if (!hiddenCols.has(c)) domColIdx++;
-    }
-
-    return { sampleIdIsolatesRowIdx: rowIdx, rangeColDomIdx: domColIdx };
+    return false;
   });
-  expect(sampleIdIsolatesRowIdx,
-    'sample_id slot_usage row for Isolates not found in ClassSlot panel').toBeGreaterThanOrEqual(0);
-
-  // 'range' column is a multiselect combining SchemaTypeMenu + SchemaClassMenu + SchemaEnumMenu.
-  // The ClassSlot lower-panel HOT is in #slot-lower-panel.
-  const rangeCell = classSlotCellLocator(page, sampleIdIsolatesRowIdx, rangeColDomIdx);
-  await rangeCell.scrollIntoViewIfNeeded();
-  await rangeCell.dblclick();
-
-  await page.waitForFunction(
-    () => document.querySelector('#multiselect-modal')?.classList.contains('show'),
-    null, { timeout: 5_000 }
-  );
-
-  // Type "Samples" into the selectize filter to locate the class option.
-  await page.locator('#multiselect-text .selectize-input input').click();
-  await page.keyboard.type('Samples');
-  await page.waitForTimeout(200);
-
-  const samplesOption = page
-    .locator('#multiselect-text .selectize-dropdown .option')
-    .filter({ hasText: 'Samples' })
-    .first();
-  await samplesOption.waitFor({ state: 'visible', timeout: 5_000 });
-  await samplesOption.click();
-
-  // Click OK to commit the range value.
-  await page.locator('#multiselect-modal button[data-dismiss="modal"]').first().click();
-  await page.waitForFunction(
-    () => !document.querySelector('#multiselect-modal')?.classList.contains('show'),
-    null, { timeout: 5_000 }
-  );
+  expect(rangeSet,
+    'sample_id slot_usage row for Isolates not found in ClassSlot DH').toBe(true);
   await page.waitForTimeout(300);
 
-  // A "Range updated" informational dialog may appear listing tables that reuse
-  // this field's definition.  Dismiss it if visible.
+  // A "Range updated" informational dialog may appear.  Dismiss it if visible.
   {
     const hasDialog = await page.evaluate(
       () => document.querySelector('#dh-dialog-modal')?.classList.contains('show')

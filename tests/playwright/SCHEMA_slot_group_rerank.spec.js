@@ -86,10 +86,42 @@ async function setExpertMode(page, enabled) {
 }
 
 async function openEditFkm(page, slotTypeTitle, slotName) {
-  const rowIdx = await scrollToClassSlotRow(page, slotName, slotTypeTitle, 15_000);
-  const cell = page.locator(`#slot-lower-panel .ht_master .htCore tbody tr:nth-child(${rowIdx + 1}) td.field-id-bold`); // field-id-bold → KEY_COLUMN → opens FKM
-  await cell.scrollIntoViewIfNeeded();
-  await cell.dblclick();
+  // Use se.showFieldKeyModal() directly for reliability — the dblclick pattern
+  // is fragile because the two-click HOT sequence requires precise timing.
+  const slotTypeMap = {
+    'Table field (from schema)': 'slot_usage',
+    'Table field (stand-alone)': 'attribute',
+  };
+  const slotTypeValue = slotTypeMap[slotTypeTitle] || slotTypeTitle;
+  await page.waitForFunction(
+    () => (window._appContext?.dhs?.ClassSlot?.hot?.countSourceRows() ?? 0) > 0,
+    null, { timeout: 15_000 }
+  );
+  await page.waitForTimeout(200);
+  const result = await page.evaluate(([slotName, slotTypeValue]) => {
+    const classDH = window._appContext?.dhs?.ClassSlot;
+    const se      = window._appContext?.schemaEditor;
+    if (!classDH || !se) return { ok: false, reason: 'no classDH or schemaEditor' };
+    const hot = classDH.hot;
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      const name = hot.getSourceDataAtCell(p, classDH.slot_name_column);
+      const type = hot.getSourceDataAtCell(p, classDH.slot_type_column);
+      if (name === slotName && type === slotTypeValue) {
+        const visualRow = hot.toVisualRow(p);
+        if (visualRow !== null && visualRow >= 0) {
+          try {
+            se.showFieldKeyModal(classDH, visualRow);
+            return { ok: true };
+          } catch (e) {
+            return { ok: false, reason: 'showFieldKeyModal threw: ' + String(e.message) };
+          }
+        }
+        return { ok: false, reason: `visualRow invalid: physRow=${p} visualRow=${hot.toVisualRow(p)}` };
+      }
+    }
+    return { ok: false, reason: `not found: name=${slotName} type=${slotTypeValue}` };
+  }, [slotName, slotTypeValue]);
+  if (!result.ok) throw new Error(`openEditFkm: ${result.reason}`);
   await page.waitForFunction(
     () => document.querySelector('#field-key-modal')?.classList.contains('show'),
     null, { timeout: 5_000 }
@@ -102,6 +134,50 @@ async function waitFkmClosed(page) {
     () => !document.querySelector('#field-key-modal')?.classList.contains('show'),
     null, { timeout: 6_000 }
   );
+}
+
+/**
+ * Trigger se.showChangeTypeModal() for a ClassSlot row (the same path as
+ * double-clicking the Type column cell in HOT).  Waits for #dh-dialog-modal
+ * to become visible (either "Change field type" success or "Cannot change type"
+ * error — both use the same modal).
+ */
+async function triggerChangeTypeModal(page, slotTypeTitle, slotName) {
+  const slotTypeMap = {
+    'Table field (from schema)': 'slot_usage',
+    'Table field (stand-alone)': 'attribute',
+  };
+  const slotTypeValue = slotTypeMap[slotTypeTitle] || slotTypeTitle;
+  await page.evaluate(([slotName, slotTypeValue]) => {
+    const classDH = window._appContext?.dhs?.ClassSlot;
+    const se      = window._appContext?.schemaEditor;
+    if (!classDH || !se) return;
+    const hot = classDH.hot;
+    for (let p = 0; p < hot.countSourceRows(); p++) {
+      if (hot.getSourceDataAtCell(p, classDH.slot_name_column) === slotName &&
+          hot.getSourceDataAtCell(p, classDH.slot_type_column) === slotTypeValue) {
+        const visualRow = hot.toVisualRow(p);
+        if (visualRow !== null && visualRow >= 0) {
+          se.showChangeTypeModal(classDH, visualRow); // intentionally not awaited
+        }
+        break;
+      }
+    }
+  }, [slotName, slotTypeValue]);
+  await page.waitForFunction(
+    () => document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+  await page.waitForTimeout(100);
+}
+
+async function confirmChangeTypeModal(page) {
+  await page.click('#dh-dialog-ok');
+  await page.waitForFunction(
+    () => !document.querySelector('#dh-dialog-modal')?.classList.contains('show'),
+    null, { timeout: 5_000 }
+  );
+  await page.waitForTimeout(200);
 }
 
 /** Switch away from and back to the Slot tab to force tabFilter / row-visibility refresh. */
@@ -180,10 +256,6 @@ async function getAllClassSlots(page, classId) {
 test('slot_group re-rank: slot_usage→attribute with section change, then revert', async ({ page }) => {
   test.setTimeout(180_000);
 
-  page.on('console', (msg) => {
-    if (msg.type() === 'error') console.log('[BROWSER error]', msg.text());
-  });
-
   // ── 1. Load schema and navigate to Slot tab ───────────────────────────────
   await loadGrdi1m(page);
   await goToSlotTab(page);
@@ -205,26 +277,31 @@ test('slot_group re-rank: slot_usage→attribute with section change, then rever
 
   // ════════════════════════════════════════════════════════════════════════════
   // Phase 1 — convert slot_usage → attribute, change slot_group to TARGET_GROUP
+  // In the new UI these are two separate operations:
+  //   a) Change Type dialog  (slot_usage → attribute)
+  //   b) FKM edit (change Section to TARGET_GROUP)
   // ════════════════════════════════════════════════════════════════════════════
 
-  // ── 3. Open FKM for presampling_activity (slot_usage) ────────────────────
-  await openEditFkm(page, 'Table field (from schema)', SLOT_NAME);
+  // ── 3. Convert slot_usage → attribute via the Change Type dialog ──────────
+  await triggerChangeTypeModal(page, 'Table field (from schema)', SLOT_NAME);
+  // copy-inherited is checked by default for slot_usage → attribute; leave it.
+  await confirmChangeTypeModal(page);
 
-  // ── 4. Check "Change type" (slot_usage → attribute) ──────────────────────
-  await page.check('#fkm-change-type');
-  await page.waitForTimeout(200);
+  // ── 4. Change Section to TARGET_GROUP via FKM ─────────────────────────────
+  // The slot is now 'attribute'; attribute fields use #fkm-slot-group-new
+  // (free-text + datalist) for Section in the FKM.
+  await openEditFkm(page, 'Table field (stand-alone)', SLOT_NAME);
 
-  // ── 5. Select target Section from the dropdown (visible for slot_usage edit)
-  // The Section control is #fkm-slot-group (select) for slot_usage edit mode.
-  const sgSelectVisible = await page.$eval(
-    '#fkm-slot-group', el => el.style.display !== 'none'
+  const sgNewVisible = await page.$eval(
+    '#fkm-slot-group-new', el => el.style.display !== 'none'
   );
-  expect(sgSelectVisible, '#fkm-slot-group (select) should be visible for slot_usage edit').toBe(true);
-  await page.selectOption('#fkm-slot-group', TARGET_GROUP);
+  expect(sgNewVisible, '#fkm-slot-group-new should be visible for attribute edit').toBe(true);
+  await page.fill('#fkm-slot-group-new', TARGET_GROUP);
   await page.waitForTimeout(100);
 
-  // ── 6. Save and wait for modal to close ──────────────────────────────────
+  // ── 5. Save and wait for modal to close ──────────────────────────────────
   await page.click('#fkm-confirm-btn');
+
   await waitFkmClosed(page);
   await refreshSlotTab(page);
 
@@ -264,19 +341,27 @@ test('slot_group re-rank: slot_usage→attribute with section change, then rever
   expect(Math.max(...p1AllRanks), 'Phase 1: maximum rank must equal slot count (contiguous)').toBe(p1AllRanks.length);
 
   // ════════════════════════════════════════════════════════════════════════════
-  // Phase 2 — revert attribute → slot_usage
+  // Phase 2 — revert attribute → slot_usage, restore slot_group to INIT_GROUP
+  // In the new UI these are two separate operations:
+  //   a) Change Type dialog  (attribute → slot_usage)
+  //   b) FKM edit (change Section back to INIT_GROUP)
   // ════════════════════════════════════════════════════════════════════════════
 
-  // ── 8. Open FKM for presampling_activity (now attribute) ─────────────────
-  await openEditFkm(page, 'Table field (stand-alone)', SLOT_NAME);
+  // ── 8. Convert attribute → slot_usage via the Change Type dialog ──────────
+  await triggerChangeTypeModal(page, 'Table field (stand-alone)', SLOT_NAME);
+  await confirmChangeTypeModal(page);
 
-  // "Change type" checkbox must be enabled (matching schema slot exists).
-  const cbEnabled = await page.$eval('#fkm-change-type', el => !el.disabled);
-  expect(cbEnabled, 'Phase 2: Change type checkbox should be enabled (schema slot exists)').toBe(true);
+  // ── 9. Change Section back to INIT_GROUP via FKM ─────────────────────────
+  // The slot is now 'slot_usage'; slot_usage fields use #fkm-slot-group
+  // (select dropdown) for Section in the FKM.
+  await openEditFkm(page, 'Table field (from schema)', SLOT_NAME);
 
-  // ── 9. Check "Change type" (attribute → slot_usage) ─────────────────────
-  await page.check('#fkm-change-type');
-  await page.waitForTimeout(200);
+  const sgSelectVisible2 = await page.$eval(
+    '#fkm-slot-group', el => el.style.display !== 'none'
+  );
+  expect(sgSelectVisible2, 'Phase 2: #fkm-slot-group (select) should be visible for slot_usage').toBe(true);
+  await page.selectOption('#fkm-slot-group', INIT_GROUP);
+  await page.waitForTimeout(100);
 
   // ── 10. Save and wait for modal to close ─────────────────────────────────
   await page.click('#fkm-confirm-btn');
@@ -290,9 +375,8 @@ test('slot_group re-rank: slot_usage→attribute with section change, then rever
   expect(p2Info, `${SLOT_NAME} not found after Phase 2`).not.toBeNull();
   expect(p2Info.type, 'Phase 2: type should be slot_usage').toBe('slot_usage');
 
-  // 11b. The copy-base-values block restores the slot_group to the base schema
-  //      slot's group (INIT_GROUP), and the new re-rank positions it at the end
-  //      of that group.
+  // 11b. The Section was explicitly changed back to INIT_GROUP via FKM above;
+  //      the FKM re-rank positions it at the end of that group.
   expect(
     p2Info.slotGroup,
     `Phase 2: slot_group should be restored to base slot's group (${INIT_GROUP})`

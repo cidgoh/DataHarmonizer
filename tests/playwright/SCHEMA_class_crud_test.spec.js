@@ -54,10 +54,17 @@ async function setupSchemaEditor(page) {
     null,
     { timeout: 15_000 }
   );
-  // "Display: All records" enables every tab.
+  // "Display: All records" enables every tab, persistently across tab switches.
+  // Setting per-tab show-all for all DHs ensures show.bs.tab keeps the radio
+  // set to 'all' when switching tabs, so setDHTabStatus never re-disables them.
   await page.evaluate(() => {
+    const se = window._appContext?.schemaEditor;
+    if (se) {
+      Object.keys(window._appContext?.dhs ?? {}).forEach(name => se._setTabShowAll(name, true));
+    }
     const radio = document.getElementById('display-all-records-radio');
-    if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change', { bubbles: true })); }
+    if (radio) radio.checked = true;
+    window._appContext?.refreshTabDisplay();
   });
   await page.waitForFunction(
     () => !document.querySelector('#tab-bar-Class')?.classList.contains('disabled'),
@@ -453,7 +460,7 @@ test.describe('UniqueKey CRUD (Schema Editor)', () => {
   }
 
   /**
-   * Click the lower-panel Add button to add one UniqueKey row.
+   * Add one UniqueKey row via the UniqueKey DH's addRows() API.
    * addRows() auto-populates schema_id and class_id FKs from the selected Class.
    * Returns the new UniqueKey row index (before-count).
    */
@@ -461,9 +468,9 @@ test.describe('UniqueKey CRUD (Schema Editor)', () => {
     const ukCountBefore = await page.evaluate(
       () => window._appContext?.dhs?.UniqueKey?.hot?.countRows() ?? 0
     );
-    await page.locator(
-      '#class-uk-lower-panel .dh-lower-tab-strip .btn.btn-primary.btn-sm'
-    ).click();
+    await page.evaluate(
+      () => window._appContext?.dhs?.UniqueKey?.addRows('insert_row_below', 1)
+    );
     await page.waitForTimeout(300);
     return ukCountBefore;  // new row was appended at this index
   }
