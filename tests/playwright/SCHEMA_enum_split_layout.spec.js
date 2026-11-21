@@ -1,4 +1,4 @@
-/* Verifies the Enum/PermissibleValue split layout and CRUD in the Schema Editor.
+/* Verifies the Enum/PermissibleValue split layout and CRUD in the Schema Builder.
  *
  * Layout tests (describe 1 – "Enum tab split layout"):
  *   Step-by-step checks of the split-view lifecycle so a failure message
@@ -36,7 +36,7 @@ import { hotCellLocator, dhColIndex } from './playwright_utils.js';
 // ── Shared setup helpers ─────────────────────────────────────────────────────
 
 async function setupSchemaEditor(page) {
-  await page.goto('/schema_editor.html');
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForFunction(
     () => {
@@ -142,7 +142,7 @@ async function getDiagnostics(page) {
 
 // ── 1. Layout tests ──────────────────────────────────────────────────────────
 
-test.describe('Enum tab split layout (Schema Editor)', () => {
+test.describe('Enum tab split layout (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -281,7 +281,7 @@ async function seedSchemaRow(page) {
 
 // ── 2. Enum CRUD ─────────────────────────────────────────────────────────────
 
-test.describe('Enum CRUD (Schema Editor)', () => {
+test.describe('Enum CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -408,7 +408,7 @@ test.describe('Enum CRUD (Schema Editor)', () => {
 
 // ── 3. PermissibleValue CRUD ─────────────────────────────────────────────────
 
-test.describe('PermissibleValue CRUD (Schema Editor)', () => {
+test.describe('PermissibleValue CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);

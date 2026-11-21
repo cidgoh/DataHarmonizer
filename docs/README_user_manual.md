@@ -84,7 +84,7 @@ This path is useful for:
 
 DataHarmonizer can load an [OCA](https://github.com/agrifooddatacanada/OCA_package_standard) schema bundle as a template, using either of the two loading methods above. Both the older `bundle` format (`{ "bundle": { "capture_base": … } }`) and the newer `oca_package` format (`{ "type": "oca_package/…", "oca_bundle": { "bundle": … } }`) are recognised. Detection is automatic: any `.json` file whose content has a `capture_base` with `attributes` is treated as OCA, so no special option needs to be chosen.
 
-The bundle is converted in the browser into a LinkML schema, then loaded like any other `schema.yaml`. When conversion succeeds, a green **"OCA bundle converted and loaded as LinkML schema."** message appears briefly in the toolbar. The same conversion is used when an OCA bundle is loaded into the [Schema Editor](README_schema_editor.md), so a bundle can also be opened there, refined, and saved as a LinkML `schema.yaml`.
+The bundle is converted in the browser into a LinkML schema, then loaded like any other `schema.yaml`. When conversion succeeds, a green **"OCA bundle converted and loaded as LinkML schema."** message appears briefly in the toolbar. The same conversion is used when an OCA bundle is loaded into the [Schema Builder](README_schema_builder.md), so a bundle can also be opened there, refined, and saved as a LinkML `schema.yaml`.
 
 The conversion produces one data-entry template, named after the OCA `meta` overlay's `name` (converted to PascalCase, e.g. "Chicken gut health" → `ChickenGutHealth`), plus a `Container` class so the template can be saved and loaded as JSON. OCA bundle parts map to LinkML as follows:
 
@@ -105,7 +105,7 @@ The conversion produces one data-entry template, named after the OCA `meta` over
 
 Notes and limitations:
 
-- **Languages:** the language of the first `meta` overlay is the schema's primary language (`in_language`), and its `meta`, `label`, `information`, and `entry` overlays supply the default text. Overlays in each **other language** (e.g. `fra`) are converted into a translation under the schema's `extensions.locales` (e.g. `fr`). Select that language in the toolbar's language menu to see translated column titles, descriptions, and picklist labels. In the Schema Editor, the converted schema lists those locales and their translations can be edited and saved. Three-letter OCA language codes are mapped to two-letter codes where known (`eng` → `en`, `fra` → `fr`, …). Translations map as follows:
+- **Languages:** the language of the first `meta` overlay is the schema's primary language (`in_language`), and its `meta`, `label`, `information`, and `entry` overlays supply the default text. Overlays in each **other language** (e.g. `fra`) are converted into a translation under the schema's `extensions.locales` (e.g. `fr`). Select that language in the toolbar's language menu to see translated column titles, descriptions, and picklist labels. In the Schema Builder, the converted schema lists those locales and their translations can be edited and saved. Three-letter OCA language codes are mapped to two-letter codes where known (`eng` → `en`, `fra` → `fr`, …). Translations map as follows:
 
   | OCA overlay (other language) | Translation path in `extensions.locales.value.<lang>` |
   |---|---|
@@ -115,7 +115,7 @@ Notes and limitations:
   | `entry` | `enums.<field>.permissible_values.<code>.title` |
 - The `character_encoding` overlay is ignored.
 - Picklist fields display entry labels (e.g. "Brahma") in the dropdown but store the entry **codes** (e.g. `B`), which is what gets saved in JSON data files.
-- The generated schema has a placeholder `id` (`https://example.com/<SchemaName>`) and version `0.0.1`. Saved JSON data files record this `id` in their `schema` field. To give the schema a permanent identity, open the bundle in the Schema Editor, set its `id` and version, and save it as `schema.yaml`.
+- The generated schema has a placeholder `id` (`https://example.com/<SchemaName>`) and version `0.0.1`. Saved JSON data files record this `id` in their `schema` field. To give the schema a permanent identity, open the bundle in the Schema Builder, set its `id` and version, and save it as `schema.yaml`.
 - A sample bundle is provided at `web/templates/oca_test/oca_bundle.json`.
 
 #### How root classes are determined

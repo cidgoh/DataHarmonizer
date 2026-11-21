@@ -9,7 +9,7 @@
  *   Isolates.isolate_id — the primary identifier for an isolate.
  *
  * Steps:
- *   1. Load schema_editor.html
+ *   1. Load schema_builder.html
  *   2. Create schema "Schema1" with ID, description, version, default prefix
  *   3. Create Tables "Samples" and "Isolates" (name and title both set)
  *   4. Add schema-field "sample_id" (slot + slot_usage) to Samples table
@@ -170,8 +170,8 @@ test('UX Task 5: create schema with two tables and identifier fields linked via 
     if (msg.type() === 'error') console.log('[BROWSER error]', msg.text());
   });
 
-  // ── 1. Load the Schema Editor ──────────────────────────────────────────────
-  await page.goto('/schema_editor.html');
+  // ── 1. Load the Schema Builder ──────────────────────────────────────────────
+  await page.goto('/schema_builder.html');
   await waitForSchemaEditor(page);
 
   // ── 2. Enter schema details ────────────────────────────────────────────────

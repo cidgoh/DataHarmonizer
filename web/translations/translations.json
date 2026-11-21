@@ -18,20 +18,20 @@
     "fr": "... de l'URL"
   },
   "schema-editor": {
-    "en": "Schema editor",
-    "fr": "L'éditeur de schéma"
+    "en": "Schema Builder",
+    "fr": "Schema Builder"
   },
   "load-data-manager": {
     "en": "Run DataHarmonizer",
     "fr": "Exécuter DataHarmonizer"
   },
   "load-schema-editor": {
-    "en": "Run Schema Editor",
-    "fr": "Exécuter l'éditeur de schéma"
+    "en": "Run Schema Builder",
+    "fr": "Exécuter Schema Builder"
   },
   "schema-editor-menu": {
-    "en": "Schema editor options",
-    "fr": "Options de l'éditeur de schéma"
+    "en": "Schema Builder options",
+    "fr": "Options de Schema Builder"
   },
   "schema-editor-expert-options": {
     "en": "Toggle expert user mode",

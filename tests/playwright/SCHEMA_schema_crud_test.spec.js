@@ -1,4 +1,4 @@
-/* Verifies the Schema tab split layout and CRUD in the Schema Editor.
+/* Verifies the Schema tab split layout and CRUD in the Schema Builder.
  *
  * The Schema lower panel is expert-only (requires the #schema_expert checkbox).
  * It hosts THREE secondary tabs: Prefix, Setting, and Extension.
@@ -46,7 +46,7 @@ import { hotCellLocator, dhColIndex } from './playwright_utils.js';
 // ── Shared setup helpers ─────────────────────────────────────────────────────
 
 async function setupSchemaEditor(page) {
-  await page.goto('/schema_editor.html');
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForFunction(
     () => {
@@ -226,7 +226,7 @@ async function addSubTabRow(page, dhName) {
 
 // ── 1. Layout tests ──────────────────────────────────────────────────────────
 
-test.describe('Schema tab split layout (Schema Editor)', () => {
+test.describe('Schema tab split layout (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -342,7 +342,7 @@ test.describe('Schema tab split layout (Schema Editor)', () => {
 
 // ── 2. Schema CRUD ────────────────────────────────────────────────────────────
 
-test.describe('Schema CRUD (Schema Editor)', () => {
+test.describe('Schema CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -466,7 +466,7 @@ test.describe('Schema CRUD (Schema Editor)', () => {
 
 // ── 3. Prefix CRUD ────────────────────────────────────────────────────────────
 
-test.describe('Prefix CRUD (Schema Editor)', () => {
+test.describe('Prefix CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -668,7 +668,7 @@ test.describe('Prefix CRUD (Schema Editor)', () => {
 
 // ── 4. Setting CRUD ───────────────────────────────────────────────────────────
 
-test.describe('Setting CRUD (Schema Editor)', () => {
+test.describe('Setting CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -798,7 +798,7 @@ test.describe('Setting CRUD (Schema Editor)', () => {
 
 // ── 5. Extension CRUD ─────────────────────────────────────────────────────────
 
-test.describe('Extension CRUD (Schema Editor)', () => {
+test.describe('Extension CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);

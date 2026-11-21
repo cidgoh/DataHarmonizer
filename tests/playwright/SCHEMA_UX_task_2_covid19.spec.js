@@ -1,6 +1,6 @@
 /* Test: UX_task_2_covid19
  *
- * Template editing workflow for the GRDI 1M schema in the Schema Editor.
+ * Template editing workflow for the GRDI 1M schema in the Schema Builder.
  *
  * Step 1: Make the "Sample Collector Sample ID" field in the "GRDIIsolate"
  *         table recommended.
@@ -26,8 +26,8 @@ test('UX_task_2: GRDI template editing', async ({ page }) => {
     if (msg.type() === 'error') console.log('[BROWSER error]', msg.text());
   });
 
-  // ── 1. Load the Schema Editor ──────────────────────────────────────────────
-  await page.goto('/schema_editor.html');
+  // ── 1. Load the Schema Builder ──────────────────────────────────────────────
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForSelector('.htCore', { timeout: 15_000 });
   await page.waitForFunction(

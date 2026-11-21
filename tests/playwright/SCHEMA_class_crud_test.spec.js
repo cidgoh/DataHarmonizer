@@ -1,4 +1,4 @@
-/* Verifies the Class tab split layout and CRUD in the Schema Editor.
+/* Verifies the Class tab split layout and CRUD in the Schema Builder.
  *
  * Layout tests (describe 1 – "Class tab split layout"):
  *   Step-by-step checks of the split-view lifecycle so a failure message
@@ -44,7 +44,7 @@ import { hotCellLocator, dhColIndex } from './playwright_utils.js';
 // ── Shared setup helpers ─────────────────────────────────────────────────────
 
 async function setupSchemaEditor(page) {
-  await page.goto('/schema_editor.html');
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForFunction(
     () => {
@@ -189,7 +189,7 @@ async function seedSchemaRow(page) {
 
 // ── 1. Layout tests ──────────────────────────────────────────────────────────
 
-test.describe('Class tab split layout (Schema Editor)', () => {
+test.describe('Class tab split layout (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -291,7 +291,7 @@ test.describe('Class tab split layout (Schema Editor)', () => {
 
 // ── 2. Class CRUD ─────────────────────────────────────────────────────────────
 
-test.describe('Class CRUD (Schema Editor)', () => {
+test.describe('Class CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -418,7 +418,7 @@ test.describe('Class CRUD (Schema Editor)', () => {
 
 // ── 3. UniqueKey CRUD ─────────────────────────────────────────────────────────
 
-test.describe('UniqueKey CRUD (Schema Editor)', () => {
+test.describe('UniqueKey CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);

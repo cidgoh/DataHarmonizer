@@ -1,6 +1,6 @@
 id: https://example.com/DH_LinkML
 name: DH_LinkML
-title: Schema Editor for Data Harmonizer
+title: Schema Builder for Data Harmonizer
 description: The DataHarmonizer template for editing a schema.
 version: 2.0.0
 in_language: en

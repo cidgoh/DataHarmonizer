@@ -1,4 +1,4 @@
-/* Verifies the Slot tab split layout and CRUD in the Schema Editor.
+/* Verifies the Slot tab split layout and CRUD in the Schema Builder.
  *
  * Layout tests (describe 1 – "Slot tab split layout"):
  *   Step-by-step checks of the split-view lifecycle so a failure message
@@ -51,7 +51,7 @@ import { hotCellLocator, dhColIndex, classSlotCellLocator } from './playwright_u
 // ── Shared setup helpers ─────────────────────────────────────────────────────
 
 async function setupSchemaEditor(page) {
-  await page.goto('/schema_editor.html');
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForFunction(
     () => {
@@ -188,7 +188,7 @@ async function seedSchemaRow(page) {
 
 // ── 1. Layout tests ──────────────────────────────────────────────────────────
 
-test.describe('Slot tab split layout (Schema Editor)', () => {
+test.describe('Slot tab split layout (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -290,7 +290,7 @@ test.describe('Slot tab split layout (Schema Editor)', () => {
 
 // ── 2. Slot CRUD ──────────────────────────────────────────────────────────────
 
-test.describe('Slot CRUD (Schema Editor)', () => {
+test.describe('Slot CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);
@@ -442,7 +442,7 @@ test.describe('Slot CRUD (Schema Editor)', () => {
 
 // ── 3. ClassSlot CRUD ─────────────────────────────────────────────────────────
 
-test.describe('ClassSlot CRUD (Schema Editor)', () => {
+test.describe('ClassSlot CRUD (Schema Builder)', () => {
 
   test.beforeEach(async ({ page }) => {
     await setupSchemaEditor(page);

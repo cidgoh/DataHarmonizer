@@ -134,7 +134,7 @@ const schema = YAML.parse(text);
 
 ### `buildTemplateFromUploadedSchema()` in `templates.js`
 
-This function (used when the Schema Editor uploads a file) already accepts a raw schema object (no induction required for the upload path, because the Schema Editor works with the raw YAML structure). For normal data templates, however, the calling code paths depend on `attributes` being fully induced.
+This function (used when the Schema Builder uploads a file) already accepts a raw schema object (no induction required for the upload path, because the Schema Builder works with the raw YAML structure). For normal data templates, however, the calling code paths depend on `attributes` being fully induced.
 
 ### `Validator.js` partial re-merge
 
@@ -345,7 +345,7 @@ No other file needs to change — `template.default.schema` downstream is consum
 1. **Eliminates the build step** for schema authors: edit `schema.yaml`, reload the browser — no `linkml.py` run needed.
 2. **Removes Python `linkml-runtime` as a build dependency** for end-users deploying their own schemas.
 3. **Simpler schema distribution**: ship only `schema.yaml`; the `.json` is no longer required in the dist package.
-4. **Live schema editing**: the Schema Editor could save a `schema.yaml` and reload it immediately without a Python step (useful for local development mode).
+4. **Live schema editing**: the Schema Builder could save a `schema.yaml` and reload it immediately without a Python step (useful for local development mode).
 5. **Consistency**: the same schema source file is used for both browser display and any downstream LinkML tooling.
 
 ## Costs and Risks

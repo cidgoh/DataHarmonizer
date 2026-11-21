@@ -46,7 +46,7 @@ const TARGET_GROUP = 'Strain and isolation information';
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
 async function loadGrdi1m(page) {
-  await page.goto('/schema_editor.html');
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForSelector('.htCore', { timeout: 15_000 });
   await page.waitForFunction(

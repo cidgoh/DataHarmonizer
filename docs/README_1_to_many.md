@@ -193,9 +193,9 @@ Columns carrying a `foreign_key` annotation are rendered read-only in the child 
 
 ## More Complex Example: `web/templates/schema_editor/`
 
-The Schema Editor template itself uses the 1-to-many pattern to represent LinkML schema components. Its tables correspond to: Schema (root), Class, Slot, Enum, Prefix, and other schema elements. Each child table has a `foreign_key` pointing to the Schema or Class table. This template also serves as a live editor — users can load an existing `schema.yaml`, edit it across multiple tabs, and save the result. It demonstrates that the 1-to-many pattern extends naturally to schemas with more than three levels of nesting and multiple sibling child tables under one parent.
+The Schema Builder template itself uses the 1-to-many pattern to represent LinkML schema components. Its tables correspond to: Schema (root), Class, Slot, Enum, Prefix, and other schema elements. Each child table has a `foreign_key` pointing to the Schema or Class table. This template also serves as a live editor — users can load an existing `schema.yaml`, edit it across multiple tabs, and save the result. It demonstrates that the 1-to-many pattern extends naturally to schemas with more than three levels of nesting and multiple sibling child tables under one parent.
 
-### Schema Editor class key fields
+### Schema Builder class key fields
 
 | Class | Primary key slot(s) | `class_id` FK? | `class_name` ref? |
 |---|---|---|---|

@@ -10,7 +10,7 @@
  *   with the right category filter and that entity's row selected.
  *
  * Steps:
- *   1. Load the Schema Editor and load canada_covid19 via right-click.
+ *   1. Load the Schema Builder and load canada_covid19 via right-click.
  *   2. Verify the schema loaded with French translations (read existing locales).
  *   3. Navigate to Field (Slot) tab with CanCOGeNCovid19 class selected.
  *      Right-click specimen_collector_sample_id slot_usage → "Translations".
@@ -105,8 +105,8 @@ test('_canada_covid19: translation tab workflow — read, add, modify, save', as
     if (msg.type() === 'error') console.log('[BROWSER error]', msg.text());
   });
 
-  // ── 1. Load the Schema Editor ─────────────────────────────────────────────
-  await page.goto('/schema_editor.html');
+  // ── 1. Load the Schema Builder ─────────────────────────────────────────────
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForSelector('.htCore', { timeout: 15_000 });
   await page.waitForFunction(

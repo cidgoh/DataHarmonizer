@@ -79,8 +79,8 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
     if (msg.type() === 'error') console.log('[BROWSER error]', msg.text());
   });
 
-  // ── 1. Load the Schema Editor ────────────────────────────────────────────
-  await page.goto('/schema_editor.html');
+  // ── 1. Load the Schema Builder ────────────────────────────────────────────
+  await page.goto('/schema_builder.html');
 
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForSelector('.htCore', { timeout: 15_000 });
@@ -469,7 +469,7 @@ test('SchemaEditor: create schema with two tables and verify saved YAML', async 
 // ── Shared helpers for picklist and typing regression tests ───────────────────
 
 /**
- * Wait for the Schema Editor to finish loading (loading screen hidden,
+ * Wait for the Schema Builder to finish loading (loading screen hidden,
  * HOT initialised, 'Schema ID' column header visible).
  */
 async function waitForSchemaEditor(page) {
@@ -550,7 +550,7 @@ test.describe('SchemaEditor: picklist cascade regression', () => {
     });
 
     // ── 1. Load ──────────────────────────────────────────────────────────────
-    await page.goto('/schema_editor.html');
+    await page.goto('/schema_builder.html');
     await waitForSchemaEditor(page);
 
     // ── 2. Create schema_a ───────────────────────────────────────────────────
@@ -668,7 +668,7 @@ test.describe('Schema tab: all typed characters reach the cell', () => {
    */
 
   test('Case A – single click then type "Test" (raw user workflow)', async ({ page }) => {
-    await page.goto('/schema_editor.html');
+    await page.goto('/schema_builder.html');
     await waitForSchemaEditor(page);
 
     const cell = hotCellLocator(page, 0, 0);
@@ -691,7 +691,7 @@ test.describe('Schema tab: all typed characters reach the cell', () => {
   });
 
   test('Case B – double-click then type "Test" (enters edit mode explicitly)', async ({ page }) => {
-    await page.goto('/schema_editor.html');
+    await page.goto('/schema_builder.html');
     await waitForSchemaEditor(page);
 
     const cell = hotCellLocator(page, 0, 0);
@@ -714,7 +714,7 @@ test.describe('Schema tab: all typed characters reach the cell', () => {
   });
 
   test('Case C – single click, press Enter to open editor, then type "Test"', async ({ page }) => {
-    await page.goto('/schema_editor.html');
+    await page.goto('/schema_builder.html');
     await waitForSchemaEditor(page);
 
     const cell = hotCellLocator(page, 0, 0);
@@ -738,7 +738,7 @@ test.describe('Schema tab: all typed characters reach the cell', () => {
   });
 
   test('Case D – single click, small delay, then type "Test" (lets setTimeout(0) flush first)', async ({ page }) => {
-    await page.goto('/schema_editor.html');
+    await page.goto('/schema_builder.html');
     await waitForSchemaEditor(page);
 
     const cell = hotCellLocator(page, 0, 0);

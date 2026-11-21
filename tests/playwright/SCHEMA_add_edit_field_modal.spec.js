@@ -1,7 +1,7 @@
 /* Test: add_edit_field_modal
  *
  * Tests the Add/Edit Field Modal (Field Key Modal, #field-key-modal) in the
- * Schema Editor's Field (Slot) tab, against the grdi_1m schema.
+ * Schema Builder's Field (Slot) tab, against the grdi_1m schema.
  *
  * Agenda sections tested:
  *   §0  Setup — load grdi_1m, navigate to Field tab
@@ -120,7 +120,7 @@ const SLOT_GROUP_COLLECT = 'Sample collection and processing';
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
 async function loadGrdi1m(page) {
-  await page.goto('/schema_editor.html');
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForSelector('.htCore', { timeout: 15_000 });
   await page.waitForFunction(

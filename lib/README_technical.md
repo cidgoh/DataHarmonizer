@@ -54,7 +54,7 @@ The top-level pattern (constraints on the parent slot alongside `any_of`) also w
 export function getNumericConstraints(slotDef, schema) { ... }
 ```
 
-The **Schema Editor saves the nested pattern** when a slot has multiple ranges: on save, `minimum_value`/`maximum_value` are moved from the top-level record into the `any_of` entry whose `range` resolves to a `schema.types` numeric type.
+The **Schema Builder saves the nested pattern** when a slot has multiple ranges: on save, `minimum_value`/`maximum_value` are moved from the top-level record into the `any_of` entry whose `range` resolves to a `schema.types` numeric type.
 
 ---
 
@@ -113,9 +113,9 @@ minimum_value: "{sample_collection_date}"
 
 ---
 
-## Schema Editor — Delete/Backspace key row removal
+## Schema Builder — Delete/Backspace key row removal
 
-In Schema Editor mode, pressing Delete or Backspace behaves differently depending on what is selected:
+In Schema Builder mode, pressing Delete or Backspace behaves differently depending on what is selected:
 
 | Selection | Key behaviour |
 |---|---|
@@ -147,9 +147,9 @@ Guarding only `'Delete'` silently misses every keypress on macOS, allowing HOT's
 
 ---
 
-## Schema Editor — split-panel tab layout
+## Schema Builder — split-panel tab layout
 
-Several Schema Editor tabs display a primary Handsontable on top with one or more related secondary Handsontables in a lower panel. The machinery for this lives in `SchemaEditor.js`.
+Several Schema Builder tabs display a primary Handsontable on top with one or more related secondary Handsontables in a lower panel. The machinery for this lives in `SchemaEditor.js`.
 
 ### `_initTabbedSplitLayout(primaryDHName, secondarySpecs, options)`
 
@@ -229,7 +229,7 @@ Called by `Toolbar.js` after the concise-view toggle changes column visibility. 
 
 ---
 
-## Application modes: DataHarmonizer vs. Schema Editor
+## Application modes: DataHarmonizer vs. Schema Builder
 
 The app runs in one of two modes determined entirely by which schema is loaded. The mode badge in the toolbar (`#dh-mode-badge`) reflects the current state.
 
@@ -237,7 +237,7 @@ The app runs in one of two modes determined entirely by which schema is loaded. 
 
 When any schema other than `DH_LinkML` is loaded, the app is in DataHarmonizer mode. `AppContext.schemaEditor` is `null`. Each class in the schema gets a Handsontable tab built by `AppContext.makeDHsFromRelations()`, and the user edits, validates, and exports structured data against that schema.
 
-### Schema Editor mode
+### Schema Builder mode
 
 When the `schema_editor/Schema` template is selected, the loaded schema has `name: DH_LinkML`. `AppContext.reload()` detects this at line 637:
 

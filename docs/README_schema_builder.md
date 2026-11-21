@@ -1,23 +1,23 @@
-# DataHarmonizer Schema Editor
+# DataHarmonizer Schema Builder
 
-The Schema Editor is a special DataHarmonizer template that lets you **load, inspect, edit, and save LinkML `schema.yaml` files** directly in the browser, using the same tabbed spreadsheet interface used for data entry. Each tab represents a structural component of a schema: tables (classes), fields (slots), picklists (enumerations), and so on.
+The Schema Builder is a special DataHarmonizer template that lets you **load, inspect, edit, and save LinkML `schema.yaml` files** directly in the browser, using the same tabbed spreadsheet interface used for data entry. Each tab represents a structural component of a schema: tables (classes), fields (slots), picklists (enumerations), and so on.
 
 ---
 
-## Loading the Schema Editor
+## Loading the Schema Builder
 
-The Schema Editor is a template like any other, but it is accessed via a dedicated shortcut in the toolbar.
+The Schema Builder is a template like any other, but it is accessed via a dedicated shortcut in the toolbar.
 
 1. Open the **File** menu in the toolbar.
-2. Click **Load Schema Editor**.
+2. Click **Load Schema Builder**.
    - This entry is shown only when the `schema_editor/Schema` template is present in the deployed DataHarmonizer instance.
-3. The interface reloads with the Schema Editor template active. A new set of **Schema Editor options** appears in the File menu.
+3. The interface reloads with the Schema Builder template active. A new set of **Schema Builder options** appears in the File menu.
 
 ---
 
 ## Tabs: Standard vs. Expert Mode
 
-By default the Schema Editor shows the tabs needed for routine schema authoring:
+By default the Schema Builder shows the tabs needed for routine schema authoring:
 
 | Tab | LinkML concept | Purpose |
 |-----|---------------|---------|
@@ -51,14 +51,14 @@ Expert mode also **unlocks editing** of schema-level `slot` rows in the Field ta
 
 ## Loading a Schema
 
-You can load any `schema.yaml` file into the Schema Editor from two places.
+You can load any `schema.yaml` file into the Schema Builder from two places.
 
 ### Via the File menu
 
 1. Open the **File** menu.
 2. Click **Upload Schema** (or the equivalent schema file input).
 3. Select a `schema.yaml` file from your local filesystem. An OCA bundle `.json` file can also be selected; it is converted to LinkML automatically (see [OCA bundles](README_user_manual.md#oca-bundles-overlays-capture-architecture) in the user manual).
-4. The schema is parsed and its contents are distributed across the Schema Editor tabs — one row per schema element.
+4. The schema is parsed and its contents are distributed across the Schema Builder tabs — one row per schema element.
 
 ### Via the right-click context menu
 
@@ -66,7 +66,7 @@ You can load any `schema.yaml` file into the Schema Editor from two places.
 2. Select **Load schema.yaml** from the context menu.
 3. A file picker appears; select the `schema.yaml` to load.
 
-When a schema is loaded, the Schema Editor dynamically rebuilds its internal menus (class names, slot names, enum names) so that picklist fields in other tabs reflect the content of the loaded schema.
+When a schema is loaded, the Schema Builder dynamically rebuilds its internal menus (class names, slot names, enum names) so that picklist fields in other tabs reflect the content of the loaded schema.
 
 ---
 
@@ -87,13 +87,13 @@ Once you have edited schema content across the tabs, you can save the result as 
 2. Select **Save as LinkML schema.yaml**.
 3. Enter a filename when prompted.
 
-The save routine collects data from all Schema Editor tabs and assembles a valid LinkML `schema.yaml`. Changes made since the last save are summarised in the prompt message before download.
+The save routine collects data from all Schema Builder tabs and assembles a valid LinkML `schema.yaml`. Changes made since the last save are summarised in the prompt message before download.
 
 ---
 
 ## Previewing a Schema
 
-The **Preview** feature lets you test a schema in a live DataHarmonizer instance directly from the Schema Editor, without first saving the file and running a build pipeline.
+The **Preview** feature lets you test a schema in a live DataHarmonizer instance directly from the Schema Builder, without first saving the file and running a build pipeline.
 
 ### How to preview
 
@@ -111,17 +111,17 @@ The **Preview** feature lets you test a schema in a live DataHarmonizer instance
 ### Limitations
 
 - Export formats (xlsx, csv, json, etc.) are available for download, but the preview schema is not processed through the normal build pipeline, and does not have access to the `export.js` file where customized options are specified for each export target.
-- The preview reflects the schema content at the moment **Preview** was clicked. Subsequent edits in the Schema Editor are not automatically pushed to an already-open preview window; close and reopen it to pick up changes.
+- The preview reflects the schema content at the moment **Preview** was clicked. Subsequent edits in the Schema Builder are not automatically pushed to an already-open preview window; close and reopen it to pick up changes.
 
 ---
 
 ## Copying content from other schemas
 
-The Schema Editor lets you copy one or more rows from any tab into a different schema in the same editing session. This is useful when building a new schema that reuses tables, fields, or picklists that are already defined elsewhere.
+The Schema Builder lets you copy one or more rows from any tab into a different schema in the same editing session. This is useful when building a new schema that reuses tables, fields, or picklists that are already defined elsewhere.
 
 ### How to copy rows to another schema
 
-1. Navigate to any Schema Editor tab (Table, Field, Enum, Enum value, etc.).
+1. Navigate to any Schema Builder tab (Table, Field, Enum, Enum value, etc.).
 2. **Select the rows** you want to copy.
    - Click a single row to select it.
    - Hold **Shift** and click another row to extend the selection across a contiguous range.
@@ -177,7 +177,7 @@ The **Display > Record(s) by selected key** filter (active by default) is useful
 
 ## Multilingual Text Editing
 
-The Schema Editor provides a structured workflow for adding translations of schema metadata (titles, descriptions, examples, comments) into additional languages. This workflow has two parts: configuring which languages are supported, and then entering or fetching the translated text.
+The Schema Builder provides a structured workflow for adding translations of schema metadata (titles, descriptions, examples, comments) into additional languages. This workflow has two parts: configuring which languages are supported, and then entering or fetching the translated text.
 
 ### Step 1: Set the Schema's Default Language
 
@@ -259,7 +259,7 @@ By default, DataHarmonizer **preserves the order in which permissible values app
 
 ## Notes on Workflow
 
-- The Schema Editor is itself a DataHarmonizer 1-to-many schema. The **Schema** tab is the root parent; all other tabs (Table, Field, Enum, etc.) are child tabs linked to it by a `schema_id` foreign key. See `README_1_to_many.md` for the general 1-to-many model.
+- The Schema Builder is itself a DataHarmonizer 1-to-many schema. The **Schema** tab is the root parent; all other tabs (Table, Field, Enum, etc.) are child tabs linked to it by a `schema_id` foreign key. See `README_1_to_many.md` for the general 1-to-many model.
 - Selecting a row in the **Schema** tab filters all other tabs to show only elements belonging to that schema — useful when multiple schemas are loaded simultaneously.
 - Fields marked with `slot_group: technical` in the underlying schema definition (e.g. `class_uri`, `is_a`, `tree_root`) are grouped into a "technical" section within their tab and are only editable in expert mode.
 - The schema editor does not run `tabular_to_schema.py` or any build pipeline step. After saving `schema.yaml`, run the standard DataHarmonizer build process (`update_templates.py` or equivalent) to produce the `schema.json` consumed by the DH JavaScript runtime.
@@ -361,7 +361,7 @@ classes:
       ...
 ```
 
-In the Schema Editor, the Container class is created on the **Table** tab just like any other class, with `tree_root` set to `true` in the technical fields (visible in expert mode). Its slots are added on the **Field** tab as schema-level `slot` rows whose `range` points to each table class.
+In the Schema Builder, the Container class is created on the **Table** tab just like any other class, with `tree_root` set to `true` in the technical fields (visible in expert mode). Its slots are added on the **Field** tab as schema-level `slot` rows whose `range` points to each table class.
 
 ### Complications with multiple independent multi-table templates
 

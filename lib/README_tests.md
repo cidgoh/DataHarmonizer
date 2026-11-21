@@ -1,7 +1,7 @@
 # DataHarmonizer Playwright Test Guide
 
 Learnings from writing and debugging Playwright tests against the DataHarmonizer
-Schema Editor and main DataHarmonizer grid. Use this as a reference when writing
+Schema Builder and main DataHarmonizer grid. Use this as a reference when writing
 new tests.
 
 ---
@@ -36,13 +36,13 @@ extend inside individual tests with `test.setTimeout(N)`.
 All spec files live in `tests/playwright/`. Shared helpers are in
 `tests/playwright/playwright_utils.js`.
 
-### Main application tests (DataHarmonizer grid, not Schema Editor)
+### Main application tests (DataHarmonizer grid, not Schema Builder)
 
 | File | Description |
 |---|---|
 | `cancogen-main-app.spec.js` | Load CanCOGeN COVID-19 xlsx, edit a cell, save and verify; switch to French and verify UI translation |
 
-### Schema Editor — UX task end-to-end workflows
+### Schema Builder — UX task end-to-end workflows
 
 Each UX task file exercises a complete workflow a researcher would perform:
 
@@ -54,7 +54,7 @@ Each UX task file exercises a complete workflow a researcher would perform:
 | `UX_Task_4_covid19.spec.js` | CanCOGeN COVID-19 + fresh Test schema | Create Test schema with pre-existing fields, load a second schema, copy a field between schemas, verify Field tab |
 | `UX_Task_5_create_1m.spec.js` | Fresh schema (two-table 1M pattern) | Create schema with Samples + Isolates tables, add `sample_id` and `isolate_id` fields, set range, add FK annotation, verify YAML |
 
-### Schema Editor — feature-level regression tests
+### Schema Builder — feature-level regression tests
 
 | File | Theme |
 |---|---|
@@ -104,11 +104,11 @@ await page.goto('/');
 await page.waitForSelector('.htCore', { timeout: 15_000 });
 ```
 
-### Schema Editor (`/schema_editor.html`)
+### Schema Builder (`/schema_builder.html`)
 Wait for the loading spinner to disappear, then confirm the HOT grid and a known
 column header are rendered:
 ```javascript
-await page.goto('/schema_editor.html');
+await page.goto('/schema_builder.html');
 await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
 await page.waitForSelector('.htCore', { timeout: 15_000 });
 
@@ -123,7 +123,7 @@ await page.waitForFunction(
 );
 ```
 
-### Uploading a schema file to the Schema Editor
+### Uploading a schema file to the Schema Builder
 ```javascript
 const sourceFile = path.resolve('web/templates/canada_covid19/schema.yaml');
 await page.setInputFiles('#schema_upload', sourceFile);
@@ -179,7 +179,7 @@ row.locator('td:nth-of-type(2)')
 row.locator('td:nth-child(2)')
 ```
 
-### Schema Editor tab column layouts
+### Schema Builder tab column layouts
 
 **Schema tab** (`#tab-bar-Schema`):
 
@@ -909,7 +909,7 @@ const cell = page.locator(
 
 ## Saving and downloading files
 
-### Schema YAML save (Schema Editor)
+### Schema YAML save (Schema Builder)
 ```javascript
 await page.click('#file-menu-button');
 
@@ -986,7 +986,7 @@ page.on('console', msg => {
 
 ## Expert mode
 
-Some Schema Editor operations require Expert User mode. The most reliable way to
+Some Schema Builder operations require Expert User mode. The most reliable way to
 enable it in tests is via direct DOM manipulation of the checkbox:
 
 ```javascript

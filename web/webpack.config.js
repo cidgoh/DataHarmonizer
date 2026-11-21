@@ -34,8 +34,8 @@ module.exports = (env, argv) => {
         templateParameters: { isDev },
       }),
       new HtmlWebpackPlugin({
-        template: './schema_editor.html',
-        filename: 'schema_editor.html',
+        template: './schema_builder.html',
+        filename: 'schema_builder.html',
         templateParameters: { isDev },
       }),
       new CopyPlugin({
@@ -83,7 +83,7 @@ module.exports = (env, argv) => {
           test: /\.html$/,
           exclude: [
             path.resolve(__dirname, 'index.html'),
-            path.resolve(__dirname, 'schema_editor.html'),
+            path.resolve(__dirname, 'schema_builder.html'),
           ],
           type: 'asset/source',
         },

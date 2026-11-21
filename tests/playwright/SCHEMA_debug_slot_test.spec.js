@@ -4,7 +4,7 @@ import path from 'path';
 test('debug §7b', async ({ page }) => {
   page.on('console', msg => { if (msg.type() !== 'warning') console.log('[BROWSER]', msg.type(), msg.text().substring(0, 200)); });
 
-  await page.goto('/schema_editor.html');
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForSelector('.htCore', { timeout: 15_000 });
   await page.waitForFunction(

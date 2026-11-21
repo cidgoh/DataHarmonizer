@@ -57,7 +57,7 @@ const main = async function () {
   // Expose context for Playwright tests (diagnostics only — not production use).
   window._appContext = context;
 
-  // Demo popup: schema passed via sessionStorage from the Schema Editor.
+  // Demo popup: schema passed via sessionStorage from the Schema Builder.
   // Skip menu.json / webpack schema loading entirely.
   const demoParam = new URLSearchParams(location.search).get('demo');
   if (demoParam) {
@@ -87,7 +87,7 @@ const main = async function () {
     return;
   }
 
-  const isSchemaEditor = window.location.pathname.endsWith('schema_editor.html');
+  const isSchemaEditor = window.location.pathname.endsWith('schema_builder.html');
   context.reload(isSchemaEditor ? 'schema_editor/Schema' : context.appConfig.template_path)
     .then(async (context) => {
     // FUTURE: Connect to locale of browser? Takes `lang` as argument (unused)

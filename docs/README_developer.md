@@ -75,7 +75,7 @@ After each merge step, if the resulting entry lacks a `name` field, the slot/att
 
 #### Step 4 — Replace class attributes
 
-`schema.classes[className].attributes` is replaced with the fully-resolved dict produced by the above steps. The original `slots` list and `slot_usage` entries remain in place (they are used by the Schema Editor's own display and save logic), but the DH runtime reads only from `attributes` when building column definitions, validation rules, and picklists.
+`schema.classes[className].attributes` is replaced with the fully-resolved dict produced by the above steps. The original `slots` list and `slot_usage` entries remain in place (they are used by the Schema Builder's own display and save logic), but the DH runtime reads only from `attributes` when building column definitions, validation rules, and picklists.
 
 ### Design principles
 
@@ -127,7 +127,7 @@ The Display dropdown menu (toolbar `#display-dropdown-btn-group`) currently expo
 | Control | Scope | Mechanism |
 |---------|-------|-----------|
 | Main type radio ("All records" / "Record(s) by selected key") | All tabs | Switches `tabFilter` between an empty key filter (show all) and the FK-driven filter |
-| "Fields, by type" checkboxes | Schema Editor Field/Slot tab only | `AppContext.applySlotTypeFilter()` hides rows whose `slot_type` column value is not in the checked set, composing additively with the HiddenRows state left by `tabFilter` |
+| "Fields, by type" checkboxes | Schema Builder Field/Slot tab only | `AppContext.applySlotTypeFilter()` hides rows whose `slot_type` column value is not in the checked set, composing additively with the HiddenRows state left by `tabFilter` |
 
 **Future direction:** In the future each tab in a multi-table template could contribute its own section of additional filter controls to the Display menu — shown only when that tab is active and hidden when the user switches away — providing schema-specific row-filtering options (e.g., filter by status, by date range, or by any enumerated column) without requiring changes to the shared toolbar code. The existing pattern (show `#slot_type_optgroup` on Slot-tab entry, hide it on departure, store filter state on `dh._slotTypeFilter`) serves as a reference implementation for this per-tab extensibility.
 
@@ -162,9 +162,9 @@ A future option could support **multi-focus cascading**, where the user first na
 
 ---
 
-### Schema Editor dynamic menus (`hotSettingsMenuHooks` + `refreshMenus`)
+### Schema Builder dynamic menus (`hotSettingsMenuHooks` + `refreshMenus`)
 
-The Schema Editor drives several Handsontable dropdown columns whose option lists are computed from live HOT data: **SchemaMenu** (schema names), **SchemaClassMenu** (class names), **SchemaSlotMenu** (slot names), **SchemaSlotGroupMenu** (slot-group names), and **SchemaEnumMenu** (enum names). These are called *dynamic menus* because their contents change as the user edits the Schema, Class, Slot, SlotGroup, and Enum tabs.
+The Schema Builder drives several Handsontable dropdown columns whose option lists are computed from live HOT data: **SchemaMenu** (schema names), **SchemaClassMenu** (class names), **SchemaSlotMenu** (slot names), **SchemaSlotGroupMenu** (slot-group names), and **SchemaEnumMenu** (enum names). These are called *dynamic menus* because their contents change as the user edits the Schema, Class, Slot, SlotGroup, and Enum tabs.
 
 #### Trigger: `hotSettingsMenuHooks`
 
@@ -236,7 +236,7 @@ When `AppContext.useTemplate()` processes a class's induced `attributes` dict, i
 
 The script reads the TSV files, populates the slot and enum structures from `schema_core.yaml`, and writes a single combined `schema.yaml` that the DH runtime (or `linkml-runtime SchemaView`) can consume.
 
-This approach is being superseded by the **built-in Schema Editor** — a DataHarmonizer template that lets authors load, edit, and save `schema.yaml` files directly in the browser without any Python build step. See `README_schema_editor.md` for usage.
+This approach is being superseded by the **built-in Schema Builder** — a DataHarmonizer template that lets authors load, edit, and save `schema.yaml` files directly in the browser without any Python build step. See `README_schema_builder.md` for usage.
 
 ---
 

@@ -5,7 +5,7 @@
  * translations), the Influenza schema has NO locale data.  The test therefore
  * covers the full locale-setup → translation-tab workflow:
  *
- *   1. Load the Schema Editor and load influenza via right-click.
+ *   1. Load the Schema Builder and load influenza via right-click.
  *   2. Add French (fr) locale to the Influenza schema row via the multiselect
  *      modal; set in_language = 'en' so the Translation tab renders data.
  *   3. Navigate to the Field (Slot) tab with the Influenza class selected.
@@ -98,8 +98,8 @@ test('_influenza: load, add locale, add translations via Translation tab, save',
     if (msg.type() === 'error') console.log('[BROWSER error]', msg.text());
   });
 
-  // ── 1. Load the Schema Editor ─────────────────────────────────────────────
-  await page.goto('/schema_editor.html');
+  // ── 1. Load the Schema Builder ─────────────────────────────────────────────
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForSelector('.htCore', { timeout: 15_000 });
   await page.waitForFunction(

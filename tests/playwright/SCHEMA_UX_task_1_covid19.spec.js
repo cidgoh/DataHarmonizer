@@ -46,8 +46,8 @@ test('UX_task_1_covid19: load, edit, remove, add field, save, verify diff', asyn
     if (msg.type() === 'error') console.log(`[BROWSER error]`, msg.text());
   });
 
-  // ── 1. Load the Schema Editor ──────────────────────────────────────────────
-  await page.goto('/schema_editor.html');
+  // ── 1. Load the Schema Builder ──────────────────────────────────────────────
+  await page.goto('/schema_builder.html');
   await page.waitForSelector('#loading-screen', { state: 'hidden', timeout: 20_000 });
   await page.waitForSelector('.htCore', { timeout: 15_000 });
   await page.waitForFunction(
