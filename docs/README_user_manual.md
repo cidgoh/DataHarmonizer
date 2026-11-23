@@ -331,6 +331,34 @@ DataHarmonizer matches the incoming file's column headers to the schema's field 
 
 ---
 
+## Delimiter Behaviour
+
+Fields that allow multiple values (multiselect picklists and other multivalued fields) store their values as a list within a single cell. DataHarmonizer uses the **semicolon** (`;`) as its standard separator between values, both for display in the spreadsheet and in saved tabular files.
+
+### Automatic pipe (`|`) detection on load
+
+When loading a TSV, CSV, or XLSX file, DataHarmonizer inspects every multivalued column for the presence of the vertical-bar character (`|`). If `|` is found — and **`;` is not also present** — the file is treated as using `|` as its multivalued separator. DataHarmonizer then:
+
+1. **Normalises on load** — splits each `|`-delimited cell on `|`, trims surrounding whitespace from each part, and re-joins with `;` for internal storage and display. The cell content in the spreadsheet will show semicolons after loading.
+2. **Round-trips on save** — when you subsequently save the data as TSV, CSV, or XLSX, `|` is used as the separator in multivalued cells rather than `;`, preserving the original file's convention.
+
+### Semicolon wins when both characters are present
+
+If multivalued cells in the same file contain **both** `;` and `|`, the file is assumed to use `;` as its separator. No `|` conversion is applied, and saving will use `;`. Semicolon is always the default when there is any ambiguity.
+
+### Picklist label loading
+
+A related pre-validation step applies to enum (picklist) fields. When loading a tabular file, DataHarmonizer checks whether cell values match the schema's internal permissible-value codes. If a value does not match a code but **does** match a permissible value's display label (title), it is automatically converted to the corresponding code before validation. This means files saved with **Label** output (the default save option) can be loaded back cleanly regardless of which locale was active when they were saved, as long as the same locale is active on load.
+
+### Scope and limitations
+
+- Delimiter detection is **per-template** (per spreadsheet tab). Different tabs in the same XLSX workbook can use different delimiters independently.
+- Detection applies only to columns declared as multivalued in the schema. Regular text columns that happen to contain `|` or `;` characters are not affected.
+- The detected delimiter is a **session flag** that resets when you load a new file. After a new load, the flag reflects only the most recently loaded file. If the new file uses `;`, any prior `|` flag is cleared.
+- **JSON format** always uses native JSON arrays for multivalued values; this delimiter detection does not apply to JSON files.
+
+---
+
 ## Field Mapper: Resolving Header Mismatches
 
 When a loaded file has column headers that do not exactly match the schema's field names or titles, the Field Mapper dialog appears automatically. This happens when:
