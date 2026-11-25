@@ -335,16 +335,25 @@ DataHarmonizer matches the incoming file's column headers to the schema's field 
 
 Fields that allow multiple values (multiselect picklists and other multivalued fields) store their values as a list within a single cell. DataHarmonizer uses the **semicolon** (`;`) as its standard separator between values, both for display in the spreadsheet and in saved tabular files.
 
+### Schema-declared delimiter
+
+If the loaded schema contains a top-level `list_delimiter` annotation (a standard LinkML annotation), that value controls the delimiter for all multivalued columns in that schema and no data-file sniffing is performed:
+
+```yaml
+annotations:
+  list_delimiter: "|"
+```
+
 ### Automatic pipe (`|`) detection on load
 
-When loading a TSV, CSV, or XLSX file, DataHarmonizer inspects every multivalued column for the presence of the vertical-bar character (`|`). If `|` is found — and **`;` is not also present** — the file is treated as using `|` as its multivalued separator. DataHarmonizer then:
+When no `list_delimiter` annotation is present, DataHarmonizer determines a **single document-wide delimiter** for each sheet by sniffing. It inspects every multivalued column, then applies one consistent delimiter across all of them. If `|` is identified as the delimiter, DataHarmonizer:
 
-1. **Normalises on load** — splits each `|`-delimited cell on `|`, trims surrounding whitespace from each part, and re-joins with `;` for internal storage and display. The cell content in the spreadsheet will show semicolons after loading.
-2. **Round-trips on save** — when you subsequently save the data as TSV, CSV, or XLSX, `|` is used as the separator in multivalued cells rather than `;`, preserving the original file's convention.
+1. **Normalises on load** — splits every `|`-delimited multivalued cell on `|`, trims surrounding whitespace from each part, and re-joins with `;` for internal storage and display.
+2. **Round-trips on save** — when you subsequently save the data as TSV, CSV, or XLSX, `|` is used in all multivalued cells rather than `;`, preserving the original file's convention.
 
-### Semicolon wins when both characters are present
+### How the sniffed delimiter is chosen
 
-If multivalued cells in the same file contain **both** `;` and `|`, the file is assumed to use `;` as its separator. No `|` conversion is applied, and saving will use `;`. Semicolon is always the default when there is any ambiguity.
+DataHarmonizer counts how many multivalued cells across the entire sheet contain `|` versus `;`. If more cells contain `|` than `;`, the sheet is treated as `|`-delimited. This handles the common case where a `|`-delimited file has a few cells whose text values happen to contain a literal semicolon (e.g., a definition such as "X; also known as Y"). If the counts are equal, or `;` appears in more cells, semicolon is assumed. Semicolon is always the default when there is any ambiguity.
 
 ### Picklist label loading
 
