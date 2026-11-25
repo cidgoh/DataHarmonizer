@@ -209,6 +209,11 @@ background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%
 .data-harmonizer-grid .secondary-header-cell:hover {
   cursor: pointer;
 }
+.data-harmonizer-grid td.robot-directive-cell {
+  background-color: #e8e8e8 !important;
+  color: #555 !important;
+  font-style: italic;
+}
 .data-harmonizer-grid td.invalid-cell {
   background-color: #ffcccb !important;
 }
