@@ -32,6 +32,7 @@
     "build:lib": "yarn clean:lib && rollup --config lib/rollup.config.js",
     "build:web": "yarn clean:web && webpack --mode=production --config web/webpack.config.js && yarn build:schemas",
     "build:schemas": "yarn clean:schemas && webpack --config web/webpack.schemas.js",
+    "build:websolo": "node script/build-websolo.js",
     "dev": "webpack serve --mode=development --config web/webpack.config.js",
     "flightcheck": "yarn format && yarn lint ; yarn test",
     "test": "jest tests/jest",
