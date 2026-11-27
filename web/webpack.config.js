@@ -1,4 +1,5 @@
 const path = require('path');
+const { IgnorePlugin } = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -29,6 +30,22 @@ module.exports = (env, argv) => {
       schemas: 'schemas',
     },
     plugins: [
+      // ── Bundle-size optimisations ───────────────────────────────────────────
+      //
+      // xlsx ships a 472 K codepage table (cpexcel.js) for reading legacy
+      // non-UTF-8 .xls files (Windows-1252, Shift-JIS, …).  DH only writes
+      // xlsx and reads UTF-8 exports, so the table is dead weight.
+      new IgnorePlugin({ resourceRegExp: /cpexcel/, contextRegExp: /xlsx/ }),
+      //
+      // Handsontable optionally uses moment (date column type) and numbro
+      // (numeric column type).  DH uses flatpickr for dates and plain string
+      // inputs for numbers, so neither HOT column type is ever activated.
+      // TODO: if DH ever uses HOT "date" or "numeric" column types these two
+      //       lines should be removed so HOT can format those cells properly.
+      new IgnorePlugin({ resourceRegExp: /^moment$/ }),
+      new IgnorePlugin({ resourceRegExp: /^numbro$/ }),
+      //
+      // ───────────────────────────────────────────────────────────────────────
       new HtmlWebpackPlugin({
         template: './index.html',
         templateParameters: { isDev },
@@ -39,15 +56,17 @@ module.exports = (env, argv) => {
         templateParameters: { isDev },
       }),
       new CopyPlugin({
-        // Covers all schema.json and schema.yaml including locales
+        // Covers all schema.json and schema.yaml including locales.
+        // `env.templatesDir` overrides the source directory for solo builds.
         patterns: [
           {
-            context: 'templates',
+            context: env.templatesDir || 'templates',
             from: '**/schema.json',
             to: 'templates/[path][name][ext]',
+            noErrorOnMissing: true,
           },
           {
-            context: 'templates',
+            context: env.templatesDir || 'templates',
             from: '**/schema.yaml',
             to: 'templates/[path][name][ext]',
           },
