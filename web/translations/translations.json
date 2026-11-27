@@ -1,5 +1,9 @@
 {
 
+  "schema-no-loadable-content": {
+    "en": "The {{schema_name}} {{schema}} doesn't have enough information to construct a table view.\n\nA {{schema}} needs {{schema_slots}}, or at least one {{class}} with {{slots}}.",
+    "fr": "Le {{schema}} «\u00a0{{schema_name}}\u00a0» n'a pas assez d'informations pour construire une vue de table.\n\nUn {{schema}} doit avoir des {{schema_slots}}, ou au moins un {{class}} avec des {{slots}}."
+  },
 
   "template_label": {
     "en": "Load template",
